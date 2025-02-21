@@ -1,0 +1,720 @@
+,city_mpg,class,combination_mpg,cylinders,displacement,drive,fuel_type,highway_mpg,make,model,transmission,year
+0,18,midsize car,21,4.0,2.2,fwd,gas,26,toyota,Camry,a,1993
+1,19,midsize car,22,4.0,2.2,fwd,gas,27,toyota,Camry,m,1993
+2,16,midsize car,19,6.0,3.0,fwd,gas,22,toyota,Camry,a,1993
+3,16,midsize car,18,6.0,3.0,fwd,gas,22,toyota,Camry,m,1993
+4,18,midsize-large station wagon,21,4.0,2.2,fwd,gas,26,toyota,Camry,a,1993
+5,23,compact car,24,4.0,1.6,fwd,gas,26,toyota,Corolla,a,1993
+6,23,compact car,26,4.0,1.6,fwd,gas,31,toyota,Corolla,m,1993
+7,23,compact car,25,4.0,1.8,fwd,gas,30,toyota,Corolla,a,1993
+8,23,compact car,26,4.0,1.8,fwd,gas,30,toyota,Corolla,m,1993
+9,23,small station wagon,25,4.0,1.8,fwd,gas,30,toyota,Corolla,a,1993
+10,21,special purpose vehicle,23,4.0,2.0,fwd,gas,26,toyota,RAV4,a,1996
+11,21,special purpose vehicle,24,4.0,2.0,fwd,gas,27,toyota,RAV4,m,1996
+12,19,special purpose vehicle,21,4.0,2.0,awd,gas,24,toyota,RAV4,a,1996
+13,19,special purpose vehicle,21,4.0,2.0,awd,gas,24,toyota,RAV4,m,1996
+14,21,special purpose vehicle,23,4.0,2.0,fwd,gas,26,toyota,RAV4,a,1997
+15,19,sport utility vehicle,22,4.0,2.4,fwd,gas,25,toyota,Highlander,a,2001
+16,17,sport utility vehicle,18,6.0,3.0,fwd,gas,21,toyota,Highlander,a,2001
+17,17,sport utility vehicle,19,4.0,2.4,awd,gas,22,toyota,Highlander,a,2001
+18,16,sport utility vehicle,18,6.0,3.0,awd,gas,21,toyota,Highlander,a,2001
+19,19,sport utility vehicle,22,4.0,2.4,fwd,gas,25,toyota,Highlander,a,2002
+20,42,compact car,41,4.0,1.5,fwd,gas,41,toyota,Prius,a,2001
+21,42,compact car,41,4.0,1.5,fwd,gas,41,toyota,Prius,a,2002
+22,42,compact car,41,4.0,1.5,fwd,gas,41,toyota,Prius,a,2003
+23,48,midsize car,46,4.0,1.5,fwd,gas,45,toyota,Prius,a,2004
+24,48,midsize car,46,4.0,1.5,fwd,gas,45,toyota,Prius,a,2005
+25,19,small pickup truck,21,4.0,2.4,rwd,gas,23,toyota,Tacoma,a,1995
+26,19,small pickup truck,22,4.0,2.4,rwd,gas,26,toyota,Tacoma,m,1995
+27,17,small pickup truck,18,6.0,3.4,rwd,gas,20,toyota,Tacoma,a,1995
+28,17,small pickup truck,19,6.0,3.4,rwd,gas,21,toyota,Tacoma,m,1995
+29,16,standard pickup truck,18,4.0,2.7,awd,gas,19,toyota,Tacoma,a,1995
+30,15,standard pickup truck,16,6.0,3.4,rwd,gas,18,toyota,Tundra,a,2000
+31,15,standard pickup truck,16,6.0,3.4,rwd,gas,18,toyota,Tundra,m,2000
+32,14,standard pickup truck,15,8.0,4.7,rwd,gas,17,toyota,Tundra,a,2000
+33,14,standard pickup truck,15,6.0,3.4,awd,gas,16,toyota,Tundra,a,2000
+34,14,standard pickup truck,15,6.0,3.4,awd,gas,16,toyota,Tundra,m,2000
+35,29,subcompact car,31,4.0,1.5,fwd,gas,35,toyota,Yaris,a,2007
+36,29,subcompact car,32,4.0,1.5,fwd,gas,36,toyota,Yaris,m,2007
+37,29,subcompact car,31,4.0,1.5,fwd,gas,35,toyota,Yaris,a,2008
+38,29,subcompact car,32,4.0,1.5,fwd,gas,36,toyota,Yaris,m,2008
+39,29,subcompact car,32,4.0,1.5,fwd,gas,36,toyota,Yaris,m,2009
+40,18,large car,21,6.0,3.0,fwd,gas,26,toyota,Avalon,a,1995
+41,18,large car,21,6.0,3.0,fwd,gas,26,toyota,Avalon,a,1996
+42,18,large car,22,6.0,3.0,fwd,gas,28,toyota,Avalon,a,1997
+43,19,large car,22,6.0,3.0,fwd,gas,27,toyota,Avalon,a,1998
+44,19,large car,22,6.0,3.0,fwd,gas,27,toyota,Avalon,a,1999
+45,15,special purpose vehicle,17,6.0,3.0,rwd,gas,19,toyota,4Runner,a,1993
+46,16,special purpose vehicle,17,4.0,2.4,awd,gas,18,toyota,4Runner,a,1993
+47,17,special purpose vehicle,18,4.0,2.4,awd,gas,20,toyota,4Runner,m,1993
+48,12,special purpose vehicle,13,6.0,3.0,awd,gas,15,toyota,4Runner,a,1993
+49,13,special purpose vehicle,14,6.0,3.0,awd,gas,17,toyota,4Runner,m,1993
+50,17,minicompact car,19,6.0,3.0,rwd,gas,22,toyota,Supra,a,1994
+51,16,minicompact car,18,6.0,3.0,rwd,gas,22,toyota,Supra,a,1994
+52,16,minicompact car,18,6.0,3.0,rwd,gas,22,toyota,Supra,m,1994
+53,15,minicompact car,18,6.0,3.0,rwd,gas,22,toyota,Supra,m,1994
+54,16,minicompact car,18,6.0,3.0,rwd,gas,22,toyota,Supra,a,1995
+55,16,special purpose vehicle,19,6.0,3.0,fwd,gas,23,toyota,Sienna,a,1998
+56,16,minivan,19,6.0,3.0,fwd,gas,22,toyota,Sienna,a,1999
+57,16,minivan,19,6.0,3.0,fwd,gas,22,toyota,Sienna,a,2000
+58,17,minivan,19,6.0,3.0,fwd,gas,23,toyota,Sienna,a,2001
+59,17,minivan,19,6.0,3.0,fwd,gas,23,toyota,Sienna,a,2002
+60,11,special purpose vehicle,12,6.0,4.5,awd,gas,14,toyota,Land Cruiser,a,1993
+61,10,special purpose vehicle,11,6.0,4.2,awd,gas,12,toyota,Land Cruiser,m,1985
+62,11,special purpose vehicle,12,6.0,4.5,awd,gas,14,toyota,Land Cruiser,a,1994
+63,12,special purpose vehicle,13,6.0,4.5,awd,gas,14,toyota,Land Cruiser,a,1995
+64,12,special purpose vehicle,13,6.0,4.5,awd,gas,14,toyota,Land Cruiser,a,1996
+65,27,compact car,29,4.0,2.0,fwd,gas,31,toyota,C-HR,a,2018
+66,27,compact car,29,4.0,2.0,fwd,gas,31,toyota,C-HR,a,2019
+67,27,compact car,29,4.0,2.0,fwd,gas,31,toyota,C-HR,a,2020
+68,27,compact car,29,4.0,2.0,fwd,gas,31,toyota,C-HR,a,2021
+69,27,compact car,29,4.0,2.0,fwd,gas,31,toyota,C-HR,a,2022
+70,55,midsize car,54,4.0,1.8,fwd,gas,53,toyota,Prius Prime,a,2017
+71,55,midsize car,54,4.0,1.8,fwd,gas,53,toyota,Prius Prime,a,2018
+72,55,midsize car,54,4.0,1.8,fwd,gas,53,toyota,Prius Prime,a,2019
+73,55,midsize car,54,4.0,1.8,fwd,gas,53,toyota,Prius Prime,a,2020
+74,55,midsize car,54,4.0,1.8,fwd,gas,53,toyota,Prius Prime,a,2021
+75,40,small sport utility vehicle,38,4.0,2.5,awd,gas,36,toyota,RAV4 Prime,a,2021
+76,40,small sport utility vehicle,38,4.0,2.5,awd,gas,36,toyota,RAV4 Prime,a,2022
+77,88,large car,89,,,rwd,electricity,90,tesla,Model S,a,2012
+78,94,large car,95,,,rwd,electricity,97,tesla,Model S,a,2013
+79,88,large car,89,,,rwd,electricity,90,tesla,Model S,a,2013
+80,93,large car,94,,,rwd,electricity,96,tesla,Model S,a,2013
+81,88,large car,89,,,rwd,electricity,90,tesla,Model S,a,2014
+82,131,midsize car,126,,,rwd,electricity,120,tesla,Model 3,a,2017
+83,136,midsize car,130,,,rwd,electricity,123,tesla,Model 3,a,2018
+84,120,midsize car,116,,,awd,electricity,112,tesla,Model 3,a,2018
+85,120,midsize car,116,,,awd,electricity,112,tesla,Model 3,a,2018
+86,128,midsize car,123,,,rwd,electricity,117,tesla,Model 3,a,2018
+87,90,standard sport utility vehicle,92,,,awd,electricity,94,tesla,Model X,a,2016
+88,89,standard sport utility vehicle,89,,,awd,electricity,90,tesla,Model X,a,2016
+89,91,standard sport utility vehicle,93,,,awd,electricity,95,tesla,Model X,a,2016
+90,91,standard sport utility vehicle,93,,,awd,electricity,94,tesla,Model X,a,2016
+91,81,standard sport utility vehicle,86,,,awd,electricity,92,tesla,Model X,a,2016
+92,129,small sport utility vehicle,121,,,awd,electricity,112,tesla,Model Y,a,2020
+93,116,small sport utility vehicle,111,,,awd,electricity,106,tesla,Model Y,a,2020
+94,127,small sport utility vehicle,121,,,awd,electricity,114,tesla,Model Y,a,2020
+95,131,small sport utility vehicle,125,,,awd,electricity,117,tesla,Model Y,a,2021
+96,115,small sport utility vehicle,111,,,awd,electricity,106,tesla,Model Y,a,2021
+97,18,two seater,22,8.0,5.0,rwd,gas,30,panoz auto-development,Roadster,m,1995
+98,20,two seater,23,4.0,1.9,rwd,gas,29,bmw,Roadster,a,1996
+99,20,two seater,23,4.0,1.9,rwd,gas,29,bmw,Roadster,m,1996
+100,20,two seater,23,4.0,1.9,rwd,gas,29,bmw,Roadster,a,1997
+101,20,two seater,23,4.0,1.9,rwd,gas,29,bmw,Roadster,m,1997
+102,131,midsize car,126,,,rwd,electricity,120,tesla,Model 3 Long Range,a,2017
+103,136,midsize car,130,,,rwd,electricity,123,tesla,Model 3 Long Range,a,2018
+104,120,midsize car,116,,,awd,electricity,112,tesla,Model 3 Long Range,a,2018
+105,120,midsize car,116,,,awd,electricity,112,tesla,Model 3 Long Range,a,2018
+106,136,midsize car,130,,,rwd,electricity,123,tesla,Model 3 Long Range,a,2019
+107,118,midsize car,113,,,awd,electricity,107,tesla,Model 3 Performance,a,2021
+108,118,midsize car,113,,,awd,electricity,107,tesla,Model 3 Performance,a,2022
+109,118,midsize car,113,,,awd,electricity,107,tesla,Model 3 Performance,a,2023
+110,102,large car,101,,,awd,electricity,99,tesla,Model S Plaid,a,2021
+111,119,large car,116,,,awd,electricity,112,tesla,Model S Plaid,a,2022
+112,102,large car,101,,,awd,electricity,99,tesla,Model S Plaid,a,2022
+113,99,standard sport utility vehicle,96,,,awd,electricity,93,tesla,Model X Long Range,a,2019
+114,99,standard sport utility vehicle,96,,,awd,electricity,93,tesla,Model X Long Range,a,2020
+115,109,standard sport utility vehicle,105,,,awd,electricity,101,tesla,Model X Long Range,a,2021
+116,108,standard sport utility vehicle,105,,,awd,electricity,101,tesla,Model X Long Range,a,2020
+117,14,standard pickup truck,15,6.0,3.9,rwd,gas,17,dodge,Ram 1500,a,1994
+118,15,standard pickup truck,17,6.0,3.9,rwd,gas,19,dodge,Ram 1500,m,1994
+119,12,standard pickup truck,13,8.0,5.2,rwd,gas,16,dodge,Ram 1500,a,1994
+120,12,standard pickup truck,14,8.0,5.2,rwd,gas,17,dodge,Ram 1500,m,1994
+121,11,standard pickup truck,12,8.0,5.9,rwd,gas,15,dodge,Ram 1500,a,1994
+122,19,compact car,21,4.0,2.4,fwd,gas,26,nissan,Altima,a,1994
+123,21,compact car,24,4.0,2.4,fwd,gas,28,nissan,Altima,m,1994
+124,18,compact car,21,4.0,2.4,fwd,gas,26,nissan,Altima,a,1995
+125,21,compact car,24,4.0,2.4,fwd,gas,28,nissan,Altima,m,1995
+126,18,compact car,21,4.0,2.4,fwd,gas,26,nissan,Altima,a,1996
+127,22,sport utility vehicle,24,4.0,2.5,fwd,gas,27,nissan,Rogue,a,2008
+128,21,sport utility vehicle,23,4.0,2.5,awd,gas,26,nissan,Rogue,a,2008
+129,22,sport utility vehicle,24,4.0,2.5,fwd,gas,27,nissan,Rogue,a,2009
+130,21,sport utility vehicle,23,4.0,2.5,awd,gas,26,nissan,Rogue,a,2009
+131,22,sport utility vehicle,24,4.0,2.5,fwd,gas,27,nissan,Rogue,a,2010
+132,106,midsize car,99,,,fwd,electricity,92,nissan,Leaf,a,2011
+133,106,midsize car,99,,,fwd,electricity,92,nissan,Leaf,a,2012
+134,129,midsize car,115,,,fwd,electricity,102,nissan,Leaf,a,2013
+135,126,midsize car,114,,,fwd,electricity,101,nissan,Leaf,a,2014
+136,126,midsize car,114,,,fwd,electricity,101,nissan,Leaf,a,2015
+137,23,subcompact car,26,4.0,1.6,fwd,gas,32,nissan,Sentra,a,1994
+138,25,subcompact car,28,4.0,1.6,fwd,gas,34,nissan,Sentra,m,1994
+139,21,subcompact car,23,4.0,2.0,fwd,gas,27,nissan,Sentra,a,1994
+140,21,subcompact car,23,4.0,2.0,fwd,gas,28,nissan,Sentra,m,1994
+141,23,subcompact car,26,4.0,1.6,fwd,gas,31,nissan,Sentra,a,1995
+142,15,special purpose vehicle,16,6.0,3.0,rwd,gas,19,nissan,Pathfinder,a,1993
+143,14,special purpose vehicle,15,6.0,3.0,rwd,gas,17,nissan,Pathfinder,m,1993
+144,14,special purpose vehicle,15,6.0,3.0,awd,gas,17,nissan,Pathfinder,a,1993
+145,14,special purpose vehicle,15,6.0,3.0,awd,gas,17,nissan,Pathfinder,m,1993
+146,14,special purpose vehicle,15,6.0,3.0,rwd,gas,17,nissan,Pathfinder,a,1994
+147,18,sport utility vehicle,20,6.0,3.5,fwd,gas,23,nissan,Murano,a,2003
+148,18,sport utility vehicle,20,6.0,3.5,awd,gas,23,nissan,Murano,a,2003
+149,18,sport utility vehicle,20,6.0,3.5,fwd,gas,23,nissan,Murano,a,2004
+150,18,sport utility vehicle,20,6.0,3.5,awd,gas,23,nissan,Murano,a,2004
+151,18,sport utility vehicle,20,6.0,3.5,fwd,gas,23,nissan,Murano,a,2005
+152,17,midsize car,19,6.0,3.0,fwd,gas,23,nissan,Maxima,a,1993
+153,17,midsize car,19,6.0,3.0,fwd,gas,24,nissan,Maxima,a,1993
+154,18,midsize car,20,6.0,3.0,fwd,gas,24,nissan,Maxima,m,1993
+155,17,midsize car,19,6.0,3.0,fwd,gas,24,nissan,Maxima,a,1994
+156,17,midsize car,19,6.0,3.0,fwd,gas,23,nissan,Maxima,a,1994
+157,17,standard pickup truck,19,4.0,2.4,rwd,gas,22,nissan,Frontier,a,1998
+158,20,standard pickup truck,22,4.0,2.4,rwd,gas,24,nissan,Frontier,m,1998
+159,16,standard pickup truck,17,4.0,2.4,awd,gas,19,nissan,Frontier,m,1998
+160,17,standard pickup truck,19,4.0,2.4,rwd,gas,22,nissan,Frontier,a,1999
+161,20,standard pickup truck,21,4.0,2.4,rwd,gas,24,nissan,Frontier,m,1999
+162,24,small station wagon,27,4.0,1.6,fwd,gas,30,nissan,Juke,m,2011
+163,27,small station wagon,29,4.0,1.6,fwd,gas,32,nissan,Juke,a,2011
+164,25,small station wagon,27,4.0,1.6,awd,gas,29,nissan,Juke,a,2011
+165,27,small station wagon,29,4.0,1.6,fwd,gas,32,nissan,Juke,a,2012
+166,25,small station wagon,27,4.0,1.6,awd,gas,29,nissan,Juke,a,2012
+167,17,sport utility vehicle,19,4.0,2.4,rwd,gas,22,nissan,Xterra,m,2000
+168,14,sport utility vehicle,16,6.0,3.3,rwd,gas,18,nissan,Xterra,a,2000
+169,15,sport utility vehicle,16,6.0,3.3,rwd,gas,18,nissan,Xterra,m,2000
+170,14,sport utility vehicle,15,6.0,3.3,awd,gas,17,nissan,Xterra,a,2000
+171,15,sport utility vehicle,15,6.0,3.3,awd,gas,17,nissan,Xterra,m,2000
+172,26,midsize car,28,4.0,1.8,fwd,gas,33,nissan,Versa,a,2007
+173,24,midsize car,27,4.0,1.8,fwd,gas,32,nissan,Versa,a,2007
+174,26,midsize car,28,4.0,1.8,fwd,gas,31,nissan,Versa,m,2007
+175,27,midsize car,29,4.0,1.8,fwd,gas,33,nissan,Versa,a,2008
+176,24,midsize car,27,4.0,1.8,fwd,gas,32,nissan,Versa,a,2008
+177,12,sport utility vehicle,14,8.0,5.6,rwd,gas,18,nissan,Armada,a,2004
+178,12,sport utility vehicle,14,8.0,5.6,awd,gas,17,nissan,Armada,a,2004
+179,12,sport utility vehicle,14,8.0,5.6,rwd,gas,18,nissan,Armada,a,2005
+180,12,sport utility vehicle,14,8.0,5.6,awd,gas,17,nissan,Armada,a,2005
+181,12,sport utility vehicle,14,8.0,5.6,rwd,gas,17,nissan,Armada,a,2006
+182,109,small station wagon,101,,,fwd,electricity,94,nissan,Ariya,a,2023
+183,105,small station wagon,98,,,fwd,electricity,91,nissan,Ariya,a,2023
+184,111,small station wagon,103,,,fwd,electricity,95,nissan,Ariya,a,2023
+185,26,subcompact car,27,4.0,1.5,fwd,gas,29,mazda,GLC,m,1985
+186,24,subcompact car,26,4.0,1.5,fwd,gas,28,mazda,GLC,a,1985
+187,26,subcompact car,27,4.0,1.5,fwd,gas,29,mazda,GLC,m,1985
+188,27,subcompact car,30,4.0,1.5,fwd,gas,35,mazda,GLC,m,1985
+189,19,small station wagon,20,4.0,1.5,rwd,gas,21,mazda,GLC,a,1986
+190,16,special purpose vehicle,17,4.0,2.5,awd,gas,19,jeep,GLE,m,1993
+191,14,special purpose vehicle,14,6.0,4.0,awd,gas,15,jeep,GLE,a,1993
+192,15,special purpose vehicle,16,6.0,4.0,awd,gas,18,jeep,GLE,m,1993
+193,15,special purpose vehicle,16,6.0,4.2,awd,gas,17,american motors corporation,GLE,a,1985
+194,15,special purpose vehicle,17,6.0,4.2,awd,gas,20,american motors corporation,GLE,m,1985
+195,14,compact car,16,8.0,5.0,rwd,gas,20,mercedes-benz,CLS,a,2006
+196,13,compact car,15,8.0,5.4,rwd,gas,19,mercedes-benz,CLS,a,2006
+197,14,compact car,16,8.0,5.5,rwd,gas,20,mercedes-benz,CLS,a,2007
+198,12,compact car,14,8.0,6.2,rwd,gas,18,mercedes-benz,CLS,a,2007
+199,14,compact car,16,8.0,5.5,rwd,gas,21,mercedes-benz,CLS,a,2008
+200,17,standard sport utility vehicle,19,6.0,3.0,4wd,gas,22,mercedes-benz,GLS,a,2017
+201,13,standard sport utility vehicle,14,8.0,5.5,4wd,gas,17,mercedes-benz,GLS,a,2017
+202,14,standard sport utility vehicle,16,8.0,4.7,4wd,gas,18,mercedes-benz,GLS,a,2017
+203,17,standard sport utility vehicle,19,6.0,3.0,4wd,gas,22,mercedes-benz,GLS,a,2018
+204,14,standard sport utility vehicle,16,8.0,4.7,4wd,gas,19,mercedes-benz,GLS,a,2018
+205,23,midsize station wagon,25,4.0,2.0,4wd,gas,29,mercedes-benz,GLA,a,2015
+206,24,small sport utility vehicle,27,4.0,2.0,4wd,gas,31,mercedes-benz,GLA,a,2015
+207,24,small sport utility vehicle,27,4.0,2.0,4wd,gas,31,mercedes-benz,GLA,a,2015
+208,25,small sport utility vehicle,28,4.0,2.0,fwd,gas,34,mercedes-benz,GLA,a,2015
+209,24,small sport utility vehicle,27,4.0,2.0,4wd,gas,31,mercedes-benz,GLA,a,2016
+210,23,small sport utility vehicle,26,4.0,2.0,fwd,gas,30,mercedes-benz,GLB,a,2020
+211,23,small sport utility vehicle,26,4.0,2.0,4wd,gas,31,mercedes-benz,GLB,a,2020
+212,23,special purpose vehicle,26,4.0,2.0,fwd,gas,31,mercedes-benz,GLB,a,2021
+213,23,small sport utility vehicle,26,4.0,2.0,4wd,gas,30,mercedes-benz,GLB,a,2021
+214,21,midsize station wagon,23,4.0,2.0,4wd,gas,26,mercedes-benz,GLB,a,2021
+215,13,two seater,15,8.0,6.2,rwd,gas,19,mercedes-benz,AMG GT,a,2013
+216,13,two seater,15,8.0,6.2,rwd,gas,19,mercedes-benz,AMG GT,a,2013
+217,13,two seater,15,8.0,6.2,rwd,gas,19,mercedes-benz,AMG GT,a,2014
+218,13,two seater,15,8.0,6.2,rwd,gas,19,mercedes-benz,AMG GT,a,2014
+219,13,two seater,15,8.0,6.2,rwd,gas,19,mercedes-benz,AMG GT,a,2015
+220,16,subcompact car,19,6.0,2.8,fwd,gas,23,volkswagen,SLC,a,1994
+221,16,subcompact car,19,6.0,2.8,fwd,gas,22,volkswagen,SLC,m,1994
+222,16,subcompact car,19,6.0,2.8,fwd,gas,23,volkswagen,SLC,a,1993
+223,25,two seater,27,4.0,2.0,rwd,gas,32,mercedes-benz,SLC,a,2017
+224,20,two seater,23,6.0,3.0,rwd,gas,29,mercedes-benz,SLC,a,2017
+225,97,large car,97,,,rwd,electricity,97,mercedes-benz,EQS,a,2022
+226,92,large car,95,,,awd,electricity,99,mercedes-benz,EQS,a,2022
+227,101,large car,103,,,awd,electricity,105,mercedes-benz,EQS,a,2023
+228,79,standard sport utility vehicle,78,,,awd,electricity,77,mercedes-benz,EQS,a,2023
+229,87,standard sport utility vehicle,85,,,rwd,electricity,83,mercedes-benz,EQS,a,2023
+230,18,subcompact car,20,6.0,2.7,rwd,gas,25,bmw,3 Series,a,1986
+231,19,subcompact car,21,6.0,2.7,rwd,gas,26,bmw,3 Series,m,1986
+232,21,subcompact car,23,4.0,1.8,,gas,24,bmw,3 Series,a,1984
+233,21,subcompact car,24,4.0,1.8,,gas,27,bmw,3 Series,m,1984
+234,18,subcompact car,20,6.0,2.7,,gas,25,bmw,3 Series,a,1984
+235,12,sport utility vehicle,14,8.0,4.4,rwd,gas,16,bmw,X5,a,2000
+236,14,sport utility vehicle,16,6.0,3.0,awd,gas,19,bmw,X5,m,2001
+237,14,sport utility vehicle,16,6.0,3.0,awd,gas,19,bmw,X5,m,2001
+238,14,sport utility vehicle,16,6.0,3.0,awd,gas,19,bmw,X5,a,2001
+239,14,sport utility vehicle,16,6.0,3.0,awd,gas,19,bmw,X5,a,2001
+240,18,midsize car,21,6.0,3.0,fwd,gas,26,infiniti,i3,a,1996
+241,19,midsize car,21,6.0,3.0,fwd,gas,24,infiniti,i3,m,1996
+242,18,midsize car,21,6.0,3.0,fwd,gas,26,infiniti,i3,a,1997
+243,19,midsize car,21,6.0,3.0,fwd,gas,24,infiniti,i3,m,1997
+244,18,midsize car,21,6.0,3.0,fwd,gas,25,infiniti,i3,a,1998
+245,21,compact car,23,6.0,2.4,rwd,diesel,26,bmw,5 Series,a,1986
+246,16,compact car,18,6.0,2.7,rwd,gas,22,bmw,5 Series,a,1986
+247,18,compact car,20,6.0,2.7,rwd,gas,22,bmw,5 Series,m,1986
+248,15,compact car,16,6.0,3.4,rwd,gas,20,bmw,5 Series,a,1986
+249,14,compact car,17,6.0,3.4,rwd,gas,20,bmw,5 Series,m,1986
+250,15,sport utility vehicle,17,6.0,3.5,rwd,gas,22,infiniti,X3,a,2003
+251,15,sport utility vehicle,17,6.0,3.5,awd,gas,20,infiniti,X3,a,2003
+252,15,sport utility vehicle,17,6.0,3.5,rwd,gas,22,infiniti,X3,a,2004
+253,15,sport utility vehicle,18,6.0,2.5,awd,gas,22,bmw,X3,m,2004
+254,15,sport utility vehicle,17,6.0,2.5,awd,gas,22,bmw,X3,a,2004
+255,20,two seater,22,4.0,1.5,rwd,gas,26,bertone,X1,m,1986
+256,20,two seater,22,4.0,1.5,rwd,gas,26,bertone,X1,m,1985
+257,20,two seater,22,4.0,1.5,,gas,26,bertone,X1,m,1984
+258,20,two seater,22,4.0,1.5,,gas,26,bertone,X1,m,1984
+259,20,two seater,22,4.0,1.5,rwd,gas,26,bertone,X1,m,1987
+260,18,two seater,21,6.0,2.5,rwd,gas,26,bmw,Z4,a,2003
+261,18,two seater,21,6.0,2.5,rwd,gas,26,bmw,Z4,m,2003
+262,18,two seater,20,6.0,3.0,rwd,gas,25,bmw,Z4,a,2003
+263,18,two seater,21,6.0,3.0,rwd,gas,27,bmw,Z4,m,2003
+264,18,two seater,21,6.0,3.0,rwd,gas,27,bmw,Z4,a,2003
+265,14,compact car,15,6.0,3.4,rwd,gas,17,bmw,7 Series,a,1986
+266,14,compact car,16,6.0,3.4,rwd,gas,19,bmw,7 Series,m,1986
+267,14,compact car,16,6.0,3.4,rwd,gas,20,bmw,7 Series,a,1985
+268,14,compact car,16,6.0,3.4,rwd,gas,19,bmw,7 Series,m,1985
+269,15,compact car,18,6.0,3.2,,gas,22,bmw,7 Series,a,1984
+270,28,subcompact car,28,3.0,1.5,awd,gas,29,bmw,i8,a,2014
+271,28,subcompact car,28,3.0,1.5,awd,gas,29,bmw,i8,a,2015
+272,28,subcompact car,28,3.0,1.5,awd,gas,29,bmw,i8,a,2016
+273,28,subcompact car,28,3.0,1.5,awd,gas,29,bmw,i8,a,2017
+274,26,subcompact car,27,3.0,1.5,awd,gas,29,bmw,i8,a,2019
+275,15,subcompact car,16,6.0,3.4,rwd,gas,20,bmw,6 Series,a,1986
+276,14,subcompact car,17,6.0,3.4,rwd,gas,20,bmw,6 Series,m,1986
+277,15,subcompact car,18,6.0,3.2,,gas,22,bmw,6 Series,a,1984
+278,15,subcompact car,18,6.0,3.2,,gas,22,bmw,6 Series,a,1984
+279,15,subcompact car,16,6.0,3.4,rwd,gas,20,bmw,6 Series,a,1987
+280,20,small sport utility vehicle,22,4.0,2.0,awd,gas,25,land rover,i4,a,2019
+281,94,subcompact car,96,,,awd,electricity,98,bmw,i4,a,2022
+282,79,subcompact car,80,,,awd,electricity,80,bmw,i4,a,2022
+283,109,subcompact car,109,,,rwd,electricity,108,bmw,i4,a,2022
+284,100,subcompact car,99,,,rwd,electricity,98,bmw,i4,a,2022
+285,17,midsize car,20,6.0,3.1,fwd,gas,25,pontiac,iX,a,1993
+286,17,midsize car,20,6.0,3.1,fwd,gas,27,pontiac,iX,a,1993
+287,15,midsize car,18,6.0,3.4,fwd,gas,24,pontiac,iX,a,1993
+288,15,midsize car,18,6.0,3.4,fwd,gas,24,pontiac,iX,m,1993
+289,17,midsize car,20,6.0,3.1,fwd,gas,26,pontiac,iX,a,1994
+290,26,two seater,27,3.0,1.5,awd,gas,29,bmw,i8 Roadster,a,2019
+291,26,two seater,27,3.0,1.5,awd,gas,29,bmw,i8 Roadster,a,2020
+292,28,compact car,31,4.0,2.0,rwd,gas,36,bmw,330e,a,2016
+293,28,compact car,30,4.0,2.0,rwd,gas,34,bmw,330e,a,2017
+294,28,compact car,30,4.0,2.0,rwd,gas,34,bmw,330e,a,2018
+295,25,compact car,28,4.0,2.0,rwd,gas,33,bmw,330e,a,2021
+296,22,compact car,25,4.0,2.0,awd,gas,30,bmw,330e,a,2021
+297,27,compact car,29,4.0,2.0,rwd,gas,31,bmw,530e,a,2018
+298,27,compact car,28,4.0,2.0,awd,gas,31,bmw,530e,a,2018
+299,27,compact car,29,4.0,2.0,rwd,gas,30,bmw,530e,a,2019
+300,27,compact car,28,4.0,2.0,awd,gas,31,bmw,530e,a,2019
+301,25,compact car,27,4.0,2.0,rwd,gas,31,bmw,530e,a,2020
+302,15,two seater,17,6.0,3.6,rwd,gas,22,porsche,911,a,1994
+303,15,two seater,18,6.0,3.6,rwd,gas,23,porsche,911,m,1994
+304,14,two seater,16,6.0,3.6,awd,gas,21,porsche,911,m,1994
+305,15,minicompact car,17,6.0,3.6,rwd,gas,22,porsche,911,a,1994
+306,14,minicompact car,16,6.0,3.6,awd,gas,21,porsche,911,m,1994
+307,12,special purpose vehicle,14,8.0,4.5,awd,gas,17,porsche,Cayenne,a,2003
+308,12,special purpose vehicle,14,8.0,4.5,awd,gas,17,porsche,Cayenne,a,2003
+309,14,sport utility vehicle,15,6.0,3.2,awd,gas,18,porsche,Cayenne,a,2004
+310,12,sport utility vehicle,14,8.0,4.5,awd,gas,17,porsche,Cayenne,a,2004
+311,12,sport utility vehicle,14,8.0,4.5,awd,gas,17,porsche,Cayenne,a,2004
+312,68,large car,69,,,awd,electricity,71,porsche,Taycan,a,2020
+313,67,large car,68,,,awd,electricity,68,porsche,Taycan,a,2020
+314,68,large car,69,,,awd,electricity,71,porsche,Taycan,a,2020
+315,79,large car,79,,,awd,electricity,80,porsche,Taycan,a,2021
+316,75,large car,77,,,awd,electricity,81,porsche,Taycan,a,2021
+317,16,large car,19,8.0,4.8,rwd,gas,24,porsche,Panamera,a,2010
+318,16,large car,19,8.0,4.8,awd,gas,24,porsche,Panamera,a,2010
+319,15,large car,18,8.0,4.8,awd,gas,23,porsche,Panamera,a,2010
+320,18,large car,21,6.0,3.6,rwd,gas,26,porsche,Panamera,a,2011
+321,16,large car,19,8.0,4.8,rwd,gas,24,porsche,Panamera,a,2011
+322,17,small sport utility vehicle,19,6.0,3.0,awd,gas,23,porsche,Macan,a,2015
+323,17,small sport utility vehicle,19,6.0,3.6,awd,gas,23,porsche,Macan,a,2015
+324,17,small sport utility vehicle,19,6.0,3.0,awd,gas,23,porsche,Macan,a,2016
+325,17,small sport utility vehicle,19,6.0,3.6,awd,gas,23,porsche,Macan,a,2016
+326,17,small sport utility vehicle,19,6.0,3.0,awd,gas,23,porsche,Macan,a,2017
+327,20,two seater,22,4.0,2.0,rwd,gas,26,porsche,718 Boxster,m,2021
+328,21,two seater,24,4.0,2.0,rwd,gas,27,porsche,718 Boxster,a,2021
+329,19,two seater,21,4.0,2.5,rwd,gas,24,porsche,718 Boxster,m,2021
+330,19,two seater,22,4.0,2.5,rwd,gas,25,porsche,718 Boxster,a,2021
+331,20,two seater,22,4.0,2.0,rwd,gas,26,porsche,718 Boxster,m,2021
+332,16,two seater,19,6.0,4.0,rwd,gas,23,porsche,718 Cayman,m,2020
+333,20,two seater,22,4.0,2.0,rwd,gas,26,porsche,718 Cayman,m,2021
+334,21,two seater,24,4.0,2.0,rwd,gas,27,porsche,718 Cayman,a,2021
+335,19,two seater,21,4.0,2.5,rwd,gas,24,porsche,718 Cayman,m,2021
+336,19,two seater,22,4.0,2.5,rwd,gas,25,porsche,718 Cayman,a,2021
+337,9,two seater,11,10.0,5.7,rwd,gas,15,porsche,Carrera GT,m,2004
+338,9,two seater,11,10.0,5.7,rwd,gas,15,porsche,Carrera GT,m,2005
+339,18,minicompact car,21,6.0,3.8,rwd,gas,26,porsche,Carrera GT,m,2015
+340,19,minicompact car,21,6.0,3.8,rwd,gas,26,porsche,Carrera GT,a,2015
+341,18,minicompact car,20,6.0,3.8,rwd,gas,25,porsche,Carrera GT,m,2015
+342,68,large car,69,,,awd,electricity,71,porsche,Taycan Turbo,a,2020
+343,67,large car,68,,,awd,electricity,68,porsche,Taycan Turbo,a,2020
+344,71,large car,73,,,awd,electricity,75,porsche,Taycan Turbo,a,2021
+345,69,large car,70,,,awd,electricity,71,porsche,Taycan Turbo,a,2021
+346,74,midsize car,73,,,awd,electricity,73,porsche,Taycan Turbo,a,2021
+347,67,large car,68,,,awd,electricity,68,porsche,Taycan Turbo S,a,2020
+348,69,large car,70,,,awd,electricity,71,porsche,Taycan Turbo S,a,2021
+349,74,midsize car,73,,,awd,electricity,73,porsche,Taycan Turbo S,a,2021
+350,69,compact car,70,,,awd,electricity,71,porsche,Taycan Turbo S,a,2022
+351,74,midsize car,73,,,awd,electricity,73,porsche,Taycan Turbo S,a,2022
+352,68,large car,69,,,awd,electricity,71,porsche,Taycan 4S,a,2020
+353,79,large car,79,,,awd,electricity,80,porsche,Taycan 4S,a,2021
+354,75,large car,77,,,awd,electricity,81,porsche,Taycan 4S,a,2021
+355,75,midsize car,75,,,awd,electricity,75,porsche,Taycan 4S,a,2021
+356,79,compact car,79,,,awd,electricity,80,porsche,Taycan 4S,a,2022
+357,11,standard pickup truck,12,8.0,5.4,rwd,gas,14,roush performance,F-150,a,2006
+358,11,standard pickup truck,12,8.0,5.4,rwd,gas,14,roush performance,F-150,a,2006
+359,11,standard pickup truck,12,8.0,5.4,rwd,gas,14,roush performance,F-150,a,2006
+360,11,standard pickup truck,12,8.0,5.4,awd,gas,14,roush performance,F-150,a,2006
+361,11,standard pickup truck,12,8.0,5.4,awd,gas,14,roush performance,F-150,a,2006
+362,17,subcompact car,20,6.0,3.8,rwd,gas,26,ford,Mustang,a,1994
+363,18,subcompact car,21,6.0,3.8,rwd,gas,27,ford,Mustang,m,1994
+364,15,subcompact car,18,8.0,5.0,rwd,gas,23,ford,Mustang,a,1994
+365,15,subcompact car,18,8.0,5.0,rwd,gas,23,ford,Mustang,m,1994
+366,17,subcompact car,20,6.0,3.8,rwd,gas,26,ford,Mustang,a,1995
+367,15,special purpose vehicle,17,6.0,4.0,rwd,gas,20,ford,Explorer,a,1993
+368,16,special purpose vehicle,18,6.0,4.0,rwd,gas,22,ford,Explorer,m,1993
+369,14,special purpose vehicle,16,6.0,4.0,awd,gas,18,ford,Explorer,a,1993
+370,15,special purpose vehicle,17,6.0,4.0,awd,gas,20,ford,Explorer,m,1993
+371,14,special purpose vehicle,16,6.0,4.0,rwd,gas,19,ford,Explorer,a,1994
+372,23,compact car,26,4.0,2.0,fwd,gas,30,ford,Focus,a,2000
+373,22,compact car,24,4.0,2.0,fwd,gas,28,ford,Focus,a,2000
+374,24,compact car,27,4.0,2.0,fwd,gas,32,ford,Focus,m,2000
+375,22,compact car,25,4.0,2.0,fwd,gas,31,ford,Focus,m,2000
+376,23,midsize station wagon,26,4.0,2.0,fwd,gas,30,ford,Focus,a,2000
+377,28,subcompact car,31,4.0,1.6,fwd,gas,36,ford,Fiesta,m,2011
+378,29,subcompact car,32,4.0,1.6,fwd,gas,37,ford,Fiesta,a,2011
+379,29,subcompact car,33,4.0,1.6,fwd,gas,38,ford,Fiesta,a,2011
+380,29,subcompact car,32,4.0,1.6,fwd,gas,37,ford,Fiesta,a,2012
+381,29,subcompact car,32,4.0,1.6,fwd,gas,37,ford,Fiesta,m,2012
+382,18,standard pickup truck,20,4.0,2.3,rwd,gas,22,ford,Ranger,a,1993
+383,20,standard pickup truck,22,4.0,2.3,rwd,gas,26,ford,Ranger,m,1993
+384,16,standard pickup truck,18,6.0,3.0,rwd,gas,22,ford,Ranger,a,1993
+385,17,standard pickup truck,19,6.0,3.0,rwd,gas,23,ford,Ranger,m,1993
+386,15,standard pickup truck,17,6.0,4.0,rwd,gas,20,ford,Ranger,a,1993
+387,21,sport utility vehicle,23,4.0,2.0,fwd,gas,26,ford,Escape,m,2001
+388,16,sport utility vehicle,18,6.0,3.0,fwd,gas,22,ford,Escape,a,2001
+389,20,sport utility vehicle,21,4.0,2.0,awd,gas,24,ford,Escape,m,2001
+390,16,sport utility vehicle,18,6.0,3.0,awd,gas,22,ford,Escape,a,2001
+391,20,sport utility vehicle,22,4.0,2.0,fwd,gas,25,ford,Escape,m,2002
+392,12,special purpose vehicle,14,8.0,5.0,awd,gas,17,ford,Bronco,a,1993
+393,12,special purpose vehicle,13,8.0,5.0,awd,gas,16,ford,Bronco,m,1993
+394,11,special purpose vehicle,12,8.0,5.8,awd,gas,15,ford,Bronco,a,1993
+395,23,special purpose vehicle,25,4.0,2.3,awd,diesel,27,ford,Bronco,m,1985
+396,15,special purpose vehicle,16,6.0,2.8,awd,gas,20,ford,Bronco,a,1985
+397,16,sport utility vehicle,19,6.0,3.5,fwd,gas,23,ford,Edge,a,2007
+398,16,sport utility vehicle,18,6.0,3.5,awd,gas,22,ford,Edge,a,2007
+399,16,sport utility vehicle,19,6.0,3.5,fwd,gas,24,ford,Edge,a,2008
+400,15,sport utility vehicle,18,6.0,3.5,awd,gas,22,ford,Edge,a,2008
+401,17,sport utility vehicle,19,6.0,3.5,fwd,gas,24,ford,Edge,a,2009
+402,14,special purpose vehicle,15,8.0,4.6,rwd,gas,18,ford,Expedition,a,1997
+403,12,special purpose vehicle,14,8.0,5.4,rwd,gas,17,ford,Expedition,a,1997
+404,12,special purpose vehicle,14,8.0,4.6,awd,gas,17,ford,Expedition,a,1997
+405,11,special purpose vehicle,13,8.0,5.4,awd,gas,16,ford,Expedition,a,1997
+406,13,special purpose vehicle,15,8.0,4.6,rwd,gas,18,ford,Expedition,a,1998
+407,100,small station wagon,93,,,awd,electricity,86,ford,Mustang Mach-E,a,2021
+408,96,small station wagon,90,,,awd,electricity,84,ford,Mustang Mach-E,a,2021
+409,105,small station wagon,100,,,rwd,electricity,93,ford,Mustang Mach-E,a,2021
+410,104,small station wagon,97,,,rwd,electricity,90,ford,Mustang Mach-E,a,2021
+411,108,small station wagon,101,,,rwd,electricity,94,ford,Mustang Mach-E,a,2021
+412,73,standard pickup truck,66,,,awd,electricity,60,ford,F-150 Lightning,a,2022
+413,78,standard pickup truck,70,,,awd,electricity,63,ford,F-150 Lightning,a,2022
+414,76,standard pickup truck,68,,,awd,electricity,61,ford,F-150 Lightning,a,2022
+415,16,compact car,19,6.0,2.8,fwd,gas,26,audi,A4,a,1996
+416,17,compact car,20,6.0,2.8,fwd,gas,25,audi,A4,m,1996
+417,16,compact car,19,6.0,2.8,awd,gas,25,audi,A4,a,1996
+418,17,compact car,20,6.0,2.8,awd,gas,24,audi,A4,m,1996
+419,18,compact car,21,4.0,1.8,fwd,gas,27,audi,A4,a,1997
+420,17,compact car,19,6.0,2.8,fwd,gas,22,audi,A6,a,1995
+421,17,compact car,19,6.0,2.8,fwd,gas,23,audi,A6,m,1995
+422,16,compact car,18,6.0,2.8,awd,gas,20,audi,A6,a,1995
+423,16,compact car,18,6.0,2.8,awd,gas,22,audi,A6,m,1995
+424,16,small station wagon,18,6.0,2.8,awd,gas,20,audi,A6,a,1995
+425,18,sport utility vehicle,20,6.0,3.2,awd,gas,23,audi,Q5,a,2009
+426,18,sport utility vehicle,20,6.0,3.2,awd,gas,23,audi,Q5,a,2010
+427,20,sport utility vehicle,22,4.0,2.0,awd,gas,27,audi,Q5,a,2011
+428,18,sport utility vehicle,20,6.0,3.2,awd,gas,23,audi,Q5,a,2011
+429,20,sport utility vehicle,22,4.0,2.0,awd,gas,27,audi,Q5,a,2012
+430,12,sport utility vehicle,14,8.0,4.2,awd,gas,17,audi,Q7,a,2007
+431,14,sport utility vehicle,16,6.0,3.6,awd,gas,18,audi,Q7,a,2007
+432,14,sport utility vehicle,16,6.0,3.6,awd,gas,20,audi,Q7,a,2008
+433,12,sport utility vehicle,14,8.0,4.2,awd,gas,17,audi,Q7,a,2008
+434,13,sport utility vehicle,15,8.0,4.2,awd,gas,18,audi,Q7,a,2009
+435,21,small station wagon,24,4.0,2.0,fwd,gas,29,audi,A3,m,2006
+436,22,small station wagon,25,4.0,2.0,fwd,gas,29,audi,A3,a,2006
+437,18,small station wagon,21,6.0,3.2,awd,gas,25,audi,A3,a,2006
+438,21,small station wagon,24,4.0,2.0,fwd,gas,29,audi,A3,m,2007
+439,22,small station wagon,25,4.0,2.0,fwd,gas,29,audi,A3,a,2007
+440,15,midsize car,18,8.0,3.7,fwd,gas,24,audi,A8,a,1997
+441,15,midsize car,18,8.0,4.2,awd,gas,23,audi,A8,a,1997
+442,15,midsize car,18,8.0,3.7,fwd,gas,24,audi,A8,a,1998
+443,15,midsize car,18,8.0,4.2,awd,gas,23,audi,A8,a,1998
+444,15,midsize car,18,8.0,3.7,fwd,gas,24,audi,A8,a,1999
+445,20,compact car,23,4.0,2.0,awd,gas,28,audi,Q3,a,2015
+446,20,compact car,23,4.0,2.0,fwd,gas,28,audi,Q3,a,2015
+447,20,compact car,23,4.0,2.0,fwd,gas,28,audi,Q3,a,2016
+448,20,compact car,23,4.0,2.0,awd,gas,28,audi,Q3,a,2016
+449,20,compact car,23,4.0,2.0,fwd,gas,28,audi,Q3,a,2017
+450,18,compact car,21,4.0,2.0,fwd,gas,26,volkswagen,TT,a,1993
+451,20,compact car,23,4.0,2.0,fwd,gas,28,volkswagen,TT,m,1993
+452,16,small station wagon,18,6.0,2.8,awd,gas,20,audi,TT,a,1993
+453,16,special purpose vehicle,18,6.0,3.1,fwd,gas,21,oldsmobile,TT,a,1993
+454,15,special purpose vehicle,18,6.0,3.8,fwd,gas,23,oldsmobile,TT,a,1993
+455,13,two seater,15,8.0,4.2,awd,gas,20,audi,R8,m,2008
+456,13,two seater,15,8.0,4.2,awd,gas,19,audi,R8,a,2008
+457,12,two seater,15,8.0,4.2,awd,gas,19,audi,R8,m,2009
+458,13,two seater,15,8.0,4.2,awd,gas,18,audi,R8,a,2009
+459,12,two seater,15,10.0,5.2,awd,gas,20,audi,R8,m,2010
+460,16,subcompact car,20,6.0,3.2,awd,gas,27,audi,A5,m,2008
+461,18,subcompact car,21,6.0,3.2,awd,gas,27,audi,A5,a,2008
+462,16,subcompact car,20,6.0,3.2,awd,gas,27,audi,A5,m,2009
+463,17,subcompact car,20,6.0,3.2,awd,gas,26,audi,A5,a,2009
+464,23,subcompact car,26,4.0,2.0,fwd,gas,30,audi,A5,a,2010
+465,17,standard sport utility vehicle,19,6.0,3.0,awd,gas,22,audi,Q8,a,2019
+466,17,standard sport utility vehicle,18,6.0,3.0,awd,gas,21,audi,Q8,a,2020
+467,13,standard sport utility vehicle,15,8.0,4.0,awd,gas,19,audi,Q8,a,2020
+468,15,standard sport utility vehicle,17,8.0,4.0,awd,gas,21,audi,Q8,a,2020
+469,13,standard sport utility vehicle,15,8.0,4.0,awd,gas,19,audi,Q8,a,2021
+470,33,compact car,35,4.0,1.4,fwd,gas,37,audi,e-tron,a,2016
+471,37,compact car,39,4.0,1.4,fwd,gas,41,audi,e-tron,a,2016
+472,33,compact car,34,4.0,1.4,fwd,gas,36,audi,e-tron,a,2017
+473,34,compact car,36,4.0,1.4,fwd,gas,39,audi,e-tron,a,2018
+474,74,standard sport utility vehicle,74,,,awd,electricity,73,audi,e-tron,a,2019
+475,81,midsize car,82,,,awd,electricity,83,audi,e-tron GT,a,2022
+476,79,midsize car,81,,,awd,electricity,82,audi,e-tron GT,a,2022
+477,81,midsize car,82,,,awd,electricity,83,audi,e-tron GT,a,2023
+478,79,midsize car,81,,,awd,electricity,82,audi,e-tron GT,a,2023
+479,100,standard sport utility vehicle,95,,,awd,electricity,89,audi,Q4 e-tron,a,2022
+480,100,standard sport utility vehicle,95,,,awd,electricity,89,audi,Q4 e-tron,a,2022
+481,112,small sport utility vehicle,103,,,rwd,electricity,94,audi,Q4 e-tron,a,2023
+482,97,standard sport utility vehicle,93,,,awd,electricity,87,audi,Q4 e-tron,a,2023
+483,100,standard sport utility vehicle,95,,,awd,electricity,89,audi,Q4 e-tron,a,2023
+484,25,two seater,28,4.0,1.5,fwd,gas,33,honda,Civic,a,1994
+485,30,two seater,33,4.0,1.5,fwd,gas,37,honda,Civic,m,1994
+486,23,two seater,26,4.0,1.6,fwd,gas,30,honda,Civic,a,1994
+487,25,two seater,28,4.0,1.6,fwd,gas,32,honda,Civic,m,1994
+488,23,two seater,25,4.0,1.6,fwd,gas,28,honda,Civic,m,1994
+489,18,small station wagon,21,4.0,2.2,fwd,gas,24,honda,Accord,a,1993
+490,20,small station wagon,22,4.0,2.2,fwd,gas,26,honda,Accord,m,1993
+491,20,compact car,22,4.0,2.2,fwd,gas,27,honda,Accord,a,1994
+492,20,compact car,23,4.0,2.2,fwd,gas,27,honda,Accord,a,1994
+493,22,compact car,25,4.0,2.2,fwd,gas,29,honda,Accord,m,1994
+494,19,special purpose vehicle,21,4.0,2.0,fwd,gas,23,honda,CR-V,a,1998
+495,19,special purpose vehicle,20,4.0,2.0,awd,gas,23,honda,CR-V,a,1998
+496,19,special purpose vehicle,21,4.0,2.0,fwd,gas,23,honda,CR-V,m,1998
+497,20,sport utility vehicle,21,4.0,2.0,fwd,gas,23,honda,CR-V,a,2000
+498,19,sport utility vehicle,21,4.0,2.0,awd,gas,23,honda,CR-V,a,2000
+499,15,sport utility vehicle,17,6.0,3.5,awd,gas,21,honda,Pilot,a,2003
+500,15,sport utility vehicle,17,6.0,3.5,awd,gas,21,honda,Pilot,a,2004
+501,15,sport utility vehicle,17,6.0,3.5,awd,gas,20,honda,Pilot,a,2005
+502,16,sport utility vehicle,18,6.0,3.5,fwd,gas,22,honda,Pilot,a,2006
+503,15,sport utility vehicle,17,6.0,3.5,awd,gas,20,honda,Pilot,a,2006
+504,27,small station wagon,30,4.0,1.5,fwd,gas,35,honda,Fit,a,2007
+505,28,small station wagon,31,4.0,1.5,fwd,gas,34,honda,Fit,m,2007
+506,27,small station wagon,29,4.0,1.5,fwd,gas,34,honda,Fit,a,2007
+507,27,small station wagon,30,4.0,1.5,fwd,gas,34,honda,Fit,a,2008
+508,28,small station wagon,31,4.0,1.5,fwd,gas,34,honda,Fit,m,2008
+509,25,small sport utility vehicle,28,4.0,1.8,fwd,gas,33,honda,HR-V,m,2016
+510,28,small sport utility vehicle,31,4.0,1.8,fwd,gas,34,honda,HR-V,a,2016
+511,28,small sport utility vehicle,31,4.0,1.8,fwd,gas,34,honda,HR-V,a,2016
+512,27,small sport utility vehicle,29,4.0,1.8,awd,gas,32,honda,HR-V,a,2016
+513,27,small sport utility vehicle,29,4.0,1.8,awd,gas,32,honda,HR-V,a,2016
+514,18,midsize-large station wagon,20,4.0,2.2,fwd,gas,22,honda,Odyssey,a,1995
+515,18,midsize-large station wagon,19,4.0,2.2,fwd,gas,22,honda,Odyssey,a,1996
+516,18,midsize-large station wagon,20,4.0,2.2,fwd,gas,24,honda,Odyssey,a,1997
+517,19,midsize station wagon,21,4.0,2.3,fwd,gas,24,honda,Odyssey,a,1998
+518,16,minivan,19,6.0,3.5,fwd,gas,23,honda,Odyssey,a,1999
+519,15,standard pickup truck,17,6.0,3.5,awd,gas,20,honda,Ridgeline,a,2006
+520,15,standard pickup truck,17,6.0,3.5,awd,gas,20,honda,Ridgeline,a,2007
+521,15,standard pickup truck,17,6.0,3.5,awd,gas,20,honda,Ridgeline,a,2008
+522,15,standard pickup truck,17,6.0,3.5,awd,gas,20,honda,Ridgeline,a,2009
+523,15,standard pickup truck,17,6.0,3.5,awd,gas,20,honda,Ridgeline,a,2010
+524,18,compact car,21,4.0,2.0,fwd,gas,26,volkswagen,Golf,a,1993
+525,21,compact car,24,4.0,2.0,fwd,gas,29,volkswagen,Golf,m,1993
+526,18,compact car,21,4.0,2.0,fwd,gas,26,volkswagen,Golf,a,1994
+527,21,compact car,24,4.0,2.0,fwd,gas,29,volkswagen,Golf,m,1994
+528,20,compact car,22,4.0,2.0,fwd,gas,26,volkswagen,Golf,a,1995
+529,18,midsize car,21,4.0,2.0,fwd,gas,26,volkswagen,Passat,a,1993
+530,18,midsize car,22,4.0,2.0,fwd,gas,28,volkswagen,Passat,m,1993
+531,15,midsize car,18,6.0,2.8,fwd,gas,22,volkswagen,Passat,a,1993
+532,17,midsize car,20,6.0,2.8,fwd,gas,25,volkswagen,Passat,m,1993
+533,18,midsize-large station wagon,21,4.0,2.0,fwd,gas,26,volkswagen,Passat,a,1993
+534,19,sport utility vehicle,21,4.0,2.0,fwd,gas,26,volkswagen,Tiguan,m,2009
+535,18,sport utility vehicle,21,4.0,2.0,fwd,gas,24,volkswagen,Tiguan,a,2009
+536,18,sport utility vehicle,20,4.0,2.0,awd,gas,24,volkswagen,Tiguan,a,2009
+537,19,sport utility vehicle,21,4.0,2.0,fwd,gas,26,volkswagen,Tiguan,m,2010
+538,18,sport utility vehicle,21,4.0,2.0,fwd,gas,24,volkswagen,Tiguan,a,2010
+539,18,compact car,21,4.0,2.0,fwd,gas,26,volkswagen,Jetta,a,1993
+540,20,compact car,23,4.0,2.0,fwd,gas,28,volkswagen,Jetta,m,1993
+541,18,compact car,21,4.0,2.0,fwd,gas,25,volkswagen,Jetta,a,1994
+542,21,compact car,23,4.0,2.0,fwd,gas,28,volkswagen,Jetta,m,1994
+543,16,compact car,19,6.0,2.8,fwd,gas,23,volkswagen,Jetta,m,1994
+544,22,large car,25,4.0,2.0,fwd,gas,31,volkswagen,Arteon,a,2019
+545,20,large car,23,4.0,2.0,awd,gas,27,volkswagen,Arteon,a,2019
+546,22,large car,25,4.0,2.0,fwd,gas,29,volkswagen,Arteon,a,2020
+547,20,large car,23,4.0,2.0,awd,gas,29,volkswagen,Arteon,a,2020
+548,20,large car,24,4.0,2.0,awd,gas,31,volkswagen,Arteon,a,2021
+549,18,small sport utility vehicle,20,6.0,3.6,fwd,gas,25,volkswagen,Atlas,a,2018
+550,17,small sport utility vehicle,19,6.0,3.6,awd,gas,23,volkswagen,Atlas,a,2018
+551,22,small sport utility vehicle,24,4.0,2.0,fwd,gas,26,volkswagen,Atlas,a,2018
+552,17,small sport utility vehicle,19,6.0,3.6,fwd,gas,24,volkswagen,Atlas,a,2019
+553,17,standard sport utility vehicle,19,6.0,3.6,awd,gas,23,volkswagen,Atlas,a,2019
+554,29,subcompact car,33,4.0,1.9,fwd,diesel,39,volkswagen,Beetle,a,1998
+555,34,subcompact car,38,4.0,1.9,fwd,diesel,43,volkswagen,Beetle,m,1998
+556,19,subcompact car,21,4.0,2.0,fwd,gas,24,volkswagen,Beetle,a,1998
+557,20,subcompact car,23,4.0,2.0,fwd,gas,27,volkswagen,Beetle,m,1998
+558,29,subcompact car,33,4.0,1.9,fwd,diesel,40,volkswagen,Beetle,a,1999
+559,104,small sport utility vehicle,97,,,rwd,electricity,89,volkswagen,ID.4,a,2021
+560,104,small sport utility vehicle,97,,,rwd,electricity,89,volkswagen,ID.4,a,2021
+561,107,small sport utility vehicle,99,,,rwd,electricity,91,volkswagen,ID.4,a,2021
+562,102,small sport utility vehicle,97,,,awd,electricity,90,volkswagen,ID.4,a,2021
+563,98,small sport utility vehicle,93,,,awd,electricity,88,volkswagen,ID.4,a,2021
+564,126,compact car,116,,,fwd,electricity,105,volkswagen,e-Golf,a,2015
+565,126,compact car,116,,,fwd,electricity,105,volkswagen,e-Golf,a,2016
+566,126,compact car,119,,,fwd,electricity,111,volkswagen,e-Golf,a,2017
+567,126,compact car,119,,,fwd,electricity,111,volkswagen,e-Golf,a,2018
+568,126,compact car,119,,,fwd,electricity,111,volkswagen,e-Golf,a,2019
+569,20,sport utility vehicle,21,6.0,3.0,awd,gas,24,volkswagen,Touareg Hybrid,a,2011
+570,20,sport utility vehicle,21,6.0,3.0,awd,gas,24,volkswagen,Touareg Hybrid,a,2012
+571,20,standard sport utility vehicle,21,6.0,3.0,awd,gas,24,volkswagen,Touareg Hybrid,a,2013
+572,20,standard sport utility vehicle,21,6.0,3.0,awd,gas,24,volkswagen,Touareg Hybrid,a,2014
+573,20,standard sport utility vehicle,21,6.0,3.0,awd,gas,24,volkswagen,Touareg Hybrid,a,2015
+574,18,midsize car,20,4.0,2.0,fwd,gas,25,hyundai,Sonata,a,1993
+575,18,midsize car,20,4.0,2.0,fwd,gas,24,hyundai,Sonata,m,1993
+576,16,midsize car,18,6.0,3.0,fwd,gas,22,hyundai,Sonata,a,1993
+577,18,midsize car,21,4.0,2.0,fwd,gas,25,hyundai,Sonata,a,1994
+578,18,midsize car,20,4.0,2.0,fwd,gas,24,hyundai,Sonata,m,1994
+579,19,compact car,22,4.0,1.6,fwd,gas,26,hyundai,Elantra,m,1994
+580,20,compact car,22,4.0,1.8,fwd,gas,26,hyundai,Elantra,a,1994
+581,19,compact car,21,4.0,1.8,fwd,gas,26,hyundai,Elantra,m,1994
+582,19,compact car,22,4.0,1.6,fwd,gas,27,hyundai,Elantra,m,1995
+583,19,compact car,22,4.0,1.8,fwd,gas,26,hyundai,Elantra,a,1995
+584,19,sport utility vehicle,22,4.0,2.0,fwd,gas,25,hyundai,Tucson,a,2005
+585,20,sport utility vehicle,22,4.0,2.0,fwd,gas,25,hyundai,Tucson,m,2005
+586,18,sport utility vehicle,20,6.0,2.7,fwd,gas,24,hyundai,Tucson,a,2005
+587,19,sport utility vehicle,21,4.0,2.0,awd,gas,24,hyundai,Tucson,m,2005
+588,17,sport utility vehicle,19,6.0,2.7,awd,gas,23,hyundai,Tucson,a,2005
+589,18,sport utility vehicle,20,4.0,2.4,fwd,gas,25,hyundai,Santa Fe,a,2001
+590,19,sport utility vehicle,21,4.0,2.4,fwd,gas,26,hyundai,Santa Fe,m,2001
+591,17,sport utility vehicle,20,6.0,2.7,fwd,gas,24,hyundai,Santa Fe,a,2001
+592,17,sport utility vehicle,18,6.0,2.7,awd,gas,21,hyundai,Santa Fe,a,2001
+593,17,sport utility vehicle,20,4.0,2.4,fwd,gas,24,hyundai,Santa Fe,a,2002
+594,28,small sport utility vehicle,30,4.0,1.6,fwd,gas,32,hyundai,Kona,a,2018
+595,27,small sport utility vehicle,30,4.0,2.0,fwd,gas,33,hyundai,Kona,a,2018
+596,26,small sport utility vehicle,27,4.0,1.6,awd,gas,29,hyundai,Kona,a,2018
+597,25,small sport utility vehicle,27,4.0,2.0,awd,gas,30,hyundai,Kona,a,2018
+598,28,small sport utility vehicle,30,4.0,1.6,fwd,gas,32,hyundai,Kona,a,2019
+599,27,compact car,31,4.0,1.6,fwd,gas,37,hyundai,Veloster,m,2012
+600,27,compact car,30,4.0,1.6,fwd,gas,35,hyundai,Veloster,a,2012
+601,28,compact car,31,4.0,1.6,fwd,gas,37,hyundai,Veloster,a,2013
+602,27,compact car,31,4.0,1.6,fwd,gas,37,hyundai,Veloster,m,2013
+603,24,compact car,27,4.0,1.6,fwd,gas,31,hyundai,Veloster,a,2013
+604,150,midsize car,136,,,fwd,electricity,122,hyundai,Ioniq,a,2017
+605,55,large car,55,4.0,1.6,fwd,gas,54,hyundai,Ioniq,a,2017
+606,57,large car,58,4.0,1.6,fwd,gas,59,hyundai,Ioniq,a,2017
+607,57,large car,58,4.0,1.6,fwd,gas,59,hyundai,Ioniq,a,2018
+608,55,large car,55,4.0,1.6,fwd,gas,54,hyundai,Ioniq,a,2018
+609,19,standard sport utility vehicle,21,6.0,3.8,awd,gas,24,hyundai,Palisade,a,2020
+610,19,standard sport utility vehicle,22,6.0,3.8,fwd,gas,26,hyundai,Palisade,a,2020
+611,19,standard sport utility vehicle,22,6.0,3.8,fwd,gas,26,hyundai,Palisade,a,2021
+612,19,standard sport utility vehicle,21,6.0,3.8,awd,gas,24,hyundai,Palisade,a,2021
+613,19,standard sport utility vehicle,22,6.0,3.8,fwd,gas,26,hyundai,Palisade,a,2022
+614,132,small sport utility vehicle,120,,,fwd,electricity,108,hyundai,Kona Electric,a,2019
+615,132,small sport utility vehicle,120,,,fwd,electricity,108,hyundai,Kona Electric,a,2020
+616,132,small sport utility vehicle,120,,,fwd,electricity,108,hyundai,Kona Electric,a,2021
+617,132,small sport utility vehicle,120,,,fwd,electricity,108,hyundai,Kona Electric,a,2022
+618,134,small sport utility vehicle,120,,,fwd,electricity,106,hyundai,Kona Electric,a,2023
+619,150,midsize car,136,,,fwd,electricity,122,hyundai,Ioniq Electric,a,2017
+620,150,midsize car,136,,,fwd,electricity,122,hyundai,Ioniq Electric,a,2018
+621,150,midsize car,136,,,fwd,electricity,122,hyundai,Ioniq Electric,a,2019
+622,145,midsize car,133,,,fwd,electricity,121,hyundai,Ioniq Electric,a,2020
+623,145,midsize car,133,,,fwd,electricity,121,hyundai,Ioniq Electric,a,2021
+624,35,small sport utility vehicle,35,4.0,1.6,awd,gas,35,hyundai,Tucson Plug-In Hybrid,a,2022
+625,14,sport utility vehicle,15,6.0,3.5,rwd,gas,18,kia,Sorento,a,2003
+626,13,sport utility vehicle,15,6.0,3.5,awd,gas,17,kia,Sorento,a,2003
+627,14,sport utility vehicle,16,6.0,3.5,rwd,gas,18,kia,Sorento,a,2004
+628,14,sport utility vehicle,16,6.0,3.5,rwd,gas,18,kia,Sorento,m,2004
+629,14,sport utility vehicle,15,6.0,3.5,awd,gas,18,kia,Sorento,a,2004
+630,18,midsize car,20,4.0,2.4,fwd,gas,24,kia,Optima,a,2001
+631,19,midsize car,21,4.0,2.4,fwd,gas,26,kia,Optima,m,2001
+632,17,midsize car,19,6.0,2.5,fwd,gas,23,kia,Optima,a,2001
+633,18,midsize car,21,6.0,2.5,fwd,gas,24,kia,Optima,m,2001
+634,18,midsize car,20,4.0,2.4,fwd,gas,24,kia,Optima,a,2002
+635,17,special purpose vehicle,19,4.0,2.0,rwd,gas,21,kia,Sportage,m,1995
+636,16,special purpose vehicle,18,4.0,2.0,awd,gas,20,kia,Sportage,a,1995
+637,18,special purpose vehicle,19,4.0,2.0,awd,gas,22,kia,Sportage,m,1995
+638,17,special purpose vehicle,18,4.0,2.0,awd,gas,20,kia,Sportage,m,1995
+639,17,special purpose vehicle,19,4.0,2.0,rwd,gas,22,kia,Sportage,m,1996
+640,26,small station wagon,28,4.0,1.6,fwd,gas,31,kia,Soul,a,2010
+641,26,small station wagon,28,4.0,1.6,fwd,gas,31,kia,Soul,m,2010
+642,24,small station wagon,26,4.0,2.0,fwd,gas,30,kia,Soul,a,2010
+643,24,small station wagon,26,4.0,2.0,fwd,gas,30,kia,Soul,m,2010
+644,25,small station wagon,27,4.0,1.6,fwd,gas,30,kia,Soul,a,2011
+645,27,compact car,30,4.0,2.0,fwd,gas,36,kia,Forte,a,2010
+646,25,compact car,28,4.0,2.0,fwd,gas,34,kia,Forte,a,2010
+647,25,compact car,28,4.0,2.0,fwd,gas,34,kia,Forte,m,2010
+648,23,compact car,26,4.0,2.4,fwd,gas,31,kia,Forte,a,2010
+649,22,compact car,26,4.0,2.4,fwd,gas,32,kia,Forte,m,2010
+650,20,small sport utility vehicle,23,6.0,3.8,fwd,gas,26,kia,Telluride,a,2020
+651,19,small sport utility vehicle,21,6.0,3.8,awd,gas,24,kia,Telluride,a,2020
+652,20,small sport utility vehicle,23,6.0,3.8,fwd,gas,26,kia,Telluride,a,2021
+653,19,small sport utility vehicle,21,6.0,3.8,awd,gas,24,kia,Telluride,a,2021
+654,20,small sport utility vehicle,23,6.0,3.8,fwd,gas,26,kia,Telluride,a,2022
+655,17,midsize car,20,6.0,3.3,awd,gas,25,kia,Stinger,a,2018
+656,17,midsize car,20,6.0,3.3,rwd,gas,25,kia,Stinger,a,2018
+657,21,midsize car,24,4.0,2.0,awd,gas,29,kia,Stinger,a,2018
+658,22,midsize car,25,4.0,2.0,rwd,gas,29,kia,Stinger,a,2018
+659,21,midsize car,24,4.0,2.0,awd,gas,29,kia,Stinger,a,2019
+660,51,small station wagon,49,4.0,1.6,fwd,gas,46,kia,Niro,a,2017
+661,46,small station wagon,43,4.0,1.6,fwd,gas,40,kia,Niro,a,2017
+662,52,small station wagon,50,4.0,1.6,fwd,gas,49,kia,Niro,a,2017
+663,51,small station wagon,49,4.0,1.6,fwd,gas,46,kia,Niro,a,2018
+664,52,small station wagon,50,4.0,1.6,fwd,gas,49,kia,Niro,a,2018
+665,35,small sport utility vehicle,34,4.0,1.6,awd,gas,33,kia,Sorento Plug-In Hybrid,a,2022
+666,20,two seater,22,4.0,1.8,rwd,gas,26,mazda,MX-5,a,1994
+667,19,two seater,21,4.0,1.8,rwd,gas,25,mazda,MX-5,m,1994
+668,19,two seater,22,4.0,1.8,rwd,gas,26,mazda,MX-5,a,1995
+669,21,two seater,23,4.0,1.8,rwd,gas,27,mazda,MX-5,m,1995
+670,19,two seater,22,4.0,1.8,rwd,gas,26,mazda,MX-5,a,1996
+671,25,small sport utility vehicle,27,4.0,2.0,4wd,gas,30,mazda,CX-5,a,2013
+672,26,small sport utility vehicle,28,4.0,2.0,fwd,gas,32,mazda,CX-5,a,2013
+673,26,small sport utility vehicle,29,4.0,2.0,fwd,gas,34,mazda,CX-5,m,2013
+674,25,small sport utility vehicle,27,4.0,2.5,fwd,gas,31,mazda,CX-5,a,2014
+675,26,small sport utility vehicle,29,4.0,2.0,fwd,gas,34,mazda,CX-5,m,2014
+676,25,small sport utility vehicle,28,4.0,2.5,fwd,gas,33,mazda,CX-30,a,2020
+677,25,small sport utility vehicle,28,4.0,2.5,fwd,gas,33,mazda,CX-30,a,2020
+678,24,small sport utility vehicle,26,4.0,2.5,4wd,gas,31,mazda,CX-30,a,2020
+679,25,small sport utility vehicle,27,4.0,2.5,4wd,gas,32,mazda,CX-30,a,2020
+680,25,small sport utility vehicle,28,4.0,2.5,fwd,gas,33,mazda,CX-30,a,2021
+681,19,compact car,21,4.0,2.5,awd,gas,25,subaru,Outback,a,2002
+682,17,compact car,20,6.0,3.0,awd,gas,24,subaru,Outback,a,2002
+683,19,midsize station wagon,21,4.0,2.5,awd,gas,25,subaru,Outback,a,2002
+684,19,midsize station wagon,21,4.0,2.5,awd,gas,25,subaru,Outback,m,2002
+685,17,midsize station wagon,20,6.0,3.0,awd,gas,24,subaru,Outback,a,2002
+686,18,special purpose vehicle,20,4.0,2.5,awd,gas,24,subaru,Forester,a,1998
+687,19,special purpose vehicle,21,4.0,2.5,awd,gas,25,subaru,Forester,m,1998
+688,18,sport utility vehicle,20,4.0,2.5,awd,gas,24,subaru,Forester,a,1999
+689,19,sport utility vehicle,21,4.0,2.5,awd,gas,25,subaru,Forester,m,1999
+690,19,sport utility vehicle,21,4.0,2.5,awd,gas,25,subaru,Forester,a,2000
+691,21,subcompact car,23,4.0,1.8,fwd,gas,27,subaru,Impreza,a,1994
+692,22,subcompact car,24,4.0,1.8,fwd,gas,29,subaru,Impreza,m,1994
+693,19,subcompact car,22,4.0,1.8,awd,gas,26,subaru,Impreza,a,1994
+694,21,subcompact car,23,4.0,1.8,awd,gas,26,subaru,Impreza,m,1994
+695,21,small station wagon,23,4.0,1.8,fwd,gas,27,subaru,Impreza,a,1994
+696,24,minicompact car,28,4.0,2.0,rwd,gas,33,subaru,BRZ,a,2013
+697,21,minicompact car,24,4.0,2.0,rwd,gas,29,subaru,BRZ,m,2013
+698,21,minicompact car,24,4.0,2.0,rwd,gas,29,subaru,BRZ,m,2014
+699,24,minicompact car,28,4.0,2.0,rwd,gas,33,subaru,BRZ,a,2014
+700,21,minicompact car,24,4.0,2.0,rwd,gas,29,subaru,BRZ,m,2015
+701,21,standard sport utility vehicle,23,4.0,2.4,awd,gas,27,subaru,Ascent,a,2019
+702,20,standard sport utility vehicle,22,4.0,2.4,awd,gas,26,subaru,Ascent,a,2019
+703,21,standard sport utility vehicle,23,4.0,2.4,awd,gas,27,subaru,Ascent,a,2020
+704,20,standard sport utility vehicle,22,4.0,2.4,awd,gas,26,subaru,Ascent,a,2020
+705,21,standard sport utility vehicle,23,4.0,2.4,awd,gas,27,subaru,Ascent,a,2021
+706,92,small sport utility vehicle,85,,,awd,electricity,79,volvo,XC40 Recharge,a,2022
+707,92,small sport utility vehicle,85,,,awd,electricity,79,volvo,XC40 Recharge,a,2023
+708,92,small sport utility vehicle,85,,,awd,electricity,79,volvo,C40 Recharge,a,2022
+709,94,small sport utility vehicle,87,,,awd,electricity,80,volvo,C40 Recharge,a,2022
+710,94,small sport utility vehicle,87,,,awd,electricity,80,volvo,C40 Recharge,a,2023
+711,92,small sport utility vehicle,85,,,awd,electricity,79,volvo,C40 Recharge,a,2023
+712,80,small sport utility vehicle,76,,,4wd,electricity,72,jaguar,I-PACE,a,2019
+713,80,small sport utility vehicle,76,,,4wd,electricity,72,jaguar,I-PACE,a,2020
+714,80,small sport utility vehicle,76,,,4wd,electricity,72,jaguar,I-PACE,a,2021
+715,89,small sport utility vehicle,85,,,4wd,electricity,82,jaguar,I-PACE,a,2023
+716,79,small sport utility vehicle,76,,,4wd,electricity,72,jaguar,I-PACE,a,2023
+717,74,standard pickup truck,70,,,4wd,electricity,66,rivian,R1T,a,2022
+718,73,standard sport utility vehicle,69,,,4wd,electricity,65,rivian,R1S,a,2022

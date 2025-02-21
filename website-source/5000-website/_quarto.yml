@@ -1,0 +1,11 @@
+project:
+  type: website
+
+website:
+  title: DSAN-5000
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+

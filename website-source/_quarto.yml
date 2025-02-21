@@ -1,33 +1,96 @@
 project:
   type: website
-  output-dir: ../docs
 
 website:
-  title: "Project Title"
+  title: Isfar Baset
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Introduction
-      - href: eda.qmd
-        text: EDA
-      # - href: nlp.qmd
-      #   text: NLP
-      # - href: ml.qmd
-      #   text: ML
-      - href: conclusion.qmd
-        text: Conclusion
-      # - href: 
-      #   text: Code
-  page-footer:
-    left: |
-      Content © Enter Name Here <br>
-      Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
-    right: |
-      Made with [R](https://www.r-project.org) and [Quarto](https://quarto.org)<br>
-      [View source on GitHub](https://github.com/anly503/lab-2.1)
+      - text: "EV Insights"
+        file: 5000-website/index.qmd
+      - text: "Airy Tales"
+        file: 5100-website/index.qmd
+      - text: "Temp Talk"
+        file: story-project/index.qmd
+      - text: "Beats & Bytes"
+        file: 5300-website/Group37_Final_Report.qmd
+      - text: "US States Insights"
+        href: "https://isfarbaset.github.io/fall-2024-project-team-29/"
+
+  sidebar:
+    - title: "EV Analysis"
+      contents:
+        - text: Introduction
+          file: 5000-website/index.qmd
+        - text: Code
+          href: https://github.com/anly501/dsan-5000-project-isfarbaset
+        - text: Data
+          contents: 
+            text: Code
+            href: https://github.com/anly501/dsan-5000-project-isfarbaset
+        - text: Data Gathering
+          contents:
+            - text: Yahoo
+              file: 5000-website/data-gathering/yahoo.ipynb
+            - text: Rapid API
+              file: 5000-website/data-gathering/rapid-api.ipynb
+            - text: Cars API
+              file: 5000-website/data-gathering/cars-api.ipynb
+            - text: News API 
+              file: 5000-website/data-gathering/news-api.ipynb
+            - text: Wikipedia 
+              file: 5000-website/data-gathering/wikipedia.ipynb
+        - text: Data Cleaning
+          file: 5000-website/data-cleaning/data_cleaning.ipynb
+        - text: Data Exploration
+          file: 5000-website/eda/eda.ipynb
+        - text: Naïve Bayes
+          file: 5000-website/naive-bayes/naive_bayes.ipynb
+        - text: Dimensionality Reduction
+          file: 5000-website/dim-reduction/dim-reduction.ipynb
+        - text: Clustering
+          file: 5000-website/clustering/clustering.ipynb
+        - text: Decision Trees
+          file: 5000-website/decision-tree/classification-and-regression.ipynb
+        - text: ARM
+          file: 5000-website/ARM/arm.ipynb
+        - text: Conclusions
+          file: 5000-website/conclusions.ipynb
+    - title: "Fundamentals"
+      contents:
+        - fundamentals.qmd
+    - title: "Reference"
+      contents:
+        - reference.qmd
+    - title: "Airy Tales"
+      contents:
+        - text: Introduction
+          file: 5100-website/index.ipynb
+        - text: Data Collection
+          file: 5100-website/air-quality.ipynb
+        - text: EDA & Hypothesis Testing
+          file: 5100-website/eda/eda.ipynb
+    - title: "Weather or Not"
+      contents:
+        - text: "Temperature Tales 🌡️"
+          file: story-project/index.qmd
+        - text: "Blazing Trends 🔥"
+          file: story-project/temp.qmd
+        - text: "Soil Sizzle 🍂"
+          file: story-project/soil.qmd
+        - text: "Evaporation Station 🌤️"
+          file: story-project/evap.qmd
+        - text: "Raindrops and Vapors 🌧️"
+          file: story-project/ppt.qmd
+        - text: "It's A Wrap 🌿"
+          file: story-project/conclusion.qmd
+    - title: "Beats & Bytes"
+      contents:
+        text: Harmony Through Numbers
+        file: 5300-website/Group37_Final_Report.qmd
 
 format:
   html:
     theme: cosmo
-    css: style.css
     toc: true

@@ -1,1 +1,20 @@
-# Introduction
+---
+title: Projects
+listing: 
+  - id: eda
+    contents: "eda/*.qmd"
+    type: default
+  - id: ev-insights
+    contents: "5000-website/index.qmd"
+    type: default
+---
+
+## EDA
+
+:::{#eda}
+:::
+
+## EV Insights
+
+:::{#ev-insights}
+:::

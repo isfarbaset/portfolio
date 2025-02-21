@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DSAN-5000 - Classification and Regression Decision Trees</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link active" data-scroll-target="#decision-trees">Decision Trees</a></li>
+  <li><a href="#decision-trees-for-classification" id="toc-decision-trees-for-classification" class="nav-link" data-scroll-target="#decision-trees-for-classification">Decision Trees for Classification</a></li>
+  <li><a href="#data-source-text-data-collected-from-wikipedia" id="toc-data-source-text-data-collected-from-wikipedia" class="nav-link" data-scroll-target="#data-source-text-data-collected-from-wikipedia">Data Source: Text Data Collected from Wikipedia</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
+  <li><a href="#read-and-re-format" id="toc-read-and-re-format" class="nav-link" data-scroll-target="#read-and-re-format">Read and re-format</a></li>
+  <li><a href="#vectorize-the-text-data" id="toc-vectorize-the-text-data" class="nav-link" data-scroll-target="#vectorize-the-text-data">Vectorize the text data</a></li>
+  <li><a href="#partition-data" id="toc-partition-data" class="nav-link" data-scroll-target="#partition-data">Partition Data</a></li>
+  <li><a href="#utility-function" id="toc-utility-function" class="nav-link" data-scroll-target="#utility-function">Utility function</a></li>
+  <li><a href="#class-distribution" id="toc-class-distribution" class="nav-link" data-scroll-target="#class-distribution">Class Distribution</a></li>
+  </ul></li>
+  <li><a href="#baseline-model-for-comparison" id="toc-baseline-model-for-comparison" class="nav-link" data-scroll-target="#baseline-model-for-comparison">Baseline model for Comparison</a>
+  <ul class="collapse">
+  <li><a href="#final-results-of-baseline-model" id="toc-final-results-of-baseline-model" class="nav-link" data-scroll-target="#final-results-of-baseline-model"><strong>Final Results of Baseline Model:</strong></a></li>
+  </ul></li>
+  <li><a href="#classification-model-1-decision-tree-classifier" id="toc-classification-model-1-decision-tree-classifier" class="nav-link" data-scroll-target="#classification-model-1-decision-tree-classifier">Classification model-1: Decision Tree Classifier</a>
+  <ul class="collapse">
+  <li><a href="#final-results-for-decision-tree" id="toc-final-results-for-decision-tree" class="nav-link" data-scroll-target="#final-results-for-decision-tree"><strong>Final results for Decision Tree</strong></a></li>
+  <li><a href="#feature-selection" id="toc-feature-selection" class="nav-link" data-scroll-target="#feature-selection">Feature Selection</a></li>
+  <li><a href="#final-results-for-tuned-decision-tree" id="toc-final-results-for-tuned-decision-tree" class="nav-link" data-scroll-target="#final-results-for-tuned-decision-tree"><strong>Final results for Tuned Decision Tree</strong></a></li>
+  <li><a href="#tree-diagram" id="toc-tree-diagram" class="nav-link" data-scroll-target="#tree-diagram">Tree Diagram:</a></li>
+  <li><a href="#classification-model-2-random-forest" id="toc-classification-model-2-random-forest" class="nav-link" data-scroll-target="#classification-model-2-random-forest">Classification model-2: Random Forest</a>
+  <ul class="collapse">
+  <li><a href="#final-results-of-random-forest" id="toc-final-results-of-random-forest" class="nav-link" data-scroll-target="#final-results-of-random-forest"><strong>Final results of Random Forest</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#decision-trees-for-regression" id="toc-decision-trees-for-regression" class="nav-link" data-scroll-target="#decision-trees-for-regression">Decision Trees for Regression</a>
+  <ul class="collapse">
+  <li><a href="#regression-model-decision-tree-regression" id="toc-regression-model-decision-tree-regression" class="nav-link" data-scroll-target="#regression-model-decision-tree-regression">Regression model: Decision Tree Regression</a>
+  <ul class="collapse">
+  <li><a href="#model-tuning" id="toc-model-tuning" class="nav-link" data-scroll-target="#model-tuning">Model tuning</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#re-train-with-optimal-parameter" id="toc-re-train-with-optimal-parameter" class="nav-link" data-scroll-target="#re-train-with-optimal-parameter">Re-train with Optimal Parameter</a>
+  <ul class="collapse">
+  <li><a href="#final-results-of-regression-decision-tree" id="toc-final-results-of-regression-decision-tree" class="nav-link" data-scroll-target="#final-results-of-regression-decision-tree"><strong>Final results of Regression Decision Tree</strong></a></li>
+  </ul></li>
+  <li><a href="#conclusions-and-highlights" id="toc-conclusions-and-highlights" class="nav-link" data-scroll-target="#conclusions-and-highlights">Conclusions and Highlights</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Classification and Regression Decision Trees</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="decision-trees" class="level1">
+<h1>Decision Trees</h1>
+<p>Decision trees are supervised machine learning algorithms. Supervised learning involves building models that learn from a labeled dataset, where the model is trained on pairs of inputs and their corresponding outputs. The algorithm learns a functional mapping between these inputs and outputs. For instance, if we consider a dataset as a group of neighbors, when a new data point (resident) is introduced into the neighborhood, a decision tree can be used to infer its characteristics based on the features of its settling ‘location’.</p>
+<p>There are two main types of tasks that decision trees can be used for:</p>
+<p><strong>Classification:</strong> This is a qualitative and categorical approach where the model is trained to identify known categories within the data. When a new data point is introduced, the decision tree assigns it to one of the predefined categories.</p>
+<p><strong>Regression:</strong> This is a quantitative approach where the model performs curve fitting based on continuous numerical variables. In regression, the decision tree predicts a continuous value for the new data point.</p>
+<p>The image below summarizes the concept of decision trees in a very pragmatic manner which makes the higher level concept easier to undertsand:</p>
+<p><img src="Screenshot 2023-11-30 at 8.28.38 PM.png" class="img-fluid"></p>
+<p>image source: https://www.datacamp.com/tutorial/decision-tree-classification-python</p>
+</section>
+<section id="decision-trees-for-classification" class="level1">
+<h1>Decision Trees for Classification</h1>
+<p>In this section of the project, I focus on classifying text data extracted from Wikipedia to analyze the context in which different types of automobiles are mentioned. During the EDA phase, web scraping was performed to collect this data. It was then stored in a DataFrame, with two main fields: ‘label’ and ‘sentiment’. The ‘label’ field categorizes the text into three types of vehicles: ‘electric vehicles’, ‘gasoline vehicles’, and ‘hybrid vehicles’. The ‘sentiment’ field, ranging from -1 to 1, quantifies the sentiment expressed in the text. Given the dataset containing all the scraped text from the Wikipedia source, we can train a model that can classify a piece of text to determine if it’s about electric, gas or hybrid model vehicles.</p>
+</section>
+<section id="data-source-text-data-collected-from-wikipedia" class="level1">
+<h1>Data Source: Text Data Collected from Wikipedia</h1>
+<div class="cell" data-execution_count="98">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#RELOAD FILE AND PRETEND THAT IS OUR STARTING POINT </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'../eda/ev-wiki-crawl-results.csv'</span>)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1225, 3)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="99">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="99">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">text</th>
+<th data-quarto-table-cell-role="th">label</th>
+<th data-quarto-table-cell-role="th">sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>electric motive power started 1827 hungarian p...</td>
+<td>electric vehicle</td>
+<td>-0.7506</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>first mass produced appeared america early 190...</td>
+<td>electric vehicle</td>
+<td>0.9201</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>20th century uk world largest user electric ro...</td>
+<td>electric vehicle</td>
+<td>0.7096</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1900 28 percent car road electric ev popular e...</td>
+<td>electric vehicle</td>
+<td>0.9169</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>seldom marketed woman luxury car may stigma am...</td>
+<td>electric vehicle</td>
+<td>0.9231</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<p>I plan to implement various decision tree algorithms on the collected text data:</p>
+<ul>
+<li><p>Baseline Random Classifier: As a starting point, I’ll use a baseline random classifier. This method involves no learning algorithm and randomly classifies the data, serving as a benchmark for comparison.</p></li>
+<li><p>Decision Tree Classification (using sklearn’s DecisionTreeClassifier): This step involves using a Decision Tree Classifier to categorize the texts into different vehicle types.</p></li>
+<li><p>Random Forest Classification: Here, I will employ sklearn’s RandomForestClassifier. This will help us compare its performance against the simple decision tree to observe any improvements.</p></li>
+<li><p>Decision Tree Regression: Lastly, Decision Tree Regression will be applied, not for classification, but to analyze the sentiment scores associated with the text data, quantifying how positive or negative the sentiments are.</p></li>
+</ul>
+<section id="import" class="level3">
+<h3 class="anchored" data-anchor-id="import">Import</h3>
+<div class="cell" data-execution_count="100">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="read-and-re-format" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-re-format">Read and re-format</h3>
+<div class="cell" data-execution_count="101">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#CONVERT FROM STRING LABELS TO INTEGERS </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[]<span class="op">;</span> <span class="co">#y1=[]; y2=[]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y1<span class="op">=</span>[]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label <span class="kw">in</span> df[<span class="st">"label"</span>]:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">not</span> <span class="kw">in</span> labels:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        labels.append(label)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"index ="</span>,<span class="bu">len</span>(labels)<span class="op">-</span><span class="dv">1</span>,<span class="st">": label ="</span>,label)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(labels)):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(label<span class="op">==</span>labels[i]):</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            y1.append(i)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>y1<span class="op">=</span>np.array(y1)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># CONVERT DF TO LIST OF STRINGS </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>corpus<span class="op">=</span>df[<span class="st">"text"</span>].to_list()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>y2<span class="op">=</span>df[<span class="st">"sentiment"</span>].to_numpy()</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"number of text chunks = "</span>,<span class="bu">len</span>(corpus))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(corpus[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>index = 0 : label = electric vehicle
+index = 1 : label = gasoline vehicle
+index = 2 : label = hybrid vehicle
+number of text chunks =  1225
+['electric motive power started 1827 hungarian priest nyos jedlik built first crude viable electric motor used stator rotor commutator next year used power small car 1835 professor sibrandus stratingh university groningen netherlands built small scale electric car sometime 1832 1839 robert anderson scotland invented first crude electric carriage powered non rechargeable primary cell american blacksmith inventor thomas davenport built toy electric locomotive powered primitive electric motor 1835 1838 scotsman named robert davidson built electric locomotive attained speed four mile per hour km england patent granted 1840 use rail conductor electric current similar american patent issued lilley colten 1847', 'first mass produced appeared america early 1900s 1902 studebaker automobile company entered automotive business though also entered gasoline vehicle market 1904 however advent cheap assembly line car ford motor company popularity electric car declined significantly due lack electricity grid limitation storage battery time electric car gain much popularity however electric train gained immense popularity due economy achievable speed 20th century electric rail transport became commonplace due advance development electric locomotive time general purpose commercial use reduced specialist role platform truck forklift truck ambulance tow tractor urban delivery vehicle iconic british milk float', '20th century uk world largest user electric road vehicle electrified train used coal transport motor use valuable oxygen mine switzerland lack natural fossil resource forced rapid electrification rail network one earliest rechargeable battery nickel iron battery favored edison use electric car ev among earliest automobile preeminence light powerful internal combustion engine ice electric automobile held many vehicle land speed distance record early 1900s produced baker electric columbia electric detroit electric others one point history outsold gasoline powered vehicle']</code></pre>
+</div>
+</div>
+</section>
+<section id="vectorize-the-text-data" class="level3">
+<h3 class="anchored" data-anchor-id="vectorize-the-text-data">Vectorize the text data</h3>
+<div class="cell" data-execution_count="102">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># INITIALIZE COUNT VECTORIZER</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># minDF = 0.01 means "ignore terms that appear in less than 1% of the documents". </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># minDF = 5 means "ignore terms that appear in less than 5 documents".</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>vectorizer<span class="op">=</span>CountVectorizer(min_df<span class="op">=</span><span class="fl">0.0001</span>)   </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># RUN COUNT VECTORIZER ON OUR COURPUS </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>Xs  <span class="op">=</span>  vectorizer.fit_transform(corpus)   </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>np.array(Xs.todense())</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#CONVERT TO ONE-HOT VECTORS</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>maxs<span class="op">=</span>np.<span class="bu">max</span>(X,axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>np.ceil(X<span class="op">/</span>maxs)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># DOUBLE CHECK </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape,y1.shape,y2.shape)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DATA POINT-0:"</span>,X[<span class="dv">0</span>,<span class="dv">0</span>:<span class="dv">10</span>],<span class="st">"y1 ="</span>,y1[<span class="dv">0</span>],<span class="st">"  y2 ="</span>,y2[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1225, 8233) (1225,) (1225,)
+DATA POINT-0: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.] y1 = 0   y2 = -0.7506</code></pre>
+</div>
+</div>
+</section>
+<section id="partition-data" class="level3">
+<h3 class="anchored" data-anchor-id="partition-data">Partition Data</h3>
+<ul>
+<li><p>Break data into an 80-20 training/test set</p></li>
+<li><p>As a sanity check, reprint the shapes to make sure everything is correct</p></li>
+</ul>
+<div class="cell" data-execution_count="103">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#INSERT CODE TO PARTITION DATASET INTO TRAINING-</span><span class="al">TEST</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>test_ratio<span class="op">=</span><span class="fl">0.2</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(X, y1, test_size<span class="op">=</span>test_ratio, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>y_train<span class="op">=</span>y_train.flatten()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>y_test<span class="op">=</span>y_test.flatten()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x_train.shape        :"</span>,x_train.shape)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"y_train.shape        :"</span>,y_train.shape)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"X_test.shape     :"</span>,x_test.shape)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"y_test.shape     :"</span>,y_test.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>x_train.shape       : (980, 8233)
+y_train.shape       : (980,)
+X_test.shape        : (245, 8233)
+y_test.shape        : (245,)</code></pre>
+</div>
+</div>
+</section>
+<section id="utility-function" class="level3">
+<h3 class="anchored" data-anchor-id="utility-function">Utility function</h3>
+<ul>
+<li>Write a function to report accuracy</li>
+<li>Note this will act on object stored in pythons global scope. Therefore as long as everything is named the same you can recycle it for multiple models</li>
+</ul>
+<div class="cell" data-execution_count="104">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report(y,ypred):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">#ACCURACY COMPUTE </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"Accuracy:"</span>,accuracy_score(y, ypred)<span class="op">*</span><span class="dv">100</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"Number of mislabeled points out of a total </span><span class="sc">%d</span><span class="st"> points = </span><span class="sc">%d</span><span class="st">"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="op">%</span> (y.shape[<span class="dv">0</span>], (y <span class="op">!=</span> ypred).<span class="bu">sum</span>()))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_model_summary():</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      <span class="co"># LABEL PREDICTIONS FOR TRAINING AND </span><span class="al">TEST</span><span class="co"> SET </span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      yp_train <span class="op">=</span> model.predict(x_train)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>      yp_test <span class="op">=</span> model.predict(x_test)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"ACCURACY CALCULATION</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"TRAINING SET:"</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>      report(y_train,yp_train)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">TEST SET (UNTRAINED DATA):"</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>      report(y_test,yp_test)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">CHECK FIRST 20 PREDICTIONS"</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"TRAINING SET:"</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(y_train[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(yp_train[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"ERRORS:"</span>,yp_train[<span class="dv">0</span>:<span class="dv">20</span>]<span class="op">-</span>y_train[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">TEST SET (UNTRAINED DATA):"</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(y_test[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(yp_test[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"ERRORS:"</span>,yp_test[<span class="dv">0</span>:<span class="dv">20</span>]<span class="op">-</span>y_test[<span class="dv">0</span>:<span class="dv">20</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="class-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="class-distribution">Class Distribution</h2>
+<p>Here we are interested to see the state of the distribution of the labels before any type of training is performed. We are seeking to understand how the data we are working with is spread out. This helps us understand which labels exist more than others and level sets an expectation for the output of the learning.</p>
+<div class="cell" data-execution_count="105">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code ref: https://stackoverflow.com/questions/61612198/how-can-i-use-a-probability-distribution-in-python-class</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels for the classes</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> {<span class="dv">0</span>: <span class="st">'electric vehicle'</span>, <span class="dv">1</span>: <span class="st">'gasoline vehicle'</span>, <span class="dv">2</span>: <span class="st">'hybrid vehicle'</span>}</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># y_train is a numpy array</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>unique_classes, counts <span class="op">=</span> np.unique(y_train, return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the proportions</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>proportions <span class="op">=</span> counts <span class="op">/</span> <span class="bu">len</span>(y_train)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results with labels</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> unique_class, count <span class="kw">in</span> <span class="bu">zip</span>(unique_classes, counts):</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> labels[unique_class]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Number of points with target=</span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>count<span class="op">/</span><span class="bu">len</span>(y_train)<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the dominant class</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>dominant_class_index <span class="op">=</span> np.argmax(counts)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>dominant_class_label <span class="op">=</span> labels[unique_classes[dominant_class_index]]</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The dominant class is:"</span>, dominant_class_label)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> count<span class="op">/</span><span class="bu">len</span>(y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of points with target=electric vehicle: 354 (0.36)
+Number of points with target=gasoline vehicle: 353 (0.36)
+Number of points with target=hybrid vehicle: 273 (0.28)
+The dominant class is: electric vehicle</code></pre>
+</div>
+</div>
+<p>Based on the label distribution, we can infer that the dataset is fairly well-balanced, which should benefit the classification algorithm’s performance. The counts of electric and gasoline vehicles are almost equal, with electric vehicles marginally more prevalent. However, the hybrid vehicle class being less represented might affect the algorithm’s overall performance, particularly in accurately classifying this category.</p>
+</section>
+</section>
+<section id="baseline-model-for-comparison" class="level1">
+<h1>Baseline model for Comparison</h1>
+<p>The baseline classifier in the code is a random classifier. It assigns labels to the text based on the weighted proportions of each class in the dataset, not through any learned patterns. This method serves as a starting point, providing a basic level of performance to which we can compare the outcomes of more sophisticated learning algorithms.</p>
+<div class="cell" data-execution_count="106">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code ref: https://pynative.com/python-weighted-random-choices-with-probability/</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># code ref: https://www.geeksforgeeks.org/how-to-get-weighted-random-choice-in-python/#</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_recall_fscore_support, confusion_matrix, ConfusionMatrixDisplay</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels for the classes</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> {<span class="dv">0</span>: <span class="st">'electric vehicle'</span>, <span class="dv">1</span>: <span class="st">'gasoline vehicle'</span>, <span class="dv">2</span>: <span class="st">'hybrid vehicle'</span>}</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>class_distribution <span class="op">=</span> {<span class="st">'electric vehicle'</span>: <span class="dv">354</span>, <span class="st">'gasoline vehicle'</span>: <span class="dv">353</span>, <span class="st">'hybrid vehicle'</span>: <span class="dv">273</span>}</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>total_points <span class="op">=</span> <span class="bu">sum</span>(class_distribution.values())</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>class_weights <span class="op">=</span> [count <span class="op">/</span> total_points <span class="cf">for</span> count <span class="kw">in</span> class_distribution.values()]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>class_labels <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(class_distribution)))  </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to generate random predictions based on the class distribution</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_classifier(y_data, class_labels, class_weights):</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> random.choices(class_labels, weights<span class="op">=</span>class_weights, k<span class="op">=</span><span class="bu">len</span>(y_data))</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y_pred</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to print classifier evaluation metrics</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_metrics(y_true, y_pred, class_labels):</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> accuracy_score(y_true, y_pred)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    precision, recall, fscore, _ <span class="op">=</span> precision_recall_fscore_support(y_true, y_pred, average<span class="op">=</span><span class="va">None</span>, labels<span class="op">=</span>class_labels)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Precision:"</span>, precision)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Recall:"</span>, recall)</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"F-score:"</span>, fscore)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot confusion matrix</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_confusion_matrix(y_true, y_pred, class_names):</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    cm <span class="op">=</span> confusion_matrix(y_true, y_pred)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    disp <span class="op">=</span> ConfusionMatrixDisplay(confusion_matrix<span class="op">=</span>cm, display_labels<span class="op">=</span>class_names)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    disp.plot(cmap<span class="op">=</span>plt.cm.Blues)</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random predictions for training and test sets</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>y_random_train_pred <span class="op">=</span> random_classifier(y_train, class_labels, class_weights)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>y_random_test_pred <span class="op">=</span> random_classifier(y_test, class_labels, class_weights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="final-results-of-baseline-model" class="level3">
+<h3 class="anchored" data-anchor-id="final-results-of-baseline-model"><strong>Final Results of Baseline Model:</strong></h3>
+<div class="cell" data-execution_count="107">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the performance of the random classifier</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----RANDOM CLASSIFIER: TRAINING SET-----"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>print_metrics(y_train, y_random_train_pred, class_labels)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting confusion matrices</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----CONFUSION MATRIX: TRAINING SET-----"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_train, y_random_train_pred, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----RANDOM CLASSIFIER: TRAINING SET-----
+Accuracy: 0.3510204081632653
+Precision: [0.37168142 0.36       0.3161512 ]
+Recall: [0.3559322  0.35694051 0.33699634]
+F-score: [0.36363636 0.35846373 0.32624113]
+-----CONFUSION MATRIX: TRAINING SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="108">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----RANDOM CLASSIFIER: TEST SET-----"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, y_random_test_pred, class_labels)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----CONFUSION MATRIX: TEST SET-----"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_test, y_random_test_pred, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----RANDOM CLASSIFIER: TEST SET-----
+Accuracy: 0.2653061224489796
+Precision: [0.24444444 0.31111111 0.23076923]
+Recall: [0.29333333 0.30107527 0.19480519]
+F-score: [0.26666667 0.30601093 0.21126761]
+-----CONFUSION MATRIX: TEST SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="classification-model-1-decision-tree-classifier" class="level1">
+<h1>Classification model-1: Decision Tree Classifier</h1>
+<p>For the first step, we will carry out a simple decision tree to observe how well the labels are predicted</p>
+<div class="cell" data-execution_count="109">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># INITIALIZE MODEL</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier()</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># TRAIN MODEL </span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>model.fit(x_train, y_train)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># PRINT REPORT USING UTILITY FUNCTION ABOVE</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>print_model_summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>ACCURACY CALCULATION
+
+TRAINING SET:
+Accuracy: 79.18367346938776
+Number of mislabeled points out of a total 980 points = 204
+
+TEST SET (UNTRAINED DATA):
+Accuracy: 42.04081632653061
+Number of mislabeled points out of a total 245 points = 142
+
+CHECK FIRST 20 PREDICTIONS
+TRAINING SET:
+[0 1 1 2 1 2 2 1 0 0 1 1 2 0 2 0 1 0 0 2]
+[0 1 1 0 1 1 2 1 0 0 1 1 0 0 0 0 0 0 0 0]
+ERRORS: [ 0  0  0 -2  0 -1  0  0  0  0  0  0 -2  0 -2  0 -1  0  0 -2]
+
+TEST SET (UNTRAINED DATA):
+[2 0 2 0 1 2 2 2 0 1 2 1 0 0 2 0 0 1 2 2]
+[0 1 0 1 1 0 1 1 0 1 0 1 2 0 0 0 1 1 0 0]
+ERRORS: [-2  1 -2  1  0 -2 -1 -1  0  0 -2  0  2  0 -2  0  1  0 -2 -2]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="110">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>yp_train <span class="op">=</span> model.predict(x_train)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>yp_test <span class="op">=</span> model.predict(x_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="final-results-for-decision-tree" class="level3">
+<h3 class="anchored" data-anchor-id="final-results-for-decision-tree"><strong>Final results for Decision Tree</strong></h3>
+<div class="cell" data-execution_count="111">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----DECISION TREE CLASSIFIER: TRAINING SET-----"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_train, yp_train, class_labels)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----CONFUSION MATRIX: TRAINING SET-----"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_train, yp_train, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----DECISION TREE CLASSIFIER: TRAINING SET-----
+Accuracy: 0.7918367346938775
+Precision: [0.67946257 0.88685015 1.        ]
+Recall: [1.         0.82152975 0.48351648]
+F-score: [0.80914286 0.85294118 0.65185185]
+-----CONFUSION MATRIX: TRAINING SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="112">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----DECISION TREE CLASSIFIER: TEST SET-----"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, yp_test, class_labels)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----CONFUSION MATRIX: TEST SET-----"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_test, yp_test, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----DECISION TREE CLASSIFIER: TEST SET-----
+Accuracy: 0.4204081632653061
+Precision: [0.34782609 0.6        0.225     ]
+Recall: [0.53333333 0.58064516 0.11688312]
+F-score: [0.42105263 0.59016393 0.15384615]
+-----CONFUSION MATRIX: TEST SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="feature-selection" class="level3">
+<h3 class="anchored" data-anchor-id="feature-selection">Feature Selection</h3>
+<ul>
+<li>In the Naive Bayes tab, I had carried out feature selection process using the variance threshold method and the optimal number of features was determined to be 200.</li>
+<li>I’m carrying out the decision tree classifier based on that outcome to observe any improvements in performance.</li>
+</ul>
+</section>
+<section id="final-results-for-tuned-decision-tree" class="level3">
+<h3 class="anchored" data-anchor-id="final-results-for-tuned-decision-tree"><strong>Final results for Tuned Decision Tree</strong></h3>
+<div class="cell" data-execution_count="113">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-train:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#### COMPLETE THE CODE BELOW TO TRAIN A SKLEARN DECISION TREE MODEL ON x_train,y_train </span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tree.DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.fit(x_train, y_train)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>yp_train<span class="op">=</span>model.predict(x_train)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>yp_test<span class="op">=</span>model.predict(x_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="114">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TUNED DECISION TREE CLASSIFIER: TRAINING SET-----"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_train, yp_train, class_labels)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TUNED CONFUSION MATRIX: TRAINING SET-----"</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_train, yp_train, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----TUNED DECISION TREE CLASSIFIER: TRAINING SET-----
+Accuracy: 0.7918367346938775
+Precision: [0.67946257 0.88685015 1.        ]
+Recall: [1.         0.82152975 0.48351648]
+F-score: [0.80914286 0.85294118 0.65185185]
+-----TUNED CONFUSION MATRIX: TRAINING SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="115">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TUNED DECISION TREE CLASSIFIER: TEST SET-----"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, yp_test, class_labels)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TUNED CONFUSION MATRIX: TEST SET-----"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_test, yp_test, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----TUNED DECISION TREE CLASSIFIER: TEST SET-----
+Accuracy: 0.4204081632653061
+Precision: [0.34234234 0.60227273 0.26086957]
+Recall: [0.50666667 0.56989247 0.15584416]
+F-score: [0.40860215 0.58563536 0.19512195]
+-----TUNED CONFUSION MATRIX: TEST SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="tree-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="tree-diagram">Tree Diagram:</h3>
+<div class="cell" data-execution_count="116">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">100</span>, <span class="dv">100</span>))</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(model, filled<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="classification-model-2-random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="classification-model-2-random-forest">Classification model-2: Random Forest</h2>
+<p>A more advanced decision tree algorithm (Random Forest) is implemented to observe any performance enhancements from the previous step.</p>
+<div class="cell" data-execution_count="117">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># INITIALIZE MODEL</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier()</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># TRAIN MODEL </span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>model.fit(x_train, y_train)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># PRINT REPORT USING UTILITY FUNCTION ABOVE</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>print_model_summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>ACCURACY CALCULATION
+
+TRAINING SET:
+Accuracy: 79.18367346938776
+Number of mislabeled points out of a total 980 points = 204
+
+TEST SET (UNTRAINED DATA):
+Accuracy: 46.53061224489796
+Number of mislabeled points out of a total 245 points = 131
+
+CHECK FIRST 20 PREDICTIONS
+TRAINING SET:
+[0 1 1 2 1 2 2 1 0 0 1 1 2 0 2 0 1 0 0 2]
+[0 1 2 0 1 2 2 1 0 0 1 1 2 0 2 0 0 0 0 1]
+ERRORS: [ 0  0  1 -2  0  0  0  0  0  0  0  0  0  0  0  0 -1  0  0 -1]
+
+TEST SET (UNTRAINED DATA):
+[2 0 2 0 1 2 2 2 0 1 2 1 0 0 2 0 0 1 2 2]
+[0 1 0 1 1 0 0 1 0 1 0 1 2 0 1 0 0 1 2 0]
+ERRORS: [-2  1 -2  1  0 -2 -2 -1  0  0 -2  0  2  0 -1  0  0  0  0 -2]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="118">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>yp_train <span class="op">=</span> model.predict(x_train)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>yp_test <span class="op">=</span> model.predict(x_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="final-results-of-random-forest" class="level3">
+<h3 class="anchored" data-anchor-id="final-results-of-random-forest"><strong>Final results of Random Forest</strong></h3>
+<div class="cell" data-execution_count="119">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----RANDOM FOREST CLASSIFIER: TRAINING SET-----"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_train, yp_train, class_labels)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----RANDOM FOREST: TRAINING SET-----"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_train, yp_train, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----RANDOM FOREST CLASSIFIER: TRAINING SET-----
+Accuracy: 0.7918367346938775
+Precision: [0.75245098 0.83426966 0.7962963 ]
+Recall: [0.86723164 0.84135977 0.63003663]
+F-score: [0.80577428 0.83779972 0.70347648]
+-----RANDOM FOREST: TRAINING SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="120">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----RANDOM FOREST CLASSIFIER: TEST SET-----"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, yp_test, class_labels)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----CONFUSION MATRIX: TEST SET-----"</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>plot_confusion_matrix(y_test, yp_test, labels.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----RANDOM FOREST CLASSIFIER: TEST SET-----
+Accuracy: 0.46530612244897956
+Precision: [0.39795918 0.66292135 0.27586207]
+Recall: [0.52       0.6344086  0.20779221]
+F-score: [0.45086705 0.64835165 0.23703704]
+-----CONFUSION MATRIX: TEST SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="decision-trees-for-regression" class="level1">
+<h1>Decision Trees for Regression</h1>
+<p>The sentiment scores, ranging from -1 to 1, are useful for regression analysis with models like a decision tree, to understand sentiment trends related to different vehicle types. This analysis is valuable for automobile manufacturers. It can help in allocating resources for inventory, R&amp;D, and marketing, based on the sentiment data gathered from online sources. This way, manufacturers can align their strategies with the consumers’s perception and trends indicated on digital platforms.</p>
+<section id="regression-model-decision-tree-regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression-model-decision-tree-regression">Regression model: Decision Tree Regression</h2>
+<ul>
+<li>fit y2 (sentiment score from -1 to 1) instead of y1 (classes)</li>
+</ul>
+<div class="cell" data-execution_count="121">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>test_ratio<span class="op">=</span><span class="fl">0.2</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(X, y2, test_size<span class="op">=</span>test_ratio, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>y_train<span class="op">=</span>y_train.flatten()</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>y_test<span class="op">=</span>y_test.flatten()</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x_train.shape        :"</span>,x_train.shape)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"y_train.shape        :"</span>,y_train.shape)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"X_test.shape     :"</span>,x_test.shape)</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"y_test.shape     :"</span>,y_test.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>x_train.shape       : (980, 8233)
+y_train.shape       : (980,)
+X_test.shape        : (245, 8233)
+y_test.shape        : (245,)</code></pre>
+</div>
+</div>
+<section id="model-tuning" class="level3">
+<h3 class="anchored" data-anchor-id="model-tuning">Model tuning</h3>
+<ul>
+<li>We can find the optimal max_depth paramter from this step</li>
+</ul>
+<div class="cell" data-execution_count="122">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare lists to store the results of MAE for different depths</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>max_depths <span class="op">=</span> []</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>train_error <span class="op">=</span> []</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>test_error <span class="op">=</span> []</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over max_depth values</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> depth <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">33</span>):  </span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize the DecisionTreeRegressor with the current depth</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> DecisionTreeRegressor(max_depth<span class="op">=</span>depth)</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Train the model on the training data</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    model.fit(x_train, y_train)</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make predictions on both the training and test sets</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    yp_train <span class="op">=</span> model.predict(x_train)</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    yp_test <span class="op">=</span> model.predict(x_test)</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the MAE for both the training and test sets</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>    err_train <span class="op">=</span> mean_absolute_error(y_train, yp_train)</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    err_test <span class="op">=</span> mean_absolute_error(y_test, yp_test)</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the depth and corresponding MAE values in lists</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>    max_depths.append(depth)</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>    train_error.append(err_train)</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>    test_error.append(err_test)</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print the results for this depth</span></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"max_depth = </span><span class="sc">{</span>depth<span class="sc">}</span><span class="ss">: train MAE = </span><span class="sc">{</span>err_train<span class="sc">}</span><span class="ss">, test MAE = </span><span class="sc">{</span>err_test<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the MAE against tree depth</span></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>plt.plot(max_depths, train_error, label<span class="op">=</span><span class="st">'Training Error'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>plt.plot(max_depths, test_error, label<span class="op">=</span><span class="st">'Test Error'</span>, marker<span class="op">=</span><span class="st">'s'</span>)</span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Decision Tree Regressor MAE vs Tree Depth'</span>)</span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Maximum Tree Depth'</span>)</span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mean Absolute Error'</span>)</span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>max_depth = 1: train MAE = 0.37802789659372404, test MAE = 0.37667956658126905
+max_depth = 2: train MAE = 0.36483065270701065, test MAE = 0.3778158341734557
+max_depth = 3: train MAE = 0.34791160696663853, test MAE = 0.3747152427786673
+max_depth = 4: train MAE = 0.33299089908973295, test MAE = 0.35809115136540054
+max_depth = 5: train MAE = 0.3165762999024118, test MAE = 0.3507836345744812
+max_depth = 6: train MAE = 0.30307608835465766, test MAE = 0.35604688067725576
+max_depth = 7: train MAE = 0.2870110952413117, test MAE = 0.35906959232241364
+max_depth = 8: train MAE = 0.27164520108073037, test MAE = 0.35243928181934286
+max_depth = 9: train MAE = 0.2557884599294701, test MAE = 0.3427716615089755
+max_depth = 10: train MAE = 0.24016683732093946, test MAE = 0.3387680314774147
+max_depth = 11: train MAE = 0.2280788458865884, test MAE = 0.33039492978113805
+max_depth = 12: train MAE = 0.2173305357787406, test MAE = 0.31998115627524676
+max_depth = 13: train MAE = 0.2058571547677174, test MAE = 0.31368188490835297
+max_depth = 14: train MAE = 0.19844277297366467, test MAE = 0.3095764841990457
+max_depth = 15: train MAE = 0.1909754766599104, test MAE = 0.30601829486066523
+max_depth = 16: train MAE = 0.17732874462377016, test MAE = 0.30926151591990514
+max_depth = 17: train MAE = 0.1661241131266359, test MAE = 0.297249822476754
+max_depth = 18: train MAE = 0.15496339434222706, test MAE = 0.2896524477304179
+max_depth = 19: train MAE = 0.1461612081760722, test MAE = 0.286733428974952
+max_depth = 20: train MAE = 0.13675809059878025, test MAE = 0.2752070757396265
+max_depth = 21: train MAE = 0.12749758005837994, test MAE = 0.27860259491457146
+max_depth = 22: train MAE = 0.11704547590704215, test MAE = 0.2745737868067137
+max_depth = 23: train MAE = 0.11001769561277626, test MAE = 0.26479823225248156
+max_depth = 24: train MAE = 0.10137320468608818, test MAE = 0.26703124458556327
+max_depth = 25: train MAE = 0.09480656404331814, test MAE = 0.26314708047504015
+max_depth = 26: train MAE = 0.0902363251109938, test MAE = 0.25808292363983515
+max_depth = 27: train MAE = 0.08512440125868737, test MAE = 0.2612204381679343
+max_depth = 28: train MAE = 0.08122117404398292, test MAE = 0.2603488695589683
+max_depth = 29: train MAE = 0.07634287382100458, test MAE = 0.2633075857859296
+max_depth = 30: train MAE = 0.07306051925293142, test MAE = 0.2549292422798067
+max_depth = 31: train MAE = 0.07005340133112985, test MAE = 0.26701824763292964
+max_depth = 32: train MAE = 0.06515929044289452, test MAE = 0.26898387674265084</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="re-train-with-optimal-parameter" class="level1">
+<h1>Re-train with Optimal Parameter</h1>
+<p>Optimal paramter is chosen to be 25 because beyond this point both training and test datapoints seems to be levelling off and reaching a plateau indicating that a greater depth will not reduce the MAE significantly</p>
+<div class="cell" data-execution_count="123">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeRegressor(max_depth<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model on the training data</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>model.fit(x_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<style>#sk-container-id-4 {color: black;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeRegressor(max_depth=25)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeRegressor</label><div class="sk-toggleable__content"><pre>DecisionTreeRegressor(max_depth=25)</pre></div></div></div></div></div>
+</div>
+</div>
+<div class="cell" data-execution_count="124">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># yp_train = model.predict(x_train)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># yp_test = model.predict(x_test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="final-results-of-regression-decision-tree" class="level3">
+<h3 class="anchored" data-anchor-id="final-results-of-regression-decision-tree"><strong>Final results of Regression Decision Tree</strong></h3>
+<div class="cell" data-execution_count="128">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code ref: https://stackoverflow.com/questions/58410187/how-to-plot-predicted-values-vs-the-true-value</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># code ref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot actual vs. predicted values</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_actual_vs_predicted(y_true, y_pred):</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    plt.scatter(y_true, y_pred, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    plt.plot([y_true.<span class="bu">min</span>(), y_true.<span class="bu">max</span>()], [y_true.<span class="bu">min</span>(), y_true.<span class="bu">max</span>()], <span class="st">'--k'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'True'</span>)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Predicted'</span>)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'True vs. Predicted Values'</span>)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Will venture into this later</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="co"># # Function to plot residuals</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="co"># def plot_residuals(y_true, y_pred):</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="co">#     residuals = y_true - y_pred</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.figure(figsize=(10, 6))</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.scatter(y_pred, residuals, alpha=0.3)</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.hlines(y=0, xmin=y_pred.min(), xmax=y_pred.max(), linestyles='dashed')</span></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.xlabel('Predicted')</span></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.ylabel('Residuals')</span></span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.title('Residuals vs. Predicted Values')</span></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="co">#     plt.show()</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions</span></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>yp_train <span class="op">=</span> model.predict(x_train)</span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>yp_test <span class="op">=</span> model.predict(x_test)</span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting for training data</span></span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TRAINING SET-----"</span>)</span>
+<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a>plot_actual_vs_predicted(y_train, yp_train)</span>
+<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_residuals(y_train, yp_train)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----TRAINING SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="129">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting for test data</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-----TEST SET-----"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>plot_actual_vs_predicted(y_test, yp_test)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_residuals(y_test, yp_test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----TEST SET-----</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="classification-and-regression_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusions-and-highlights" class="level1">
+<h1>Conclusions and Highlights</h1>
+<p>In conclusion, let’s take a look at the outputs after each stage of the decision tree process:</p>
+<ol type="1">
+<li><p><strong>Baseline Model</strong></p>
+<ul>
+<li><p>Training set: Accuracy is quite low around 35%. It mislabelled most of the gasoline vehicles as electric vehicles. It also had trouble differenciating between electric and gasoline with similar performance in labelling those two classes.</p></li>
+<li><p>Test set: Accuracy decreased to 26.5%. Over here most electric vehicles are mislabelled as gasoline vehicles. Electric vehicls are most often misclassified as gasoline vehicles, whereas gasoline vehicles are most often misclassified as electric vehicles. Hybrids are most often misclassified as electrics and least often as actual hybrid vehicles.</p></li>
+<li><p>Final remarks: The performance of the baseline model is quite poor which is expected since it is a random classifier with no sophisticated learning. It is still interesting to see that some labels were predicted correctly.</p></li>
+</ul></li>
+<li><p><strong>Simple Decision Tree</strong></p>
+<ul>
+<li><p>Training set: Accuracy in the training set is significantly higher when compared to the baseline model. Majority of the labels were correctly identified. This supports the assumption that using a decision tree algorithm to classifiy labels is much more efficient.</p></li>
+<li><p>Test set: The accuracy drops down quite a bit in the test set. This is an indication of overfitting. It performed poorly in recognizing the hybrid labels, by allocating most of it’s labels as electric instead. This also supports the initial assumption that the low distribution of the hybrid label to begin with may cause an issue in model performance.</p></li>
+<li><p>Final remarks: The model did well in identifying the gasoline vehicles with majority of them correctly labeled. Additionally we can observe a clear improvement from the baseline model which solidifies the theory that decision tree classifiers can leave a great impact on the classification process. However, since we ran into an overfitting issue, this suggests that the modeling may benefit from being trained by a larger amount of more comprehensive data and by implementing hyperparameter tuning tenchniques. This is discussed below.</p></li>
+</ul></li>
+<li><p><strong>Tuned Decision Tree (with optimal features)</strong></p>
+<ul>
+<li><p>Training set: Accuracy is in line with the previous results were optimal parameters were not implemented. Overall performance of the model with the training data is similar, majority labels were correctly identified.</p></li>
+<li><p>Test set: Accuracy is still quite low, however, it increased almost by double since the paramter tuning was implemented. This supports the usage of the optimal feature set.</p></li>
+<li><p>Final remarks: Since performance is still quite low, it it indicative of overfitting. Further approaches need to be implemented in order to get a more satisfactory result. The model seems to mostly struggle with correctly identifying the electric and hybrid labels, but performs quite well when it come to correctly predicticting the gasoline vehicles.</p></li>
+</ul></li>
+<li><p><strong>Random Forest</strong></p>
+<ul>
+<li><p>Training set: Accuracy is in line with the decision tree classifiers. Majority labels were correctly predicted with the training dataset.</p></li>
+<li><p>Test set: Accuracy is so far the highest. This is strong evidence in favor of using a more complex classification algorithm such as random forest to classify labelled data.</p></li>
+<li><p>Final remarks: Even though accuracy is the highest amongst the classification algorithms performed in the scope of this project, the performance is still poor, below 50%. To get better results, a combination of obtaining larger, more diverse data, parameter tuning could be implemented.</p></li>
+</ul></li>
+<li><p><strong>Regression</strong></p>
+<ul>
+<li><p>Training set: The performance of the regression decision tree on the sentiment data points is quite well. Most of the points are crowded along the diagonal line. There are some residual data points, however that is expected in a model training result since we don’t expect 100% accuracy</p></li>
+<li><p>Test set: There are several data points indicating the trend to be fitted well with the diagonal line, however, the crowding near this line is much lower, indicating a drop in performance. The accuracy on unseen data for this classifying algorithm is low as indicated by the highly spread out points. This is consistent with the overfiting issues that were encountered earlier.</p></li>
+<li><p>Final remarks: Some interesting results were seen from the various decision tree classification and regression algorthims. Lots of overfitting has been obsewrved! This gives rise to potentially a separate project where this issue can be exmained in greater detail and addressed more closely.</p></li>
+</ul></li>
+</ol>
+<p><strong>Nontechnical Conclusion</strong>: Stakeholders may find it beneficial to implement decision tree classification algorithms to analyze their textual content. By doing so, they can make informed business decisions based on the insights derived from the algorithm’s results.</p>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li>https://scikit-learn.org/stable/modules/tree.html</li>
+<li>https://hbr.org/1964/07/decision-trees-for-decision-making</li>
+<li>https://jfh.georgetown.domains/dsan5000/slides-and-labs/_site/content/slides/pdfs/decision-tree-fundamentals.pdf</li>
+<li>https://www.datacamp.com/tutorial/decision-tree-classification-python</li>
+<li>https://stackoverflow.com/questions/61612198/how-can-i-use-a-probability-distribution-in-python-class</li>
+<li>https://towardsdatascience.com/how-to-use-residual-plots-for-regression-model-validation-c3c70e8ab378</li>
+<li>https://towardsdatascience.com/a-practical-guide-to-implementing-a-random-forest-classifier-in-python-979988d8a263</li>
+<li>https://pynative.com/python-weighted-random-choices-with-probability/</li>
+<li>https://www.geeksforgeeks.org/how-to-get-weighted-random-choice-in-python/#</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
