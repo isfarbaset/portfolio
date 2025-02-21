@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Project Title"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Introduction
+      - href: eda.qmd
+        text: EDA
+      # - href: nlp.qmd
+      #   text: NLP
+      # - href: ml.qmd
+      #   text: ML
+      - href: conclusion.qmd
+        text: Conclusion
+      # - href: 
+      #   text: Code
+  page-footer:
+    left: |
+      Content © Enter Name Here <br>
+      Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+    right: |
+      Made with [R](https://www.r-project.org) and [Quarto](https://quarto.org)<br>
+      [View source on GitHub](https://github.com/anly503/lab-2.1)
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+    toc: true
