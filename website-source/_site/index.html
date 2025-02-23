@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-eda .list');
+    const listingTargetEl = window.document.querySelector('#listing-us-insights .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -84,7 +84,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-eda'] = new List('listing-eda', options);
+    window['quarto-listings']['listing-us-insights'] = new List('listing-us-insights', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-temp-talk .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-temp-talk'] = new List('listing-temp-talk', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -184,7 +212,7 @@ window.Quarto = {
 <span class="menu-text">Airy Tales</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./story-project/index.qmd"> 
+    <a class="nav-link" href="./story-project/index.html"> 
 <span class="menu-text">Temp Talk</span></a>
   </li>  
   <li class="nav-item">
@@ -211,7 +239,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#eda" id="toc-eda" class="nav-link active" data-scroll-target="#eda">EDA</a></li>
+  <li><a href="#us-insights" id="toc-us-insights" class="nav-link active" data-scroll-target="#us-insights">US Insights</a></li>
+  <li><a href="#temp-talk" id="toc-temp-talk" class="nav-link" data-scroll-target="#temp-talk">Temp Talk</a></li>
   <li><a href="#ev-insights" id="toc-ev-insights" class="nav-link" data-scroll-target="#ev-insights">EV Insights</a></li>
   </ul>
 </nav>
@@ -238,33 +267,61 @@ window.Quarto = {
 </header>
 
 
-<section id="eda" class="level2">
-<h2 class="anchored" data-anchor-id="eda">EDA</h2>
-<div id="listing-eda" class="quarto-listing quarto-listing-container-default">
+<section id="us-insights" class="level2">
+<h2 class="anchored" data-anchor-id="us-insights">US Insights</h2>
+<div id="listing-us-insights" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740174370747">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740351474490" data-listing-reading-time-sort="11" data-listing-word-count-sort="2023">
 <div class="thumbnail">
-<p><a href="./eda/eda.html" class="no-external"></a></p><a href="./eda/eda.html" class="no-external">
+<p><a href="./6000-website/website-source/index.html" class="no-external"></a></p><a href="./6000-website/website-source/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./eda/eda.html" class="no-external"></a></p>
+</a><p><a href="./6000-website/website-source/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./eda/eda.html" class="no-external">Exploratory Data Analysis (EDA)</a>
+<a href="./6000-website/website-source/index.html" class="no-external">Analyzing U.S. State Sentiments on Reddit</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./eda/eda.html" class="no-external"></a>
+<a href="./6000-website/website-source/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<a href="./eda/eda.html" class="no-external">
-
-
-
-</a>
+<a href="./6000-website/website-source/index.html" class="no-external">How do online conversations reflect our perceptions of U.S. states? During the brainstorming process for this project, our team noticed an absence of geography in the Reddit…</a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./eda/eda.html" class="no-external"></a></p><a href="./eda/eda.html" class="no-external">
+<p><a href="./6000-website/website-source/index.html" class="no-external"></a></p><a href="./6000-website/website-source/index.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="temp-talk" class="level2">
+<h2 class="anchored" data-anchor-id="temp-talk">Temp Talk</h2>
+<div id="listing-temp-talk" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740351226771" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
+<div class="thumbnail">
+<p><a href="./story-project/index.html" class="no-external"></a></p><a href="./story-project/index.html" class="no-external">
+<p class="card-img-top"><img src="story-project/index_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./story-project/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./story-project/index.html" class="no-external">Introduction</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./story-project/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./story-project/index.html" class="no-external">For the preservation of Southeastern Utah Group National Parks, it is essential to understand the trends that lie in the evolving climate conditions and how they might…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./story-project/index.html" class="no-external"></a></p><a href="./story-project/index.html" class="no-external">
 </a>
 </div>
 </div>

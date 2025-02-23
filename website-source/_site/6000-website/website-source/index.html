@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Isfar Baset</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Isfar Baset</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../5000-website/index.html"> 
+<span class="menu-text">EV Insights</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../5100-website/index.qmd"> 
+<span class="menu-text">Airy Tales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../story-project/index.html"> 
+<span class="menu-text">Temp Talk</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../5300-website/Group37_Final_Report.qmd"> 
+<span class="menu-text">Beats &amp; Bytes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://isfarbaset.github.io/fall-2024-project-team-29/"> 
+<span class="menu-text">US States Insights</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analyzing-u.s.-state-sentiments-on-reddit" id="toc-analyzing-u.s.-state-sentiments-on-reddit" class="nav-link active" data-scroll-target="#analyzing-u.s.-state-sentiments-on-reddit">Analyzing U.S. State Sentiments on Reddit</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#research-questions-business-goals" id="toc-research-questions-business-goals" class="nav-link" data-scroll-target="#research-questions-business-goals">Research Questions &amp; Business Goals</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+  <li><a href="#natural-language-processing" id="toc-natural-language-processing" class="nav-link" data-scroll-target="#natural-language-processing">Natural Language Processing</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  </ul></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
+  <li><a href="#external-data" id="toc-external-data" class="nav-link" data-scroll-target="#external-data">External Data</a></li>
+  <li><a href="#data-quality-issues" id="toc-data-quality-issues" class="nav-link" data-scroll-target="#data-quality-issues">Data Quality Issues</a>
+  <ul class="collapse">
+  <li><a href="#proposed-solutions" id="toc-proposed-solutions" class="nav-link" data-scroll-target="#proposed-solutions">Proposed Solutions</a></li>
+  </ul></li>
+  <li><a href="#appendix-research-questions-business-goals" id="toc-appendix-research-questions-business-goals" class="nav-link" data-scroll-target="#appendix-research-questions-business-goals">Appendix: Research Questions &amp; Business Goals</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-data-analysis-1" id="toc-exploratory-data-analysis-1" class="nav-link" data-scroll-target="#exploratory-data-analysis-1">Exploratory Data Analysis</a></li>
+  <li><a href="#natural-language-processing-1" id="toc-natural-language-processing-1" class="nav-link" data-scroll-target="#natural-language-processing-1">Natural Language Processing</a></li>
+  <li><a href="#machine-learning-1" id="toc-machine-learning-1" class="nav-link" data-scroll-target="#machine-learning-1">Machine Learning</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="analyzing-u.s.-state-sentiments-on-reddit" class="level1">
+<h1>Analyzing U.S. State Sentiments on Reddit</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif" class="img-fluid figure-img"></p>
+<figcaption>Public Opinion on US States</figcaption>
+</figure>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>How do online conversations reflect our perceptions of U.S. states? During the brainstorming process for this project, our team noticed an absence of geography in the Reddit data. To add a spatial component, we decided to examine mentions of U.S. states and the sentiment of posts containing these mentions. Our project analyzes Reddit discussions to uncover insights about public opinion, trends, and key topics of interest for each state. Through sentiment analysis, trend discovery, and keyword extraction, we aim to understand the connection between online discourse and real-world perceptions.</p>
+</section>
+<section id="research-questions-business-goals" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions-business-goals">Research Questions &amp; Business Goals</h2>
+<section id="exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<ul>
+<li>Examine state mentions over time to explore trends and correlations with news events.</li>
+<li>Determine the states that are talked about the most and least to discover which states generate the highest interest.<br>
+</li>
+<li>Identify the subreddits where states are being mentioned the most.</li>
+<li>Explore the top authors that mention states.</li>
+<li>Analyze state mentions relative to population and examine how the mentions-per-population rank compares to other state rankings.</li>
+<li>Discover the states that are talked about most in state-specific subreddits and identify the state-specific subreddits that are most insular.</li>
+</ul>
+</section>
+<section id="natural-language-processing" class="level3">
+<h3 class="anchored" data-anchor-id="natural-language-processing">Natural Language Processing</h3>
+<ul>
+<li>Analyze state sentiment over time and how news events drive changes in sentiment.</li>
+<li>Examine the states with the highest and lowest sentiment.</li>
+<li>Analyze state sentiment in state-specific subreddits to determine universal or mixed state opinions.</li>
+<li>Explore how state sentiment aligns with popular state rankings on various factors including economy, healthcare, and education.</li>
+<li>Investigate the most popular words used in posts mentioning states.</li>
+</ul>
+</section>
+<section id="machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
+<ul>
+<li>Identify the most common topics discussed in state-mentioned posts.</li>
+<li>Predict the score of a post based on its text and mentions of states.</li>
+<li>Predict the state mentioned based on the text of a post.</li>
+</ul>
+<p>Please see the <a href="../../6000-website/website-source/eda.html">EDA</a>, <a href="../../6000-website/website-source/nlp.html">NLP</a>, or <a href="../../6000-website/website-source/ml.html">ML</a> tabs for more information on the specific research objectives.</p>
+</section>
+</section>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data Collection</h2>
+<p>Our group decided to tackle the topic with two different cuts of Reddit data. We started with the cleaned Reddit data provided to the class, which included submissions and posts from June 2023 to July 2024.</p>
+<p>To create the first cut of data, we selected specific subreddits where we believed states would be mentioned and opinions about states discussed. We limited the data to the following subreddits: r/Travel, r/AskAnAmerican, r/USATravel, as well as the 50 individual state subreddits (e.g., r/NewYork, r/California, r/Ohio). From these subreddits, we further filtered the data to include only submissions and comments where full state names were mentioned. This dataset (referred to as the Subreddit Data) contained over 120,000 submissions and posts where full state names were mentioned.</p>
+<p>The second cut of data took a simpler and more universal approach. From the full dataset, we filtered for comments containing full state names. We decided to focus on comments, as they are more likely to contain opinions about states. After cleaning, this dataset (referred to as the Full Data) contained over 28 million comments mentioning full state names.</p>
+<p>A potential data issue is the use of full state names. Posts regarding notable figures like George Washington or sports teams such as the New York Yankees may introduce noise into our analysis. This issue is discussed further in the <strong>Summary</strong> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/screenshot.png" class="img-fluid figure-img"></p>
+<figcaption>Data Collection Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="external-data" class="level2">
+<h2 class="anchored" data-anchor-id="external-data">External Data</h2>
+<p>We decided to use three different external data sources for our analysis:</p>
+<ol type="1">
+<li><p>While tracking mentions of states seemed essential, we thought it would be important to examine mentions of states relative to their population. To do this, we obtained state-level population estimates from the <a href="https://www.census.gov/">United States Census Bureau</a>.</p></li>
+<li><p>Next, we wanted to make comparisons between state mentions and how often a state had been visited (assuming more visits mean more mentions). For this, we used a <a href="https://today.yougov.com/">YouGov</a> survey of U.S. adults that examined the percentage of respondents who had visited a given state before.</p></li>
+<li><p>Finally, we wanted to see how the mentions and sentiment of states compared with other perceptions and rankings of states. We decided to use the <a href="https://www.usnews.com/news/best-states">U.S. News &amp; World Report</a> Best State Rankings for this analysis. These rankings comprise a range of data to evaluate states on education, livability, health, and much more.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/screenshot_1.png" class="img-fluid figure-img"></p>
+<figcaption>External Data Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-quality-issues" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-issues">Data Quality Issues</h2>
+<p>Ensuring high data quality is essential for reliable insights. Here are the challenges we encountered and how we addressed them:</p>
+<ol type="1">
+<li><strong>Missing Data</strong>: Several posts lacked critical metadata such as timestamps or subreddit names.</li>
+<li><strong>Irrelevant Mentions</strong>: Posts occasionally referenced states ambiguously (e.g., “Georgia” as a name vs.&nbsp;the state).</li>
+<li><strong>Text Noise</strong>: Many posts contained irrelevant or low-quality text, such as excessive links, emojis, or advertisements.</li>
+<li><strong>Sentiment Overlap</strong>: Sentiment analysis tools sometimes misclassified posts due to sarcasm or complex sentence structures.</li>
+<li><strong>Inconsistent Formatting</strong>: User-generated content often featured inconsistent capitalization, punctuation, and spelling, complicating keyword extraction.</li>
+</ol>
+<section id="proposed-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="proposed-solutions">Proposed Solutions</h3>
+<ul>
+<li>Filtering irrelevant posts and ambiguous mentions using regex and manual review.</li>
+<li>Imputing or discarding missing data based on its significance to the analysis.</li>
+<li>Cleaning and normalizing text using standard preprocessing techniques like lowercasing, stopword removal, and punctuation handling.</li>
+</ul>
+</section>
+</section>
+<section id="appendix-research-questions-business-goals" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-research-questions-business-goals">Appendix: Research Questions &amp; Business Goals</h2>
+<section id="exploratory-data-analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis-1">Exploratory Data Analysis</h3>
+<section id="examine-state-mentions-over-time-to-explore-trends-and-correlations-with-news-events." class="level4">
+<h4 class="anchored" data-anchor-id="examine-state-mentions-over-time-to-explore-trends-and-correlations-with-news-events.">Examine state mentions over time to explore trends and correlations with news events.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>The daily mentions of full state names will be calculated for the entire time period for each state. A smoothed and Z-scored 7-day rolling average of daily state mention counts will then be computed and plotted. States with abnormal peaks will also be investigated to see if major news stories occurred simultaneously. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+</section>
+<section id="determine-the-states-that-are-talked-about-the-most-and-least-to-discover-what-states-have-the-highest-interest." class="level4">
+<h4 class="anchored" data-anchor-id="determine-the-states-that-are-talked-about-the-most-and-least-to-discover-what-states-have-the-highest-interest.">Determine the states that are talked about the most and least to discover what states have the highest interest.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Reddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each state will be calculated and plotted. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+</section>
+<section id="figure-out-the-subreddits-where-states-are-being-mentioned-the-most." class="level4">
+<h4 class="anchored" data-anchor-id="figure-out-the-subreddits-where-states-are-being-mentioned-the-most.">Figure out the subreddits where states are being mentioned the most.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Reddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each subreddit will be calculated and plotted/tabulated. The top 10 subreddits that mention states will be plotted. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+</section>
+<section id="explore-the-top-authors-that-mention-states." class="level4">
+<h4 class="anchored" data-anchor-id="explore-the-top-authors-that-mention-states.">Explore the top authors that mention states.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Reddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each author will be calculated and plotted/tabulated. The top 10 authors that mention states will be plotted. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+</section>
+<section id="analyze-state-mentions-relative-to-the-state-population-and-examine-how-the-mention-per-population-rank-compares-to-other-state-rankings." class="level4">
+<h4 class="anchored" data-anchor-id="analyze-state-mentions-relative-to-the-state-population-and-examine-how-the-mention-per-population-rank-compares-to-other-state-rankings.">Analyze state mentions relative to the state population and examine how the mention-per-population rank compares to other state rankings.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>The total mentions of full state names will be calculated for the entire time period for each state. Using external data, state mentions will be normalized to state population, and the state mention rank will be compared to external state ranks. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+</section>
+<section id="discover-the-states-that-are-talked-about-most-on-state-specific-subreddits-in-addition-to-the-state-specific-subreddits-that-are-most-insular." class="level4">
+<h4 class="anchored" data-anchor-id="discover-the-states-that-are-talked-about-most-on-state-specific-subreddits-in-addition-to-the-state-specific-subreddits-that-are-most-insular.">Discover the states that are talked about most on state-specific subreddits in addition to the state-specific subreddits that are most insular.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Reddit comments with mentions of full states and territories will be examined for the entire time period. State mentions in state-specific subreddits will be examined to explore how often state subreddits mention themselves in addition to other states. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="natural-language-processing-1" class="level3">
+<h3 class="anchored" data-anchor-id="natural-language-processing-1">Natural Language Processing</h3>
+<section id="analyze-state-sentiment-over-time-and-how-news-events-can-drive-changes-in-sentiment." class="level4">
+<h4 class="anchored" data-anchor-id="analyze-state-sentiment-over-time-and-how-news-events-can-drive-changes-in-sentiment.">Analyze state sentiment over time and how news events can drive changes in sentiment.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Using daily posts that mention states, evaluate the sentiment of states over time. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average daily sentiment for each state and smooth the results with a rolling average. Finally, examine major news events and changes to sentiment during the same time period. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+</section>
+<section id="examine-the-states-with-the-highest-and-lowest-sentiment." class="level4">
+<h4 class="anchored" data-anchor-id="examine-the-states-with-the-highest-and-lowest-sentiment.">Examine the states with the highest and lowest sentiment.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Using Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+</section>
+<section id="examine-state-sentiment-from-state-specific-subreddits-to-determine-universal-or-mixed-state-opinions." class="level4">
+<h4 class="anchored" data-anchor-id="examine-state-sentiment-from-state-specific-subreddits-to-determine-universal-or-mixed-state-opinions.">Examine state sentiment from state-specific subreddits to determine universal or mixed state opinions.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Using posts that mention states in state-specific subreddits, evaluate the sentiment of states. Evaluate sentiment by state mentioned and subreddit with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state-subreddit combination to see opinions of other states across state-specific subreddits. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+</section>
+<section id="discover-how-state-sentiment-aligns-with-popular-state-rankings-on-a-variety-of-factors-including-economy-healthcare-and-education." class="level4">
+<h4 class="anchored" data-anchor-id="discover-how-state-sentiment-aligns-with-popular-state-rankings-on-a-variety-of-factors-including-economy-healthcare-and-education.">Discover how state sentiment aligns with popular state rankings on a variety of factors including economy, healthcare, and education.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Using Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. With this ranking of states, compare it to other external state rankings to examine correlations. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+</section>
+<section id="explore-the-most-popular-words-used-on-posts-that-mention-states." class="level4">
+<h4 class="anchored" data-anchor-id="explore-the-most-popular-words-used-on-posts-that-mention-states.">Explore the most popular words used on posts that mention states.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Examine posts that mention full state names. From these posts, count the most popular words on posts to get a sense of key words associated with mentions of states. Visualize this with a word cloud. This analysis will be conducted using the <strong>Full Data</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="machine-learning-1" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-1">Machine Learning</h3>
+<section id="examine-the-most-commonly-discussed-topics-across-state-mentioned-posts." class="level4">
+<h4 class="anchored" data-anchor-id="examine-the-most-commonly-discussed-topics-across-state-mentioned-posts.">Examine the most commonly discussed topics across state-mentioned posts.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Analyze posts that mention states to identify common topics using topic modeling techniques such as <strong>Latent Dirichlet Allocation (LDA)</strong>. LDA is a statistical model that clusters words frequently appearing together, uncovering hidden topics within a dataset. By applying LDA to the text of posts mentioning states, we aim to extract overarching themes, such as tourism, politics, local events, or cultural identity.</p>
+<p>The analysis involves:</p>
+<ol type="1">
+<li><strong>Preprocessing the text data</strong> by cleaning it (e.g., removing stop words, punctuation, and irrelevant text) and converting it into a suitable format for topic modeling (e.g., bag-of-words or TF-IDF matrix).</li>
+<li><strong>Determining the optimal number of topics</strong> using methods like coherence score analysis to ensure quality topics.</li>
+<li><strong>Running the LDA model</strong> to assign topics to each post and extract the most representative keywords for each topic.</li>
+<li><strong>Interpreting topics</strong> by reviewing keywords within each cluster to understand the context of discussions.</li>
+<li><strong>Visualizing the results</strong> using tools like topic distribution charts or interactive plots (e.g., pyLDAvis) to explore dominant themes in posts mentioning states.</li>
+</ol>
+<p>This approach allows us to explore the diversity of conversations surrounding U.S. states on Reddit and identify patterns in the types of discussions associated with different states. For instance, one topic may focus on travel and tourism, another on politics, while others may emphasize cultural events or economic issues. These insights can reveal how users engage with state-specific topics and how perceptions vary across states.</p>
+</section>
+<section id="predict-the-score-of-a-post-based-on-the-post-text-and-the-mentions-of-states." class="level4">
+<h4 class="anchored" data-anchor-id="predict-the-score-of-a-post-based-on-the-post-text-and-the-mentions-of-states.">Predict the score of a post based on the post text and the mentions of states.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Train a supervised machine learning model to predict the upvote score of a post based on its text and mentions of states. Features will include text embeddings, sentiment, and state mentions. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+</section>
+<section id="predict-the-state-mentioned-based-on-the-text-of-a-post." class="level4">
+<h4 class="anchored" data-anchor-id="predict-the-state-mentioned-based-on-the-text-of-a-post.">Predict the state mentioned based on the text of a post.</h4>
+<p><strong>Technical Proposal:</strong></p>
+<p>Train a supervised machine learning model to predict the state mentioned in a post based on its text. Features will include text embeddings and other contextual features derived from the post. This analysis will be conducted using the <strong>Subreddit Data</strong>.</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

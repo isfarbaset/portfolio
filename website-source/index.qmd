@@ -1,17 +1,25 @@
 ---
 title: Projects
 listing: 
-  - id: eda
-    contents: "eda/*.qmd"
+  - id: us-insights
+    contents: "6000-website/website-source/index.qmd"
+    type: default
+  - id: temp-talk
+    contents: "story-project/index.qmd"
     type: default
   - id: ev-insights
     contents: "5000-website/index.qmd"
     type: default
 ---
 
-## EDA
+## US Insights
 
-:::{#eda}
+:::{#us-insights}
+:::
+
+## Temp Talk
+
+:::{#temp-talk}
 :::
 
 ## EV Insights
