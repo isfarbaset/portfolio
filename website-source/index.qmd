@@ -48,7 +48,7 @@ listing-opts:
 
 :::{#ev-insights}
 ![EV Insights](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif)
-[View Project](5000-website/index.qmd)
+[View Project](5000-website/website-source/index.qmd)
 :::
 
 ## Airy Tales
