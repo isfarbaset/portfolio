@@ -1,0 +1,6 @@
+[submodule "website-source/6000-website"]
+	path = website-source/6000-website
+	url = https://github.com/isfarbaset/fall-2024-project-team-29.git
+[submodule "website-source/story-project"]
+	path = website-source/story-project
+	url = https://github.com/isfarbaset/story-project.git
