@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "",
     "text": "No matching items"
   },
@@ -16,7 +16,7 @@
   {
     "objectID": "index.html#ev-insights",
     "href": "index.html#ev-insights",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "EV Insights",
     "text": "EV Insights\n\n\n\n\n\n\n\n\n\n\nEV Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
@@ -1183,7 +1183,7 @@
   {
     "objectID": "index.html#airy-tales",
     "href": "index.html#airy-tales",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "Airy Tales",
     "text": "Airy Tales\n\n\n\n\n\n\n\n\n\n\nAiry Tales\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
@@ -1252,16 +1252,16 @@
   {
     "objectID": "index.html#temp-talk",
     "href": "index.html#temp-talk",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "Temp Talk",
     "text": "Temp Talk\n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#us-insights",
     "href": "index.html#us-insights",
-    "title": "Projects",
-    "section": "",
-    "text": "No matching items"
+    "title": "Portfolio",
+    "section": "US Insights",
+    "text": "US Insights\n\n\n\n\n\n\n\n\n\n\nAnalyzing U.S. State Sentiments on Reddit\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "6000-website/website-source/ml.html",
@@ -2172,7 +2172,7 @@
   {
     "objectID": "index.html#beats-and-bytes",
     "href": "index.html#beats-and-bytes",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "Beats and Bytes",
     "text": "Beats and Bytes\n\n\n\n\n\n\n\n\n\n\nHarmony Through Numbers: Classifying Spotify Data Across Genres and Decades\n\n\nDSAN 5300 Final Project - Group 37\n\n\n\n\n\n\n\n\nFeb 23, 2025\n\n\n\n\n\n\nNo matching items"
   },
@@ -2208,5 +2208,47 @@
       "Beats & Bytes",
       "Harmony Through Numbers"
     ]
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Portfolio",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "about-me/index.html",
+    "href": "about-me/index.html",
+    "title": "Isfar Baset",
+    "section": "",
+    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.\nI am currently pursuing a Master’s of Science in Data Science & Analytics at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders. Although I am not unfamiliar with the realm of software development, I was quite new to data analysis before I started my role at Shift Digital as a Data Analyst. I learned a lot of practical skills that are prevalent in the digital marketing industry. Being a part of the DSAN program has introduced a lot of theoretical and statistical concepts and I am looking forward to continue on this journey and grow my knowledge even further.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
+  },
+  {
+    "objectID": "about-me/index.html#quick-summary",
+    "href": "about-me/index.html#quick-summary",
+    "title": "Isfar Baset",
+    "section": "Quick Summary",
+    "text": "Quick Summary\nHere’s a quick snapchot of my professional journey so far:\n\nFor the longer/more detailed version click here 👉🏽 Download Resume"
+  },
+  {
+    "objectID": "about-me/index.html#education",
+    "href": "about-me/index.html#education",
+    "title": "Isfar Baset",
+    "section": "🎓 EDUCATION",
+    "text": "🎓 EDUCATION\n\nGeorgetown University (GU)\nMaster of Science in Data Science and Analytics | GPA: 4.0\nWashington, D.C.\nAug 2023 - May 2025\nCoursework:\nProbabilistic Modeling and Statistical Computing, Database Systems and SQL, Advanced Data Visualization, Data Ethics and Policy, Computational Linguistics, Machine Learning App Deployment, Digital Storytelling, Big Data and Cloud Computing (TA), Applied Generative AI (Lead TA)\nLeadership & Activities: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\nGrand Valley State University (GVSU)\nBachelor of Science in Computer Science\nGrand Rapids, MI\nAug 2015 - May 2020"
+  },
+  {
+    "objectID": "about-me/index.html#work-experience",
+    "href": "about-me/index.html#work-experience",
+    "title": "Isfar Baset",
+    "section": "💼 WORK EXPERIENCE",
+    "text": "💼 WORK EXPERIENCE\n\nShift Digital, Delivery and Software Team\nData Analyst\nBirmingham, MI\nNov 2021 - May 2023\n✔️ Improved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes  ✔️ Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives  ✔️ Streamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing  ✔️ Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights  ✔️ Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets  ✔️ Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders  ✔️ Crafted technical proposals aligned with project scope and business goals, achieving near 100% customer approval rate \n\n\nArray of Engineers\nComputer Engineer\nGrand Rapids, MI\nJul 2020 - Nov 2021\n✔️ Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance  ✔️ Improved user experience by optimizing web app features with AngularJS, increasing client retention by 25%  ✔️ Introduced modular workflows for software testing, enhancing adaptability and achieving 98% on-time delivery  ✔️ Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability  ✔️ Led GitHub code reviews across a multidisciplinary team, mitigating critical issues early in the development process"
+  },
+  {
+    "objectID": "about-me/index.html#skills",
+    "href": "about-me/index.html#skills",
+    "title": "Isfar Baset",
+    "section": "SKILLS",
+    "text": "SKILLS\nProgramming: Python, SQL, R, Java, C++\nMachine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\nData Visualization: Tableau, Plotly, Seaborn\nBig Data & Cloud: Apache Spark, Databricks, AWS Sagemaker\nNLP: spaCy, Hugging Face Transformers, BERT\nDatabases: MySQL, PostgreSQL, MongoDB, Snowflake\nTools: Docker, Flask, Git, Quarto, CI/CD pipelines\nStatistical Methods: A/B Testing, Regression, Bayesian Analysis"
   }
 ]

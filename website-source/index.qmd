@@ -1,6 +1,9 @@
 ---
-title: Projects
+title: Portfolio
 listing:
+  - id: about-me
+    contents: "about-me/index.qmd"
+    type: default
   - id: us-insights
     contents: "6000-website/website-source/index.qmd"
     type: default
@@ -19,6 +22,13 @@ listing:
 listing-opts:
   fields: [image, title, description, date]
 ---
+
+## About Me
+
+:::{#about-me}
+![About Me](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXY3M2xkYWZ3aDVtc2gya3JkYTF1N2xiZDJ5ODJpdnNuN2w3cXI1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x1CjxowaWEV1YXV47t/giphy.gif)
+[View Project](about-me/index.qmd)
+:::
 
 ## US Insights
 
