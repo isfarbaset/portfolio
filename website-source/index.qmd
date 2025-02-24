@@ -1,6 +1,6 @@
 ---
 title: Projects
-listing: 
+listing:
   - id: us-insights
     contents: "6000-website/website-source/index.qmd"
     type: default
@@ -16,29 +16,41 @@ listing:
   - id: beats-bytes
     contents: "5300-website/Group37_Final_Report.qmd"
     type: default
+listing-opts:
+  fields: [image, title, description, date]
 ---
 
 ## US Insights
 
 :::{#us-insights}
+![US Insights](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif)
+[View Project](6000-website/website-source/index.qmd)
 :::
 
 ## Temp Talk
 
 :::{#temp-talk}
+![Temp Talk](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGU1dGhuYnJ6Z2Vlb3owYzkwOTAzMG9ydzBlMml5MTg0eGozZmZ2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4ZgLPakqTajjVFOVqw/giphy.gif)
+[View Project](story-project/index.qmd)
 :::
 
 ## EV Insights
 
 :::{#ev-insights}
+![EV Insights](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif)
+[View Project](5000-website/index.qmd)
 :::
 
 ## Airy Tales
 
 :::{#airy-tales}
+![Airy Tales](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif)
+[View Project](5100-website/index.qmd)
 :::
 
 ## Beats and Bytes
 
 :::{#beats-bytes}
+![Beats and Bytes](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmRsMW5oYTg1bWo5ZzJjZmZzc3FvM3cydGVwaDB2Ym9qdmIybXJ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RGjEtO1HxNbfFUEOBl/giphy.gif)
+[View Project](5300-website/Group37_Final_Report.qmd)
 :::

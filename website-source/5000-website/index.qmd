@@ -1,6 +1,7 @@
 ---
 title: EV Analysis
 bibliography: reference.bib
+image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif"
 ---
 
 <!-- See the following link for more information about the author: [about me](../../index.html) -->
