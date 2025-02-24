@@ -1,6 +1,7 @@
 ---
 title: "Airy Tales Slideshow"
 format: html
+output-dir: ../../../docs
 ---
 
 # VA AQI versus MD AQI

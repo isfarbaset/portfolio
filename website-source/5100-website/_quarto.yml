@@ -1,7 +1,6 @@
 project:
   type: website
-  resources:
-    - "*.png"
+  output-dir: ../../../docs
 
 website:
   title: DSAN-5100

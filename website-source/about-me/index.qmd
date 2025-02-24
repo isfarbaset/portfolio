@@ -2,6 +2,7 @@
 title: "Isfar Baset"
 image: ib.png
 page-layout: full
+output-dir: ../../../docs
 about:
   template: marquee
   # image-width: 30em

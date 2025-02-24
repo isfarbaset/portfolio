@@ -1,4 +1,5 @@
 ---
 title: "Airy Tales"
+output-dir: ../../../docs
 image: https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif
 ---

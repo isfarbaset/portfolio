@@ -5,6 +5,7 @@ authors: ["Jorge Bris Moreno", "William McGloin", "Kangheng Liu", "Isfar Baset"]
 image: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmRsMW5oYTg1bWo5ZzJjZmZzc3FvM3cydGVwaDB2Ym9qdmIybXJ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RGjEtO1HxNbfFUEOBl/giphy.gif"
 date: last-modified
 date-format: long
+output-dir: ../../../docs
 format:
   html:
     self-contained: true
