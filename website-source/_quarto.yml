@@ -15,62 +15,64 @@ website:
         file: story-project/index.qmd
       - text: "Beats & Bytes"
         file: 5300-website/Group37_Final_Report.qmd
-      - text: "US States Insights"
-        href: "https://isfarbaset.github.io/fall-2024-project-team-29/"
+      - text: "U.S. State Sentiments"
+        file: 6000-website/index.qmd
 
   sidebar:
     - title: "EV Analysis"
       contents:
-        - text: Introduction
+        - text: "Introduction"
           file: 5000-website/index.qmd
-        - text: Code
-          href: https://github.com/anly501/dsan-5000-project-isfarbaset
-        - text: Data
-          contents: 
-            text: Code
-            href: https://github.com/anly501/dsan-5000-project-isfarbaset
-        - text: Data Gathering
+        - text: "Code"
+          href: "https://github.com/anly501/dsan-5000-project-isfarbaset"
+        - text: "Data"
+          file: 5000-website/data/data.qmd
+        - text: "Data Gathering"
           contents:
-            - text: Yahoo
+            - text: "Yahoo"
               file: 5000-website/data-gathering/yahoo.ipynb
-            - text: Rapid API
+            - text: "Rapid API"
               file: 5000-website/data-gathering/rapid-api.ipynb
-            - text: Cars API
+            - text: "Cars API"
               file: 5000-website/data-gathering/cars-api.ipynb
-            - text: News API 
+            - text: "News API"
               file: 5000-website/data-gathering/news-api.ipynb
-            - text: Wikipedia 
+            - text: "Wikipedia"
               file: 5000-website/data-gathering/wikipedia.ipynb
-        - text: Data Cleaning
+        - text: "Data Cleaning"
           file: 5000-website/data-cleaning/data_cleaning.ipynb
-        - text: Data Exploration
+        - text: "Data Exploration"
           file: 5000-website/eda/eda.ipynb
-        - text: Naïve Bayes
+        - text: "Naïve Bayes"
           file: 5000-website/naive-bayes/naive_bayes.ipynb
-        - text: Dimensionality Reduction
+        - text: "Dimensionality Reduction"
           file: 5000-website/dim-reduction/dim-reduction.ipynb
-        - text: Clustering
+        - text: "Clustering"
           file: 5000-website/clustering/clustering.ipynb
-        - text: Decision Trees
+        - text: "Decision Trees"
           file: 5000-website/decision-tree/classification-and-regression.ipynb
-        - text: ARM
+        - text: "ARM"
           file: 5000-website/ARM/arm.ipynb
-        - text: Conclusions
+        - text: "Conclusions"
           file: 5000-website/conclusions.ipynb
+
     - title: "Fundamentals"
       contents:
-        - fundamentals.qmd
+        - file: fundamentals.qmd
+
     - title: "Reference"
       contents:
-        - reference.qmd
+        - file: reference.qmd
+
     - title: "Airy Tales"
       contents:
-        - text: Introduction
+        - text: "Introduction"
           file: 5100-website/index.ipynb
-        - text: Data Collection
+        - text: "Data Collection"
           file: 5100-website/air-quality.ipynb
-        - text: EDA & Hypothesis Testing
+        - text: "EDA & Hypothesis Testing"
           file: 5100-website/eda/eda.ipynb
+
     - title: "Weather or Not"
       contents:
         - text: "Temperature Tales 🌡️"
@@ -85,12 +87,29 @@ website:
           file: story-project/ppt.qmd
         - text: "It's A Wrap 🌿"
           file: story-project/conclusion.qmd
+
     - title: "Beats & Bytes"
       contents:
-        text: Harmony Through Numbers
-        file: 5300-website/Group37_Final_Report.qmd
+        - text: "Harmony Through Numbers"
+          file: 5300-website/Group37_Final_Report.qmd
+
+    - title: "U.S. State Sentiments"
+      contents:
+        - text: "Introduction"
+          file: 6000-website/website-source/index.qmd
+        - text: "EDA"
+          file: 6000-website/website-source/eda.qmd
+        - text: "NLP"
+          file: 6000-website/website-source/nlp.qmd
+        - text: "ML"
+          file: 6000-website/website-source/ml.qmd
+        - text: "Summary"
+          file: 6000-website/website-source/summary.qmd
+        - text: "Code"
+          href: "https://github.com/gu-dsan6000/fall-2024-project-team-29"
 
 format:
   html:
     theme: cosmo
+    css: style.css
     toc: true
