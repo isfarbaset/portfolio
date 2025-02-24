@@ -1184,8 +1184,8 @@
     "objectID": "index.html#airy-tales",
     "href": "index.html#airy-tales",
     "title": "Projects",
-    "section": "",
-    "text": "No matching items"
+    "section": "Airy Tales",
+    "text": "Airy Tales\n\n\n\n\n\n\n\n\n\n\nInroduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "story-project/evap.html",
@@ -1606,6 +1606,607 @@
     "text": "When we first started this project, we hoped to return a spatial (and special) element to the data, and we were successful in doing so while analyzing U.S. states. While this was our primary focus, we also see possibilities for applying our methods to other spatial aspects of the data, such as regions, countries, oceans, and other geographic entities.\nOur work demonstrates that sentiments often do not relate to the realities of a location but are instead based more on reputation. This insight could be the start of organizations tracking their popularity through looser metrics that are not bound to traditional methods. We hope that organizations explore this further in the future, and we also hope that the work we’ve done sets the stage for others to continue in a similar direction.",
     "crumbs": [
       "Summary"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html",
+    "href": "5100-website/slideshow.html",
+    "title": "Airy Tales Slideshow",
+    "section": "",
+    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate.",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html",
+    "href": "5100-website/eda/eda.html",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "dmv_aqi &lt;- read.csv('../dmv-area_air-quality-data.csv')\n\nhead(dmv_aqi)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n0\nWashington\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nWashington D.C.\n\n\n2\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\nVirginia\n\n\n3\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\nVirginia\n\n\n4\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n5\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n6\n5\nBethesda\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n\n\n\n\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n\n\n\n\n\n\nVA &lt;- filter(dmv_aqi, area == \"Virginia\")\nhead(VA)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\nVirginia\n\n\n2\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\nVirginia\n\n\n3\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n4\n7\nReston\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n5\n44\nVienna\n253.68\n2\n3.90\n4\n49.35\n41\n0.34\n0\n0.78\n2\n1.22\n1\n41\nVirginia\n\n\n6\n45\nFalls Church\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nVirginia\n\n\n\n\n\n\n\nVA_overall_aqi &lt;- VA$overall_aqi\nhist(VA_overall_aqi) \nlength(VA_overall_aqi)\n\n49\n\n\n\n\n\n\n\n\n\nFrom this histogram we can discern that overall aqi in VA has the highest frequency in the 20-40 range, indicating this is the most common range for air quality index values in the dataset. It appears right-skewed, with a gradual decrease in frequency from the 40-60 to the 60-80 ranges, and a few potential outliers in the 120-140 range, suggesting occasional higher air quality index readings. The overall distribution points to a trend of lower air quality index values with some infrequent higher values.\n\n\n\n\nMD &lt;- filter(dmv_aqi, area == \"Maryland\")\nhead(MD)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n2\n5\nBethesda\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n3\n6\nSilver Spring\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n4\n8\nFrederick\n360.49\n4\n21.76\n27\n40.05\n33\n1.07\n1\n5.54\n17\n7.44\n6\n33\nMaryland\n\n\n5\n9\nGaithersburg\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n6\n10\nAnnapolis\n453.95\n5\n40.44\n50\n28.61\n24\n5.13\n7\n8.39\n27\n13.23\n12\n50\nMaryland\n\n\n\n\n\n\n\nMD_overall_aqi &lt;- MD$overall_aqi\nhist(MD_overall_aqi) \nlength(MD_overall_aqi)\n\n49\n\n\n\n\n\n\n\n\n\nThe histogram for overall aqi in MD shows a distribution of air quality index values with a peak in the 60-80 range, indicating this is where the majority of data points fall, and thus the most common air quality index observed for this dataset. AQI in the ranges of 20-40 and 40-60 have lower frequencies, and there’s a further decrease in the 80-100 range. The presence of data points in the 100-120 and 120-140 ranges suggests occasional higher values. The distribution is not as right-skewed as the previous histogram for VA, but it still shows a decrease in frequency as the value increases beyond the mode.\n\n\n\n\nmean(VA_overall_aqi)\nsd(VA_overall_aqi)\n\n62.7142857142857\n\n\n29.7643522803146\n\n\n\nmean(MD_overall_aqi)\nsd(MD_overall_aqi)\n\n70.1020408163265\n\n\n21.0695721538977\n\n\n\n\n\n\n# Combine the datasets\ncombined_data &lt;- rbind(VA, MD)\n\nboxplot(overall_aqi ~ area, data = combined_data, \n        names = c(\"VA\", \"MD\"),\n        main = \"Comparison of Overall AQI\",\n        xlab = \"State\",\n        ylab = \"AQI\")\n\n\n\n\n\n\n\n\nThe box plot comparison indicates that Maryland has a higher median Air Quality Index (AQI) and greater variability in AQI values than Virginia, with Virginia exhibiting an outlier that indicates an occasional AQI reading significantly higher than typical values. Both states have similar symmetry around their medians, suggesting a comparable distribution shape for AQI readings.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#load-the-data",
+    "href": "5100-website/eda/eda.html#load-the-data",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "dmv_aqi &lt;- read.csv('../dmv-area_air-quality-data.csv')\n\nhead(dmv_aqi)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n0\nWashington\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nWashington D.C.\n\n\n2\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\nVirginia\n\n\n3\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\nVirginia\n\n\n4\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n5\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n6\n5\nBethesda\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n\n\n\n\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#visualize-va-aqi-frequency-distribution",
+    "href": "5100-website/eda/eda.html#visualize-va-aqi-frequency-distribution",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "VA &lt;- filter(dmv_aqi, area == \"Virginia\")\nhead(VA)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\nVirginia\n\n\n2\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\nVirginia\n\n\n3\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n4\n7\nReston\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n5\n44\nVienna\n253.68\n2\n3.90\n4\n49.35\n41\n0.34\n0\n0.78\n2\n1.22\n1\n41\nVirginia\n\n\n6\n45\nFalls Church\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nVirginia\n\n\n\n\n\n\n\nVA_overall_aqi &lt;- VA$overall_aqi\nhist(VA_overall_aqi) \nlength(VA_overall_aqi)\n\n49\n\n\n\n\n\n\n\n\n\nFrom this histogram we can discern that overall aqi in VA has the highest frequency in the 20-40 range, indicating this is the most common range for air quality index values in the dataset. It appears right-skewed, with a gradual decrease in frequency from the 40-60 to the 60-80 ranges, and a few potential outliers in the 120-140 range, suggesting occasional higher air quality index readings. The overall distribution points to a trend of lower air quality index values with some infrequent higher values.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#visualize-md-aqi-frequency-distribution",
+    "href": "5100-website/eda/eda.html#visualize-md-aqi-frequency-distribution",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "MD &lt;- filter(dmv_aqi, area == \"Maryland\")\nhead(MD)\n\n\n\nA data.frame: 6 × 16\n\n\n\nX\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n&lt;int&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;dbl&gt;\n&lt;int&gt;\n&lt;int&gt;\n&lt;chr&gt;\n\n\n\n\n1\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n2\n5\nBethesda\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n3\n6\nSilver Spring\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nMaryland\n\n\n4\n8\nFrederick\n360.49\n4\n21.76\n27\n40.05\n33\n1.07\n1\n5.54\n17\n7.44\n6\n33\nMaryland\n\n\n5\n9\nGaithersburg\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n6\n10\nAnnapolis\n453.95\n5\n40.44\n50\n28.61\n24\n5.13\n7\n8.39\n27\n13.23\n12\n50\nMaryland\n\n\n\n\n\n\n\nMD_overall_aqi &lt;- MD$overall_aqi\nhist(MD_overall_aqi) \nlength(MD_overall_aqi)\n\n49\n\n\n\n\n\n\n\n\n\nThe histogram for overall aqi in MD shows a distribution of air quality index values with a peak in the 60-80 range, indicating this is where the majority of data points fall, and thus the most common air quality index observed for this dataset. AQI in the ranges of 20-40 and 40-60 have lower frequencies, and there’s a further decrease in the 80-100 range. The presence of data points in the 100-120 and 120-140 ranges suggests occasional higher values. The distribution is not as right-skewed as the previous histogram for VA, but it still shows a decrease in frequency as the value increases beyond the mode.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#compare-va-aqi-with-md-aqi",
+    "href": "5100-website/eda/eda.html#compare-va-aqi-with-md-aqi",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "mean(VA_overall_aqi)\nsd(VA_overall_aqi)\n\n62.7142857142857\n\n\n29.7643522803146\n\n\n\nmean(MD_overall_aqi)\nsd(MD_overall_aqi)\n\n70.1020408163265\n\n\n21.0695721538977",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#visualize-the-aqi-comparison-using-boxplots",
+    "href": "5100-website/eda/eda.html#visualize-the-aqi-comparison-using-boxplots",
+    "title": "EDA and Hypothesis Testing",
+    "section": "",
+    "text": "# Combine the datasets\ncombined_data &lt;- rbind(VA, MD)\n\nboxplot(overall_aqi ~ area, data = combined_data, \n        names = c(\"VA\", \"MD\"),\n        main = \"Comparison of Overall AQI\",\n        xlab = \"State\",\n        ylab = \"AQI\")\n\n\n\n\n\n\n\n\nThe box plot comparison indicates that Maryland has a higher median Air Quality Index (AQI) and greater variability in AQI values than Virginia, with Virginia exhibiting an outlier that indicates an occasional AQI reading significantly higher than typical values. Both states have similar symmetry around their medians, suggesting a comparable distribution shape for AQI readings.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#welch-two-sample-t-test",
+    "href": "5100-website/eda/eda.html#welch-two-sample-t-test",
+    "title": "EDA and Hypothesis Testing",
+    "section": "Welch Two Sample t-test",
+    "text": "Welch Two Sample t-test\nNull Hypothesis (H0): There is no significant difference in AQI between VA and MD.\nAlternative Hypothesis (H1): MD’s AQI are of higher levels than VA’s.\n\nva_aqi &lt;- subset(dmv_aqi, select=overall_aqi, subset=area==\"Virginia\", drop=T)\nmd_aqi &lt;- subset(dmv_aqi, select=overall_aqi, subset=area==\"Maryland\", drop=T)\n\nt.test(va_aqi, md_aqi, alt=\"greater\")\n\n\n    Welch Two Sample t-test\n\ndata:  va_aqi and md_aqi\nt = -1.4181, df = 86.45, p-value = 0.9201\nalternative hypothesis: true difference in means is greater than 0\n95 percent confidence interval:\n -16.04956       Inf\nsample estimates:\nmean of x mean of y \n 62.71429  70.10204 \n\n\nThe Welch Two Sample t-test shows that there is not a statistically significant difference in the means of AQI between Virginia and Maryland (p-value = 0.9201), with Virginia having a slightly lower mean AQI (mean of x = 62.71429) compared to Maryland (mean of y = 70.12024).\nNon-technical conclusion: The test shows that VA and MD have very similar Air Aquality Indexes.\nThe 95% confidence interval for the difference in means of AQI between Virginia and Maryland is from approximately -16.04956 to infinity. This indicates that we can be 95% confident that the true difference in AQI means could be less than 0, suggesting no significant difference between the two states. Since the interval contains zero, it suggests that we cannot conclude a statistically significant difference in the AQI means of Virginia and Maryland, with the lower bound of this difference being just below zero. The “Inf” in the interval likely represents that the upper bound is not calculated or is extremely large, which typically happens when the variance in the two samples is quite different, or when the sample size is small, leading to a skewed distribution of the estimated mean difference.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/eda/eda.html#bootstrap-hypothesis-test",
+    "href": "5100-website/eda/eda.html#bootstrap-hypothesis-test",
+    "title": "EDA and Hypothesis Testing",
+    "section": "Bootstrap Hypothesis Test",
+    "text": "Bootstrap Hypothesis Test\n\nva_n &lt;- length(VA_overall_aqi)\n\n\nmd_n &lt;- length(MD_overall_aqi)\n\n\nN &lt;- 10000\naqi.ratio.mean &lt;- numeric(N) \n\nfor (i in 1:N)\n{\nVA.sample &lt;- sample(VA_overall_aqi, va_n, replace = TRUE) \nMD.sample &lt;- sample(MD_overall_aqi, md_n, replace = TRUE)\naqi.ratio.mean[i] &lt;- mean(VA.sample) / mean(MD.sample)\n}\n\nhist(aqi.ratio.mean, main = \"Bootstrap distribution of ratio of means\",col = '#FFFF99')\nabline(v = mean(VA_overall_aqi) / mean(MD_overall_aqi), col = \"blue\", lty = 2)\n\nqqnorm(aqi.ratio.mean)\nqqline(aqi.ratio.mean)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmean(VA_overall_aqi) / mean(MD_overall_aqi) #original sample\nmean(aqi.ratio.mean) #bootstrap sample\nsd(aqi.ratio.mean)\n\n# 95% CI\nquantile(aqi.ratio.mean, c(0.025, 0.975))\n\n0.894614264919942\n\n\n0.896154833765898\n\n\n0.0715864794082102\n\n\n2.5%0.76023822807533597.5%1.04215726872247\n\n\nConclusion: The 95% bootstrap percentile interval for the ratio of AQI means between Virginia and Maryland is from approximately 0.7602 to 1.0421. Since this interval includes 1, it suggests that there is not a statistically significant difference between the AQI means of the two states.\n\nbias= mean(aqi.ratio.mean) - (mean(VA_overall_aqi) / mean(MD_overall_aqi)) # estimated bias\n\ncat(\"The bootstrap estimate of the bias for the mean ratio is: \", bias)\n\nThe bootstrap estimate of the bias for the mean ratio is:  0.001540569\n\n\nThe Welch Two Sample t-test and bootstrap analysis both indicate no statistically significant difference in AQI between Virginia and Maryland, with the t-test yielding a p-value of 0.9201 and the bootstrap method providing a 95% confidence interval for the ratio of means that includes 1. These results are consistent and confirm no significant difference in AQI between the two states.",
+    "crumbs": [
+      "Airy Tales",
+      "EDA & Hypothesis Testing"
+    ]
+  },
+  {
+    "objectID": "5100-website/air-quality.html",
+    "href": "5100-website/air-quality.html",
+    "title": "Air Quality Data",
+    "section": "",
+    "text": "Resource used: https://api-ninjas.com/api/airquality\nimport requests\nimport json\nimport pandas as pd",
+    "crumbs": [
+      "Airy Tales",
+      "Data Collection"
+    ]
+  },
+  {
+    "objectID": "5100-website/air-quality.html#api-request-to-access-air-quality-information",
+    "href": "5100-website/air-quality.html#api-request-to-access-air-quality-information",
+    "title": "Air Quality Data",
+    "section": "API Request to access Air Quality Information",
+    "text": "API Request to access Air Quality Information\n\nInformation gathered for 100 cities around the DMV\n\ncities = [\n    'Washington', 'Arlington', 'Alexandria', 'Fairfax', 'Rockville', \n    'Bethesda', 'Silver Spring', 'Reston', 'Frederick', 'Gaithersburg',\n    'Annapolis', 'Bowie', 'College Park', 'Greenbelt', 'Laurel',\n    'Cumberland', 'Hagerstown', 'Salisbury', 'Westminster', 'Hyattsville',\n    'Takoma Park', 'Chevy Chase', 'Kensington', 'Poolesville', 'Bladensburg',\n    'Mount Rainier', 'Riverdale Park', 'Berwyn Heights', 'New Carrollton', 'Glenarden',\n    'Brentwood', 'Capitol Heights', 'Colmar Manor', 'Cottage City', 'Cheverly',\n    'Edmonston', 'Fairmount Heights', 'Forest Heights', 'Landover Hills', 'Morningside',\n    'North Brentwood', 'Seat Pleasant', 'University Park', 'Upper Marlboro', 'Vienna',\n    'Falls Church', 'Manassas', 'Leesburg', 'Herndon', 'Purcellville',\n    'Warrenton', 'Culpeper', 'Winchester', 'Front Royal', 'Strasburg',\n    'Woodstock', 'Luray', 'Berryville', 'Middleburg', 'Dumfries',\n    'Occoquan', 'Haymarket', 'Clifton', 'Quantico', 'Hamilton',\n    'Hillsboro', 'Lovettsville', 'Round Hill', 'Ashburn', 'Chantilly',\n    'Sterling', 'Great Falls', 'McLean', 'Tysons', 'Burke',\n    'Springfield', 'Lorton', 'Mount Vernon', 'Annandale', 'Oakton',\n    'Falls Church', 'Centreville', 'Manassas Park', 'Gainesville', 'Bristow',\n    'Nokesville', 'Dale City', 'Woodbridge', 'Stafford', 'Fredericksburg', \n    'Potomac', 'Ellicott City', 'Germantown', 'Waldorf', 'Lanham',\n    'Beltsville', 'Crofton', 'Oxon Hill', 'Sykesville', 'Olney', 'Georgetown', 'Dupont Circle'\n]\n\n\n\napi_url = 'https://api.api-ninjas.com/v1/airquality?city={}'\napi_key = 'rtsVUhXvel9N968aGEoMeg==zciz73lsmuFNEOQM'\n\n# Dictionary to store the results\nresults = {}\n\n# Loop through each city and make an API request\nfor city in cities:\n    response = requests.get(api_url.format(city), headers={'X-Api-Key': api_key})\n    \n    if response.status_code == requests.codes.ok:\n        results[city] = response.json()\n    else:\n        print(\"Error in city:\", city, \"-\", response.status_code, response.text)\n\n# Save the results in a JSON file\nwith open('air_quality_data.json', 'w') as json_file:\n    json.dump(results, json_file, indent=4)\n\nprint(\"Data saved in air_quality_data.json\")\n\nData saved in air_quality_data.json",
+    "crumbs": [
+      "Airy Tales",
+      "Data Collection"
+    ]
+  },
+  {
+    "objectID": "5100-website/air-quality.html#read-data-from-json-file-and-save-as-a-dataframe",
+    "href": "5100-website/air-quality.html#read-data-from-json-file-and-save-as-a-dataframe",
+    "title": "Air Quality Data",
+    "section": "Read Data from JSON File and Save as a Dataframe",
+    "text": "Read Data from JSON File and Save as a Dataframe\n\n# Load the JSON data from the file\nfile_path = 'air_quality_data.json'\nwith open(file_path, 'r') as file:\n    data = json.load(file)\n\n# Convert the JSON data to a DataFrame\ndf_list = []\nfor city, metrics in data.items():\n    row = {\n        'city': city,\n        'CO': metrics.get('CO'),\n        'NO2': metrics.get('NO2'),\n        'O3': metrics.get('O3'),\n        'SO2': metrics.get('SO2'),\n        'PM2.5': metrics.get('PM2.5'),\n        'PM10': metrics.get('PM10'),\n        'overall_aqi': metrics.get('overall_aqi')\n    }\n    df_list.append(row)\n\ndf = pd.DataFrame(df_list)\n\ndf.head()\n\n\n\n\n\n\n\n\n\ncity\nCO\nNO2\nO3\nSO2\nPM2.5\nPM10\noverall_aqi\n\n\n\n\n0\nWashington\n{'concentration': 634.19, 'aqi': 7}\n{'concentration': 77.46, 'aqi': 96}\n{'concentration': 0.76, 'aqi': 0}\n{'concentration': 4.05, 'aqi': 5}\n{'concentration': 15.93, 'aqi': 51}\n{'concentration': 19.89, 'aqi': 18}\n96\n\n\n1\nArlington\n{'concentration': 263.69, 'aqi': 2}\n{'concentration': 9.17, 'aqi': 11}\n{'concentration': 84.4, 'aqi': 123}\n{'concentration': 3.07, 'aqi': 4}\n{'concentration': 11.68, 'aqi': 37}\n{'concentration': 12.86, 'aqi': 11}\n123\n\n\n2\nAlexandria\n{'concentration': 220.3, 'aqi': 2}\n{'concentration': 0.75, 'aqi': 0}\n{'concentration': 85.83, 'aqi': 127}\n{'concentration': 2.62, 'aqi': 3}\n{'concentration': 39.78, 'aqi': 98}\n{'concentration': 215.43, 'aqi': 130}\n130\n\n\n3\nFairfax\n{'concentration': 580.79, 'aqi': 6}\n{'concentration': 75.4, 'aqi': 94}\n{'concentration': 2.3, 'aqi': 1}\n{'concentration': 3.55, 'aqi': 5}\n{'concentration': 15.25, 'aqi': 49}\n{'concentration': 19.79, 'aqi': 18}\n94\n\n\n4\nRockville\n{'concentration': 447.27, 'aqi': 5}\n{'concentration': 56.21, 'aqi': 70}\n{'concentration': 14.13, 'aqi': 11}\n{'concentration': 4.41, 'aqi': 6}\n{'concentration': 10.67, 'aqi': 34}\n{'concentration': 14.02, 'aqi': 12}\n70",
+    "crumbs": [
+      "Airy Tales",
+      "Data Collection"
+    ]
+  },
+  {
+    "objectID": "5100-website/air-quality.html#clean-the-df",
+    "href": "5100-website/air-quality.html#clean-the-df",
+    "title": "Air Quality Data",
+    "section": "Clean the DF",
+    "text": "Clean the DF\n\n# Separate the concentration and AQI values into distinct columns\nfor pollutant in ['CO', 'NO2', 'O3', 'SO2', 'PM2.5', 'PM10']:\n    df[f'{pollutant}_concentration'] = df[pollutant].apply(lambda x: x.get('concentration'))\n    df[f'{pollutant}_aqi'] = df[pollutant].apply(lambda x: x.get('aqi'))\n    df.drop(columns=[pollutant], inplace=True)\n\n# Reorder the columns for better readability\ncolumns_order = ['city', 'CO_concentration', 'CO_aqi', 'NO2_concentration', 'NO2_aqi', \n                 'O3_concentration', 'O3_aqi', 'SO2_concentration', 'SO2_aqi', \n                 'PM2.5_concentration', 'PM2.5_aqi', 'PM10_concentration', 'PM10_aqi', 'overall_aqi']\ndf = df[columns_order]\n\ndf\n\n\n\n\n\n\n\n\n\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\n\n\n\n\n0\nWashington\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\n\n\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\n\n\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\n\n\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\n\n\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n96\nOxon Hill\n627.52\n7\n62.38\n77\n0.11\n0\n3.22\n4\n14.62\n47\n19.05\n17\n77\n\n\n97\nSykesville\n417.23\n4\n41.81\n52\n26.11\n22\n5.78\n8\n9.25\n30\n13.38\n12\n52\n\n\n98\nOlney\n226.97\n2\n1.67\n2\n87.98\n132\n2.35\n3\n10.94\n35\n11.20\n10\n132\n\n\n99\nGeorgetown\n310.42\n3\n0.06\n0\n23.60\n20\n0.05\n0\n1.18\n3\n2.44\n2\n20\n\n\n100\nDupont Circle\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\n\n\n\n\n101 rows × 14 columns\n\n\n\n\n\nvirginia_cities = {\n    'Arlington', 'Alexandria', 'Fairfax', 'Reston', 'Vienna', 'Falls Church', 'Manassas', 'Leesburg', 'Herndon', \n    'Purcellville', 'Warrenton', 'Culpeper', 'Winchester', 'Front Royal', 'Strasburg', 'Woodstock', 'Luray', \n    'Berryville', 'Middleburg', 'Dumfries', 'Occoquan', 'Haymarket', 'Clifton', 'Quantico', 'Hamilton', 'Hillsboro', \n    'Lovettsville', 'Round Hill', 'Ashburn', 'Chantilly', 'Sterling', 'Great Falls', 'McLean', 'Tysons', 'Burke', \n    'Springfield', 'Lorton', 'Mount Vernon', 'Annandale', 'Oakton', 'Centreville', 'Manassas Park', 'Gainesville', \n    'Bristow', 'Nokesville', 'Dale City', 'Woodbridge', 'Stafford', 'Fredericksburg'\n}\n\nmaryland_cities = {\n    'Rockville', 'Bethesda', 'Silver Spring', 'Frederick', 'Gaithersburg', 'Annapolis', 'Bowie', 'College Park', \n    'Greenbelt', 'Laurel', 'Cumberland', 'Hagerstown', 'Salisbury', 'Westminster', 'Hyattsville', 'Takoma Park', \n    'Chevy Chase', 'Kensington', 'Poolesville', 'Bladensburg', 'Mount Rainier', 'Riverdale Park', 'Berwyn Heights', \n    'New Carrollton', 'Glenarden', 'Brentwood', 'Capitol Heights', 'Colmar Manor', 'Cottage City', 'Cheverly', \n    'Edmonston', 'Fairmount Heights', 'Forest Heights', 'Landover Hills', 'Morningside', 'North Brentwood', \n    'Seat Pleasant', 'University Park', 'Upper Marlboro', 'Potomac', 'Ellicott City', 'Germantown', 'Waldorf', \n    'Lanham', 'Beltsville', 'Crofton', 'Oxon Hill', 'Sykesville', 'Olney'\n}\n\nwashington_dc = {'Washington', 'Georgetown', 'Dupont Circle'}\n\ndf1 = df.copy()\n\ndf1['area'] = df1['city'].apply(lambda city: 'Virginia' if city in virginia_cities \n                                        else 'Maryland' if city in maryland_cities \n                                        else 'Washington D.C.' if city in washington_dc\n                                        else 'Unknown')\n\ndf1\n\n\n\n\n\n\n\n\n\ncity\nCO_concentration\nCO_aqi\nNO2_concentration\nNO2_aqi\nO3_concentration\nO3_aqi\nSO2_concentration\nSO2_aqi\nPM2.5_concentration\nPM2.5_aqi\nPM10_concentration\nPM10_aqi\noverall_aqi\narea\n\n\n\n\n0\nWashington\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nWashington D.C.\n\n\n1\nArlington\n263.69\n2\n9.17\n11\n84.40\n123\n3.07\n4\n11.68\n37\n12.86\n11\n123\nVirginia\n\n\n2\nAlexandria\n220.30\n2\n0.75\n0\n85.83\n127\n2.62\n3\n39.78\n98\n215.43\n130\n130\nVirginia\n\n\n3\nFairfax\n580.79\n6\n75.40\n94\n2.30\n1\n3.55\n5\n15.25\n49\n19.79\n18\n94\nVirginia\n\n\n4\nRockville\n447.27\n5\n56.21\n70\n14.13\n11\n4.41\n6\n10.67\n34\n14.02\n12\n70\nMaryland\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n96\nOxon Hill\n627.52\n7\n62.38\n77\n0.11\n0\n3.22\n4\n14.62\n47\n19.05\n17\n77\nMaryland\n\n\n97\nSykesville\n417.23\n4\n41.81\n52\n26.11\n22\n5.78\n8\n9.25\n30\n13.38\n12\n52\nMaryland\n\n\n98\nOlney\n226.97\n2\n1.67\n2\n87.98\n132\n2.35\n3\n10.94\n35\n11.20\n10\n132\nMaryland\n\n\n99\nGeorgetown\n310.42\n3\n0.06\n0\n23.60\n20\n0.05\n0\n1.18\n3\n2.44\n2\n20\nWashington D.C.\n\n\n100\nDupont Circle\n634.19\n7\n77.46\n96\n0.76\n0\n4.05\n5\n15.93\n51\n19.89\n18\n96\nWashington D.C.\n\n\n\n\n101 rows × 15 columns",
+    "crumbs": [
+      "Airy Tales",
+      "Data Collection"
+    ]
+  },
+  {
+    "objectID": "5100-website/air-quality.html#save-output",
+    "href": "5100-website/air-quality.html#save-output",
+    "title": "Air Quality Data",
+    "section": "Save Output",
+    "text": "Save Output\n\n# This is the dataframe without the area classification\ndf.to_csv('dmv_air-quality-data.csv')\n\n\n# dataframe with the area classification\ndf1.to_csv('dmv-area_air-quality-data.csv')",
+    "crumbs": [
+      "Airy Tales",
+      "Data Collection"
+    ]
+  },
+  {
+    "objectID": "5100-website/index.html",
+    "href": "5100-website/index.html",
+    "title": "Inroduction",
+    "section": "",
+    "text": "Inroduction",
+    "crumbs": [
+      "Airy Tales",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-1",
+    "href": "5100-website/slideshow.html#slide-1",
+    "title": "Image Slideshow",
+    "section": "Slide 1",
+    "text": "Slide 1",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-2",
+    "href": "5100-website/slideshow.html#slide-2",
+    "title": "Image Slideshow",
+    "section": "Slide 2",
+    "text": "Slide 2",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-3",
+    "href": "5100-website/slideshow.html#slide-3",
+    "title": "Image Slideshow",
+    "section": "Slide 3",
+    "text": "Slide 3",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-4",
+    "href": "5100-website/slideshow.html#slide-4",
+    "title": "Image Slideshow",
+    "section": "Slide 4",
+    "text": "Slide 4",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-5",
+    "href": "5100-website/slideshow.html#slide-5",
+    "title": "Image Slideshow",
+    "section": "Slide 5",
+    "text": "Slide 5",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-6",
+    "href": "5100-website/slideshow.html#slide-6",
+    "title": "Image Slideshow",
+    "section": "Slide 6",
+    "text": "Slide 6",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-7",
+    "href": "5100-website/slideshow.html#slide-7",
+    "title": "Image Slideshow",
+    "section": "Slide 7",
+    "text": "Slide 7",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-8",
+    "href": "5100-website/slideshow.html#slide-8",
+    "title": "Image Slideshow",
+    "section": "Slide 8",
+    "text": "Slide 8",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-9",
+    "href": "5100-website/slideshow.html#slide-9",
+    "title": "Image Slideshow",
+    "section": "Slide 9",
+    "text": "Slide 9",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-10",
+    "href": "5100-website/slideshow.html#slide-10",
+    "title": "Image Slideshow",
+    "section": "Slide 10",
+    "text": "Slide 10",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-11",
+    "href": "5100-website/slideshow.html#slide-11",
+    "title": "Image Slideshow",
+    "section": "Slide 11",
+    "text": "Slide 11",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-12",
+    "href": "5100-website/slideshow.html#slide-12",
+    "title": "Image Slideshow",
+    "section": "Slide 12",
+    "text": "Slide 12",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-13",
+    "href": "5100-website/slideshow.html#slide-13",
+    "title": "Image Slideshow",
+    "section": "Slide 13",
+    "text": "Slide 13",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-14",
+    "href": "5100-website/slideshow.html#slide-14",
+    "title": "Image Slideshow",
+    "section": "Slide 14",
+    "text": "Slide 14",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-15",
+    "href": "5100-website/slideshow.html#slide-15",
+    "title": "Image Slideshow",
+    "section": "Slide 15",
+    "text": "Slide 15",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-16",
+    "href": "5100-website/slideshow.html#slide-16",
+    "title": "Image Slideshow",
+    "section": "Slide 16",
+    "text": "Slide 16",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-17",
+    "href": "5100-website/slideshow.html#slide-17",
+    "title": "Image Slideshow",
+    "section": "Slide 17",
+    "text": "Slide 17",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-18",
+    "href": "5100-website/slideshow.html#slide-18",
+    "title": "Image Slideshow",
+    "section": "Slide 18",
+    "text": "Slide 18",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-19",
+    "href": "5100-website/slideshow.html#slide-19",
+    "title": "Image Slideshow",
+    "section": "Slide 19",
+    "text": "Slide 19",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-20",
+    "href": "5100-website/slideshow.html#slide-20",
+    "title": "Image Slideshow",
+    "section": "Slide 20",
+    "text": "Slide 20",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-21",
+    "href": "5100-website/slideshow.html#slide-21",
+    "title": "Image Slideshow",
+    "section": "Slide 21",
+    "text": "Slide 21",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-22",
+    "href": "5100-website/slideshow.html#slide-22",
+    "title": "Image Slideshow",
+    "section": "Slide 22",
+    "text": "Slide 22",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-23",
+    "href": "5100-website/slideshow.html#slide-23",
+    "title": "Image Slideshow",
+    "section": "Slide 23",
+    "text": "Slide 23",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-24",
+    "href": "5100-website/slideshow.html#slide-24",
+    "title": "Image Slideshow",
+    "section": "Slide 24",
+    "text": "Slide 24",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-25",
+    "href": "5100-website/slideshow.html#slide-25",
+    "title": "Image Slideshow",
+    "section": "Slide 25",
+    "text": "Slide 25",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-26",
+    "href": "5100-website/slideshow.html#slide-26",
+    "title": "Image Slideshow",
+    "section": "Slide 26",
+    "text": "Slide 26",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-27",
+    "href": "5100-website/slideshow.html#slide-27",
+    "title": "Image Slideshow",
+    "section": "Slide 27",
+    "text": "Slide 27",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-28",
+    "href": "5100-website/slideshow.html#slide-28",
+    "title": "Image Slideshow",
+    "section": "Slide 28",
+    "text": "Slide 28",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-29",
+    "href": "5100-website/slideshow.html#slide-29",
+    "title": "Image Slideshow",
+    "section": "Slide 29",
+    "text": "Slide 29",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-30",
+    "href": "5100-website/slideshow.html#slide-30",
+    "title": "Image Slideshow",
+    "section": "Slide 30",
+    "text": "Slide 30",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-31",
+    "href": "5100-website/slideshow.html#slide-31",
+    "title": "Image Slideshow",
+    "section": "Slide 31",
+    "text": "Slide 31",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-32",
+    "href": "5100-website/slideshow.html#slide-32",
+    "title": "Image Slideshow",
+    "section": "Slide 32",
+    "text": "Slide 32",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-33",
+    "href": "5100-website/slideshow.html#slide-33",
+    "title": "Image Slideshow",
+    "section": "Slide 33",
+    "text": "Slide 33",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-34",
+    "href": "5100-website/slideshow.html#slide-34",
+    "title": "Image Slideshow",
+    "section": "Slide 34",
+    "text": "Slide 34",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-35",
+    "href": "5100-website/slideshow.html#slide-35",
+    "title": "Image Slideshow",
+    "section": "Slide 35",
+    "text": "Slide 35",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "5100-website/slideshow.html#slide-36",
+    "href": "5100-website/slideshow.html#slide-36",
+    "title": "Image Slideshow",
+    "section": "Slide 36",
+    "text": "Slide 36",
+    "crumbs": [
+      "Airy Tales",
+      "Slideshow"
+    ]
+  },
+  {
+    "objectID": "index.html#beats-and-bytes",
+    "href": "index.html#beats-and-bytes",
+    "title": "Projects",
+    "section": "Beats and Bytes",
+    "text": "Beats and Bytes\n\n\n\n\n\n\n\n\n\n\nHarmony Through Numbers: Classifying Spotify Data Across Genres and Decades\n\n\nDSAN 5300 Final Project - Group 37\n\n\n\n\n\n\n\n\nFeb 23, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "5300-website/Group37_Final_Report.html",
+    "href": "5300-website/Group37_Final_Report.html",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "",
+    "text": "Through this project, our group sought to bridge the gap between music and data science by employing Spotify’s extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector.",
+    "crumbs": [
+      "Beats & Bytes",
+      "Harmony Through Numbers"
+    ]
+  },
+  {
+    "objectID": "5300-website/Group37_Final_Report.html#artist-level-genre-classification",
+    "href": "5300-website/Group37_Final_Report.html#artist-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Artist Level Genre Classification",
+    "text": "Artist Level Genre Classification\n\nData Setup\nIn the initial steps of our project, we utilized essential Python libraries, such as numpy and pandas, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, artists.csv, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.\n\n\nData Exploration and Cleansing\nDuring our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like “The Beach Boys” and removing entries with corrupted data, such as “Roger Miller.” This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling.\n\n\nAssigning a Primary Genre\nAs musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.\n\n\nMachine Learning Preparation\nWe prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model’s performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.\n\n\nModel Training and Evaluation\nIn this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:\n\nLogistic Regression\n\nTest Accuracy: 81.03%\nComputation Time: 3.2 seconds\nComments: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 77.59%\nComputation Time: 3.4 seconds\nComments: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.\n\n\n\nNeural Network\n\nTrain Accuracy: 68.85%\nTest Accuracy: 70.69%\nComputation Time: 11 minutes 46.2 seconds\nComments: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.\n\n\n\nRandom Forest\n\nTest Accuracy: 79.31%\nComputation Time: 1 minute 6.4 seconds\nComments: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.\n\n\n\nXGBoost\n\nTest Accuracy: 77.59%\nComputation Time: 24.5 seconds\nComments: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.\n\n\n\n\nHyperparameter Tuning\nWe implemented grid searches to fine tune each model’s hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model’s performance and its ability to generalize on new data.\n\n\nConclusion: Classifying Artists into Genres\nThe genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques.",
+    "crumbs": [
+      "Beats & Bytes",
+      "Harmony Through Numbers"
+    ]
+  },
+  {
+    "objectID": "5300-website/Group37_Final_Report.html#track-level-genre-classification",
+    "href": "5300-website/Group37_Final_Report.html#track-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Track Level Genre Classification",
+    "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy.",
+    "crumbs": [
+      "Beats & Bytes",
+      "Harmony Through Numbers"
     ]
   }
 ]

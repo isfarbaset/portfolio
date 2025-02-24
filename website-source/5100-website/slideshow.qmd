@@ -1,0 +1,17 @@
+---
+title: "Airy Tales Slideshow"
+format: html
+---
+
+# VA AQI versus MD AQI
+
+Below is an embedded Google Slides presentation.  
+Use the **left/right arrows** in the slide player to navigate.
+
+---
+
+## 📽️ 
+
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT0w-NZh-XAwqlsVXcmsD6ObxM4XlYaM52844xbOMyZsOhbLYLDXeyPzTQx90JFLl12CUmH1fU0DK0X/embed?start=false&loop=true&delayms=3000" 
+frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

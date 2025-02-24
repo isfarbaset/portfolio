@@ -1,0 +1,245 @@
+---
+title: "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades "
+subtitle: "DSAN 5300 Final Project - Group 37"
+authors: ["Jorge Bris Moreno", "William McGloin", "Kangheng Liu", "Isfar Baset"]
+date: last-modified
+date-format: long
+format:
+  html:
+    self-contained: true
+    toc: true
+    code-overflow: wrap
+    code-fold: true
+---
+
+# Introduction
+
+Through this project, our group sought to bridge the gap between music and data science by employing Spotify's extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector.
+
+# Our Data
+
+To tackle this project, we utilized the spotifyr package to extract the top 50 artists across ten popular genres (Country, EDM, Funk, Hip-Hop, Jazz, Latin, Pop, Rap, Rock, and Soul), resulting in an initial dataset that included over 400 artists. We then expanded our dataset by extracting every track for these artists, although we had to clean and preprocess the data due to duplicates and corrupted information. This process left us with a final dataset comprising approximately 50,000 tracks from roughly 400 artists. Additionally, we introduced a new variable, 'decade,' by binning song release dates, which was crucial for our subsequent temporal analysis.
+
+# Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) serves as a crucial foundational step in our project, enabling us to thoroughly understand the characteristics, patterns, and potential anomalies within our dataset. This process not only helps in identifying key trends, but also in detecting outliers or imbalanced data that can skew our results. Through this initial analysis, we seek to extract valuable insights that will enhance the accuracy of our modeling decisions. In the following section, we will present some brief findings from the EDA, shedding light on overarching trends and informing the strategic construction of our predictive models.
+
+![](images/decade_distribution.png)
+
+The above graph displays the number of tracks in each decade within our dataset. The distribution is severely imbalanced, with many songs from the past two decades and fewer songs as you continue to go back in time. To address this problem, we used various sampling methods to balance the training data for our models.
+
+![](images/heatmap_transparent.png)
+
+This heat map allows us to explore the values of the assorted metrics, compare them between genres, and better understand the various distributions. While many of the metrics have similar values across genres, making classification a much more challenging task, specific metrics might be crucial for this machine learning task. It is no surprise that EDM has a much higher instrumental value than the other genres, while hip-hop has a higher speechiness value. We hope our models will uncover similar trends to aid in genre classification. 
+
+# Methodology
+
+Our methodology involved several key steps: data aggregation, cleaning, and establishing classification labels. For artist level data, we averaged the Spotify metrics to create a singular profile per artist, assuming a consistent style across their work. While we acknowledge that this assumption may lead to unreliable classification results (as an artist can change genres over time), it was necessary for our analysis. For genre classification, we started with multiple genres per artist, but narrowed it down to one primary genre due to significant overlap and the limitations of our dataset size. The methods we used to accomplish this will be described later in the report. We applied various machine learning models—logistic regression, support vector machines, neural networks, random forests, and XGBoost, all with hyperparameter tuning—to predict genres and decades, adapting our approach based on the peculiarities of each dataset level (artist vs. track).
+
+# Machine Learning Methods
+
+We employed a variety of machine learning models to tackle the classification tasks, each chosen for its unique strengths in handling complex patterns within both large and small datasets:
+
+1. Logistic Regression: A straightforward, yet powerful model used primarily for binary classification. For our multi-class classification tasks, we utilized the One vs Rest (OVR) strategy to extend logistic regression's capabilities. Logistic regression works by using a logistic function to model a binary dependent variable, though in the case of OVR, a separate model is created for each class to distinguish it from all other classes, effectively simplifying a multi-class problem into multiple binary problems.
+2. Support Vector Machines (SVMs): These models are effective in high-dimensional spaces and can define complex boundaries with kernel functions, making them suitable for our genre classification problem. SVMs work by finding a hyperplane that best divides a dataset into classes. The use of kernel functions allows the algorithm to operate in a higher dimensional space without directly computing the coordinates in that space, which can be computationally efficient.
+3. Neural Networks: With their deep learning capabilities, neural networks are adept at capturing nonlinear relationships and interactions between features, making them ideal for processing the intricate properties of musical data. Neural networks consist of layers of interconnected nodes where each node represents a neuron that processes input data and passes its output to the next layer. The network learns complex patterns through adjustments in the weights of connections, guided by a backpropagation algorithm that minimizes prediction error.
+4. Random Forests: This ensemble learning method uses multiple decision trees to improve classification accuracy and control over fitting. It is particularly good at handling varied data types and large datasets, providing robustness and reliability. Random forests operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes of individual trees. This method is effective in reducing variance and bias, making it more accurate than a single decision tree.
+5. XGBoost (Extreme Gradient Boosting): An implementation of gradient boosted decision trees designed for speed and performance, XGBoost is renowned for its efficiency in classification tasks and feature handling, making it a strong candidate for genre and decade classification. XGBoost improves on traditional gradient boosting methods by introducing more efficient ways to handle sparse data and adding mechanisms to penalize complex models through both L1 and L2 regularization, helping to prevent overfitting.
+
+Each model was rigorously tuned with hyperparameters to optimize performance, ensuring that our classifications were accurate and reflected the underlying data complexities.
+
+# Classification: Genre
+
+In our project, we developed two targeted strategies for classifying genres. The first strategy focused on categorizing music artists into different genres by analyzing a variety of features and datasets aggregated at the artist level. The second strategy concentrated on determining the genre of individual music tracks based on their unique characteristics and features. For each approach, we utilized datasets and features specifically tailored for the genre classification task, whether at the artist or track level.
+
+## Artist Level Genre Classification
+
+### Data Setup 
+
+In the initial steps of our project, we utilized essential Python libraries, such as `numpy` and `pandas`, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, `artists.csv`, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.
+
+### Data Exploration and Cleansing
+
+During our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like "The Beach Boys" and removing entries with corrupted data, such as "Roger Miller." This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling. 
+
+### Assigning a Primary Genre
+
+As musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.
+
+### Machine Learning Preparation
+
+We prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model's performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.
+
+### Model Training and Evaluation
+
+In this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:
+
+#### Logistic Regression
+- **Test Accuracy**: 81.03%
+- **Computation Time**: 3.2 seconds
+- **Comments**: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.
+
+#### Support Vector Machine (SVM)
+- **Test Accuracy**: 77.59%
+- **Computation Time**: 3.4 seconds
+- **Comments**: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.
+
+#### Neural Network
+- **Train Accuracy**: 68.85%
+- **Test Accuracy**: 70.69%
+- **Computation Time**: 11 minutes 46.2 seconds
+- **Comments**: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.
+
+#### Random Forest
+- **Test Accuracy**: 79.31%
+- **Computation Time**: 1 minute 6.4 seconds
+- **Comments**: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.
+
+#### XGBoost
+- **Test Accuracy**: 77.59%
+- **Computation Time**: 24.5 seconds
+- **Comments**: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.
+
+### Hyperparameter Tuning
+
+We implemented grid searches to fine tune each model's hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model's performance and its ability to generalize on new data.
+
+### Conclusion: Classifying Artists into Genres
+
+The genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques. 
+
+## Track Level Genre Classification
+
+### Data Setup
+
+We imported necessary Python libraries such as `numpy` and `pandas`, essential for handling large datasets and numerical computations. The primary dataset, `tracks.csv`, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.
+
+### Data Cleaning and Preprocessing
+
+Initial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models' efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.
+
+### Integration and Processing of Genre-Specific Data
+
+By integrating `genre_of_artists.csv` with our track data, we linked each track with its corresponding artist's genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.
+
+### Feature Engineering and Data Integration
+
+We conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the `key_mode` column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.
+
+### Machine Learning Preparation
+
+The prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.
+
+### Model Training and Evaluation
+
+We trained and evaluated several machine learning models to classify tracks into genres. Each model's performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:
+
+#### Logistic Regression
+- **Test Accuracy**: 51.38%
+- **Computation Time**: 6 minutes 3.89 seconds
+
+#### Support Vector Machine (SVM)
+- **Test Accuracy**: 54.89%
+- **Computation Time**: 80 minutes 4.4 seconds
+
+#### Neural Network
+- **Train Accuracy**: 54.45%
+- **Test Accuracy**: 49.18%
+- **Computation Time**: 44 minutes
+
+#### Random Forest
+- **Test Accuracy**: 61.68%
+- **Computation Time**: 46 minutes 49.8 seconds
+
+#### XGBoost
+- **Test Accuracy**: 63.03%
+- **Computation Time**: 2 minutes 51.4 seconds
+
+### Hyperparameter Tuning
+
+We performed hyperparameter tuning using techniques such GridSearchCV to optimize each model's performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model's effectiveness and efficiency.
+
+### Conclusion: Classifying Tracks into Genres
+
+The track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy.
+
+# Classification: Decade
+
+In this phase, we implemented two distinct strategies for decade classification. Our first approach involved classifying the decades for all songs in our dataset (over 50,000). The second strategy focused on a single genre to see if it was easier for the models to detect differences in songs over time within genres. Each method utilized tailored datasets and features appropriate for classifying decades using either all tracks in our dataset or songs only belonging to artists of a  specific genre to achieve accurate decade categorization. We chose to investigate rock as the genre for our second strategy as it was the most varied genre across the eight decades in our dataset (the 1950s-2020s.)
+
+### Data Setup
+
+As seen in the Exploratory Data Analysis section, the distribution of decades for our data was highly imbalanced. An imbalanced dataset can prove to be a significant issue when the models make predictions - as they might ignore the classes with less data. For this reason, we downsampled without replacement to guarantee that each decade has the same number of songs during the training phase. This allows us to have unbiased models that are not skewed toward the most popular genres. We also created a new variable, 'decade', by binning song release dates, which was crucial for our subsequent temporal analysis.
+
+### Machine Learning Preparation
+
+Similar to our process in the genre classification task, we prepared our dataset for machine learning by splitting it into training and test sets - a standard practice to evaluate a model's performance on unseen data. We also converted categorical variables into a numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.
+
+### Model Training and Evaluation
+
+In this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying songs into decades (based on their release date). Each model was assessed based on its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model (the first value is the accuracy/computation time when classifying all tracks; the second value only includes songs within the rock genre):
+
+#### Logistic Regression
+- **Test Accuracy**: 31.03% | 32.55%
+- **Computation Time**: 3 minutes 57.9 seconds | 2 minutes 14.4 seconds
+
+#### Support Vector Machine (SVM)
+- **Test Accuracy**: 29.94% | 31.12%
+- **Computation Time**: 16 minutes 48.9 seconds | 6 minutes 59.6 seconds
+
+#### Neural Network
+- **Train Accuracy**: 33.72% | 41.03%
+- **Test Accuracy**: 22.06% | 28.60%
+- **Computation Time**: 9 minutes 49.3 seconds | 12 minutes 21.0 seconds
+
+#### Random Forest
+- **Test Accuracy**: 37.85% | 43.33%
+- **Computation Time**: 18 minutes 16.1 seconds | 9 minutes 41.7 seconds
+
+#### XGBoost
+- **Test Accuracy**: 37.24% | 43.99%
+- **Computation Time**: 2 minutes 27.7 seconds | 2 minutes 14.0 seconds
+
+As we can see, all of the models perform better for the dataset that only includes a single genre (rock). This finding suggests that temporal changes might occur at a genre level instead of for the overall music industry. 
+
+### Hyperparameter Tuning
+
+We implemented a grid search for each model to fine tune various hyperparameters and optimize performance. The grid search allowed us to identify the most effective model settings for our specific datasets. However, even with optimal hyperparameters, no model had a particularly high accuracy. Yet, all of the models clearly outperform a random model, which would have an accuracy of 12.5% (8 decades). Moreover, when utilized for a single genre, the models work better, which suggests that different genres developed differently throughout the years.
+
+### Findings
+
+While the models do not work very efficiently, it is worth looking into what features are the most effective in predicting decades, as these are the ones that changed the most over time.
+
+![](images/decade_feature_importance.png)
+
+The Random Forest Classifier provides insights into which variables most significantly impact the determination of a track's decade, highlighting the notable changes over time. The plot illustrates that instrumentalness, tempo, liveness, key, major, and time signature are not among the most essential variables when determining what decade a song was released. This aligns with our previous analysis, as these variables appear to be more important when classifying genres. Furthermore, loudness and song duration were among the most important predictors, which provides insight into today's society of limited attention spans.
+
+### Conclusion: Classifying Tracks into Decades
+
+Our findings show that metadata from tracks is not enough to predict the decade when they were released. However, it is worth noting that the models outperform a random classifier by a significant amount. Furthermore, accuracy improves when the various machine learning models focus on a single genre. Moving forward, it would be interesting to analyze how different genres have changed over time and investigate temporal changes at the artist level.
+
+# Conclusion
+
+Our findings demonstrate a promising, but challenging path forward in classifying music data. While we achieved notable success in classifying artists into genres, decade classification could have performed better, highlighting the complexity of temporal influences in music. The variability within an artist's work across different songs suggests a potential for future research to refine track-level classifications. Overall, this project underscores the potential of machine learning in transforming our understanding of music through data, opening avenues for deeper exploration into the analytics of sound.
+
+# Recommendations
+
+Based on our project's findings and the challenges we encountered, we recommend the following strategies for future projects in music classification using machine learning:
+
+1. Expand Data Collection: To enhance the models' generalizability, future projects should consider expanding the dataset to include a more diverse array of artists and tracks from additional genres and less represented decades. This expansion is crucial for mitigating issues related to data imbalances and providing a richer basis for classification.
+2. Refine Data Labeling Techniques: In our project, track-level genre data was unavailable, necessitating the use of an artist's primary genre to label their songs. Further research could help investigate how an artist's style changes over time, possibly incorporating more granular and dynamic labeling methods that reflect these evolutions.
+3. Utilize Unsupervised Learning: Unsupervised learning techniques such as clustering and principal component analysis could be explored to better understand the underlying structure of the data and identify patterns without predefined labels. This approach might also uncover exciting insights about genre and decade classifications that are not immediately apparent.
+
+By addressing these recommendations, future projects can build on our work's foundation and push the boundaries of what's possible at the intersection of data science and music analysis.
+
+# Link to Github Repo
+
+[Here is a link to the github repo for our porject.](https://github.com/jbrismor/DSAN5300.git)
+
+# Music Jokes: For Nakul
+- Who's most likely to be struck by lightning in an orchestra? The conductor.
+- What happens when you drop a piano down a mining shaft? You get A flat minor.
+- What tempo makes limbs reappear? Allegro.
+- What rock group never sings? Mount Rushmore.
+- Did you hear about the sax player who plays with his feet? He's alto.
+- You can tune a piano but you can't tuna fish. Sorry to string out such flat jokes. I'll give it a rest.

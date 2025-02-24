@@ -10,6 +10,12 @@ listing:
   - id: ev-insights
     contents: "5000-website/index.qmd"
     type: default
+  - id: airy-tales
+    contents: "5100-website/index.qmd"
+    type: default
+  - id: beats-bytes
+    contents: "5300-website/Group37_Final_Report.qmd"
+    type: default
 ---
 
 ## US Insights
@@ -25,4 +31,14 @@ listing:
 ## EV Insights
 
 :::{#ev-insights}
+:::
+
+## Airy Tales
+
+:::{#airy-tales}
+:::
+
+## Beats and Bytes
+
+:::{#beats-bytes}
 :::

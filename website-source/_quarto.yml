@@ -67,7 +67,9 @@ website:
     - title: "Airy Tales"
       contents:
         - text: "Introduction"
-          file: 5100-website/index.ipynb
+          file: 5100-website/index.qmd
+        - text: Slideshow
+          file: 5100-website/slideshow.qmd
         - text: "Data Collection"
           file: 5100-website/air-quality.ipynb
         - text: "EDA & Hypothesis Testing"

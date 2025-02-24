@@ -1,0 +1,13 @@
+project:
+  type: website
+  resources:
+    - "*.png"
+
+website:
+  title: DSAN-5100
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
