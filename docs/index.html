@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analyzing U.S. State Sentiments - Projects</title>
+<title>Isfar Baset - Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,11 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -69,6 +69,34 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-about-me .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-about-me'] = new List('listing-about-me', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-us-insights .list');
@@ -152,6 +180,62 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-airy-tales .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-airy-tales'] = new List('listing-airy-tales', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-beats-bytes .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-beats-bytes'] = new List('listing-beats-bytes', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -187,89 +271,65 @@ window.Quarto = {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Isfar Baset</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./5000-website/index.html"> 
+<span class="menu-text">EV Insights</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./5100-website/index.html"> 
+<span class="menu-text">Airy Tales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./story-project/index.html"> 
+<span class="menu-text">Temp Talk</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./5300-website/Group37_Final_Report.html"> 
+<span class="menu-text">Beats &amp; Bytes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./6000-website/index.qmd"> 
+<span class="menu-text">U.S. State Sentiments</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Analyzing U.S. State Sentiments</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./eda.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EDA</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./nlp.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">NLP</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ml.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Summary</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://github.com/gu-dsan6000/fall-2024-project-team-29" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Code</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#us-insights" id="toc-us-insights" class="nav-link active" data-scroll-target="#us-insights">US Insights</a></li>
+  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#us-insights" id="toc-us-insights" class="nav-link" data-scroll-target="#us-insights">US Insights</a></li>
   <li><a href="#temp-talk" id="toc-temp-talk" class="nav-link" data-scroll-target="#temp-talk">Temp Talk</a></li>
   <li><a href="#ev-insights" id="toc-ev-insights" class="nav-link" data-scroll-target="#ev-insights">EV Insights</a></li>
+  <li><a href="#airy-tales" id="toc-airy-tales" class="nav-link" data-scroll-target="#airy-tales">Airy Tales</a></li>
+  <li><a href="#beats-and-bytes" id="toc-beats-and-bytes" class="nav-link" data-scroll-target="#beats-and-bytes">Beats and Bytes</a></li>
   </ul>
 </nav>
     </div>
@@ -278,7 +338,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">Portfolio</h1>
 </div>
 
 
@@ -295,14 +355,46 @@ window.Quarto = {
 </header>
 
 
+<section id="about-me" class="level2">
+<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
+<div id="listing-about-me" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1739129892939" data-listing-reading-time-sort="4" data-listing-word-count-sort="658">
+<div class="thumbnail">
+<p><a href="./about-me/index.html" class="no-external"></a></p><a href="./about-me/index.html" class="no-external">
+<p><img src="./about-me/ib.png" class="thumbnail-image"></p>
+</a><p><a href="./about-me/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./about-me/index.html" class="no-external">Isfar Baset</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./about-me/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./about-me/index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./about-me/index.html" class="no-external"></a></p><a href="./about-me/index.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
 <section id="us-insights" class="level2">
 <h2 class="anchored" data-anchor-id="us-insights">US Insights</h2>
 <div id="listing-us-insights" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740351474490" data-listing-reading-time-sort="11" data-listing-word-count-sort="2023">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740365073717" data-listing-reading-time-sort="11" data-listing-word-count-sort="2022">
 <div class="thumbnail">
 <p><a href="./6000-website/website-source/index.html" class="no-external"></a></p><a href="./6000-website/website-source/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<p><img src="https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif" class="thumbnail-image"></p>
 </a><p><a href="./6000-website/website-source/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -331,10 +423,10 @@ No matching items
 <h2 class="anchored" data-anchor-id="temp-talk">Temp Talk</h2>
 <div id="listing-temp-talk" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740351226771" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740365323252" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
 <div class="thumbnail">
 <p><a href="./story-project/index.html" class="no-external"></a></p><a href="./story-project/index.html" class="no-external">
-<p class="card-img-top"><img src="story-project/index_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGU1dGhuYnJ6Z2Vlb3owYzkwOTAzMG9ydzBlMml5MTg0eGozZmZ2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4ZgLPakqTajjVFOVqw/giphy.gif" class="thumbnail-image"></p>
 </a><p><a href="./story-project/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -363,10 +455,10 @@ No matching items
 <h2 class="anchored" data-anchor-id="ev-insights">EV Insights</h2>
 <div id="listing-ev-insights" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1736031782159" data-listing-reading-time-sort="5" data-listing-word-count-sort="860">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740365271698" data-listing-reading-time-sort="5" data-listing-word-count-sort="860">
 <div class="thumbnail">
 <p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif" class="thumbnail-image"></p>
 </a><p><a href="./5000-website/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -382,6 +474,73 @@ No matching items
 </div>
 <div class="metadata">
 <p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="airy-tales" class="level2">
+<h2 class="anchored" data-anchor-id="airy-tales">Airy Tales</h2>
+<div id="listing-airy-tales" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1740365227593" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail">
+<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif" class="thumbnail-image"></p>
+</a><p><a href="./5100-website/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./5100-website/index.html" class="no-external">Airy Tales</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./5100-website/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./5100-website/index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="beats-and-bytes" class="level2">
+<h2 class="anchored" data-anchor-id="beats-and-bytes">Beats and Bytes</h2>
+<div id="listing-beats-bytes" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1740365159000" data-listing-file-modified-sort="1740365159368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3592">
+<div class="thumbnail">
+<p><a href="./5300-website/Group37_Final_Report.html" class="no-external"></a></p><a href="./5300-website/Group37_Final_Report.html" class="no-external">
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmRsMW5oYTg1bWo5ZzJjZmZzc3FvM3cydGVwaDB2Ym9qdmIybXJ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RGjEtO1HxNbfFUEOBl/giphy.gif" class="thumbnail-image"></p>
+</a><p><a href="./5300-website/Group37_Final_Report.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./5300-website/Group37_Final_Report.html" class="no-external">Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./5300-website/Group37_Final_Report.html" class="no-external">DSAN 5300 Final Project - Group 37</a>
+</div>
+<div class="listing-description">
+<a href="./5300-website/Group37_Final_Report.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./5300-website/Group37_Final_Report.html" class="no-external">
+<div class="listing-date">
+Feb 23, 2025
+</div>
 </a>
 </div>
 </div>
@@ -806,19 +965,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Content © 2024 by Isfar Baset, Ronan Corgel, Sai Prerana Mandalika, and Powell Sheagren <br> Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-<p>Made with <a href="https://www.r-project.org">R</a> and <a href="https://quarto.org">Quarto</a><br> <a href="https://github.com/anly503/lab-2.1">View source on GitHub</a></p>
-</div>
-  </div>
-</footer>
 
 
 

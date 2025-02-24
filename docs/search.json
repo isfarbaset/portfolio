@@ -100,12 +100,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "",
-    "text": "No matching items",
-    "crumbs": [
-      "Introduction"
-    ]
+    "text": "No matching items"
   },
   {
     "objectID": "index.html#project-overview",
@@ -1314,12 +1311,9 @@
   {
     "objectID": "index.html#ev-insights",
     "href": "index.html#ev-insights",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "EV Insights",
-    "text": "EV Insights\n\n\n\n\n\n\n\n\n\n\nEV Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Introduction"
-    ]
+    "text": "EV Insights\n\n\n\n\n\n\n\n\n\n\nEV Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "5000-website/ARM/arm.html",
@@ -2171,22 +2165,16 @@
   {
     "objectID": "index.html#us-insights",
     "href": "index.html#us-insights",
-    "title": "Projects",
-    "section": "",
-    "text": "No matching items",
-    "crumbs": [
-      "Introduction"
-    ]
+    "title": "Portfolio",
+    "section": "US Insights",
+    "text": "US Insights\n\n\n\n\n\n\n\n\n\n\nAnalyzing U.S. State Sentiments on Reddit\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#temp-talk",
     "href": "index.html#temp-talk",
-    "title": "Projects",
+    "title": "Portfolio",
     "section": "Temp Talk",
-    "text": "Temp Talk\n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Introduction"
-    ]
+    "text": "Temp Talk\n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "story-project/evap.html",
@@ -2516,5 +2504,26 @@
     "title": "Hotter Summers, Drier Soils?",
     "section": "",
     "text": "Summer temperatures are on the rise, so what does this mean for soil health? Does warmer weather deplete soil moisture levels? Let’s see what the trend suggests ⬇️\n\n\nCode\nlibrary(reticulate)\n\nuse_condaenv(\"base\", required = TRUE)\n\n\n\n\nCode\nimport pandas as pd\nimport plotly.express as px\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport plotly.graph_objects as go\nimport seaborn as sns\nfrom sklearn.linear_model import LinearRegression\n\n# Load the cleaned datasets\nhistoric_data = pd.read_csv('./data/clean-data/historic_data_cleaned.csv')\nnearterm_data = pd.read_csv('./data/clean-data/nearterm_data_cleaned.csv')\n\n# Combine datasets for some visualizations\ncombined_data = pd.concat([historic_data, nearterm_data])\n\n# Group by year and calculate the average values for Tmax_Summer and VWC_Summer_whole\naverage_data = combined_data.groupby('year').agg({'Tmax_Summer': 'mean', 'VWC_Summer_whole': 'mean'}).reset_index()\n\n# Create the scatter plot to show the relationship between Tmax_Summer and VWC_Summer_whole\nfig = px.scatter(average_data, x='Tmax_Summer', y='VWC_Summer_whole',\n                 trendline='ols',  # Add a trendline\n                 title='Relationship Between Summer Maximum Temperature and Soil Moisture',\n                 labels={'Tmax_Summer': 'Maximum Summer Temperature (°C)', 'VWC_Summer_whole': 'Average Soil Moisture (%)'})\n\n# Update layout for better aesthetics\nfig.update_layout(\n    title_font=dict(size=18, family='Arial, sans-serif'),\n    xaxis_title='Maximum Summer Temperature (°C)',\n    yaxis_title='Average Soil Moisture (%)',\n    width=800,\n    height=600,\n    title_x=0.5\n)\n\n\n                        \n                                            \nThe scatter plot explores the relationship between maximum summer temperatures and average soil moisture. The trend line shows a slight negative correlation, suggesting that higher temperatures are associated with lower soil moisture levels.\n\n\n\nMoisture Matters\n\n\nCode\nimport pandas as pd\nimport plotly.express as px\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport plotly.graph_objects as go\nimport seaborn as sns\nfrom sklearn.linear_model import LinearRegression\n\n# Load the cleaned datasets\nhistoric_data = pd.read_csv('./data/clean-data/historic_data_cleaned.csv')\nnearterm_data = pd.read_csv('./data/clean-data/nearterm_data_cleaned.csv')\n\n# Extracting the relevant column for VWC_Summer_whole analysis\nhistoric_soil_data_vwc = historic_data[['year', 'VWC_Summer_whole']]\nnearterm_soil_data_vwc = nearterm_data[['year', 'VWC_Summer_whole']]\ncombined_soil_data_vwc = pd.concat([historic_soil_data_vwc, nearterm_soil_data_vwc])\ncombined_soil_data_vwc_aggregated = combined_soil_data_vwc.groupby('year').mean().reset_index()\n\n\n# Function to calculate trendline\ndef calculate_trendline(x, y):\n    model = LinearRegression()\n    x_reshaped = np.array(x).reshape(-1, 1)\n    model.fit(x_reshaped, y)\n    trend = model.predict(x_reshaped)\n    return trend\n\n# Calculate trendline for VWC_Summer_whole\nvwc_trend = calculate_trendline(combined_soil_data_vwc_aggregated['year'], combined_soil_data_vwc_aggregated['VWC_Summer_whole'])\n\n# Determine the y-axis range to better show changes in moisture levels\ny_min = combined_soil_data_vwc_aggregated['VWC_Summer_whole'].min() - 0.005\ny_max = combined_soil_data_vwc_aggregated['VWC_Summer_whole'].max() + 0.005\n\n# Create the first area chart for VWC_Summer_whole with trendline\nfig1 = go.Figure(\n    data=[\n        go.Scatter(\n            x=combined_soil_data_vwc_aggregated['year'],\n            y=combined_soil_data_vwc_aggregated['VWC_Summer_whole'],\n            fill='tozeroy',\n            name='Soil Moisture in Summer',\n            mode='none',\n            fillcolor='#003c54'\n        ),\n        go.Scatter(\n            x=combined_soil_data_vwc_aggregated['year'],\n            y=vwc_trend,\n            mode='lines',\n            name='Trendline',\n            line=dict(color='red', dash='dash')\n        )\n    ],\n    layout=dict(\n        title='Soil Moisture in Summer Trend',\n        xaxis_title='Year',\n        yaxis_title='Soil Moisture (%)',\n        yaxis=dict(range=[y_min, y_max], tickfont=dict(size=14)),  # Set the y-axis range\n        title_font=dict(size=18, family='Arial, sans-serif'),\n        xaxis=dict(tickfont=dict(size=14)),\n        width=800,\n        height=600,\n        title_x=0.5,\n        plot_bgcolor='#f7f7f7',\n        hoverlabel=dict(font_size=16),\n        showlegend=True,\n        legend=dict(\n            orientation='h',\n            yanchor='top',\n            y=-0.2,\n            xanchor='center',\n            x=0.5\n        )\n    )\n)\n\nfig1.show()\n\n\n                        \n                                            \nThe chart here displays soil moisture during summer from the 1980s to the 2020s. The red dashed trend line indicates an overall stable trend with minor fluctuations over the years, though it remains quite low.\n\n\n\n\nTracking Summer Soil Dryness\n\n\nCode\nimport pandas as pd\nimport plotly.express as px\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport plotly.graph_objects as go\nimport seaborn as sns\nfrom sklearn.linear_model import LinearRegression\n\n# Load the cleaned datasets\nhistoric_data = pd.read_csv('./data/clean-data/historic_data_cleaned.csv')\nnearterm_data = pd.read_csv('./data/clean-data/nearterm_data_cleaned.csv')\n\n# Extracting the relevant column for DrySoilDays_Summer_whole analysis\nhistoric_soil_data_dry = historic_data[['year', 'DrySoilDays_Summer_whole']]\nnearterm_soil_data_dry = nearterm_data[['year', 'DrySoilDays_Summer_whole']]\ncombined_soil_data_dry = pd.concat([historic_soil_data_dry, nearterm_soil_data_dry])\ncombined_soil_data_dry_aggregated = combined_soil_data_dry.groupby('year').mean().reset_index()\n\n# Function to calculate trendline\ndef calculate_trendline(x, y):\n    model = LinearRegression()\n    x_reshaped = np.array(x).reshape(-1, 1)\n    model.fit(x_reshaped, y)\n    trend = model.predict(x_reshaped)\n    return trend\n\n# Calculate trendline for DrySoilDays_Summer_whole\ndry_soil_trend = calculate_trendline(combined_soil_data_dry_aggregated['year'], combined_soil_data_dry_aggregated['DrySoilDays_Summer_whole'])\n\n# Create the second area chart for DrySoilDays_Summer_whole with trendline\nfig2 = go.Figure(\n    data=[\n        go.Scatter(\n            x=combined_soil_data_dry_aggregated['year'],\n            y=combined_soil_data_dry_aggregated['DrySoilDays_Summer_whole'],\n            fill='tozeroy',\n            name='Dry Soil Days in Summer',\n            mode='none',\n            fillcolor='rgba(165,42,42,0.5)'\n        ),\n        go.Scatter(\n            x=combined_soil_data_dry_aggregated['year'],\n            y=dry_soil_trend,\n            mode='lines',\n            name='Trendline',\n            line=dict(color='blue', dash='dash')\n        )\n    ],\n    layout=dict(\n        title='Dry Soil Days in Summer Trend',\n        xaxis_title='Year',\n        yaxis_title='Dry Soil Days',\n        title_font=dict(size=18, family='Arial, sans-serif'),\n        xaxis=dict(tickfont=dict(size=14)),\n        yaxis=dict(tickfont=dict(size=14)),\n        width=800,\n        height=600,\n        plot_bgcolor='#f7f7f7',\n        hoverlabel=dict(font_size=16),\n        showlegend=True,\n        legend=dict(\n            orientation='h',\n            yanchor='top',\n            y=-0.2,\n            xanchor='center',\n            x=0.5\n        ),\n        title_x=0.5\n    )\n)\n\n# Display the second plot\nfig2.show()\n\n\n                        \n                                            \nThis area chart outlines the number of dry soil days during summer over the years. The blue dashed trend line shows an increasing trend, indicating that the region is experiencing more dry soil days over time.\n\n\n\n\nNext up:\nSince rising temperatures and hotter days cause drier soils, does this mean evaporation speeds up in the summer? This in turn could potentially affect the area’s rainfall!"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Portfolio",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "index.html#airy-tales",
+    "href": "index.html#airy-tales",
+    "title": "Portfolio",
+    "section": "Airy Tales",
+    "text": "Airy Tales\n\n\n\n\n\n\n\n\n\n\nAiry Tales\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#beats-and-bytes",
+    "href": "index.html#beats-and-bytes",
+    "title": "Portfolio",
+    "section": "Beats and Bytes",
+    "text": "Beats and Bytes\n\n\n\n\n\n\n\n\n\n\nHarmony Through Numbers: Classifying Spotify Data Across Genres and Decades\n\n\nDSAN 5300 Final Project - Group 37\n\n\n\n\n\n\n\n\nFeb 23, 2025\n\n\n\n\n\n\nNo matching items"
   }
 ]
