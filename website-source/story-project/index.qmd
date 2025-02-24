@@ -1,0 +1,37 @@
+---
+title: Introduction
+format: 
+    html:
+        code-fold: true
+toc: True
+# bibliography: reference.bib
+image: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGU1dGhuYnJ6Z2Vlb3owYzkwOTAzMG9ydzBlMml5MTg0eGozZmZ2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4ZgLPakqTajjVFOVqw/giphy.gif"
+---
+
+For the preservation of Southeastern Utah Group National Parks, it is essential to understand the trends that lie in the evolving climate conditions and how they might impact the region's delicate ecosystems. This is an in-depth exploration and analysis of the interconnected effects of heat, soil conditions, evaporation and precipitation on the national parks. 
+
+```{r}
+library(reticulate)
+
+use_condaenv("base", required = TRUE)
+```
+
+```{python}
+#| echo: true
+#| eval: true 
+#| file: code/heat-geo.py
+#| fig-cap: This geospatial visualization highlights the maximum temperatures reached within a year across the Southeastern National Parks in Utah. The timeline spans from 1980 to 2024. The animation over the years shows the geographical spread and varying intensity of the highest temperatures in the region.
+```
+
+# Heat on the rise?
+
+```{python}
+#| echo: true
+#| eval: true 
+#| file: code/heat-trend.py
+#| fig-cap: The chart above illustrates the trend in maximum temperatures from 1980 up until the current year. The visualization suggests an overall increase, indicating a trend of rising temperatures in the region.
+```
+
+# Next up: 
+
+This sparks curiosity to take a closer look at past summer temperature trends and explore how they have changed over the years ➡️

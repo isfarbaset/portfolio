@@ -1,0 +1,10 @@
+---
+title: Conclusion
+format: 
+    html:
+        code-fold: true
+toc: True
+# bibliography: reference.bib
+---
+
+![](infographic.png)

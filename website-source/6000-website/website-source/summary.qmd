@@ -1,0 +1,64 @@
+# Summary
+
+![In Conclusion!](https://media.giphy.com/media/9V8You0A1G64JmiBUi/giphy.gif)
+
+## Overview
+
+Through our project, we sought to figure out how online conversations reflect our perceptions of U.S. states. To facilitate this, we used two different subsets of Reddit data to first visualize and explore the relationships and information in the data itself before beginning a modeling process to answer our questions. This included natural language processing for sentiment analysis, training models to predict features, and exploring the context of text posts across the site. Afterwards, we broke down our results to find connections between online discourse and real-world problems, uncovering insights and identifying opportunities for growth.
+
+### Key Insights
+Some of the insights we would like to highlight are:
+
+#### **Which states were the most and least liked**
+
+![Sentiment by State Map](plots/sentiment_by_state.png)
+
+This sentiment map visualizes the average sentiment of posts mentioning each U.S. state, derived from the full Reddit data. The color scale ranges from blue (indicating more positive sentiment) to red (indicating more negative sentiment), with yellow representing neutral sentiment. 
+
+- **Blue States**: States like Montana and Maine show positive sentiment, suggesting discussions around these states are generally favorable.
+- **Red States**: States like Kansas and Mississippi lean toward negative sentiment, indicating less favorable discussions in the dataset.
+- **Neutral States**: Most states hover around neutral sentiment (yellow-green), reflecting a balance of positive and negative discussions.
+
+This visualization highlights how public sentiment on Reddit varies across states, offering insights into regional perceptions and how discussions align with or diverge from real-world reputations.
+
+#### **Daily Mentions, Smoothed and Normalized**
+
+![Louisiana and Maine Mentions](plots/eda_news.png)
+
+This chart visualizes the daily mentions of **Louisiana** and **Maine**, normalized using Z-scores and smoothed over a 7-day rolling average. Key spikes in mentions correspond to major events:
+
+- **Louisiana**: In **July 2024**, a sharp increase in mentions occurred when the state mandated the display of the **Ten Commandments** in public classrooms.
+- **Maine**: In **October 2023**, mentions peaked dramatically during the **manhunt in Lewiston** after mass shootings that tragically claimed 22 lives.
+
+These spikes underline the strong correlation between major state-specific events and public discourse, as captured through Reddit data.
+
+---
+
+#### **Comparative Trends for Louisiana and Maine**
+
+![Louisiana and Maine Mentions](plots/nlp_news.png)
+
+The comparative chart highlights how public attention varies between states:
+
+- Louisiana’s mentions feature a distinct, isolated peak tied to its event.
+- Maine’s mentions display a more prolonged period of heightened activity, reflecting extended discussions surrounding the tragic events in Lewiston.
+
+
+These stood out to us as some of the more interesting results from our analysis. While there is always more to uncover, we are excited to share these findings.
+
+---
+
+## Next Steps
+
+While we have made significant progress on this subject, there are additional steps we could take to further explore our questions and obtain more accurate results:
+
+- Address issues in the data caused by our regex search, which left some out-of-context words. Instead, we could use a context-specific model to focus on mentions where people are specifically talking about the state.
+- Experiment with other sentiment models to observe if there are noticeable changes in state sentiment rankings.
+
+---
+
+## Conclusions
+
+When we first started this project, we hoped to return a spatial (and special) element to the data, and we were successful in doing so while analyzing U.S. states. While this was our primary focus, we also see possibilities for applying our methods to other spatial aspects of the data, such as regions, countries, oceans, and other geographic entities. 
+
+Our work demonstrates that sentiments often do not relate to the realities of a location but are instead based more on reputation. This insight could be the start of organizations tracking their popularity through looser metrics that are not bound to traditional methods. We hope that organizations explore this further in the future, and we also hope that the work we’ve done sets the stage for others to continue in a similar direction.

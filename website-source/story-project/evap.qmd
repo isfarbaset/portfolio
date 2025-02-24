@@ -1,0 +1,27 @@
+---
+title: Shifting Evaporation Rates
+format: 
+    html:
+        code-fold: true
+toc: True
+# bibliography: reference.bib
+---
+
+Let's delve into the evaporation trends over the years. Previously, we observed low soil moisture levels and an increase in soil dryness which raises several questions about the effects of evaporation. Is high evaporation the potential cause of soil dryness, or are the two factors unrelated?
+```{r}
+library(reticulate)
+
+use_condaenv("base", required = TRUE)
+```
+
+```{python}
+#| echo: true
+#| eval: true 
+#| file: code/evap.py
+#| fig-cap: The line chart shows the trend in evaporation rates during summer. The orange line represents evaporation levels and the trend line indicates a decreasing trend, suggesting lower rate in evaporation patterns over the years 📉
+```
+
+This potentially indicates that other factors such as reduced precipitation or higher temperatures are contributing to the drier soil conditions.
+
+# Next up:
+How is precipitation affected by all of this? What is the potential impact of worsening dry stress conditions and lower rainfall?

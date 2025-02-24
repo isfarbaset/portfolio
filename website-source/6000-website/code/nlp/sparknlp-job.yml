@@ -1,0 +1,28 @@
+$schema: https://azuremlschemas.azureedge.net/latest/sparkJob.schema.json
+type: spark
+experiment_name: azure-project-run
+display_name: messing-with-sentiment
+
+jars:
+  - spark-nlp-assembly-5.5.1.jar
+
+code: ./ 
+entry:
+  file: Sentiment_mean_job.py
+
+conf:
+  spark.executor.instances: 6
+  spark.dynamicAllocation.enabled: False
+  spark.driver.cores: 1
+  spark.driver.memory: 7g
+  spark.executor.cores: 4
+  spark.executor.memory: 7g
+
+resources:
+  instance_type: standard_e4s_v3
+  runtime_version: "3.4"
+
+environment: azureml:sparknlp-env@latest
+
+identity:
+  type: user_identity

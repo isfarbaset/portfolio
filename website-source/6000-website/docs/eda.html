@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Analyzing U.S. State Sentiments</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Analyzing U.S. State Sentiments</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./eda.html" aria-current="page"> 
+<span class="menu-text">EDA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./nlp.html"> 
+<span class="menu-text">NLP</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ml.html"> 
+<span class="menu-text">ML</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./summary.html"> 
+<span class="menu-text">Summary</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/gu-dsan6000/fall-2024-project-team-29"> 
+<span class="menu-text">Code</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link active" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#state-mentions-over-time" id="toc-state-mentions-over-time" class="nav-link" data-scroll-target="#state-mentions-over-time">1. State Mentions Over Time</a></li>
+  <li><a href="#top-10-states-by-mentions-over-time" id="toc-top-10-states-by-mentions-over-time" class="nav-link" data-scroll-target="#top-10-states-by-mentions-over-time">2. Top 10 States by Mentions Over Time</a></li>
+  <li><a href="#top-subreddit-in-full-data-mentions" id="toc-top-subreddit-in-full-data-mentions" class="nav-link" data-scroll-target="#top-subreddit-in-full-data-mentions">3. Top Subreddit in full data mentions</a></li>
+  <li><a href="#top-subreddits-by-submission-count" id="toc-top-subreddits-by-submission-count" class="nav-link" data-scroll-target="#top-subreddits-by-submission-count">4. Top Subreddits by Submission Count</a></li>
+  <li><a href="#top-authors-by-submission-count" id="toc-top-authors-by-submission-count" class="nav-link" data-scroll-target="#top-authors-by-submission-count">5. Top Authors by Submission Count</a></li>
+  <li><a href="#state-mentions-relative-to-population" id="toc-state-mentions-relative-to-population" class="nav-link" data-scroll-target="#state-mentions-relative-to-population">6. State Mentions Relative to Population</a></li>
+  <li><a href="#state-mentions-by-subreddit" id="toc-state-mentions-by-subreddit" class="nav-link" data-scroll-target="#state-mentions-by-subreddit">7. State Mentions by Subreddit</a></li>
+  <li><a href="#analysis-summary" id="toc-analysis-summary" class="nav-link" data-scroll-target="#analysis-summary">Analysis Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="exploratory-data-analysis-eda" class="level1">
+<h1>Exploratory Data Analysis (EDA)</h1>
+<p>In this exploratory data analysis (EDA), we examine various aspects of Reddit discussions related to U.S. states. By analyzing trends over time, identifying popular subreddits and authors, and measuring engagement levels, we gain insights into how frequently and in what contexts different states are mentioned. Visualizations such as line plots, bar charts, and heatmaps help highlight patterns in state mentions, engagement disparities, and subreddit activity. These findings provide a foundational understanding of state-based discussions on Reddit, paving the way for deeper sentiment analysis and further exploration into the factors driving online interest in specific states.</p>
+<hr>
+<section id="state-mentions-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="state-mentions-over-time">1. State Mentions Over Time</h2>
+<p>This plot tracks the frequency of state mentions over time, helping us identify trends, seasonal patterns, or spikes in discussion. Peaks in certain months may correlate with state-related events, holidays, or news, offering insights into when and why specific states gain attention on Reddit. A seven-day rolling average is calculated to smooth the curve, and Z-scored trends provide a normalized view.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>States like <strong>Maine</strong>, <strong>Nevada</strong>, and <strong>Louisiana</strong> exhibit noticeable spikes that align with seasonal events (e.g., tourism peaks, Mardi Gras, or holiday travel).</li>
+<li>Some anomalies in mentions may be driven by significant state-specific news or cultural events, such as major sporting events or natural disasters.</li>
+</ul>
+<p><strong>Insights</strong></p>
+<p>Peaks in state mentions reflect the dynamic nature of Reddit as a platform for real-time discussions about events and trends.</p>
+<!-- ![State Mentions Over Time](plots/state_mentions_time.jpg) -->
+<div class="interactive-plot">
+<iframe src="plots/interactive_state_mentions.html" width="100%" height="800px" style="border:none;">
+</iframe>
+</div>
+<p>In this analysis, we observe daily mentions of Louisiana and Maine, smoothed and normalized using Z-scores to highlight significant spikes in public attention. For Louisiana, a sharp peak in mentions occurs in July 2024 coinciding with the mandate requiring public classrooms to display the Ten Commandments. In contrast, Maine experiences a dramatic spike in October 2023 during a manhunt following mass shootings in Lewiston. These trends underscore the strong correlation between major events and public discourse, as captured by daily mention data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/eda_news.png" class="img-fluid figure-img"></p>
+<figcaption>Louisiana and Maine</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="top-10-states-by-mentions-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="top-10-states-by-mentions-over-time">2. Top 10 States by Mentions Over Time</h2>
+<p>This line plot shows the count of posts mentioning the top 10 most frequently discussed U.S. states over time on Reddit. By focusing on these states, we observe fluctuations in discussion levels and identify their timing.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>States like <strong>California</strong>, <strong>Texas</strong>, and <strong>Florida</strong> consistently dominate mentions due to their large populations, cultural influence, and relevance in national conversations.</li>
+<li>Smaller states like <strong>Hawaii</strong> experience spikes likely tied to tourism, particularly during vacation seasons.</li>
+</ul>
+<p><strong>Insights</strong></p>
+<p>Larger states dominate overall mentions, while smaller states gain temporary prominence tied to tourism or specific events.</p>
+<iframe src="plots/monthly_activity_chart.html" width="100%" height="600" frameborder="0">
+</iframe>
+</section>
+<section id="top-subreddit-in-full-data-mentions" class="level2">
+<h2 class="anchored" data-anchor-id="top-subreddit-in-full-data-mentions">3. Top Subreddit in full data mentions</h2>
+<p>This bar chart is shows which states were talked about the most to the least. In contrast to the other graphs, this data is pulled from a sweep of the entire dataset for when a state was mentioned by name. Thus, the subreddits mentions reflect every time a state was mentioned, and the next two graphs will use the same database to show other facets of this data</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>Of the states, Texas, Florida, and California were mentioned the most by far with the Dakotas being the two least mentioned states</li>
+<li>Territories like American Samoa, Washington DC, and the virgin islands did not come up as much, and, as will be seen later, this led to them having more polarized sentiment scores.</li>
+</ul>
+<p><strong>Insights</strong></p>
+<p>While this data shows and interesting trend amongst the mentions of states, this data also references cases where the state name may be mentioned in other contexts like in names, sports, songs, or other reasons. This may lead to popular names being over represented.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/mentions_by_state_bar.png" class="img-fluid figure-img"></p>
+<figcaption>Mentions of States</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="top-subreddits-by-submission-count" class="level2">
+<h2 class="anchored" data-anchor-id="top-subreddits-by-submission-count">4. Top Subreddits by Submission Count</h2>
+<p>This Table chart highlights the top subreddits by submission count. Communities like <strong>CFB</strong> and <strong>CollegeBasketball</strong> lead, showing significant relevance to sports-related state discussions.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>Sports-focused subreddits are key contributors to state mentions, particularly during major sports seasons.</li>
+<li>General-interest subreddits like <strong>AskReddit</strong> also play a significant role in broader state discussions.</li>
+</ul>
+<p><strong>Insights:</strong> Sports and general-interest subreddits are pivotal in driving state-related activity on Reddit, making them valuable sources for analysis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-572090f39f47720a235b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-572090f39f47720a235b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100"],["CFB","AskReddit","politics","FakeCollegeFootball","CollegeBasketball","facepalm","NoStupidQuestions","texas","AskAnAmerican","nfl","MapPorn","SameGrassButGreener","florida","WhitePeopleTwitter","news","geography","nba","neoliberal","2american4you","Floridar4r","hockey","Ohio","pics","Presidents","mildlyinfuriating","todayilearned","worldnews","roadtrip","AmItheAsshole","movies","minnesota","baseball","travel","MichiganNaughtyPeople","Maine","legaladvice","oregon","sissypersonals","Damnthatsinteresting","PublicFreakout","MichiganWolverines","conspiracy","antiwork","OhioHookups","Indiana","TrueUnpopularOpinion","Austin","nhl","Iowa","exmormon","JackSucksAtGeography","Michigan","Indianapolis_gonewild","mapporncirclejerk","TikTokCringe","JEENEETards","france","AITAH","NCAAFBseries","interestingasfuck","Ohior4r","sportsbook","ask","wisconsin","technology","Idaho","Teachers","Millennials","Denver","mildlyinteresting","nottheonion","Conservative","OhioMarijuanaDeals","barstoolsports","FluentInFinance","inthenews","changemyview","Seattle","GeorgiaSwingers","indiasocial","GenZ","bayarea","unpopularopinion","wallstreetbets","PoliticalHumor","teenagers","LeopardsAteMyFace","coolguides","Truckers","AmericaBad","maryland","BoomersBeingFools","therewasanattempt","AskHR","chicago","UFOs","RealEstate","ApplyingToCollege","PoliticalCompassMemes","vermont"],[1213164,519196,390140,265595,195897,194235,177360,171374,155064,153497,143944,140799,137679,131039,130527,127934,116270,115059,111015,105629,103731,102197,92462,76441,73955,71253,66392,65464,65263,63693,63598,61326,59326,56695,55146,55078,53766,51936,51336,50703,50145,48989,48937,48791,48726,47451,47160,45924,45199,44914,44629,44042,43826,43445,43287,42980,42874,42697,41721,41358,41246,40921,40815,40745,40329,40065,40040,39676,39276,39255,38065,38029,37894,37889,37529,36483,36178,35800,35535,35494,35411,35240,34962,34557,34550,34485,34199,33930,33845,33753,33703,33620,33512,33342,33067,32748,32712,32517,32255,31624]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Subreddit<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Subreddit","targets":1},{"name":"Count","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/Subreddits.png" class="img-fluid figure-img"></p>
+<figcaption>Top Subreddits by Submission Count</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="top-authors-by-submission-count" class="level2">
+<h2 class="anchored" data-anchor-id="top-authors-by-submission-count">5. Top Authors by Submission Count</h2>
+<p>This plot showcases the top authors on Reddit based on the number of submissions containing state mentions. It provides insight into the most active contributors in the dataset.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>Automated accounts like <strong>AutoModerator</strong> play a significant role in structured conversations or subreddit management.</li>
+<li>A small number of highly active users contribute disproportionately to state-related discussions.</li>
+</ul>
+<p><strong>Insights:</strong> Both bots and human users significantly influence the volume and nature of state mentions on Reddit.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-30fd9b78377ab241facf" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-30fd9b78377ab241facf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100"],["AutoModerator","NFCAAOfficialRefBot","[deleted]","BuckeyeBudCreations","DrRonikBot","adollyyy","EuSouOBabacaBOT","subredditsummarybot","williambotter","SEB-PHYLOBOT","setlistbot","newswall-org","AmputatorBot","sneakpeekbot","empleadoEstatalBot","ALStark69","OregonHookUps2-ModTeam","texas-ModTeam","jackrats","romance-bot","Peeecee7896","InVodkaVeritas","backcountrydrifter","ECUALUM2003","Larry_Safari","meatylabia69","Mael_Coluim_III","loyalsons4evertrue","5o7bot","Nine_Bot","RemindMeBot","ChelseaPanties","Michigan-ModTeam","IllinoisGW-ModTeam","PoliticsModeratorBot","BM2018Bot","washingtonpost","FMKBot","Coloradosluts-ModTeam","ExternalArachnid4876","maryland-ModTeam","StatementBot","Jody47201","lightningusagi","TheLotStore","RedditReadsBot","TheSunflowerSeeds","CTeam19","Currymvp2","CFBCrootBot","TexanFox36","empathydoc","haikusbot","Socalswingers-ModTeam","jobautomator","CupBeEmpty","Hawaii-ModTeam","AshTheGoddamnRobot","arizona-ModTeam","SokkaHaikuBot","dogwoodmaple","DuplicateDestroyer","Antichess","HookupsOregon-ModTeam","table_fireplace","como365","RivalryBot","Barch3","MAGIC_EYE_BOT","ClockButTakeOutTheL","hardtom10","Girls4FatGuys-ModTeam","Oliverk12","floodassistant","Aromatic_Effective_5","scaradin","TheTruthTalker800","HoustonHorns","krypto-news","FizzyBeverage","Lonely-Bird-940","AllHawkeyesGoToHell","ColossusOfChoads","tom69jonesll","SirMellencamp","georgiaaapeachesss","IlonggoProgrammer","bot_painani","Mundane_Lifeguard_26","talldad123","The_Soccer_Heretic","WheatonsGonnaScore","ModeratelyUsefulBot","Aghast_Cornichon","BuckeyeReason","UTGW-ModTeam","realparkingbrake","Meanteenbirder","Comfortable-Trip-277","olivedrawss"],[1472898,265554,43947,37879,32355,25374,24942,22756,19837,16733,14339,11072,8686,7815,6792,6267,6222,5542,4897,4870,4697,4463,4414,3907,3787,3339,3296,3190,3148,3144,3068,3055,3021,2942,2920,2835,2636,2574,2572,2503,2430,2406,2362,2329,2323,2313,2253,2239,2181,2163,2125,2113,2075,2072,2056,2047,2035,2012,2009,2005,1959,1956,1940,1931,1913,1911,1907,1902,1891,1882,1873,1872,1851,1847,1828,1739,1736,1731,1730,1702,1699,1692,1688,1678,1676,1676,1672,1658,1607,1605,1601,1587,1579,1578,1570,1542,1538,1521,1520,1514]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Author<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Author","targets":1},{"name":"Count","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<hr>
+<!-- ## 6. Total Engagement by State on Reddit
+This bar chart examines engagement (upvotes and comments) for each state.
+
+**What did we learn?**
+
+- **Texas** and **Florida** lead in total engagement, reflecting their prominence in U.S. culture and online conversations.
+- Smaller states like **North Dakota** and **Wyoming** see minimal engagement, likely due to fewer discussions or a smaller interested audience.
+
+**Insights** 
+
+Engagement metrics correlate strongly with state population and cultural prominence, offering a measure of online interest.
+
+![Total Engagement by State on Reddit](plots/engagement.png)
+
+--- -->
+</section>
+<section id="state-mentions-relative-to-population" class="level2">
+<h2 class="anchored" data-anchor-id="state-mentions-relative-to-population">6. State Mentions Relative to Population</h2>
+<p>By normalizing state mentions against population size, we identify states that are <strong>“punching above their weight”</strong> in online popularity. The bar chart orders the states by their mentions per <strong>100,000 population</strong> of the state. Meanwhile, the scatter plots below show this mention-per-population rank compared against four other rankings:</p>
+<ol type="1">
+<li><strong>State population</strong> from the <strong>U.S. Census Bureau</strong></li>
+<li><strong>State visit popularity</strong> from a <strong>YouGov survey</strong></li>
+<li><strong>State overall ranking</strong> from <strong>U.S. News &amp; World Report</strong></li>
+<li><strong>State nature ranking</strong> from <strong>U.S. News &amp; World Report</strong></li>
+</ol>
+<p>This analysis was conducted using the <strong>Subreddit Data</strong>.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>Small states like <strong>Wyoming</strong> and <strong>Alaska</strong> dominate mentions per capita, perhaps due to their unique attractions (e.g., <strong>Yellowstone</strong>, <strong>northern lights</strong>).</li>
+<li>States with major tourist draws often outperform larger states in per capita mentions. However, when comparing these rankings with external data, we see that these high ranks for small states are <strong>more of a function of their low population</strong> and less about their perception or natural attractions.</li>
+</ul>
+<p><strong>Insights</strong></p>
+<p>Per capita metrics potentially highlight states with niche appeal or <strong>tourism-based popularity</strong>.</p>
+<!-- ![State Mentions Relative to Population on Reddit](plots/state_population.jpg) -->
+<div class="interactive-plot">
+<iframe src="plots/interactive_state_pop.html" width="100%" height="800px" style="border:none;">
+</iframe>
+</div>
+<div class="interactive-plot">
+<iframe src="plots/mentions_rank.html" width="100%" height="800px" style="border:none;">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="state-mentions-by-subreddit" class="level2">
+<h2 class="anchored" data-anchor-id="state-mentions-by-subreddit">7. State Mentions by Subreddit</h2>
+<p>Mentions of states in state-specific subreddits are examined in the map and heatmap below. In the map, the percent of state mentions that are the name of the state-specific subreddit are shown where darker colors represent state subreddits where state mentions are mostly the subreddit’s state. In the heatmap, we can see both the percent of state mentions of the subreddit’s state but also all of the states mentioned in a state’s subreddit. Darker reds represent state subreddits where state mentions are mostly the subreddit’s state, while darker blues represent lower percents of mentions for non-subreddit states. This analysis was conducted using the <strong>Subreddit Data</strong>.</p>
+<p><strong>What did we learn?</strong></p>
+<ul>
+<li>Nearby states are often mentioned together, reflecting regional proximity or shared cultural ties. For example, Maine and Massachusetts are mentioned a fair amount in New Hampshire’s subreddit.</li>
+<li>States like California, Texas, and Florida have broad relevance and are mentioned across numerous subreddits.</li>
+<li>Some state subreddits are also more insular than others. For example, in California’s subreddit, 84% of state mentions are California, while only 45% of state mentions are New Hampshire in New Hampshire’s subreddit.</li>
+</ul>
+<p><strong>Insights</strong></p>
+<p>Cross-state mentions suggest correlations with mobility, shared regional issues, or cultural relevance. Perhaps a measure of state self-importance can be gleamed from how much a state is mentioned in its own subreddit.</p>
+<div class="interactive-plot">
+<iframe src="plots/map_state_mentions.html" width="100%" height="800px" style="border:none;">
+</iframe>
+</div>
+<div class="interactive-plot">
+<iframe src="plots/state_matrix.html" width="100%" height="800px" style="border:none;">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="analysis-summary" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-summary">Analysis Summary</h2>
+<p>Each visualization provides unique insights into how U.S. states are discussed on Reddit:</p>
+<ol type="1">
+<li><strong>Event-driven activity:</strong> Peaks in mentions are often tied to cultural or regional events, underscoring the importance of temporal context.</li>
+<li><strong>Subreddit diversity:</strong> A mix of niche and general-interest subreddits contributes to state mentions, reflecting the varied interests of Reddit users.</li>
+<li><strong>Engagement disparities:</strong> Larger states dominate engagement, but smaller states excel in normalized metrics, highlighting unique aspects like tourism.</li>
+<li><strong>Cross-state mentions:</strong> Regional relationships and mobility trends are evident in subreddit-specific data.</li>
+</ol>
+<p>The next steps involve applying sentiment analysis to measure the tone of discussions and exploring how these online perceptions align with real-world data.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Content © 2024 by Isfar Baset, Ronan Corgel, Sai Prerana Mandalika and Powell Sheagren <br> Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Made with <a href="https://www.r-project.org">R</a> and <a href="https://quarto.org">Quarto</a><br> <a href="https://github.com/anly503/lab-2.1">View source on GitHub</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

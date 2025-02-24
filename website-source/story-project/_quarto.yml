@@ -1,0 +1,43 @@
+project:
+  type: website
+
+website:
+  title:  🏔️ Climate Chronicles -  Southeastern Utah's National Parks 
+  navbar:
+    background: primary
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/isfarbaset/story-project
+  sidebar:
+    style: "floating"
+    search: false
+    contents:
+      - section: "Temperature Tales 🌡️"
+        contents:
+          - index.qmd
+      - section: "Blazing Trends 🔥"
+        contents:
+          - temp.qmd
+      - section: "Soil Sizzle 🍂"
+        contents:
+          - soil.qmd
+      - section: "Evaporation Station 🌤️"
+        contents:
+          - evap.qmd
+      - section: "Raindrops and Vapors 🌧️"
+        contents:
+          - ppt.qmd
+      - section: "It's A Wrap 🌿"
+        contents:
+          - conclusion.qmd
+    # contents:
+    #   - index.qmd
+    #   - pages/treecanopy/treecanopy.qmd
+    #   - pages/trend/trend.qmd
+    
+format:
+  html:
+    theme: cosmo
+    toc: true
