@@ -24,27 +24,44 @@
     margin-bottom: 0.5em;
   }
 
-/* Mobile responsive tables */
+/* Make tables responsive but maintain side-by-side layout even on mobile */
 @media screen and (max-width: 767px) {
   table {
-    display: block;
     width: 100%;
+    table-layout: fixed;
+    font-size: 0.9em; /* Slightly smaller text on mobile */
   }
   
-  tr, td {
-    display: block;
-    width: 100%;
+  th {
+    display: none; /* Hide headers */
   }
   
   td {
-    text-align: center !important;
     padding: 0.5rem;
+    vertical-align: middle;
+  }
+  
+  /* Left cell (text) */
+  td:first-child {
+    width: 60%;
+    text-align: left;
+    font-size: 0.9em;
+  }
+  
+  /* Right cell (image) */
+  td:last-child {
+    width: 40%;
+    text-align: center;
   }
   
   td img {
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
-    display: block;
   }
+}
+
+/* Make sure tables don't have too much padding/margin */
+table {
+  margin: 0.5rem 0 1.5rem 0;
+  border-collapse: collapse;
 }

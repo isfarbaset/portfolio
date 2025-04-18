@@ -6,30 +6,30 @@ listing-opts:
 
 ### [About Me](about-me.html)
 
-| Overview | |
-|:------------|:-----:|
+| Overview |  |
+|:---------|:-----:|
 | I'm Isfar Baset, a data scientist and machine learning engineer passionate about creating AI solutions that solve real-world problems. With experience in natural language processing, computer vision, and predictive analytics, I enjoy tackling complex challenges with innovative approaches. My background spans both academic research and industry applications, giving me a unique perspective on data science implementation. | ![Isfar Baset](images/ib.png){width=250} |
 
 ### [FMBench Assistant](https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161)
 
 | Overview |  |
-|:------------|:-----:|
+|:---------|:-----:|
 | Explore how we built a conversational AI assistant for the Foundation Model Benchmarking Tool (FMBench) using Amazon Bedrock, AWS Lambda, LangGraph, FastAPI, and Streamlit. Learn how this three-layer architecture creates an accessible interface to help users navigate complex model benchmarking options through natural dialogue. | ![FMBench Assistant](images/mermaid.png){width=250} |
 
 ### [US Insights](https://isfarbaset.github.io/fall-2024-project-team-29/)
 
 | Overview |  |
-|:------------|:-----:|
+|:---------|:-----:|
 | Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone. | ![US Insights](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif){width=250} |
 
 ### [Temp Talk](https://isfarbaset.georgetown.domains/story-project/_site/)
 
 | Overview |  |
-|:------------|:-----:|
-| Exploring temperature trends and climate patterns through interactive visualizations and data analysis. Examine how temperature changes affect our environment and daily lives. | ![Temp Talk](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmpxMzd4eW5nOGgweTU4bWxyY3FldWp0NGQwNTllOWJqZ2ppZ2NtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yse8MzKv61jlC/giphy.gif){width=250} |
+|:---------|:-----:|
+| For the preservation of Southeastern Utah Group National Parks, it is essential to understand the trends that lie in the evolving climate conditions and how they might impact the region's delicate ecosystems. This is an in-depth exploration and analysis of the interconnected effects of heat, soil conditions, evaporation and precipitation on the national parks. | ![Temp Talk](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmpxMzd4eW5nOGgweTU4bWxyY3FldWp0NGQwNTllOWJqZ2ppZ2NtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yse8MzKv61jlC/giphy.gif){width=250} |
 
 ### [Beats and Bytes](Group37_final_Report.html)
 
 | Overview |  |
-|:------------|:-----:|
+|:---------|:-----:|
 | Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models. | ![Beats and Bytes](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif){width=250} |
