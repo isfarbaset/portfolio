@@ -65,3 +65,13 @@ table {
   margin: 0.5rem 0 1.5rem 0;
   border-collapse: collapse;
 }
+
+/* Make header text color match navbar */
+h3 a {
+  color: #041E42; /* Bootstrap primary color - adjust if your navbar uses a different color */
+}
+
+h3 a:hover {
+  color: #0a58ca; /* Slightly darker shade for hover state */
+  text-decoration: none;
+}
