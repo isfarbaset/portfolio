@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,93 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ev-insights .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ev-insights'] = new List('listing-ev-insights', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-airy-tales .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-airy-tales'] = new List('listing-airy-tales', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -206,9 +118,7 @@ window.Quarto = {
   <li><a href="#fmbench-assistant" id="toc-fmbench-assistant" class="nav-link" data-scroll-target="#fmbench-assistant">FMBench Assistant</a></li>
   <li><a href="#us-insights" id="toc-us-insights" class="nav-link" data-scroll-target="#us-insights">US Insights</a></li>
   <li><a href="#temp-talk" id="toc-temp-talk" class="nav-link" data-scroll-target="#temp-talk">Temp Talk</a></li>
-  <li><a href="#ev-insights" id="toc-ev-insights" class="nav-link" data-scroll-target="#ev-insights">EV Insights</a></li>
   <li><a href="#beats-and-bytes" id="toc-beats-and-bytes" class="nav-link" data-scroll-target="#beats-and-bytes">Beats and Bytes</a></li>
-  <li><a href="#airy-tales" id="toc-airy-tales" class="nav-link" data-scroll-target="#airy-tales">Airy Tales</a></li>
   </ul>
 </nav>
     </div>
@@ -218,8 +128,8 @@ window.Quarto = {
 
 
 
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me"><a href="about-me.html">About Me</a></h2>
+<section id="about-me" class="level3">
+<h3 class="anchored" data-anchor-id="about-me"><a href="about-me.html">About Me</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 46%">
@@ -233,8 +143,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="fmbench-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="fmbench-assistant"><a href="https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161">FMBench Assistant</a></h2>
+<section id="fmbench-assistant" class="level3">
+<h3 class="anchored" data-anchor-id="fmbench-assistant"><a href="https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161">FMBench Assistant</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 46%">
@@ -248,8 +158,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="us-insights" class="level2">
-<h2 class="anchored" data-anchor-id="us-insights"><a href="https://isfarbaset.github.io/fall-2024-project-team-29/">US Insights</a></h2>
+<section id="us-insights" class="level3">
+<h3 class="anchored" data-anchor-id="us-insights"><a href="https://isfarbaset.github.io/fall-2024-project-team-29/">US Insights</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 46%">
@@ -263,8 +173,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="temp-talk" class="level2">
-<h2 class="anchored" data-anchor-id="temp-talk"><a href="https://isfarbaset.georgetown.domains/story-project/_site/">Temp Talk</a></h2>
+<section id="temp-talk" class="level3">
+<h3 class="anchored" data-anchor-id="temp-talk"><a href="https://isfarbaset.georgetown.domains/story-project/_site/">Temp Talk</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 46%">
@@ -277,41 +187,13 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<!-- ### [EV Insights](5000-website/website-source/index.qmd)
+|  |  |
+|-------|--------|
+| Analyzing the environmental impact, market share, and performance of electric vehicles compared to gasoline vehicles. Discover insights about the growing EV industry through data visualization and statistical analysis. | ![EV Insights](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif) | -->
 </section>
-<section id="ev-insights" class="level2">
-<h2 class="anchored" data-anchor-id="ev-insights">EV Insights</h2>
-<div id="listing-ev-insights" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1744423417075" data-listing-reading-time-sort="5" data-listing-word-count-sort="860">
-<div class="thumbnail">
-<p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
-<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif" class="thumbnail-image"></p>
-</a><p><a href="./5000-website/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./5000-website/index.html" class="no-external">EV Analysis</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./5000-website/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./5000-website/index.html" class="no-external">The data question I’m seeking to explore is related to Electric Vehicles: their environmental impact, market share, and performance compared to gasoline vehicles. Over the…</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="beats-and-bytes" class="level2">
-<h2 class="anchored" data-anchor-id="beats-and-bytes"><a href="Group37_final_Report.html">Beats and Bytes</a></h2>
+<section id="beats-and-bytes" class="level3">
+<h3 class="anchored" data-anchor-id="beats-and-bytes"><a href="Group37_final_Report.html">Beats and Bytes</a></h3>
 <table class="table">
 <colgroup>
 <col style="width: 46%">
@@ -324,39 +206,10 @@ No matching items
 </tr>
 </tbody>
 </table>
-</section>
-<section id="airy-tales" class="level2">
-<h2 class="anchored" data-anchor-id="airy-tales">Airy Tales</h2>
-<div id="listing-airy-tales" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1744423417398" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
-<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif" class="thumbnail-image"></p>
-</a><p><a href="./5100-website/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./5100-website/index.html" class="no-external">Airy Tales</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./5100-website/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./5100-website/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-
+<!-- ### [Airy Tales](5100-website/index.qmd)
+|  |  |
+|-------|--------|
+| Investigating air quality patterns and their impact on our environment and health. This project uses data analysis to uncover trends in pollution levels and atmospheric conditions across different regions. | ![Airy Tales](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif) | -->
 
 
 </section>
