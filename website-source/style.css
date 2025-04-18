@@ -6,3 +6,20 @@
   .navbar a {
     color: #ffffff !important;  /* White links */
   }
+
+  #us-insights-external {
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #us-insights-external img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5em;
+  }

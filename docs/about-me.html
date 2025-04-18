@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Isfar Baset -</title>
+<title>Isfar Baset - About Me</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,12 +30,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -68,93 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ev-insights .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ev-insights'] = new List('listing-ev-insights', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-airy-tales .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-airy-tales'] = new List('listing-airy-tales', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -194,174 +105,131 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#fmbench-assistant" id="toc-fmbench-assistant" class="nav-link" data-scroll-target="#fmbench-assistant">FMBench Assistant</a></li>
-  <li><a href="#us-insights" id="toc-us-insights" class="nav-link" data-scroll-target="#us-insights">US Insights</a></li>
-  <li><a href="#temp-talk" id="toc-temp-talk" class="nav-link" data-scroll-target="#temp-talk">Temp Talk</a></li>
-  <li><a href="#ev-insights" id="toc-ev-insights" class="nav-link" data-scroll-target="#ev-insights">EV Insights</a></li>
-  <li><a href="#beats-and-bytes" id="toc-beats-and-bytes" class="nav-link" data-scroll-target="#beats-and-bytes">Beats and Bytes</a></li>
-  <li><a href="#airy-tales" id="toc-airy-tales" class="nav-link" data-scroll-target="#airy-tales">Airy Tales</a></li>
+  <li><a href="#quick-summary" id="toc-quick-summary" class="nav-link active" data-scroll-target="#quick-summary">Quick Summary</a></li>
+  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">🎓 EDUCATION</a>
+  <ul class="collapse">
+  <li><a href="#georgetown-university-gu" id="toc-georgetown-university-gu" class="nav-link" data-scroll-target="#georgetown-university-gu">Georgetown University (GU)</a></li>
+  <li><a href="#grand-valley-state-university-gvsu" id="toc-grand-valley-state-university-gvsu" class="nav-link" data-scroll-target="#grand-valley-state-university-gvsu">Grand Valley State University (GVSU)</a></li>
+  </ul></li>
+  <li><a href="#work-experience" id="toc-work-experience" class="nav-link" data-scroll-target="#work-experience">💼 WORK EXPERIENCE</a>
+  <ul class="collapse">
+  <li><a href="#shift-digital-delivery-and-software-team" id="toc-shift-digital-delivery-and-software-team" class="nav-link" data-scroll-target="#shift-digital-delivery-and-software-team">Shift Digital, Delivery and Software Team</a></li>
+  <li><a href="#array-of-engineers" id="toc-array-of-engineers" class="nav-link" data-scroll-target="#array-of-engineers">Array of Engineers</a></li>
+  </ul></li>
+  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">SKILLS</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<div class="quarto-about-marquee content column-page-left">
+  <div class="about-image-container">
+    <img src="images/ib.png" class="about-image " style="width: 100%;">
+  </div>
+  <div class="about-contents">
+    <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">About Me</h1>
+</div>
+<div class="quarto-title-meta column-page-left">
+  </div>
+</header> <main class="content column-page-left" id="quarto-document-content">
 
-
-
-
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me"><a href="about-me.html">About Me</a></h2>
-<table class="table">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>I’m Isfar Baset, a data scientist and machine learning engineer passionate about creating AI solutions that solve real-world problems. With experience in natural language processing, computer vision, and predictive analytics, I enjoy tackling complex challenges with innovative approaches. My background spans both academic research and industry applications, giving me a unique perspective on data science implementation.</td>
-<td><img src="images/ib.png" class="img-fluid" alt="Isfar Baset"></td>
-</tr>
-</tbody>
-</table>
+<style>
+  h1 {
+    text-align: center;
+  }
+  img {
+    max-width: 500px; /* Adjust size here */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+  }
+</style>
+<p>Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.</p>
+<p>I am currently pursuing a Master’s of Science in Data Science &amp; Analytics at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders. Although I am not unfamiliar with the realm of software development, I was quite new to data analysis before I started my role at Shift Digital as a Data Analyst. I learned a lot of practical skills that are prevalent in the digital marketing industry. Being a part of the DSAN program has introduced a lot of theoretical and statistical concepts and I am looking forward to continue on this journey and grow my knowledge even further.</p>
+<p>I love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.</p>
+<section id="quick-summary" class="level2">
+<h2 data-anchor-id="quick-summary">Quick Summary</h2>
+<p>Here’s a quick snapchot of my professional journey so far:</p>
+<p><img src="images/journey.png" class="img-fluid"></p>
+<p>For the longer/more detailed version click here 👉🏽 <a href="Isfar Baset Resume.pdf" class="btn btn-primary">Download Resume</a></p>
 </section>
-<section id="fmbench-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="fmbench-assistant"><a href="https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161">FMBench Assistant</a></h2>
-<table class="table">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Explore how we built a conversational AI assistant for the Foundation Model Benchmarking Tool (FMBench) using Amazon Bedrock, AWS Lambda, LangGraph, FastAPI, and Streamlit. Learn how this three-layer architecture creates an accessible interface to help users navigate complex model benchmarking options through natural dialogue.</td>
-<td><img src="images/mermaid.png" class="img-fluid" alt="Medium"></td>
-</tr>
-</tbody>
-</table>
+<section id="education" class="level2">
+<h2 data-anchor-id="education">🎓 EDUCATION</h2>
+<section id="georgetown-university-gu" class="level3">
+<h3 data-anchor-id="georgetown-university-gu">Georgetown University (GU)</h3>
+<p><strong>Master of Science in Data Science and Analytics</strong> | GPA: 4.0<br>
+<strong>Washington, D.C.</strong><br>
+<em>Aug 2023 - May 2025</em></p>
+<p><strong>Coursework:</strong><br>
+Probabilistic Modeling and Statistical Computing, Database Systems and SQL, Advanced Data Visualization, Data Ethics and Policy, Computational Linguistics, Machine Learning App Deployment, Digital Storytelling, Big Data and Cloud Computing (TA), Applied Generative AI (Lead TA)</p>
+<p><strong>Leadership &amp; Activities:</strong> Social Committee Member &amp; Lead Mentor in the Data Science and Analytics program</p>
 </section>
-<section id="us-insights" class="level2">
-<h2 class="anchored" data-anchor-id="us-insights"><a href="https://isfarbaset.github.io/fall-2024-project-team-29/">US Insights</a></h2>
-<table class="table">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.</td>
-<td><img src="https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif" class="img-fluid" alt="US Insights"></td>
-</tr>
-</tbody>
-</table>
+<section id="grand-valley-state-university-gvsu" class="level3">
+<h3 data-anchor-id="grand-valley-state-university-gvsu">Grand Valley State University (GVSU)</h3>
+<p><strong>Bachelor of Science in Computer Science</strong><br>
+<strong>Grand Rapids, MI</strong><br>
+<em>Aug 2015 - May 2020</em></p>
+<hr>
 </section>
-<section id="temp-talk" class="level2">
-<h2 class="anchored" data-anchor-id="temp-talk"><a href="https://isfarbaset.georgetown.domains/story-project/_site/">Temp Talk</a></h2>
-<table class="table">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Exploring temperature trends and climate patterns through interactive visualizations and data analysis. Examine how temperature changes affect our environment and daily lives.</td>
-<td><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmpxMzd4eW5nOGgweTU4bWxyY3FldWp0NGQwNTllOWJqZ2ppZ2NtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yse8MzKv61jlC/giphy.gif" class="img-fluid" alt="Temp Talk"></td>
-</tr>
-</tbody>
-</table>
 </section>
-<section id="ev-insights" class="level2">
-<h2 class="anchored" data-anchor-id="ev-insights">EV Insights</h2>
-<div id="listing-ev-insights" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1744423417075" data-listing-reading-time-sort="5" data-listing-word-count-sort="860">
-<div class="thumbnail">
-<p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
-<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif" class="thumbnail-image"></p>
-</a><p><a href="./5000-website/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./5000-website/index.html" class="no-external">EV Analysis</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./5000-website/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./5000-website/index.html" class="no-external">The data question I’m seeking to explore is related to Electric Vehicles: their environmental impact, market share, and performance compared to gasoline vehicles. Over the…</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./5000-website/index.html" class="no-external"></a></p><a href="./5000-website/index.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<section id="work-experience" class="level2">
+<h2 data-anchor-id="work-experience">💼 WORK EXPERIENCE</h2>
+<section id="shift-digital-delivery-and-software-team" class="level3">
+<h3 data-anchor-id="shift-digital-delivery-and-software-team">Shift Digital, Delivery and Software Team</h3>
+<p><strong>Data Analyst</strong><br>
+<strong>Birmingham, MI</strong><br>
+<em>Nov 2021 - May 2023</em><br>
+✔️ Improved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes <br> ✔️ Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives <br> ✔️ Streamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing <br> ✔️ Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights <br> ✔️ Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets <br> ✔️ Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders <br> ✔️ Crafted technical proposals aligned with project scope and business goals, achieving near 100% customer approval rate <br></p>
 </section>
-<section id="beats-and-bytes" class="level2">
-<h2 class="anchored" data-anchor-id="beats-and-bytes"><a href="Group37_final_Report.html">Beats and Bytes</a></h2>
-<table class="table">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.</td>
-<td><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif" class="img-fluid" alt="Beats and Bytes"></td>
-</tr>
-</tbody>
-</table>
+<section id="array-of-engineers" class="level3">
+<h3 data-anchor-id="array-of-engineers">Array of Engineers</h3>
+<p><strong>Computer Engineer</strong><br>
+<strong>Grand Rapids, MI</strong><br>
+<em>Jul 2020 - Nov 2021</em><br>
+✔️ Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance <br> ✔️ Improved user experience by optimizing web app features with AngularJS, increasing client retention by 25% <br> ✔️ Introduced modular workflows for software testing, enhancing adaptability and achieving 98% on-time delivery <br> ✔️ Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability <br> ✔️ Led GitHub code reviews across a multidisciplinary team, mitigating critical issues early in the development process <br></p>
+<hr>
 </section>
-<section id="airy-tales" class="level2">
-<h2 class="anchored" data-anchor-id="airy-tales">Airy Tales</h2>
-<div id="listing-airy-tales" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1744423417398" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
-<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif" class="thumbnail-image"></p>
-</a><p><a href="./5100-website/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./5100-website/index.html" class="no-external">Airy Tales</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./5100-website/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./5100-website/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./5100-website/index.html" class="no-external"></a></p><a href="./5100-website/index.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-
+</section>
+<section id="skills" class="level2">
+<h2 data-anchor-id="skills">SKILLS</h2>
+<p><strong>Programming:</strong> Python, SQL, R, Java, C++<br>
+<strong>Machine Learning:</strong> Scikit-learn, TensorFlow, PyTorch, XGBoost<br>
+<strong>Data Visualization:</strong> Tableau, Plotly, Seaborn<br>
+<strong>Big Data &amp; Cloud:</strong> Apache Spark, Databricks, AWS Sagemaker<br>
+<strong>NLP:</strong> spaCy, Hugging Face Transformers, BERT<br>
+<strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Snowflake<br>
+<strong>Tools:</strong> Docker, Flask, Git, Quarto, CI/CD pipelines<br>
+<strong>Statistical Methods:</strong> A/B Testing, Regression, Bayesian Analysis</p>
 
 
 </section>
-
-</main> <!-- /main -->
+</main> 
+    <div class="about-footer"><div class="about-links">
+  <a href="https://www.linkedin.com/in/isfarbaset/" class="about-link" rel="" target="">
+    <i class="bi bi-linkedin"></i>
+     <span class="about-link-text">LinkedIn</span>
+  </a>
+  <a href="https://github.com/isfarbaset" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://www.instagram.com/is.far/" class="about-link" rel="" target="">
+    <i class="bi bi-instagram"></i>
+     <span class="about-link-text">Instagram</span>
+  </a>
+</div>
+</div>
+  </div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -382,13 +250,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

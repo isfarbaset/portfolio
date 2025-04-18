@@ -1,48 +1,39 @@
 ---
-title: Portfolio
+title: ""
 listing:
-  - id: about-me
-    contents: "about-me/index.qmd"
-    type: default
-  - id: us-insights
-    contents: "6000-website/website-source/index.qmd"
-    type: default
-  - id: temp-talk
-    contents: "story-project/index.qmd"
-    type: default
   - id: ev-insights
     contents: "5000-website/index.qmd"
     type: default
   - id: airy-tales
     contents: "5100-website/index.qmd"
     type: default
-  - id: beats-bytes
-    contents: "5300-website/Group37_Final_Report.qmd"
-    type: default
 listing-opts:
   fields: [image, title, description, date]
 ---
 
-## About Me
+## [About Me](about-me.html)
 
-:::{#about-me}
-![About Me](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXY3M2xkYWZ3aDVtc2gya3JkYTF1N2xiZDJ5ODJpdnNuN2w3cXI1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x1CjxowaWEV1YXV47t/giphy.gif)
-[View Project](about-me/index.qmd)
-:::
+|  |  |
+|-------|--------|
+| I'm Isfar Baset, a data scientist and machine learning engineer passionate about creating AI solutions that solve real-world problems. With experience in natural language processing, computer vision, and predictive analytics, I enjoy tackling complex challenges with innovative approaches. My background spans both academic research and industry applications, giving me a unique perspective on data science implementation. | ![Isfar Baset](images/ib.png) |
 
-## US Insights
+## [FMBench Assistant](https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161)
 
-:::{#us-insights}
-![US Insights](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif)
-[View Project](6000-website/website-source/index.qmd)
-:::
+|  |  |
+|-------|--------|
+| Explore how we built a conversational AI assistant for the Foundation Model Benchmarking Tool (FMBench) using Amazon Bedrock, AWS Lambda, LangGraph, FastAPI, and Streamlit. Learn how this three-layer architecture creates an accessible interface to help users navigate complex model benchmarking options through natural dialogue. | ![Medium](images/mermaid.png) |
 
-## Temp Talk
+## [US Insights](https://isfarbaset.github.io/fall-2024-project-team-29/)
 
-:::{#temp-talk}
-![Temp Talk](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGU1dGhuYnJ6Z2Vlb3owYzkwOTAzMG9ydzBlMml5MTg0eGozZmZ2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4ZgLPakqTajjVFOVqw/giphy.gif)
-[View Project](story-project/index.qmd)
-:::
+|  |  |
+|-------|--------|
+| Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone. | ![US Insights](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif) |
+
+## [Temp Talk](https://isfarbaset.georgetown.domains/story-project/_site/)
+
+|  |  |
+|-------|--------|
+| Exploring temperature trends and climate patterns through interactive visualizations and data analysis. Examine how temperature changes affect our environment and daily lives. | ![Temp Talk](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmpxMzd4eW5nOGgweTU4bWxyY3FldWp0NGQwNTllOWJqZ2ppZ2NtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yse8MzKv61jlC/giphy.gif) |
 
 ## EV Insights
 
@@ -51,16 +42,15 @@ listing-opts:
 [View Project](5000-website/website-source/index.qmd)
 :::
 
+## [Beats and Bytes](Group37_final_Report.html)
+
+|  |  |
+|-------|--------|
+| Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models. | ![Beats and Bytes](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif) |
+
 ## Airy Tales
 
 :::{#airy-tales}
 ![Airy Tales](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnNoenE2bjR4dnhtNGJxOWNoN2tydmQydHdrMGd2bmg3Z2o3aGVhMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPllXEiSblIM1j2/giphy.gif)
 [View Project](5100-website/index.qmd)
-:::
-
-## Beats and Bytes
-
-:::{#beats-bytes}
-![Beats and Bytes](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmRsMW5oYTg1bWo5ZzJjZmZzc3FvM3cydGVwaDB2Ym9qdmIybXJ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RGjEtO1HxNbfFUEOBl/giphy.gif)
-[View Project](5300-website/Group37_Final_Report.qmd)
 :::

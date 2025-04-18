@@ -100,9 +100,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "",
-    "text": "No matching items"
+    "text": "I’m Isfar Baset, a data scientist and machine learning engineer passionate about creating AI solutions that solve real-world problems. With experience in natural language processing, computer vision, and predictive analytics, I enjoy tackling complex challenges with innovative approaches. My background spans both academic research and industry applications, giving me a unique perspective on data science implementation."
   },
   {
     "objectID": "index.html#project-overview",
@@ -115,8 +115,12 @@
     "objectID": "index.html#data-collection",
     "href": "index.html#data-collection",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "Our group decided to tackle the topic with two different cuts of Reddit data. We started with the cleaned Reddit data provided to the class, which included submissions and posts from June 2023 to July 2024.\nTo create the first cut of data, we selected specific subreddits where we believed states would be mentioned and opinions about states discussed. We limited the data to the following subreddits: r/Travel, r/AskAnAmerican, r/USATravel, as well as the 50 individual state subreddits (e.g., r/NewYork, r/California, r/Ohio). From these subreddits, we further filtered the data to include only submissions and comments where full state names were mentioned. This dataset (referred to as the Subreddit Data) contained over 120,000 submissions and posts where full state names were mentioned.\nThe second cut of data took a simpler and more universal approach. From the full dataset, we filtered for comments containing full state names. We decided to focus on comments, as they are more likely to contain opinions about states. After cleaning, this dataset (referred to as the Full Data) contained over 28 million comments mentioning full state names.\nA potential data issue is the use of full state names. Posts regarding notable figures like George Washington or sports teams such as the New York Yankees may introduce noise into our analysis. This issue is discussed further in the Summary section.\n\n\n\nData Collection Overview"
+    "section": "Data Collection",
+    "text": "Data Collection\nOur group decided to tackle the topic with two different cuts of Reddit data. We started with the cleaned Reddit data provided to the class, which included submissions and posts from June 2023 to July 2024.\nTo create the first cut of data, we selected specific subreddits where we believed states would be mentioned and opinions about states discussed. We limited the data to the following subreddits: r/Travel, r/AskAnAmerican, r/USATravel, as well as the 50 individual state subreddits (e.g., r/NewYork, r/California, r/Ohio). From these subreddits, we further filtered the data to include only submissions and comments where full state names were mentioned. This dataset (referred to as the Subreddit Data) contained over 120,000 submissions and posts where full state names were mentioned.\nThe second cut of data took a simpler and more universal approach. From the full dataset, we filtered for comments containing full state names. We decided to focus on comments, as they are more likely to contain opinions about states. After cleaning, this dataset (referred to as the Full Data) contained over 28 million comments mentioning full state names.\nA potential data issue is the use of full state names. Posts regarding notable figures like George Washington or sports teams such as the New York Yankees may introduce noise into our analysis. This issue is discussed further in the Summary section.\n\n\n\nData Collection Overview",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "index.html#business-goals-technical-proposals",
@@ -255,8 +259,12 @@
     "objectID": "index.html#data-quality-issues",
     "href": "index.html#data-quality-issues",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "Ensuring high data quality is essential for reliable insights. Here are the challenges we encountered and how we addressed them:\n\nMissing Data: Several posts lacked critical metadata such as timestamps or subreddit names.\nIrrelevant Mentions: Posts occasionally referenced states ambiguously (e.g., “Georgia” as a name vs. the state).\nText Noise: Many posts contained irrelevant or low-quality text, such as excessive links, emojis, or advertisements.\nSentiment Overlap: Sentiment analysis tools sometimes misclassified posts due to sarcasm or complex sentence structures.\nInconsistent Formatting: User-generated content often featured inconsistent capitalization, punctuation, and spelling, complicating keyword extraction.\n\n\n\n\nFiltering irrelevant posts and ambiguous mentions using regex and manual review.\nImputing or discarding missing data based on its significance to the analysis.\nCleaning and normalizing text using standard preprocessing techniques like lowercasing, stopword removal, and punctuation handling."
+    "section": "Data Quality Issues",
+    "text": "Data Quality Issues\nEnsuring high data quality is essential for reliable insights. Here are the challenges we encountered and how we addressed them:\n\nMissing Data: Several posts lacked critical metadata such as timestamps or subreddit names.\nIrrelevant Mentions: Posts occasionally referenced states ambiguously (e.g., “Georgia” as a name vs. the state).\nText Noise: Many posts contained irrelevant or low-quality text, such as excessive links, emojis, or advertisements.\nSentiment Overlap: Sentiment analysis tools sometimes misclassified posts due to sarcasm or complex sentence structures.\nInconsistent Formatting: User-generated content often featured inconsistent capitalization, punctuation, and spelling, complicating keyword extraction.\n\n\nProposed Solutions\n\nFiltering irrelevant posts and ambiguous mentions using regex and manual review.\nImputing or discarding missing data based on its significance to the analysis.\nCleaning and normalizing text using standard preprocessing techniques like lowercasing, stopword removal, and punctuation handling.",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "index.html#business-goals",
@@ -283,8 +291,12 @@
     "objectID": "index.html#introduction",
     "href": "index.html#introduction",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "How do online conversations reflect our perceptions of U.S. states? During the brainstorming process for this project, our team noticed an absence of geography in the Reddit data. To add a spatial component, we decided to examine mentions of U.S. states and the sentiment of posts containing these mentions. Our project analyzes Reddit discussions to uncover insights about public opinion, trends, and key topics of interest for each state. Through sentiment analysis, trend discovery, and keyword extraction, we aim to understand the connection between online discourse and real-world perceptions."
+    "section": "Introduction",
+    "text": "Introduction\nHow do online conversations reflect our perceptions of U.S. states? During the brainstorming process for this project, our team noticed an absence of geography in the Reddit data. To add a spatial component, we decided to examine mentions of U.S. states and the sentiment of posts containing these mentions. Our project analyzes Reddit discussions to uncover insights about public opinion, trends, and key topics of interest for each state. Through sentiment analysis, trend discovery, and keyword extraction, we aim to understand the connection between online discourse and real-world perceptions.",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "index.html#technical-proposals",
@@ -374,15 +386,23 @@
     "objectID": "index.html#research-questions-business-goals",
     "href": "index.html#research-questions-business-goals",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "Examine state mentions over time to explore trends and correlations with news events.\nDetermine the states that are talked about the most and least to discover which states generate the highest interest.\n\nIdentify the subreddits where states are being mentioned the most.\nExplore the top authors that mention states.\nAnalyze state mentions relative to population and examine how the mentions-per-population rank compares to other state rankings.\nDiscover the states that are talked about most in state-specific subreddits and identify the state-specific subreddits that are most insular.\n\n\n\n\n\nAnalyze state sentiment over time and how news events drive changes in sentiment.\nExamine the states with the highest and lowest sentiment.\nAnalyze state sentiment in state-specific subreddits to determine universal or mixed state opinions.\nExplore how state sentiment aligns with popular state rankings on various factors including economy, healthcare, and education.\nInvestigate the most popular words used in posts mentioning states.\n\n\n\n\n\nIdentify the most common topics discussed in state-mentioned posts.\nPredict the score of a post based on its text and mentions of states.\nPredict the state mentioned based on the text of a post.\n\nPlease see the EDA, NLP, or ML tabs for more information on the specific research objectives."
+    "section": "Research Questions & Business Goals",
+    "text": "Research Questions & Business Goals\n\nExploratory Data Analysis\n\nExamine state mentions over time to explore trends and correlations with news events.\nDetermine the states that are talked about the most and least to discover which states generate the highest interest.\n\nIdentify the subreddits where states are being mentioned the most.\nExplore the top authors that mention states.\nAnalyze state mentions relative to population and examine how the mentions-per-population rank compares to other state rankings.\nDiscover the states that are talked about most in state-specific subreddits and identify the state-specific subreddits that are most insular.\n\n\n\nNatural Language Processing\n\nAnalyze state sentiment over time and how news events drive changes in sentiment.\nExamine the states with the highest and lowest sentiment.\nAnalyze state sentiment in state-specific subreddits to determine universal or mixed state opinions.\nExplore how state sentiment aligns with popular state rankings on various factors including economy, healthcare, and education.\nInvestigate the most popular words used in posts mentioning states.\n\n\n\nMachine Learning\n\nIdentify the most common topics discussed in state-mentioned posts.\nPredict the score of a post based on its text and mentions of states.\nPredict the state mentioned based on the text of a post.\n\nPlease see the EDA, NLP, or ML tabs for more information on the specific research objectives.",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "index.html#external-data",
     "href": "index.html#external-data",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "We decided to use three different external data sources for our analysis:\n\nWhile tracking mentions of states seemed essential, we thought it would be important to examine mentions of states relative to their population. To do this, we obtained state-level population estimates from the United States Census Bureau.\nNext, we wanted to make comparisons between state mentions and how often a state had been visited (assuming more visits mean more mentions). For this, we used a YouGov survey of U.S. adults that examined the percentage of respondents who had visited a given state before.\nFinally, we wanted to see how the mentions and sentiment of states compared with other perceptions and rankings of states. We decided to use the U.S. News & World Report Best State Rankings for this analysis. These rankings comprise a range of data to evaluate states on education, livability, health, and much more.\n\n\n\n\nExternal Data Overview"
+    "section": "External Data",
+    "text": "External Data\nWe decided to use three different external data sources for our analysis:\n\nWhile tracking mentions of states seemed essential, we thought it would be important to examine mentions of states relative to their population. To do this, we obtained state-level population estimates from the United States Census Bureau.\nNext, we wanted to make comparisons between state mentions and how often a state had been visited (assuming more visits mean more mentions). For this, we used a YouGov survey of U.S. adults that examined the percentage of respondents who had visited a given state before.\nFinally, we wanted to see how the mentions and sentiment of states compared with other perceptions and rankings of states. We decided to use the U.S. News & World Report Best State Rankings for this analysis. These rankings comprise a range of data to evaluate states on education, livability, health, and much more.\n\n\n\n\nExternal Data Overview",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "summary.html#overview",
@@ -409,8 +429,12 @@
     "objectID": "index.html#appendix-research-questions-business-goals",
     "href": "index.html#appendix-research-questions-business-goals",
     "title": "Analyzing U.S. State Sentiments on Reddit",
-    "section": "",
-    "text": "Technical Proposal:\nThe daily mentions of full state names will be calculated for the entire time period for each state. A smoothed and Z-scored 7-day rolling average of daily state mention counts will then be computed and plotted. States with abnormal peaks will also be investigated to see if major news stories occurred simultaneously. This analysis will be conducted using the Subreddit Data.\n\n\n\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each state will be calculated and plotted. This analysis will be conducted using the Full Data.\n\n\n\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each subreddit will be calculated and plotted/tabulated. The top 10 subreddits that mention states will be plotted. This analysis will be conducted using the Full Data.\n\n\n\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each author will be calculated and plotted/tabulated. The top 10 authors that mention states will be plotted. This analysis will be conducted using the Full Data.\n\n\n\nTechnical Proposal:\nThe total mentions of full state names will be calculated for the entire time period for each state. Using external data, state mentions will be normalized to state population, and the state mention rank will be compared to external state ranks. This analysis will be conducted using the Subreddit Data.\n\n\n\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. State mentions in state-specific subreddits will be examined to explore how often state subreddits mention themselves in addition to other states. This analysis will be conducted using the Subreddit Data.\n\n\n\n\n\n\n\nTechnical Proposal:\nUsing daily posts that mention states, evaluate the sentiment of states over time. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average daily sentiment for each state and smooth the results with a rolling average. Finally, examine major news events and changes to sentiment during the same time period. This analysis will be conducted using the Subreddit Data.\n\n\n\nTechnical Proposal:\nUsing Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. This analysis will be conducted using the Full Data.\n\n\n\nTechnical Proposal:\nUsing posts that mention states in state-specific subreddits, evaluate the sentiment of states. Evaluate sentiment by state mentioned and subreddit with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state-subreddit combination to see opinions of other states across state-specific subreddits. This analysis will be conducted using the Subreddit Data.\n\n\n\nTechnical Proposal:\nUsing Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. With this ranking of states, compare it to other external state rankings to examine correlations. This analysis will be conducted using the Full Data.\n\n\n\nTechnical Proposal:\nExamine posts that mention full state names. From these posts, count the most popular words on posts to get a sense of key words associated with mentions of states. Visualize this with a word cloud. This analysis will be conducted using the Full Data.\n\n\n\n\n\n\n\nTechnical Proposal:\nAnalyze posts that mention states to identify common topics using topic modeling techniques such as Latent Dirichlet Allocation (LDA). LDA is a statistical model that clusters words frequently appearing together, uncovering hidden topics within a dataset. By applying LDA to the text of posts mentioning states, we aim to extract overarching themes, such as tourism, politics, local events, or cultural identity.\nThe analysis involves:\n\nPreprocessing the text data by cleaning it (e.g., removing stop words, punctuation, and irrelevant text) and converting it into a suitable format for topic modeling (e.g., bag-of-words or TF-IDF matrix).\nDetermining the optimal number of topics using methods like coherence score analysis to ensure quality topics.\nRunning the LDA model to assign topics to each post and extract the most representative keywords for each topic.\nInterpreting topics by reviewing keywords within each cluster to understand the context of discussions.\nVisualizing the results using tools like topic distribution charts or interactive plots (e.g., pyLDAvis) to explore dominant themes in posts mentioning states.\n\nThis approach allows us to explore the diversity of conversations surrounding U.S. states on Reddit and identify patterns in the types of discussions associated with different states. For instance, one topic may focus on travel and tourism, another on politics, while others may emphasize cultural events or economic issues. These insights can reveal how users engage with state-specific topics and how perceptions vary across states.\n\n\n\nTechnical Proposal:\nTrain a supervised machine learning model to predict the upvote score of a post based on its text and mentions of states. Features will include text embeddings, sentiment, and state mentions. This analysis will be conducted using the Subreddit Data.\n\n\n\nTechnical Proposal:\nTrain a supervised machine learning model to predict the state mentioned in a post based on its text. Features will include text embeddings and other contextual features derived from the post. This analysis will be conducted using the Subreddit Data."
+    "section": "Appendix: Research Questions & Business Goals",
+    "text": "Appendix: Research Questions & Business Goals\n\nExploratory Data Analysis\n\nExamine state mentions over time to explore trends and correlations with news events.\nTechnical Proposal:\nThe daily mentions of full state names will be calculated for the entire time period for each state. A smoothed and Z-scored 7-day rolling average of daily state mention counts will then be computed and plotted. States with abnormal peaks will also be investigated to see if major news stories occurred simultaneously. This analysis will be conducted using the Subreddit Data.\n\n\nDetermine the states that are talked about the most and least to discover what states have the highest interest.\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each state will be calculated and plotted. This analysis will be conducted using the Full Data.\n\n\nFigure out the subreddits where states are being mentioned the most.\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each subreddit will be calculated and plotted/tabulated. The top 10 subreddits that mention states will be plotted. This analysis will be conducted using the Full Data.\n\n\nExplore the top authors that mention states.\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. A count of state mentions for each author will be calculated and plotted/tabulated. The top 10 authors that mention states will be plotted. This analysis will be conducted using the Full Data.\n\n\nAnalyze state mentions relative to the state population and examine how the mention-per-population rank compares to other state rankings.\nTechnical Proposal:\nThe total mentions of full state names will be calculated for the entire time period for each state. Using external data, state mentions will be normalized to state population, and the state mention rank will be compared to external state ranks. This analysis will be conducted using the Subreddit Data.\n\n\nDiscover the states that are talked about most on state-specific subreddits in addition to the state-specific subreddits that are most insular.\nTechnical Proposal:\nReddit comments with mentions of full states and territories will be examined for the entire time period. State mentions in state-specific subreddits will be examined to explore how often state subreddits mention themselves in addition to other states. This analysis will be conducted using the Subreddit Data.\n\n\n\n\nNatural Language Processing\n\nAnalyze state sentiment over time and how news events can drive changes in sentiment.\nTechnical Proposal:\nUsing daily posts that mention states, evaluate the sentiment of states over time. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average daily sentiment for each state and smooth the results with a rolling average. Finally, examine major news events and changes to sentiment during the same time period. This analysis will be conducted using the Subreddit Data.\n\n\nExamine the states with the highest and lowest sentiment.\nTechnical Proposal:\nUsing Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. This analysis will be conducted using the Full Data.\n\n\nExamine state sentiment from state-specific subreddits to determine universal or mixed state opinions.\nTechnical Proposal:\nUsing posts that mention states in state-specific subreddits, evaluate the sentiment of states. Evaluate sentiment by state mentioned and subreddit with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state-subreddit combination to see opinions of other states across state-specific subreddits. This analysis will be conducted using the Subreddit Data.\n\n\nDiscover how state sentiment aligns with popular state rankings on a variety of factors including economy, healthcare, and education.\nTechnical Proposal:\nUsing Reddit comments that mention states, evaluate the sentiment of states over the entire time period. Evaluate sentiment by state with a pre-trained NLP model to categorize posts into positive, negative, or neutral. Calculate average sentiment for each state and order states and territories by the sentiment score. With this ranking of states, compare it to other external state rankings to examine correlations. This analysis will be conducted using the Full Data.\n\n\nExplore the most popular words used on posts that mention states.\nTechnical Proposal:\nExamine posts that mention full state names. From these posts, count the most popular words on posts to get a sense of key words associated with mentions of states. Visualize this with a word cloud. This analysis will be conducted using the Full Data.\n\n\n\n\nMachine Learning\n\nExamine the most commonly discussed topics across state-mentioned posts.\nTechnical Proposal:\nAnalyze posts that mention states to identify common topics using topic modeling techniques such as Latent Dirichlet Allocation (LDA). LDA is a statistical model that clusters words frequently appearing together, uncovering hidden topics within a dataset. By applying LDA to the text of posts mentioning states, we aim to extract overarching themes, such as tourism, politics, local events, or cultural identity.\nThe analysis involves:\n\nPreprocessing the text data by cleaning it (e.g., removing stop words, punctuation, and irrelevant text) and converting it into a suitable format for topic modeling (e.g., bag-of-words or TF-IDF matrix).\nDetermining the optimal number of topics using methods like coherence score analysis to ensure quality topics.\nRunning the LDA model to assign topics to each post and extract the most representative keywords for each topic.\nInterpreting topics by reviewing keywords within each cluster to understand the context of discussions.\nVisualizing the results using tools like topic distribution charts or interactive plots (e.g., pyLDAvis) to explore dominant themes in posts mentioning states.\n\nThis approach allows us to explore the diversity of conversations surrounding U.S. states on Reddit and identify patterns in the types of discussions associated with different states. For instance, one topic may focus on travel and tourism, another on politics, while others may emphasize cultural events or economic issues. These insights can reveal how users engage with state-specific topics and how perceptions vary across states.\n\n\nPredict the score of a post based on the post text and the mentions of states.\nTechnical Proposal:\nTrain a supervised machine learning model to predict the upvote score of a post based on its text and mentions of states. Features will include text embeddings, sentiment, and state mentions. This analysis will be conducted using the Subreddit Data.\n\n\nPredict the state mentioned based on the text of a post.\nTechnical Proposal:\nTrain a supervised machine learning model to predict the state mentioned in a post based on its text. Features will include text embeddings and other contextual features derived from the post. This analysis will be conducted using the Subreddit Data.",
+    "crumbs": [
+      "Portfolio",
+      "Introduction"
+    ]
   },
   {
     "objectID": "nlp.html#conclusion",
@@ -1311,7 +1335,7 @@
   {
     "objectID": "index.html#ev-insights",
     "href": "index.html#ev-insights",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "EV Insights",
     "text": "EV Insights\n\n\n\n\n\n\n\n\n\n\nEV Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
@@ -2165,16 +2189,16 @@
   {
     "objectID": "index.html#us-insights",
     "href": "index.html#us-insights",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "US Insights",
-    "text": "US Insights\n\n\n\n\n\n\n\n\n\n\nAnalyzing U.S. State Sentiments on Reddit\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "US Insights\n\n\n\n\n\n\n\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone."
   },
   {
     "objectID": "index.html#temp-talk",
     "href": "index.html#temp-talk",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "Temp Talk",
-    "text": "Temp Talk\n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Temp Talk\n\n\n\n\n\n\n\nExploring temperature trends and climate patterns through interactive visualizations and data analysis. Examine how temperature changes affect our environment and daily lives."
   },
   {
     "objectID": "story-project/evap.html",
@@ -2508,56 +2532,56 @@
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "",
-    "text": "No matching items"
+    "text": "I’m Isfar Baset, a data scientist and machine learning engineer passionate about creating AI solutions that solve real-world problems. With experience in natural language processing, computer vision, and predictive analytics, I enjoy tackling complex challenges with innovative approaches. My background spans both academic research and industry applications, giving me a unique perspective on data science implementation."
   },
   {
     "objectID": "index.html#airy-tales",
     "href": "index.html#airy-tales",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "Airy Tales",
     "text": "Airy Tales\n\n\n\n\n\n\n\n\n\n\nAiry Tales\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#beats-and-bytes",
     "href": "index.html#beats-and-bytes",
-    "title": "Portfolio",
+    "title": "Isfar Baset",
     "section": "Beats and Bytes",
-    "text": "Beats and Bytes\n\n\n\n\n\n\n\n\n\n\nHarmony Through Numbers: Classifying Spotify Data Across Genres and Decades\n\n\nDSAN 5300 Final Project - Group 37\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Beats and Bytes\n\n\n\n\n\n\n\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models."
   },
   {
     "objectID": "about-me/index.html",
     "href": "about-me/index.html",
-    "title": "Isfar Baset",
+    "title": "About Me",
     "section": "",
     "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.\nI am currently pursuing a Master’s of Science in Data Science & Analytics at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders. Although I am not unfamiliar with the realm of software development, I was quite new to data analysis before I started my role at Shift Digital as a Data Analyst. I learned a lot of practical skills that are prevalent in the digital marketing industry. Being a part of the DSAN program has introduced a lot of theoretical and statistical concepts and I am looking forward to continue on this journey and grow my knowledge even further.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
   },
   {
     "objectID": "about-me/index.html#quick-summary",
     "href": "about-me/index.html#quick-summary",
-    "title": "Isfar Baset",
+    "title": "About Me",
     "section": "Quick Summary",
     "text": "Quick Summary\nHere’s a quick snapchot of my professional journey so far:\n\nFor the longer/more detailed version click here 👉🏽 Download Resume"
   },
   {
     "objectID": "about-me/index.html#education",
     "href": "about-me/index.html#education",
-    "title": "Isfar Baset",
+    "title": "About Me",
     "section": "🎓 EDUCATION",
     "text": "🎓 EDUCATION\n\nGeorgetown University (GU)\nMaster of Science in Data Science and Analytics | GPA: 4.0\nWashington, D.C.\nAug 2023 - May 2025\nCoursework:\nProbabilistic Modeling and Statistical Computing, Database Systems and SQL, Advanced Data Visualization, Data Ethics and Policy, Computational Linguistics, Machine Learning App Deployment, Digital Storytelling, Big Data and Cloud Computing (TA), Applied Generative AI (Lead TA)\nLeadership & Activities: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\nGrand Valley State University (GVSU)\nBachelor of Science in Computer Science\nGrand Rapids, MI\nAug 2015 - May 2020"
   },
   {
     "objectID": "about-me/index.html#work-experience",
     "href": "about-me/index.html#work-experience",
-    "title": "Isfar Baset",
+    "title": "About Me",
     "section": "💼 WORK EXPERIENCE",
     "text": "💼 WORK EXPERIENCE\n\nShift Digital, Delivery and Software Team\nData Analyst\nBirmingham, MI\nNov 2021 - May 2023\n✔️ Improved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes  ✔️ Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives  ✔️ Streamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing  ✔️ Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights  ✔️ Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets  ✔️ Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders  ✔️ Crafted technical proposals aligned with project scope and business goals, achieving near 100% customer approval rate \n\n\nArray of Engineers\nComputer Engineer\nGrand Rapids, MI\nJul 2020 - Nov 2021\n✔️ Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance  ✔️ Improved user experience by optimizing web app features with AngularJS, increasing client retention by 25%  ✔️ Introduced modular workflows for software testing, enhancing adaptability and achieving 98% on-time delivery  ✔️ Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability  ✔️ Led GitHub code reviews across a multidisciplinary team, mitigating critical issues early in the development process"
   },
   {
     "objectID": "about-me/index.html#skills",
     "href": "about-me/index.html#skills",
-    "title": "Isfar Baset",
+    "title": "About Me",
     "section": "SKILLS",
     "text": "SKILLS\nProgramming: Python, SQL, R, Java, C++\nMachine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\nData Visualization: Tableau, Plotly, Seaborn\nBig Data & Cloud: Apache Spark, Databricks, AWS Sagemaker\nNLP: spaCy, Hugging Face Transformers, BERT\nDatabases: MySQL, PostgreSQL, MongoDB, Snowflake\nTools: Docker, Flask, Git, Quarto, CI/CD pipelines\nStatistical Methods: A/B Testing, Regression, Bayesian Analysis"
   },
@@ -2593,5 +2617,68 @@
       "Beats & Bytes",
       "Harmony Through Numbers"
     ]
+  },
+  {
+    "objectID": "index.html#us-insightshttpsisfarbaset.github.iofall-2024-project-team-29",
+    "href": "index.html#us-insightshttpsisfarbaset.github.iofall-2024-project-team-29",
+    "title": "Portfolio",
+    "section": "US Insights(https://isfarbaset.github.io/fall-2024-project-team-29/)",
+    "text": "US Insights(https://isfarbaset.github.io/fall-2024-project-team-29/)\n\n\n\n\n\n\n\n Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone."
+  },
+  {
+    "objectID": "index.html#medium-articles",
+    "href": "index.html#medium-articles",
+    "title": "Portfolio",
+    "section": "Medium Articles",
+    "text": "Medium Articles\n\n\n\n\n\n\n\nSharing insights and reflections on data science, machine learning, and tech trends. Read my latest thoughts and explorations in the field of data analytics."
+  },
+  {
+    "objectID": "index.html#fmbench-assistant",
+    "href": "index.html#fmbench-assistant",
+    "title": "Isfar Baset",
+    "section": "FMBench Assistant",
+    "text": "FMBench Assistant\n\n\n\n\n\n\n\nExplore how we built a conversational AI assistant for the Foundation Model Benchmarking Tool (FMBench) using Amazon Bedrock, AWS Lambda, LangGraph, FastAPI, and Streamlit. Learn how this three-layer architecture creates an accessible interface to help users navigate complex model benchmarking options through natural dialogue."
+  },
+  {
+    "objectID": "about-me.html",
+    "href": "about-me.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.\nI am currently pursuing a Master’s of Science in Data Science & Analytics at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders. Although I am not unfamiliar with the realm of software development, I was quite new to data analysis before I started my role at Shift Digital as a Data Analyst. I learned a lot of practical skills that are prevalent in the digital marketing industry. Being a part of the DSAN program has introduced a lot of theoretical and statistical concepts and I am looking forward to continue on this journey and grow my knowledge even further.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
+  },
+  {
+    "objectID": "about-me.html#quick-summary",
+    "href": "about-me.html#quick-summary",
+    "title": "About Me",
+    "section": "Quick Summary",
+    "text": "Quick Summary\nHere’s a quick snapchot of my professional journey so far:\n\nFor the longer/more detailed version click here 👉🏽 Download Resume"
+  },
+  {
+    "objectID": "about-me.html#education",
+    "href": "about-me.html#education",
+    "title": "About Me",
+    "section": "🎓 EDUCATION",
+    "text": "🎓 EDUCATION\n\nGeorgetown University (GU)\nMaster of Science in Data Science and Analytics | GPA: 4.0\nWashington, D.C.\nAug 2023 - May 2025\nCoursework:\nProbabilistic Modeling and Statistical Computing, Database Systems and SQL, Advanced Data Visualization, Data Ethics and Policy, Computational Linguistics, Machine Learning App Deployment, Digital Storytelling, Big Data and Cloud Computing (TA), Applied Generative AI (Lead TA)\nLeadership & Activities: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\nGrand Valley State University (GVSU)\nBachelor of Science in Computer Science\nGrand Rapids, MI\nAug 2015 - May 2020"
+  },
+  {
+    "objectID": "about-me.html#work-experience",
+    "href": "about-me.html#work-experience",
+    "title": "About Me",
+    "section": "💼 WORK EXPERIENCE",
+    "text": "💼 WORK EXPERIENCE\n\nShift Digital, Delivery and Software Team\nData Analyst\nBirmingham, MI\nNov 2021 - May 2023\n✔️ Improved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes  ✔️ Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives  ✔️ Streamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing  ✔️ Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights  ✔️ Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets  ✔️ Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders  ✔️ Crafted technical proposals aligned with project scope and business goals, achieving near 100% customer approval rate \n\n\nArray of Engineers\nComputer Engineer\nGrand Rapids, MI\nJul 2020 - Nov 2021\n✔️ Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance  ✔️ Improved user experience by optimizing web app features with AngularJS, increasing client retention by 25%  ✔️ Introduced modular workflows for software testing, enhancing adaptability and achieving 98% on-time delivery  ✔️ Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability  ✔️ Led GitHub code reviews across a multidisciplinary team, mitigating critical issues early in the development process"
+  },
+  {
+    "objectID": "about-me.html#skills",
+    "href": "about-me.html#skills",
+    "title": "About Me",
+    "section": "SKILLS",
+    "text": "SKILLS\nProgramming: Python, SQL, R, Java, C++\nMachine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\nData Visualization: Tableau, Plotly, Seaborn\nBig Data & Cloud: Apache Spark, Databricks, AWS Sagemaker\nNLP: spaCy, Hugging Face Transformers, BERT\nDatabases: MySQL, PostgreSQL, MongoDB, Snowflake\nTools: Docker, Flask, Git, Quarto, CI/CD pipelines\nStatistical Methods: A/B Testing, Regression, Bayesian Analysis"
+  },
+  {
+    "objectID": "index.html#fmbench-assistant-ai-for-model-benchmarking",
+    "href": "index.html#fmbench-assistant-ai-for-model-benchmarking",
+    "title": "Portfolio",
+    "section": "FMBench Assistant: AI for Model Benchmarking",
+    "text": "FMBench Assistant: AI for Model Benchmarking\n\n\n\n\n\n\n\nExplore how we built a conversational AI assistant for the Foundation Model Benchmarking Tool (FMBench) using Amazon Bedrock, AWS Lambda, LangGraph, FastAPI, and Streamlit. Learn how this three-layer architecture creates an accessible interface to help users navigate complex model benchmarking options through natural dialogue."
   }
 ]
