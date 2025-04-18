@@ -22,3 +22,7 @@ format:
     theme: cosmo
     css: style.css
     toc: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">

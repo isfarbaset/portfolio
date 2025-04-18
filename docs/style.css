@@ -23,3 +23,28 @@
     display: block;
     margin-bottom: 0.5em;
   }
+
+/* Mobile responsive tables */
+@media screen and (max-width: 767px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+  
+  tr, td {
+    display: block;
+    width: 100%;
+  }
+  
+  td {
+    text-align: center !important;
+    padding: 0.5rem;
+  }
+  
+  td img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
