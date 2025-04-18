@@ -5,16 +5,27 @@ project:
     - "**/*.qmd"
 
 website:
-  title: Isfar Baset
-  site-url: "/"
+  title: Isfar Baset Portfolio
   navbar:
     background: primary
     search: true
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/isfarbaset/
+        text: "LinkedIn"
       - icon: github
         href: https://github.com/isfarbaset
+        text: "GitHub"
+  sidebar:
+    style: "floating"
+    contents:
+      - icon: envelope
+        text: "Email"
+        href: "mailto:isfar.baset@gmail.com"
+      - text: " "  # Empty spacer item
+      - icon: file-earmark-text
+        text: "Resume"
+        href: "Isfar Baset Resume.pdf"
 
 
 format:
@@ -22,7 +33,6 @@ format:
     theme: cosmo
     css: style.css
     toc: true
-    html-math-method: mathjax
     include-in-header:
       text: |
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

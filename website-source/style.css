@@ -75,3 +75,13 @@ h3 a:hover {
   color: #0a58ca; /* Slightly darker shade for hover state */
   text-decoration: none;
 }
+
+/* Style for icons */
+/* .bi {
+  font-size: 1.5rem;
+  color: #0d6efd; /* Match navbar color */
+/* } */ 
+
+/* .bi:hover {
+  color: #0a58ca; /* Slightly darker on hover */
+/* } */ 
