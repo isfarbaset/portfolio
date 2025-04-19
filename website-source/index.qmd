@@ -33,3 +33,9 @@ listing-opts:
 | Overview |  |
 |:---------|:-----:|
 | Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models. | ![Beats and Bytes](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif){width=250} |
+
+### [EV Insights](5000-website/index.html)
+
+| Overview |  |
+|:---------|:-----:|
+| Examining electric vehicles' environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees, and association rule mining to extract meaningful insights from automotive industry data. | ![EV Insights](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif){width=250} |
