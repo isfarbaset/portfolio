@@ -49,48 +49,6 @@
     "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
   },
   {
-    "objectID": "5000-website/index.html",
-    "href": "5000-website/index.html",
-    "title": "EV Analysis",
-    "section": "",
-    "text": "The data question I’m seeking to explore is related to Electric Vehicles: their environmental impact, market share, and performance compared to gasoline vehicles. Over the past few years, auto manufacturers have started to add EVs to their lineup in an effort to meet the rising demand. This shift in consumer demand gives rise to many interesting questions to explore."
-  },
-  {
-    "objectID": "5000-website/index.html#introduction",
-    "href": "5000-website/index.html#introduction",
-    "title": "EV Analysis",
-    "section": "",
-    "text": "The data question I’m seeking to explore is related to Electric Vehicles: their environmental impact, market share, and performance compared to gasoline vehicles. Over the past few years, auto manufacturers have started to add EVs to their lineup in an effort to meet the rising demand. This shift in consumer demand gives rise to many interesting questions to explore."
-  },
-  {
-    "objectID": "5000-website/index.html#data-analyses-procedure",
-    "href": "5000-website/index.html#data-analyses-procedure",
-    "title": "EV Analysis",
-    "section": "Data Analyses Procedure",
-    "text": "Data Analyses Procedure\nTo answer some of the questions arising from the gradual dominance of electric vehicles in the market, several data processing steps will be taken. The tabs on the left list out the steps of taken form the data storytelling jourey. I start off my doing some inital research to formulate questions to start off. The journals used for the inital research and the questions formed based on it, are listed below. Here’s what to expect from each subsequent section in the report:\nData Gathering: contains the various sources that were used to collect the relevant datasets to answer some of the questions. The data sources inclue Yahoo Finance, Rapid API, Cars API, News API and Wikipedia. Details of the text data and the record data from these sources are discussed in details. This is the heart of the portfolio since it the source that leads to the insights that are eventually gained, allows performing the machine learning algoithms and helps in formulating solid conclusions.\nData Cleaning: The data collected from the various sources were in raw structures. This tab details out the steps taken to shape the raw data files into a cleaner version which could then be used for analysis purposes.\nData Exploration: This tab lists out the exploratory data analysis carried out based on the data collected from the sources. Python and R were used to formulate visualisations and conclusions to extract interesting insights from the data that was collected\nNaïve Bayes: Here record data and text data are classified according the Naïve Bayes theorem. The text data used for this classfication purpose is collected from web crawling wikipedia and looking for content that contains the keywords ‘electric vehicle’ and ‘gasoline-powered’. The objective of carrying out the Naïve Bayes algorithm was to analyze how well the text content can be classified into two distinct groups.\nDimensionality Reduction: The objective of this phase of the project was to evaluate and compare how PCA and t-SNE perform when it comes to reducing dimensions present in large datasets, while still keeping the essential information intact.\nClustering: Kmeans, dbscan and hierchical clustering algorithms carried out to understand the groupings present in the dataset based on the features. Keen on understanding if these mechanisms can take the feature set and clearly identify the distinct types of fuels (gas/electric) the cars have based on those.\nDecision Trees: The objective of this section of the project is to observe how classification and regression methologies can be used in text datasets. The classification decision tree was used to classify the different group of labels ‘electric’, ‘hybrid’ and ‘gasoline’ that exist in the automotive industry and the regression was used on the record dataset that contained information regarding different cars’ quantitative data.\nARM: The goal was to uncover the patterns found amongst different keywords present in news articles surrounding electric vehicles. The words that may be closely related can be indicative regarding the context within which the topic of EVs are used in. It can also provide insight into which words show up often while reporting on EVs, wheather these words have a positive or negative connotation and which direction the conversation needs to be steered to if needed."
-  },
-  {
-    "objectID": "5000-website/index.html#academic-journal-research",
-    "href": "5000-website/index.html#academic-journal-research",
-    "title": "EV Analysis",
-    "section": "Academic Journal Research",
-    "text": "Academic Journal Research\nThe incentive presented by the government greatly impacts the demand of EVs. Government regulation and environmental prospect, in particular will drive the adoption of transportation electrification (Yong et al. 2015). The environmental benefits of EVs immensely influence their dominance in the market. This can be visualized by collecting the financial data available on sources like Yahoo. Electrifying transportation is a promising approach to alleviate the climate change issue (Yong et al. 2015).\nStudies are being carried out to analyze the impact of EVs take up, with focus on economic, environment and technical issues on power grids (Situ 2009). It will lso be intersting to observe the efforsts made by the US to promote EVs compared to the rest of the world and how swiftly these vehicles can become ubiquitous. In fact, as OEM introduce more EV model to the end consumer by 2012, the presents of electric vehicle will be widely seen and recognized (Situ 2009)."
-  },
-  {
-    "objectID": "5000-website/index.html#questions",
-    "href": "5000-website/index.html#questions",
-    "title": "EV Analysis",
-    "section": "Questions",
-    "text": "Questions\n10 questions looking to answer so far:\n\n\nCan EVs completely replace gasoline vehicles in the future?\nHow much has the EV market grown in the past 5 years?\nHow would competition drive car prices in the EV market?\nWhere does the US EV market stand compared to other nations?\nWhich group of people are more likely to buy EVs?\nHow will EV impact the price of gasoline?\nHow well do EVs perform compared to a gasoline car?\nWhat is the cost of ownership of a EV vs gasoline car?\nCan everyone afford EVs?\nWhat are the environmental impacts of EVs?\nHow are governments helping to promote EVs?"
-  },
-  {
-    "objectID": "5000-website/about.html",
-    "href": "5000-website/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "Group37_Final_Report.html",
     "href": "Group37_Final_Report.html",
     "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",

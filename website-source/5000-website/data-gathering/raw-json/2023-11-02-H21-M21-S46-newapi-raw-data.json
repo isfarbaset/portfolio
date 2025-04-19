@@ -1,5 +1,0 @@
-{
-    "status": "error",
-    "code": "maximumResultsReached",
-    "message": "You have requested too many results. Developer accounts are limited to a max of 100 results. You are trying to request results 3980 to 4000. Please upgrade to a paid plan if you need more results."
-}

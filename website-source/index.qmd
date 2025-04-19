@@ -34,7 +34,7 @@ listing-opts:
 |:---------|:-----:|
 | Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models. | ![Beats and Bytes](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif){width=250} |
 
-### [EV Insights](5000-website/index.html)
+### [EV Insights]([5000-website/index.html](https://isfarbaset.github.io/ev-insights/))
 
 | Overview |  |
 |:---------|:-----:|
