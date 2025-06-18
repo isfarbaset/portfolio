@@ -66,9 +66,15 @@ table {
   border-collapse: collapse;
 }
 
+/* Make headers bold */
+h3 {
+  font-weight: bold;
+}
+
 /* Make header text color match navbar */
 h3 a {
   color: #041E42; /* Bootstrap primary color - adjust if your navbar uses a different color */
+  font-weight: bold; /* Ensure links in headers are also bold */
 }
 
 h3 a:hover {
@@ -84,4 +90,4 @@ h3 a:hover {
 
 /* .bi:hover {
   color: #0a58ca; /* Slightly darker on hover */
-/* } */ 
+/* } */
