@@ -46,7 +46,6 @@ listing-opts:
 |:---------|:-----:|
 | An interactive Gen-AI tool that lets users query real-time Air Quality Index (AQI) data for any city using natural language. Built on an MCP server and powered by the API Ninjas data source, this project aims to make environmental data easily accessible and conversational. Currently under development. | ![AQI MCP](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmh5cW1wcGZtcGhncDVwNTNlbGM4dmtoaHdyMXBtYzFjMGk3cTdzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y4vip84hg9BhdNidTR/giphy.gif){width=250} |
 
----
 
 <footer style="text-align: center; margin-top: 2rem; padding: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9rem;">
 Portfolio curated by Isfar Baset
