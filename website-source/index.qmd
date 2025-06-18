@@ -39,3 +39,9 @@ listing-opts:
 | Overview |  |
 |:---------|:-----:|
 | Examining EVs' environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights. | ![EV Insights](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif){width=250} |
+
+### [AI-Powered AQI Assistant (In Progress)]()
+
+| Overview |  |
+|:---------|:-----:|
+| An interactive Gen-AI tool that lets users query real-time Air Quality Index (AQI) data for any city using natural language. Built on an MCP server and powered by the API Ninjas data source, this project aims to make environmental data easily accessible and conversational. Currently under development. | ![AQI MCP](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmh5cW1wcGZtcGhncDVwNTNlbGM4dmtoaHdyMXBtYzFjMGk3cTdsbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y4vip84hg9BhdNidTR/giphy.gif){width=250} |
