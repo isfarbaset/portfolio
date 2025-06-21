@@ -75,5 +75,68 @@
     "title": "Conclusion",
     "section": "",
     "text": "Conclusion"
+  },
+  {
+    "objectID": "aqi.html",
+    "href": "aqi.html",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "A custom Model Context Protocol (MCP) server that enables AI assistants to access real-time air quality data from around the world. Built to explore the emerging MCP ecosystem and demonstrate integration between AI systems and environmental APIs.\n\n\n\nCore Technologies:\n\nTypeScript/Node.js for server implementation\nModel Context Protocol (MCP) SDK for AI integration\nAPI Ninjas Air Quality API for real-time data\nRESTful API consumption with proper error handling\n\nArchitecture:\n\nImplements MCP specification for seamless AI assistant integration\nThree distinct tools: city-based queries, coordinate-based queries, and AQI interpretation\nComprehensive data pipeline returning pollutant-specific measurements (PM2.5, PM10, CO, NO2, O3, SO2)\nSupport for multiple AQI standards (US EPA and Chinese scales)\n\n\n\n\n\n\n\nGeographic Flexibility: Query by city name or precise coordinates\nComprehensive Metrics: Returns overall AQI plus individual pollutant concentrations\nStandards Compliance: Supports both US EPA and Chinese AQI calculation methods\n\n\n\n\n\nContextual health recommendations based on AQI levels\nDifferentiated guidance for sensitive groups vs. general population\nColor-coded risk assessment following EPA guidelines\n\n\n\n\n\nRobust error handling with proper MCP error codes\nEnvironment-based configuration management\nTypeScript for type safety and developer experience\nModular architecture for easy extension\n\n\n\n\n\nThis project demonstrates practical AI-human collaboration in environmental monitoring:\n\nUrban Planning: City officials could query multiple locations simultaneously\nHealth Advisory Systems: Automated recommendations based on current conditions\nTravel Planning: Real-time air quality assessment for destination cities\nResearch Applications: Historical trend analysis and comparative studies\n\n\n\n\nClaude Desktop Integration: Direct connection through MCP configuration\nExtensible Design: Framework ready for integration with:\n\nDatabricks for large-scale data processing\nCloud platforms for enterprise deployment\nMobile applications through API wrapper services\n\n\n\n\nThis project provided hands-on experience with:\n\nEmerging Protocols: Early adoption of MCP before widespread implementation\nAPI Integration: Real-world data consumption with rate limiting and error handling\nAI Tool Development: Creating custom capabilities for Large Language Models\nEnvironmental Data: Understanding air quality metrics and health implications\n\n\n\n\n// Example of MCP tool definition\n{\n  name: 'get_aqi_by_city',\n  description: 'Get current Air Quality Index (AQI) data for a specific city',\n  inputSchema: {\n    type: 'object',\n    properties: {\n      city: { type: 'string', description: 'Name of the city' },\n      country: { type: 'string', description: 'Country code (optional)' }\n    }\n  }\n}\nThe server processes requests through the MCP protocol, fetches data from API Ninjas, and returns structured responses that AI assistants can interpret and present to users in natural language.\n\n\n\n\nHistorical data tracking and trend analysis\nIntegration with weather APIs for correlation studies\nNotification systems for air quality threshold alerts\nExpansion to include additional environmental metrics (UV index, pollen count)\n\n\nThis project represents an exploration into the future of AI-human collaboration, where custom tools extend the capabilities of language models to access and interpret real-world data streams."
+  },
+  {
+    "objectID": "aqi.html#project-overview",
+    "href": "aqi.html#project-overview",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "A custom Model Context Protocol (MCP) server that enables AI assistants to access real-time air quality data from around the world. Built to explore the emerging MCP ecosystem and demonstrate integration between AI systems and environmental APIs."
+  },
+  {
+    "objectID": "aqi.html#technical-implementation",
+    "href": "aqi.html#technical-implementation",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "Core Technologies:\n\nTypeScript/Node.js for server implementation\nModel Context Protocol (MCP) SDK for AI integration\nAPI Ninjas Air Quality API for real-time data\nRESTful API consumption with proper error handling\n\nArchitecture:\n\nImplements MCP specification for seamless AI assistant integration\nThree distinct tools: city-based queries, coordinate-based queries, and AQI interpretation\nComprehensive data pipeline returning pollutant-specific measurements (PM2.5, PM10, CO, NO2, O3, SO2)\nSupport for multiple AQI standards (US EPA and Chinese scales)"
+  },
+  {
+    "objectID": "aqi.html#key-features",
+    "href": "aqi.html#key-features",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "Geographic Flexibility: Query by city name or precise coordinates\nComprehensive Metrics: Returns overall AQI plus individual pollutant concentrations\nStandards Compliance: Supports both US EPA and Chinese AQI calculation methods\n\n\n\n\n\nContextual health recommendations based on AQI levels\nDifferentiated guidance for sensitive groups vs. general population\nColor-coded risk assessment following EPA guidelines\n\n\n\n\n\nRobust error handling with proper MCP error codes\nEnvironment-based configuration management\nTypeScript for type safety and developer experience\nModular architecture for easy extension"
+  },
+  {
+    "objectID": "aqi.html#real-world-applications",
+    "href": "aqi.html#real-world-applications",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "This project demonstrates practical AI-human collaboration in environmental monitoring:\n\nUrban Planning: City officials could query multiple locations simultaneously\nHealth Advisory Systems: Automated recommendations based on current conditions\nTravel Planning: Real-time air quality assessment for destination cities\nResearch Applications: Historical trend analysis and comparative studies"
+  },
+  {
+    "objectID": "aqi.html#integration-capabilities",
+    "href": "aqi.html#integration-capabilities",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "Claude Desktop Integration: Direct connection through MCP configuration\nExtensible Design: Framework ready for integration with:\n\nDatabricks for large-scale data processing\nCloud platforms for enterprise deployment\nMobile applications through API wrapper services"
+  },
+  {
+    "objectID": "aqi.html#learning-outcomes",
+    "href": "aqi.html#learning-outcomes",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "This project provided hands-on experience with:\n\nEmerging Protocols: Early adoption of MCP before widespread implementation\nAPI Integration: Real-world data consumption with rate limiting and error handling\nAI Tool Development: Creating custom capabilities for Large Language Models\nEnvironmental Data: Understanding air quality metrics and health implications"
+  },
+  {
+    "objectID": "aqi.html#technical-highlights",
+    "href": "aqi.html#technical-highlights",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "// Example of MCP tool definition\n{\n  name: 'get_aqi_by_city',\n  description: 'Get current Air Quality Index (AQI) data for a specific city',\n  inputSchema: {\n    type: 'object',\n    properties: {\n      city: { type: 'string', description: 'Name of the city' },\n      country: { type: 'string', description: 'Country code (optional)' }\n    }\n  }\n}\nThe server processes requests through the MCP protocol, fetches data from API Ninjas, and returns structured responses that AI assistants can interpret and present to users in natural language."
+  },
+  {
+    "objectID": "aqi.html#future-enhancements",
+    "href": "aqi.html#future-enhancements",
+    "title": "Air Quality Index MCP Server",
+    "section": "",
+    "text": "Historical data tracking and trend analysis\nIntegration with weather APIs for correlation studies\nNotification systems for air quality threshold alerts\nExpansion to include additional environmental metrics (UV index, pollen count)\n\n\nThis project represents an exploration into the future of AI-human collaboration, where custom tools extend the capabilities of language models to access and interpret real-world data streams."
   }
 ]
