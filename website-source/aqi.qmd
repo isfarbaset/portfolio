@@ -8,17 +8,18 @@ A custom Model Context Protocol (MCP) server that enables AI assistants to acces
 
 **Core Technologies:**
 
-- TypeScript/Node.js for server implementation
-- Model Context Protocol (MCP) SDK for AI integration
-- API Ninjas Air Quality API for real-time data
-- RESTful API consumption with proper error handling
+- Python with FastMCP framework for rapid MCP development
+- Async HTTP client (httpx) for efficient API consumption
+- API Ninjas Air Quality API for real-time environmental data
+- Environment-based configuration management
 
 **Architecture:**
 
-- Implements MCP specification for seamless AI assistant integration
+- FastMCP decorator-based tool registration for clean code organization
 - Three distinct tools: city-based queries, coordinate-based queries, and AQI interpretation
 - Comprehensive data pipeline returning pollutant-specific measurements (PM2.5, PM10, CO, NO2, O3, SO2)
 - Support for multiple AQI standards (US EPA and Chinese scales)
+- Async/await patterns for non-blocking API operations
 
 ## Key Features
 
@@ -36,10 +37,10 @@ A custom Model Context Protocol (MCP) server that enables AI assistants to acces
 
 ### Production-Ready Design
 
-- Robust error handling with proper MCP error codes
-- Environment-based configuration management
-- TypeScript for type safety and developer experience
-- Modular architecture for easy extension
+- Robust async error handling with proper exception management
+- Environment-based configuration with python-dotenv
+- FastMCP's built-in validation and schema generation
+- Decorator-based architecture for maintainable code extension
 
 ## Real-World Applications
 
@@ -56,44 +57,52 @@ This project demonstrates practical AI-human collaboration in environmental moni
 
 **Extensible Design**: Framework ready for integration with:
 
-- Databricks for large-scale data processing
-- Cloud platforms for enterprise deployment
+- Databricks for large-scale data processing and analytics
+- Cloud platforms for enterprise deployment and scaling
 - Mobile applications through API wrapper services
+- Data visualization dashboards and monitoring systems
 
 ## Learning Outcomes
 
 This project provided hands-on experience with:
 
-- **Emerging Protocols**: Early adoption of MCP before widespread implementation
-- **API Integration**: Real-world data consumption with rate limiting and error handling
+- **Emerging Protocols**: Early adoption of MCP using the FastMCP framework
+- **Python Async Programming**: Efficient async/await patterns for API integration
 - **AI Tool Development**: Creating custom capabilities for Large Language Models
 - **Environmental Data**: Understanding air quality metrics and health implications
+- **Modern Python Development**: Leveraging decorators and type hints for clean code
 
 ## Technical Highlights
 
-```typescript
-// Example of MCP tool definition
-{
-  name: 'get_aqi_by_city',
-  description: 'Get current Air Quality Index (AQI) data for a specific city',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      city: { type: 'string', description: 'Name of the city' },
-      country: { type: 'string', description: 'Country code (optional)' }
-    }
-  }
-}
+```python
+# FastMCP decorator-based tool definition
+@mcp.tool()
+async def get_aqi_by_city(city: str, country: str = "") -> str:
+    """
+    Get current Air Quality Index (AQI) data for a specific city.
+    
+    Args:
+        city: Name of the city to get AQI data for
+        country: Country code (optional, helps with disambiguation)
+        
+    Returns:
+        JSON string with AQI data including overall AQI and pollutant levels
+    """
+    # Async API call with proper error handling
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, headers=headers)
+        # Process and return structured data
 ```
 
-The server processes requests through the MCP protocol, fetches data from API Ninjas, and returns structured responses that AI assistants can interpret and present to users in natural language.
+The server leverages FastMCP's decorator system for automatic tool registration and schema generation, while implementing async patterns for efficient API consumption. The framework handles MCP protocol details automatically, allowing focus on business logic and data processing.
 
 ## Future Enhancements
 
-- Historical data tracking and trend analysis
-- Integration with weather APIs for correlation studies
-- Notification systems for air quality threshold alerts
-- Expansion to include additional environmental metrics (UV index, pollen count)
+- Historical data tracking with time-series analysis capabilities
+- Integration with weather APIs for comprehensive environmental correlation
+- Real-time notification systems for air quality threshold alerts
+- Expansion to include additional environmental metrics (UV index, pollen count, humidity)
+- Machine learning models for air quality prediction and trend analysis
 
 ---
 

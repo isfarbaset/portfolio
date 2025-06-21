@@ -220,17 +220,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h2>
 <p><strong>Core Technologies:</strong></p>
 <ul>
-<li>TypeScript/Node.js for server implementation</li>
-<li>Model Context Protocol (MCP) SDK for AI integration</li>
-<li>API Ninjas Air Quality API for real-time data</li>
-<li>RESTful API consumption with proper error handling</li>
+<li>Python with FastMCP framework for rapid MCP development</li>
+<li>Async HTTP client (httpx) for efficient API consumption</li>
+<li>API Ninjas Air Quality API for real-time environmental data</li>
+<li>Environment-based configuration management</li>
 </ul>
 <p><strong>Architecture:</strong></p>
 <ul>
-<li>Implements MCP specification for seamless AI assistant integration</li>
+<li>FastMCP decorator-based tool registration for clean code organization</li>
 <li>Three distinct tools: city-based queries, coordinate-based queries, and AQI interpretation</li>
 <li>Comprehensive data pipeline returning pollutant-specific measurements (PM2.5, PM10, CO, NO2, O3, SO2)</li>
 <li>Support for multiple AQI standards (US EPA and Chinese scales)</li>
+<li>Async/await patterns for non-blocking API operations</li>
 </ul>
 </section>
 <section id="key-features" class="level2">
@@ -254,10 +255,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="production-ready-design" class="level3">
 <h3 class="anchored" data-anchor-id="production-ready-design">Production-Ready Design</h3>
 <ul>
-<li>Robust error handling with proper MCP error codes</li>
-<li>Environment-based configuration management</li>
-<li>TypeScript for type safety and developer experience</li>
-<li>Modular architecture for easy extension</li>
+<li>Robust async error handling with proper exception management</li>
+<li>Environment-based configuration with python-dotenv</li>
+<li>FastMCP’s built-in validation and schema generation</li>
+<li>Decorator-based architecture for maintainable code extension</li>
 </ul>
 </section>
 </section>
@@ -276,44 +277,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Claude Desktop Integration</strong>: Direct connection through MCP configuration</p>
 <p><strong>Extensible Design</strong>: Framework ready for integration with:</p>
 <ul>
-<li>Databricks for large-scale data processing</li>
-<li>Cloud platforms for enterprise deployment</li>
+<li>Databricks for large-scale data processing and analytics</li>
+<li>Cloud platforms for enterprise deployment and scaling</li>
 <li>Mobile applications through API wrapper services</li>
+<li>Data visualization dashboards and monitoring systems</li>
 </ul>
 </section>
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
 <p>This project provided hands-on experience with:</p>
 <ul>
-<li><strong>Emerging Protocols</strong>: Early adoption of MCP before widespread implementation</li>
-<li><strong>API Integration</strong>: Real-world data consumption with rate limiting and error handling</li>
+<li><strong>Emerging Protocols</strong>: Early adoption of MCP using the FastMCP framework</li>
+<li><strong>Python Async Programming</strong>: Efficient async/await patterns for API integration</li>
 <li><strong>AI Tool Development</strong>: Creating custom capabilities for Large Language Models</li>
 <li><strong>Environmental Data</strong>: Understanding air quality metrics and health implications</li>
+<li><strong>Modern Python Development</strong>: Leveraging decorators and type hints for clean code</li>
 </ul>
 </section>
 <section id="technical-highlights" class="level2">
 <h2 class="anchored" data-anchor-id="technical-highlights">Technical Highlights</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example of MCP tool definition</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  name<span class="op">:</span> <span class="st">'get_aqi_by_city'</span><span class="op">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  description<span class="op">:</span> <span class="st">'Get current Air Quality Index (AQI) data for a specific city'</span><span class="op">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  inputSchema<span class="op">:</span> {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    type<span class="op">:</span> <span class="st">'object'</span><span class="op">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    properties<span class="op">:</span> {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      city<span class="op">:</span> { type<span class="op">:</span> <span class="st">'string'</span><span class="op">,</span> description<span class="op">:</span> <span class="st">'Name of the city'</span> }<span class="op">,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      country<span class="op">:</span> { type<span class="op">:</span> <span class="st">'string'</span><span class="op">,</span> description<span class="op">:</span> <span class="st">'Country code (optional)'</span> }</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The server processes requests through the MCP protocol, fetches data from API Ninjas, and returns structured responses that AI assistants can interpret and present to users in natural language.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FastMCP decorator-based tool definition</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@mcp.tool</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> get_aqi_by_city(city: <span class="bu">str</span>, country: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Get current Air Quality Index (AQI) data for a specific city.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">        city: Name of the city to get AQI data for</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">        country: Country code (optional, helps with disambiguation)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">        JSON string with AQI data including overall AQI and pollutant levels</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Async API call with proper error handling</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> httpx.AsyncClient() <span class="im">as</span> client:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> <span class="cf">await</span> client.get(url, headers<span class="op">=</span>headers)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Process and return structured data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The server leverages FastMCP’s decorator system for automatic tool registration and schema generation, while implementing async patterns for efficient API consumption. The framework handles MCP protocol details automatically, allowing focus on business logic and data processing.</p>
 </section>
 <section id="future-enhancements" class="level2">
 <h2 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h2>
 <ul>
-<li>Historical data tracking and trend analysis</li>
-<li>Integration with weather APIs for correlation studies</li>
-<li>Notification systems for air quality threshold alerts</li>
-<li>Expansion to include additional environmental metrics (UV index, pollen count)</li>
+<li>Historical data tracking with time-series analysis capabilities</li>
+<li>Integration with weather APIs for comprehensive environmental correlation</li>
+<li>Real-time notification systems for air quality threshold alerts</li>
+<li>Expansion to include additional environmental metrics (UV index, pollen count, humidity)</li>
+<li>Machine learning models for air quality prediction and trend analysis</li>
 </ul>
 <hr>
 <p><em>This project represents an exploration into the future of AI-human collaboration, where custom tools extend the capabilities of language models to access and interpret real-world data streams.</em></p>
