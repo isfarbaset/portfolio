@@ -6,7 +6,7 @@ output-dir: ../../../docs
 about:
   template: marquee
   # image-width: 30em
-  # image-shape: round
+  image-shape: round
   links:
     - icon: linkedin
       text: LinkedIn
