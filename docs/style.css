@@ -101,6 +101,7 @@ h3 a:hover {
   padding: 4rem 2rem;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   margin: -2rem -15px 4rem -15px;
+  border-radius: 20px;
   position: relative;
   overflow: hidden;
 }
