@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-image: images/ib.png
+image: images/ib-new.png
 page-layout: full
 output-dir: ../../../docs
 about:
