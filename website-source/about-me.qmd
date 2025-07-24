@@ -7,9 +7,9 @@ format:
   html:
     css: style.css
 about:
-  template: trestles
+  template: jolla
   image-shape: round
-  image-width: 12em
+  image-width: 15em
   links:
     - icon: linkedin
       text: LinkedIn

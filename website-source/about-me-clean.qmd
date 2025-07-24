@@ -1,0 +1,155 @@
+---
+title: "About Me"
+image: images/ib-new.png
+page-layout: full
+output-dir: ../../../docs
+format:
+  html:
+    css: style.css
+about:
+  template: trestles
+  image-shape: round
+  image-width: 12em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/isfarbaset/
+    - icon: github
+      text: Github
+      href: https://github.com/isfarbaset
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/is.far/
+---
+
+::: {.about-intro}
+Hello! I'm originally from **Dhaka**, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor's degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. 
+
+I am currently a **Data Analyst II** at Shift Digital in the Data Operations and Analytics team, where I continue to leverage data-driven solutions for enterprise clients. Simultaneously, I'm pursuing a **Master's of Science in Data Science & Analytics** at Georgetown University. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.
+
+I love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.
+:::
+
+::: {.section-card}
+## 📊 Professional Journey
+
+::: {.journey-visual}
+![](images/journey.png){.journey-image}
+:::
+
+::: {.resume-download}
+For a detailed overview of my experience:  
+[Download Resume](Isfar Baset Resume.pdf){.btn .btn-primary .download-btn}
+:::
+:::
+
+::: {.section-card}
+## 🎓 Education
+
+::: {.education-item}
+### Georgetown University
+::: {.edu-details}
+**Master of Science in Data Science and Analytics** • GPA: 4.0  
+📍 Washington, D.C. • Aug 2023 - May 2025
+:::
+
+::: {.coursework}
+**Key Coursework:**  
+Probabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI
+:::
+
+::: {.activities}
+**Leadership:** Social Committee Member & Lead Mentor in the Data Science and Analytics program
+:::
+:::
+
+::: {.education-item}
+### Grand Valley State University
+::: {.edu-details}
+**Bachelor of Science in Computer Science**  
+📍 Grand Rapids, MI • Aug 2015 - May 2020
+:::
+:::
+:::
+
+::: {.section-card}
+## 💼 Professional Experience
+
+::: {.experience-item}
+### Data Analyst II (Current)
+::: {.company-info}
+**Shift Digital, Data Operations and Analytics Team** • Birmingham, MI • Nov 2021 - Present
+:::
+
+::: {.achievements}
+- Currently leading data operations and analytics initiatives for enterprise clients
+- Improved data accuracy by **25%** across 10+ enterprise projects by optimizing big data ETL processes
+- Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives
+- Streamlined operations for 12 high-value clients and saved **15 hours weekly** by automating billing data processing
+- Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights
+- Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets
+- Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders
+- Crafted technical proposals achieving **near 100% customer approval rate**
+:::
+:::
+
+::: {.experience-item}
+### Computer Engineer
+::: {.company-info}
+**Array of Engineers** • Grand Rapids, MI • Jul 2020 - Nov 2021
+:::
+
+::: {.achievements}
+- Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance
+- Improved user experience by optimizing web app features with AngularJS, increasing client retention by **25%**
+- Introduced modular workflows for software testing, achieving **98% on-time delivery**
+- Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability
+- Led GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development
+:::
+:::
+:::
+
+::: {.section-card}
+## 🛠️ Technical Skills
+
+::: {.skills-grid}
+::: {.skill-category}
+**Programming**  
+Python • SQL • R • Java • C++
+:::
+
+::: {.skill-category}
+**Machine Learning**  
+Scikit-learn • TensorFlow • PyTorch • XGBoost
+:::
+
+::: {.skill-category}
+**Data Visualization**  
+Tableau • Plotly • Seaborn
+:::
+
+::: {.skill-category}
+**Big Data & Cloud**  
+Apache Spark • Databricks • AWS SageMaker
+:::
+
+::: {.skill-category}
+**NLP**  
+spaCy • Hugging Face • BERT
+:::
+
+::: {.skill-category}
+**Databases**  
+MySQL • PostgreSQL • MongoDB • Snowflake
+:::
+
+::: {.skill-category}
+**Tools & Methods**  
+Docker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis
+:::
+:::
+:::
+
+::: {.about-footer}
+*Building data-driven solutions with creativity and precision* ✨
+:::
