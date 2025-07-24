@@ -22,10 +22,12 @@ about:
       href: https://www.instagram.com/is.far/
 ---
 
+::: {.about-content}
+
 ::: {.about-intro}
 Hello! I'm originally from **Dhaka**, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor's degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. 
 
-I am currently a **Data Analyst II** at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I recently graduated with a **Master's of Science in Data Science & Analytics** from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.
+I am currently a **Data Analyst II** at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a **Master's of Science in Data Science & Analytics** from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.
 
 I love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.
 :::
@@ -61,13 +63,13 @@ const journeyData = [
     endYear: 2021
   },
   {
-    year: "2022-2023",
-    title: "Data Analyst",
+    year: "2021-2023",
+    title: "Data Analyst I",
     organization: "Shift Digital",
     location: "Birmingham, MI",
     description: "Data operations and analytics",
     type: "work",
-    startYear: 2022,
+    startYear: 2021,
     endYear: 2023
   },
   {
@@ -93,9 +95,9 @@ const journeyData = [
 ];
 
 // Set up dimensions and margins
-const margin = {top: 40, right: 40, bottom: 60, left: 40};
-const width = Math.min(900, window.innerWidth - 80) - margin.left - margin.right;
-const height = 400 - margin.top - margin.bottom;
+const margin = {top: 60, right: 60, bottom: 80, left: 60};
+const width = Math.min(1200, window.innerWidth - 40) - margin.left - margin.right;
+const height = 500 - margin.top - margin.bottom;
 
 // Create SVG
 const svg = d3.select("#journey-timeline")
@@ -114,11 +116,6 @@ const xScale = d3.scaleLinear()
   .domain([2015, 2026])
   .range([0, width]);
 
-const yScale = d3.scaleBand()
-  .domain(journeyData.map((d, i) => i))
-  .range([0, height])
-  .padding(0.3);
-
 // Create timeline line
 g.append("line")
   .attr("x1", 0)
@@ -126,7 +123,7 @@ g.append("line")
   .attr("y1", height / 2)
   .attr("y2", height / 2)
   .attr("stroke", "rgba(255,255,255,0.3)")
-  .attr("stroke-width", 2);
+  .attr("stroke-width", 3);
 
 // Create year markers
 const yearMarkers = [2015, 2017, 2019, 2021, 2023, 2025];
@@ -136,33 +133,32 @@ g.selectAll(".year-marker")
   .append("text")
   .attr("class", "year-marker")
   .attr("x", d => xScale(d))
-  .attr("y", height + 25)
+  .attr("y", height - 10)
   .attr("text-anchor", "middle")
   .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "500")
+  .style("font-size", "14px")
+  .style("font-weight", "600")
   .text(d => d);
 
-// Create journey items
+// Create journey items with alternating positions
 const journeyItems = g.selectAll(".journey-item")
   .data(journeyData)
   .enter()
   .append("g")
-  .attr("class", "journey-item")
-  .attr("transform", (d, i) => `translate(0, ${i * (height / journeyData.length) + 20})`);
+  .attr("class", "journey-item");
 
-// Add timeline bars
+// Add timeline bars with alternating positions
 journeyItems.append("rect")
   .attr("x", d => xScale(d.startYear))
-  .attr("y", -8)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 25 : height/2 + 5)
   .attr("width", d => xScale(d.endYear) - xScale(d.startYear))
-  .attr("height", 16)
-  .attr("rx", 8)
+  .attr("height", 20)
+  .attr("rx", 10)
   .style("fill", d => d.type === "education" ? "#4facfe" : "#43e97b")
-  .style("opacity", 0.8)
+  .style("opacity", 0.9)
   .style("cursor", "pointer")
   .on("mouseover", function(event, d) {
-    d3.select(this).style("opacity", 1);
+    d3.select(this).style("opacity", 1).style("transform", "scale(1.05)");
     
     // Show tooltip
     const tooltip = d3.select("body").append("div")
@@ -170,18 +166,19 @@ journeyItems.append("rect")
       .style("position", "absolute")
       .style("background", "rgba(0,0,0,0.9)")
       .style("color", "white")
-      .style("padding", "10px")
+      .style("padding", "12px")
       .style("border-radius", "8px")
       .style("font-size", "14px")
-      .style("box-shadow", "0 5px 15px rgba(0,0,0,0.3)")
+      .style("box-shadow", "0 8px 25px rgba(0,0,0,0.3)")
       .style("z-index", "1000")
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .style("max-width", "250px");
     
     tooltip.html(`
       <strong>${d.title}</strong><br/>
       ${d.organization}<br/>
       <em>${d.location}</em><br/>
-      ${d.description}
+      <small>${d.description}</small>
     `)
     .style("left", (event.pageX + 10) + "px")
     .style("top", (event.pageY - 10) + "px")
@@ -190,62 +187,84 @@ journeyItems.append("rect")
     .style("opacity", 1);
   })
   .on("mouseout", function(event, d) {
-    d3.select(this).style("opacity", 0.8);
+    d3.select(this).style("opacity", 0.9).style("transform", "scale(1)");
     d3.selectAll(".journey-tooltip").remove();
   });
 
-// Add title text
+// Add connecting lines from timeline to bars
+journeyItems.append("line")
+  .attr("x1", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
+  .attr("y1", height / 2)
+  .attr("x2", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
+  .attr("y2", (d, i) => i % 2 === 0 ? height/2 - 25 : height/2 + 25)
+  .attr("stroke", "rgba(255,255,255,0.6)")
+  .attr("stroke-width", 2);
+
+// Add title text with alternating positions
 journeyItems.append("text")
   .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", -15)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 35 : height/2 + 45)
   .attr("text-anchor", "middle")
   .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "600")
+  .style("font-size", "14px")
+  .style("font-weight", "700")
   .text(d => d.title);
 
 // Add organization text
 journeyItems.append("text")
   .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", 25)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 50 : height/2 + 60)
   .attr("text-anchor", "middle")
   .style("fill", "rgba(255,255,255,0.9)")
-  .style("font-size", "11px")
+  .style("font-size", "12px")
+  .style("font-weight", "500")
   .text(d => d.organization);
+
+// Add year labels on bars
+journeyItems.append("text")
+  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 11 : height/2 + 19)
+  .attr("text-anchor", "middle")
+  .style("fill", "white")
+  .style("font-size", "11px")
+  .style("font-weight", "600")
+  .text(d => d.year);
 
 // Add legend
 const legend = g.append("g")
   .attr("class", "legend")
-  .attr("transform", `translate(${width - 150}, 10)`);
+  .attr("transform", `translate(${width - 180}, 20)`);
 
 legend.append("rect")
   .attr("x", 0)
   .attr("y", 0)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
+  .attr("width", 15)
+  .attr("height", 15)
+  .attr("rx", 7)
   .style("fill", "#4facfe");
 
 legend.append("text")
-  .attr("x", 20)
-  .attr("y", 10)
+  .attr("x", 25)
+  .attr("y", 12)
   .style("fill", "white")
-  .style("font-size", "12px")
+  .style("font-size", "14px")
+  .style("font-weight", "500")
   .text("Education");
 
 legend.append("rect")
   .attr("x", 0)
-  .attr("y", 20)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
+  .attr("y", 25)
+  .attr("width", 15)
+  .attr("height", 15)
+  .attr("rx", 7)
   .style("fill", "#43e97b");
 
 legend.append("text")
-  .attr("x", 20)
-  .attr("y", 30)
+  .attr("x", 25)
+  .attr("y", 37)
   .style("fill", "white")
-  .style("font-size", "12px")
+  .style("font-size", "14px")
+  .style("font-weight", "500")
   .text("Professional");
 
 // Add animation
@@ -307,11 +326,22 @@ Probabilistic Modeling • Database Systems • Advanced Data Visualization • 
 ::: {.experience-item}
 ### Data Analyst II (Current)
 ::: {.company-info}
-**Shift Digital, Data Operations and Analytics Team** • Birmingham, MI • Nov 2021 - Present
+**Shift Digital, Data Operations and Analytics Team** • Birmingham, MI • 2025 - Present
 :::
 
 ::: {.achievements}
-- Currently leading data operations and analytics initiatives for enterprise clients
+- Leading advanced data operations and analytics initiatives for enterprise clients
+- Driving strategic data architecture decisions and mentoring junior analysts
+:::
+:::
+
+::: {.experience-item}
+### Data Analyst I
+::: {.company-info}
+**Shift Digital, Data Operations and Analytics Team** • Birmingham, MI • Nov 2021 - 2025
+:::
+
+::: {.achievements}
 - Improved data accuracy by **25%** across 10+ enterprise projects by optimizing big data ETL processes
 - Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives
 - Streamlined operations for 12 high-value clients and saved **15 hours weekly** by automating billing data processing
@@ -381,4 +411,6 @@ Docker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis
 
 ::: {.about-footer}
 *Building data-driven solutions with creativity and precision* ✨
+:::
+
 :::
