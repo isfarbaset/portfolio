@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#professional-experience" id="toc-professional-experience" class="nav-link" data-scroll-target="#professional-experience">💼 Professional Experience</a>
   <ul class="collapse">
-  <li><a href="#data-analyst-ii-current" id="toc-data-analyst-ii-current" class="nav-link" data-scroll-target="#data-analyst-ii-current">Data Analyst II (Current)</a></li>
+  <li><a href="#data-analyst" id="toc-data-analyst" class="nav-link" data-scroll-target="#data-analyst">Data Analyst</a></li>
   <li><a href="#computer-engineer" id="toc-computer-engineer" class="nav-link" data-scroll-target="#computer-engineer">Computer Engineer</a></li>
   </ul></li>
   <li><a href="#technical-skills" id="toc-technical-skills" class="nav-link" data-scroll-target="#technical-skills">🛠️ Technical Skills</a></li>
@@ -193,223 +193,14 @@ ul.task-list li input[type="checkbox"] {
   <div class="about-contents"><main class="content column-body" id="quarto-document-content">
 
 <div class="about-intro">
-<p>Hello! I’m originally from <strong>Dhaka</strong>, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.</p>
-<p>I am currently a <strong>Data Analyst II</strong> at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I recently graduated with a <strong>Master’s of Science in Data Science &amp; Analytics</strong> from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.</p>
+<p>Hello! I’m originally from <strong>Dhaka</strong>, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.</p>
+<p>I am currently pursuing a <strong>Master’s of Science in Data Science &amp; Analytics</strong> at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.</p>
 <p>I love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.</p>
 </div>
 <section id="professional-journey" class="level2 section-card">
 <h2 data-anchor-id="professional-journey">📊 Professional Journey</h2>
 <div class="journey-visual">
-<div id="journey-timeline">
-</div>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-// Journey data
-const journeyData = [
-  {
-    year: "2015-2020",
-    title: "Bachelor of Science",
-    organization: "Grand Valley State University",
-    location: "Grand Rapids, MI",
-    description: "Computer Science",
-    type: "education",
-    startYear: 2015,
-    endYear: 2020
-  },
-  {
-    year: "2020-2021",
-    title: "Computer Engineer",
-    organization: "Array of Engineers",
-    location: "Grand Rapids, MI",
-    description: "Avionics software verification and web development",
-    type: "work",
-    startYear: 2020,
-    endYear: 2021
-  },
-  {
-    year: "2022-2023",
-    title: "Data Analyst",
-    organization: "Shift Digital",
-    location: "Birmingham, MI",
-    description: "Data operations and analytics",
-    type: "work",
-    startYear: 2022,
-    endYear: 2023
-  },
-  {
-    year: "2023-2025",
-    title: "Master's in Data Science",
-    organization: "Georgetown University",
-    location: "Washington, DC",
-    description: "Data Science and Analytics",
-    type: "education",
-    startYear: 2023,
-    endYear: 2025
-  },
-  {
-    year: "2025-present",
-    title: "Data Analyst II",
-    organization: "Shift Digital",
-    location: "Birmingham, MI",
-    description: "Leading data operations and analytics initiatives",
-    type: "work",
-    startYear: 2025,
-    endYear: 2026
-  }
-];
-// Set up dimensions and margins
-const margin = {top: 40, right: 40, bottom: 60, left: 40};
-const width = Math.min(900, window.innerWidth - 80) - margin.left - margin.right;
-const height = 400 - margin.top - margin.bottom;
-// Create SVG
-const svg = d3.select("#journey-timeline")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .style("background", "linear-gradient(135deg, #667eea 0%, #764ba2 100%)")
-  .style("border-radius", "15px")
-  .style("box-shadow", "0 10px 30px rgba(0,0,0,0.1)");
-const g = svg.append("g")
-  .attr("transform", `translate(${margin.left},${margin.top})`);
-// Create scales
-const xScale = d3.scaleLinear()
-  .domain([2015, 2026])
-  .range([0, width]);
-const yScale = d3.scaleBand()
-  .domain(journeyData.map((d, i) => i))
-  .range([0, height])
-  .padding(0.3);
-// Create timeline line
-g.append("line")
-  .attr("x1", 0)
-  .attr("x2", width)
-  .attr("y1", height / 2)
-  .attr("y2", height / 2)
-  .attr("stroke", "rgba(255,255,255,0.3)")
-  .attr("stroke-width", 2);
-// Create year markers
-const yearMarkers = [2015, 2017, 2019, 2021, 2023, 2025];
-g.selectAll(".year-marker")
-  .data(yearMarkers)
-  .enter()
-  .append("text")
-  .attr("class", "year-marker")
-  .attr("x", d => xScale(d))
-  .attr("y", height + 25)
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "500")
-  .text(d => d);
-// Create journey items
-const journeyItems = g.selectAll(".journey-item")
-  .data(journeyData)
-  .enter()
-  .append("g")
-  .attr("class", "journey-item")
-  .attr("transform", (d, i) => `translate(0, ${i * (height / journeyData.length) + 20})`);
-// Add timeline bars
-journeyItems.append("rect")
-  .attr("x", d => xScale(d.startYear))
-  .attr("y", -8)
-  .attr("width", d => xScale(d.endYear) - xScale(d.startYear))
-  .attr("height", 16)
-  .attr("rx", 8)
-  .style("fill", d => d.type === "education" ? "#4facfe" : "#43e97b")
-  .style("opacity", 0.8)
-  .style("cursor", "pointer")
-  .on("mouseover", function(event, d) {
-    d3.select(this).style("opacity", 1);
-    // Show tooltip
-    const tooltip = d3.select("body").append("div")
-      .attr("class", "journey-tooltip")
-      .style("position", "absolute")
-      .style("background", "rgba(0,0,0,0.9)")
-      .style("color", "white")
-      .style("padding", "10px")
-      .style("border-radius", "8px")
-      .style("font-size", "14px")
-      .style("box-shadow", "0 5px 15px rgba(0,0,0,0.3)")
-      .style("z-index", "1000")
-      .style("opacity", 0);
-    tooltip.html(`
-      <strong>${d.title}</strong><br/>
-      ${d.organization}<br/>
-      <em>${d.location}</em><br/>
-      ${d.description}
-    `)
-    .style("left", (event.pageX + 10) + "px")
-    .style("top", (event.pageY - 10) + "px")
-    .transition()
-    .duration(200)
-    .style("opacity", 1);
-  })
-  .on("mouseout", function(event, d) {
-    d3.select(this).style("opacity", 0.8);
-    d3.selectAll(".journey-tooltip").remove();
-  });
-// Add title text
-journeyItems.append("text")
-  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", -15)
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "600")
-  .text(d => d.title);
-// Add organization text
-journeyItems.append("text")
-  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", 25)
-  .attr("text-anchor", "middle")
-  .style("fill", "rgba(255,255,255,0.9)")
-  .style("font-size", "11px")
-  .text(d => d.organization);
-// Add legend
-const legend = g.append("g")
-  .attr("class", "legend")
-  .attr("transform", `translate(${width - 150}, 10)`);
-legend.append("rect")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
-  .style("fill", "#4facfe");
-legend.append("text")
-  .attr("x", 20)
-  .attr("y", 10)
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .text("Education");
-legend.append("rect")
-  .attr("x", 0)
-  .attr("y", 20)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
-  .style("fill", "#43e97b");
-legend.append("text")
-  .attr("x", 20)
-  .attr("y", 30)
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .text("Professional");
-// Add animation
-journeyItems.selectAll("rect")
-  .style("transform", "scaleX(0)")
-  .style("transform-origin", "left center")
-  .transition()
-  .duration(1000)
-  .delay((d, i) => i * 200)
-  .style("transform", "scaleX(1)");
-journeyItems.selectAll("text")
-  .style("opacity", 0)
-  .transition()
-  .duration(500)
-  .delay((d, i) => i * 200 + 800)
-  .style("opacity", 1);
-</script>
+<p><img src="images/journey.png" class="journey-image img-fluid"></p>
 </div>
 <div class="resume-download">
 <p>For a detailed overview of my experience:<br>
@@ -442,14 +233,13 @@ Probabilistic Modeling • Database Systems • Advanced Data Visualization • 
 </section>
 <section id="professional-experience" class="level2 section-card">
 <h2 data-anchor-id="professional-experience">💼 Professional Experience</h2>
-<section id="data-analyst-ii-current" class="level3 experience-item">
-<h3 data-anchor-id="data-analyst-ii-current">Data Analyst II (Current)</h3>
+<section id="data-analyst" class="level3 experience-item">
+<h3 data-anchor-id="data-analyst">Data Analyst</h3>
 <div class="company-info">
-<p><strong>Shift Digital, Data Operations and Analytics Team</strong> • Birmingham, MI • Nov 2021 - Present</p>
+<p><strong>Shift Digital</strong> • Birmingham, MI • Nov 2021 - May 2023</p>
 </div>
 <div class="achievements">
 <ul>
-<li>Currently leading data operations and analytics initiatives for enterprise clients</li>
 <li>Improved data accuracy by <strong>25%</strong> across 10+ enterprise projects by optimizing big data ETL processes</li>
 <li>Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives</li>
 <li>Streamlined operations for 12 high-value clients and saved <strong>15 hours weekly</strong> by automating billing data processing</li>

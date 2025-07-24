@@ -137,35 +137,35 @@
     "href": "about-me.html",
     "title": "About Me",
     "section": "",
-    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022. Before joining Georgetown, I worked as a Computer Engineer, and then as a Data Analyst.\nI am currently pursuing a Master’s of Science in Data Science & Analytics at Georgetown University. As I progress in my career, my passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders. Although I am not unfamiliar with the realm of software development, I was quite new to data analysis before I started my role at Shift Digital as a Data Analyst. I learned a lot of practical skills that are prevalent in the digital marketing industry. Being a part of the DSAN program has introduced a lot of theoretical and statistical concepts and I am looking forward to continue on this journey and grow my knowledge even further.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
+    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I recently graduated with a Master’s of Science in Data Science & Analytics from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
   },
   {
-    "objectID": "about-me.html#quick-summary",
-    "href": "about-me.html#quick-summary",
+    "objectID": "about-me.html#professional-journey",
+    "href": "about-me.html#professional-journey",
     "title": "About Me",
-    "section": "Quick Summary",
-    "text": "Quick Summary\nHere’s a quick snapchot of my professional journey so far:\n\nFor the longer/more detailed version click here 👉🏽 Download Resume"
+    "section": "📊 Professional Journey",
+    "text": "📊 Professional Journey\n\n\n\n\n\n\n\nFor a detailed overview of my experience:\nDownload Resume"
   },
   {
     "objectID": "about-me.html#education",
     "href": "about-me.html#education",
     "title": "About Me",
-    "section": "🎓 EDUCATION",
-    "text": "🎓 EDUCATION\n\nGeorgetown University (GU)\nMaster of Science in Data Science and Analytics | GPA: 4.0\nWashington, D.C.\nAug 2023 - May 2025\nCoursework:\nProbabilistic Modeling and Statistical Computing, Database Systems and SQL, Advanced Data Visualization, Data Ethics and Policy, Computational Linguistics, Machine Learning App Deployment, Digital Storytelling, Big Data and Cloud Computing (TA), Applied Generative AI (Lead TA)\nLeadership & Activities: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\nGrand Valley State University (GVSU)\nBachelor of Science in Computer Science\nGrand Rapids, MI\nAug 2015 - May 2020"
+    "section": "🎓 Education",
+    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • Aug 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
   },
   {
-    "objectID": "about-me.html#work-experience",
-    "href": "about-me.html#work-experience",
+    "objectID": "about-me.html#professional-experience",
+    "href": "about-me.html#professional-experience",
     "title": "About Me",
-    "section": "💼 WORK EXPERIENCE",
-    "text": "💼 WORK EXPERIENCE\n\nShift Digital, Delivery and Software Team\nData Analyst\nBirmingham, MI\nNov 2021 - May 2023\n✔️ Improved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes  ✔️ Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives  ✔️ Streamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing  ✔️ Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights  ✔️ Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets  ✔️ Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders  ✔️ Crafted technical proposals aligned with project scope and business goals, achieving near 100% customer approval rate \n\n\nArray of Engineers\nComputer Engineer\nGrand Rapids, MI\nJul 2020 - Nov 2021\n✔️ Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance  ✔️ Improved user experience by optimizing web app features with AngularJS, increasing client retention by 25%  ✔️ Introduced modular workflows for software testing, enhancing adaptability and achieving 98% on-time delivery  ✔️ Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability  ✔️ Led GitHub code reviews across a multidisciplinary team, mitigating critical issues early in the development process"
+    "section": "💼 Professional Experience",
+    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - Present\n\n\n\nCurrently leading data operations and analytics initiatives for enterprise clients\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
   },
   {
-    "objectID": "about-me.html#skills",
-    "href": "about-me.html#skills",
+    "objectID": "about-me.html#technical-skills",
+    "href": "about-me.html#technical-skills",
     "title": "About Me",
-    "section": "SKILLS",
-    "text": "SKILLS\nProgramming: Python, SQL, R, Java, C++\nMachine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\nData Visualization: Tableau, Plotly, Seaborn\nBig Data & Cloud: Apache Spark, Databricks, AWS Sagemaker\nNLP: spaCy, Hugging Face Transformers, BERT\nDatabases: MySQL, PostgreSQL, MongoDB, Snowflake\nTools: Docker, Flask, Git, Quarto, CI/CD pipelines\nStatistical Methods: A/B Testing, Regression, Bayesian Analysis"
+    "section": "🛠️ Technical Skills",
+    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
   },
   {
     "objectID": "conclusion.html",
