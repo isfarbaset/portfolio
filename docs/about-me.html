@@ -223,10 +223,10 @@ const journeyData = [
   }
 ];
 // Set up dimensions and margins
-const margin = {top: 60, right: 40, bottom: 80, left: 40};
+const margin = {top: 80, right: 40, bottom: 60, left: 40};
 const containerWidth = document.getElementById("journey-timeline").offsetWidth;
 const width = Math.min(containerWidth - 80, 1000) - margin.left - margin.right;
-const height = 400 - margin.top - margin.bottom;
+const height = 450 - margin.top - margin.bottom;
 // Create SVG
 const svg = d3.select("#journey-timeline")
   .append("svg")
@@ -272,7 +272,7 @@ const journeyItems = g.selectAll(".journey-item")
 // Add timeline bars with alternating positions
 journeyItems.append("rect")
   .attr("x", d => xScale(d.startYear))
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 25 : height/2 + 5)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 30 : height/2 + 10)
   .attr("width", d => xScale(d.endYear) - xScale(d.startYear))
   .attr("height", 20)
   .attr("rx", 10)
@@ -315,13 +315,13 @@ journeyItems.append("line")
   .attr("x1", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
   .attr("y1", height / 2)
   .attr("x2", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y2", (d, i) => i % 2 === 0 ? height/2 - 25 : height/2 + 25)
+  .attr("y2", (d, i) => i % 2 === 0 ? height/2 - 30 : height/2 + 30)
   .attr("stroke", "rgba(255,255,255,0.6)")
   .attr("stroke-width", 2);
 // Add title text with alternating positions
 journeyItems.append("text")
   .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 35 : height/2 + 45)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 40 : height/2 + 50)
   .attr("text-anchor", "middle")
   .style("fill", "white")
   .style("font-size", "13px")
@@ -330,7 +330,7 @@ journeyItems.append("text")
 // Add organization text
 journeyItems.append("text")
   .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 50 : height/2 + 60)
+  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 55 : height/2 + 65)
   .attr("text-anchor", "middle")
   .style("fill", "rgba(255,255,255,0.9)")
   .style("font-size", "11px")
