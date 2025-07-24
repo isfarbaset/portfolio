@@ -223,10 +223,10 @@ const journeyData = [
   }
 ];
 // Set up dimensions and margins
-const margin = {top: 80, right: 40, bottom: 60, left: 40};
+const margin = {top: 40, right: 40, bottom: 40, left: 40};
 const containerWidth = document.getElementById("journey-timeline").offsetWidth;
 const width = Math.min(containerWidth - 80, 1000) - margin.left - margin.right;
-const height = 450 - margin.top - margin.bottom;
+const height = 500 - margin.top - margin.bottom;
 // Create SVG
 const svg = d3.select("#journey-timeline")
   .append("svg")
@@ -241,38 +241,31 @@ const g = svg.append("g")
 const xScale = d3.scaleLinear()
   .domain([2015, 2026])
   .range([0, width]);
-// Create timeline line
-g.append("line")
-  .attr("x1", 0)
-  .attr("x2", width)
-  .attr("y1", height / 2)
-  .attr("y2", height / 2)
-  .attr("stroke", "rgba(255,255,255,0.3)")
-  .attr("stroke-width", 3);
-// Create year markers
-const yearMarkers = [2015, 2017, 2019, 2021, 2023, 2025];
-g.selectAll(".year-marker")
-  .data(yearMarkers)
-  .enter()
-  .append("text")
-  .attr("class", "year-marker")
-  .attr("x", d => xScale(d))
-  .attr("y", height - 10)
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "600")
-  .text(d => d);
-// Create journey items with alternating positions
+const yScale = d3.scaleLinear()
+  .domain([0, journeyData.length - 1])
+  .range([50, height - 50]);
+// Create diagonal timeline line
+const line = d3.line()
+  .x((d, i) => xScale(d.startYear + (d.endYear - d.startYear) / 2))
+  .y((d, i) => yScale(i))
+  .curve(d3.curveCardinal);
+g.append("path")
+  .datum(journeyData)
+  .attr("fill", "none")
+  .attr("stroke", "rgba(255,255,255,0.4)")
+  .attr("stroke-width", 3)
+  .attr("d", line);
+// Create journey items
 const journeyItems = g.selectAll(".journey-item")
   .data(journeyData)
   .enter()
   .append("g")
-  .attr("class", "journey-item");
-// Add timeline bars with alternating positions
+  .attr("class", "journey-item")
+  .attr("transform", (d, i) => `translate(${xScale(d.startYear)}, ${yScale(i)})`);
+// Add timeline bars (horizontal)
 journeyItems.append("rect")
-  .attr("x", d => xScale(d.startYear))
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 30 : height/2 + 10)
+  .attr("x", 0)
+  .attr("y", -10)
   .attr("width", d => xScale(d.endYear) - xScale(d.startYear))
   .attr("height", 20)
   .attr("rx", 10)
@@ -310,41 +303,53 @@ journeyItems.append("rect")
     d3.select(this).style("opacity", 0.9).style("transform", "scale(1)");
     d3.selectAll(".journey-tooltip").remove();
   });
-// Add connecting lines from timeline to bars
-journeyItems.append("line")
-  .attr("x1", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y1", height / 2)
-  .attr("x2", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y2", (d, i) => i % 2 === 0 ? height/2 - 30 : height/2 + 30)
-  .attr("stroke", "rgba(255,255,255,0.6)")
-  .attr("stroke-width", 2);
-// Add title text with alternating positions
-journeyItems.append("text")
-  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 40 : height/2 + 50)
-  .attr("text-anchor", "middle")
+// Add connecting dots
+journeyItems.append("circle")
+  .attr("cx", d => (xScale(d.endYear) - xScale(d.startYear)) / 2)
+  .attr("cy", 0)
+  .attr("r", 6)
   .style("fill", "white")
-  .style("font-size", "13px")
+  .style("stroke", d => d.type === "education" ? "#4facfe" : "#43e97b")
+  .style("stroke-width", 3);
+// Add title text (positioned to the right of bars)
+journeyItems.append("text")
+  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) + 15)
+  .attr("y", -5)
+  .style("fill", "white")
+  .style("font-size", "14px")
   .style("font-weight", "700")
   .text(d => d.title);
 // Add organization text
 journeyItems.append("text")
-  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 55 : height/2 + 65)
-  .attr("text-anchor", "middle")
+  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) + 15)
+  .attr("y", 10)
   .style("fill", "rgba(255,255,255,0.9)")
-  .style("font-size", "11px")
+  .style("font-size", "12px")
   .style("font-weight", "500")
   .text(d => d.organization);
 // Add year labels on bars
 journeyItems.append("text")
-  .attr("x", d => xScale(d.startYear) + (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", (d, i) => i % 2 === 0 ? height/2 - 11 : height/2 + 19)
+  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) / 2)
+  .attr("y", 4)
   .attr("text-anchor", "middle")
   .style("fill", "white")
   .style("font-size", "10px")
   .style("font-weight", "600")
   .text(d => d.year);
+// Add year markers at bottom
+const yearMarkers = [2015, 2017, 2019, 2021, 2023, 2025];
+g.selectAll(".year-marker")
+  .data(yearMarkers)
+  .enter()
+  .append("text")
+  .attr("class", "year-marker")
+  .attr("x", d => xScale(d))
+  .attr("y", height - 10)
+  .attr("text-anchor", "middle")
+  .style("fill", "white")
+  .style("font-size", "12px")
+  .style("font-weight", "600")
+  .text(d => d);
 // Add legend
 const legend = g.append("g")
   .attr("class", "legend")
@@ -390,6 +395,12 @@ journeyItems.selectAll("text")
   .transition()
   .duration(500)
   .delay((d, i) => i * 200 + 800)
+  .style("opacity", 1);
+journeyItems.selectAll("circle")
+  .style("opacity", 0)
+  .transition()
+  .duration(300)
+  .delay((d, i) => i * 200 + 1200)
   .style("opacity", 1);
 </script>
 </div>

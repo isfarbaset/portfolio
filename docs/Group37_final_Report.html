@@ -6263,11 +6263,11 @@ margin: 2rem 0;
 display: flex;
 justify-content: center;
 overflow: visible;
-min-height: 450px;
+min-height: 500px;
 }
 #journey-timeline svg {
 width: 100%;
-height: 450px;
+height: 500px;
 max-width: 100%;
 overflow: visible;
 }
@@ -6284,13 +6284,19 @@ border-radius: 20px;
 box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 width: 100%;
 overflow: visible;
-min-height: 500px;
+min-height: 550px;
 }
 .journey-item rect {
 transition: all 0.3s ease;
 }
 .journey-item:hover rect {
 filter: brightness(1.1);
+}
+.journey-item circle {
+transition: all 0.3s ease;
+}
+.journey-item:hover circle {
+transform: scale(1.2);
 }
 .legend text {
 font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -6313,16 +6319,16 @@ width: 100%;
 
 @media screen and (max-width: 768px) {
 #journey-timeline {
-min-height: 400px;
+min-height: 450px;
 }
 #journey-timeline svg {
 width: 100%;
-height: 400px;
+height: 450px;
 }
 .journey-visual {
 margin: 1rem 0;
 padding: 1rem;
-min-height: 450px;
+min-height: 500px;
 }
 .journey-tooltip {
 font-size: 12px !important;
@@ -6335,21 +6341,29 @@ padding: 0 0.5rem;
 padding: 1.5rem;
 margin: 1rem 0;
 }
+
+.journey-item text {
+font-size: 12px !important;
+}
 }
 @media screen and (max-width: 480px) {
 #journey-timeline {
-min-height: 350px;
+min-height: 400px;
 }
 #journey-timeline svg {
 width: 100%;
-height: 350px;
+height: 400px;
 }
 .section-card {
 padding: 1rem;
 }
 .journey-visual {
 padding: 0.75rem;
-min-height: 400px;
+min-height: 450px;
+}
+
+.journey-item text {
+font-size: 10px !important;
 }
 }
 
