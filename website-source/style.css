@@ -562,58 +562,62 @@ h3 a:hover {
   font-style: italic;
 }
 
-/* Interactive Journey Timeline Styles */
-#journey-timeline {
+/* Professional Timeline Visualization */
+#professional-timeline {
   width: 100%;
   margin: 2rem 0;
   display: flex;
   justify-content: center;
   overflow: visible;
-  min-height: 500px;
 }
 
-#journey-timeline svg {
+#professional-timeline svg {
   width: 100%;
-  height: 500px;
   max-width: 100%;
+  height: auto;
   overflow: visible;
 }
 
-.journey-tooltip {
+.professional-tooltip {
   pointer-events: none;
   transition: opacity 0.2s;
   line-height: 1.4;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .journey-visual {
   margin: 2rem 0;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  border: 1px solid #e1e8ed;
   width: 100%;
   overflow: visible;
-  min-height: 550px;
 }
 
-.journey-item rect {
+.timeline-bar rect {
   transition: all 0.3s ease;
 }
 
-.journey-item:hover rect {
+.timeline-bar:hover rect {
   filter: brightness(1.1);
 }
 
-.journey-item circle {
-  transition: all 0.3s ease;
+.grid line {
+  stroke-dasharray: 2,2;
 }
 
-.journey-item:hover circle {
-  transform: scale(1.2);
+.x-axis path,
+.y-axis path {
+  stroke: #2c3e50;
+  stroke-width: 1;
 }
 
-.legend text {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+.x-axis .tick line,
+.y-axis .tick line {
+  stroke: #2c3e50;
+  stroke-width: 1;
 }
 
 /* About page layout improvements */
@@ -635,24 +639,20 @@ h3 a:hover {
 
 /* Responsive timeline */
 @media screen and (max-width: 768px) {
-  #journey-timeline {
-    min-height: 450px;
-  }
-  
-  #journey-timeline svg {
+  #professional-timeline svg {
     width: 100%;
-    height: 450px;
+    height: 400px;
   }
   
   .journey-visual {
     margin: 1rem 0;
     padding: 1rem;
-    min-height: 500px;
   }
   
-  .journey-tooltip {
-    font-size: 12px !important;
-    padding: 8px !important;
+  .professional-tooltip {
+    font-size: 11px !important;
+    padding: 10px !important;
+    max-width: 250px !important;
   }
   
   .about-content {
@@ -663,21 +663,12 @@ h3 a:hover {
     padding: 1.5rem;
     margin: 1rem 0;
   }
-  
-  /* Adjust text positioning for mobile */
-  .journey-item text {
-    font-size: 12px !important;
-  }
 }
 
 @media screen and (max-width: 480px) {
-  #journey-timeline {
-    min-height: 400px;
-  }
-  
-  #journey-timeline svg {
+  #professional-timeline svg {
     width: 100%;
-    height: 400px;
+    height: 350px;
   }
   
   .section-card {
@@ -686,12 +677,12 @@ h3 a:hover {
   
   .journey-visual {
     padding: 0.75rem;
-    min-height: 450px;
   }
   
-  /* Further adjust text for small screens */
-  .journey-item text {
+  .professional-tooltip {
     font-size: 10px !important;
+    padding: 8px !important;
+    max-width: 200px !important;
   }
 }
 

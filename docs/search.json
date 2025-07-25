@@ -105,48 +105,6 @@
     "text": "API Ninjas: Air quality and geocoding data\nWHO/EPA: Health guideline standards\nEnvironmental Agencies: AQI calculation methodologies\n\n\n\n\n\nLetta AI: Conversational agent framework\nMCP: Model Context Protocol for standardized data access\nPython: Core implementation language\nAsyncIO: Asynchronous processing\n\n\nThis project showcases the future of intelligent environmental monitoring, combining cutting-edge AI with real-world health applications."
   },
   {
-    "objectID": "about-me-clean.html",
-    "href": "about-me-clean.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I continue to leverage data-driven solutions for enterprise clients. Simultaneously, I’m pursuing a Master’s of Science in Data Science & Analytics at Georgetown University. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows."
-  },
-  {
-    "objectID": "about-me-clean.html#professional-journey",
-    "href": "about-me-clean.html#professional-journey",
-    "title": "About Me",
-    "section": "📊 Professional Journey",
-    "text": "📊 Professional Journey\n\n\n\n\nFor a detailed overview of my experience:\nDownload Resume"
-  },
-  {
-    "objectID": "about-me-clean.html#education",
-    "href": "about-me-clean.html#education",
-    "title": "About Me",
-    "section": "🎓 Education",
-    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • Aug 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
-  },
-  {
-    "objectID": "about-me-clean.html#professional-experience",
-    "href": "about-me-clean.html#professional-experience",
-    "title": "About Me",
-    "section": "💼 Professional Experience",
-    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - Present\n\n\n\nCurrently leading data operations and analytics initiatives for enterprise clients\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
-  },
-  {
-    "objectID": "about-me-clean.html#technical-skills",
-    "href": "about-me-clean.html#technical-skills",
-    "title": "About Me",
-    "section": "🛠️ Technical Skills",
-    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
-  },
-  {
-    "objectID": "5100-website/slideshow.html",
-    "href": "5100-website/slideshow.html",
-    "title": "Airy Tales Slideshow",
-    "section": "",
-    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
-  },
-  {
     "objectID": "Group37_Final_Report.html",
     "href": "Group37_Final_Report.html",
     "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
@@ -166,6 +124,13 @@
     "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
     "section": "Track Level Genre Classification",
     "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy."
+  },
+  {
+    "objectID": "5100-website/slideshow.html",
+    "href": "5100-website/slideshow.html",
+    "title": "Airy Tales Slideshow",
+    "section": "",
+    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
   },
   {
     "objectID": "about-me.html",

@@ -165,242 +165,289 @@ ul.task-list li input[type="checkbox"] {
 <section id="professional-journey" class="level2 section-card">
 <h2 data-anchor-id="professional-journey">📊 Professional Journey</h2>
 <div class="journey-visual">
-<div id="journey-timeline">
+<div id="professional-timeline">
 </div>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-// Journey data
-const journeyData = [
+// Professional Timeline Data
+const timelineData = [
   {
-    year: "2015-2020",
-    title: "Bachelor of Science",
+    id: 1,
+    period: "2015-2020",
+    title: "Bachelor of Science - Computer Science",
     organization: "Grand Valley State University",
     location: "Grand Rapids, MI",
-    description: "Computer Science",
     type: "education",
-    startYear: 2015,
-    endYear: 2020
+    startDate: new Date(2015, 7, 1), // Aug 2015
+    endDate: new Date(2020, 4, 31),  // May 2020
+    skills: ["Programming", "Data Structures", "Algorithms", "Software Engineering"],
+    gpa: "3.8/4.0"
   },
   {
-    year: "2020-2021",
+    id: 2,
+    period: "2020-2021",
     title: "Computer Engineer",
     organization: "Array of Engineers",
     location: "Grand Rapids, MI",
-    description: "Avionics software verification and web development",
-    type: "work",
-    startYear: 2020,
-    endYear: 2021
+    type: "professional",
+    startDate: new Date(2020, 6, 1), // Jul 2020
+    endDate: new Date(2021, 10, 30), // Nov 2021
+    skills: ["Avionics Software", "DOORS", "Ansys SCADE", "AngularJS", "A/B Testing"],
+    achievements: ["98% on-time delivery", "25% user retention increase"]
   },
   {
-    year: "2021-2023",
+    id: 3,
+    period: "2021-2023",
     title: "Data Analyst I",
     organization: "Shift Digital",
     location: "Birmingham, MI",
-    description: "Data operations and analytics",
-    type: "work",
-    startYear: 2021,
-    endYear: 2023
+    type: "professional",
+    startDate: new Date(2021, 10, 1), // Nov 2021
+    endDate: new Date(2023, 4, 31),   // May 2023
+    skills: ["SQL", "Python", "PySpark", "Databricks", "ETL", "Data Visualization"],
+    achievements: ["25% data accuracy improvement", "15 hours/week automation savings"]
   },
   {
-    year: "2023-2025",
-    title: "Master's in Data Science",
+    id: 4,
+    period: "2023-2025",
+    title: "Master of Science - Data Science & Analytics",
     organization: "Georgetown University",
     location: "Washington, DC",
-    description: "Data Science and Analytics",
     type: "education",
-    startYear: 2023,
-    endYear: 2025
+    startDate: new Date(2023, 4, 1),  // May 2023
+    endDate: new Date(2025, 4, 31),   // May 2025
+    skills: ["Machine Learning", "Big Data", "Cloud Computing", "NLP", "Data Ethics"],
+    gpa: "4.0/4.0"
   },
   {
-    year: "2025-present",
+    id: 5,
+    period: "2025-Present",
     title: "Data Analyst II",
     organization: "Shift Digital",
     location: "Birmingham, MI",
-    description: "Leading data operations and analytics initiatives",
-    type: "work",
-    startYear: 2025,
-    endYear: 2026
+    type: "professional",
+    startDate: new Date(2025, 4, 1),  // May 2025
+    endDate: new Date(2025, 6, 25),   // Current
+    skills: ["Advanced Analytics", "Team Leadership", "Strategic Architecture"],
+    achievements: ["Leading enterprise initiatives", "Mentoring junior analysts"]
   }
 ];
-// Set up dimensions and margins
-const margin = {top: 40, right: 40, bottom: 40, left: 40};
-const containerWidth = document.getElementById("journey-timeline").offsetWidth;
-const width = Math.min(containerWidth - 80, 1000) - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
+// Chart configuration
+const config = {
+  margin: { top: 40, right: 150, bottom: 60, left: 60 },
+  width: 1000,
+  height: 500,
+  colors: {
+    education: "#3498db",
+    professional: "#2ecc71",
+    background: "#f8f9fa",
+    text: "#2c3e50",
+    grid: "#ecf0f1"
+  }
+};
+// Calculate responsive dimensions
+const container = d3.select("#professional-timeline");
+const containerWidth = Math.min(container.node().offsetWidth || 800, config.width);
+const width = containerWidth - config.margin.left - config.margin.right;
+const height = config.height - config.margin.top - config.margin.bottom;
 // Create SVG
-const svg = d3.select("#journey-timeline")
+const svg = container
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .style("background", "linear-gradient(135deg, #667eea 0%, #764ba2 100%)")
-  .style("border-radius", "15px")
-  .style("box-shadow", "0 10px 30px rgba(0,0,0,0.1)");
+  .attr("width", containerWidth)
+  .attr("height", config.height)
+  .style("background-color", config.colors.background)
+  .style("border-radius", "12px")
+  .style("box-shadow", "0 4px 20px rgba(0,0,0,0.1)");
 const g = svg.append("g")
-  .attr("transform", `translate(${margin.left},${margin.top})`);
+  .attr("transform", `translate(${config.margin.left},${config.margin.top})`);
 // Create scales
-const xScale = d3.scaleLinear()
-  .domain([2015, 2026])
+const timeExtent = d3.extent(timelineData.flatMap(d => [d.startDate, d.endDate]));
+const xScale = d3.scaleTime()
+  .domain(timeExtent)
   .range([0, width]);
-const yScale = d3.scaleLinear()
-  .domain([0, journeyData.length - 1])
-  .range([50, height - 50]);
-// Create diagonal timeline line
-const line = d3.line()
-  .x((d, i) => xScale(d.startYear + (d.endYear - d.startYear) / 2))
-  .y((d, i) => yScale(i))
-  .curve(d3.curveCardinal);
-g.append("path")
-  .datum(journeyData)
-  .attr("fill", "none")
-  .attr("stroke", "rgba(255,255,255,0.4)")
-  .attr("stroke-width", 3)
-  .attr("d", line);
-// Create journey items
-const journeyItems = g.selectAll(".journey-item")
-  .data(journeyData)
+const yScale = d3.scaleBand()
+  .domain(timelineData.map(d => d.id))
+  .range([0, height])
+  .padding(0.3);
+// Create axes
+const xAxis = d3.axisBottom(xScale)
+  .tickFormat(d3.timeFormat("%Y"))
+  .ticks(d3.timeYear.every(1));
+const yAxis = d3.axisLeft(yScale)
+  .tickFormat("");
+// Add grid lines
+const xGrid = g.append("g")
+  .attr("class", "grid")
+  .attr("transform", `translate(0,${height})`)
+  .call(d3.axisBottom(xScale)
+    .tickSize(-height)
+    .tickFormat("")
+    .ticks(d3.timeYear.every(1))
+  )
+  .style("opacity", 0.3);
+xGrid.selectAll("line")
+  .style("stroke", config.colors.grid)
+  .style("stroke-width", 1);
+// Add axes
+g.append("g")
+  .attr("class", "x-axis")
+  .attr("transform", `translate(0,${height})`)
+  .call(xAxis)
+  .selectAll("text")
+  .style("font-size", "12px")
+  .style("font-weight", "600")
+  .style("fill", config.colors.text);
+g.append("g")
+  .attr("class", "y-axis")
+  .call(yAxis);
+// Create timeline bars
+const bars = g.selectAll(".timeline-bar")
+  .data(timelineData)
   .enter()
   .append("g")
-  .attr("class", "journey-item")
-  .attr("transform", (d, i) => `translate(${xScale(d.startYear)}, ${yScale(i)})`);
-// Add timeline bars (horizontal)
-journeyItems.append("rect")
-  .attr("x", 0)
-  .attr("y", -10)
-  .attr("width", d => xScale(d.endYear) - xScale(d.startYear))
-  .attr("height", 20)
-  .attr("rx", 10)
-  .style("fill", d => d.type === "education" ? "#4facfe" : "#43e97b")
-  .style("opacity", 0.9)
+  .attr("class", "timeline-bar");
+// Add main bars
+bars.append("rect")
+  .attr("x", d => xScale(d.startDate))
+  .attr("y", d => yScale(d.id))
+  .attr("width", d => xScale(d.endDate) - xScale(d.startDate))
+  .attr("height", yScale.bandwidth())
+  .attr("rx", 6)
+  .style("fill", d => config.colors[d.type])
+  .style("opacity", 0.8)
   .style("cursor", "pointer")
   .on("mouseover", function(event, d) {
-    d3.select(this).style("opacity", 1).style("transform", "scale(1.05)");
-    // Show tooltip
-    const tooltip = d3.select("body").append("div")
-      .attr("class", "journey-tooltip")
-      .style("position", "absolute")
-      .style("background", "rgba(0,0,0,0.9)")
-      .style("color", "white")
-      .style("padding", "12px")
-      .style("border-radius", "8px")
-      .style("font-size", "14px")
-      .style("box-shadow", "0 8px 25px rgba(0,0,0,0.3)")
-      .style("z-index", "1000")
-      .style("opacity", 0)
-      .style("max-width", "250px");
-    tooltip.html(`
-      <strong>${d.title}</strong><br/>
-      ${d.organization}<br/>
-      <em>${d.location}</em><br/>
-      <small>${d.description}</small>
-    `)
-    .style("left", (event.pageX + 10) + "px")
-    .style("top", (event.pageY - 10) + "px")
+    d3.select(this)
+      .style("opacity", 1)
+      .style("stroke", "#34495e")
+      .style("stroke-width", 2);
+    showTooltip(event, d);
+  })
+  .on("mouseout", function(event, d) {
+    d3.select(this)
+      .style("opacity", 0.8)
+      .style("stroke", "none");
+    hideTooltip();
+  });
+// Add labels
+bars.append("text")
+  .attr("x", d => xScale(d.startDate) + (xScale(d.endDate) - xScale(d.startDate)) / 2)
+  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
+  .attr("dy", "-0.1em")
+  .attr("text-anchor", "middle")
+  .style("fill", "white")
+  .style("font-size", "11px")
+  .style("font-weight", "600")
+  .style("pointer-events", "none")
+  .text(d => d.title);
+bars.append("text")
+  .attr("x", d => xScale(d.startDate) + (xScale(d.endDate) - xScale(d.startDate)) / 2)
+  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
+  .attr("dy", "1em")
+  .attr("text-anchor", "middle")
+  .style("fill", "rgba(255,255,255,0.9)")
+  .style("font-size", "9px")
+  .style("font-weight", "500")
+  .style("pointer-events", "none")
+  .text(d => d.organization);
+// Add side labels
+bars.append("text")
+  .attr("x", width + 10)
+  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
+  .attr("dy", "0.35em")
+  .style("fill", config.colors.text)
+  .style("font-size", "12px")
+  .style("font-weight", "600")
+  .text(d => d.period);
+// Add legend
+const legend = svg.append("g")
+  .attr("class", "legend")
+  .attr("transform", `translate(${containerWidth - 140}, 20)`);
+const legendData = [
+  { type: "education", label: "Education" },
+  { type: "professional", label: "Professional" }
+];
+const legendItems = legend.selectAll(".legend-item")
+  .data(legendData)
+  .enter()
+  .append("g")
+  .attr("class", "legend-item")
+  .attr("transform", (d, i) => `translate(0, ${i * 25})`);
+legendItems.append("rect")
+  .attr("width", 15)
+  .attr("height", 15)
+  .attr("rx", 3)
+  .style("fill", d => config.colors[d.type]);
+legendItems.append("text")
+  .attr("x", 20)
+  .attr("y", 12)
+  .style("fill", config.colors.text)
+  .style("font-size", "12px")
+  .style("font-weight", "500")
+  .text(d => d.label);
+// Tooltip functions
+function showTooltip(event, d) {
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "professional-tooltip")
+    .style("position", "absolute")
+    .style("background", "rgba(0,0,0,0.95)")
+    .style("color", "white")
+    .style("padding", "15px")
+    .style("border-radius", "8px")
+    .style("font-size", "13px")
+    .style("line-height", "1.4")
+    .style("box-shadow", "0 8px 25px rgba(0,0,0,0.3)")
+    .style("z-index", "1000")
+    .style("max-width", "300px")
+    .style("opacity", 0);
+  let content = `
+    <div style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px; margin-bottom: 8px;">
+      <strong style="font-size: 14px;">${d.title}</strong><br/>
+      <span style="color: #3498db;">${d.organization}</span><br/>
+      <span style="font-size: 11px; opacity: 0.8;">${d.location} • ${d.period}</span>
+    </div>
+  `;
+  if (d.skills) {
+    content += `<div style="margin-bottom: 8px;"><strong>Key Skills:</strong><br/>${d.skills.join(", ")}</div>`;
+  }
+  if (d.achievements) {
+    content += `<div style="margin-bottom: 8px;"><strong>Achievements:</strong><br/>• ${d.achievements.join("<br/>• ")}</div>`;
+  }
+  if (d.gpa) {
+    content += `<div><strong>GPA:</strong> ${d.gpa}</div>`;
+  }
+  tooltip.html(content)
+    .style("left", (event.pageX + 15) + "px")
+    .style("top", (event.pageY - 15) + "px")
     .transition()
     .duration(200)
     .style("opacity", 1);
-  })
-  .on("mouseout", function(event, d) {
-    d3.select(this).style("opacity", 0.9).style("transform", "scale(1)");
-    d3.selectAll(".journey-tooltip").remove();
-  });
-// Add connecting dots
-journeyItems.append("circle")
-  .attr("cx", d => (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("cy", 0)
-  .attr("r", 6)
-  .style("fill", "white")
-  .style("stroke", d => d.type === "education" ? "#4facfe" : "#43e97b")
-  .style("stroke-width", 3);
-// Add title text (positioned to the right of bars)
-journeyItems.append("text")
-  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) + 15)
-  .attr("y", -5)
-  .style("fill", "white")
-  .style("font-size", "14px")
+}
+function hideTooltip() {
+  d3.selectAll(".professional-tooltip").remove();
+}
+// Add title
+svg.append("text")
+  .attr("x", containerWidth / 2)
+  .attr("y", 25)
+  .attr("text-anchor", "middle")
+  .style("font-size", "16px")
   .style("font-weight", "700")
-  .text(d => d.title);
-// Add organization text
-journeyItems.append("text")
-  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) + 15)
-  .attr("y", 10)
-  .style("fill", "rgba(255,255,255,0.9)")
-  .style("font-size", "12px")
-  .style("font-weight", "500")
-  .text(d => d.organization);
-// Add year labels on bars
-journeyItems.append("text")
-  .attr("x", d => (xScale(d.endYear) - xScale(d.startYear)) / 2)
-  .attr("y", 4)
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "10px")
-  .style("font-weight", "600")
-  .text(d => d.year);
-// Add year markers at bottom
-const yearMarkers = [2015, 2017, 2019, 2021, 2023, 2025];
-g.selectAll(".year-marker")
-  .data(yearMarkers)
-  .enter()
-  .append("text")
-  .attr("class", "year-marker")
-  .attr("x", d => xScale(d))
-  .attr("y", height - 10)
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "600")
-  .text(d => d);
-// Add legend
-const legend = g.append("g")
-  .attr("class", "legend")
-  .attr("transform", `translate(${width - 160}, 15)`);
-legend.append("rect")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
-  .style("fill", "#4facfe");
-legend.append("text")
-  .attr("x", 20)
-  .attr("y", 10)
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "500")
-  .text("Education");
-legend.append("rect")
-  .attr("x", 0)
-  .attr("y", 20)
-  .attr("width", 12)
-  .attr("height", 12)
-  .attr("rx", 6)
-  .style("fill", "#43e97b");
-legend.append("text")
-  .attr("x", 20)
-  .attr("y", 30)
-  .style("fill", "white")
-  .style("font-size", "12px")
-  .style("font-weight", "500")
-  .text("Professional");
+  .style("fill", config.colors.text)
+  .text("Professional Journey Timeline");
 // Add animation
-journeyItems.selectAll("rect")
-  .style("transform", "scaleX(0)")
-  .style("transform-origin", "left center")
+bars.selectAll("rect")
+  .style("width", 0)
   .transition()
   .duration(1000)
   .delay((d, i) => i * 200)
-  .style("transform", "scaleX(1)");
-journeyItems.selectAll("text")
+  .style("width", d => xScale(d.endDate) - xScale(d.startDate));
+bars.selectAll("text")
   .style("opacity", 0)
   .transition()
   .duration(500)
   .delay((d, i) => i * 200 + 800)
-  .style("opacity", 1);
-journeyItems.selectAll("circle")
-  .style("opacity", 0)
-  .transition()
-  .duration(300)
-  .delay((d, i) => i * 200 + 1200)
   .style("opacity", 1);
 </script>
 </div>
