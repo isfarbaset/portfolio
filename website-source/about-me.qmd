@@ -44,7 +44,7 @@ import plotly.graph_objects as go
 timeline_data = [
     {
         'year': '2015-2020',
-        'title': 'Bachelor of Computer Science',
+        'title': 'Bachelor of Science in Computer Science',
         'organization': 'Grand Valley State University',
         'location': 'Grand Rapids, MI',
         'type': 'education',
@@ -68,7 +68,7 @@ timeline_data = [
     },
     {
         'year': '2023-2025',
-        'title': 'Master of Data Science',
+        'title': 'Master of Science in Data Science and Analytics',
         'organization': 'Georgetown University',
         'location': 'Washington, D.C.',
         'type': 'education',
@@ -97,7 +97,7 @@ for i, item in enumerate(timeline_data):
     y_pos = len(timeline_data) - i - 1  # Reverse order (newest at top)
     color = colors[item['type']]
     
-    # Timeline dot
+    # Timeline dot with custom hover styling
     fig.add_trace(go.Scatter(
         x=[0],
         y=[y_pos],
@@ -109,12 +109,17 @@ for i, item in enumerate(timeline_data):
             symbol='circle'
         ),
         hovertemplate=(
-            f"<b>{item['title']}</b><br>"
-            f"{item['organization']}<br>"
-            f"{item['location']}<br>"
-            f"{item['year']}<br>"
-            f"<i>{item['description']}</i>"
+            f"<b style='color:white'>{item['title']}</b><br>"
+            f"<span style='color:white'>{item['organization']}</span><br>"
+            f"<span style='color:white'>{item['location']}</span><br>"
+            f"<span style='color:white'>{item['year']}</span><br>"
+            f"<i style='color:white'>{item['description']}</i>"
             "<extra></extra>"
+        ),
+        hoverlabel=dict(
+            bgcolor=color,
+            font=dict(color='white', size=12, family='Inter, Arial, sans-serif'),
+            bordercolor='white'
         ),
         showlegend=False
     ))
@@ -215,12 +220,6 @@ fig.update_layout(
         showticklabels=False,
         zeroline=False,
         range=[-0.5, len(timeline_data) - 0.5]
-    ),
-    hoverlabel=dict(
-        bgcolor="rgba(44, 62, 80, 0.95)",
-        font_size=12,
-        font_family="Inter, Arial, sans-serif",
-        bordercolor="rgba(255,255,255,0.2)"
     )
 )
 
