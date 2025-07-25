@@ -126,42 +126,42 @@ for i, item in enumerate(timeline_data):
     
     # Title and organization (right side)
     fig.add_annotation(
-        x=0.15,
+        x=0.12,
         y=y_pos + 0.15,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
-        font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
+        font=dict(size=13, color='#2C3E50', family='Inter, Arial, sans-serif'),
         xanchor='left',
         yanchor='middle'
     )
     
     fig.add_annotation(
-        x=0.15,
+        x=0.12,
         y=y_pos - 0.05,
         text=f"{item['organization']}",
         showarrow=False,
-        font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
+        font=dict(size=11, color='#5D6D7E', family='Inter, Arial, sans-serif'),
         xanchor='left',
         yanchor='middle'
     )
     
     fig.add_annotation(
-        x=0.15,
+        x=0.12,
         y=y_pos - 0.25,
         text=f"{item['location']}",
         showarrow=False,
-        font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
+        font=dict(size=9, color='#85929E', family='Inter, Arial, sans-serif'),
         xanchor='left',
         yanchor='middle'
     )
     
     # Year (left side)
     fig.add_annotation(
-        x=-0.15,
+        x=-0.12,
         y=y_pos,
         text=f"<b>{item['year']}</b>",
         showarrow=False,
-        font=dict(size=11, color='#34495E', family='Inter, Arial, sans-serif'),
+        font=dict(size=10, color='#34495E', family='Inter, Arial, sans-serif'),
         xanchor='right',
         yanchor='middle'
     )
@@ -207,13 +207,12 @@ fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
     paper_bgcolor='rgba(0,0,0,0)',
     height=400,
-    width=650,
-    margin=dict(l=100, r=250, t=20, b=60),
+    margin=dict(l=40, r=120, t=20, b=60),
     xaxis=dict(
         showgrid=False,
         showticklabels=False,
         zeroline=False,
-        range=[-0.4, 1]
+        range=[-0.3, 0.8]
     ),
     yaxis=dict(
         showgrid=False,
@@ -223,7 +222,14 @@ fig.update_layout(
     )
 )
 
-fig.show()
+# Configure for responsive display
+config = {
+    'responsive': True,
+    'displayModeBar': False,
+    'showTips': False
+}
+
+fig.show(config=config)
 ```
 :::
 

@@ -646,7 +646,20 @@ h3 a:hover {
   
   .journey-visual {
     margin: 1rem 0;
-    padding: 1rem;
+    padding: 0.5rem;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+  
+  /* Target Plotly chart container */
+  .journey-visual .plotly-graph-div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure Plotly chart is responsive */
+  .journey-visual .js-plotly-plot {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .professional-tooltip {
@@ -663,6 +676,11 @@ h3 a:hover {
     padding: 1.5rem;
     margin: 1rem 0;
   }
+  
+  /* Make timeline text more readable on mobile */
+  .plotly .annotation-text {
+    font-size: 12px !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -676,13 +694,37 @@ h3 a:hover {
   }
   
   .journey-visual {
-    padding: 0.75rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* More aggressive mobile styling for very small screens */
+  .journey-visual .plotly-graph-div {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 350px !important;
+  }
+  
+  .journey-visual .js-plotly-plot {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .professional-tooltip {
     font-size: 10px !important;
     padding: 8px !important;
     max-width: 200px !important;
+  }
+  
+  /* Even smaller screens need smaller text */
+  .plotly .annotation-text {
+    font-size: 10px !important;
+  }
+  
+  /* Ensure timeline container doesn't overflow */
+  .journey-visual {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 }
 
