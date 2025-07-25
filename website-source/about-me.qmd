@@ -36,325 +36,196 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 ## 📊 Professional Journey
 
 ::: {.journey-visual}
-<div id="professional-timeline"></div>
+```{python}
+#| echo: false
+import plotly.graph_objects as go
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-// Professional Timeline Data
-const timelineData = [
-  {
-    id: 1,
-    period: "2015-2020",
-    title: "Bachelor of Science - Computer Science",
-    organization: "Grand Valley State University",
-    location: "Grand Rapids, MI",
-    type: "education",
-    startDate: new Date(2015, 7, 1), // Aug 2015
-    endDate: new Date(2020, 4, 31),  // May 2020
-    skills: ["Programming", "Data Structures", "Algorithms", "Software Engineering"],
-    gpa: "3.8/4.0"
-  },
-  {
-    id: 2,
-    period: "2020-2021",
-    title: "Computer Engineer",
-    organization: "Array of Engineers",
-    location: "Grand Rapids, MI",
-    type: "professional",
-    startDate: new Date(2020, 6, 1), // Jul 2020
-    endDate: new Date(2021, 10, 30), // Nov 2021
-    skills: ["Avionics Software", "DOORS", "Ansys SCADE", "AngularJS", "A/B Testing"],
-    achievements: ["98% on-time delivery", "25% user retention increase"]
-  },
-  {
-    id: 3,
-    period: "2021-2023",
-    title: "Data Analyst I",
-    organization: "Shift Digital",
-    location: "Birmingham, MI",
-    type: "professional",
-    startDate: new Date(2021, 10, 1), // Nov 2021
-    endDate: new Date(2023, 4, 31),   // May 2023
-    skills: ["SQL", "Python", "PySpark", "Databricks", "ETL", "Data Visualization"],
-    achievements: ["25% data accuracy improvement", "15 hours/week automation savings"]
-  },
-  {
-    id: 4,
-    period: "2023-2025",
-    title: "Master of Science - Data Science & Analytics",
-    organization: "Georgetown University",
-    location: "Washington, DC",
-    type: "education",
-    startDate: new Date(2023, 4, 1),  // May 2023
-    endDate: new Date(2025, 4, 31),   // May 2025
-    skills: ["Machine Learning", "Big Data", "Cloud Computing", "NLP", "Data Ethics"],
-    gpa: "4.0/4.0"
-  },
-  {
-    id: 5,
-    period: "2025-Present",
-    title: "Data Analyst II",
-    organization: "Shift Digital",
-    location: "Birmingham, MI",
-    type: "professional",
-    startDate: new Date(2025, 4, 1),  // May 2025
-    endDate: new Date(2025, 6, 25),   // Current
-    skills: ["Advanced Analytics", "Team Leadership", "Strategic Architecture"],
-    achievements: ["Leading enterprise initiatives", "Mentoring junior analysts"]
-  }
-];
+# Timeline data organized chronologically
+timeline_data = [
+    {
+        'year': '2015-2020',
+        'title': 'Bachelor of Computer Science',
+        'organization': 'Grand Valley State University',
+        'location': 'Grand Rapids, MI',
+        'type': 'education',
+        'description': 'Foundation in computer science and programming'
+    },
+    {
+        'year': '2020-2021',
+        'title': 'Computer Engineer',
+        'organization': 'Array of Engineers',
+        'location': 'Grand Rapids, MI',
+        'type': 'work',
+        'description': 'Aerospace software verification and web development'
+    },
+    {
+        'year': '2021-2023',
+        'title': 'Data Analyst I',
+        'organization': 'Shift Digital',
+        'location': 'Birmingham, MI',
+        'type': 'work',
+        'description': 'Data operations and analytics for enterprise clients'
+    },
+    {
+        'year': '2023-2025',
+        'title': 'Master of Data Science',
+        'organization': 'Georgetown University',
+        'location': 'Washington, D.C.',
+        'type': 'education',
+        'description': 'Advanced data science and analytics specialization'
+    },
+    {
+        'year': '2025-Present',
+        'title': 'Data Analyst II',
+        'organization': 'Shift Digital',
+        'location': 'Birmingham, MI',
+        'type': 'work',
+        'description': 'Leading analytics initiatives and mentoring team members'
+    }
+]
 
-// Chart configuration
-const config = {
-  margin: { top: 40, right: 150, bottom: 60, left: 60 },
-  width: 1000,
-  height: 500,
-  colors: {
-    education: "#3498db",
-    professional: "#2ecc71",
-    background: "#f8f9fa",
-    text: "#2c3e50",
-    grid: "#ecf0f1"
-  }
-};
+fig = go.Figure()
 
-// Calculate responsive dimensions
-const container = d3.select("#professional-timeline");
-const containerWidth = Math.min(container.node().offsetWidth || 800, config.width);
-const width = containerWidth - config.margin.left - config.margin.right;
-const height = config.height - config.margin.top - config.margin.bottom;
-
-// Create SVG
-const svg = container
-  .append("svg")
-  .attr("width", containerWidth)
-  .attr("height", config.height)
-  .style("background-color", config.colors.background)
-  .style("border-radius", "12px")
-  .style("box-shadow", "0 4px 20px rgba(0,0,0,0.1)");
-
-const g = svg.append("g")
-  .attr("transform", `translate(${config.margin.left},${config.margin.top})`);
-
-// Create scales
-const timeExtent = d3.extent(timelineData.flatMap(d => [d.startDate, d.endDate]));
-const xScale = d3.scaleTime()
-  .domain(timeExtent)
-  .range([0, width]);
-
-const yScale = d3.scaleBand()
-  .domain(timelineData.map(d => d.id))
-  .range([0, height])
-  .padding(0.3);
-
-// Create axes
-const xAxis = d3.axisBottom(xScale)
-  .tickFormat(d3.timeFormat("%Y"))
-  .ticks(d3.timeYear.every(1));
-
-const yAxis = d3.axisLeft(yScale)
-  .tickFormat("");
-
-// Add grid lines
-const xGrid = g.append("g")
-  .attr("class", "grid")
-  .attr("transform", `translate(0,${height})`)
-  .call(d3.axisBottom(xScale)
-    .tickSize(-height)
-    .tickFormat("")
-    .ticks(d3.timeYear.every(1))
-  )
-  .style("opacity", 0.3);
-
-xGrid.selectAll("line")
-  .style("stroke", config.colors.grid)
-  .style("stroke-width", 1);
-
-// Add axes
-g.append("g")
-  .attr("class", "x-axis")
-  .attr("transform", `translate(0,${height})`)
-  .call(xAxis)
-  .selectAll("text")
-  .style("font-size", "12px")
-  .style("font-weight", "600")
-  .style("fill", config.colors.text);
-
-g.append("g")
-  .attr("class", "y-axis")
-  .call(yAxis);
-
-// Create timeline bars
-const bars = g.selectAll(".timeline-bar")
-  .data(timelineData)
-  .enter()
-  .append("g")
-  .attr("class", "timeline-bar");
-
-// Add main bars
-bars.append("rect")
-  .attr("x", d => xScale(d.startDate))
-  .attr("y", d => yScale(d.id))
-  .attr("width", d => xScale(d.endDate) - xScale(d.startDate))
-  .attr("height", yScale.bandwidth())
-  .attr("rx", 6)
-  .style("fill", d => config.colors[d.type])
-  .style("opacity", 0.8)
-  .style("cursor", "pointer")
-  .on("mouseover", function(event, d) {
-    d3.select(this)
-      .style("opacity", 1)
-      .style("stroke", "#34495e")
-      .style("stroke-width", 2);
-    
-    showTooltip(event, d);
-  })
-  .on("mouseout", function(event, d) {
-    d3.select(this)
-      .style("opacity", 0.8)
-      .style("stroke", "none");
-    
-    hideTooltip();
-  });
-
-// Add labels
-bars.append("text")
-  .attr("x", d => xScale(d.startDate) + (xScale(d.endDate) - xScale(d.startDate)) / 2)
-  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
-  .attr("dy", "-0.1em")
-  .attr("text-anchor", "middle")
-  .style("fill", "white")
-  .style("font-size", "11px")
-  .style("font-weight", "600")
-  .style("pointer-events", "none")
-  .text(d => d.title);
-
-bars.append("text")
-  .attr("x", d => xScale(d.startDate) + (xScale(d.endDate) - xScale(d.startDate)) / 2)
-  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
-  .attr("dy", "1em")
-  .attr("text-anchor", "middle")
-  .style("fill", "rgba(255,255,255,0.9)")
-  .style("font-size", "9px")
-  .style("font-weight", "500")
-  .style("pointer-events", "none")
-  .text(d => d.organization);
-
-// Add side labels
-bars.append("text")
-  .attr("x", width + 10)
-  .attr("y", d => yScale(d.id) + yScale.bandwidth() / 2)
-  .attr("dy", "0.35em")
-  .style("fill", config.colors.text)
-  .style("font-size", "12px")
-  .style("font-weight", "600")
-  .text(d => d.period);
-
-// Add legend
-const legend = svg.append("g")
-  .attr("class", "legend")
-  .attr("transform", `translate(${containerWidth - 140}, 20)`);
-
-const legendData = [
-  { type: "education", label: "Education" },
-  { type: "professional", label: "Professional" }
-];
-
-const legendItems = legend.selectAll(".legend-item")
-  .data(legendData)
-  .enter()
-  .append("g")
-  .attr("class", "legend-item")
-  .attr("transform", (d, i) => `translate(0, ${i * 25})`);
-
-legendItems.append("rect")
-  .attr("width", 15)
-  .attr("height", 15)
-  .attr("rx", 3)
-  .style("fill", d => config.colors[d.type]);
-
-legendItems.append("text")
-  .attr("x", 20)
-  .attr("y", 12)
-  .style("fill", config.colors.text)
-  .style("font-size", "12px")
-  .style("font-weight", "500")
-  .text(d => d.label);
-
-// Tooltip functions
-function showTooltip(event, d) {
-  const tooltip = d3.select("body")
-    .append("div")
-    .attr("class", "professional-tooltip")
-    .style("position", "absolute")
-    .style("background", "rgba(0,0,0,0.95)")
-    .style("color", "white")
-    .style("padding", "15px")
-    .style("border-radius", "8px")
-    .style("font-size", "13px")
-    .style("line-height", "1.4")
-    .style("box-shadow", "0 8px 25px rgba(0,0,0,0.3)")
-    .style("z-index", "1000")
-    .style("max-width", "300px")
-    .style("opacity", 0);
-
-  let content = `
-    <div style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px; margin-bottom: 8px;">
-      <strong style="font-size: 14px;">${d.title}</strong><br/>
-      <span style="color: #3498db;">${d.organization}</span><br/>
-      <span style="font-size: 11px; opacity: 0.8;">${d.location} • ${d.period}</span>
-    </div>
-  `;
-
-  if (d.skills) {
-    content += `<div style="margin-bottom: 8px;"><strong>Key Skills:</strong><br/>${d.skills.join(", ")}</div>`;
-  }
-
-  if (d.achievements) {
-    content += `<div style="margin-bottom: 8px;"><strong>Achievements:</strong><br/>• ${d.achievements.join("<br/>• ")}</div>`;
-  }
-
-  if (d.gpa) {
-    content += `<div><strong>GPA:</strong> ${d.gpa}</div>`;
-  }
-
-  tooltip.html(content)
-    .style("left", (event.pageX + 15) + "px")
-    .style("top", (event.pageY - 15) + "px")
-    .transition()
-    .duration(200)
-    .style("opacity", 1);
+# Define colors
+colors = {
+    'education': '#4A90E2',  # Professional blue
+    'work': '#7ED321'       # Fresh green
 }
 
-function hideTooltip() {
-  d3.selectAll(".professional-tooltip").remove();
-}
+# Create vertical timeline
+for i, item in enumerate(timeline_data):
+    y_pos = len(timeline_data) - i - 1  # Reverse order (newest at top)
+    color = colors[item['type']]
+    
+    # Timeline dot
+    fig.add_trace(go.Scatter(
+        x=[0],
+        y=[y_pos],
+        mode='markers',
+        marker=dict(
+            size=16,
+            color=color,
+            line=dict(width=3, color='white'),
+            symbol='circle'
+        ),
+        hovertemplate=(
+            f"<b>{item['title']}</b><br>"
+            f"{item['organization']}<br>"
+            f"{item['location']}<br>"
+            f"{item['year']}<br>"
+            f"<i>{item['description']}</i>"
+            "<extra></extra>"
+        ),
+        showlegend=False
+    ))
+    
+    # Title and organization (right side)
+    fig.add_annotation(
+        x=0.15,
+        y=y_pos + 0.15,
+        text=f"<b>{item['title']}</b>",
+        showarrow=False,
+        font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
+        xanchor='left',
+        yanchor='middle'
+    )
+    
+    fig.add_annotation(
+        x=0.15,
+        y=y_pos - 0.05,
+        text=f"{item['organization']}",
+        showarrow=False,
+        font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
+        xanchor='left',
+        yanchor='middle'
+    )
+    
+    fig.add_annotation(
+        x=0.15,
+        y=y_pos - 0.25,
+        text=f"{item['location']}",
+        showarrow=False,
+        font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
+        xanchor='left',
+        yanchor='middle'
+    )
+    
+    # Year (left side)
+    fig.add_annotation(
+        x=-0.15,
+        y=y_pos,
+        text=f"<b>{item['year']}</b>",
+        showarrow=False,
+        font=dict(size=11, color='#34495E', family='Inter, Arial, sans-serif'),
+        xanchor='right',
+        yanchor='middle'
+    )
 
-// Add title
-svg.append("text")
-  .attr("x", containerWidth / 2)
-  .attr("y", 25)
-  .attr("text-anchor", "middle")
-  .style("font-size", "16px")
-  .style("font-weight", "700")
-  .style("fill", config.colors.text)
-  .text("Professional Journey Timeline");
+# Vertical timeline line
+fig.add_trace(go.Scatter(
+    x=[0, 0],
+    y=[-0.5, len(timeline_data) - 0.5],
+    mode='lines',
+    line=dict(color='#D5DBDB', width=3),
+    showlegend=False,
+    hoverinfo='skip'
+))
 
-// Add animation
-bars.selectAll("rect")
-  .style("width", 0)
-  .transition()
-  .duration(1000)
-  .delay((d, i) => i * 200)
-  .style("width", d => xScale(d.endDate) - xScale(d.startDate));
+# Legend
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=12, color=colors['education']),
+    name='Education',
+    showlegend=True
+))
 
-bars.selectAll("text")
-  .style("opacity", 0)
-  .transition()
-  .duration(500)
-  .delay((d, i) => i * 200 + 800)
-  .style("opacity", 1);
-</script>
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=12, color=colors['work']),
+    name='Professional Experience',
+    showlegend=True
+))
+
+# Layout
+fig.update_layout(
+    showlegend=True,
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=-0.15,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=11, family='Inter, Arial, sans-serif')
+    ),
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)',
+    height=400,
+    width=650,
+    margin=dict(l=100, r=250, t=20, b=60),
+    xaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.4, 1]
+    ),
+    yaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.5, len(timeline_data) - 0.5]
+    ),
+    hoverlabel=dict(
+        bgcolor="rgba(44, 62, 80, 0.95)",
+        font_size=12,
+        font_family="Inter, Arial, sans-serif",
+        bordercolor="rgba(255,255,255,0.2)"
+    )
+)
+
+fig.show()
+```
 :::
 
 ::: {.resume-download}
