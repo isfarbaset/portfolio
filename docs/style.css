@@ -637,60 +637,41 @@ h3 a:hover {
   width: 100%;
 }
 
-/* Responsive timeline */
-@media screen and (max-width: 768px) {
-  .journey-visual {
-    margin: 0.5rem 0;
-    padding: 0.25rem;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
-  }
-  
-  /* Target Plotly chart container - less aggressive constraints */
-  .journey-visual .plotly-graph-div {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 350px;
-  }
-  
-  /* Ensure Plotly chart is responsive */
-  .journey-visual .js-plotly-plot {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  .about-content {
-    padding: 0 0.25rem;
-  }
-  
-  .section-card {
-    padding: 1rem;
-    margin: 0.5rem 0;
-  }
+/* Universal responsive timeline - fluid and adaptable */
+.journey-visual {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: clamp(0.25rem, 2vw, 1rem) 0;
+  padding: clamp(0.125rem, 1vw, 0.5rem);
+  overflow: hidden;
 }
 
-@media screen and (max-width: 480px) {
-  .section-card {
-    padding: 0.75rem;
-  }
-  
-  .journey-visual {
-    padding: 0.25rem;
-    margin: 0.25rem 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
-  
-  /* More aggressive mobile styling for very small screens */
-  .journey-visual .plotly-graph-div {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 300px;
-  }
-  
-  .journey-visual .js-plotly-plot {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+/* Plotly container - universal responsive behavior */
+.journey-visual .plotly-graph-div {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+}
+
+.journey-visual .js-plotly-plot {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Fluid responsive section adjustments */
+.about-content {
+  padding: 0 clamp(0.125rem, 2vw, 0.5rem);
+}
+
+.section-card {
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  margin: clamp(0.25rem, 2vw, 1rem) 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive Design */
@@ -812,56 +793,5 @@ h3 a:hover {
   .about-header .about-links .about-link {
     width: 200px;
     justify-content: center;
-  }
-}
-
-/* iOS Safari specific fixes */
-@media screen and (max-width: 768px) {
-  /* Fix Safari iOS viewport issues */
-  .journey-visual {
-    width: 100%;
-    max-width: 100vw;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal scroll on iOS */
-  }
-  
-  /* Force container width on iOS Safari */
-  .journey-visual .plotly-graph-div {
-    width: 100% !important;
-    max-width: calc(100vw - 1rem) !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* iOS Safari plotly container fixes */
-  .journey-visual .js-plotly-plot {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* Ensure proper section containment on iOS */
-  .section-card {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-}
-
-/* iPhone specific adjustments */
-@media screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 2) {
-  .journey-visual {
-    padding: 0.5rem 0.25rem;
-    margin: 0.5rem 0;
-  }
-  
-  .journey-visual .plotly-graph-div {
-    width: 100% !important;
-    max-width: calc(100vw - 2rem) !important;
-    margin: 0 auto !important;
-  }
-  
-  .about-content {
-    padding: 0 0.5rem;
   }
 }

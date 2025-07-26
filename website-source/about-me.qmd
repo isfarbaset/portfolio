@@ -124,10 +124,10 @@ for i, item in enumerate(timeline_data):
         showlegend=False
     ))
     
-    # Title and organization (right side) - using class for responsive control
+    # Title and organization (right side) - balanced positioning
     fig.add_annotation(
-        x=0.12,
-        y=y_pos + 0.12,
+        x=0.13,
+        y=y_pos + 0.13,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
         font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
@@ -137,8 +137,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.12,
-        y=y_pos - 0.02,
+        x=0.13,
+        y=y_pos - 0.03,
         text=f"{item['organization']}",
         showarrow=False,
         font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
@@ -148,8 +148,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.12,
-        y=y_pos - 0.16,
+        x=0.13,
+        y=y_pos - 0.19,
         text=f"{item['location']}",
         showarrow=False,
         font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
@@ -160,7 +160,7 @@ for i, item in enumerate(timeline_data):
     
     # Year (left side)
     fig.add_annotation(
-        x=-0.12,
+        x=-0.13,
         y=y_pos,
         text=f"<b>{item['year']}</b>",
         showarrow=False,
@@ -243,41 +243,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
         if (!timelineContainer) return;
         
+        const containerWidth = timelineContainer.offsetWidth || window.innerWidth * 0.9;
         const screenWidth = window.innerWidth;
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        let newLayout = {};
         
-        if (screenWidth <= 430 || (isIOS && screenWidth <= 480)) {
-            // iPhone and very small mobile (more aggressive for iOS)
-            newLayout = {
-                height: 280,
-                margin: {l: 20, r: 60, t: 15, b: 50},
-                'xaxis.range': [-0.15, 0.5],
-                width: Math.min(screenWidth - 40, 350)
-            };
-        } else if (screenWidth <= 480) {
-            // Very small mobile
-            newLayout = {
-                height: 300,
-                margin: {l: 25, r: 80, t: 20, b: 60},
-                'xaxis.range': [-0.2, 0.6]
-            };
-        } else if (screenWidth <= 768) {
-            // Mobile/tablet
-            newLayout = {
-                height: 350,
-                margin: {l: 40, r: 120, t: 20, b: 60},
-                'xaxis.range': [-0.3, 0.8]
-            };
-        } else {
-            // Desktop
-            newLayout = {
-                height: 400,
-                margin: {l: 100, r: 200, t: 20, b: 60},
-                'xaxis.range': [-0.4, 1],
-                width: null // Remove width constraint for desktop
-            };
-        }
+        // Calculate responsive values based on container width
+        const widthRatio = Math.min(containerWidth / 800, 1); // Normalize to 800px base
+        const heightBase = 300 + (100 * widthRatio); // Scale height: 300-400px
+        const leftMargin = Math.max(20, 80 * widthRatio); // Scale margins: 20-80px
+        const rightMargin = Math.max(60, 180 * widthRatio); // Scale margins: 60-180px
+        const xRangeLeft = -0.1 - (0.3 * widthRatio); // Scale x-range: -0.1 to -0.4
+        const xRangeRight = 0.4 + (0.6 * widthRatio); // Scale x-range: 0.4 to 1.0
+        
+        const newLayout = {
+            height: Math.round(heightBase),
+            margin: {
+                l: Math.round(leftMargin),
+                r: Math.round(rightMargin),
+                t: 20,
+                b: 60
+            },
+            'xaxis.range': [xRangeLeft, xRangeRight],
+            width: containerWidth
+        };
         
         // Apply the layout changes
         if (window.Plotly && timelineContainer._fullLayout) {
@@ -285,21 +272,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initial adjustment with delay for iOS
-    const initialDelay = /iPad|iPhone|iPod/.test(navigator.userAgent) ? 1000 : 500;
-    setTimeout(adjustTimelineLayout, initialDelay);
+    // Initial adjustment with a small delay for DOM readiness
+    setTimeout(adjustTimelineLayout, 300);
     
-    // Adjust on window resize
+    // Debounced resize handler
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    function handleResize() {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(adjustTimelineLayout, 300);
+        resizeTimeout = setTimeout(adjustTimelineLayout, 150);
+    }
+    
+    // Universal event listeners
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(adjustTimelineLayout, 200);
     });
     
-    // iOS Safari orientation change handler
-    window.addEventListener('orientationchange', function() {
-        setTimeout(adjustTimelineLayout, 800);
-    });
+    // Observe container size changes
+    if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(function(entries) {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(adjustTimelineLayout, 100);
+        });
+        
+        const container = document.querySelector('.journey-visual');
+        if (container) {
+            resizeObserver.observe(container);
+        }
+    }
 });
 </script>
 :::
