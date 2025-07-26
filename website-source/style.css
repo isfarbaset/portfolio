@@ -814,3 +814,54 @@ h3 a:hover {
     justify-content: center;
   }
 }
+
+/* iOS Safari specific fixes */
+@media screen and (max-width: 768px) {
+  /* Fix Safari iOS viewport issues */
+  .journey-visual {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll on iOS */
+  }
+  
+  /* Force container width on iOS Safari */
+  .journey-visual .plotly-graph-div {
+    width: 100% !important;
+    max-width: calc(100vw - 1rem) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* iOS Safari plotly container fixes */
+  .journey-visual .js-plotly-plot {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure proper section containment on iOS */
+  .section-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+
+/* iPhone specific adjustments */
+@media screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 2) {
+  .journey-visual {
+    padding: 0.5rem 0.25rem;
+    margin: 0.5rem 0;
+  }
+  
+  .journey-visual .plotly-graph-div {
+    width: 100% !important;
+    max-width: calc(100vw - 2rem) !important;
+    margin: 0 auto !important;
+  }
+  
+  .about-content {
+    padding: 0 0.5rem;
+  }
+}

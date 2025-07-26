@@ -126,8 +126,8 @@ for i, item in enumerate(timeline_data):
     
     # Title and organization (right side) - using class for responsive control
     fig.add_annotation(
-        x=0.15,
-        y=y_pos + 0.15,
+        x=0.12,
+        y=y_pos + 0.12,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
         font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
@@ -137,8 +137,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.15,
-        y=y_pos - 0.05,
+        x=0.12,
+        y=y_pos - 0.02,
         text=f"{item['organization']}",
         showarrow=False,
         font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
@@ -148,8 +148,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.15,
-        y=y_pos - 0.25,
+        x=0.12,
+        y=y_pos - 0.16,
         text=f"{item['location']}",
         showarrow=False,
         font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
@@ -160,7 +160,7 @@ for i, item in enumerate(timeline_data):
     
     # Year (left side)
     fig.add_annotation(
-        x=-0.15,
+        x=-0.12,
         y=y_pos,
         text=f"<b>{item['year']}</b>",
         showarrow=False,
@@ -244,9 +244,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!timelineContainer) return;
         
         const screenWidth = window.innerWidth;
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         let newLayout = {};
         
-        if (screenWidth <= 480) {
+        if (screenWidth <= 430 || (isIOS && screenWidth <= 480)) {
+            // iPhone and very small mobile (more aggressive for iOS)
+            newLayout = {
+                height: 280,
+                margin: {l: 20, r: 60, t: 15, b: 50},
+                'xaxis.range': [-0.15, 0.5],
+                width: Math.min(screenWidth - 40, 350)
+            };
+        } else if (screenWidth <= 480) {
             // Very small mobile
             newLayout = {
                 height: 300,
@@ -265,7 +274,8 @@ document.addEventListener('DOMContentLoaded', function() {
             newLayout = {
                 height: 400,
                 margin: {l: 100, r: 200, t: 20, b: 60},
-                'xaxis.range': [-0.4, 1]
+                'xaxis.range': [-0.4, 1],
+                width: null // Remove width constraint for desktop
             };
         }
         
@@ -275,14 +285,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initial adjustment
-    setTimeout(adjustTimelineLayout, 500);
+    // Initial adjustment with delay for iOS
+    const initialDelay = /iPad|iPhone|iPod/.test(navigator.userAgent) ? 1000 : 500;
+    setTimeout(adjustTimelineLayout, initialDelay);
     
     // Adjust on window resize
     let resizeTimeout;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(adjustTimelineLayout, 300);
+    });
+    
+    // iOS Safari orientation change handler
+    window.addEventListener('orientationchange', function() {
+        setTimeout(adjustTimelineLayout, 800);
     });
 });
 </script>
