@@ -124,46 +124,50 @@ for i, item in enumerate(timeline_data):
         showlegend=False
     ))
     
-    # Title and organization (right side)
+    # Title and organization (right side) - using class for responsive control
     fig.add_annotation(
-        x=0.08,
-        y=y_pos + 0.12,
+        x=0.15,
+        y=y_pos + 0.15,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
-        font=dict(size=12, color='#2C3E50', family='Inter, Arial, sans-serif'),
+        font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
         xanchor='left',
-        yanchor='middle'
+        yanchor='middle',
+        name='title-text'
     )
     
     fig.add_annotation(
-        x=0.08,
-        y=y_pos - 0.02,
+        x=0.15,
+        y=y_pos - 0.05,
         text=f"{item['organization']}",
         showarrow=False,
-        font=dict(size=10, color='#5D6D7E', family='Inter, Arial, sans-serif'),
+        font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
         xanchor='left',
-        yanchor='middle'
+        yanchor='middle',
+        name='org-text'
     )
     
     fig.add_annotation(
-        x=0.08,
-        y=y_pos - 0.16,
+        x=0.15,
+        y=y_pos - 0.25,
         text=f"{item['location']}",
         showarrow=False,
-        font=dict(size=8, color='#85929E', family='Inter, Arial, sans-serif'),
+        font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
         xanchor='left',
-        yanchor='middle'
+        yanchor='middle',
+        name='location-text'
     )
     
     # Year (left side)
     fig.add_annotation(
-        x=-0.08,
+        x=-0.15,
         y=y_pos,
         text=f"<b>{item['year']}</b>",
         showarrow=False,
-        font=dict(size=9, color='#34495E', family='Inter, Arial, sans-serif'),
+        font=dict(size=11, color='#34495E', family='Inter, Arial, sans-serif'),
         xanchor='right',
-        yanchor='middle'
+        yanchor='middle',
+        name='year-text'
     )
 
 # Vertical timeline line
@@ -193,7 +197,7 @@ fig.add_trace(go.Scatter(
     showlegend=True
 ))
 
-# Layout
+# Layout with desktop defaults
 fig.update_layout(
     showlegend=True,
     legend=dict(
@@ -206,13 +210,13 @@ fig.update_layout(
     ),
     plot_bgcolor='rgba(0,0,0,0)',
     paper_bgcolor='rgba(0,0,0,0)',
-    height=350,
-    margin=dict(l=25, r=80, t=20, b=60),
+    height=400,
+    margin=dict(l=100, r=200, t=20, b=60),
     xaxis=dict(
         showgrid=False,
         showticklabels=False,
         zeroline=False,
-        range=[-0.2, 0.6]
+        range=[-0.4, 1]
     ),
     yaxis=dict(
         showgrid=False,
@@ -231,6 +235,58 @@ config = {
 
 fig.show(config=config)
 ```
+
+::: {#timeline-responsive-script}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustTimelineLayout() {
+        const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
+        if (!timelineContainer) return;
+        
+        const screenWidth = window.innerWidth;
+        let newLayout = {};
+        
+        if (screenWidth <= 480) {
+            // Very small mobile
+            newLayout = {
+                height: 300,
+                margin: {l: 25, r: 80, t: 20, b: 60},
+                'xaxis.range': [-0.2, 0.6]
+            };
+        } else if (screenWidth <= 768) {
+            // Mobile/tablet
+            newLayout = {
+                height: 350,
+                margin: {l: 40, r: 120, t: 20, b: 60},
+                'xaxis.range': [-0.3, 0.8]
+            };
+        } else {
+            // Desktop
+            newLayout = {
+                height: 400,
+                margin: {l: 100, r: 200, t: 20, b: 60},
+                'xaxis.range': [-0.4, 1]
+            };
+        }
+        
+        // Apply the layout changes
+        if (window.Plotly && timelineContainer._fullLayout) {
+            Plotly.relayout(timelineContainer, newLayout);
+        }
+    }
+    
+    // Initial adjustment
+    setTimeout(adjustTimelineLayout, 500);
+    
+    // Adjust on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustTimelineLayout, 300);
+    });
+});
+</script>
+:::
 :::
 
 ::: {.resume-download}

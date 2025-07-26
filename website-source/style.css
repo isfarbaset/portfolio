@@ -639,35 +639,23 @@ h3 a:hover {
 
 /* Responsive timeline */
 @media screen and (max-width: 768px) {
-  #professional-timeline svg {
-    width: 100%;
-    height: 400px;
-  }
-  
   .journey-visual {
     margin: 0.5rem 0;
     padding: 0.25rem;
     overflow-x: auto; /* Allow horizontal scrolling if needed */
   }
   
-  /* Target Plotly chart container */
+  /* Target Plotly chart container - less aggressive constraints */
   .journey-visual .plotly-graph-div {
     width: 100% !important;
     max-width: 100% !important;
-    height: 350px !important;
+    min-height: 350px;
   }
   
   /* Ensure Plotly chart is responsive */
   .journey-visual .js-plotly-plot {
     width: 100% !important;
     max-width: 100% !important;
-    height: 350px !important;
-  }
-  
-  .professional-tooltip {
-    font-size: 11px !important;
-    padding: 10px !important;
-    max-width: 250px !important;
   }
   
   .about-content {
@@ -678,19 +666,9 @@ h3 a:hover {
     padding: 1rem;
     margin: 0.5rem 0;
   }
-  
-  /* Make timeline text more readable on mobile */
-  .plotly .annotation-text {
-    font-size: 12px !important;
-  }
 }
 
 @media screen and (max-width: 480px) {
-  #professional-timeline svg {
-    width: 100%;
-    height: 300px;
-  }
-  
   .section-card {
     padding: 0.75rem;
   }
@@ -706,24 +684,12 @@ h3 a:hover {
   .journey-visual .plotly-graph-div {
     width: 100% !important;
     max-width: 100% !important;
-    height: 300px !important;
+    min-height: 300px;
   }
   
   .journey-visual .js-plotly-plot {
     width: 100% !important;
     max-width: 100% !important;
-    height: 300px !important;
-  }
-  
-  .professional-tooltip {
-    font-size: 9px !important;
-    padding: 6px !important;
-    max-width: 180px !important;
-  }
-  
-  /* Force smaller text in timeline */
-  .plotly .annotation-text {
-    font-size: 8px !important;
   }
 }
 
