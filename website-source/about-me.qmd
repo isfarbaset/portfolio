@@ -126,8 +126,8 @@ for i, item in enumerate(timeline_data):
     
     # Title and organization (right side) - balanced positioning
     fig.add_annotation(
-        x=0.13,
-        y=y_pos + 0.13,
+        x=0.18,
+        y=y_pos + 0.15,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
         font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
@@ -137,8 +137,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.13,
-        y=y_pos - 0.03,
+        x=0.18,
+        y=y_pos - 0.05,
         text=f"{item['organization']}",
         showarrow=False,
         font=dict(size=12, color='#5D6D7E', family='Inter, Arial, sans-serif'),
@@ -148,8 +148,8 @@ for i, item in enumerate(timeline_data):
     )
     
     fig.add_annotation(
-        x=0.13,
-        y=y_pos - 0.19,
+        x=0.18,
+        y=y_pos - 0.25,
         text=f"{item['location']}",
         showarrow=False,
         font=dict(size=10, color='#85929E', family='Inter, Arial, sans-serif'),
@@ -160,7 +160,7 @@ for i, item in enumerate(timeline_data):
     
     # Year (left side)
     fig.add_annotation(
-        x=-0.13,
+        x=-0.18,
         y=y_pos,
         text=f"<b>{item['year']}</b>",
         showarrow=False,
@@ -210,13 +210,13 @@ fig.update_layout(
     ),
     plot_bgcolor='rgba(0,0,0,0)',
     paper_bgcolor='rgba(0,0,0,0)',
-    height=400,
-    margin=dict(l=100, r=200, t=20, b=60),
+    height=420,
+    margin=dict(l=120, r=280, t=20, b=60),
     xaxis=dict(
         showgrid=False,
         showticklabels=False,
         zeroline=False,
-        range=[-0.4, 1]
+        range=[-0.5, 1.3]
     ),
     yaxis=dict(
         showgrid=False,
@@ -243,28 +243,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
         if (!timelineContainer) return;
         
-        const containerWidth = timelineContainer.offsetWidth || window.innerWidth * 0.9;
         const screenWidth = window.innerWidth;
+        let newLayout = {};
         
-        // Calculate responsive values based on container width
-        const widthRatio = Math.min(containerWidth / 800, 1); // Normalize to 800px base
-        const heightBase = 300 + (100 * widthRatio); // Scale height: 300-400px
-        const leftMargin = Math.max(20, 80 * widthRatio); // Scale margins: 20-80px
-        const rightMargin = Math.max(60, 180 * widthRatio); // Scale margins: 60-180px
-        const xRangeLeft = -0.1 - (0.3 * widthRatio); // Scale x-range: -0.1 to -0.4
-        const xRangeRight = 0.4 + (0.6 * widthRatio); // Scale x-range: 0.4 to 1.0
-        
-        const newLayout = {
-            height: Math.round(heightBase),
-            margin: {
-                l: Math.round(leftMargin),
-                r: Math.round(rightMargin),
-                t: 20,
-                b: 60
-            },
-            'xaxis.range': [xRangeLeft, xRangeRight],
-            width: containerWidth
-        };
+        if (screenWidth <= 768) {
+            // Mobile: Fixed width with compact margins for horizontal scrolling
+            newLayout = {
+                height: 350,
+                width: 600, // Fixed width enables horizontal scroll
+                margin: {l: 80, r: 150, t: 20, b: 60},
+                'xaxis.range': [-0.4, 1.0]
+            };
+        } else {
+            // Desktop: Full responsive width with generous spacing
+            newLayout = {
+                height: 420,
+                width: null, // Remove width constraint for desktop
+                margin: {l: 120, r: 280, t: 20, b: 60},
+                'xaxis.range': [-0.5, 1.3]
+            };
+        }
         
         // Apply the layout changes
         if (window.Plotly && timelineContainer._fullLayout) {
@@ -272,8 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initial adjustment with a small delay for DOM readiness
-    setTimeout(adjustTimelineLayout, 300);
+    // Initial adjustment with a delay for DOM readiness
+    setTimeout(adjustTimelineLayout, 500);
     
     // Debounced resize handler
     let resizeTimeout;
@@ -282,24 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
         resizeTimeout = setTimeout(adjustTimelineLayout, 150);
     }
     
-    // Universal event listeners
+    // Event listeners
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', function() {
-        setTimeout(adjustTimelineLayout, 200);
+        setTimeout(adjustTimelineLayout, 300);
     });
-    
-    // Observe container size changes
-    if (window.ResizeObserver) {
-        const resizeObserver = new ResizeObserver(function(entries) {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(adjustTimelineLayout, 100);
-        });
-        
-        const container = document.querySelector('.journey-visual');
-        if (container) {
-            resizeObserver.observe(container);
-        }
-    }
 });
 </script>
 :::
