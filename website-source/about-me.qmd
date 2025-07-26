@@ -252,6 +252,8 @@ fig.show(config=config)
 
 ::: {#timeline-responsive-script}
 <script>
+// Temporarily disabled to test if this is overriding the generous desktop layout
+/*
 document.addEventListener('DOMContentLoaded', function() {
     function adjustTimelineLayout() {
         const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
@@ -295,6 +297,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Event listeners
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(adjustTimelineLayout, 300);
+    });
+::: {#timeline-responsive-script}
+<script>
+// Fixed JavaScript - only applies layout changes to mobile, leaves desktop defaults alone
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustTimelineLayout() {
+        const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
+        if (!timelineContainer) return;
+        
+        const screenWidth = window.innerWidth;
+        
+        // Only apply layout changes for mobile - let desktop use the generous Python defaults
+        if (screenWidth <= 768) {
+            const newLayout = {
+                height: 350,
+                width: 600, // Fixed width enables horizontal scroll
+                margin: {l: 80, r: 150, t: 20, b: 60},
+                'xaxis.range': [-0.4, 1.0]
+            };
+            
+            // Apply mobile layout changes
+            if (window.Plotly && timelineContainer._fullLayout) {
+                Plotly.relayout(timelineContainer, newLayout);
+            }
+        }
+        // Desktop: Do nothing - keep the generous Python layout defaults
+    }
+    
+    // Initial adjustment with a small delay for DOM readiness  
+    setTimeout(adjustTimelineLayout, 300);
+    
+    // Debounced resize handler
+    let resizeTimeout;
+    function handleResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustTimelineLayout, 150);
+    }
+    
+    // Universal event listeners
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', function() {
         setTimeout(adjustTimelineLayout, 300);
