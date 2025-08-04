@@ -586,14 +586,15 @@ h3 a:hover {
 }
 
 .journey-visual {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  border: 1px solid #e1e8ed;
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   width: 100%;
-  overflow-x: auto; /* Enable horizontal scrolling on mobile */
+  overflow-x: auto;
   overflow-y: visible;
 }
 
@@ -629,13 +630,20 @@ h3 a:hover {
 }
 
 .section-card {
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 /* Timeline responsive behavior - mobile gets horizontal scroll */
@@ -652,21 +660,36 @@ h3 a:hover {
   box-sizing: border-box !important;
 }
 
-/* Mobile specific adjustments */
+/* Mobile specific adjustments - elegant and minimal */
 @media (max-width: 768px) {
   .journey-visual {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     padding: 1rem;
     overflow-x: auto;
     overflow-y: visible;
-    /* Enable smooth horizontal scrolling */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
   }
   
   .journey-visual .plotly-graph-div {
-    min-width: 600px !important; /* Fixed minimum width on mobile */
-    width: 600px !important;
+    min-width: 500px !important; /* Optimized mobile width */
+    width: 500px !important;
+  }
+  
+  /* Hide scrollbar for cleaner look on webkit browsers */
+  .journey-visual::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 2px;
   }
 }
 

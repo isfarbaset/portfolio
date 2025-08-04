@@ -100,10 +100,10 @@ timeline_data = [
 
 fig = go.Figure()
 
-# Define colors
+# Minimalistic color palette
 colors = {
-    'education': '#4A90E2',  # Professional blue
-    'work': '#7ED321'       # Fresh green
+    'education': '#6366F1',  # Elegant indigo
+    'work': '#10B981'       # Sophisticated emerald
 }
 
 # Create vertical timeline
@@ -111,15 +111,15 @@ for i, item in enumerate(timeline_data):
     y_pos = len(timeline_data) - i - 1  # Reverse order (newest at top)
     color = colors[item['type']]
     
-    # Timeline dot with custom hover styling
+    # Minimalistic timeline dot
     fig.add_trace(go.Scatter(
         x=[0],
         y=[y_pos],
         mode='markers',
         marker=dict(
-            size=16,
+            size=12,
             color=color,
-            line=dict(width=3, color='white'),
+            line=dict(width=2, color='rgba(255, 255, 255, 0.9)'),
             symbol='circle'
         ),
         hovertemplate=(
@@ -127,27 +127,128 @@ for i, item in enumerate(timeline_data):
             f"<span style='color:white'>{item['organization']}</span><br>"
             f"<span style='color:white'>{item['location']}</span><br>"
             f"<span style='color:white'>{item['year']}</span><br>"
-            f"<i style='color:white'>{item['description']}</i>"
+            f"<i style='color:rgba(255,255,255,0.9)'>{item['description']}</i>"
             "<extra></extra>"
         ),
         hoverlabel=dict(
             bgcolor=color,
-            font=dict(color='white', size=12, family='Inter, Arial, sans-serif'),
-            bordercolor='white'
+            font=dict(color='white', size=11, family='Inter, system-ui, sans-serif'),
+            bordercolor='rgba(255, 255, 255, 0.2)'
         ),
         showlegend=False
     ))
     
-    # Title and organization (right side) - much more spacing from timeline
+    # Clean, minimalistic text annotations
     fig.add_annotation(
-        x=0.3,
-        y=y_pos + 0.15,
+        x=0.25,
+        y=y_pos + 0.1,
         text=f"<b>{item['title']}</b>",
         showarrow=False,
-        font=dict(size=14, color='#2C3E50', family='Inter, Arial, sans-serif'),
+        font=dict(size=13, color='#1F2937', family='Inter, system-ui, sans-serif'),
         xanchor='left',
         yanchor='middle',
         name='title-text'
+    )
+    
+    fig.add_annotation(
+        x=0.25,
+        y=y_pos - 0.05,
+        text=f"{item['organization']}",
+        showarrow=False,
+        font=dict(size=11, color='#6B7280', family='Inter, system-ui, sans-serif'),
+        xanchor='left',
+        yanchor='middle',
+        name='org-text'
+    )
+    
+    fig.add_annotation(
+        x=0.25,
+        y=y_pos - 0.2,
+        text=f"{item['location']}",
+        showarrow=False,
+        font=dict(size=10, color='#9CA3AF', family='Inter, system-ui, sans-serif'),
+        xanchor='left',
+        yanchor='middle',
+        name='location-text'
+    )
+    
+    # Year (left side) - clean and minimal
+    fig.add_annotation(
+        x=-0.25,
+        y=y_pos,
+        text=f"<b>{item['year']}</b>",
+        showarrow=False,
+        font=dict(size=10, color='#374151', family='Inter, system-ui, sans-serif'),
+        xanchor='right',
+        yanchor='middle',
+        name='year-text'
+    )
+
+# Elegant timeline line
+fig.add_trace(go.Scatter(
+    x=[0, 0],
+    y=[-0.5, len(timeline_data) - 0.5],
+    mode='lines',
+    line=dict(color='#E5E7EB', width=2),
+    showlegend=False,
+    hoverinfo='skip'
+))
+
+# Minimalistic legend
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=10, color=colors['education']),
+    name='Education',
+    showlegend=True
+))
+
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=10, color=colors['work']),
+    name='Experience',
+    showlegend=True
+))
+
+# Clean, minimalistic layout
+fig.update_layout(
+    showlegend=True,
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=-0.12,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=10, family='Inter, system-ui, sans-serif', color='#6B7280')
+    ),
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)',
+    height=420,
+    margin=dict(l=160, r=320, t=20, b=50),
+    xaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.6, 1.4]
+    ),
+    yaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.5, len(timeline_data) - 0.5]
+    )
+)
+
+# Minimalistic configuration
+config = {
+    'responsive': True,
+    'displayModeBar': False,
+    'showTips': False
+}
+
+fig.show(config=config)
+```
     )
     
     fig.add_annotation(
@@ -303,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 ::: {#timeline-responsive-script}
 <script>
-// Fixed JavaScript - only applies layout changes to mobile, leaves desktop defaults alone
+// Elegant mobile optimization for minimalistic timeline
 document.addEventListener('DOMContentLoaded', function() {
     function adjustTimelineLayout() {
         const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
@@ -311,13 +412,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const screenWidth = window.innerWidth;
         
-        // Only apply layout changes for mobile - let desktop use the generous Python defaults
+        // Mobile-specific adjustments only
         if (screenWidth <= 768) {
             const newLayout = {
-                height: 350,
-                width: 600, // Fixed width enables horizontal scroll
-                margin: {l: 80, r: 150, t: 20, b: 60},
-                'xaxis.range': [-0.4, 1.0]
+                height: 300,
+                width: 500, // Optimized width for mobile
+                margin: {l: 70, r: 120, t: 15, b: 40},
+                'xaxis.range': [-0.35, 0.9],
+                'font.size': 9
             };
             
             // Apply mobile layout changes
@@ -325,23 +427,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 Plotly.relayout(timelineContainer, newLayout);
             }
         }
-        // Desktop: Do nothing - keep the generous Python layout defaults
+        // Desktop: Use the clean minimalistic Python defaults
     }
     
-    // Initial adjustment with a small delay for DOM readiness  
-    setTimeout(adjustTimelineLayout, 300);
+    // Initial adjustment
+    setTimeout(adjustTimelineLayout, 200);
     
     // Debounced resize handler
     let resizeTimeout;
     function handleResize() {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(adjustTimelineLayout, 150);
+        resizeTimeout = setTimeout(adjustTimelineLayout, 100);
     }
     
-    // Universal event listeners
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', function() {
-        setTimeout(adjustTimelineLayout, 300);
+        setTimeout(adjustTimelineLayout, 250);
     });
 });
 </script>
