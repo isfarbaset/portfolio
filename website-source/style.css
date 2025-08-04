@@ -24,42 +24,6 @@
     margin-bottom: 0.5em;
   }
 
-/* Make tables responsive but maintain side-by-side layout even on mobile */
-@media screen and (max-width: 767px) {
-  table {
-    width: 100%;
-    table-layout: fixed;
-    font-size: 0.9em; /* Slightly smaller text on mobile */
-  }
-  
-  th {
-    display: none; /* Hide headers */
-  }
-  
-  td {
-    padding: 0.5rem;
-    vertical-align: middle;
-  }
-  
-  /* Left cell (text) */
-  td:first-child {
-    width: 60%;
-    text-align: left;
-    font-size: 0.9em;
-  }
-  
-  /* Right cell (image) */
-  td:last-child {
-    width: 40%;
-    text-align: center;
-  }
-  
-  td img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
 /* Make sure tables don't have too much padding/margin */
 table {
   margin: 0.5rem 0 1.5rem 0;
@@ -660,8 +624,70 @@ h3 a:hover {
   box-sizing: border-box !important;
 }
 
-/* Mobile specific adjustments - elegant and optimized */
+/* Fluid responsive section adjustments */
+.about-content {
+  padding: 0 clamp(0.125rem, 2vw, 0.5rem);
+}
+
+.section-card {
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  margin: clamp(0.25rem, 2vw, 1rem) 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  /* Table responsive design */
+  table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.9em;
+  }
+  
+  th {
+    display: none;
+  }
+  
+  td {
+    padding: 0.5rem;
+    vertical-align: middle;
+  }
+  
+  td:first-child {
+    width: 60%;
+    text-align: left;
+    font-size: 0.9em;
+  }
+  
+  td:last-child {
+    width: 40%;
+    text-align: center;
+  }
+  
+  td img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* General mobile container styles */
+  .about-content {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  /* Unified section card mobile styling */
+  .section-card {
+    margin: 1rem 0;
+    padding: 1.2rem;
+    border-radius: 8px;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Timeline mobile optimization */
   .journey-visual {
     margin: 1rem 0;
     padding: 0.8rem;
@@ -674,7 +700,7 @@ h3 a:hover {
   }
   
   .journey-visual .plotly-graph-div {
-    min-width: 450px !important; /* Optimized mobile width */
+    min-width: 450px !important;
     width: 450px !important;
   }
   
@@ -697,28 +723,19 @@ h3 a:hover {
     background: rgba(99, 102, 241, 0.6);
   }
   
-  /* Ensure mobile section cards are properly spaced */
-  .section-card {
-    margin: 1.5rem 0;
-    padding: 1.5rem;
+  /* Education and Experience sections */
+  .education-item,
+  .experience-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
   }
-}
-
-/* Fluid responsive section adjustments */
-.about-content {
-  padding: 0 clamp(0.125rem, 2vw, 0.5rem);
-}
-
-.section-card {
-  padding: clamp(0.75rem, 3vw, 1.5rem);
-  margin: clamp(0.25rem, 2vw, 1rem) 0;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  
+  .edu-details,
+  .company-info {
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Hero section mobile */
   .hero-section {
     flex-direction: column;
     text-align: center;
@@ -744,6 +761,7 @@ h3 a:hover {
     height: 200px;
   }
   
+  /* Project grid mobile */
   .project-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -758,18 +776,32 @@ h3 a:hover {
     margin: 1rem;
   }
   
-  .section-card {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-  
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   
-  .education-item, .experience-item {
-    padding: 1rem;
+  /* About links mobile */
+  .about-header .about-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-header .about-links .about-link {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  /* Resume download button */
+  .resume-download {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .download-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 1.5rem;
   }
 }
 
@@ -825,16 +857,4 @@ h3 a:hover {
 .quarto-about-jolla h2 {
   text-align: center;
   margin-bottom: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .about-header .about-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .about-header .about-links .about-link {
-    width: 200px;
-    justify-content: center;
-  }
 }

@@ -21,20 +21,6 @@ about:
       text: Instagram
       href: https://www.instagram.com/is.far/
 ---
-            newLayout = {
-                height: 450,
-                width: null, // Remove width constraint for desktop
-                margin: {l: 200, r: 400, t: 30, b: 70},
-                'xaxis.range': [-0.8, 1.8]
-            };
-        }w.linkedin.com/in/isfarbaset/
-    - icon: github
-      text: Github
-      href: https://github.com/isfarbaset
-    - icon: instagram
-      text: Instagram
-      href: https://www.instagram.com/is.far/
----
 
 ::: {.about-content}
 

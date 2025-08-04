@@ -24,42 +24,6 @@
     margin-bottom: 0.5em;
   }
 
-/* Make tables responsive but maintain side-by-side layout even on mobile */
-@media screen and (max-width: 767px) {
-  table {
-    width: 100%;
-    table-layout: fixed;
-    font-size: 0.9em; /* Slightly smaller text on mobile */
-  }
-  
-  th {
-    display: none; /* Hide headers */
-  }
-  
-  td {
-    padding: 0.5rem;
-    vertical-align: middle;
-  }
-  
-  /* Left cell (text) */
-  td:first-child {
-    width: 60%;
-    text-align: left;
-    font-size: 0.9em;
-  }
-  
-  /* Right cell (image) */
-  td:last-child {
-    width: 40%;
-    text-align: center;
-  }
-  
-  td img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
 /* Make sure tables don't have too much padding/margin */
 table {
   margin: 0.5rem 0 1.5rem 0;
@@ -586,14 +550,16 @@ h3 a:hover {
 }
 
 .journey-visual {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  border: 1px solid #e1e8ed;
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   width: 100%;
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
 .timeline-bar rect {
@@ -628,26 +594,23 @@ h3 a:hover {
 }
 
 .section-card {
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Universal responsive timeline - fluid and adaptable */
-.journey-visual {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: clamp(0.25rem, 2vw, 1rem) 0;
-  padding: clamp(0.125rem, 1vw, 0.5rem);
-  overflow: hidden;
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Plotly container - universal responsive behavior */
+/* Timeline responsive behavior - mobile gets horizontal scroll */
 .journey-visual .plotly-graph-div {
   width: 100% !important;
   max-width: 100% !important;
@@ -676,6 +639,103 @@ h3 a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Table responsive design */
+  table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.9em;
+  }
+  
+  th {
+    display: none;
+  }
+  
+  td {
+    padding: 0.5rem;
+    vertical-align: middle;
+  }
+  
+  td:first-child {
+    width: 60%;
+    text-align: left;
+    font-size: 0.9em;
+  }
+  
+  td:last-child {
+    width: 40%;
+    text-align: center;
+  }
+  
+  td img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* General mobile container styles */
+  .about-content {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  /* Unified section card mobile styling */
+  .section-card {
+    margin: 1rem 0;
+    padding: 1.2rem;
+    border-radius: 8px;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Timeline mobile optimization */
+  .journey-visual {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+    border-radius: 8px;
+  }
+  
+  .journey-visual .plotly-graph-div {
+    min-width: 450px !important;
+    width: 450px !important;
+  }
+  
+  /* Clean mobile scrollbar */
+  .journey-visual::-webkit-scrollbar {
+    height: 3px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.4);
+    border-radius: 2px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.6);
+  }
+  
+  /* Education and Experience sections */
+  .education-item,
+  .experience-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .edu-details,
+  .company-info {
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Hero section mobile */
   .hero-section {
     flex-direction: column;
     text-align: center;
@@ -701,6 +761,7 @@ h3 a:hover {
     height: 200px;
   }
   
+  /* Project grid mobile */
   .project-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -715,18 +776,32 @@ h3 a:hover {
     margin: 1rem;
   }
   
-  .section-card {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-  
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   
-  .education-item, .experience-item {
-    padding: 1rem;
+  /* About links mobile */
+  .about-header .about-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-header .about-links .about-link {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  /* Resume download button */
+  .resume-download {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .download-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 1.5rem;
   }
 }
 
@@ -782,16 +857,4 @@ h3 a:hover {
 .quarto-about-jolla h2 {
   text-align: center;
   margin-bottom: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .about-header .about-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .about-header .about-links .about-link {
-    width: 200px;
-    justify-content: center;
-  }
 }
