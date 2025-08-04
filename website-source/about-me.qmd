@@ -359,58 +359,7 @@ fig.show(config=config)
 
 ::: {#timeline-responsive-script}
 <script>
-// Temporarily disabled to test if this is overriding the generous desktop layout
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    function adjustTimelineLayout() {
-        const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
-        if (!timelineContainer) return;
-        
-        const screenWidth = window.innerWidth;
-        let newLayout = {};
-        
-        if (screenWidth <= 768) {
-            // Mobile: Fixed width with compact margins for horizontal scrolling
-            newLayout = {
-                height: 350,
-                width: 600, // Fixed width enables horizontal scroll
-                margin: {l: 80, r: 150, t: 20, b: 60},
-                'xaxis.range': [-0.4, 1.0]
-            };
-        } else {
-            // Desktop: Much more generous spacing to prevent scrunched appearance
-            newLayout = {
-                height: 450,
-                width: null, // Remove width constraint for desktop
-                margin: {l: 200, r: 400, t: 30, b: 70},
-                'xaxis.range': [-0.8, 1.8]
-            };
-        }
-        
-        // Apply the layout changes
-        if (window.Plotly && timelineContainer._fullLayout) {
-            Plotly.relayout(timelineContainer, newLayout);
-        }
-    }
-    
-    // Initial adjustment with a delay for DOM readiness
-    setTimeout(adjustTimelineLayout, 500);
-    
-    // Debounced resize handler
-    let resizeTimeout;
-    function handleResize() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(adjustTimelineLayout, 150);
-    }
-    
-    // Event listeners
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', function() {
-        setTimeout(adjustTimelineLayout, 300);
-    });
-::: {#timeline-responsive-script}
-<script>
-// Elegant mobile optimization for minimalistic timeline
+// Mobile-optimized timeline with better responsive handling
 document.addEventListener('DOMContentLoaded', function() {
     function adjustTimelineLayout() {
         const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
@@ -418,22 +367,44 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const screenWidth = window.innerWidth;
         
-        // Mobile-specific adjustments only
+        // Apply mobile-specific optimizations
         if (screenWidth <= 768) {
             const newLayout = {
-                height: 300,
-                width: 500, // Optimized width for mobile
-                margin: {l: 70, r: 120, t: 15, b: 40},
-                'xaxis.range': [-0.35, 0.9],
-                'font.size': 9
+                height: 280,
+                width: 450, // Compact width for mobile scrolling
+                margin: {l: 60, r: 100, t: 15, b: 35},
+                'xaxis.range': [-0.3, 0.8]
             };
             
-            // Apply mobile layout changes
+            // Also update annotation positions for mobile
+            const mobileAnnotations = timelineContainer._fullLayout.annotations.map(annotation => {
+                const newAnnotation = {...annotation};
+                
+                // Adjust text positioning for mobile
+                if (annotation.x > 0) {
+                    newAnnotation.x = 0.2; // Move text closer to timeline on mobile
+                }
+                if (annotation.x < 0) {
+                    newAnnotation.x = -0.2; // Move years closer to timeline on mobile
+                }
+                
+                // Reduce font sizes for mobile
+                newAnnotation.font = {
+                    ...annotation.font,
+                    size: Math.max(8, annotation.font.size * 0.8)
+                };
+                
+                return newAnnotation;
+            });
+            
+            newLayout.annotations = mobileAnnotations;
+            
+            // Apply mobile layout
             if (window.Plotly && timelineContainer._fullLayout) {
                 Plotly.relayout(timelineContainer, newLayout);
             }
         }
-        // Desktop: Use the clean minimalistic Python defaults
+        // Desktop: Keep the clean minimalistic Python defaults
     }
     
     // Initial adjustment

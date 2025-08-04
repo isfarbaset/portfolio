@@ -660,26 +660,27 @@ h3 a:hover {
   box-sizing: border-box !important;
 }
 
-/* Mobile specific adjustments - elegant and minimal */
+/* Mobile specific adjustments - elegant and optimized */
 @media (max-width: 768px) {
   .journey-visual {
-    margin: 1.5rem 0;
-    padding: 1rem;
+    margin: 1rem 0;
+    padding: 0.8rem;
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+    border-radius: 8px;
   }
   
   .journey-visual .plotly-graph-div {
-    min-width: 500px !important; /* Optimized mobile width */
-    width: 500px !important;
+    min-width: 450px !important; /* Optimized mobile width */
+    width: 450px !important;
   }
   
-  /* Hide scrollbar for cleaner look on webkit browsers */
+  /* Clean mobile scrollbar */
   .journey-visual::-webkit-scrollbar {
-    height: 4px;
+    height: 3px;
   }
   
   .journey-visual::-webkit-scrollbar-track {
@@ -688,8 +689,18 @@ h3 a:hover {
   }
   
   .journey-visual::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.4);
     border-radius: 2px;
+  }
+  
+  .journey-visual::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.6);
+  }
+  
+  /* Ensure mobile section cards are properly spaced */
+  .section-card {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
   }
 }
 
