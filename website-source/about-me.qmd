@@ -53,6 +53,10 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 ```{python}
 #| echo: false
 import plotly.graph_objects as go
+import plotly.io as pio
+
+# Clear any default templates to prevent overrides
+pio.templates.default = "none"
 
 # Timeline data organized chronologically
 timeline_data = [
@@ -211,7 +215,7 @@ fig.add_trace(go.Scatter(
     showlegend=True
 ))
 
-# Clean, minimalistic layout
+# Clean, minimalistic layout with explicit overrides
 fig.update_layout(
     showlegend=True,
     legend=dict(
@@ -237,7 +241,9 @@ fig.update_layout(
         showticklabels=False,
         zeroline=False,
         range=[-0.5, len(timeline_data) - 0.5]
-    )
+    ),
+    # Override default template margins explicitly
+    template=None
 )
 
 # Minimalistic configuration
