@@ -1,5 +1,5 @@
 ---
-title: "Chat with Isfar"
+title: ""
 page-layout: full
 output-dir: ../../../docs
 format:
