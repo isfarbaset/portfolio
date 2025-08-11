@@ -89,6 +89,20 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about-me-chatbot.html"> 
+<span class="menu-text">Chat with Isfar</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://www.linkedin.com/in/isfarbaset/"> <i class="bi bi-linkedin" role="img">
@@ -111,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">About Me</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -155,14 +169,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="hero-title title display-7"></h1></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">About Me</h1>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div class="hero-section">
 <section id="section" class="level1 hero-title hero-content">
-
+<h1 class="hero-title"></h1>
 <p>Isfar Baset</p>
 <div class="hero-subtitle">
 <p><span class="animated-text">Data Analyst</span></p>
@@ -308,6 +338,399 @@ Portfolio curated by Isfar Baset
 </footer>
 
 
+<div class="about-content">
+<div class="about-intro">
+<p>Hello! I’m originally from <strong>Dhaka</strong>, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.</p>
+<p>I am currently a <strong>Data Analyst II</strong> at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a <strong>Master’s of Science in Data Science &amp; Analytics</strong> from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.</p>
+<p>I love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.</p>
+</div>
+<section id="professional-journey" class="level2 section-card">
+<h2 class="anchored" data-anchor-id="professional-journey">📊 Professional Journey</h2>
+<div class="journey-visual">
+<pre class="{python}"><code>#| echo: false
+import plotly.graph_objects as go
+import plotly.io as pio
+
+# Clear any default templates to prevent overrides
+pio.templates.default = "none"
+
+# Timeline data organized chronologically
+timeline_data = [
+    {
+        'year': '2015-2020',
+        'title': 'Bachelor of Science in Computer Science',
+        'organization': 'Grand Valley State University',
+        'location': 'Grand Rapids, MI',
+        'type': 'education',
+        'description': 'Foundation in computer science and programming'
+    },
+    {
+        'year': '2020-2021',
+        'title': 'Computer Engineer',
+        'organization': 'Array of Engineers',
+        'location': 'Grand Rapids, MI',
+        'type': 'work',
+        'description': 'Aerospace software verification and web development'
+    },
+    {
+        'year': '2021-2023',
+        'title': 'Data Analyst I',
+        'organization': 'Shift Digital',
+        'location': 'Birmingham, MI',
+        'type': 'work',
+        'description': 'Data operations and analytics for enterprise clients'
+    },
+    {
+        'year': '2023-2025',
+        'title': 'Master of Science in Data Science and Analytics',
+        'organization': 'Georgetown University',
+        'location': 'Washington, D.C.',
+        'type': 'education',
+        'description': 'Advanced data science and analytics specialization'
+    },
+    {
+        'year': '2025-Present',
+        'title': 'Data Analyst II',
+        'organization': 'Shift Digital',
+        'location': 'Birmingham, MI',
+        'type': 'work',
+        'description': 'Leading analytics initiatives and mentoring team members'
+    }
+]
+
+fig = go.Figure()
+
+# Minimalistic color palette
+colors = {
+    'education': '#6366F1',  # Elegant indigo
+    'work': '#10B981'       # Sophisticated emerald
+}
+
+# Create vertical timeline
+for i, item in enumerate(timeline_data):
+    y_pos = len(timeline_data) - i - 1  # Reverse order (newest at top)
+    color = colors[item['type']]
+    
+    # Minimalistic timeline dot
+    fig.add_trace(go.Scatter(
+        x=[0],
+        y=[y_pos],
+        mode='markers',
+        marker=dict(
+            size=12,
+            color=color,
+            line=dict(width=2, color='rgba(255, 255, 255, 0.9)'),
+            symbol='circle'
+        ),
+        hovertemplate=(
+            f"&lt;b style='color:white'&gt;{item['title']}&lt;/b&gt;&lt;br&gt;"
+            f"&lt;span style='color:white'&gt;{item['organization']}&lt;/span&gt;&lt;br&gt;"
+            f"&lt;span style='color:white'&gt;{item['location']}&lt;/span&gt;&lt;br&gt;"
+            f"&lt;span style='color:white'&gt;{item['year']}&lt;/span&gt;&lt;br&gt;"
+            f"&lt;i style='color:rgba(255,255,255,0.9)'&gt;{item['description']}&lt;/i&gt;"
+            "&lt;extra&gt;&lt;/extra&gt;"
+        ),
+        hoverlabel=dict(
+            bgcolor=color,
+            font=dict(color='white', size=11, family='Inter, system-ui, sans-serif'),
+            bordercolor='rgba(255, 255, 255, 0.2)'
+        ),
+        showlegend=False
+    ))
+    
+    # Clean, minimalistic text annotations
+    fig.add_annotation(
+        x=0.25,
+        y=y_pos + 0.1,
+        text=f"&lt;b&gt;{item['title']}&lt;/b&gt;",
+        showarrow=False,
+        font=dict(size=13, color='#1F2937', family='Inter, system-ui, sans-serif'),
+        xanchor='left',
+        yanchor='middle',
+        name='title-text'
+    )
+    
+    fig.add_annotation(
+        x=0.25,
+        y=y_pos - 0.05,
+        text=f"{item['organization']}",
+        showarrow=False,
+        font=dict(size=11, color='#6B7280', family='Inter, system-ui, sans-serif'),
+        xanchor='left',
+        yanchor='middle',
+        name='org-text'
+    )
+    
+    fig.add_annotation(
+        x=0.25,
+        y=y_pos - 0.2,
+        text=f"{item['location']}",
+        showarrow=False,
+        font=dict(size=10, color='#9CA3AF', family='Inter, system-ui, sans-serif'),
+        xanchor='left',
+        yanchor='middle',
+        name='location-text'
+    )
+    
+    # Year (left side) - clean and minimal
+    fig.add_annotation(
+        x=-0.25,
+        y=y_pos,
+        text=f"&lt;b&gt;{item['year']}&lt;/b&gt;",
+        showarrow=False,
+        font=dict(size=10, color='#374151', family='Inter, system-ui, sans-serif'),
+        xanchor='right',
+        yanchor='middle',
+        name='year-text'
+    )
+
+# Elegant timeline line
+fig.add_trace(go.Scatter(
+    x=[0, 0],
+    y=[-0.5, len(timeline_data) - 0.5],
+    mode='lines',
+    line=dict(color='#E5E7EB', width=2),
+    showlegend=False,
+    hoverinfo='skip'
+))
+
+# Minimalistic legend
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=10, color=colors['education']),
+    name='Education',
+    showlegend=True
+))
+
+fig.add_trace(go.Scatter(
+    x=[None], y=[None],
+    mode='markers',
+    marker=dict(size=10, color=colors['work']),
+    name='Experience',
+    showlegend=True
+))
+
+# Clean, minimalistic layout with explicit overrides
+fig.update_layout(
+    showlegend=True,
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=-0.12,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=10, family='Inter, system-ui, sans-serif', color='#6B7280')
+    ),
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)',
+    height=420,
+    margin=dict(l=160, r=320, t=20, b=50),
+    xaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.6, 1.4]
+    ),
+    yaxis=dict(
+        showgrid=False,
+        showticklabels=False,
+        zeroline=False,
+        range=[-0.5, len(timeline_data) - 0.5]
+    ),
+    # Override default template margins explicitly
+    template=None
+)
+
+# Minimalistic configuration
+config = {
+    'responsive': True,
+    'displayModeBar': False,
+    'showTips': False
+}
+
+fig.show(config=config)</code></pre>
+<div id="timeline-responsive-script">
+<script>
+// Mobile-optimized timeline with better responsive handling
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustTimelineLayout() {
+        const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
+        if (!timelineContainer) return;
+        
+        const screenWidth = window.innerWidth;
+        
+        // Apply mobile-specific optimizations
+        if (screenWidth <= 768) {
+            const newLayout = {
+                height: 280,
+                width: 450, // Compact width for mobile scrolling
+                margin: {l: 60, r: 100, t: 15, b: 35},
+                'xaxis.range': [-0.3, 0.8]
+            };
+            
+            // Also update annotation positions for mobile
+            const mobileAnnotations = timelineContainer._fullLayout.annotations.map(annotation => {
+                const newAnnotation = {...annotation};
+                
+                // Adjust text positioning for mobile
+                if (annotation.x > 0) {
+                    newAnnotation.x = 0.2; // Move text closer to timeline on mobile
+                }
+                if (annotation.x < 0) {
+                    newAnnotation.x = -0.2; // Move years closer to timeline on mobile
+                }
+                
+                // Reduce font sizes for mobile
+                newAnnotation.font = {
+                    ...annotation.font,
+                    size: Math.max(8, annotation.font.size * 0.8)
+                };
+                
+                return newAnnotation;
+            });
+            
+            newLayout.annotations = mobileAnnotations;
+            
+            // Apply mobile layout
+            if (window.Plotly && timelineContainer._fullLayout) {
+                Plotly.relayout(timelineContainer, newLayout);
+            }
+        }
+        // Desktop: Keep the clean minimalistic Python defaults
+    }
+    
+    // Initial adjustment
+    setTimeout(adjustTimelineLayout, 200);
+    
+    // Debounced resize handler
+    let resizeTimeout;
+    function handleResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustTimelineLayout, 100);
+    }
+    
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(adjustTimelineLayout, 250);
+    });
+});
+</script>
+</div>
+</div>
+<div class="resume-download">
+<p>For a detailed overview of my experience:<br>
+<a href="Isfar Baset Resume.pdf" class="btn btn-primary download-btn">Download Resume</a></p>
+</div>
+</section>
+<section id="education" class="level2 section-card">
+<h2 class="anchored" data-anchor-id="education">🎓 Education</h2>
+<section id="georgetown-university" class="level3 education-item">
+<h3 class="anchored" data-anchor-id="georgetown-university">Georgetown University</h3>
+<div class="edu-details">
+<p><strong>Master of Science in Data Science and Analytics</strong> • GPA: 4.0<br>
+📍 Washington, D.C. • May 2023 - May 2025</p>
+</div>
+<div class="coursework">
+<p><strong>Key Coursework:</strong><br>
+Probabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data &amp; Cloud Computing • Applied Generative AI</p>
+</div>
+<div class="activities">
+<p><strong>Leadership:</strong> Social Committee Member &amp; Lead Mentor in the Data Science and Analytics program</p>
+</div>
+</section>
+<section id="grand-valley-state-university" class="level3 education-item">
+<h3 class="anchored" data-anchor-id="grand-valley-state-university">Grand Valley State University</h3>
+<div class="edu-details">
+<p><strong>Bachelor of Science in Computer Science</strong><br>
+📍 Grand Rapids, MI • Aug 2015 - May 2020</p>
+</div>
+</section>
+</section>
+<section id="professional-experience" class="level2 section-card">
+<h2 class="anchored" data-anchor-id="professional-experience">💼 Professional Experience</h2>
+<section id="data-analyst-ii-current" class="level3 experience-item">
+<h3 class="anchored" data-anchor-id="data-analyst-ii-current">Data Analyst II (Current)</h3>
+<div class="company-info">
+<p><strong>Shift Digital, Data Operations and Analytics Team</strong> • Birmingham, MI • May 2025 - Present</p>
+</div>
+<div class="achievements">
+<ul>
+<li>Leading advanced data operations and analytics initiatives for enterprise clients</li>
+<li>Driving strategic data architecture decisions and mentoring junior analysts</li>
+</ul>
+</div>
+</section>
+<section id="data-analyst-i" class="level3 experience-item">
+<h3 class="anchored" data-anchor-id="data-analyst-i">Data Analyst I</h3>
+<div class="company-info">
+<p><strong>Shift Digital, Data Operations and Analytics Team</strong> • Birmingham, MI • Nov 2021 - May 2023</p>
+</div>
+<div class="achievements">
+<ul>
+<li>Improved data accuracy by <strong>25%</strong> across 10+ enterprise projects by optimizing big data ETL processes</li>
+<li>Worked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives</li>
+<li>Streamlined operations for 12 high-value clients and saved <strong>15 hours weekly</strong> by automating billing data processing</li>
+<li>Managed data migration and transformation within Databricks, creating efficient pipelines for business-critical insights</li>
+<li>Leveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets</li>
+<li>Enhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders</li>
+<li>Crafted technical proposals achieving <strong>near 100% customer approval rate</strong></li>
+</ul>
+</div>
+</section>
+<section id="computer-engineer" class="level3 experience-item">
+<h3 class="anchored" data-anchor-id="computer-engineer">Computer Engineer</h3>
+<div class="company-info">
+<p><strong>Array of Engineers</strong> • Grand Rapids, MI • Jul 2020 - Nov 2021</p>
+</div>
+<div class="achievements">
+<ul>
+<li>Verified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance</li>
+<li>Improved user experience by optimizing web app features with AngularJS, increasing client retention by <strong>25%</strong></li>
+<li>Introduced modular workflows for software testing, achieving <strong>98% on-time delivery</strong></li>
+<li>Conducted A/B testing on web app features, identifying improvements to enhance functionality and usability</li>
+<li>Led GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="technical-skills" class="level2 section-card">
+<h2 class="anchored" data-anchor-id="technical-skills">🛠️ Technical Skills</h2>
+<div class="skills-grid">
+<div class="skill-category">
+<p><strong>Programming</strong><br>
+Python • SQL • R • Java • C++</p>
+</div>
+<div class="skill-category">
+<p><strong>Machine Learning</strong><br>
+Scikit-learn • TensorFlow • PyTorch • XGBoost</p>
+</div>
+<div class="skill-category">
+<p><strong>Data Visualization</strong><br>
+Tableau • Plotly • Seaborn</p>
+</div>
+<div class="skill-category">
+<p><strong>Big Data &amp; Cloud</strong><br>
+Apache Spark • Databricks • AWS SageMaker</p>
+</div>
+<div class="skill-category">
+<p><strong>NLP</strong><br>
+spaCy • Hugging Face • BERT</p>
+</div>
+<div class="skill-category">
+<p><strong>Databases</strong><br>
+MySQL • PostgreSQL • MongoDB • Snowflake</p>
+</div>
+<div class="skill-category">
+<p><strong>Tools &amp; Methods</strong><br>
+Docker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis</p>
+</div>
+</div>
+</section>
+<div class="about-footer">
+<p><em>Building data-driven solutions with coffee, creativity and precision</em> ✨</p>
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

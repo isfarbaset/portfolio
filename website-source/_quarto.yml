@@ -9,6 +9,13 @@ website:
   navbar:
     background: primary
     search: true
+    left:
+      - text: "Home"
+        href: "index.qmd"
+      - text: "About Me"
+        href: "about-me.qmd"
+      - text: "Chat with Isfar"
+        href: "about-me-chatbot.qmd"
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/isfarbaset/
