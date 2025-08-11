@@ -7,48 +7,40 @@ format:
     css: style.css
 ---
 
-::: {.chatbot-container}
+<div class="chatbot-container">
 
-::: {.chat-header}
-# 💬 Chat with Isfar
-### Ask me anything about my background, experience, or interests!
-:::
+<div class="chat-header">
+<h1>💬 Chat with Isfar</h1>
+<h3>Ask me anything about her background, experience, or interests!</h3>
+</div>
 
-::: {.chat-window}
-::: {.chat-messages}
-::: {.message bot-message}
-::: {.message-content}
-👋 Hi there! I'm Isfar's AI assistant. Feel free to ask me anything about his background, experience, skills, or interests. Here are some example questions to get you started:
+<div class="chat-window">
+<div class="chat-messages">
+<div class="message bot-message">
+<div class="message-content">
+👋 Hi there! I'm Isfar's AI assistant. Feel free to ask me anything about her background, experience, skills, or interests. Here are some example questions to get you started:
 
 • Tell me about Isfar's professional experience
-• What technologies does he work with?
-• Where is he from and where has he lived?
-• What are his hobbies and interests?
-• What did he study in school?
-• What kind of projects has he worked on?
+• What technologies does she work with?
+• Where is she from and where has she lived?
+• What are her hobbies and interests?
+• What did she study in school?
+• What kind of projects has she worked on?
 
 What would you like to know?
-:::
-:::
-:::
+</div>
+</div>
+</div>
 
-::: {.chat-input-container}
-::: {.suggested-questions}
-::: {.suggestion-chip}
-Tell me about his background
-:::
-::: {.suggestion-chip}
-What's his experience?
-:::
-::: {.suggestion-chip}
-What are his skills?
-:::
-::: {.suggestion-chip}
-What are his hobbies?
-:::
-:::
+<div class="chat-input-container">
+<div class="suggested-questions">
+<div class="suggestion-chip">Tell me about her background</div>
+<div class="suggestion-chip">What's her experience?</div>
+<div class="suggestion-chip">What are her skills?</div>
+<div class="suggestion-chip">What are her hobbies?</div>
+</div>
 
-::: {.chat-input-wrapper}
+<div class="chat-input-wrapper">
 <input type="text" id="chat-input" placeholder="Type your question here..." />
 <button id="send-button">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -56,66 +48,66 @@ What are his hobbies?
 <path d="m22 2-11 10"/>
 </svg>
 </button>
-:::
-:::
-:::
+</div>
+</div>
+</div>
 
-:::
+</div>
 
 <script>
-// Isfar's knowledge base - comprehensive information about him
+// Isfar's knowledge base - updated with correct pronouns
 const isfarKnowledge = {
   background: {
     keywords: ['background', 'origin', 'from', 'hometown', 'where', 'born', 'grew up'],
-    response: "I'm originally from Dhaka, the vibrant capital city of Bangladesh! 🇧🇩 I came to the US in 2015 to pursue my bachelor's degree in Computer Science. I lived in West Michigan for several years before moving to Northern Virginia in 2022. It's been quite a journey across different cultures and places!"
+    response: "She's originally from Dhaka, the vibrant capital city of Bangladesh! 🇧🇩 Isfar came to the US in 2015 to pursue her bachelor's degree in Computer Science. She lived in West Michigan for several years before moving to Northern Virginia in 2022. It's been quite a journey across different cultures and places!"
   },
   
   education: {
     keywords: ['education', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand valley'],
-    response: "I have a strong educational foundation in technology and data science! 🎓 I earned my Bachelor of Science in Computer Science from Grand Valley State University (2015-2020) in Grand Rapids, MI. Most recently, I completed my Master of Science in Data Science & Analytics from Georgetown University in 2025. The combination gives me both technical depth and analytical expertise."
+    response: "Isfar has a strong educational foundation in technology and data science! 🎓 She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020) in Grand Rapids, MI. Most recently, she completed her Master of Science in Data Science & Analytics from Georgetown University in 2025. The combination gives her both technical depth and analytical expertise."
   },
   
   experience: {
     keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift digital', 'array of engineers'],
-    response: "I'm currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I work with enterprise clients to create data-driven solutions. 📊 Before this, I was a Data Analyst I at the same company (2021-2023), and even earlier, I worked as a Computer Engineer at Array of Engineers (2020-2021) focusing on aerospace software verification and web development. I love solving complex business problems with data!"
+    response: "She's currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where she works with enterprise clients to create data-driven solutions. 📊 Before this, she was a Data Analyst I at the same company (2021-2023), and even earlier, she worked as a Computer Engineer at Array of Engineers (2020-2021) focusing on aerospace software verification and web development. She loves solving complex business problems with data!"
   },
   
   skills: {
     keywords: ['skills', 'technologies', 'programming', 'languages', 'tools', 'python', 'sql', 'data'],
-    response: "I work with a diverse set of technologies! 💻 My core skills include Python, SQL, R, and various data visualization tools like Plotly and Tableau. I'm experienced with machine learning frameworks, statistical analysis, and database management. I also have a background in web development and software engineering from my computer science studies. I'm passionate about turning complex data into actionable insights!"
+    response: "She works with a diverse set of technologies! 💻 Her core skills include Python, SQL, R, and various data visualization tools like Plotly and Tableau. She's experienced with machine learning frameworks, statistical analysis, and database management. She also has a background in web development and software engineering from her computer science studies. She's passionate about turning complex data into actionable insights!"
   },
   
   hobbies: {
     keywords: ['hobbies', 'interests', 'free time', 'fun', 'enjoy', 'like', 'love', 'outside work'],
-    response: "When I'm not analyzing data, I love exploring life's simple pleasures! ☕ I'm a big fan of charming cafes and trying new cuisines - there's something magical about discovering a great new restaurant or coffee shop. I also enjoy reading, painting (it's my creative outlet!), and watching movies and TV shows. I find that these activities help me stay creative and inspired in my professional work too."
+    response: "When she's not analyzing data, Isfar loves exploring life's simple pleasures! ☕ She's a big fan of charming cafes and trying new cuisines - there's something magical about discovering a great new restaurant or coffee shop. She also enjoys reading, painting (it's her creative outlet!), and watching movies and TV shows. She finds that these activities help her stay creative and inspired in her professional work too."
   },
   
   location: {
     keywords: ['location', 'live', 'based', 'virginia', 'michigan', 'where do you live'],
-    response: "I currently live in Northern Virginia! 🏠 I moved here in 2022 from West Michigan, where I spent several years during and after my undergraduate studies. The DC area has been amazing for my career in data science, and I love the vibrant tech community here."
+    response: "She currently lives in Northern Virginia! 🏠 Isfar moved there in 2022 from West Michigan, where she spent several years during and after her undergraduate studies. The DC area has been amazing for her career in data science, and she loves the vibrant tech community there."
   },
   
   projects: {
     keywords: ['projects', 'portfolio', 'work on', 'built', 'created', 'developed'],
-    response: "I've worked on some really interesting projects! 🚀 My work at Shift Digital involves creating data solutions for enterprise clients, which often means building complex analytics pipelines and visualizations. I also enjoy personal projects that combine my love for data with real-world applications. You can check out some of my work in the projects section of this portfolio!"
+    response: "She's worked on some really interesting projects! 🚀 Her work at Shift Digital involves creating data solutions for enterprise clients, which often means building complex analytics pipelines and visualizations. She also enjoys personal projects that combine her love for data with real-world applications. You can check out some of her work in the projects section of this portfolio!"
   },
   
   goals: {
     keywords: ['goals', 'future', 'aspirations', 'want to', 'plan', 'career goals'],
-    response: "I'm passionate about leveraging data and algorithms to solve complex business problems! 🎯 My goal is to continue growing as a data scientist while helping organizations make better decisions through data-driven insights. I particularly enjoy communicating complex findings to non-technical stakeholders - making data accessible and actionable for everyone."
+    response: "She's passionate about leveraging data and algorithms to solve complex business problems! 🎯 Her goal is to continue growing as a data scientist while helping organizations make better decisions through data-driven insights. She particularly enjoys communicating complex findings to non-technical stakeholders - making data accessible and actionable for everyone."
   },
   
   culture: {
     keywords: ['culture', 'bangladesh', 'bengali', 'heritage', 'cultural'],
-    response: "My Bangladeshi heritage is a big part of who I am! 🇧🇩 Growing up in Dhaka gave me a rich cultural foundation, and I love sharing aspects of Bengali culture with friends here in the US. The values of hard work, education, and family that are central to Bengali culture have definitely shaped my approach to life and career."
+    response: "Her Bangladeshi heritage is a big part of who she is! 🇧🇩 Growing up in Dhaka gave her a rich cultural foundation, and she loves sharing aspects of Bengali culture with friends here in the US. The values of hard work, education, and family that are central to Bengali culture have definitely shaped her approach to life and career."
   }
 };
 
 // Fallback responses for unmatched queries
 const fallbackResponses = [
   "That's an interesting question! While I don't have specific information about that, I'd recommend reaching out to Isfar directly through LinkedIn or email for more details.",
-  "I don't have information about that particular topic in my knowledge base. Feel free to ask about his background, experience, skills, or interests!",
-  "Hmm, I'm not sure about that one. Try asking about his professional experience, education, hobbies, or background - I have lots to share about those topics!",
+  "I don't have information about that particular topic in my knowledge base. Feel free to ask about her background, experience, skills, or interests!",
+  "Hmm, I'm not sure about that one. Try asking about her professional experience, education, hobbies, or background - I have lots to share about those topics!",
   "That's outside my current knowledge base, but I'd love to tell you about Isfar's journey from Bangladesh to becoming a data scientist in the US!"
 ];
 

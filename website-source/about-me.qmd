@@ -35,280 +35,58 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 ::: {.section-card}
 ## 📊 Professional Journey
 
-::: {.journey-visual}
-```{python}
-#| echo: false
-import plotly.graph_objects as go
-import plotly.io as pio
+<div class="simple-timeline">
+  <div class="timeline-item education">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Master of Science in Data Science & Analytics</h4>
+      <span class="timeline-org">Georgetown University</span>
+      <span class="timeline-period">2023-2025</span>
+      <p>Advanced specialization in data science, machine learning, and analytics</p>
+    </div>
+  </div>
+  
+  <div class="timeline-item work">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Data Analyst II</h4>
+      <span class="timeline-org">Shift Digital</span>
+      <span class="timeline-period">2025-Present</span>
+      <p>Leading analytics initiatives and mentoring team members</p>
+    </div>
+  </div>
+  
+  <div class="timeline-item work">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Data Analyst I</h4>
+      <span class="timeline-org">Shift Digital</span>
+      <span class="timeline-period">2021-2023</span>
+      <p>Data operations and analytics for enterprise clients</p>
+    </div>
+  </div>
+  
+  <div class="timeline-item work">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Computer Engineer</h4>
+      <span class="timeline-org">Array of Engineers</span>
+      <span class="timeline-period">2020-2021</span>
+      <p>Aerospace software verification and web development</p>
+    </div>
+  </div>
+  
+  <div class="timeline-item education">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Bachelor of Science in Computer Science</h4>
+      <span class="timeline-org">Grand Valley State University</span>
+      <span class="timeline-period">2015-2020</span>
+      <p>Foundation in computer science and programming</p>
+    </div>
+  </div>
+</div>
 
-# Clear any default templates to prevent overrides
-pio.templates.default = "none"
-
-# Timeline data organized chronologically
-timeline_data = [
-    {
-        'year': '2015-2020',
-        'title': 'Bachelor of Science in Computer Science',
-        'organization': 'Grand Valley State University',
-        'location': 'Grand Rapids, MI',
-        'type': 'education',
-        'description': 'Foundation in computer science and programming'
-    },
-    {
-        'year': '2020-2021',
-        'title': 'Computer Engineer',
-        'organization': 'Array of Engineers',
-        'location': 'Grand Rapids, MI',
-        'type': 'work',
-        'description': 'Aerospace software verification and web development'
-    },
-    {
-        'year': '2021-2023',
-        'title': 'Data Analyst I',
-        'organization': 'Shift Digital',
-        'location': 'Birmingham, MI',
-        'type': 'work',
-        'description': 'Data operations and analytics for enterprise clients'
-    },
-    {
-        'year': '2023-2025',
-        'title': 'Master of Science in Data Science and Analytics',
-        'organization': 'Georgetown University',
-        'location': 'Washington, D.C.',
-        'type': 'education',
-        'description': 'Advanced data science and analytics specialization'
-    },
-    {
-        'year': '2025-Present',
-        'title': 'Data Analyst II',
-        'organization': 'Shift Digital',
-        'location': 'Birmingham, MI',
-        'type': 'work',
-        'description': 'Leading analytics initiatives and mentoring team members'
-    }
-]
-
-fig = go.Figure()
-
-# Minimalistic color palette
-colors = {
-    'education': '#6366F1',  # Elegant indigo
-    'work': '#10B981'       # Sophisticated emerald
-}
-
-# Create vertical timeline
-for i, item in enumerate(timeline_data):
-    y_pos = len(timeline_data) - i - 1  # Reverse order (newest at top)
-    color = colors[item['type']]
-    
-    # Minimalistic timeline dot
-    fig.add_trace(go.Scatter(
-        x=[0],
-        y=[y_pos],
-        mode='markers',
-        marker=dict(
-            size=12,
-            color=color,
-            line=dict(width=2, color='rgba(255, 255, 255, 0.9)'),
-            symbol='circle'
-        ),
-        hovertemplate=(
-            f"<b style='color:white'>{item['title']}</b><br>"
-            f"<span style='color:white'>{item['organization']}</span><br>"
-            f"<span style='color:white'>{item['location']}</span><br>"
-            f"<span style='color:white'>{item['year']}</span><br>"
-            f"<i style='color:rgba(255,255,255,0.9)'>{item['description']}</i>"
-            "<extra></extra>"
-        ),
-        hoverlabel=dict(
-            bgcolor=color,
-            font=dict(color='white', size=11, family='Inter, system-ui, sans-serif'),
-            bordercolor='rgba(255, 255, 255, 0.2)'
-        ),
-        showlegend=False
-    ))
-    
-    # Clean, minimalistic text annotations
-    fig.add_annotation(
-        x=0.25,
-        y=y_pos + 0.1,
-        text=f"<b>{item['title']}</b>",
-        showarrow=False,
-        font=dict(size=13, color='#1F2937', family='Inter, system-ui, sans-serif'),
-        xanchor='left',
-        yanchor='middle',
-        name='title-text'
-    )
-    
-    fig.add_annotation(
-        x=0.25,
-        y=y_pos - 0.05,
-        text=f"{item['organization']}",
-        showarrow=False,
-        font=dict(size=11, color='#6B7280', family='Inter, system-ui, sans-serif'),
-        xanchor='left',
-        yanchor='middle',
-        name='org-text'
-    )
-    
-    fig.add_annotation(
-        x=0.25,
-        y=y_pos - 0.2,
-        text=f"{item['location']}",
-        showarrow=False,
-        font=dict(size=10, color='#9CA3AF', family='Inter, system-ui, sans-serif'),
-        xanchor='left',
-        yanchor='middle',
-        name='location-text'
-    )
-    
-    # Year (left side) - clean and minimal
-    fig.add_annotation(
-        x=-0.25,
-        y=y_pos,
-        text=f"<b>{item['year']}</b>",
-        showarrow=False,
-        font=dict(size=10, color='#374151', family='Inter, system-ui, sans-serif'),
-        xanchor='right',
-        yanchor='middle',
-        name='year-text'
-    )
-
-# Elegant timeline line
-fig.add_trace(go.Scatter(
-    x=[0, 0],
-    y=[-0.5, len(timeline_data) - 0.5],
-    mode='lines',
-    line=dict(color='#E5E7EB', width=2),
-    showlegend=False,
-    hoverinfo='skip'
-))
-
-# Minimalistic legend
-fig.add_trace(go.Scatter(
-    x=[None], y=[None],
-    mode='markers',
-    marker=dict(size=10, color=colors['education']),
-    name='Education',
-    showlegend=True
-))
-
-fig.add_trace(go.Scatter(
-    x=[None], y=[None],
-    mode='markers',
-    marker=dict(size=10, color=colors['work']),
-    name='Experience',
-    showlegend=True
-))
-
-# Clean, minimalistic layout with explicit overrides
-fig.update_layout(
-    showlegend=True,
-    legend=dict(
-        orientation="h",
-        yanchor="bottom",
-        y=-0.12,
-        xanchor="center",
-        x=0.5,
-        font=dict(size=10, family='Inter, system-ui, sans-serif', color='#6B7280')
-    ),
-    plot_bgcolor='rgba(0,0,0,0)',
-    paper_bgcolor='rgba(0,0,0,0)',
-    height=420,
-    margin=dict(l=160, r=320, t=20, b=50),
-    xaxis=dict(
-        showgrid=False,
-        showticklabels=False,
-        zeroline=False,
-        range=[-0.6, 1.4]
-    ),
-    yaxis=dict(
-        showgrid=False,
-        showticklabels=False,
-        zeroline=False,
-        range=[-0.5, len(timeline_data) - 0.5]
-    ),
-    # Override default template margins explicitly
-    template=None
-)
-
-# Minimalistic configuration
-config = {
-    'responsive': True,
-    'displayModeBar': False,
-    'showTips': False
-}
-
-fig.show(config=config)
-```
-
-::: {#timeline-responsive-script}
-<script>
-// Mobile-optimized timeline with better responsive handling
-document.addEventListener('DOMContentLoaded', function() {
-    function adjustTimelineLayout() {
-        const timelineContainer = document.querySelector('.journey-visual .plotly-graph-div');
-        if (!timelineContainer) return;
-        
-        const screenWidth = window.innerWidth;
-        
-        // Apply mobile-specific optimizations
-        if (screenWidth <= 768) {
-            const newLayout = {
-                height: 280,
-                width: 450, // Compact width for mobile scrolling
-                margin: {l: 60, r: 100, t: 15, b: 35},
-                'xaxis.range': [-0.3, 0.8]
-            };
-            
-            // Also update annotation positions for mobile
-            const mobileAnnotations = timelineContainer._fullLayout.annotations.map(annotation => {
-                const newAnnotation = {...annotation};
-                
-                // Adjust text positioning for mobile
-                if (annotation.x > 0) {
-                    newAnnotation.x = 0.2; // Move text closer to timeline on mobile
-                }
-                if (annotation.x < 0) {
-                    newAnnotation.x = -0.2; // Move years closer to timeline on mobile
-                }
-                
-                // Reduce font sizes for mobile
-                newAnnotation.font = {
-                    ...annotation.font,
-                    size: Math.max(8, annotation.font.size * 0.8)
-                };
-                
-                return newAnnotation;
-            });
-            
-            newLayout.annotations = mobileAnnotations;
-            
-            // Apply mobile layout
-            if (window.Plotly && timelineContainer._fullLayout) {
-                Plotly.relayout(timelineContainer, newLayout);
-            }
-        }
-        // Desktop: Keep the clean minimalistic Python defaults
-    }
-    
-    // Initial adjustment
-    setTimeout(adjustTimelineLayout, 200);
-    
-    // Debounced resize handler
-    let resizeTimeout;
-    function handleResize() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(adjustTimelineLayout, 100);
-    }
-    
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', function() {
-        setTimeout(adjustTimelineLayout, 250);
-    });
-});
-</script>
-:::
 :::
 
 ::: {.resume-download}
