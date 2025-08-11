@@ -35,6 +35,7 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 ::: {.section-card}
 ## 📊 Professional Journey
 
+```{=html}
 <div class="simple-timeline">
   <div class="timeline-item education">
     <div class="timeline-dot"></div>
@@ -86,6 +87,7 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
     </div>
   </div>
 </div>
+```
 
 :::
 
