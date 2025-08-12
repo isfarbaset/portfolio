@@ -24,6 +24,7 @@ Specializing in machine learning, data visualization, and conversational AI syst
 ::: {.hero-buttons}
 [View Projects](#projects){.btn .btn-primary .animated-btn}
 [About Me](about-me.html){.btn .btn-outline .animated-btn}
+[Chat with Isfar](about-me-chatbot.html){.btn .btn-chat .animated-btn}
 :::
 :::
 
