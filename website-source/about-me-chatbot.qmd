@@ -12,22 +12,26 @@ format:
 <div class="chat-header">
 <h1>💬 Chat with Isfar</h1>
 <h3>Ask me anything about her background, experience, or interests!</h3>
+<div class="chatbot-disclaimer">
+<small>ℹ️ This chatbot provides quick answers about Isfar's professional background. For detailed conversations or specific inquiries, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small>
+</div>
 </div>
 
 <div class="chat-window">
 <div class="chat-messages">
 <div class="message bot-message">
 <div class="message-content">
-👋 Hi there! I'm Isfar's AI assistant. Feel free to ask me anything about her background, experience, skills, or interests. Here are some example questions to get you started:
+👋 Hi there! I'm Isfar's AI assistant, here to share information about her professional background and experience. I can answer questions about her career, education, skills, and interests.
 
-• Tell me about Isfar's professional experience
-• What technologies does she work with?
-• Where is she from and where has she lived?
-• What are her hobbies and interests?
-• What did she study in school?
-• What kind of projects has she worked on?
+**What I can help with:**
+• Professional experience and career journey
+• Technical skills and technologies she uses
+• Educational background and achievements
+• Projects and accomplishments
+• Hobbies and personal interests
+• Geographic background and experiences
 
-What would you like to know?
+Please keep questions appropriate and professional. What would you like to know about Isfar?
 </div>
 </div>
 </div>
@@ -105,10 +109,10 @@ const isfarKnowledge = {
 
 // Fallback responses for unmatched queries
 const fallbackResponses = [
-  "That's an interesting question! While I don't have specific information about that, I'd recommend reaching out to Isfar directly through LinkedIn or email for more details.",
-  "I don't have information about that particular topic in my knowledge base. Feel free to ask about her background, experience, skills, or interests!",
-  "Hmm, I'm not sure about that one. Try asking about her professional experience, education, hobbies, or background - I have lots to share about those topics!",
-  "That's outside my current knowledge base, but I'd love to tell you about Isfar's journey from Bangladesh to becoming a data scientist in the US!"
+  "I don't have specific information about that topic. I'm designed to share details about Isfar's professional background, education, skills, and interests. What would you like to know about her career journey?",
+  "That's outside my knowledge base, but I'd be happy to tell you about Isfar's experience as a Data Analyst, her education, or her journey from Bangladesh to the US. What interests you most?",
+  "I'm focused on sharing information about Isfar's professional profile. Try asking about her work experience, technical skills, educational background, or personal interests!",
+  "I don't have details on that particular topic. I can tell you about her data science career, her work at Shift Digital, her education at Georgetown, or her background from Bangladesh. What would you like to explore?"
 ];
 
 function findBestMatch(userInput) {
@@ -165,11 +169,50 @@ function removeTypingIndicator(typingDiv) {
   }
 }
 
+// Content filtering and guardrails
+function isInappropriateContent(message) {
+  const inappropriatePatterns = [
+    // Personal/inappropriate questions
+    /\b(phone|number|address|personal|private|contact|email|date|dating|relationship|single|married)\b/i,
+    // Inappropriate content
+    /\b(sexy|hot|beautiful|attractive|looks|appearance|body|photo|picture|image)\b/i,
+    // Off-topic requests
+    /\b(help.*with|solve.*problem|homework|assignment|work.*for|job.*for|money|salary|pay)\b/i,
+    // Spam/nonsense
+    /(.)\1{4,}/, // Repeated characters
+    /\b(test|testing|hello){3,}\b/i, // Repeated words
+  ];
+  
+  return inappropriatePatterns.some(pattern => pattern.test(message));
+}
+
+function getGuardrailResponse() {
+  const responses = [
+    "I'm here to share information about Isfar's professional background and experience. Please ask questions related to her career, education, skills, or interests.",
+    "Let's keep our conversation focused on Isfar's professional journey, technical skills, and career achievements. What would you like to know about her work experience?",
+    "I'd be happy to discuss Isfar's background, education, projects, or professional interests. Please feel free to ask appropriate questions about her career.",
+    "This chatbot is designed to share information about Isfar's professional profile. For personal inquiries or detailed discussions, please reach out to her directly."
+  ];
+  
+  return responses[Math.floor(Math.random() * responses.length)];
+}
+
 function handleUserMessage(message) {
   if (!message.trim()) return;
   
   // Add user message
   addMessage(message, false);
+  
+  // Check for inappropriate content
+  if (isInappropriateContent(message)) {
+    // Show typing indicator briefly
+    const typingIndicator = addTypingIndicator();
+    setTimeout(() => {
+      removeTypingIndicator(typingIndicator);
+      addMessage(getGuardrailResponse(), true);
+    }, 800);
+    return;
+  }
   
   // Show typing indicator
   const typingIndicator = addTypingIndicator();
@@ -243,6 +286,30 @@ document.addEventListener('DOMContentLoaded', function() {
   font-weight: 300;
   opacity: 0.9;
   font-size: 1.1rem;
+}
+
+.chatbot-disclaimer {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.chatbot-disclaimer small {
+  display: block;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.chatbot-disclaimer a {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+}
+
+.chatbot-disclaimer a:hover {
+  text-decoration-color: white;
 }
 
 .chat-window {
