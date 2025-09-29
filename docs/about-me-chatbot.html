@@ -208,7 +208,12 @@ What are her hobbies?
 </div>
 </div>
 <div class="chat-input-wrapper">
-<p><input type="text" id="chat-input" placeholder="Type your question here..."> <button id="send-button"> <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="m22 2-7 20-4-9-9-4z"></path> <path d="m22 2-11 10"></path> </svg> </button></p>
+<textarea id="chat-input" placeholder="Type your question here..." rows="1"></textarea>
+<button id="send-button">
+<svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="m22 2-7 20-4-9-9-4z"></path> <path d="m22 2-11 10"></path>
+</svg>
+</button>
 </div>
 </div>
 </div>
@@ -1075,6 +1080,15 @@ document.addEventListener('DOMContentLoaded', function() {
   chatInput.addEventListener('input', function() {
     const value = this.value.trim();
     sendButton.disabled = !value || chatbotAI.isProcessing;
+    
+    // Auto-resize textarea
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    
+    // Ensure minimum height
+    if (this.scrollHeight < 56) {
+      this.style.height = '56px';
+    }
   });
   
   suggestionChips.forEach(chip => {
@@ -1299,10 +1313,10 @@ document.addEventListener('DOMContentLoaded', function() {
 #chat-input {
   flex: 1;
   width: 100%;
-  padding: 1.5rem 4rem 1.5rem 2rem;
+  padding: 1.75rem 4rem 1.75rem 2rem;
   border: none;
   border-radius: 28px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   outline: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: inherit;
@@ -1311,8 +1325,11 @@ document.addEventListener('DOMContentLoaded', function() {
   border: 1.5px solid rgba(0, 0, 0, 0.08);
   font-weight: 400;
   letter-spacing: -0.01em;
-  min-height: 24px;
+  min-height: 56px;
+  max-height: 120px;
   resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
 }
 
 #chat-input:focus {
