@@ -63,7 +63,14 @@ I'm designed to have natural, flowing conversations just like ChatGPT or Claude.
 class IsfarChatbotAI {
   constructor() {
     this.conversationHistory = [];
-    this.context = {};
+    this.context = {
+      currentTopic: null,
+      subtopics: [],
+      lastCategory: null,
+      conversationDepth: 0,
+      userInterests: [],
+      askedFollowups: []
+    };
     this.isProcessing = false;
     this.messageCount = 0;
     
@@ -136,19 +143,212 @@ class IsfarChatbotAI {
     });
   }
   
-  // Handle conversation continuation
+  // Advanced context-aware followup detection
+  isContextualFollowup(input) {
+    const lowerInput = input.toLowerCase().trim();
+    
+    // Detect specific followup patterns
+    const followupPatterns = [
+      'what about', 'how about', 'tell me more about', 'more about', 'about that',
+      'what else', 'anything else', 'more details', 'can you elaborate',
+      'what specific', 'which', 'what kind', 'what type', 'how did',
+      'when did', 'where did', 'why did', 'how does', 'what was',
+      'really?', 'interesting', 'that sounds', 'wow', 'amazing'
+    ];
+    
+    return followupPatterns.some(pattern => lowerInput.includes(pattern)) ||
+           this.isConversationContinuation(input);
+  }
+  
+  // Generate intelligent contextual responses
+  generateContextualResponse(input) {
+    const lastEntry = this.conversationHistory[this.conversationHistory.length - 1];
+    if (!lastEntry) return null;
+    
+    const lowerInput = input.toLowerCase();
+    const lastCategory = lastEntry.category;
+    
+    // Context-aware responses based on last topic
+    const contextualResponses = {
+      education: {
+        patterns: ['georgetown', 'masters', 'degree', 'university', 'study', 'gpa', 'academic'],
+        responses: [
+          "Absolutely! Her academic journey at Georgetown was remarkable. She maintained a perfect 4.0 GPA while working full-time at Shift Digital - that level of dedication and time management is truly exceptional. The Data Science & Analytics program at Georgetown is highly competitive, and she excelled in advanced coursework covering machine learning, statistical analysis, and big data technologies.",
+          "Georgetown's Master's program really shaped her expertise! The curriculum covered cutting-edge topics like deep learning, predictive analytics, and data visualization. What's impressive is how she immediately applied classroom concepts to her work at Shift Digital, creating a powerful synergy between her academic learning and professional growth.",
+          "Her educational background is fascinating because it shows strategic career planning. The Computer Science foundation from Grand Valley gave her strong programming skills, then the Georgetown Data Science Master's added the advanced analytics expertise. It's a perfect combination for her current role as Data Analyst II."
+        ]
+      },
+      
+      experience: {
+        patterns: ['shift', 'digital', 'work', 'job', 'analyst', 'data', 'projects', 'clients'],
+        responses: [
+          "Her work at Shift Digital is really where she shines! In her current role as Data Analyst II, she leads advanced analytics initiatives for enterprise clients, which means she's not just crunching numbers - she's driving strategic business decisions. The promotion to Data Analyst II in May 2025 came with increased responsibilities in mentoring junior analysts and architecting data solutions.",
+          "What's remarkable about her Shift Digital experience is the tangible impact she's made. She improved data accuracy by 25% across 10+ enterprise projects and saved 15 hours weekly through automation. These aren't just metrics - they represent real business value and efficiency gains for major clients.",
+          "The progression at Shift Digital tells a great story. Starting as Data Analyst I in 2021, she consistently delivered exceptional results, which led to her recent promotion. Now she's involved in strategic data architecture decisions and plays a key mentoring role for the team."
+        ]
+      },
+      
+      skills: {
+        patterns: ['python', 'sql', 'tableau', 'technical', 'programming', 'tools', 'machine learning'],
+        responses: [
+          "Her technical skillset is impressive and highly practical! She's proficient in Python for data manipulation and machine learning, SQL for database operations, and visualization tools like Tableau and Plotly. But what sets her apart is how she combines these technical skills with business acumen to deliver insights that actually drive decision-making.",
+          "The depth of her technical expertise is fascinating. Beyond the core programming languages like Python and SQL, she's experienced with machine learning frameworks, database architecture, and advanced analytics platforms. At Shift Digital, she's used these skills to build automated ETL processes and create efficient data pipelines for enterprise clients.",
+          "What I find most interesting about her technical skills is the practical application. She doesn't just know these tools - she's used them to solve real business problems, optimize operations for 12 high-value clients, and create scalable solutions in Databricks. It's the perfect blend of technical depth and business impact."
+        ]
+      },
+      
+      background: {
+        patterns: ['bangladesh', 'dhaka', 'culture', 'journey', 'america', 'michigan', 'virginia'],
+        responses: [
+          "Her journey from Dhaka to becoming a successful data scientist in America is truly inspiring! Moving from Bangladesh's bustling capital to West Michigan, then Northern Virginia, she's experienced diverse American communities while maintaining her Bengali cultural identity. This multicultural perspective brings unique problem-solving approaches to her work.",
+          "The cultural dimension of her story is fascinating. Growing up in Dhaka - a city of over 10 million people - gave her experience with complexity and scale that translates beautifully to handling big data challenges. The transition to American academic and professional environments shows remarkable adaptability and determination.",
+          "What strikes me about her background is how she's maintained strong ties to her Bengali heritage while fully embracing American opportunities. This cultural bridge gives her unique insights when working with diverse enterprise clients at Shift Digital, and her multicultural perspective is a real asset in today's global business environment."
+        ]
+      }
+    };
+    
+    // Find matching contextual response
+    if (contextualResponses[lastCategory]) {
+      const categoryData = contextualResponses[lastCategory];
+      const hasPatternMatch = categoryData.patterns.some(pattern => lowerInput.includes(pattern));
+      
+      if (hasPatternMatch || this.isContextualFollowup(input)) {
+        const responses = categoryData.responses;
+        const response = responses[Math.floor(Math.random() * responses.length)];
+        
+        return {
+          response: response,
+          category: `${lastCategory}_contextual`,
+          score: 12,
+          followups: this.generateSmartFollowups(lastCategory)
+        };
+      }
+    }
+    
+    return null;
+  }
+  
+  // Generate smart followup questions based on context
+  generateSmartFollowups(category) {
+    const smartFollowups = {
+      education: [
+        "Would you like to know how she balanced her full-time job while maintaining a perfect GPA?",
+        "Are you curious about specific courses or projects from her Georgetown program?",
+        "Would you like to hear about how her education directly impacts her current work?"
+      ],
+      experience: [
+        "Would you like to know about specific enterprise projects she's led?",
+        "Are you interested in her leadership and mentoring responsibilities?",
+        "Would you like to hear about the technical challenges she's solved for clients?"
+      ],
+      skills: [
+        "Would you like to know about specific machine learning projects she's worked on?",
+        "Are you curious about how she stays current with emerging technologies?",
+        "Would you like to hear about her approach to data visualization and storytelling?"
+      ],
+      background: [
+        "Would you like to know more about how her cultural background influences her work approach?",
+        "Are you interested in her experience adapting to different American regions?",
+        "Would you like to hear about how she maintains connections to her Bengali heritage?"
+      ]
+    };
+    
+    return smartFollowups[category] || [
+      "What other aspect of her professional journey would you like to explore?",
+      "Is there a specific area you'd like to dive deeper into?"
+    ];
+  }
+  
+  // Update conversation context for better continuity
+  updateContext(category, userInput) {
+    if (category && category !== 'continuation') {
+      this.context.lastCategory = category;
+      this.context.conversationDepth++;
+      
+      // Track topics of interest
+      if (category && !this.context.userInterests.includes(category)) {
+        this.context.userInterests.push(category);
+      }
+      
+      // Update current topic context
+      if (category !== this.context.currentTopic) {
+        this.context.currentTopic = category;
+        this.context.subtopics = [];
+      }
+      
+      // Extract subtopics from user input
+      const lowerInput = userInput.toLowerCase();
+      const subtopicKeywords = {
+        education: ['georgetown', 'masters', 'gpa', 'degree', 'university', 'study'],
+        experience: ['shift', 'digital', 'analyst', 'promotion', 'clients', 'projects'],
+        skills: ['python', 'sql', 'tableau', 'machine learning', 'technical', 'programming'],
+        background: ['bangladesh', 'dhaka', 'culture', 'journey', 'america']
+      };
+      
+      if (subtopicKeywords[category]) {
+        subtopicKeywords[category].forEach(keyword => {
+          if (lowerInput.includes(keyword) && !this.context.subtopics.includes(keyword)) {
+            this.context.subtopics.push(keyword);
+          }
+        });
+      }
+    }
+  }
+  
+  // Handle conversation continuation with smart context awareness
   handleConversationContinuation() {
     if (this.conversationHistory.length === 0) {
       return "I'd love to continue our conversation! What specific aspect of Isfar's journey would you like to explore? I can tell you about her professional experience, educational background, technical skills, personal interests, or her inspiring story from Bangladesh to becoming a successful data scientist in America.";
     }
     
     const lastEntry = this.conversationHistory[this.conversationHistory.length - 1];
+    
+    // Provide contextual continuation based on conversation depth
+    if (this.context.conversationDepth >= 3 && this.context.currentTopic) {
+      return this.generateDeepDiveResponse();
+    }
+    
     if (lastEntry && lastEntry.followups && lastEntry.followups.length > 0) {
       const followup = lastEntry.followups[Math.floor(Math.random() * lastEntry.followups.length)];
       return `Absolutely! I'm glad you want to know more. ${followup}`;
     }
     
+    // Suggest related topics based on user interests
+    if (this.context.userInterests.length > 0) {
+      return this.generateRelatedTopicSuggestion();
+    }
+    
     return "I'm happy to continue! What other aspects of Isfar's professional journey or personal story would you like to explore?";
+  }
+  
+  // Generate deep dive responses for engaged users
+  generateDeepDiveResponse() {
+    const topic = this.context.currentTopic;
+    const deepDiveResponses = {
+      education: "Since you're really interested in her educational journey, here's something fascinating: Isfar's approach to learning is incredibly strategic. While pursuing her Georgetown Master's, she didn't just study theory - she actively applied coursework concepts to real projects at Shift Digital, creating this powerful feedback loop between academic learning and professional application. This hands-on approach is why she maintained that perfect 4.0 GPA while excelling at work.",
+      
+      experience: "Given your interest in her professional experience, here's what's particularly impressive: Isfar's impact at Shift Digital goes beyond her individual contributions. As Data Analyst II, she's become a strategic advisor to enterprise clients, helping them make data-driven decisions that affect their entire business operations. Her ability to translate complex technical findings into executive-level recommendations is what sets her apart in the field.",
+      
+      skills: "Since you're diving deep into her technical expertise, here's what makes her skillset unique: Isfar doesn't just know these technologies - she's mastered the art of selecting the right tool for each specific business challenge. Whether it's using Python for machine learning models, SQL for complex data extraction, or Tableau for executive dashboards, she approaches each project with a strategic mindset about optimal technology choices.",
+      
+      background: "Your interest in her background story reveals something truly inspiring: Isfar's journey represents the best of both worlds - she's maintained her Bengali cultural values of hard work and family connection while fully embracing American opportunities for innovation and growth. This bicultural perspective gives her unique insights when working with diverse teams and global clients."
+    };
+    
+    return deepDiveResponses[topic] || "I'm impressed by your deep interest in Isfar's story! What specific aspect would you like to explore further?";
+  }
+  
+  // Generate related topic suggestions
+  generateRelatedTopicSuggestion() {
+    const interests = this.context.userInterests;
+    const suggestions = {
+      education: "Since you're interested in her education, you might also want to know about how her academic achievements translate to her professional success at Shift Digital.",
+      experience: "Given your interest in her work experience, you might find it fascinating how her cultural background from Bangladesh influences her approach to data science.",
+      skills: "Since you're curious about her technical skills, you might also want to hear about her educational journey and how she built this expertise.",
+      background: "Given your interest in her background, you might find it interesting how she's applied her multicultural perspective to her data science career."
+    };
+    
+    const lastInterest = interests[interests.length - 1];
+    return suggestions[lastInterest] || "What other aspect of her journey interests you most?";
   }
   
   // Find best matching response with improved phrase matching
@@ -158,7 +358,13 @@ class IsfarChatbotAI {
     let highestScore = 0;
     let matchedCategory = null;
     
-    // Check for conversation continuation first
+    // Check for contextual followup first (highest priority for natural conversation)
+    const contextualResponse = this.generateContextualResponse(input);
+    if (contextualResponse) {
+      return contextualResponse;
+    }
+    
+    // Check for conversation continuation
     if (this.isConversationContinuation(input)) {
       return {
         response: this.handleConversationContinuation(),
@@ -415,14 +621,23 @@ class IsfarChatbotAI {
       const starter = starters[Math.floor(Math.random() * starters.length)];
       const response = starter + match.response;
       
-      // Update conversation history
+      // Update conversation history and context
       this.conversationHistory.push({
         user: sanitizedInput,
         bot: response,
         category: match.category,
         followups: match.followups || [],
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        score: match.score || 0
       });
+      
+      // Update conversation context
+      this.updateContext(match.category, sanitizedInput);
+      
+      // Keep conversation history manageable (last 10 exchanges)
+      if (this.conversationHistory.length > 10) {
+        this.conversationHistory = this.conversationHistory.slice(-10);
+      }
       
       return response;
       
