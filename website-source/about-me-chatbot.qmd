@@ -487,13 +487,18 @@ class IsfarChatbotAI {
     }
     
     // Handle very short/vague inputs better
-    if (sanitizedInput.length < 3) {
-      return "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?";
+    if (input.length < 3) {
+      return {
+        response: "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?",
+        category: 'short_input',
+        score: 15,
+        followups: []
+      };
     }
     
     // Handle single word queries
-    if (sanitizedInput.split(' ').length === 1 && sanitizedInput.length < 15) {
-      const word = sanitizedInput.toLowerCase();
+    if (input.split(' ').length === 1 && input.length < 15) {
+      const word = input;
       
       const singleWordResponses = {
         'background': "I'd be happy to tell you about Isfar's background! Are you interested in her cultural background from Bangladesh, her educational background from Georgetown and Grand Valley State, or her professional background in data science and tech?",
