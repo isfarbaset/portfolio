@@ -167,6 +167,64 @@ class IsfarChatbotAI {
       };
     }
     
+    // ROBUST GUARDRAILS: Filter inappropriate, personal, and off-topic questions
+    const personalQuestions = [
+      'husband', 'wife', 'married', 'boyfriend', 'girlfriend', 'partner', 'relationship', 'dating', 'single',
+      'family', 'children', 'kids', 'parents', 'mother', 'father', 'siblings', 'brother', 'sister',
+      'address', 'phone', 'number', 'contact', 'email', 'personal', 'private', 'home', 'salary', 'money',
+      'age', 'old', 'weight', 'height', 'appearance', 'looks', 'beautiful', 'ugly', 'attractive'
+    ];
+    
+    const inappropriateQuestions = [
+      'sex', 'sexual', 'naked', 'nude', 'body', 'breast', 'ass', 'butt', 'dick', 'penis', 'pussy',
+      'fuck', 'shit', 'damn', 'hell', 'bitch', 'stupid', 'idiot', 'hate', 'kill', 'die', 'death'
+    ];
+    
+    const offTopicQuestions = [
+      'weather', 'news', 'politics', 'trump', 'biden', 'election', 'covid', 'virus', 'pandemic',
+      'sports', 'football', 'basketball', 'movie', 'celebrity', 'music', 'song', 'recipe', 'cooking',
+      'restaurant', 'travel', 'vacation', 'health', 'medical', 'doctor', 'medicine'
+    ];
+    
+    // Check for personal information requests
+    if (personalQuestions.some(keyword => input.includes(keyword))) {
+      return {
+        response: "I'm here to share information about Isfar's professional background, technical expertise, and career journey. I don't discuss personal details like relationships, family, or private information. Instead, I'd love to tell you about her impressive work in data science, her educational achievements, or her professional experience at Shift Digital. What aspect of her career would you like to explore?",
+        category: 'personal_boundary',
+        score: 20,
+        followups: [
+          "Would you like to know about her professional achievements and career growth?",
+          "Are you interested in learning about her technical expertise and projects?"
+        ]
+      };
+    }
+    
+    // Check for inappropriate content
+    if (inappropriateQuestions.some(keyword => input.includes(keyword))) {
+      return {
+        response: "I'm designed to provide professional information about Isfar's career, education, and technical expertise. I don't engage with inappropriate content. Let's focus on her inspiring professional journey - from her background in Bangladesh to becoming a successful data scientist in the US. What would you like to know about her career or skills?",
+        category: 'inappropriate_content',
+        score: 20,
+        followups: [
+          "Would you like to hear about her career progression and achievements?",
+          "Are you curious about her technical skills and expertise?"
+        ]
+      };
+    }
+    
+    // Check for off-topic questions  
+    if (offTopicQuestions.some(keyword => input.includes(keyword)) && !input.includes('isfar') && !input.includes('she') && !input.includes('her')) {
+      return {
+        response: "I'm specifically designed to discuss Isfar's professional background, career journey, and expertise in data science. For topics outside her professional scope, I'd recommend searching elsewhere. However, I'd be happy to share about her inspiring story, technical skills, educational background, or career achievements. What aspect of her professional journey interests you most?",
+        category: 'off_topic',
+        score: 20,
+        followups: [
+          "Would you like to learn about her transition from Bangladesh to becoming a data scientist?",
+          "Are you interested in her technical expertise and career progression?"
+        ]
+      };
+    }
+    
     // Check for specific quantitative questions (highest priority)
     if ((input.includes('how many years') || input.includes('years of')) && (input.includes('experience') || input.includes('work'))) {
       return {
@@ -268,6 +326,19 @@ class IsfarChatbotAI {
       }
     });
     
+    // Final safety check - if no meaningful match and score is very low, use professional boundary response
+    if (highestScore < 2 && bestMatch) {
+      return {
+        response: "I'm here to provide information about Isfar's professional background, career achievements, and technical expertise. The question you've asked might be outside my area of focus. I'd be happy to share about her data science career, educational journey, technical skills, or professional experience. What specific aspect of her professional story would you like to learn about?",
+        category: 'professional_boundary',
+        score: 1,
+        followups: [
+          "Would you like to know about her career progression from Computer Engineer to Data Analyst II?",
+          "Are you interested in her educational achievements and technical expertise?"
+        ]
+      };
+    }
+    
     return {
       response: bestMatch ? bestMatch.response : this.getFallbackResponse(),
       category: matchedCategory,
@@ -276,12 +347,13 @@ class IsfarChatbotAI {
     };
   }
   
-  // Generate fallback responses
+  // Generate professional fallback responses
   getFallbackResponse() {
     const fallbacks = [
-      "That's an interesting question! While I don't have specific information about that, I'd love to tell you about Isfar's inspiring journey in data science. What aspect interests you most?",
-      "I don't have details on that particular topic, but there's so much fascinating information about Isfar's career and background. Would you like to explore her professional growth or personal story?",
-      "That's outside my current knowledge base, but I have comprehensive insights about Isfar's professional journey. What would you like to discover about her data science career?"
+      "I'm designed to share information about Isfar's professional background, technical expertise, and career achievements. While I don't have specific details about that topic, I can tell you about her inspiring journey from Bangladesh to becoming a successful data scientist, her work at Shift Digital, or her academic excellence at Georgetown University. What aspect of her professional story would you like to explore?",
+      "That's outside my area of expertise, but I have comprehensive knowledge about Isfar's professional journey, technical skills, and educational background. I can share insights about her data science career, her progression from Computer Engineer to Data Analyst II, or her impressive academic achievements. What interests you most?",
+      "I focus specifically on Isfar's professional background and career accomplishments. While I can't address that particular question, I'd be happy to discuss her technical expertise, career growth, educational journey, or professional interests. Which aspect would you like to learn about?",
+      "That question is outside my scope, but I excel at discussing Isfar's career trajectory, technical skills, educational achievements, and professional experience in data science. Would you like to know about her work at Shift Digital, her Georgetown Master's degree, or her transition into data analytics?"
     ];
     
     return fallbacks[Math.floor(Math.random() * fallbacks.length)];
