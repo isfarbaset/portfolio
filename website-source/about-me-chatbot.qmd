@@ -10,10 +10,10 @@ format:
 <div class="chatbot-container">
 
 <div class="chat-header">
-<h1>💬 Chat with Isfar</h1>
-<h3>Ask me anything about her background, experience, or interests!</h3>
+<h1>Ask About Isfar</h1>
+<h3>Get insights about her background, experience, and expertise</h3>
 <div class="chatbot-disclaimer">
-<small>ℹ️ This chatbot provides quick answers about Isfar's professional background. For detailed conversations or specific inquiries, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small>
+<small>This AI assistant provides information about Isfar's professional background and achievements. For direct conversations or specific opportunities, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small>
 </div>
 </div>
 
