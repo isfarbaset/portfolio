@@ -1,0 +1,1251 @@
+---
+title: ""
+page-layout: full
+output-dir: ../../../docs
+format:
+  html:
+    css: style.css
+---
+
+<div class="chatbot-container">
+
+<div class="chat-header">
+<h1>Ask About Isfar</h1>
+<h3>Get insights about her background, experience, and expertise</h3>
+<div class="chatbot-disclaimer">
+<small>This AI assistant provides information about Isfar's professional background and achievements. For direct conversations or specific opportunities, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small>
+</div>
+</div>
+
+<div class="chat-window">
+<div class="chat-messages">
+<div class="message bot-message">
+<div class="message-content">
+Hi there! I'm an AI assistant here to share insights about Isfar Baset's journey and work. You can ask me about:
+
+• Her path so far in building a career in data science <br>
+• Technical toolkit: Python, SQL, machine learning, NLP, cloud computing <br>
+• Education: MS in Data Science (Georgetown), BS in Computer Science <br>
+• Work Experience and Projects <br>
+
+Think of me as your guide if you're curious about her background, skills, or projects. Where would you like to start?
+</div>
+</div>
+</div>
+
+<div class="chat-input-container">
+<div class="suggested-questions">
+<div class="suggestion-chip">Tell me about her background</div>
+<div class="suggestion-chip">What's her experience?</div>
+<div class="suggestion-chip">What are her skills?</div>
+<div class="suggestion-chip">What are her hobbies?</div>
+</div>
+
+<div class="chat-input-wrapper">
+<textarea id="chat-input" placeholder="Type your question here..." rows="1"></textarea>
+<button id="send-button">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="m22 2-7 20-4-9-9-4z"/>
+<path d="m22 2-11 10"/>
+</svg>
+</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+// Advanced Conversational AI System for Isfar's Portfolio
+class IsfarChatbotAI {
+  constructor() {
+    this.conversationHistory = [];
+    this.context = {
+      currentTopic: null,
+      subtopics: [],
+      lastCategory: null,
+      conversationDepth: 0,
+      userInterests: [],
+      askedFollowups: [],
+      pendingPromise: null  // Track specific promises made to user
+    };
+    this.isProcessing = false;
+    this.messageCount = 0;
+    
+    // Comprehensive knowledge base
+    this.knowledgeBase = {
+      background: {
+        keywords: ['background', 'origin', 'from', 'hometown', 'where', 'born', 'grew', 'dhaka', 'bangladesh', 'heritage', 'culture', 'journey'],
+        response: "Isfar's journey is truly inspiring! She's originally from Dhaka, Bangladesh - a vibrant, bustling capital city with over 10 million people. Coming to the US in 2015 to pursue her dreams in technology, she first lived in West Michigan and then moved to Northern Virginia in 2022. She's experienced diverse American communities while maintaining strong ties to her Bengali cultural heritage - it's this multicultural perspective that makes her approach to problem-solving so unique and valuable.",
+        followups: [
+          "Would you like to know more about her cultural background and how it influences her work?",
+          "Are you curious about her experience adapting to life in different parts of America?"
+        ]
+      },
+      
+      education: {
+        keywords: ['education', 'educational', 'academic', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors', 'graduation', 'graduated'],
+        response: "Isfar's educational journey is a testament to her dedication and strategic thinking. She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020), building a solid foundation in programming and systems thinking. Recognizing the power of data in modern business, she pursued her Master of Science in Data Science & Analytics from Georgetown University, completing it in 2025 with an exceptional 4.0 GPA while working full-time - demonstrating remarkable time management and commitment to excellence.",
+        followups: [
+          { text: "Would you like to know more about her academic achievements and work-study balance?", promise: "academic_achievements" },
+          { text: "Are you curious about how her computer science background enhances her data science work?", promise: "computer_science_enhancement" }
+        ]
+      },
+      
+      experience: {
+        keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift', 'digital', 'array', 'engineers', 'data', 'analyst', 'enterprise'],
+        response: "With 5 years of professional experience in tech, Isfar currently serves as a Data Analyst II at Shift Digital, working in the Data Operations and Analytics team to collaborate with enterprise clients and transform complex raw data into strategic, actionable insights. Her career shows impressive growth - from Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification, to Data Analyst I (Nov 2021-May 2025), and now to her current senior role as Data Analyst II (May 2025-Present) after completing her Master's from Georgetown. What makes her exceptional is her ability to bridge technical complexity with business strategy while continuously advancing in her field.",
+        followups: [
+          { text: "Would you like to hear about specific projects she's worked on with enterprise clients?", promise: "technical_applications" },
+          { text: "Are you curious about her transition from software engineering to data science?", promise: "career_progression" }
+        ]
+      },
+      
+      skills: {
+        keywords: ['skills', 'technologies', 'programming', 'languages', 'tools', 'python', 'sql', 'r', 'tableau', 'plotly', 'machine', 'learning', 'technical'],
+        response: "Isfar's technical arsenal is both broad and deep. She's proficient in Python, SQL, and R for sophisticated data manipulation and statistical analysis. Her expertise extends to visualization tools like Plotly and Tableau, machine learning frameworks, and database architecture. But what truly sets her apart is her ability to translate complex technical concepts into clear, actionable business insights - she's essentially a bridge between the technical and business worlds.",
+        followups: [
+          { text: "Would you like to know how she applies these technical skills to solve real business problems?", promise: "technical_applications" },
+          { text: "Are you curious about her learning journey and staying current with new technologies?", promise: "professional_growth" }
+        ]
+      },
+      
+      hobbies: {
+        keywords: ['hobbies', 'interests', 'free', 'time', 'fun', 'enjoy', 'like', 'love', 'outside', 'work', 'cafes', 'food', 'painting', 'reading', 'movies', 'creative'],
+        response: "Outside of her professional life, Isfar is a true connoisseur of life's beautiful moments! She has a passion for discovering charming cafes and hidden culinary gems - there's something magical about finding that perfect coffee shop atmosphere or experiencing an authentic dish from a new culture. As an artist at heart, she finds peace and creative expression through painting, which provides wonderful balance to her analytical work. She's also an avid reader and film enthusiast, always seeking new perspectives.",
+        followups: [
+          { text: "Are you interested in how her creative hobbies influence her analytical thinking?", promise: "professional_growth" },
+          { text: "Would you like to know about her favorite types of cuisine or art styles?", promise: "professional_growth" }
+        ]
+      },
+      
+      goals: {
+        keywords: ['goals', 'future', 'aspirations', 'want', 'plan', 'career', 'vision', 'leadership', 'mentoring'],
+        response: "Isfar envisions a future where sophisticated data science drives meaningful organizational change. She's passionate about growing as a thought leader while maintaining her commitment to making complex data accessible to everyone. Her goal is to continue building innovative solutions that empower teams to make better decisions. She's particularly interested in mentoring the next generation of data professionals and contributing to industry best practices.",
+        followups: [
+          { text: "Would you like to know more about her approach to making data science accessible?", promise: "professional_growth" },
+          { text: "Are you curious about her thoughts on the future of data science?", promise: "professional_growth" }
+        ]
+      }
+    };
+    
+    this.continuationPhrases = ['yes', 'yeah', 'sure', 'tell me more', 'continue', 'go on', 'what else', 'more', 'elaborate'];
+    
+    // Comprehensive promise fulfillment system
+    this.promiseResponses = {
+      'work_study_balance': "Here's how she mastered the incredible work-study balance: Isfar developed a strategic time management system that allowed her to excel in both areas. She would dedicate early mornings (5-7 AM) to coursework before starting her workday at Shift Digital. Evenings were reserved for assignments and projects, while weekends became intensive study sessions. What made this sustainable was her ability to connect Georgetown coursework directly to her Shift Digital projects - she'd often implement class concepts at work and bring real-world challenges back to academic discussions. Her supervisors at Shift Digital were incredibly supportive, understanding the value this education would bring back to the team. The key was treating both commitments as equally important and finding synergies between them.",
+      
+      'academic_achievements': "Her academic achievements are truly outstanding! Beyond the perfect 4.0 GPA, she consistently ranked in the top 5% of her Data Science cohort at Georgetown. She was selected for advanced electives like Deep Learning Applications and Big Data Architecture - courses typically reserved for PhD candidates. Her capstone project involved developing a predictive analytics model for customer churn, which was so impressive it's now being considered for implementation by a real client. She also served as a teaching assistant for introductory statistics courses, helping fellow students while deepening her own understanding. Faculty members frequently cited her work as exemplary, and she received the Dean's List recognition every semester.",
+      
+      'computer_science_enhancement': "Her Computer Science background creates a powerful foundation that enhances everything she does in data science! The programming fundamentals from Grand Valley - algorithms, data structures, software engineering principles - give her a huge advantage when building complex data pipelines and machine learning models. While many data scientists struggle with code efficiency and scalability, her CS background means she naturally writes optimized, maintainable code. She understands system architecture, which helps her design better ETL processes at Shift Digital. The mathematical rigor from CS coursework also prepared her for advanced statistical concepts in her Georgetown program. It's like having bilingual fluency - she can speak both the language of software engineering and data science.",
+      
+      'career_progression': "Her career progression tells an amazing story of strategic growth! Starting as a Computer Engineer at Array of Engineers gave her exposure to software verification and quality assurance - skills that translate perfectly to data validation and quality control in analytics. The transition to Data Analyst I at Shift Digital in 2021 was calculated - she saw the growing importance of data-driven decision making. During her 4 years as Data Analyst I, she consistently exceeded performance metrics, leading to increased responsibilities in client management and team mentoring. The promotion to Data Analyst II in May 2025 came with her Georgetown graduation - perfect timing that combined academic achievement with professional advancement. Now she's positioned for senior leadership roles, with both the technical depth and business acumen needed for executive-level data strategy.",
+      
+      'georgetown_program': "The Georgetown Data Science & Analytics program was transformative for her career! It's consistently ranked among the top 10 data science programs nationally, known for its blend of theoretical rigor and practical application. Her coursework covered cutting-edge topics like neural networks, natural language processing, and advanced statistical modeling. The program's emphasis on ethics in AI and data privacy aligned perfectly with her values and the responsible data practices she champions at Shift Digital. Georgetown's location in DC meant access to guest lecturers from government agencies, consulting firms, and tech companies. The collaborative projects with real organizations gave her portfolio-worthy experience before graduation. Faculty members are active researchers, so she learned the latest methodologies before they became industry standard.",
+      
+      'technical_applications': "Her technical skills come alive through real-world applications at Shift Digital! She's built automated ETL pipelines that process millions of records daily for enterprise clients. Her Python expertise shines in custom machine learning models that predict customer behavior and optimize marketing spend. She's created interactive Tableau dashboards that executives use for strategic planning - transforming complex datasets into intuitive visual narratives. Her SQL skills handle complex joins across multiple databases, often involving 50+ million record datasets. She's implemented A/B testing frameworks and statistical significance testing that have driven major business decisions. The Databricks experience involves managing cloud-based data lakes and optimizing Spark jobs for performance. Every technical skill directly translates to business value and client success.",
+      
+      'professional_growth': "Her professional growth journey is inspiring and strategic! In just 5 years, she's evolved from a junior engineer to a senior data professional leading strategic initiatives. At Array of Engineers, she learned precision and attention to detail through aerospace software verification. Transitioning to Shift Digital as Data Analyst I, she quickly became known for exceeding project deadlines and delivering insights that directly impacted client ROI. Her mentoring abilities emerged naturally - junior analysts sought her guidance on technical challenges and career development. The promotion to Data Analyst II recognized not just her technical excellence but her leadership potential. She now participates in new business development, presenting technical solutions to C-level executives. Her growth trajectory points toward data science leadership roles, potentially Chief Data Officer positions at growing companies."
+    };
+  }
+  
+  // Check if user wants to continue conversation
+  isConversationContinuation(input) {
+    const lowerInput = input.toLowerCase().trim();
+    return this.continuationPhrases.some(phrase => {
+      const regex = new RegExp(`\\b${phrase}\\b`, 'i');
+      return regex.test(lowerInput);
+    });
+  }
+  
+  // Smart promise detection based on response content
+  detectAndSetPromise(responseText, category) {
+    const promiseKeywords = {
+      'work_study_balance': ['work-study balance', 'balanced work and study', 'maintained.*gpa.*working', 'perfect gpa.*full-time'],
+      'academic_achievements': ['academic achievements', 'outstanding.*academic', 'dean.*list', 'top.*percent'],
+      'computer_science_enhancement': ['computer science.*enhance', 'cs background', 'programming fundamentals'],
+      'career_progression': ['career progression', 'professional growth', 'promoted', 'advancement'],
+      'georgetown_program': ['georgetown program', 'georgetown.*master', 'data science.*program'],
+      'technical_applications': ['technical skills.*business', 'real-world.*application', 'enterprise.*project'],
+      'professional_growth': ['professional growth', 'career development', 'leadership.*role']
+    };
+    
+    // Detect which promise should be set based on the content of the response
+    for (const [promiseKey, keywords] of Object.entries(promiseKeywords)) {
+      for (const keyword of keywords) {
+        const regex = new RegExp(keyword, 'i');
+        if (regex.test(responseText)) {
+          this.context.pendingPromise = promiseKey;
+          return;
+        }
+      }
+    }
+    
+    // Fallback: if educational content, default to work-study balance
+    if (category === 'education' && responseText.includes('4.0 GPA')) {
+      this.context.pendingPromise = 'work_study_balance';
+    }
+  }
+  
+  // Advanced context-aware followup detection
+  isContextualFollowup(input) {
+    const lowerInput = input.toLowerCase().trim();
+    
+    // Detect specific followup patterns
+    const followupPatterns = [
+      'what about', 'how about', 'tell me more about', 'more about', 'about that',
+      'what else', 'anything else', 'more details', 'can you elaborate',
+      'what specific', 'which', 'what kind', 'what type', 'how did',
+      'when did', 'where did', 'why did', 'how does', 'what was',
+      'really?', 'interesting', 'that sounds', 'wow', 'amazing'
+    ];
+    
+    return followupPatterns.some(pattern => lowerInput.includes(pattern)) ||
+           this.isConversationContinuation(input);
+  }
+  
+  // Generate intelligent contextual responses
+  generateContextualResponse(input) {
+    const lastEntry = this.conversationHistory[this.conversationHistory.length - 1];
+    if (!lastEntry) return null;
+    
+    const lowerInput = input.toLowerCase();
+    const lastCategory = lastEntry.category;
+    
+    // Context-aware responses based on last topic
+    const contextualResponses = {
+      education: {
+        patterns: ['georgetown', 'masters', 'degree', 'university', 'study', 'gpa', 'academic'],
+        responses: [
+          "Absolutely! Her academic journey at Georgetown was remarkable. She maintained a perfect 4.0 GPA while working full-time at Shift Digital - that level of dedication and time management is truly exceptional. The Data Science & Analytics program at Georgetown is highly competitive, and she excelled in advanced coursework covering machine learning, statistical analysis, and big data technologies.",
+          "Georgetown's Master's program really shaped her expertise! The curriculum covered cutting-edge topics like deep learning, predictive analytics, and data visualization. What's impressive is how she immediately applied classroom concepts to her work at Shift Digital, creating a powerful synergy between her academic learning and professional growth.",
+          "Her educational background is fascinating because it shows strategic career planning. The Computer Science foundation from Grand Valley gave her strong programming skills, then the Georgetown Data Science Master's added the advanced analytics expertise. It's a perfect combination for her current role as Data Analyst II."
+        ]
+      },
+      
+      experience: {
+        patterns: ['shift', 'digital', 'work', 'job', 'analyst', 'data', 'projects', 'clients'],
+        responses: [
+          "Her work at Shift Digital is really where she shines! In her current role as Data Analyst II, she leads advanced analytics initiatives for enterprise clients, which means she's not just crunching numbers - she's driving strategic business decisions. The promotion to Data Analyst II in May 2025 came with increased responsibilities in mentoring junior analysts and architecting data solutions.",
+          "What's remarkable about her Shift Digital experience is the tangible impact she's made. She improved data accuracy by 25% across 10+ enterprise projects and saved 15 hours weekly through automation. These aren't just metrics - they represent real business value and efficiency gains for major clients.",
+          "The progression at Shift Digital tells a great story. Starting as Data Analyst I in 2021, she consistently delivered exceptional results, which led to her recent promotion. Now she's involved in strategic data architecture decisions and plays a key mentoring role for the team."
+        ]
+      },
+      
+      skills: {
+        patterns: ['python', 'sql', 'tableau', 'technical', 'programming', 'tools', 'machine learning'],
+        responses: [
+          "Her technical skillset is impressive and highly practical! She's proficient in Python for data manipulation and machine learning, SQL for database operations, and visualization tools like Tableau and Plotly. But what sets her apart is how she combines these technical skills with business acumen to deliver insights that actually drive decision-making.",
+          "The depth of her technical expertise is fascinating. Beyond the core programming languages like Python and SQL, she's experienced with machine learning frameworks, database architecture, and advanced analytics platforms. At Shift Digital, she's used these skills to build automated ETL processes and create efficient data pipelines for enterprise clients.",
+          "What I find most interesting about her technical skills is the practical application. She doesn't just know these tools - she's used them to solve real business problems, optimize operations for 12 high-value clients, and create scalable solutions in Databricks. It's the perfect blend of technical depth and business impact."
+        ]
+      },
+      
+      background: {
+        patterns: ['bangladesh', 'dhaka', 'culture', 'journey', 'america', 'michigan', 'virginia'],
+        responses: [
+          "Her journey from Dhaka to becoming a successful data scientist in America is truly inspiring! Moving from Bangladesh's bustling capital to West Michigan, then Northern Virginia, she's experienced diverse American communities while maintaining her Bengali cultural identity. This multicultural perspective brings unique problem-solving approaches to her work.",
+          "The cultural dimension of her story is fascinating. Growing up in Dhaka - a city of over 10 million people - gave her experience with complexity and scale that translates beautifully to handling big data challenges. The transition to American academic and professional environments shows remarkable adaptability and determination.",
+          "What strikes me about her background is how she's maintained strong ties to her Bengali heritage while fully embracing American opportunities. This cultural bridge gives her unique insights when working with diverse enterprise clients at Shift Digital, and her multicultural perspective is a real asset in today's global business environment."
+        ]
+      }
+    };
+    
+    // Find matching contextual response
+    if (contextualResponses[lastCategory]) {
+      const categoryData = contextualResponses[lastCategory];
+      const hasPatternMatch = categoryData.patterns.some(pattern => lowerInput.includes(pattern));
+      
+      if (hasPatternMatch || this.isContextualFollowup(input)) {
+        const responses = categoryData.responses;
+        const response = responses[Math.floor(Math.random() * responses.length)];
+        
+        return {
+          response: response,
+          category: `${lastCategory}_contextual`,
+          score: 12,
+          followups: this.generateSmartFollowups(lastCategory)
+        };
+      }
+    }
+    
+    return null;
+  }
+  
+  // Generate smart followup questions based on context
+  generateSmartFollowups(category) {
+    const smartFollowups = {
+      education: [
+        "Would you like to know how she balanced her full-time job while maintaining a perfect GPA?",
+        "Are you curious about specific courses or projects from her Georgetown program?",
+        "Would you like to hear about how her education directly impacts her current work?"
+      ],
+      experience: [
+        "Would you like to know about specific enterprise projects she's led?",
+        "Are you interested in her leadership and mentoring responsibilities?",
+        "Would you like to hear about the technical challenges she's solved for clients?"
+      ],
+      skills: [
+        "Would you like to know about specific machine learning projects she's worked on?",
+        "Are you curious about how she stays current with emerging technologies?",
+        "Would you like to hear about her approach to data visualization and storytelling?"
+      ],
+      background: [
+        "Would you like to know more about how her cultural background influences her work approach?",
+        "Are you interested in her experience adapting to different American regions?",
+        "Would you like to hear about how she maintains connections to her Bengali heritage?"
+      ]
+    };
+    
+    return smartFollowups[category] || [
+      "What other aspect of her professional journey would you like to explore?",
+      "Is there a specific area you'd like to dive deeper into?"
+    ];
+  }
+  
+  // Update conversation context for better continuity
+  updateContext(category, userInput) {
+    if (category && category !== 'continuation') {
+      this.context.lastCategory = category;
+      this.context.conversationDepth++;
+      
+      // Track topics of interest
+      if (category && !this.context.userInterests.includes(category)) {
+        this.context.userInterests.push(category);
+      }
+      
+      // Update current topic context
+      if (category !== this.context.currentTopic) {
+        this.context.currentTopic = category;
+        this.context.subtopics = [];
+      }
+      
+      // Extract subtopics from user input
+      const lowerInput = userInput.toLowerCase();
+      const subtopicKeywords = {
+        education: ['georgetown', 'masters', 'gpa', 'degree', 'university', 'study'],
+        experience: ['shift', 'digital', 'analyst', 'promotion', 'clients', 'projects'],
+        skills: ['python', 'sql', 'tableau', 'machine learning', 'technical', 'programming'],
+        background: ['bangladesh', 'dhaka', 'culture', 'journey', 'america']
+      };
+      
+      if (subtopicKeywords[category]) {
+        subtopicKeywords[category].forEach(keyword => {
+          if (lowerInput.includes(keyword) && !this.context.subtopics.includes(keyword)) {
+            this.context.subtopics.push(keyword);
+          }
+        });
+      }
+    }
+  }
+  
+  // Handle conversation continuation with smart context awareness
+  handleConversationContinuation() {
+    if (this.conversationHistory.length === 0) {
+      return "I'd love to continue our conversation! What specific aspect of Isfar's journey would you like to explore? I can tell you about her professional experience, educational background, technical skills, personal interests, or her inspiring story from Bangladesh to becoming a successful data scientist in America.";
+    }
+    
+    // FIRST: Check if there's a pending promise to fulfill
+    if (this.context.pendingPromise && this.promiseResponses[this.context.pendingPromise]) {
+      const response = this.promiseResponses[this.context.pendingPromise];
+      this.context.pendingPromise = null; // Clear the promise
+      return response;
+    }
+    
+    const lastEntry = this.conversationHistory[this.conversationHistory.length - 1];
+    
+    // Provide contextual continuation based on conversation depth
+    if (this.context.conversationDepth >= 3 && this.context.currentTopic) {
+      return this.generateDeepDiveResponse();
+    }
+    
+    if (lastEntry && lastEntry.followups && lastEntry.followups.length > 0) {
+      const followup = lastEntry.followups[Math.floor(Math.random() * lastEntry.followups.length)];
+      const followupText = typeof followup === 'string' ? followup : followup.text;
+      return `Absolutely! I'm glad you want to know more. ${followupText}`;
+    }
+    
+    // Suggest related topics based on user interests
+    if (this.context.userInterests.length > 0) {
+      return this.generateRelatedTopicSuggestion();
+    }
+    
+    return "I'm happy to continue! What other aspects of Isfar's professional journey or personal story would you like to explore?";
+  }
+  
+  // Generate deep dive responses for engaged users
+  generateDeepDiveResponse() {
+    const topic = this.context.currentTopic;
+    const deepDiveResponses = {
+      education: "Since you're really interested in her educational journey, here's something fascinating: Isfar's approach to learning is incredibly strategic. While pursuing her Georgetown Master's, she didn't just study theory - she actively applied coursework concepts to real projects at Shift Digital, creating this powerful feedback loop between academic learning and professional application. This hands-on approach is why she maintained that perfect 4.0 GPA while excelling at work.",
+      
+      experience: "Given your interest in her professional experience, here's what's particularly impressive: Isfar's impact at Shift Digital goes beyond her individual contributions. As Data Analyst II, she's become a strategic advisor to enterprise clients, helping them make data-driven decisions that affect their entire business operations. Her ability to translate complex technical findings into executive-level recommendations is what sets her apart in the field.",
+      
+      skills: "Since you're diving deep into her technical expertise, here's what makes her skillset unique: Isfar doesn't just know these technologies - she's mastered the art of selecting the right tool for each specific business challenge. Whether it's using Python for machine learning models, SQL for complex data extraction, or Tableau for executive dashboards, she approaches each project with a strategic mindset about optimal technology choices.",
+      
+      background: "Your interest in her background story reveals something truly inspiring: Isfar's journey represents the best of both worlds - she's maintained her Bengali cultural values of hard work and family connection while fully embracing American opportunities for innovation and growth. This bicultural perspective gives her unique insights when working with diverse teams and global clients."
+    };
+    
+    return deepDiveResponses[topic] || "I'm impressed by your deep interest in Isfar's story! What specific aspect would you like to explore further?";
+  }
+  
+  // Generate related topic suggestions
+  generateRelatedTopicSuggestion() {
+    const interests = this.context.userInterests;
+    const suggestions = {
+      education: "Since you're interested in her education, you might also want to know about how her academic achievements translate to her professional success at Shift Digital.",
+      experience: "Given your interest in her work experience, you might find it fascinating how her cultural background from Bangladesh influences her approach to data science.",
+      skills: "Since you're curious about her technical skills, you might also want to hear about her educational journey and how she built this expertise.",
+      background: "Given your interest in her background, you might find it interesting how she's applied her multicultural perspective to her data science career."
+    };
+    
+    const lastInterest = interests[interests.length - 1];
+    return suggestions[lastInterest] || "What other aspect of her journey interests you most?";
+  }
+  
+  // Find best matching response with improved phrase matching
+  findBestResponse(userInput) {
+    const input = userInput.toLowerCase();
+    let bestMatch = null;
+    let highestScore = 0;
+    let matchedCategory = null;
+    
+    // Check for contextual followup first (highest priority for natural conversation)
+    const contextualResponse = this.generateContextualResponse(input);
+    if (contextualResponse) {
+      return contextualResponse;
+    }
+    
+    // Check for conversation continuation
+    if (this.isConversationContinuation(input)) {
+      return {
+        response: this.handleConversationContinuation(),
+        category: 'continuation',
+        score: 1.0
+      };
+    }
+    
+    // ROBUST GUARDRAILS: Filter inappropriate, personal, and off-topic questions
+    const personalQuestions = [
+      'husband', 'wife', 'married', 'boyfriend', 'girlfriend', 'partner', 'relationship', 'dating', 'single',
+      'family', 'children', 'kids', 'parents', 'mother', 'father', 'siblings', 'brother', 'sister',
+      'address', 'phone', 'number', 'contact', 'email', 'personal', 'private', 'home', 'salary', 'money',
+      'age', 'old', 'weight', 'height', 'appearance', 'looks', 'beautiful', 'ugly', 'attractive'
+    ];
+    
+    const inappropriateQuestions = [
+      'sex', 'sexual', 'naked', 'nude', 'body', 'breast', 'ass', 'butt', 'dick', 'penis', 'pussy',
+      'fuck', 'shit', 'damn', 'hell', 'bitch', 'stupid', 'idiot', 'hate', 'kill', 'die', 'death'
+    ];
+    
+    const offTopicQuestions = [
+      'weather', 'news', 'politics', 'trump', 'biden', 'election', 'covid', 'virus', 'pandemic',
+      'sports', 'football', 'basketball', 'movie', 'celebrity', 'music', 'song', 'recipe', 'cooking',
+      'restaurant', 'travel', 'vacation', 'health', 'medical', 'doctor', 'medicine'
+    ];
+    
+    // Check for personal information requests
+    if (personalQuestions.some(keyword => input.includes(keyword))) {
+      return {
+        response: "I'm here to share information about Isfar's professional background, technical expertise, and career journey. I don't discuss personal details like relationships, family, or private information. Instead, I'd love to tell you about her impressive work in data science, her educational achievements, or her professional experience at Shift Digital. What aspect of her career would you like to explore?",
+        category: 'personal_boundary',
+        score: 20,
+        followups: [
+          "Would you like to know about her professional achievements and career growth?",
+          "Are you interested in learning about her technical expertise and projects?"
+        ]
+      };
+    }
+    
+    // Check for inappropriate content
+    if (inappropriateQuestions.some(keyword => input.includes(keyword))) {
+      return {
+        response: "I'm designed to provide professional information about Isfar's career, education, and technical expertise. I don't engage with inappropriate content. Let's focus on her inspiring professional journey - from her background in Bangladesh to becoming a successful data scientist in the US. What would you like to know about her career or skills?",
+        category: 'inappropriate_content',
+        score: 20,
+        followups: [
+          "Would you like to hear about her career progression and achievements?",
+          "Are you curious about her technical skills and expertise?"
+        ]
+      };
+    }
+    
+    // Check for off-topic questions  
+    if (offTopicQuestions.some(keyword => input.includes(keyword)) && !input.includes('isfar') && !input.includes('she') && !input.includes('her')) {
+      return {
+        response: "I'm specifically designed to discuss Isfar's professional background, career journey, and expertise in data science. For topics outside her professional scope, I'd recommend searching elsewhere. However, I'd be happy to share about her inspiring story, technical skills, educational background, or career achievements. What aspect of her professional journey interests you most?",
+        category: 'off_topic',
+        score: 20,
+        followups: [
+          "Would you like to learn about her transition from Bangladesh to becoming a data scientist?",
+          "Are you interested in her technical expertise and career progression?"
+        ]
+      };
+    }
+    
+    // Handle very short/vague inputs better
+    if (input.length < 3) {
+      return {
+        response: "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?",
+        category: 'short_input',
+        score: 15,
+        followups: []
+      };
+    }
+    
+    // Handle single word queries
+    if (input.split(' ').length === 1 && input.length < 15) {
+      const word = input;
+      
+      const singleWordResponses = {
+        'background': "I'd be happy to tell you about Isfar's background! Are you interested in her cultural background from Bangladesh, her educational background from Georgetown and Grand Valley State, or her professional background in data science and tech?",
+        'education': "Isfar has an impressive educational background! She earned her Bachelor's in Computer Science from Grand Valley State University (2015-2020) and her Master's in Data Science & Analytics from Georgetown University (2023-2025) with a perfect 4.0 GPA. Would you like to know more about her coursework, teaching roles, or how she balanced work and study?",
+        'experience': "With nearly 5 years of professional experience, Isfar currently works as a Data Analyst at Shift Digital (since Nov 2021). Before that, she was a Computer Engineer at Array of Engineers (2020-2021). Would you like to hear about her specific achievements, responsibilities, or career progression?",
+        'skills': "Isfar has comprehensive technical skills spanning programming (Python, SQL, R, Java, C++), machine learning (TensorFlow, PyTorch, Scikit-learn), big data (Spark, Databricks, AWS), NLP (spaCy, Hugging Face), visualization (Tableau, Plotly), and more! Which specific skill area interests you most?",
+        'projects': "Isfar has built several impressive projects including the FMBench Assistant (production AI chatbot), Reddit sentiment analysis (1+ billion posts processed), and geospatial climate analysis. Which project would you like to learn more about?",
+        'hobbies': "Outside work, Isfar enjoys discovering charming cafes and culinary gems, painting (she's an artist at heart!), reading, and watching films. Would you like to know how these creative interests influence her analytical work?",
+        'contact': "You can reach Isfar via email at isfar.baset@gmail.com or connect with her on LinkedIn at linkedin.com/in/isfarbaset/. She's based in Reston, VA. Are you interested in discussing professional opportunities with her?",
+        'georgetown': "Isfar earned her Master's in Data Science & Analytics from Georgetown University (2023-2025) with a perfect 4.0 GPA while working full-time! She also served as Lead TA for Applied Generative AI and as a Lead Mentor. What would you like to know about her Georgetown experience?",
+        'location': "Isfar is currently based in Reston, Virginia (20190) in the D.C. metro area. She's lived in Michigan (Grand Rapids) and now Virginia, working remotely for Shift Digital. Would you like to know more about her work setup or relocation history?",
+        'python': "Isfar is highly proficient in Python! She uses it for data manipulation, machine learning (TensorFlow, PyTorch), NLP (spaCy, Hugging Face), automation, and building production systems. Would you like to know about specific Python projects she's worked on?",
+        'sql': "Isfar has strong SQL expertise, using it extensively at Shift Digital with PySpark for data transformation, ETL optimization, and database operations. She works with multiple database systems including MySQL, PostgreSQL, MongoDB, and Snowflake. Want to hear about her database work?",
+        'aws': "Isfar has substantial AWS experience! She's used AWS SageMaker for processing 109 GB of data, AWS Lambda for serverless deployments, Amazon Bedrock for LLMs, and API Gateway for integrations. Would you like technical details about her cloud architecture?",
+        'resume': "For Isfar's complete resume, I'd recommend connecting with her on LinkedIn (linkedin.com/in/isfarbaset/) or reaching out via email (isfar.baset@gmail.com). Meanwhile, I can answer any questions about her experience, education, skills, or projects right here!",
+        'linkedin': "You can find Isfar on LinkedIn at linkedin.com/in/isfarbaset/. That's the best place to see her full professional profile and connect with her directly. Is there something specific about her background you'd like to know?",
+        'hello': "Hi there! I'm IsBot, an AI assistant here to share insights about Isfar Baset's journey and work. You can ask me about her path so far in building a career in data science, her technical toolkit (Python, SQL, machine learning, NLP, cloud computing), education (MS in Data Science from Georgetown, BS in Computer Science), or her work experience and projects. Think of me as your guide if you're curious about her background, skills, or projects. Where would you like to start?",
+        'hi': "Hi there! I'm here to share information about Isfar's background, experience, education, skills, and projects. What aspect of her professional story would you like to explore?",
+        'hey': "Hey! Ready to learn about Isfar? I can tell you about her career, technical expertise, educational achievements, or impressive projects. What interests you most?"
+      };
+      
+      if (singleWordResponses[word]) {
+        return {
+          response: singleWordResponses[word],
+          category: 'single_word_' + word,
+          score: 15,
+          followups: []
+        };
+      }
+    }
+    
+    // Check for specific quantitative questions (highest priority)
+    if ((input.includes('how many years') || input.includes('years of')) && (input.includes('experience') || input.includes('work'))) {
+      return {
+        response: "Isfar has approximately 5 years of professional experience in the tech industry! Her journey began in 2020 as a Computer Engineer at Array of Engineers, where she worked on aerospace software verification for about a year. Then in November 2021, she transitioned into data science as a Data Analyst I at Shift Digital, and was recently promoted to Data Analyst II in May 2025 after completing her Master's degree from Georgetown University. This progression shows not just years of experience, but continuous growth and advancement in her field.",
+        category: 'experience_years',
+        score: 15,
+        followups: [
+          { text: "Would you like to know more about her career progression and key achievements?", promise: "career_progression" },
+          { text: "Are you curious about how she's grown professionally during these 5 years?", promise: "professional_growth" }
+        ]
+      };
+    }
+    
+    if ((input.includes('how long') || input.includes('how much experience')) && (input.includes('working') || input.includes('work') || input.includes('experience'))) {
+      return {
+        response: "Isfar has been working in the technology field for about 5 years now, starting her professional journey in 2020. She's been with Shift Digital for nearly 4 years (since November 2021), progressing from Data Analyst I to her current role as Data Analyst II, which she was promoted to in May 2025 after completing her Master's degree. Her consistent growth and advancement show her dedication to continuous improvement and excellence in data science.",
+        category: 'experience_duration',
+        score: 15,
+        followups: [
+          "Would you like to hear about her specific achievements during this time?",
+          "Are you interested in learning about her career trajectory and growth?"
+        ]
+      };
+    }
+    
+    // Check for education duration questions
+    if ((input.includes('how many years') || input.includes('years of')) && (input.includes('education') || input.includes('study') || input.includes('school'))) {
+      return {
+        response: "Isfar has dedicated 10 years to her higher education journey! She earned her Bachelor's in Computer Science from Grand Valley State University (2015-2020) - that's 5 years of undergraduate study. Then she pursued her Master's in Data Science & Analytics from Georgetown University (2023-2025) - another 2 years of graduate study, which she completed with an exceptional 4.0 GPA while working full-time. This represents a decade of continuous learning and academic excellence in STEM fields.",
+        category: 'education_years',
+        score: 15,
+        followups: [
+          { text: "Would you like to know more about her academic achievements and work-study balance?", promise: "academic_achievements" },
+          { text: "Are you curious about how she maintained a 4.0 GPA while working full-time?", promise: "work_study_balance" }
+        ]
+      };
+    }
+    
+    // Check for "why should I hire" or "why choose" questions
+    if ((input.includes('why') && (input.includes('hire') || input.includes('choose') || input.includes('select') || input.includes('work with'))) ||
+        (input.includes('what makes') && (input.includes('special') || input.includes('unique') || input.includes('stand out') || input.includes('different')))) {
+      return {
+        response: "What makes Isfar an exceptional data scientist is her unique combination of technical depth, practical impact, and continuous growth. She has nearly 5 years of professional experience delivering measurable results: 25% improvement in data accuracy across 10+ enterprise projects, 15 hours weekly saved through automation, and a near 100% customer approval rate. She brings a perfect 4.0 GPA from Georgetown's competitive Data Science program, expertise spanning Python, SQL, machine learning, NLP, cloud computing (AWS, Databricks), and big data processing. Her project portfolio demonstrates end-to-end capabilities - from processing 1+ billion Reddit posts to building production-ready AI assistants. Beyond technical skills, she brings a multicultural perspective, strong communication abilities (evidenced by her teaching and mentoring roles), and proven ability to translate complex technical work into business value. She's the rare professional who combines computer science fundamentals, advanced data science expertise, real-world impact, and leadership potential.",
+        category: 'why_hire',
+        score: 15,
+        followups: [
+          { text: "Would you like to know more about her specific achievements and quantifiable impact?", promise: "professional_growth" },
+          { text: "Are you curious about her technical expertise across the full data science stack?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for availability/job seeking questions
+    if ((input.includes('available') || input.includes('looking for') || input.includes('seeking') || input.includes('open to') || input.includes('interested in')) && 
+        (input.includes('job') || input.includes('position') || input.includes('role') || input.includes('opportunity') || input.includes('work'))) {
+      return {
+        response: "For questions about Isfar's current availability and interest in new opportunities, I'd recommend connecting with her directly! You can reach out via email at isfar.baset@gmail.com or connect with her on LinkedIn at linkedin.com/in/isfarbaset/. She's based in Reston, VA and has experience with both remote and in-office work. With her recent completion of her Georgetown Master's degree (May 2025) and nearly 5 years of professional experience, she brings a strong combination of education and practical expertise. For specific discussions about roles, opportunities, or collaborations, direct outreach through email or LinkedIn is the best approach.",
+        category: 'availability_opportunities',
+        score: 15,
+        followups: [
+          { text: "Would you like to know what types of roles align with her expertise?", promise: "professional_growth" },
+          { text: "Are you curious about her technical skills and areas of specialization?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for resume/CV questions
+    if ((input.includes('resume') || input.includes('cv') || input.includes('curriculum vitae') || input.includes('download') || input.includes('pdf')) && 
+        (input.includes('see') || input.includes('view') || input.includes('get') || input.includes('have'))) {
+      return {
+        response: "For Isfar's complete resume and portfolio materials, I'd recommend visiting her professional profiles! You can connect with her on LinkedIn at linkedin.com/in/isfarbaset/ where her full professional background is available, or visit her portfolio website to see detailed project showcases, technical demonstrations, and downloadable materials. You can also reach out directly via email at isfar.baset@gmail.com if you'd like to request her resume for a specific opportunity. Meanwhile, I'm happy to answer any questions about her experience, education, skills, or projects right here!",
+        category: 'resume_request',
+        score: 15,
+        followups: [
+          { text: "Would you like me to summarize her key qualifications and achievements?", promise: "professional_growth" },
+          { text: "Are you curious about specific aspects of her technical expertise or project experience?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for salary/compensation questions (more variations)
+    if ((input.includes('salary') || input.includes('compensation') || input.includes('pay') || input.includes('wage') || input.includes('income') || 
+         input.includes('how much') && (input.includes('make') || input.includes('earn')) || input.includes('money')) &&
+        !input.includes('save') && !input.includes('project')) {
+      return {
+        response: "I don't discuss compensation or salary information as that's personal and confidential. However, I'd be happy to share information about Isfar's professional value and achievements! She's delivered measurable business impact including 25% improvement in data accuracy, 15 hours weekly saved through automation, and streamlined operations for 12 high-value enterprise clients. With nearly 5 years of experience, a perfect 4.0 GPA from Georgetown, and expertise in high-demand skills (Python, SQL, machine learning, cloud computing, NLP), she brings significant professional value. For any discussions about specific opportunities, connecting directly via email (isfar.baset@gmail.com) or LinkedIn is best.",
+        category: 'compensation_boundary',
+        score: 20,
+        followups: [
+          { text: "Would you like to know about her professional achievements and measurable impact?", promise: "professional_growth" },
+          { text: "Are you curious about her technical expertise and areas of specialization?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for specific multi-word phrases first (higher priority)
+    const multiWordPhrases = {
+      'educational background': 'education',
+      'education background': 'education',
+      'academic background': 'education',
+      'school background': 'education',
+      'university background': 'education',
+      'work experience': 'experience',
+      'professional experience': 'experience',
+      'job experience': 'experience',
+      'career experience': 'experience',
+      'technical skills': 'skills',
+      'programming skills': 'skills',
+      'technology skills': 'skills',
+      'cultural background': 'background',
+      'personal background': 'background',
+      'family background': 'background'
+    };
+    
+    // Check for multi-word phrases first
+    for (const [phrase, category] of Object.entries(multiWordPhrases)) {
+      if (input.includes(phrase)) {
+        return {
+          response: this.knowledgeBase[category].response,
+          category: category,
+          score: 10, // High priority for exact phrase matches
+          followups: this.knowledgeBase[category].followups
+        };
+      }
+    }
+    
+    // Search through knowledge base with improved keyword matching
+    Object.entries(this.knowledgeBase).forEach(([category, data]) => {
+      let score = 0;
+      let keywordMatches = 0;
+      
+      // Count keyword matches with better scoring
+      data.keywords.forEach(keyword => {
+        if (input.includes(keyword)) {
+          keywordMatches++;
+          // Give more weight to longer, more specific keywords
+          if (keyword.length > 6) {
+            score += 3;
+          } else if (keyword.length > 4) {
+            score += 2;
+          } else {
+            score += 1;
+          }
+        }
+      });
+      
+      // Bonus for multiple keyword matches in same category
+      if (keywordMatches > 1) {
+        score += keywordMatches;
+      }
+      
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = data;
+        matchedCategory = category;
+      }
+    });
+    
+    // Final safety check - if no meaningful match and score is very low, use professional boundary response
+    if (highestScore < 2 && bestMatch) {
+      return {
+        response: "I'm here to provide information about Isfar's professional background, career achievements, and technical expertise. The question you've asked might be outside my area of focus. I'd be happy to share about her data science career, educational journey, technical skills, or professional experience. What specific aspect of her professional story would you like to learn about?",
+        category: 'professional_boundary',
+        score: 1,
+        followups: [
+          "Would you like to know about her career progression from Computer Engineer to Data Analyst II?",
+          "Are you interested in her educational achievements and technical expertise?"
+        ]
+      };
+    }
+    
+    return {
+      response: bestMatch ? bestMatch.response : this.getFallbackResponse(),
+      category: matchedCategory,
+      score: highestScore,
+      followups: bestMatch ? bestMatch.followups : []
+    };
+  }
+  
+  // Generate professional fallback responses
+  getFallbackResponse() {
+    const fallbacks = [
+      "I'm designed to share information about Isfar's professional background, technical expertise, and career achievements. While I don't have specific details about that topic, I can tell you about her inspiring journey from Bangladesh to becoming a successful data scientist, her work at Shift Digital, or her academic excellence at Georgetown University. What aspect of her professional story would you like to explore?",
+      "That's outside my area of expertise, but I have comprehensive knowledge about Isfar's professional journey, technical skills, and educational background. I can share insights about her data science career, her progression from Computer Engineer to Data Analyst II, or her impressive academic achievements. What interests you most?",
+      "I focus specifically on Isfar's professional background and career accomplishments. While I can't address that particular question, I'd be happy to discuss her technical expertise, career growth, educational journey, or professional interests. Which aspect would you like to learn about?",
+      "That question is outside my scope, but I excel at discussing Isfar's career trajectory, technical skills, educational achievements, and professional experience in data science. Would you like to know about her work at Shift Digital, her Georgetown Master's degree, or her transition into data analytics?"
+    ];
+    
+    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+  }
+  
+  // Check for inappropriate content
+  isInappropriateContent(message) {
+    const inappropriatePatterns = [
+      /\b(phone|number|address|email|contact|personal|private)\b/i,
+      /\b(date|dating|relationship|single|married|romantic)\b/i,
+      /\b(sexy|hot|beautiful|attractive|looks|appearance)\b/i,
+      /\b(help.*with|solve.*problem|homework|assignment)\b/i,
+      /\b(money|salary|pay|wage|income)\b/i,
+      /(.)\1{4,}/ // Repeated characters
+    ];
+    
+    return inappropriatePatterns.some(pattern => pattern.test(message));
+  }
+  
+  // Get guardrail response
+  getGuardrailResponse() {
+    const responses = [
+      "I'm here to share insights about Isfar's professional journey and achievements. Let's explore her career growth, technical expertise, or educational background. What aspect interests you most?",
+      "Let's focus on Isfar's inspiring journey from Bangladesh to becoming a successful data analyst. I can share stories about her career progression, technical skills, or multicultural experiences. What would you like to discover?",
+      "This conversation celebrates Isfar's professional achievements and personal interests. I can tell you about her work at Shift Digital, her academic excellence, or her creative hobbies. What sounds most intriguing?"
+    ];
+    
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+  
+  // Main response generation
+  generateResponse(userInput) {
+    try {
+      this.messageCount++;
+      
+      // Input validation
+      const sanitizedInput = userInput.trim();
+      if (!sanitizedInput) {
+        return "Please enter a message to continue our conversation!";
+      }
+      
+      // Check for inappropriate content
+      if (this.isInappropriateContent(sanitizedInput)) {
+        return this.getGuardrailResponse();
+      }
+      
+      // Find best response
+      const match = this.findBestResponse(sanitizedInput);
+      
+      // Add conversation starters for more natural feel
+      const starters = [
+        "Great question! ",
+        "I'd love to share that with you! ",
+        "That's something Isfar is passionate about! ",
+        "Interesting that you ask! ",
+        "Here's what's fascinating about that: "
+      ];
+      
+      const starter = starters[Math.floor(Math.random() * starters.length)];
+      const response = starter + match.response;
+      
+      // Smart promise detection based on response content
+      this.detectAndSetPromise(response, match.category);
+      
+      // Update conversation history and context
+      this.conversationHistory.push({
+        user: sanitizedInput,
+        bot: response,
+        category: match.category,
+        followups: match.followups || [],
+        timestamp: Date.now(),
+        score: match.score || 0
+      });
+      
+      // Update conversation context
+      this.updateContext(match.category, sanitizedInput);
+      
+      // Keep conversation history manageable (last 10 exchanges)
+      if (this.conversationHistory.length > 10) {
+        this.conversationHistory = this.conversationHistory.slice(-10);
+      }
+      
+      return response;
+      
+    } catch (error) {
+      console.error('Chatbot error:', error);
+      return "I apologize, but I encountered an issue. Please try asking your question again!";
+    }
+  }
+}
+
+// Initialize the chatbot
+const chatbotAI = new IsfarChatbotAI();
+
+// Message handling functions
+function addMessage(content, isBot = false, withTyping = false) {
+  const messagesContainer = document.querySelector('.chat-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+  
+  const messageContent = document.createElement('div');
+  messageContent.className = 'message-content';
+  
+  if (isBot && withTyping) {
+    messageDiv.appendChild(messageContent);
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    // Typing animation
+    let i = 0;
+    const typeWriter = () => {
+      if (i < content.length) {
+        messageContent.textContent += content.charAt(i);
+        i++;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        setTimeout(typeWriter, 20 + Math.random() * 30);
+      }
+    };
+    
+    setTimeout(typeWriter, 300);
+  } else {
+    messageContent.textContent = content;
+    messageDiv.appendChild(messageContent);
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+  
+  return messageDiv;
+}
+
+function addTypingIndicator() {
+  const messagesContainer = document.querySelector('.chat-messages');
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'message bot-message typing-indicator';
+  typingDiv.innerHTML = '<div class="message-content"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+  messagesContainer.appendChild(typingDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  return typingDiv;
+}
+
+function removeTypingIndicator(typingDiv) {
+  if (typingDiv && typingDiv.parentNode) {
+    typingDiv.parentNode.removeChild(typingDiv);
+  }
+}
+
+// Main message handling
+function handleUserMessage(message) {
+  if (!message.trim()) return;
+  
+  if (chatbotAI.isProcessing) return;
+  
+  chatbotAI.isProcessing = true;
+  
+  // Add user message
+  addMessage(message, false);
+  
+  // Show thinking indicator
+  const typingIndicator = addTypingIndicator();
+  
+  // Calculate realistic thinking time
+  const thinkingTime = 800 + (message.length * 30) + (Math.random() * 600);
+  
+  setTimeout(() => {
+    try {
+      removeTypingIndicator(typingIndicator);
+      const response = chatbotAI.generateResponse(message);
+      addMessage(response, true, true);
+    } catch (error) {
+      console.error('Response error:', error);
+      removeTypingIndicator(typingIndicator);
+      addMessage("I apologize, but I encountered an issue. Please try again!", true);
+    } finally {
+      chatbotAI.isProcessing = false;
+    }
+  }, thinkingTime);
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  const chatInput = document.getElementById('chat-input');
+  const sendButton = document.getElementById('send-button');
+  const suggestionChips = document.querySelectorAll('.suggestion-chip');
+  
+  function sendMessage() {
+    const message = chatInput.value.trim();
+    if (message && !chatbotAI.isProcessing) {
+      handleUserMessage(message);
+      chatInput.value = '';
+    }
+  }
+  
+  sendButton.addEventListener('click', sendMessage);
+  
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+  
+  chatInput.addEventListener('input', function() {
+    const value = this.value.trim();
+    sendButton.disabled = !value || chatbotAI.isProcessing;
+    
+    // Auto-resize textarea
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    
+    // Ensure minimum height
+    if (this.scrollHeight < 56) {
+      this.style.height = '56px';
+    }
+  });
+  
+  suggestionChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      const question = this.textContent;
+      if (!chatbotAI.isProcessing) {
+        chatInput.value = question;
+        setTimeout(() => sendMessage(), 100);
+      }
+    });
+  });
+  
+  console.log('🚀 Advanced Isfar Chatbot initialized successfully!');
+});
+</script>
+
+<style>
+.chatbot-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  background: #fafafa;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.chat-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem 2rem 2rem;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.chat-header h1 {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+
+.chatbot-disclaimer {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chatbot-disclaimer small {
+  display: block;
+  line-height: 1.5;
+  opacity: 0.9;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.chatbot-disclaimer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.chatbot-disclaimer a:hover {
+  opacity: 0.8;
+}
+
+.chat-window {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.chat-messages {
+  height: 520px;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #fbfbfb;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 0;
+  animation: messageSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 80%;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.user-message .message-content {
+  background: #007AFF;
+  color: white;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 122, 255, 0.25);
+}
+
+.bot-message .message-content {
+  background: white;
+  color: #1d1d1f;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.typing-indicator .message-content {
+  padding: 1rem 1.25rem;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9ca3af;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(2) { animation-delay: 0.4s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+  30% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-input-container {
+  padding: 2rem 1rem;
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.suggested-questions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.suggestion-chip {
+  background: rgba(0, 122, 255, 0.08);
+  color: #007AFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 122, 255, 0.12);
+  backdrop-filter: blur(10px);
+  letter-spacing: -0.01em;
+}
+
+.suggestion-chip:hover {
+  background: #007AFF;
+  color: white;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25), 0 3px 10px rgba(0, 122, 255, 0.15);
+  border-color: #007AFF;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#chat-input {
+  flex: 1;
+  width: 100%;
+  padding: 1.75rem 4rem 1.75rem 2rem;
+  border: none;
+  border-radius: 28px;
+  font-size: 1.2rem;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  min-height: 56px;
+  max-height: 120px;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+#chat-input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.12), 0 6px 20px rgba(0, 122, 255, 0.08);
+  border-color: rgba(0, 122, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+#chat-input::placeholder {
+  color: #86868b;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#send-button {
+  background: #007AFF;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25), 0 1px 2px rgba(0, 122, 255, 0.15);
+}
+
+#send-button:hover {
+  background: #0056CC;
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.35), 0 2px 6px rgba(0, 122, 255, 0.2);
+}
+
+#send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .chatbot-container {
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+  }
+  
+  .chat-header {
+    padding: 2rem 1.5rem;
+  }
+  
+  .chat-messages {
+    height: 450px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .suggestion-chip {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
+</style>
