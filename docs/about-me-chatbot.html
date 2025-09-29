@@ -234,7 +234,7 @@ class IsfarChatbotAI {
       },
       
       education: {
-        keywords: ['education', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors'],
+        keywords: ['education', 'educational', 'academic', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors', 'graduation', 'graduated'],
         response: "Isfar's educational journey is a testament to her dedication and strategic thinking. She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020), building a solid foundation in programming and systems thinking. Recognizing the power of data in modern business, she pursued her Master of Science in Data Science & Analytics from Georgetown University, completing it in 2025 with an exceptional 4.0 GPA while working full-time - demonstrating remarkable time management and commitment to excellence.",
         followups: [
           "Would you like to know more about her academic achievements and work-study balance?",
@@ -306,7 +306,7 @@ class IsfarChatbotAI {
     return "I'm happy to continue! What other aspects of Isfar's professional journey or personal story would you like to explore?";
   }
   
-  // Find best matching response
+  // Find best matching response with improved phrase matching
   findBestResponse(userInput) {
     const input = userInput.toLowerCase();
     let bestMatch = null;
@@ -322,16 +322,61 @@ class IsfarChatbotAI {
       };
     }
     
-    // Search through knowledge base
+    // Check for specific multi-word phrases first (higher priority)
+    const multiWordPhrases = {
+      'educational background': 'education',
+      'education background': 'education',
+      'academic background': 'education',
+      'school background': 'education',
+      'university background': 'education',
+      'work experience': 'experience',
+      'professional experience': 'experience',
+      'job experience': 'experience',
+      'career experience': 'experience',
+      'technical skills': 'skills',
+      'programming skills': 'skills',
+      'technology skills': 'skills',
+      'cultural background': 'background',
+      'personal background': 'background',
+      'family background': 'background'
+    };
+    
+    // Check for multi-word phrases first
+    for (const [phrase, category] of Object.entries(multiWordPhrases)) {
+      if (input.includes(phrase)) {
+        return {
+          response: this.knowledgeBase[category].response,
+          category: category,
+          score: 10, // High priority for exact phrase matches
+          followups: this.knowledgeBase[category].followups
+        };
+      }
+    }
+    
+    // Search through knowledge base with improved keyword matching
     Object.entries(this.knowledgeBase).forEach(([category, data]) => {
       let score = 0;
+      let keywordMatches = 0;
       
-      // Count keyword matches
+      // Count keyword matches with better scoring
       data.keywords.forEach(keyword => {
         if (input.includes(keyword)) {
-          score += keyword.length > 4 ? 2 : 1; // Longer keywords get more weight
+          keywordMatches++;
+          // Give more weight to longer, more specific keywords
+          if (keyword.length > 6) {
+            score += 3;
+          } else if (keyword.length > 4) {
+            score += 2;
+          } else {
+            score += 1;
+          }
         }
       });
+      
+      // Bonus for multiple keyword matches in same category
+      if (keywordMatches > 1) {
+        score += keywordMatches;
+      }
       
       if (score > highestScore) {
         highestScore = score;
