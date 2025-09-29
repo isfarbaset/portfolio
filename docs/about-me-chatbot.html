@@ -244,7 +244,7 @@ class IsfarChatbotAI {
       
       experience: {
         keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift', 'digital', 'array', 'engineers', 'data', 'analyst', 'enterprise'],
-        response: "As a Data Analyst II at Shift Digital, Isfar works in the Data Operations and Analytics team, collaborating with enterprise clients to transform complex raw data into strategic, actionable insights. Her career shows continuous growth - from Data Analyst I (2021-2023) to her current senior role, and before that, experience as a Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification. What makes her exceptional is her ability to bridge technical complexity with business strategy.",
+        response: "With 5 years of professional experience in tech, Isfar currently serves as a Data Analyst II at Shift Digital, working in the Data Operations and Analytics team to collaborate with enterprise clients and transform complex raw data into strategic, actionable insights. Her career shows impressive growth - from Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification, to Data Analyst I (2021-2023), and now to her current senior role. What makes her exceptional is her ability to bridge technical complexity with business strategy while continuously advancing in her field.",
         followups: [
           "Would you like to hear about specific projects she's worked on with enterprise clients?",
           "Are you curious about her transition from software engineering to data science?"
@@ -319,6 +319,31 @@ class IsfarChatbotAI {
         response: this.handleConversationContinuation(),
         category: 'continuation',
         score: 1.0
+      };
+    }
+    
+    // Check for specific quantitative questions (highest priority)
+    if ((input.includes('how many years') || input.includes('years of')) && (input.includes('experience') || input.includes('work'))) {
+      return {
+        response: "Isfar has approximately 5 years of professional experience in the tech industry! Her journey began in 2020 as a Computer Engineer at Array of Engineers, where she worked on aerospace software verification for about a year. Then in 2021, she transitioned into data science as a Data Analyst I at Shift Digital, was promoted to Data Analyst II in 2023, and continues to excel in that role today. This progression shows not just years of experience, but continuous growth and advancement in her field.",
+        category: 'experience_years',
+        score: 15,
+        followups: [
+          "Would you like to know more about her career progression and key achievements?",
+          "Are you curious about how she's grown professionally during these 5 years?"
+        ]
+      };
+    }
+    
+    if ((input.includes('how long') || input.includes('how much experience')) && (input.includes('working') || input.includes('work') || input.includes('experience'))) {
+      return {
+        response: "Isfar has been working in the technology field for about 5 years now, starting her professional journey in 2020. She's been with Shift Digital for nearly 4 years, progressing from Data Analyst I to her current role as Data Analyst II. Her consistent growth and advancement show her dedication to continuous improvement and excellence in data science.",
+        category: 'experience_duration',
+        score: 15,
+        followups: [
+          "Would you like to hear about her specific achievements during this time?",
+          "Are you interested in learning about her career trajectory and growth?"
+        ]
       };
     }
     
