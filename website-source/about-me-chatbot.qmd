@@ -21,17 +21,14 @@ format:
 <div class="chat-messages">
 <div class="message bot-message">
 <div class="message-content">
-Hi! I'm an AI assistant with information about Isfar Baset's background and work.
-Ask me about:
+Hi there! I'm an AI assistant here to share insights about Isfar Baset's journey and work. You can ask me about:
 
-• Her path from Bangladesh to data science in the US
-• Technical skills: Python, SQL, machine learning, NLP, cloud computing
-• Education: MS in Data Science (Georgetown), BS in Computer Science
-• Work at Shift Digital and Array of Engineers
-• Projects: AI chatbots, sentiment analysis, climate visualization
+• Her path so far in building a career in data science <br>
+• Technical toolkit: Python, SQL, machine learning, NLP, cloud computing <br>
+• Education: MS in Data Science (Georgetown), BS in Computer Science <br>
+• Work Experience and Projects <br>
 
-I can answer questions about her experience, skills, education, or projects.
-What would you like to know?
+Think of me as your guide if you're curious about her background, skills, or projects. Where would you like to start?
 </div>
 </div>
 </div>
@@ -515,7 +512,7 @@ class IsfarChatbotAI {
         'aws': "Isfar has substantial AWS experience! She's used AWS SageMaker for processing 109 GB of data, AWS Lambda for serverless deployments, Amazon Bedrock for LLMs, and API Gateway for integrations. Would you like technical details about her cloud architecture?",
         'resume': "For Isfar's complete resume, I'd recommend connecting with her on LinkedIn (linkedin.com/in/isfarbaset/) or reaching out via email (isfar.baset@gmail.com). Meanwhile, I can answer any questions about her experience, education, skills, or projects right here!",
         'linkedin': "You can find Isfar on LinkedIn at linkedin.com/in/isfarbaset/. That's the best place to see her full professional profile and connect with her directly. Is there something specific about her background you'd like to know?",
-        'hello': "Hi! I'm IsBot, an AI assistant with information about Isfar Baset's background and work. I can tell you about her path from Bangladesh to data science in the US, her technical skills (Python, SQL, machine learning, NLP, cloud computing), education (MS in Data Science from Georgetown, BS in Computer Science), work at Shift Digital and Array of Engineers, or her projects like AI chatbots, sentiment analysis, and climate visualization. What would you like to know?",
+        'hello': "Hi there! I'm IsBot, an AI assistant here to share insights about Isfar Baset's journey and work. You can ask me about her path so far in building a career in data science, her technical toolkit (Python, SQL, machine learning, NLP, cloud computing), education (MS in Data Science from Georgetown, BS in Computer Science), or her work experience and projects. Think of me as your guide if you're curious about her background, skills, or projects. Where would you like to start?",
         'hi': "Hi there! I'm here to share information about Isfar's background, experience, education, skills, and projects. What aspect of her professional story would you like to explore?",
         'hey': "Hey! Ready to learn about Isfar? I can tell you about her career, technical expertise, educational achievements, or impressive projects. What interests you most?"
       };
