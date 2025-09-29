@@ -641,6 +641,45 @@ class IsfarChatbotAI {
       };
     }
     
+    // Handle very short/vague inputs better
+    if (sanitizedInput.length < 3) {
+      return "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?";
+    }
+    
+    // Handle single word queries
+    if (sanitizedInput.split(' ').length === 1 && sanitizedInput.length < 15) {
+      const word = sanitizedInput.toLowerCase();
+      
+      const singleWordResponses = {
+        'background': "I'd be happy to tell you about Isfar's background! Are you interested in her cultural background from Bangladesh, her educational background from Georgetown and Grand Valley State, or her professional background in data science and tech?",
+        'education': "Isfar has an impressive educational background! She earned her Bachelor's in Computer Science from Grand Valley State University (2015-2020) and her Master's in Data Science & Analytics from Georgetown University (2023-2025) with a perfect 4.0 GPA. Would you like to know more about her coursework, teaching roles, or how she balanced work and study?",
+        'experience': "With nearly 5 years of professional experience, Isfar currently works as a Data Analyst at Shift Digital (since Nov 2021). Before that, she was a Computer Engineer at Array of Engineers (2020-2021). Would you like to hear about her specific achievements, responsibilities, or career progression?",
+        'skills': "Isfar has comprehensive technical skills spanning programming (Python, SQL, R, Java, C++), machine learning (TensorFlow, PyTorch, Scikit-learn), big data (Spark, Databricks, AWS), NLP (spaCy, Hugging Face), visualization (Tableau, Plotly), and more! Which specific skill area interests you most?",
+        'projects': "Isfar has built several impressive projects including the FMBench Assistant (production AI chatbot), Reddit sentiment analysis (1+ billion posts processed), and geospatial climate analysis. Which project would you like to learn more about?",
+        'hobbies': "Outside work, Isfar enjoys discovering charming cafes and culinary gems, painting (she's an artist at heart!), reading, and watching films. Would you like to know how these creative interests influence her analytical work?",
+        'contact': "You can reach Isfar via email at isfar.baset@gmail.com or connect with her on LinkedIn at linkedin.com/in/isfarbaset/. She's based in Reston, VA. Are you interested in discussing professional opportunities with her?",
+        'georgetown': "Isfar earned her Master's in Data Science & Analytics from Georgetown University (2023-2025) with a perfect 4.0 GPA while working full-time! She also served as Lead TA for Applied Generative AI and as a Lead Mentor. What would you like to know about her Georgetown experience?",
+        'location': "Isfar is currently based in Reston, Virginia (20190) in the D.C. metro area. She's lived in Michigan (Grand Rapids) and now Virginia, working remotely for Shift Digital. Would you like to know more about her work setup or relocation history?",
+        'python': "Isfar is highly proficient in Python! She uses it for data manipulation, machine learning (TensorFlow, PyTorch), NLP (spaCy, Hugging Face), automation, and building production systems. Would you like to know about specific Python projects she's worked on?",
+        'sql': "Isfar has strong SQL expertise, using it extensively at Shift Digital with PySpark for data transformation, ETL optimization, and database operations. She works with multiple database systems including MySQL, PostgreSQL, MongoDB, and Snowflake. Want to hear about her database work?",
+        'aws': "Isfar has substantial AWS experience! She's used AWS SageMaker for processing 109 GB of data, AWS Lambda for serverless deployments, Amazon Bedrock for LLMs, and API Gateway for integrations. Would you like technical details about her cloud architecture?",
+        'resume': "For Isfar's complete resume, I'd recommend connecting with her on LinkedIn (linkedin.com/in/isfarbaset/) or reaching out via email (isfar.baset@gmail.com). Meanwhile, I can answer any questions about her experience, education, skills, or projects right here!",
+        'linkedin': "You can find Isfar on LinkedIn at linkedin.com/in/isfarbaset/. That's the best place to see her full professional profile and connect with her directly. Is there something specific about her background you'd like to know?",
+        'hello': "Hello! I'm Isfar's AI assistant. I can tell you about her professional journey from Bangladesh to becoming a data scientist, her work at Shift Digital, her Georgetown education, or her technical projects. What would you like to know?",
+        'hi': "Hi there! I'm here to share information about Isfar's background, experience, education, skills, and projects. What aspect of her professional story would you like to explore?",
+        'hey': "Hey! Ready to learn about Isfar? I can tell you about her career, technical expertise, educational achievements, or impressive projects. What interests you most?"
+      };
+      
+      if (singleWordResponses[word]) {
+        return {
+          response: singleWordResponses[word],
+          category: 'single_word_' + word,
+          score: 15,
+          followups: []
+        };
+      }
+    }
+    
     // Check for specific quantitative questions (highest priority)
     if ((input.includes('how many years') || input.includes('years of')) && (input.includes('experience') || input.includes('work'))) {
       return {
@@ -675,6 +714,63 @@ class IsfarChatbotAI {
         followups: [
           { text: "Would you like to know more about her academic achievements and work-study balance?", promise: "academic_achievements" },
           { text: "Are you curious about how she maintained a 4.0 GPA while working full-time?", promise: "work_study_balance" }
+        ]
+      };
+    }
+    
+    // Check for "why should I hire" or "why choose" questions
+    if ((input.includes('why') && (input.includes('hire') || input.includes('choose') || input.includes('select') || input.includes('work with'))) ||
+        (input.includes('what makes') && (input.includes('special') || input.includes('unique') || input.includes('stand out') || input.includes('different')))) {
+      return {
+        response: "What makes Isfar an exceptional data scientist is her unique combination of technical depth, practical impact, and continuous growth. She has nearly 5 years of professional experience delivering measurable results: 25% improvement in data accuracy across 10+ enterprise projects, 15 hours weekly saved through automation, and a near 100% customer approval rate. She brings a perfect 4.0 GPA from Georgetown's competitive Data Science program, expertise spanning Python, SQL, machine learning, NLP, cloud computing (AWS, Databricks), and big data processing. Her project portfolio demonstrates end-to-end capabilities - from processing 1+ billion Reddit posts to building production-ready AI assistants. Beyond technical skills, she brings a multicultural perspective, strong communication abilities (evidenced by her teaching and mentoring roles), and proven ability to translate complex technical work into business value. She's the rare professional who combines computer science fundamentals, advanced data science expertise, real-world impact, and leadership potential.",
+        category: 'why_hire',
+        score: 15,
+        followups: [
+          { text: "Would you like to know more about her specific achievements and quantifiable impact?", promise: "professional_growth" },
+          { text: "Are you curious about her technical expertise across the full data science stack?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for availability/job seeking questions
+    if ((input.includes('available') || input.includes('looking for') || input.includes('seeking') || input.includes('open to') || input.includes('interested in')) && 
+        (input.includes('job') || input.includes('position') || input.includes('role') || input.includes('opportunity') || input.includes('work'))) {
+      return {
+        response: "For questions about Isfar's current availability and interest in new opportunities, I'd recommend connecting with her directly! You can reach out via email at isfar.baset@gmail.com or connect with her on LinkedIn at linkedin.com/in/isfarbaset/. She's based in Reston, VA and has experience with both remote and in-office work. With her recent completion of her Georgetown Master's degree (May 2025) and nearly 5 years of professional experience, she brings a strong combination of education and practical expertise. For specific discussions about roles, opportunities, or collaborations, direct outreach through email or LinkedIn is the best approach.",
+        category: 'availability_opportunities',
+        score: 15,
+        followups: [
+          { text: "Would you like to know what types of roles align with her expertise?", promise: "professional_growth" },
+          { text: "Are you curious about her technical skills and areas of specialization?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for resume/CV questions
+    if ((input.includes('resume') || input.includes('cv') || input.includes('curriculum vitae') || input.includes('download') || input.includes('pdf')) && 
+        (input.includes('see') || input.includes('view') || input.includes('get') || input.includes('have'))) {
+      return {
+        response: "For Isfar's complete resume and portfolio materials, I'd recommend visiting her professional profiles! You can connect with her on LinkedIn at linkedin.com/in/isfarbaset/ where her full professional background is available, or visit her portfolio website to see detailed project showcases, technical demonstrations, and downloadable materials. You can also reach out directly via email at isfar.baset@gmail.com if you'd like to request her resume for a specific opportunity. Meanwhile, I'm happy to answer any questions about her experience, education, skills, or projects right here!",
+        category: 'resume_request',
+        score: 15,
+        followups: [
+          { text: "Would you like me to summarize her key qualifications and achievements?", promise: "professional_growth" },
+          { text: "Are you curious about specific aspects of her technical expertise or project experience?", promise: "technical_applications" }
+        ]
+      };
+    }
+    
+    // Check for salary/compensation questions (more variations)
+    if ((input.includes('salary') || input.includes('compensation') || input.includes('pay') || input.includes('wage') || input.includes('income') || 
+         input.includes('how much') && (input.includes('make') || input.includes('earn')) || input.includes('money')) &&
+        !input.includes('save') && !input.includes('project')) {
+      return {
+        response: "I don't discuss compensation or salary information as that's personal and confidential. However, I'd be happy to share information about Isfar's professional value and achievements! She's delivered measurable business impact including 25% improvement in data accuracy, 15 hours weekly saved through automation, and streamlined operations for 12 high-value enterprise clients. With nearly 5 years of experience, a perfect 4.0 GPA from Georgetown, and expertise in high-demand skills (Python, SQL, machine learning, cloud computing, NLP), she brings significant professional value. For any discussions about specific opportunities, connecting directly via email (isfar.baset@gmail.com) or LinkedIn is best.",
+        category: 'compensation_boundary',
+        score: 20,
+        followups: [
+          { text: "Would you like to know about her professional achievements and measurable impact?", promise: "professional_growth" },
+          { text: "Are you curious about her technical expertise and areas of specialization?", promise: "technical_applications" }
         ]
       };
     }
