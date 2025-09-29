@@ -1,0 +1,42 @@
+---
+title: ""
+page-layout: full
+output-dir: ../../../docs
+format:
+  html:
+    css: style.css
+---
+
+<div class="chatbot-container">
+
+<div class="chat-header">
+<h1>Ask About Isfar</h1>
+<h3>Get insights about her background, experience, and expertise</h3>
+<div class="chatbot-disclaimer">
+<small>This AI assistant provides information about Isfar's professional background and achievements. For direct conversations or specific opportunities, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small>
+</div>
+</div>
+
+<div class="chat-window">
+<div class="chat-messages">
+<div class="message bot-message">
+<div class="message-content">
+🎯 CACHE TEST VERSION - If you see this message, the file is updating correctly! 
+
+Hi there! I'm an AI assistant here to share insights about Isfar Baset's journey and work. You can ask me about:
+
+• Her path so far in building a career in data science <br>
+• Technical toolkit: Python, SQL, machine learning, NLP, cloud computing <br>
+• Education: MS in Data Science (Georgetown), BS in Computer Science <br>
+• Work Experience and Projects <br>
+
+Think of me as your guide if you're curious about her background, skills, or projects. Where would you like to start?
+</div>
+</div>
+</div>
+
+<div class="chat-input-container">
+<p style="text-align: center; color: #666; font-size: 14px;">This is the TEST version to verify cache updates work correctly.</p>
+</div>
+
+</div>
