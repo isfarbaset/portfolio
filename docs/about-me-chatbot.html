@@ -1249,7 +1249,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .chat-input-container {
-  padding: 2rem;
+  padding: 2rem 3rem;
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom-left-radius: 20px;
@@ -1290,27 +1290,34 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   gap: 1rem;
   align-items: center;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 #chat-input {
   flex: 1;
-  padding: 1.25rem 1.75rem;
+  width: 100%;
+  padding: 1.5rem 4rem 1.5rem 2rem;
   border: none;
-  border-radius: 24px;
-  font-size: 1rem;
+  border-radius: 28px;
+  font-size: 1.1rem;
   outline: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: inherit;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
   font-weight: 400;
   letter-spacing: -0.01em;
+  min-height: 24px;
+  resize: none;
 }
 
 #chat-input:focus {
-  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15), 0 4px 16px rgba(0, 122, 255, 0.1);
-  border-color: rgba(0, 122, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.12), 0 6px 20px rgba(0, 122, 255, 0.08);
+  border-color: rgba(0, 122, 255, 0.25);
   transform: translateY(-1px);
 }
 
@@ -1322,24 +1329,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #send-button {
   background: #007AFF;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 12px rgba(0, 122, 255, 0.25), 0 1px 1px rgba(0, 122, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25), 0 1px 2px rgba(0, 122, 255, 0.15);
 }
 
 #send-button:hover {
   background: #0056CC;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.35), 0 3px 10px rgba(0, 122, 255, 0.2);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.35), 0 2px 6px rgba(0, 122, 255, 0.2);
 }
 
 #send-button:disabled {
