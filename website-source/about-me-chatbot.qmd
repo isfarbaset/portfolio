@@ -55,9 +55,11 @@ Think of me as your guide if you're curious about her background, skills, or pro
 
 </div>
 
+<script src="chatbot.js"></script>
+
 <script>
-// Advanced Conversational AI System for Isfar's Portfolio
-class IsfarChatbotAI {
+// Initialize chatbot when page loads
+console.log('🎯 Page script running...');
   constructor() {
     this.conversationHistory = [];
     this.context = {

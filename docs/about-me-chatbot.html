@@ -235,11 +235,14 @@ class IsfarChatbotAI {
     this.isProcessing = false;
     this.messageCount = 0;
     
+    // Initialize advanced NLP components
+    this.initializeAdvancedNLP();
+    
     // Comprehensive knowledge base
     this.knowledgeBase = {
       background: {
         keywords: ['background', 'origin', 'from', 'hometown', 'where', 'born', 'grew', 'dhaka', 'bangladesh', 'heritage', 'culture', 'journey'],
-        response: "Isfar's journey is truly inspiring! She's originally from Dhaka, Bangladesh - a vibrant, bustling capital city with over 10 million people. Coming to the US in 2015 to pursue her dreams in technology, she first lived in West Michigan and then moved to Northern Virginia in 2022. She's experienced diverse American communities while maintaining strong ties to her Bengali cultural heritage - it's this multicultural perspective that makes her approach to problem-solving so unique and valuable.",
+        response: "Isfar is from Dhaka, Bangladesh. She moved to the US in 2015, first to West Michigan, then Northern Virginia in 2022. Her multicultural background brings unique perspectives to problem-solving.",
         followups: [
           "Would you like to know more about her cultural background and how it influences her work?",
           "Are you curious about her experience adapting to life in different parts of America?"
@@ -248,7 +251,7 @@ class IsfarChatbotAI {
       
       education: {
         keywords: ['education', 'educational', 'academic', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors', 'graduation', 'graduated'],
-        response: "Isfar's educational journey is a testament to her dedication and strategic thinking. She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020), building a solid foundation in programming and systems thinking. Recognizing the power of data in modern business, she pursued her Master of Science in Data Science & Analytics from Georgetown University, completing it in 2025 with an exceptional 4.0 GPA while working full-time - demonstrating remarkable time management and commitment to excellence.",
+        response: "Isfar has a Bachelor's in Computer Science from Grand Valley State University (2015-2020) and a Master's in Data Science from Georgetown University (2025) with a 4.0 GPA. She completed her Master's while working full-time.",
         followups: [
           { text: "Would you like to know more about her academic achievements and work-study balance?", promise: "academic_achievements" },
           { text: "Are you curious about how her computer science background enhances her data science work?", promise: "computer_science_enhancement" }
@@ -257,7 +260,7 @@ class IsfarChatbotAI {
       
       experience: {
         keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift', 'digital', 'array', 'engineers', 'data', 'analyst', 'enterprise'],
-        response: "With 5 years of professional experience in tech, Isfar currently serves as a Data Analyst II at Shift Digital, working in the Data Operations and Analytics team to collaborate with enterprise clients and transform complex raw data into strategic, actionable insights. Her career shows impressive growth - from Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification, to Data Analyst I (Nov 2021-May 2025), and now to her current senior role as Data Analyst II (May 2025-Present) after completing her Master's from Georgetown. What makes her exceptional is her ability to bridge technical complexity with business strategy while continuously advancing in her field.",
+        response: "Isfar is a Data Analyst II at Shift Digital, working with enterprise clients to transform raw data into actionable insights. Previously she was a Computer Engineer at Array of Engineers (2020-2021) and Data Analyst I (2021-2025). She has 5 years of tech experience.",
         followups: [
           { text: "Would you like to hear about specific projects she's worked on with enterprise clients?", promise: "technical_applications" },
           { text: "Are you curious about her transition from software engineering to data science?", promise: "career_progression" }
@@ -266,7 +269,7 @@ class IsfarChatbotAI {
       
       skills: {
         keywords: ['skills', 'technologies', 'programming', 'languages', 'tools', 'python', 'sql', 'r', 'tableau', 'plotly', 'machine', 'learning', 'technical'],
-        response: "Isfar's technical arsenal is both broad and deep. She's proficient in Python, SQL, and R for sophisticated data manipulation and statistical analysis. Her expertise extends to visualization tools like Plotly and Tableau, machine learning frameworks, and database architecture. But what truly sets her apart is her ability to translate complex technical concepts into clear, actionable business insights - she's essentially a bridge between the technical and business worlds.",
+        response: "Isfar's technical skills include Python, SQL, R, Plotly, Tableau, machine learning, and database architecture. She specializes in translating technical concepts into business insights.",
         followups: [
           { text: "Would you like to know how she applies these technical skills to solve real business problems?", promise: "technical_applications" },
           { text: "Are you curious about her learning journey and staying current with new technologies?", promise: "professional_growth" }
@@ -275,16 +278,68 @@ class IsfarChatbotAI {
       
       hobbies: {
         keywords: ['hobbies', 'interests', 'free', 'time', 'fun', 'enjoy', 'like', 'love', 'outside', 'work', 'cafes', 'food', 'painting', 'reading', 'movies', 'creative'],
-        response: "Outside of her professional life, Isfar is a true connoisseur of life's beautiful moments! She has a passion for discovering charming cafes and hidden culinary gems - there's something magical about finding that perfect coffee shop atmosphere or experiencing an authentic dish from a new culture. As an artist at heart, she finds peace and creative expression through painting, which provides wonderful balance to her analytical work. She's also an avid reader and film enthusiast, always seeking new perspectives.",
+        response: "Isfar enjoys exploring cafes, trying new cuisines, painting, reading, and watching movies. Her creative hobbies balance her analytical work.",
         followups: [
           { text: "Are you interested in how her creative hobbies influence her analytical thinking?", promise: "professional_growth" },
           { text: "Would you like to know about her favorite types of cuisine or art styles?", promise: "professional_growth" }
         ]
       },
       
+      projects: {
+        keywords: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'academic', 'work', 'github', 'code', 'implementation', 'application', 'system', 'model', 'analysis', 'interesting', 'impressive', 'worked'],
+        response: "Isfar has built impressive projects spanning AI, data analysis, and visualization. Key projects include: FMBench Assistant (production AI chatbot with RAG architecture), Reddit Sentiment Analysis (processed 1+ billion posts), Spotify Music Classification (machine learning with 50K tracks), Air Quality Intelligence Agent (MCP + Letta AI), and Climate Impact Visualization (40+ years of data). Each demonstrates end-to-end technical capabilities.",
+        followups: [
+          { text: "Would you like technical details about the FMBench AI Assistant with RAG architecture?", promise: "fmbench_project" },
+          { text: "Are you curious about the billion-post Reddit sentiment analysis project?", promise: "reddit_project" },
+          { text: "Want to hear about the Spotify music classification using machine learning?", promise: "spotify_project" },
+          { text: "Interested in the Air Quality Intelligence Agent with advanced AI architecture?", promise: "aqi_project" }
+        ]
+      },
+      
+      academic_projects: {
+        keywords: ['academic', 'school', 'university', 'coursework', 'assignment', 'class', 'georgetown', 'capstone', 'thesis', 'research', 'study', 'student', 'grade', 'spotify', 'music', 'classification', 'air', 'quality', 'climate', 'visualization'],
+        response: "Isfar's academic projects showcase advanced data science techniques: Spotify Music Classification (Georgetown capstone using machine learning on 50K tracks across genres and decades with XGBoost, Neural Networks, and ensemble methods), Air Quality Intelligence Agent (cutting-edge MCP + Letta AI architecture for real-time environmental monitoring), Climate Impact Visualization (40+ years of DMV air quality data analysis), and Customer Churn Prediction Model (so impressive it's being considered for real client implementation). She also served as Lead TA for Applied Generative AI.",
+        followups: [
+          { text: "Want details about the Spotify classification project with advanced machine learning?", promise: "spotify_project" },
+          { text: "Curious about the Air Quality Intelligence Agent with MCP and Letta AI?", promise: "aqi_project" },
+          { text: "Interested in the climate visualization with 40+ years of data?", promise: "climate_project" },
+          { text: "Want to hear about the customer churn model that impressed clients?", promise: "churn_project" }
+        ]
+      },
+
+      spotify_project: {
+        keywords: ['spotify', 'music', 'classification', 'genres', 'decades', 'songs', 'tracks', 'machine', 'learning', 'xgboost', 'neural', 'networks', 'random', 'forest', 'capstone', 'georgetown', 'harmony', 'numbers'],
+        response: "The Spotify Music Classification project was Isfar's Georgetown capstone, analyzing 50,000 tracks from 400+ artists across 10 genres (Country, EDM, Funk, Hip-Hop, Jazz, Latin, Pop, Rap, Rock, Soul). Using advanced ML models (XGBoost, Neural Networks, Random Forest, SVM, Logistic Regression), the team achieved impressive classification accuracy for both genre and decade prediction. The project featured sophisticated data preprocessing, handling imbalanced datasets, and comprehensive EDA revealing musical trends across time periods.",
+        followups: [
+          { text: "Want to know about the specific machine learning models and their performance?", promise: "spotify_technical" },
+          { text: "Curious about the data preprocessing and feature engineering techniques?", promise: "spotify_data" },
+          { text: "Interested in the insights about musical trends across genres and decades?", promise: "spotify_insights" }
+        ]
+      },
+
+      air_quality_project: {
+        keywords: ['air', 'quality', 'aqi', 'environmental', 'monitoring', 'mcp', 'letta', 'intelligence', 'agent', 'pollution', 'health', 'recommendations', 'dmv', 'cities', 'real-time'],
+        response: "The Air Quality Intelligence Agent demonstrates cutting-edge AI architecture combining Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. The system provides real-time AQI data for cities worldwide, detailed pollutant analysis (PM2.5, PM10, O3, NO2, SO2, CO), and intelligent health recommendations. It features activity-specific advice, sensitive group protection, multi-city comparisons, and GPS-based precise location tracking with 100+ DMV area cities analyzed.",
+        followups: [
+          { text: "Want details about the MCP + Letta AI architecture and how it works?", promise: "aqi_architecture" },
+          { text: "Curious about the intelligent health recommendations and safety features?", promise: "aqi_health" },
+          { text: "Interested in the real-time monitoring capabilities and data sources?", promise: "aqi_technical" }
+        ]
+      },
+
+      climate_visualization: {
+        keywords: ['climate', 'visualization', 'environmental', 'data', 'dmv', 'air', 'quality', 'trends', 'analysis', '40', 'years', 'historical', 'patterns', 'impact'],
+        response: "The Climate Impact Visualization project analyzed 40+ years of DMV area air quality data to reveal long-term environmental trends and patterns. Using advanced data visualization techniques, Isfar created comprehensive dashboards showing pollution trends, seasonal variations, and the impact of policy changes over four decades. The project demonstrates expertise in handling large-scale temporal data and creating meaningful insights from complex environmental datasets.",
+        followups: [
+          { text: "Want to know about the data sources and 40+ years of historical analysis?", promise: "climate_data" },
+          { text: "Curious about the visualization techniques and dashboard design?", promise: "climate_viz" },
+          { text: "Interested in the environmental insights and policy impact findings?", promise: "climate_insights" }
+        ]
+      },
+      
       goals: {
         keywords: ['goals', 'future', 'aspirations', 'want', 'plan', 'career', 'vision', 'leadership', 'mentoring'],
-        response: "Isfar envisions a future where sophisticated data science drives meaningful organizational change. She's passionate about growing as a thought leader while maintaining her commitment to making complex data accessible to everyone. Her goal is to continue building innovative solutions that empower teams to make better decisions. She's particularly interested in mentoring the next generation of data professionals and contributing to industry best practices.",
+        response: "Isfar wants to use data science to drive organizational change. She aims to make data accessible, build innovative solutions, and mentor future data professionals.",
         followups: [
           { text: "Would you like to know more about her approach to making data science accessible?", promise: "professional_growth" },
           { text: "Are you curious about her thoughts on the future of data science?", promise: "professional_growth" }
@@ -296,19 +351,321 @@ class IsfarChatbotAI {
     
     // Comprehensive promise fulfillment system
     this.promiseResponses = {
-      'work_study_balance': "Here's how she mastered the incredible work-study balance: Isfar developed a strategic time management system that allowed her to excel in both areas. She would dedicate early mornings (5-7 AM) to coursework before starting her workday at Shift Digital. Evenings were reserved for assignments and projects, while weekends became intensive study sessions. What made this sustainable was her ability to connect Georgetown coursework directly to her Shift Digital projects - she'd often implement class concepts at work and bring real-world challenges back to academic discussions. Her supervisors at Shift Digital were incredibly supportive, understanding the value this education would bring back to the team. The key was treating both commitments as equally important and finding synergies between them.",
+      'work_study_balance': "Isfar studied early mornings (5-7 AM) before work and evenings/weekends for assignments. She connected Georgetown coursework to her Shift Digital projects, implementing class concepts at work.",
       
-      'academic_achievements': "Her academic achievements are truly outstanding! Beyond the perfect 4.0 GPA, she consistently ranked in the top 5% of her Data Science cohort at Georgetown. She was selected for advanced electives like Deep Learning Applications and Big Data Architecture - courses typically reserved for PhD candidates. Her capstone project involved developing a predictive analytics model for customer churn, which was so impressive it's now being considered for implementation by a real client. She also served as a teaching assistant for introductory statistics courses, helping fellow students while deepening her own understanding. Faculty members frequently cited her work as exemplary, and she received the Dean's List recognition every semester.",
+      'academic_achievements': "Isfar achieved a 4.0 GPA and ranked in the top 5% at Georgetown. She took advanced courses like Deep Learning Applications, built a customer churn prediction model for her capstone, and served as a teaching assistant.",
       
-      'computer_science_enhancement': "Her Computer Science background creates a powerful foundation that enhances everything she does in data science! The programming fundamentals from Grand Valley - algorithms, data structures, software engineering principles - give her a huge advantage when building complex data pipelines and machine learning models. While many data scientists struggle with code efficiency and scalability, her CS background means she naturally writes optimized, maintainable code. She understands system architecture, which helps her design better ETL processes at Shift Digital. The mathematical rigor from CS coursework also prepared her for advanced statistical concepts in her Georgetown program. It's like having bilingual fluency - she can speak both the language of software engineering and data science.",
+      'computer_science_enhancement': "Her CS background provides strong programming fundamentals, algorithms knowledge, and system architecture understanding. This helps her write efficient code and design better data pipelines.",
       
-      'career_progression': "Her career progression tells an amazing story of strategic growth! Starting as a Computer Engineer at Array of Engineers gave her exposure to software verification and quality assurance - skills that translate perfectly to data validation and quality control in analytics. The transition to Data Analyst I at Shift Digital in 2021 was calculated - she saw the growing importance of data-driven decision making. During her 4 years as Data Analyst I, she consistently exceeded performance metrics, leading to increased responsibilities in client management and team mentoring. The promotion to Data Analyst II in May 2025 came with her Georgetown graduation - perfect timing that combined academic achievement with professional advancement. Now she's positioned for senior leadership roles, with both the technical depth and business acumen needed for executive-level data strategy.",
+      'career_progression': "She progressed from Computer Engineer at Array of Engineers (software verification) to Data Analyst I at Shift Digital (2021), then Data Analyst II (2025). Her promotion coincided with completing her Georgetown degree.",
       
-      'georgetown_program': "The Georgetown Data Science & Analytics program was transformative for her career! It's consistently ranked among the top 10 data science programs nationally, known for its blend of theoretical rigor and practical application. Her coursework covered cutting-edge topics like neural networks, natural language processing, and advanced statistical modeling. The program's emphasis on ethics in AI and data privacy aligned perfectly with her values and the responsible data practices she champions at Shift Digital. Georgetown's location in DC meant access to guest lecturers from government agencies, consulting firms, and tech companies. The collaborative projects with real organizations gave her portfolio-worthy experience before graduation. Faculty members are active researchers, so she learned the latest methodologies before they became industry standard.",
+      'georgetown_program': "Georgetown's Data Science program is top-10 nationally. She studied neural networks, NLP, and advanced statistics. The DC location provided access to industry guest lecturers and real-world projects.",
       
-      'technical_applications': "Her technical skills come alive through real-world applications at Shift Digital! She's built automated ETL pipelines that process millions of records daily for enterprise clients. Her Python expertise shines in custom machine learning models that predict customer behavior and optimize marketing spend. She's created interactive Tableau dashboards that executives use for strategic planning - transforming complex datasets into intuitive visual narratives. Her SQL skills handle complex joins across multiple databases, often involving 50+ million record datasets. She's implemented A/B testing frameworks and statistical significance testing that have driven major business decisions. The Databricks experience involves managing cloud-based data lakes and optimizing Spark jobs for performance. Every technical skill directly translates to business value and client success.",
+      'technical_applications': "At Shift Digital, she builds ETL pipelines processing millions of records, creates machine learning models for customer prediction, and develops Tableau dashboards for executives. She handles complex SQL queries with 50+ million records.",
       
-      'professional_growth': "Her professional growth journey is inspiring and strategic! In just 5 years, she's evolved from a junior engineer to a senior data professional leading strategic initiatives. At Array of Engineers, she learned precision and attention to detail through aerospace software verification. Transitioning to Shift Digital as Data Analyst I, she quickly became known for exceeding project deadlines and delivering insights that directly impacted client ROI. Her mentoring abilities emerged naturally - junior analysts sought her guidance on technical challenges and career development. The promotion to Data Analyst II recognized not just her technical excellence but her leadership potential. She now participates in new business development, presenting technical solutions to C-level executives. Her growth trajectory points toward data science leadership roles, potentially Chief Data Officer positions at growing companies."
+      'professional_growth': "In 5 years, she grew from junior engineer to senior data professional. She now mentors junior analysts, presents to executives, and is positioned for data science leadership roles.",
+
+      // Advanced Project Details
+      'spotify_project': "The Spotify Music Classification was her Georgetown capstone analyzing 50,000 tracks from 400+ artists across 10 genres. The team used XGBoost, Neural Networks, Random Forest, SVM, and Logistic Regression with hyperparameter tuning. They achieved strong classification accuracy for both genre and decade prediction, handling severely imbalanced data with sophisticated sampling methods.",
+      
+      'spotify_technical': "The technical implementation included: XGBoost with gradient boosting for optimal performance, Neural Networks with backpropagation for complex pattern recognition, Random Forest ensemble methods, SVM with kernel functions for high-dimensional classification, and One-vs-Rest logistic regression. All models featured hyperparameter tuning and cross-validation.",
+      
+      'spotify_data': "Data preprocessing involved cleaning 50K tracks from corrupted information, handling duplicate entries, creating decade bins from release dates, averaging artist-level metrics while acknowledging genre evolution over time, and implementing various sampling techniques to address severe temporal imbalance (more recent tracks than historical ones).",
+      
+      'spotify_insights': "Key insights: EDM showed higher instrumental values, Hip-Hop had elevated speechiness metrics, decade classification revealed distinct musical evolution patterns, and genre boundaries proved challenging due to metric overlap - exactly what makes this a sophisticated machine learning problem requiring ensemble approaches.",
+
+      'aqi_project': "The Air Quality Intelligence Agent combines Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. It provides real-time AQI data worldwide, detailed pollutant breakdowns, activity-specific health recommendations, and multi-city comparisons with 100+ DMV area cities analyzed.",
+      
+      'aqi_architecture': "The architecture features: Letta AI as the intelligent conversational brain, MCP Server as the standardized data bridge, API Ninjas integration for real-time environmental data, asynchronous processing for optimal performance, robust error handling with graceful degradation, and extensible design for additional data sources.",
+      
+      'aqi_health': "Health intelligence includes: activity-specific advice for jogging, cycling, walking, outdoor sports; special guidance for children, elderly, and respiratory-sensitive individuals; N95/P100 mask recommendations; air purifier usage guidance; indoor alternatives during poor air quality; and optimal timing recommendations for outdoor activities.",
+      
+      'aqi_technical': "Technical features: real-time AQI monitoring with live data feeds, detailed pollutant analysis (PM2.5, PM10, O3, NO2, SO2, CO), GPS coordinate-based precise location tracking, historical trend analysis capabilities, side-by-side multi-city comparisons, and comprehensive data validation ensuring reliable information.",
+
+      'climate_project': "The Climate Visualization project analyzed 40+ years of DMV area air quality data, revealing long-term environmental trends, seasonal variations, and policy impact analysis. It demonstrates expertise in handling large-scale temporal datasets and creating meaningful insights from complex environmental data.",
+      
+      'climate_data': "The project utilized: 40+ years of historical air quality data from the DMV area, comprehensive pollutant measurements across multiple decades, seasonal and temporal pattern analysis, policy change impact assessment, and large-scale data processing techniques for handling decades of environmental measurements.",
+      
+      'climate_viz': "Visualization techniques included: interactive dashboards showing multi-decade trends, seasonal variation heatmaps, policy impact before/after comparisons, pollutant correlation matrices, and temporal trend analysis with clear visual storytelling of environmental changes over four decades.",
+      
+      'climate_insights': "Key findings: significant air quality improvements following environmental policy implementations, clear seasonal patterns in pollutant levels, correlation between urban development and air quality changes, and identification of the most effective policy interventions for environmental improvement in the DMV area.",
+
+      'churn_project': "The Customer Churn Prediction Model was so impressive that Shift Digital is considering implementing it for real client projects. It demonstrates advanced predictive modeling capabilities with practical business applications and sophisticated feature engineering techniques."
+    };
+  }
+  
+  // Advanced NLP Initialization
+  initializeAdvancedNLP() {
+    this.stopWords = new Set([
+      'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+      'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+      'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could',
+      'should', 'may', 'might', 'must', 'can', 'this', 'that', 'these', 'those'
+    ]);
+    
+    this.synonyms = {
+      'work': ['job', 'career', 'employment', 'position', 'role'],
+      'school': ['education', 'university', 'college', 'study', 'academic', 'coursework'],
+      'skills': ['abilities', 'expertise', 'knowledge', 'competencies', 'technical', 'capabilities'],
+      'experience': ['background', 'history', 'expertise', 'practice'],
+      'projects': ['work', 'portfolio', 'development', 'creation', 'assignments', 'implementations', 'interesting', 'impressive'],
+      'programming': ['coding', 'development', 'software', 'technical'],
+      'academic': ['school', 'university', 'educational', 'coursework', 'study', 'research'],
+      'machine': ['ml', 'artificial', 'ai', 'learning', 'intelligence', 'models'],
+      'data': ['information', 'analytics', 'analysis', 'science', 'dataset'],
+      'classification': ['prediction', 'categorization', 'modeling', 'analysis'],
+      'spotify': ['music', 'audio', 'songs', 'tracks', 'streaming'],
+      'air': ['environmental', 'pollution', 'quality', 'atmosphere', 'aqi'],
+      'climate': ['environmental', 'weather', 'atmosphere', 'pollution', 'trends']
+    };
+    
+    this.contractions = {
+      "don't": "do not", "won't": "will not", "can't": "cannot",
+      "n't": " not", "'re": " are", "'ve": " have", "'ll": " will",
+      "'d": " would", "'m": " am"
+    };
+  }
+  
+  // Fuzzy Logic Implementation
+  calculateFuzzyMatch(str1, str2) {
+    const distance = this.levenshteinDistance(str1.toLowerCase(), str2.toLowerCase());
+    const maxLength = Math.max(str1.length, str2.length);
+    return maxLength === 0 ? 1 : (maxLength - distance) / maxLength;
+  }
+  
+  levenshteinDistance(str1, str2) {
+    const matrix = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null));
+    
+    for (let i = 0; i <= str1.length; i++) matrix[0][i] = i;
+    for (let j = 0; j <= str2.length; j++) matrix[j][0] = j;
+    
+    for (let j = 1; j <= str2.length; j++) {
+      for (let i = 1; i <= str1.length; i++) {
+        const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+        matrix[j][i] = Math.min(
+          matrix[j][i - 1] + 1,
+          matrix[j - 1][i] + 1,
+          matrix[j - 1][i - 1] + indicator
+        );
+      }
+    }
+    
+    return matrix[str2.length][str1.length];
+  }
+  
+  // Advanced Text Preprocessing
+  preprocessText(text) {
+    let processed = text.toLowerCase().trim();
+    processed = processed.replace(/\s+/g, ' ');
+    
+    // Handle contractions
+    Object.entries(this.contractions).forEach(([contraction, expansion]) => {
+      processed = processed.replace(new RegExp(contraction, 'gi'), expansion);
+    });
+    
+    processed = processed.replace(/[^\w\s\?\!\.\,]/g, '');
+    return processed;
+  }
+  
+  // Advanced Tokenization
+  tokenize(text) {
+    return text.toLowerCase()
+      .split(/\s+/)
+      .map(word => word.replace(/[^\w]/g, ''))
+      .filter(word => word.length > 2 && !this.stopWords.has(word));
+  }
+  
+  // Intent Classification
+  classifyIntent(query) {
+    const intents = {
+      question: ['what', 'how', 'when', 'where', 'why', 'who', 'which'],
+      request: ['tell', 'show', 'explain', 'describe', 'give'],
+      greeting: ['hi', 'hello', 'hey', 'greetings'],
+      personal: ['personal', 'private', 'family', 'relationship'],
+      professional: ['work', 'job', 'career', 'experience', 'skills'],
+      education: ['school', 'university', 'degree', 'study', 'learn', 'georgetown', 'academic'],
+      technical: ['python', 'sql', 'programming', 'coding', 'data', 'machine', 'learning'],
+      projects: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'worked', 'interesting', 'impressive'],
+      academic_projects: ['academic', 'coursework', 'capstone', 'spotify', 'music', 'classification'],
+      environmental: ['air', 'quality', 'climate', 'environmental', 'pollution', 'aqi'],
+      availability: ['available', 'hire', 'open', 'looking', 'seeking']
+    };
+    
+    const queryWords = this.tokenize(query);
+    const intentScores = {};
+    
+    Object.entries(intents).forEach(([intent, keywords]) => {
+      let score = 0;
+      keywords.forEach(keyword => {
+        queryWords.forEach(word => {
+          if (word === keyword) score += 2;
+          else if (this.calculateFuzzyMatch(word, keyword) > 0.8) score += 1;
+          else if (word.includes(keyword) || keyword.includes(word)) score += 0.5;
+        });
+      });
+      intentScores[intent] = score;
+    });
+    
+    const topIntent = Object.entries(intentScores)
+      .sort(([,a], [,b]) => b - a)[0];
+    
+    return {
+      intent: topIntent[0],
+      confidence: topIntent[1] / Math.max(queryWords.length, 1),
+      allScores: intentScores
+    };
+  }
+  
+  // TF-IDF Information Retrieval
+  calculateTFIDF(query, documents) {
+    const queryTerms = this.tokenize(query);
+    const scores = {};
+    
+    documents.forEach(doc => {
+      const docTerms = this.tokenize(doc.content);
+      let score = 0;
+      
+      queryTerms.forEach(term => {
+        const tf = this.calculateTF(term, docTerms);
+        const idf = this.calculateIDF(term, documents);
+        score += tf * idf;
+      });
+      
+      scores[doc.category] = (scores[doc.category] || 0) + score;
+    });
+    
+    return scores;
+  }
+  
+  calculateTF(term, document) {
+    const termCount = document.filter(word => word === term).length;
+    return document.length === 0 ? 0 : termCount / document.length;
+  }
+  
+  calculateIDF(term, documents) {
+    const docsWithTerm = documents.filter(doc => 
+      this.tokenize(doc.content).includes(term)
+    ).length;
+    return Math.log(documents.length / Math.max(docsWithTerm, 1));
+  }
+  
+  // Semantic Similarity using Cosine Distance
+  calculateSemanticSimilarity(query, knowledge) {
+    const queryVector = this.createWordVector(query);
+    const similarities = {};
+    
+    Object.entries(knowledge).forEach(([category, data]) => {
+      const contentVector = this.createWordVector(data.response + ' ' + data.keywords.join(' '));
+      similarities[category] = this.cosineSimilarity(queryVector, contentVector);
+    });
+    
+    return similarities;
+  }
+  
+  createWordVector(text) {
+    const words = this.tokenize(text);
+    const vector = {};
+    words.forEach(word => {
+      vector[word] = (vector[word] || 0) + 1;
+    });
+    return vector;
+  }
+  
+  cosineSimilarity(vectorA, vectorB) {
+    const allWords = new Set([...Object.keys(vectorA), ...Object.keys(vectorB)]);
+    let dotProduct = 0;
+    let magnitudeA = 0;
+    let magnitudeB = 0;
+    
+    allWords.forEach(word => {
+      const a = vectorA[word] || 0;
+      const b = vectorB[word] || 0;
+      dotProduct += a * b;
+      magnitudeA += a * a;
+      magnitudeB += b * b;
+    });
+    
+    const magnitude = Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB);
+    return magnitude === 0 ? 0 : dotProduct / magnitude;
+  }
+  
+  // Query Expansion with Synonyms
+  expandQuery(query) {
+    const words = this.tokenize(query);
+    const expandedWords = [...words];
+    
+    words.forEach(word => {
+      if (this.synonyms[word]) {
+        expandedWords.push(...this.synonyms[word]);
+      }
+    });
+    
+    return expandedWords.join(' ');
+  }
+  
+  // Create Document Corpus for TF-IDF
+  createDocumentCorpus() {
+    return Object.entries(this.knowledgeBase).map(([category, data]) => ({
+      category,
+      content: data.response + ' ' + data.keywords.join(' ')
+    }));
+  }
+  
+  // Enhanced Keyword Matching with Fuzzy Logic
+  calculateAdvancedKeywordMatch(query, category) {
+    const queryWords = this.tokenize(query);
+    const keywords = this.knowledgeBase[category].keywords;
+    
+    let totalScore = 0;
+    queryWords.forEach(word => {
+      keywords.forEach(keyword => {
+        const fuzzyScore = this.calculateFuzzyMatch(word, keyword);
+        if (fuzzyScore > 0.7) {
+          totalScore += fuzzyScore;
+        }
+      });
+    });
+    
+    return totalScore / Math.max(queryWords.length, keywords.length);
+  }
+  
+  // Intelligent Fallback with Intent Analysis
+  generateIntelligentFallback(query, intentAnalysis) {
+    const suggestions = [];
+    
+    switch(intentAnalysis.intent) {
+      case 'technical':
+        suggestions.push("her Python, SQL, or machine learning expertise");
+        break;
+      case 'education':
+        suggestions.push("her Georgetown Master's or Grand Valley Bachelor's degree");
+        break;
+      case 'professional':
+        suggestions.push("her work at Shift Digital or Array of Engineers");
+        break;
+      case 'projects':
+        suggestions.push("her FMBench AI Assistant, Reddit analysis, or other impressive projects");
+        break;
+      case 'academic_projects':
+        suggestions.push("her Spotify Music Classification, Air Quality Intelligence Agent, or Climate Visualization projects");
+        break;
+      case 'environmental':
+        suggestions.push("her Air Quality Intelligence Agent or Climate Impact Visualization projects");
+        break;
+      case 'question':
+        suggestions.push("her background, skills, education, academic projects, or professional work");
+        break;
+      default:
+        suggestions.push("her career journey, technical skills, academic projects, or achievements");
+    }
+    
+    return {
+      response: `I can help with questions about ${suggestions.join(', ')}. What specific aspect interests you?`,
+      category: 'intelligent_fallback',
+      score: 0.1,
+      followups: ["Ask about her technical expertise", "Learn about her career progression"],
+      confidence: 0.1,
+      intent: intentAnalysis.intent
     };
   }
   
@@ -330,7 +687,25 @@ class IsfarChatbotAI {
       'career_progression': ['career progression', 'professional growth', 'promoted', 'advancement'],
       'georgetown_program': ['georgetown program', 'georgetown.*master', 'data science.*program'],
       'technical_applications': ['technical skills.*business', 'real-world.*application', 'enterprise.*project'],
-      'professional_growth': ['professional growth', 'career development', 'leadership.*role']
+      'professional_growth': ['professional growth', 'career development', 'leadership.*role'],
+      
+      // Project-specific promises
+      'spotify_project': ['spotify.*classification', 'music.*project', 'georgetown.*capstone', '50k.*tracks', 'spotify.*machine.*learning'],
+      'spotify_technical': ['machine.*learning.*models', 'xgboost', 'neural.*networks', 'technical.*implementation', 'model.*performance'],
+      'spotify_data': ['data.*preprocessing', 'feature.*engineering', 'data.*cleaning', 'sampling.*methods'],
+      'spotify_insights': ['musical.*trends', 'genre.*insights', 'decade.*patterns', 'musical.*evolution'],
+      
+      'aqi_project': ['air.*quality.*agent', 'mcp.*letta', 'environmental.*monitoring', 'intelligence.*agent'],
+      'aqi_architecture': ['mcp.*architecture', 'letta.*ai', 'system.*architecture', 'technical.*design'],
+      'aqi_health': ['health.*recommendations', 'safety.*features', 'activity.*advice', 'health.*intelligence'],
+      'aqi_technical': ['real-time.*monitoring', 'technical.*capabilities', 'data.*sources', 'monitoring.*features'],
+      
+      'climate_project': ['climate.*visualization', '40.*years', 'environmental.*data', 'historical.*analysis'],
+      'climate_data': ['historical.*data', 'data.*sources', 'temporal.*analysis', '40.*years.*data'],
+      'climate_viz': ['visualization.*techniques', 'dashboard.*design', 'data.*visualization'],
+      'climate_insights': ['environmental.*insights', 'policy.*impact', 'climate.*findings', 'environmental.*trends'],
+      
+      'churn_project': ['customer.*churn', 'prediction.*model', 'churn.*model', 'client.*implementation']
     };
     
     // Detect which promise should be set based on the content of the response
@@ -409,7 +784,25 @@ class IsfarChatbotAI {
         responses: [
           "Her journey from Dhaka to becoming a successful data scientist in America is truly inspiring! Moving from Bangladesh's bustling capital to West Michigan, then Northern Virginia, she's experienced diverse American communities while maintaining her Bengali cultural identity. This multicultural perspective brings unique problem-solving approaches to her work.",
           "The cultural dimension of her story is fascinating. Growing up in Dhaka - a city of over 10 million people - gave her experience with complexity and scale that translates beautifully to handling big data challenges. The transition to American academic and professional environments shows remarkable adaptability and determination.",
-          "What strikes me about her background is how she's maintained strong ties to her Bengali heritage while fully embracing American opportunities. This cultural bridge gives her unique insights when working with diverse enterprise clients at Shift Digital, and her multicultural perspective is a real asset in today's global business environment."
+          "What strikes me about her background is how she's maintained strong ties to her Bengali heritage while fully embracing American opportunities for innovation and growth. This cultural bridge gives her unique insights when working with diverse enterprise clients at Shift Digital, and her multicultural perspective is a real asset in today's global business environment."
+        ]
+      },
+      
+      academic_projects: {
+        patterns: ['academic', 'projects', 'spotify', 'music', 'classification', 'air', 'quality', 'climate', 'visualization', 'georgetown', 'capstone', 'coursework', 'assignments'],
+        responses: [
+          "Her academic projects are absolutely impressive! The Spotify Music Classification project was her Georgetown capstone - analyzing 50,000 tracks from 400+ artists across 10 genres using advanced machine learning models like XGBoost, Neural Networks, and Random Forest. The team achieved strong classification accuracy for both genre and decade prediction, handling severely imbalanced datasets with sophisticated sampling methods.",
+          "What's remarkable about her academic work is the technical sophistication. The Air Quality Intelligence Agent demonstrates cutting-edge AI architecture combining Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. It provides real-time AQI data worldwide, detailed pollutant analysis, and intelligent health recommendations - truly production-level complexity.",
+          "The breadth of her academic projects is extraordinary. From the Climate Impact Visualization analyzing 40+ years of DMV air quality data to reveal long-term environmental trends, to the Customer Churn Prediction Model that was so impressive Shift Digital is considering implementing it for real clients - each project showcases different aspects of advanced data science capabilities."
+        ]
+      },
+      
+      projects: {
+        patterns: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'work', 'github', 'code', 'implementation'],
+        responses: [
+          "Her project portfolio is truly impressive! The FMBench Assistant is a production-ready AI chatbot with RAG architecture that's actually being used by real users. The Reddit Sentiment Analysis processed over 1 billion posts - that's massive scale data processing. And the Spotify Music Classification used machine learning on 50,000 tracks. Each project demonstrates end-to-end technical capabilities.",
+          "What I find fascinating about her projects is the diversity of applications. From AI chatbots with advanced conversational capabilities to environmental monitoring systems that provide real-time health recommendations, to large-scale sentiment analysis - she's tackled complex problems across multiple domains with sophisticated technical solutions.",
+          "The technical depth in her projects is remarkable. The Air Quality Intelligence Agent uses cutting-edge MCP + Letta AI architecture, the Climate Visualization analyzes decades of environmental data, and the production systems handle real-world scale and complexity. These aren't just academic exercises - they're professional-grade implementations."
         ]
       }
     };
@@ -457,6 +850,26 @@ class IsfarChatbotAI {
         "Would you like to know more about how her cultural background influences her work approach?",
         "Are you interested in her experience adapting to different American regions?",
         "Would you like to hear about how she maintains connections to her Bengali heritage?"
+      ],
+      academic_projects: [
+        "Would you like technical details about the Spotify Music Classification with machine learning models?",
+        "Are you curious about the Air Quality Intelligence Agent with MCP + Letta AI architecture?",
+        "Would you like to hear about the Climate Visualization analyzing 40+ years of data?"
+      ],
+      projects: [
+        "Would you like to know about the FMBench AI Assistant with RAG architecture?",
+        "Are you curious about the billion-post Reddit sentiment analysis project?",
+        "Would you like technical details about any specific project implementation?"
+      ],
+      spotify_project: [
+        "Want to know about the specific machine learning models and their performance?",
+        "Curious about the data preprocessing and feature engineering techniques?",
+        "Interested in the insights about musical trends across genres and decades?"
+      ],
+      air_quality_project: [
+        "Want details about the MCP + Letta AI architecture and how it works?",
+        "Curious about the intelligent health recommendations and safety features?",
+        "Interested in the real-time monitoring capabilities and data sources?"
       ]
     };
     
@@ -566,14 +979,42 @@ class IsfarChatbotAI {
     return suggestions[lastInterest] || "What other aspect of her journey interests you most?";
   }
   
-  // Find best matching response with improved phrase matching
+  // Advanced NLP Response Finding with Multiple Techniques
   findBestResponse(userInput) {
     const input = userInput.toLowerCase();
-    let bestMatch = null;
-    let highestScore = 0;
-    let matchedCategory = null;
+    const processedInput = this.preprocessText(userInput);
+    const expandedQuery = this.expandQuery(processedInput);
     
-    // Check for contextual followup first (highest priority for natural conversation)
+    // FIRST PRIORITY: Direct professional question matching (bypass ALL other logic)
+    if (input.includes('what are her skills') || input.includes('her skills')) {
+      return {
+        response: "Isfar's technical skills include Python, SQL, R, Plotly, Tableau, machine learning, and database architecture. She specializes in translating technical concepts into business insights.",
+        category: 'skills',
+        score: 20,
+        followups: [
+          { text: "Would you like to know how she applies these technical skills to solve real business problems?", promise: "technical_applications" },
+          { text: "Are you curious about her learning journey and staying current with new technologies?", promise: "professional_growth" }
+        ],
+        confidence: 1.0
+      };
+    }
+    
+    if (input.includes('interesting projects') || (input.includes('projects') && input.includes('work'))) {
+      return {
+        response: "She's worked on some really exciting projects! Isfar has built impressive projects spanning AI, data analysis, and visualization. Key projects include: FMBench Assistant (production AI chatbot with RAG architecture), Reddit Sentiment Analysis (processed 1+ billion posts), Spotify Music Classification (machine learning with 50K tracks), Air Quality Intelligence Agent (MCP + Letta AI), and Climate Impact Visualization (40+ years of data). Each demonstrates end-to-end technical capabilities.",
+        category: 'projects',
+        score: 20,
+        followups: [
+          { text: "Would you like technical details about the FMBench AI Assistant with RAG architecture?", promise: "fmbench_project" },
+          { text: "Are you curious about the billion-post Reddit sentiment analysis project?", promise: "reddit_project" },
+          { text: "Want to hear about the Spotify music classification using machine learning?", promise: "spotify_project" },
+          { text: "Interested in the Air Quality Intelligence Agent with advanced AI architecture?", promise: "aqi_project" }
+        ],
+        confidence: 1.0
+      };
+    }
+    
+    // Check for contextual followup second
     const contextualResponse = this.generateContextualResponse(input);
     if (contextualResponse) {
       return contextualResponse;
@@ -588,60 +1029,149 @@ class IsfarChatbotAI {
       };
     }
     
-    // ROBUST GUARDRAILS: Filter inappropriate, personal, and off-topic questions
-    const personalQuestions = [
-      'husband', 'wife', 'married', 'boyfriend', 'girlfriend', 'partner', 'relationship', 'dating', 'single',
-      'family', 'children', 'kids', 'parents', 'mother', 'father', 'siblings', 'brother', 'sister',
-      'address', 'phone', 'number', 'contact', 'email', 'personal', 'private', 'home', 'salary', 'money',
-      'age', 'old', 'weight', 'height', 'appearance', 'looks', 'beautiful', 'ugly', 'attractive'
+    // Apply intent classification
+    const intentAnalysis = this.classifyIntent(processedInput);
+    
+    // PRIORITY CHECK: Handle legitimate professional questions before guardrails
+    const professionalQuestions = {
+      skills: [
+        /what.*are.*her.*skills/i,
+        /what.*skills.*does.*she.*have/i,
+        /tell.*me.*about.*her.*skills/i,
+        /her.*technical.*skills/i,
+        /what.*can.*she.*do/i,
+        /her.*abilities/i,
+        /her.*expertise/i
+      ],
+      projects: [
+        /what.*projects.*did.*she.*work.*on/i,
+        /what.*interesting.*projects/i,
+        /tell.*me.*about.*her.*projects/i,
+        /what.*has.*she.*built/i,
+        /what.*did.*she.*create/i,
+        /her.*portfolio/i,
+        /projects.*she.*worked.*on/i,
+        /what.*has.*she.*developed/i,
+        /show.*me.*her.*work/i,
+        /her.*coding.*projects/i,
+        /technical.*projects/i
+      ],
+      academic_projects: [
+        /her.*academic.*projects/i,
+        /school.*projects/i,
+        /university.*projects/i,
+        /georgetown.*projects/i,
+        /capstone.*project/i,
+        /coursework.*projects/i
+      ],
+      experience: [
+        /what.*is.*her.*experience/i,
+        /tell.*me.*about.*her.*work/i,
+        /her.*professional.*background/i,
+        /what.*does.*she.*do/i,
+        /where.*does.*she.*work/i,
+        /her.*job/i,
+        /her.*career/i
+      ],
+      education: [
+        /her.*education/i,
+        /where.*did.*she.*study/i,
+        /her.*degree/i,
+        /her.*university/i,
+        /georgetown/i,
+        /grand.*valley/i
+      ]
+    };
+    
+    // Check each category of professional questions
+    for (const [category, patterns] of Object.entries(professionalQuestions)) {
+      if (patterns.some(pattern => pattern.test(input))) {
+        // Route directly to the appropriate knowledge base category
+        return this.findCategoryMatch(category, input);
+      }
+    }
+    
+    // Handle personal/inappropriate content with intent awareness
+    if (intentAnalysis.intent === 'personal') {
+      const personalKeywords = ['husband', 'wife', 'married', 'family', 'children', 'parents', 'address', 'phone', 'salary', 'age'];
+      if (personalKeywords.some(keyword => input.includes(keyword))) {
+        return {
+          response: "I focus on Isfar's professional background. Ask about her career, education, or technical skills instead.",
+          category: 'personal_boundary',
+          score: 20,
+          followups: ["What would you like to know about her professional journey?"]
+        };
+      }
+    }
+    
+    // ROBUST GUARDRAILS: Context-aware filtering for inappropriate, personal, and off-topic questions
+    
+    // Check for specific personal relationship/family patterns
+    const personalPatterns = [
+      /\b(husband|wife|married|boyfriend|girlfriend|partner|dating|single)\b/i,
+      /\b(family|children|kids|parents|mother|father|siblings|brother|sister)\b/i,
+      /\b(address|phone.*number|home.*address|personal.*contact)\b/i,
+      /\b(salary|money|income|wage|pay.*rate)\b/i,
+      /\b(age|old|weight|height|appearance|looks|beautiful|ugly|attractive)\b/i
     ];
     
-    const inappropriateQuestions = [
-      'sex', 'sexual', 'naked', 'nude', 'body', 'breast', 'ass', 'butt', 'dick', 'penis', 'pussy',
-      'fuck', 'shit', 'damn', 'hell', 'bitch', 'stupid', 'idiot', 'hate', 'kill', 'die', 'death'
+    // Check for inappropriate content patterns - be very specific to avoid false positives
+    const inappropriatePatterns = [
+      /\b(sex|sexual|naked|nude|breast|ass|butt|dick|penis|pussy)\b/i,
+      /\b(fuck|shit|damn|hell|bitch|stupid|idiot)\b/i
     ];
     
-    const offTopicQuestions = [
-      'weather', 'news', 'politics', 'trump', 'biden', 'election', 'covid', 'virus', 'pandemic',
-      'sports', 'football', 'basketball', 'movie', 'celebrity', 'music', 'song', 'recipe', 'cooking',
-      'restaurant', 'travel', 'vacation', 'health', 'medical', 'doctor', 'medicine'
+    // Separate patterns for violent content - completely exclude professional contexts
+    const violentPatterns = [
+      /\b(murder|violence|harm|hurt|attack)\b/i
+      // Removed "kill" and "die/death" patterns that interfere with "skills" and professional terms
     ];
     
-    // Check for personal information requests
-    if (personalQuestions.some(keyword => input.includes(keyword))) {
+    // Check for off-topic patterns
+    const offTopicPatterns = [
+      /\b(weather|news|politics|trump|biden|election|covid|virus|pandemic)\b/i,
+      /\b(sports|football|basketball|movie|celebrity|music|song|recipe|cooking)\b/i,
+      /\b(restaurant|travel|vacation|health|medical|doctor|medicine)\b/i
+    ];
+    
+    // Check for personal information requests (but exclude professional questions)
+    if (personalPatterns.some(pattern => pattern.test(input)) && 
+        !/(skills|experience|education|work|career|professional|technical|background|projects)/i.test(input)) {
       return {
-        response: "I'm here to share information about Isfar's professional background, technical expertise, and career journey. I don't discuss personal details like relationships, family, or private information. Instead, I'd love to tell you about her impressive work in data science, her educational achievements, or her professional experience at Shift Digital. What aspect of her career would you like to explore?",
+        response: "I focus on Isfar's professional background and career achievements. I don't discuss personal details like relationships, family, or private information. Ask about her technical skills, work experience, education, or projects instead.",
         category: 'personal_boundary',
         score: 20,
         followups: [
-          "Would you like to know about her professional achievements and career growth?",
-          "Are you interested in learning about her technical expertise and projects?"
+          "What would you like to know about her professional skills?",
+          "Are you interested in her career progression or technical expertise?"
         ]
       };
     }
     
     // Check for inappropriate content
-    if (inappropriateQuestions.some(keyword => input.includes(keyword))) {
+    if (inappropriatePatterns.some(pattern => pattern.test(input)) || 
+        violentPatterns.some(pattern => pattern.test(input))) {
       return {
-        response: "I'm designed to provide professional information about Isfar's career, education, and technical expertise. I don't engage with inappropriate content. Let's focus on her inspiring professional journey - from her background in Bangladesh to becoming a successful data scientist in the US. What would you like to know about her career or skills?",
+        response: "I provide professional information about Isfar's career and technical expertise. Let's focus on her inspiring journey from Bangladesh to becoming a data scientist. What would you like to know about her skills or experience?",
         category: 'inappropriate_content',
         score: 20,
         followups: [
-          "Would you like to hear about her career progression and achievements?",
-          "Are you curious about her technical skills and expertise?"
+          "Ask about her technical skills and programming expertise",
+          "Learn about her career progression and achievements"
         ]
       };
     }
     
-    // Check for off-topic questions  
-    if (offTopicQuestions.some(keyword => input.includes(keyword)) && !input.includes('isfar') && !input.includes('she') && !input.includes('her')) {
+    // Check for off-topic questions (but allow if asking about Isfar specifically)
+    if (offTopicPatterns.some(pattern => pattern.test(input)) && 
+        !/\b(isfar|she|her)\b/i.test(input)) {
       return {
-        response: "I'm specifically designed to discuss Isfar's professional background, career journey, and expertise in data science. For topics outside her professional scope, I'd recommend searching elsewhere. However, I'd be happy to share about her inspiring story, technical skills, educational background, or career achievements. What aspect of her professional journey interests you most?",
+        response: "I focus on Isfar's professional background and career in data science. For other topics, try a general search engine. I'd be happy to discuss her technical skills, education, work experience, or projects. What interests you?",
         category: 'off_topic',
         score: 20,
         followups: [
-          "Would you like to learn about her transition from Bangladesh to becoming a data scientist?",
-          "Are you interested in her technical expertise and career progression?"
+          "Ask about her data science skills and expertise",
+          "Learn about her career journey and achievements"
         ]
       };
     }
@@ -816,57 +1346,58 @@ class IsfarChatbotAI {
       }
     }
     
-    // Search through knowledge base with improved keyword matching
-    Object.entries(this.knowledgeBase).forEach(([category, data]) => {
-      let score = 0;
-      let keywordMatches = 0;
+    // Apply Advanced NLP Techniques for Response Selection
+    const semanticScores = this.calculateSemanticSimilarity(expandedQuery, this.knowledgeBase);
+    const tfidfScores = this.calculateTFIDF(expandedQuery, this.createDocumentCorpus());
+    
+    // Combine multiple NLP scoring methods
+    const finalScores = {};
+    Object.keys(this.knowledgeBase).forEach(category => {
+      const keywordScore = this.calculateAdvancedKeywordMatch(processedInput, category);
+      const semanticScore = semanticScores[category] || 0;
+      const tfidfScore = tfidfScores[category] || 0;
       
-      // Count keyword matches with better scoring
-      data.keywords.forEach(keyword => {
-        if (input.includes(keyword)) {
-          keywordMatches++;
-          // Give more weight to longer, more specific keywords
-          if (keyword.length > 6) {
-            score += 3;
-          } else if (keyword.length > 4) {
-            score += 2;
-          } else {
-            score += 1;
-          }
-        }
-      });
+      // Weighted combination of advanced techniques
+      finalScores[category] = (
+        keywordScore * 0.4 +       // Fuzzy keyword matching
+        semanticScore * 0.35 +     // Semantic similarity  
+        tfidfScore * 0.25          // Information retrieval
+      );
       
-      // Bonus for multiple keyword matches in same category
-      if (keywordMatches > 1) {
-        score += keywordMatches;
-      }
+      // Apply fuzzy matching boost for typo tolerance
+      const keywords = this.knowledgeBase[category].keywords;
+      const maxFuzzyScore = Math.max(...keywords.map(keyword => 
+        Math.max(...this.tokenize(processedInput).map(word => 
+          this.calculateFuzzyMatch(word, keyword)
+        ))
+      ));
       
-      if (score > highestScore) {
-        highestScore = score;
-        bestMatch = data;
-        matchedCategory = category;
+      if (maxFuzzyScore > 0.8) {
+        finalScores[category] += maxFuzzyScore * 0.2;
       }
     });
     
-    // Final safety check - if no meaningful match and score is very low, use professional boundary response
-    if (highestScore < 2 && bestMatch) {
+    // Find best match using advanced scoring
+    const bestMatch = Object.entries(finalScores)
+      .sort(([,a], [,b]) => b - a)[0];
+    
+    if (bestMatch && bestMatch[1] > 0.15) {
+      const category = bestMatch[0];
+      const response = this.knowledgeBase[category];
+      
       return {
-        response: "I'm here to provide information about Isfar's professional background, career achievements, and technical expertise. The question you've asked might be outside my area of focus. I'd be happy to share about her data science career, educational journey, technical skills, or professional experience. What specific aspect of her professional story would you like to learn about?",
-        category: 'professional_boundary',
-        score: 1,
-        followups: [
-          "Would you like to know about her career progression from Computer Engineer to Data Analyst II?",
-          "Are you interested in her educational achievements and technical expertise?"
-        ]
+        response: response.response,
+        category: category,
+        score: bestMatch[1],
+        followups: response.followups || [],
+        confidence: bestMatch[1],
+        intent: intentAnalysis.intent,
+        processingMethod: 'advanced_nlp'
       };
     }
     
-    return {
-      response: bestMatch ? bestMatch.response : this.getFallbackResponse(),
-      category: matchedCategory,
-      score: highestScore,
-      followups: bestMatch ? bestMatch.followups : []
-    };
+    // Intelligent fallback based on intent analysis
+    return this.generateIntelligentFallback(processedInput, intentAnalysis);
   }
   
   // Generate professional fallback responses
@@ -906,6 +1437,49 @@ class IsfarChatbotAI {
     return responses[Math.floor(Math.random() * responses.length)];
   }
   
+  // Direct category matching for professional questions
+  findCategoryMatch(category, input) {
+    if (!this.knowledgeBase[category]) {
+      // If exact category doesn't exist, try to find a close match
+      const fallbackMapping = {
+        'projects': 'projects',
+        'academic_projects': 'academic_projects',
+        'experience': 'experience',
+        'skills': 'skills',
+        'education': 'education'
+      };
+      
+      const fallbackCategory = fallbackMapping[category];
+      if (fallbackCategory && this.knowledgeBase[fallbackCategory]) {
+        category = fallbackCategory;
+      } else {
+        return null;
+      }
+    }
+    
+    const categoryData = this.knowledgeBase[category];
+    
+    // Add context-aware response starters based on the question type
+    let responseStarter = "";
+    const lowerInput = input.toLowerCase();
+    
+    if (lowerInput.includes('interesting') || lowerInput.includes('impressive')) {
+      responseStarter = "Her most impressive projects are fascinating! ";
+    } else if (lowerInput.includes('what') && lowerInput.includes('projects')) {
+      responseStarter = "Great question about her project portfolio! ";
+    } else if (lowerInput.includes('work on') || lowerInput.includes('worked on')) {
+      responseStarter = "She's worked on some really exciting projects! ";
+    }
+    
+    return {
+      response: responseStarter + categoryData.response,
+      category: category,
+      score: 15,
+      followups: categoryData.followups || [],
+      confidence: 0.95
+    };
+  }
+
   // Main response generation
   generateResponse(userInput) {
     try {
@@ -915,6 +1489,40 @@ class IsfarChatbotAI {
       const sanitizedInput = userInput.trim();
       if (!sanitizedInput) {
         return "Please enter a message to continue our conversation!";
+      }
+      
+      // Handle very short/vague inputs better
+      if (sanitizedInput.length < 3) {
+        return "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?";
+      }
+      
+      // Handle single word queries
+      if (sanitizedInput.split(' ').length === 1 && sanitizedInput.length < 15) {
+        const word = sanitizedInput.toLowerCase();
+        
+        const singleWordResponses = {
+          'background': "From Dhaka, Bangladesh. Lives in Reston, VA. What specifically interests you?",
+          'education': "BS Computer Science (Grand Valley, 2015-2020). MS Data Science (Georgetown, 2023-2025, 4.0 GPA).",
+          'experience': "5 years in tech. Data Analyst at Shift Digital since 2021. Previously Computer Engineer at Array of Engineers.",
+          'skills': "Python, SQL, R, machine learning, NLP, AWS, Databricks, Tableau. What specific skill?",
+          'projects': "FMBench Assistant (AI chatbot), Reddit Analysis (1B+ posts), Climate Viz. Which one?",
+          'hobbies': "Cafes, cooking, painting, reading, movies.",
+          'contact': "isfar.baset@gmail.com | linkedin.com/in/isfarbaset/ | Reston, VA",
+          'georgetown': "MS Data Science, 2023-2025, 4.0 GPA. Lead TA for Applied Gen AI.",
+          'location': "Reston, Virginia. Works remotely for Shift Digital.",
+          'python': "Highly proficient. Uses for ML (TensorFlow, PyTorch), NLP (spaCy, Hugging Face), automation.",
+          'sql': "Expert level. Uses with PySpark for ETL, data transformation at Shift Digital.",
+          'aws': "SageMaker, Lambda, Bedrock, API Gateway. Deployed production systems.",
+          'resume': "linkedin.com/in/isfarbaset/ or email isfar.baset@gmail.com",
+          'linkedin': "linkedin.com/in/isfarbaset/",
+          'hello': "Hi! Ask me about Isfar's experience, education, skills, or projects.",
+          'hi': "Hello! What would you like to know about Isfar?",
+          'hey': "Hey! Ask about her career, skills, education, or projects."
+        };
+        
+        if (singleWordResponses[word]) {
+          return singleWordResponses[word];
+        }
       }
       
       // Check for inappropriate content
@@ -1390,24 +1998,142 @@ document.addEventListener('DOMContentLoaded', function() {
   border-radius: 2px;
 }
 
+/* Mobile Optimizations */
 @media (max-width: 768px) {
   .chatbot-container {
-    padding: 1.5rem 1rem;
-    margin: 1rem;
+    padding: 1rem 0.25rem;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fafafa;
   }
   
   .chat-header {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-radius: 0;
+  }
+  
+  .chat-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .chat-header h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .chatbot-disclaimer {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .chat-window {
+    border-radius: 12px;
+    margin: 0 0.25rem;
   }
   
   .chat-messages {
-    height: 450px;
-    padding: 1.5rem 1rem;
+    height: 400px;
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+  
+  .message-content {
+    max-width: 95%;
+    padding: 0.875rem 1.125rem;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .chat-input-container {
+    padding: 1.25rem 0.75rem;
+  }
+  
+  .suggested-questions {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
   }
   
   .suggestion-chip {
+    font-size: 0.8rem;
+    padding: 0.625rem 1rem;
+    border-radius: 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .chat-input-wrapper {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  #chat-input {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.875rem 1rem;
+    border-radius: 12px;
+  }
+  
+  #send-button {
+    align-self: flex-end;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .chatbot-container {
+    padding: 0.75rem 0.125rem;
+    margin: 0;
+  }
+  
+  .chat-header {
+    padding: 1rem 0.5rem;
+  }
+  
+  .chat-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .chat-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .chat-messages {
+    height: 350px;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .chat-window {
+    margin: 0 0.125rem;
+  }
+  
+  .message-content {
+    padding: 0.75rem 1rem;
     font-size: 0.85rem;
-    padding: 0.6rem 1rem;
+  }
+  
+  .chat-input-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .suggestion-chip {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.875rem;
   }
 }
 </style>

@@ -1,0 +1,27 @@
+---
+title: "Simple Test"
+page-layout: full
+output-dir: ../../../docs
+format:
+  html:
+    css: style.css
+---
+
+<div>
+<h1>Simple Test</h1>
+<button id="test-btn">Click Me</button>
+<div id="result"></div>
+</div>
+
+<script>
+console.log('✅ JavaScript is working!');
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.getElementById('test-btn');
+  const result = document.getElementById('result');
+  
+  btn.addEventListener('click', function() {
+    result.innerHTML = '✅ Button clicked! JavaScript is working perfectly!';
+    console.log('✅ Button clicked!');
+  });
+});
+</script>
