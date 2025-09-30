@@ -123,7 +123,7 @@ class IsfarChatbotAI {
       },
       
       projects: {
-        keywords: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'academic', 'work', 'github', 'code', 'implementation', 'application', 'system', 'model', 'analysis'],
+        keywords: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'academic', 'work', 'github', 'code', 'implementation', 'application', 'system', 'model', 'analysis', 'interesting', 'impressive', 'worked'],
         response: "Isfar has built impressive projects spanning AI, data analysis, and visualization. Key projects include: FMBench Assistant (production AI chatbot with RAG architecture), Reddit Sentiment Analysis (processed 1+ billion posts), Spotify Music Classification (machine learning with 50K tracks), Air Quality Intelligence Agent (MCP + Letta AI), and Climate Impact Visualization (40+ years of data). Each demonstrates end-to-end technical capabilities.",
         followups: [
           { text: "Would you like technical details about the FMBench AI Assistant with RAG architecture?", promise: "fmbench_project" },
@@ -245,7 +245,7 @@ class IsfarChatbotAI {
       'school': ['education', 'university', 'college', 'study', 'academic', 'coursework'],
       'skills': ['abilities', 'expertise', 'knowledge', 'competencies', 'technical', 'capabilities'],
       'experience': ['background', 'history', 'expertise', 'practice'],
-      'projects': ['work', 'portfolio', 'development', 'creation', 'assignments', 'implementations'],
+      'projects': ['work', 'portfolio', 'development', 'creation', 'assignments', 'implementations', 'interesting', 'impressive'],
       'programming': ['coding', 'development', 'software', 'technical'],
       'academic': ['school', 'university', 'educational', 'coursework', 'study', 'research'],
       'machine': ['ml', 'artificial', 'ai', 'learning', 'intelligence', 'models'],
@@ -322,7 +322,7 @@ class IsfarChatbotAI {
       professional: ['work', 'job', 'career', 'experience', 'skills'],
       education: ['school', 'university', 'degree', 'study', 'learn', 'georgetown', 'academic'],
       technical: ['python', 'sql', 'programming', 'coding', 'data', 'machine', 'learning'],
-      projects: ['projects', 'project', 'portfolio', 'built', 'created', 'developed'],
+      projects: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'worked', 'interesting', 'impressive'],
       academic_projects: ['academic', 'coursework', 'capstone', 'spotify', 'music', 'classification'],
       environmental: ['air', 'quality', 'climate', 'environmental', 'pollution', 'aqi'],
       availability: ['available', 'hire', 'open', 'looking', 'seeking']
@@ -841,19 +841,62 @@ class IsfarChatbotAI {
     const intentAnalysis = this.classifyIntent(processedInput);
     
     // PRIORITY CHECK: Handle legitimate professional questions before guardrails
-    const professionalQuestions = [
-      /what.*are.*her.*skills/i,
-      /what.*skills.*does.*she.*have/i,
-      /tell.*me.*about.*her.*skills/i,
-      /her.*technical.*skills/i,
-      /what.*can.*she.*do/i,
-      /her.*abilities/i,
-      /her.*expertise/i
-    ];
+    const professionalQuestions = {
+      skills: [
+        /what.*are.*her.*skills/i,
+        /what.*skills.*does.*she.*have/i,
+        /tell.*me.*about.*her.*skills/i,
+        /her.*technical.*skills/i,
+        /what.*can.*she.*do/i,
+        /her.*abilities/i,
+        /her.*expertise/i
+      ],
+      projects: [
+        /what.*projects.*did.*she.*work.*on/i,
+        /what.*interesting.*projects/i,
+        /tell.*me.*about.*her.*projects/i,
+        /what.*has.*she.*built/i,
+        /what.*did.*she.*create/i,
+        /her.*portfolio/i,
+        /projects.*she.*worked.*on/i,
+        /what.*has.*she.*developed/i,
+        /show.*me.*her.*work/i,
+        /her.*coding.*projects/i,
+        /technical.*projects/i
+      ],
+      academic_projects: [
+        /her.*academic.*projects/i,
+        /school.*projects/i,
+        /university.*projects/i,
+        /georgetown.*projects/i,
+        /capstone.*project/i,
+        /coursework.*projects/i
+      ],
+      experience: [
+        /what.*is.*her.*experience/i,
+        /tell.*me.*about.*her.*work/i,
+        /her.*professional.*background/i,
+        /what.*does.*she.*do/i,
+        /where.*does.*she.*work/i,
+        /her.*job/i,
+        /her.*career/i
+      ],
+      education: [
+        /her.*education/i,
+        /where.*did.*she.*study/i,
+        /her.*degree/i,
+        /her.*university/i,
+        /georgetown/i,
+        /grand.*valley/i
+      ]
+    };
     
-    if (professionalQuestions.some(pattern => pattern.test(input))) {
-      // This is clearly a professional skills question, route it directly
-      return this.findCategoryMatch('skills', input);
+    // Check each category of professional questions
+    for (const [category, patterns] of Object.entries(professionalQuestions)) {
+      if (patterns.some(pattern => pattern.test(input))) {
+        // Route directly to the appropriate knowledge base category
+        return this.findCategoryMatch(category, input);
+      }
     }
     
     // Handle personal/inappropriate content with intent awareness
@@ -1206,12 +1249,39 @@ class IsfarChatbotAI {
   // Direct category matching for professional questions
   findCategoryMatch(category, input) {
     if (!this.knowledgeBase[category]) {
-      return null;
+      // If exact category doesn't exist, try to find a close match
+      const fallbackMapping = {
+        'projects': 'projects',
+        'academic_projects': 'academic_projects',
+        'experience': 'experience',
+        'skills': 'skills',
+        'education': 'education'
+      };
+      
+      const fallbackCategory = fallbackMapping[category];
+      if (fallbackCategory && this.knowledgeBase[fallbackCategory]) {
+        category = fallbackCategory;
+      } else {
+        return null;
+      }
     }
     
     const categoryData = this.knowledgeBase[category];
+    
+    // Add context-aware response starters based on the question type
+    let responseStarter = "";
+    const lowerInput = input.toLowerCase();
+    
+    if (lowerInput.includes('interesting') || lowerInput.includes('impressive')) {
+      responseStarter = "Her most impressive projects are fascinating! ";
+    } else if (lowerInput.includes('what') && lowerInput.includes('projects')) {
+      responseStarter = "Great question about her project portfolio! ";
+    } else if (lowerInput.includes('work on') || lowerInput.includes('worked on')) {
+      responseStarter = "She's worked on some really exciting projects! ";
+    }
+    
     return {
-      response: categoryData.response,
+      response: responseStarter + categoryData.response,
       category: category,
       score: 15,
       followups: categoryData.followups || [],
