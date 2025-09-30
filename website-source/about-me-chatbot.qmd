@@ -822,7 +822,36 @@ class IsfarChatbotAI {
     const processedInput = this.preprocessText(userInput);
     const expandedQuery = this.expandQuery(processedInput);
     
-    // Check for contextual followup first (highest priority for natural conversation)
+    // FIRST PRIORITY: Direct professional question matching (bypass ALL other logic)
+    if (input.includes('what are her skills') || input.includes('her skills')) {
+      return {
+        response: "Isfar's technical skills include Python, SQL, R, Plotly, Tableau, machine learning, and database architecture. She specializes in translating technical concepts into business insights.",
+        category: 'skills',
+        score: 20,
+        followups: [
+          { text: "Would you like to know how she applies these technical skills to solve real business problems?", promise: "technical_applications" },
+          { text: "Are you curious about her learning journey and staying current with new technologies?", promise: "professional_growth" }
+        ],
+        confidence: 1.0
+      };
+    }
+    
+    if (input.includes('interesting projects') || (input.includes('projects') && input.includes('work'))) {
+      return {
+        response: "She's worked on some really exciting projects! Isfar has built impressive projects spanning AI, data analysis, and visualization. Key projects include: FMBench Assistant (production AI chatbot with RAG architecture), Reddit Sentiment Analysis (processed 1+ billion posts), Spotify Music Classification (machine learning with 50K tracks), Air Quality Intelligence Agent (MCP + Letta AI), and Climate Impact Visualization (40+ years of data). Each demonstrates end-to-end technical capabilities.",
+        category: 'projects',
+        score: 20,
+        followups: [
+          { text: "Would you like technical details about the FMBench AI Assistant with RAG architecture?", promise: "fmbench_project" },
+          { text: "Are you curious about the billion-post Reddit sentiment analysis project?", promise: "reddit_project" },
+          { text: "Want to hear about the Spotify music classification using machine learning?", promise: "spotify_project" },
+          { text: "Interested in the Air Quality Intelligence Agent with advanced AI architecture?", promise: "aqi_project" }
+        ],
+        confidence: 1.0
+      };
+    }
+    
+    // Check for contextual followup second
     const contextualResponse = this.generateContextualResponse(input);
     if (contextualResponse) {
       return contextualResponse;
@@ -929,11 +958,10 @@ class IsfarChatbotAI {
       /\b(fuck|shit|damn|hell|bitch|stupid|idiot)\b/i
     ];
     
-    // Separate patterns for violent content that won't interfere with professional terms
+    // Separate patterns for violent content - completely exclude professional contexts
     const violentPatterns = [
-      /\bkill\b(?!.*skills)/i,  // "kill" but not when "skills" is present
-      /\b(murder|violence|harm|hurt|attack)\b/i,
-      /\b(die|death)\b(?!.*(deadline|data))/i  // "die/death" but not in professional contexts
+      /\b(murder|violence|harm|hurt|attack)\b/i
+      // Removed "kill" and "die/death" patterns that interfere with "skills" and professional terms
     ];
     
     // Check for off-topic patterns
