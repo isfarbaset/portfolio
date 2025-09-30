@@ -840,6 +840,22 @@ class IsfarChatbotAI {
     // Apply intent classification
     const intentAnalysis = this.classifyIntent(processedInput);
     
+    // PRIORITY CHECK: Handle legitimate professional questions before guardrails
+    const professionalQuestions = [
+      /what.*are.*her.*skills/i,
+      /what.*skills.*does.*she.*have/i,
+      /tell.*me.*about.*her.*skills/i,
+      /her.*technical.*skills/i,
+      /what.*can.*she.*do/i,
+      /her.*abilities/i,
+      /her.*expertise/i
+    ];
+    
+    if (professionalQuestions.some(pattern => pattern.test(input))) {
+      // This is clearly a professional skills question, route it directly
+      return this.findCategoryMatch('skills', input);
+    }
+    
     // Handle personal/inappropriate content with intent awareness
     if (intentAnalysis.intent === 'personal') {
       const personalKeywords = ['husband', 'wife', 'married', 'family', 'children', 'parents', 'address', 'phone', 'salary', 'age'];
@@ -864,10 +880,17 @@ class IsfarChatbotAI {
       /\b(age|old|weight|height|appearance|looks|beautiful|ugly|attractive)\b/i
     ];
     
-    // Check for inappropriate content patterns
+    // Check for inappropriate content patterns - be very specific to avoid false positives
     const inappropriatePatterns = [
-      /\b(sex|sexual|naked|nude|body|breast|ass|butt|dick|penis|pussy)\b/i,
-      /\b(fuck|shit|damn|hell|bitch|stupid|idiot|hate|kill|die|death)\b/i
+      /\b(sex|sexual|naked|nude|breast|ass|butt|dick|penis|pussy)\b/i,
+      /\b(fuck|shit|damn|hell|bitch|stupid|idiot)\b/i
+    ];
+    
+    // Separate patterns for violent content that won't interfere with professional terms
+    const violentPatterns = [
+      /\bkill\b(?!.*skills)/i,  // "kill" but not when "skills" is present
+      /\b(murder|violence|harm|hurt|attack)\b/i,
+      /\b(die|death)\b(?!.*(deadline|data))/i  // "die/death" but not in professional contexts
     ];
     
     // Check for off-topic patterns
@@ -892,7 +915,8 @@ class IsfarChatbotAI {
     }
     
     // Check for inappropriate content
-    if (inappropriatePatterns.some(pattern => pattern.test(input))) {
+    if (inappropriatePatterns.some(pattern => pattern.test(input)) || 
+        violentPatterns.some(pattern => pattern.test(input))) {
       return {
         response: "I provide professional information about Isfar's career and technical expertise. Let's focus on her inspiring journey from Bangladesh to becoming a data scientist. What would you like to know about her skills or experience?",
         category: 'inappropriate_content',
@@ -1179,6 +1203,22 @@ class IsfarChatbotAI {
     return responses[Math.floor(Math.random() * responses.length)];
   }
   
+  // Direct category matching for professional questions
+  findCategoryMatch(category, input) {
+    if (!this.knowledgeBase[category]) {
+      return null;
+    }
+    
+    const categoryData = this.knowledgeBase[category];
+    return {
+      response: categoryData.response,
+      category: category,
+      score: 15,
+      followups: categoryData.followups || [],
+      confidence: 0.95
+    };
+  }
+
   // Main response generation
   generateResponse(userInput) {
     try {
