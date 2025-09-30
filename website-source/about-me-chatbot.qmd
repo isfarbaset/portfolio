@@ -754,6 +754,40 @@ class IsfarChatbotAI {
         return "Please enter a message to continue our conversation!";
       }
       
+      // Handle very short/vague inputs better
+      if (sanitizedInput.length < 3) {
+        return "I'd love to help! Could you ask a more specific question about Isfar's background, experience, education, skills, or projects?";
+      }
+      
+      // Handle single word queries
+      if (sanitizedInput.split(' ').length === 1 && sanitizedInput.length < 15) {
+        const word = sanitizedInput.toLowerCase();
+        
+        const singleWordResponses = {
+          'background': "From Dhaka, Bangladesh. Lives in Reston, VA. What specifically interests you?",
+          'education': "BS Computer Science (Grand Valley, 2015-2020). MS Data Science (Georgetown, 2023-2025, 4.0 GPA).",
+          'experience': "5 years in tech. Data Analyst at Shift Digital since 2021. Previously Computer Engineer at Array of Engineers.",
+          'skills': "Python, SQL, R, machine learning, NLP, AWS, Databricks, Tableau. What specific skill?",
+          'projects': "FMBench Assistant (AI chatbot), Reddit Analysis (1B+ posts), Climate Viz. Which one?",
+          'hobbies': "Cafes, cooking, painting, reading, movies.",
+          'contact': "isfar.baset@gmail.com | linkedin.com/in/isfarbaset/ | Reston, VA",
+          'georgetown': "MS Data Science, 2023-2025, 4.0 GPA. Lead TA for Applied Gen AI.",
+          'location': "Reston, Virginia. Works remotely for Shift Digital.",
+          'python': "Highly proficient. Uses for ML (TensorFlow, PyTorch), NLP (spaCy), automation.",
+          'sql': "Expert level. Uses with PySpark for ETL, data transformation at Shift Digital.",
+          'aws': "SageMaker, Lambda, Bedrock, API Gateway. Deployed production systems.",
+          'resume': "linkedin.com/in/isfarbaset/ or email isfar.baset@gmail.com",
+          'linkedin': "linkedin.com/in/isfarbaset/",
+          'hello': "Hi! Ask me about Isfar's experience, education, skills, or projects.",
+          'hi': "Hello! What would you like to know about Isfar?",
+          'hey': "Hey! Ask about her career, skills, education, or projects."
+        };
+        
+        if (singleWordResponses[word]) {
+          return singleWordResponses[word];
+        }
+      }
+      
       // Check for inappropriate content
       if (this.isInappropriateContent(sanitizedInput)) {
         return this.getGuardrailResponse();
