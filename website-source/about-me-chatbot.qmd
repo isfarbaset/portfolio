@@ -76,7 +76,7 @@ class IsfarChatbotAI {
     this.knowledgeBase = {
       background: {
         keywords: ['background', 'origin', 'from', 'hometown', 'where', 'born', 'grew', 'dhaka', 'bangladesh', 'heritage', 'culture', 'journey'],
-        response: "Isfar's journey is truly inspiring! She's originally from Dhaka, Bangladesh - a vibrant, bustling capital city with over 10 million people. Coming to the US in 2015 to pursue her dreams in technology, she first lived in West Michigan and then moved to Northern Virginia in 2022. She's experienced diverse American communities while maintaining strong ties to her Bengali cultural heritage - it's this multicultural perspective that makes her approach to problem-solving so unique and valuable.",
+        response: "Isfar is from Dhaka, Bangladesh. She moved to the US in 2015, first to West Michigan, then Northern Virginia in 2022. Her multicultural background brings unique perspectives to problem-solving.",
         followups: [
           "Would you like to know more about her cultural background and how it influences her work?",
           "Are you curious about her experience adapting to life in different parts of America?"
@@ -85,7 +85,7 @@ class IsfarChatbotAI {
       
       education: {
         keywords: ['education', 'educational', 'academic', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors', 'graduation', 'graduated'],
-        response: "Isfar's educational journey is a testament to her dedication and strategic thinking. She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020), building a solid foundation in programming and systems thinking. Recognizing the power of data in modern business, she pursued her Master of Science in Data Science & Analytics from Georgetown University, completing it in 2025 with an exceptional 4.0 GPA while working full-time - demonstrating remarkable time management and commitment to excellence.",
+        response: "Isfar has a Bachelor's in Computer Science from Grand Valley State University (2015-2020) and a Master's in Data Science from Georgetown University (2025) with a 4.0 GPA. She completed her Master's while working full-time.",
         followups: [
           { text: "Would you like to know more about her academic achievements and work-study balance?", promise: "academic_achievements" },
           { text: "Are you curious about how her computer science background enhances her data science work?", promise: "computer_science_enhancement" }
@@ -94,7 +94,7 @@ class IsfarChatbotAI {
       
       experience: {
         keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift', 'digital', 'array', 'engineers', 'data', 'analyst', 'enterprise'],
-        response: "With 5 years of professional experience in tech, Isfar currently serves as a Data Analyst II at Shift Digital, working in the Data Operations and Analytics team to collaborate with enterprise clients and transform complex raw data into strategic, actionable insights. Her career shows impressive growth - from Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification, to Data Analyst I (Nov 2021-May 2025), and now to her current senior role as Data Analyst II (May 2025-Present) after completing her Master's from Georgetown. What makes her exceptional is her ability to bridge technical complexity with business strategy while continuously advancing in her field.",
+        response: "Isfar is a Data Analyst II at Shift Digital, working with enterprise clients to transform raw data into actionable insights. Previously she was a Computer Engineer at Array of Engineers (2020-2021) and Data Analyst I (2021-2025). She has 5 years of tech experience.",
         followups: [
           { text: "Would you like to hear about specific projects she's worked on with enterprise clients?", promise: "technical_applications" },
           { text: "Are you curious about her transition from software engineering to data science?", promise: "career_progression" }
@@ -103,7 +103,7 @@ class IsfarChatbotAI {
       
       skills: {
         keywords: ['skills', 'technologies', 'programming', 'languages', 'tools', 'python', 'sql', 'r', 'tableau', 'plotly', 'machine', 'learning', 'technical'],
-        response: "Isfar's technical arsenal is both broad and deep. She's proficient in Python, SQL, and R for sophisticated data manipulation and statistical analysis. Her expertise extends to visualization tools like Plotly and Tableau, machine learning frameworks, and database architecture. But what truly sets her apart is her ability to translate complex technical concepts into clear, actionable business insights - she's essentially a bridge between the technical and business worlds.",
+        response: "Isfar's technical skills include Python, SQL, R, Plotly, Tableau, machine learning, and database architecture. She specializes in translating technical concepts into business insights.",
         followups: [
           { text: "Would you like to know how she applies these technical skills to solve real business problems?", promise: "technical_applications" },
           { text: "Are you curious about her learning journey and staying current with new technologies?", promise: "professional_growth" }
@@ -112,7 +112,7 @@ class IsfarChatbotAI {
       
       hobbies: {
         keywords: ['hobbies', 'interests', 'free', 'time', 'fun', 'enjoy', 'like', 'love', 'outside', 'work', 'cafes', 'food', 'painting', 'reading', 'movies', 'creative'],
-        response: "Outside of her professional life, Isfar is a true connoisseur of life's beautiful moments! She has a passion for discovering charming cafes and hidden culinary gems - there's something magical about finding that perfect coffee shop atmosphere or experiencing an authentic dish from a new culture. As an artist at heart, she finds peace and creative expression through painting, which provides wonderful balance to her analytical work. She's also an avid reader and film enthusiast, always seeking new perspectives.",
+        response: "Isfar enjoys exploring cafes, trying new cuisines, painting, reading, and watching movies. Her creative hobbies balance her analytical work.",
         followups: [
           { text: "Are you interested in how her creative hobbies influence her analytical thinking?", promise: "professional_growth" },
           { text: "Would you like to know about her favorite types of cuisine or art styles?", promise: "professional_growth" }
@@ -121,7 +121,7 @@ class IsfarChatbotAI {
       
       goals: {
         keywords: ['goals', 'future', 'aspirations', 'want', 'plan', 'career', 'vision', 'leadership', 'mentoring'],
-        response: "Isfar envisions a future where sophisticated data science drives meaningful organizational change. She's passionate about growing as a thought leader while maintaining her commitment to making complex data accessible to everyone. Her goal is to continue building innovative solutions that empower teams to make better decisions. She's particularly interested in mentoring the next generation of data professionals and contributing to industry best practices.",
+        response: "Isfar wants to use data science to drive organizational change. She aims to make data accessible, build innovative solutions, and mentor future data professionals.",
         followups: [
           { text: "Would you like to know more about her approach to making data science accessible?", promise: "professional_growth" },
           { text: "Are you curious about her thoughts on the future of data science?", promise: "professional_growth" }
@@ -133,19 +133,19 @@ class IsfarChatbotAI {
     
     // Comprehensive promise fulfillment system
     this.promiseResponses = {
-      'work_study_balance': "Here's how she mastered the incredible work-study balance: Isfar developed a strategic time management system that allowed her to excel in both areas. She would dedicate early mornings (5-7 AM) to coursework before starting her workday at Shift Digital. Evenings were reserved for assignments and projects, while weekends became intensive study sessions. What made this sustainable was her ability to connect Georgetown coursework directly to her Shift Digital projects - she'd often implement class concepts at work and bring real-world challenges back to academic discussions. Her supervisors at Shift Digital were incredibly supportive, understanding the value this education would bring back to the team. The key was treating both commitments as equally important and finding synergies between them.",
+      'work_study_balance': "Isfar studied early mornings (5-7 AM) before work and evenings/weekends for assignments. She connected Georgetown coursework to her Shift Digital projects, implementing class concepts at work.",
       
-      'academic_achievements': "Her academic achievements are truly outstanding! Beyond the perfect 4.0 GPA, she consistently ranked in the top 5% of her Data Science cohort at Georgetown. She was selected for advanced electives like Deep Learning Applications and Big Data Architecture - courses typically reserved for PhD candidates. Her capstone project involved developing a predictive analytics model for customer churn, which was so impressive it's now being considered for implementation by a real client. She also served as a teaching assistant for introductory statistics courses, helping fellow students while deepening her own understanding. Faculty members frequently cited her work as exemplary, and she received the Dean's List recognition every semester.",
+      'academic_achievements': "Isfar achieved a 4.0 GPA and ranked in the top 5% at Georgetown. She took advanced courses like Deep Learning Applications, built a customer churn prediction model for her capstone, and served as a teaching assistant.",
       
-      'computer_science_enhancement': "Her Computer Science background creates a powerful foundation that enhances everything she does in data science! The programming fundamentals from Grand Valley - algorithms, data structures, software engineering principles - give her a huge advantage when building complex data pipelines and machine learning models. While many data scientists struggle with code efficiency and scalability, her CS background means she naturally writes optimized, maintainable code. She understands system architecture, which helps her design better ETL processes at Shift Digital. The mathematical rigor from CS coursework also prepared her for advanced statistical concepts in her Georgetown program. It's like having bilingual fluency - she can speak both the language of software engineering and data science.",
+      'computer_science_enhancement': "Her CS background provides strong programming fundamentals, algorithms knowledge, and system architecture understanding. This helps her write efficient code and design better data pipelines.",
       
-      'career_progression': "Her career progression tells an amazing story of strategic growth! Starting as a Computer Engineer at Array of Engineers gave her exposure to software verification and quality assurance - skills that translate perfectly to data validation and quality control in analytics. The transition to Data Analyst I at Shift Digital in 2021 was calculated - she saw the growing importance of data-driven decision making. During her 4 years as Data Analyst I, she consistently exceeded performance metrics, leading to increased responsibilities in client management and team mentoring. The promotion to Data Analyst II in May 2025 came with her Georgetown graduation - perfect timing that combined academic achievement with professional advancement. Now she's positioned for senior leadership roles, with both the technical depth and business acumen needed for executive-level data strategy.",
+      'career_progression': "She progressed from Computer Engineer at Array of Engineers (software verification) to Data Analyst I at Shift Digital (2021), then Data Analyst II (2025). Her promotion coincided with completing her Georgetown degree.",
       
-      'georgetown_program': "The Georgetown Data Science & Analytics program was transformative for her career! It's consistently ranked among the top 10 data science programs nationally, known for its blend of theoretical rigor and practical application. Her coursework covered cutting-edge topics like neural networks, natural language processing, and advanced statistical modeling. The program's emphasis on ethics in AI and data privacy aligned perfectly with her values and the responsible data practices she champions at Shift Digital. Georgetown's location in DC meant access to guest lecturers from government agencies, consulting firms, and tech companies. The collaborative projects with real organizations gave her portfolio-worthy experience before graduation. Faculty members are active researchers, so she learned the latest methodologies before they became industry standard.",
+      'georgetown_program': "Georgetown's Data Science program is top-10 nationally. She studied neural networks, NLP, and advanced statistics. The DC location provided access to industry guest lecturers and real-world projects.",
       
-      'technical_applications': "Her technical skills come alive through real-world applications at Shift Digital! She's built automated ETL pipelines that process millions of records daily for enterprise clients. Her Python expertise shines in custom machine learning models that predict customer behavior and optimize marketing spend. She's created interactive Tableau dashboards that executives use for strategic planning - transforming complex datasets into intuitive visual narratives. Her SQL skills handle complex joins across multiple databases, often involving 50+ million record datasets. She's implemented A/B testing frameworks and statistical significance testing that have driven major business decisions. The Databricks experience involves managing cloud-based data lakes and optimizing Spark jobs for performance. Every technical skill directly translates to business value and client success.",
+      'technical_applications': "At Shift Digital, she builds ETL pipelines processing millions of records, creates machine learning models for customer prediction, and develops Tableau dashboards for executives. She handles complex SQL queries with 50+ million records.",
       
-      'professional_growth': "Her professional growth journey is inspiring and strategic! In just 5 years, she's evolved from a junior engineer to a senior data professional leading strategic initiatives. At Array of Engineers, she learned precision and attention to detail through aerospace software verification. Transitioning to Shift Digital as Data Analyst I, she quickly became known for exceeding project deadlines and delivering insights that directly impacted client ROI. Her mentoring abilities emerged naturally - junior analysts sought her guidance on technical challenges and career development. The promotion to Data Analyst II recognized not just her technical excellence but her leadership potential. She now participates in new business development, presenting technical solutions to C-level executives. Her growth trajectory points toward data science leadership roles, potentially Chief Data Officer positions at growing companies."
+      'professional_growth': "In 5 years, she grew from junior engineer to senior data professional. She now mentors junior analysts, presents to executives, and is positioned for data science leadership roles."
     };
   }
   
