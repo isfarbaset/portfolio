@@ -122,6 +122,58 @@ class IsfarChatbotAI {
         ]
       },
       
+      projects: {
+        keywords: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'academic', 'work', 'github', 'code', 'implementation', 'application', 'system', 'model', 'analysis'],
+        response: "Isfar has built impressive projects spanning AI, data analysis, and visualization. Key projects include: FMBench Assistant (production AI chatbot with RAG architecture), Reddit Sentiment Analysis (processed 1+ billion posts), Spotify Music Classification (machine learning with 50K tracks), Air Quality Intelligence Agent (MCP + Letta AI), and Climate Impact Visualization (40+ years of data). Each demonstrates end-to-end technical capabilities.",
+        followups: [
+          { text: "Would you like technical details about the FMBench AI Assistant with RAG architecture?", promise: "fmbench_project" },
+          { text: "Are you curious about the billion-post Reddit sentiment analysis project?", promise: "reddit_project" },
+          { text: "Want to hear about the Spotify music classification using machine learning?", promise: "spotify_project" },
+          { text: "Interested in the Air Quality Intelligence Agent with advanced AI architecture?", promise: "aqi_project" }
+        ]
+      },
+      
+      academic_projects: {
+        keywords: ['academic', 'school', 'university', 'coursework', 'assignment', 'class', 'georgetown', 'capstone', 'thesis', 'research', 'study', 'student', 'grade', 'spotify', 'music', 'classification', 'air', 'quality', 'climate', 'visualization'],
+        response: "Isfar's academic projects showcase advanced data science techniques: Spotify Music Classification (Georgetown capstone using machine learning on 50K tracks across genres and decades with XGBoost, Neural Networks, and ensemble methods), Air Quality Intelligence Agent (cutting-edge MCP + Letta AI architecture for real-time environmental monitoring), Climate Impact Visualization (40+ years of DMV air quality data analysis), and Customer Churn Prediction Model (so impressive it's being considered for real client implementation). She also served as Lead TA for Applied Generative AI.",
+        followups: [
+          { text: "Want details about the Spotify classification project with advanced machine learning?", promise: "spotify_project" },
+          { text: "Curious about the Air Quality Intelligence Agent with MCP and Letta AI?", promise: "aqi_project" },
+          { text: "Interested in the climate visualization with 40+ years of data?", promise: "climate_project" },
+          { text: "Want to hear about the customer churn model that impressed clients?", promise: "churn_project" }
+        ]
+      },
+
+      spotify_project: {
+        keywords: ['spotify', 'music', 'classification', 'genres', 'decades', 'songs', 'tracks', 'machine', 'learning', 'xgboost', 'neural', 'networks', 'random', 'forest', 'capstone', 'georgetown', 'harmony', 'numbers'],
+        response: "The Spotify Music Classification project was Isfar's Georgetown capstone, analyzing 50,000 tracks from 400+ artists across 10 genres (Country, EDM, Funk, Hip-Hop, Jazz, Latin, Pop, Rap, Rock, Soul). Using advanced ML models (XGBoost, Neural Networks, Random Forest, SVM, Logistic Regression), the team achieved impressive classification accuracy for both genre and decade prediction. The project featured sophisticated data preprocessing, handling imbalanced datasets, and comprehensive EDA revealing musical trends across time periods.",
+        followups: [
+          { text: "Want to know about the specific machine learning models and their performance?", promise: "spotify_technical" },
+          { text: "Curious about the data preprocessing and feature engineering techniques?", promise: "spotify_data" },
+          { text: "Interested in the insights about musical trends across genres and decades?", promise: "spotify_insights" }
+        ]
+      },
+
+      air_quality_project: {
+        keywords: ['air', 'quality', 'aqi', 'environmental', 'monitoring', 'mcp', 'letta', 'intelligence', 'agent', 'pollution', 'health', 'recommendations', 'dmv', 'cities', 'real-time'],
+        response: "The Air Quality Intelligence Agent demonstrates cutting-edge AI architecture combining Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. The system provides real-time AQI data for cities worldwide, detailed pollutant analysis (PM2.5, PM10, O3, NO2, SO2, CO), and intelligent health recommendations. It features activity-specific advice, sensitive group protection, multi-city comparisons, and GPS-based precise location tracking with 100+ DMV area cities analyzed.",
+        followups: [
+          { text: "Want details about the MCP + Letta AI architecture and how it works?", promise: "aqi_architecture" },
+          { text: "Curious about the intelligent health recommendations and safety features?", promise: "aqi_health" },
+          { text: "Interested in the real-time monitoring capabilities and data sources?", promise: "aqi_technical" }
+        ]
+      },
+
+      climate_visualization: {
+        keywords: ['climate', 'visualization', 'environmental', 'data', 'dmv', 'air', 'quality', 'trends', 'analysis', '40', 'years', 'historical', 'patterns', 'impact'],
+        response: "The Climate Impact Visualization project analyzed 40+ years of DMV area air quality data to reveal long-term environmental trends and patterns. Using advanced data visualization techniques, Isfar created comprehensive dashboards showing pollution trends, seasonal variations, and the impact of policy changes over four decades. The project demonstrates expertise in handling large-scale temporal data and creating meaningful insights from complex environmental datasets.",
+        followups: [
+          { text: "Want to know about the data sources and 40+ years of historical analysis?", promise: "climate_data" },
+          { text: "Curious about the visualization techniques and dashboard design?", promise: "climate_viz" },
+          { text: "Interested in the environmental insights and policy impact findings?", promise: "climate_insights" }
+        ]
+      },
+      
       goals: {
         keywords: ['goals', 'future', 'aspirations', 'want', 'plan', 'career', 'vision', 'leadership', 'mentoring'],
         response: "Isfar wants to use data science to drive organizational change. She aims to make data accessible, build innovative solutions, and mentor future data professionals.",
@@ -148,7 +200,34 @@ class IsfarChatbotAI {
       
       'technical_applications': "At Shift Digital, she builds ETL pipelines processing millions of records, creates machine learning models for customer prediction, and develops Tableau dashboards for executives. She handles complex SQL queries with 50+ million records.",
       
-      'professional_growth': "In 5 years, she grew from junior engineer to senior data professional. She now mentors junior analysts, presents to executives, and is positioned for data science leadership roles."
+      'professional_growth': "In 5 years, she grew from junior engineer to senior data professional. She now mentors junior analysts, presents to executives, and is positioned for data science leadership roles.",
+
+      // Advanced Project Details
+      'spotify_project': "The Spotify Music Classification was her Georgetown capstone analyzing 50,000 tracks from 400+ artists across 10 genres. The team used XGBoost, Neural Networks, Random Forest, SVM, and Logistic Regression with hyperparameter tuning. They achieved strong classification accuracy for both genre and decade prediction, handling severely imbalanced data with sophisticated sampling methods.",
+      
+      'spotify_technical': "The technical implementation included: XGBoost with gradient boosting for optimal performance, Neural Networks with backpropagation for complex pattern recognition, Random Forest ensemble methods, SVM with kernel functions for high-dimensional classification, and One-vs-Rest logistic regression. All models featured hyperparameter tuning and cross-validation.",
+      
+      'spotify_data': "Data preprocessing involved cleaning 50K tracks from corrupted information, handling duplicate entries, creating decade bins from release dates, averaging artist-level metrics while acknowledging genre evolution over time, and implementing various sampling techniques to address severe temporal imbalance (more recent tracks than historical ones).",
+      
+      'spotify_insights': "Key insights: EDM showed higher instrumental values, Hip-Hop had elevated speechiness metrics, decade classification revealed distinct musical evolution patterns, and genre boundaries proved challenging due to metric overlap - exactly what makes this a sophisticated machine learning problem requiring ensemble approaches.",
+
+      'aqi_project': "The Air Quality Intelligence Agent combines Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. It provides real-time AQI data worldwide, detailed pollutant breakdowns, activity-specific health recommendations, and multi-city comparisons with 100+ DMV area cities analyzed.",
+      
+      'aqi_architecture': "The architecture features: Letta AI as the intelligent conversational brain, MCP Server as the standardized data bridge, API Ninjas integration for real-time environmental data, asynchronous processing for optimal performance, robust error handling with graceful degradation, and extensible design for additional data sources.",
+      
+      'aqi_health': "Health intelligence includes: activity-specific advice for jogging, cycling, walking, outdoor sports; special guidance for children, elderly, and respiratory-sensitive individuals; N95/P100 mask recommendations; air purifier usage guidance; indoor alternatives during poor air quality; and optimal timing recommendations for outdoor activities.",
+      
+      'aqi_technical': "Technical features: real-time AQI monitoring with live data feeds, detailed pollutant analysis (PM2.5, PM10, O3, NO2, SO2, CO), GPS coordinate-based precise location tracking, historical trend analysis capabilities, side-by-side multi-city comparisons, and comprehensive data validation ensuring reliable information.",
+
+      'climate_project': "The Climate Visualization project analyzed 40+ years of DMV area air quality data, revealing long-term environmental trends, seasonal variations, and policy impact analysis. It demonstrates expertise in handling large-scale temporal datasets and creating meaningful insights from complex environmental data.",
+      
+      'climate_data': "The project utilized: 40+ years of historical air quality data from the DMV area, comprehensive pollutant measurements across multiple decades, seasonal and temporal pattern analysis, policy change impact assessment, and large-scale data processing techniques for handling decades of environmental measurements.",
+      
+      'climate_viz': "Visualization techniques included: interactive dashboards showing multi-decade trends, seasonal variation heatmaps, policy impact before/after comparisons, pollutant correlation matrices, and temporal trend analysis with clear visual storytelling of environmental changes over four decades.",
+      
+      'climate_insights': "Key findings: significant air quality improvements following environmental policy implementations, clear seasonal patterns in pollutant levels, correlation between urban development and air quality changes, and identification of the most effective policy interventions for environmental improvement in the DMV area.",
+
+      'churn_project': "The Customer Churn Prediction Model was so impressive that Shift Digital is considering implementing it for real client projects. It demonstrates advanced predictive modeling capabilities with practical business applications and sophisticated feature engineering techniques."
     };
   }
   
@@ -163,11 +242,18 @@ class IsfarChatbotAI {
     
     this.synonyms = {
       'work': ['job', 'career', 'employment', 'position', 'role'],
-      'school': ['education', 'university', 'college', 'study'],
-      'skills': ['abilities', 'expertise', 'knowledge', 'competencies'],
+      'school': ['education', 'university', 'college', 'study', 'academic', 'coursework'],
+      'skills': ['abilities', 'expertise', 'knowledge', 'competencies', 'technical', 'capabilities'],
       'experience': ['background', 'history', 'expertise', 'practice'],
-      'projects': ['work', 'portfolio', 'development', 'creation'],
-      'programming': ['coding', 'development', 'software', 'technical']
+      'projects': ['work', 'portfolio', 'development', 'creation', 'assignments', 'implementations'],
+      'programming': ['coding', 'development', 'software', 'technical'],
+      'academic': ['school', 'university', 'educational', 'coursework', 'study', 'research'],
+      'machine': ['ml', 'artificial', 'ai', 'learning', 'intelligence', 'models'],
+      'data': ['information', 'analytics', 'analysis', 'science', 'dataset'],
+      'classification': ['prediction', 'categorization', 'modeling', 'analysis'],
+      'spotify': ['music', 'audio', 'songs', 'tracks', 'streaming'],
+      'air': ['environmental', 'pollution', 'quality', 'atmosphere', 'aqi'],
+      'climate': ['environmental', 'weather', 'atmosphere', 'pollution', 'trends']
     };
     
     this.contractions = {
@@ -234,8 +320,11 @@ class IsfarChatbotAI {
       greeting: ['hi', 'hello', 'hey', 'greetings'],
       personal: ['personal', 'private', 'family', 'relationship'],
       professional: ['work', 'job', 'career', 'experience', 'skills'],
-      education: ['school', 'university', 'degree', 'study', 'learn'],
-      technical: ['python', 'sql', 'programming', 'coding', 'data'],
+      education: ['school', 'university', 'degree', 'study', 'learn', 'georgetown', 'academic'],
+      technical: ['python', 'sql', 'programming', 'coding', 'data', 'machine', 'learning'],
+      projects: ['projects', 'project', 'portfolio', 'built', 'created', 'developed'],
+      academic_projects: ['academic', 'coursework', 'capstone', 'spotify', 'music', 'classification'],
+      environmental: ['air', 'quality', 'climate', 'environmental', 'pollution', 'aqi'],
       availability: ['available', 'hire', 'open', 'looking', 'seeking']
     };
     
@@ -391,11 +480,20 @@ class IsfarChatbotAI {
       case 'professional':
         suggestions.push("her work at Shift Digital or Array of Engineers");
         break;
+      case 'projects':
+        suggestions.push("her FMBench AI Assistant, Reddit analysis, or other impressive projects");
+        break;
+      case 'academic_projects':
+        suggestions.push("her Spotify Music Classification, Air Quality Intelligence Agent, or Climate Visualization projects");
+        break;
+      case 'environmental':
+        suggestions.push("her Air Quality Intelligence Agent or Climate Impact Visualization projects");
+        break;
       case 'question':
-        suggestions.push("her background, skills, education, or projects");
+        suggestions.push("her background, skills, education, academic projects, or professional work");
         break;
       default:
-        suggestions.push("her career journey, technical skills, or achievements");
+        suggestions.push("her career journey, technical skills, academic projects, or achievements");
     }
     
     return {
@@ -426,7 +524,25 @@ class IsfarChatbotAI {
       'career_progression': ['career progression', 'professional growth', 'promoted', 'advancement'],
       'georgetown_program': ['georgetown program', 'georgetown.*master', 'data science.*program'],
       'technical_applications': ['technical skills.*business', 'real-world.*application', 'enterprise.*project'],
-      'professional_growth': ['professional growth', 'career development', 'leadership.*role']
+      'professional_growth': ['professional growth', 'career development', 'leadership.*role'],
+      
+      // Project-specific promises
+      'spotify_project': ['spotify.*classification', 'music.*project', 'georgetown.*capstone', '50k.*tracks', 'spotify.*machine.*learning'],
+      'spotify_technical': ['machine.*learning.*models', 'xgboost', 'neural.*networks', 'technical.*implementation', 'model.*performance'],
+      'spotify_data': ['data.*preprocessing', 'feature.*engineering', 'data.*cleaning', 'sampling.*methods'],
+      'spotify_insights': ['musical.*trends', 'genre.*insights', 'decade.*patterns', 'musical.*evolution'],
+      
+      'aqi_project': ['air.*quality.*agent', 'mcp.*letta', 'environmental.*monitoring', 'intelligence.*agent'],
+      'aqi_architecture': ['mcp.*architecture', 'letta.*ai', 'system.*architecture', 'technical.*design'],
+      'aqi_health': ['health.*recommendations', 'safety.*features', 'activity.*advice', 'health.*intelligence'],
+      'aqi_technical': ['real-time.*monitoring', 'technical.*capabilities', 'data.*sources', 'monitoring.*features'],
+      
+      'climate_project': ['climate.*visualization', '40.*years', 'environmental.*data', 'historical.*analysis'],
+      'climate_data': ['historical.*data', 'data.*sources', 'temporal.*analysis', '40.*years.*data'],
+      'climate_viz': ['visualization.*techniques', 'dashboard.*design', 'data.*visualization'],
+      'climate_insights': ['environmental.*insights', 'policy.*impact', 'climate.*findings', 'environmental.*trends'],
+      
+      'churn_project': ['customer.*churn', 'prediction.*model', 'churn.*model', 'client.*implementation']
     };
     
     // Detect which promise should be set based on the content of the response
@@ -507,6 +623,24 @@ class IsfarChatbotAI {
           "The cultural dimension of her story is fascinating. Growing up in Dhaka - a city of over 10 million people - gave her experience with complexity and scale that translates beautifully to handling big data challenges. The transition to American academic and professional environments shows remarkable adaptability and determination.",
           "What strikes me about her background is how she's maintained strong ties to her Bengali heritage while fully embracing American opportunities for innovation and growth. This cultural bridge gives her unique insights when working with diverse enterprise clients at Shift Digital, and her multicultural perspective is a real asset in today's global business environment."
         ]
+      },
+      
+      academic_projects: {
+        patterns: ['academic', 'projects', 'spotify', 'music', 'classification', 'air', 'quality', 'climate', 'visualization', 'georgetown', 'capstone', 'coursework', 'assignments'],
+        responses: [
+          "Her academic projects are absolutely impressive! The Spotify Music Classification project was her Georgetown capstone - analyzing 50,000 tracks from 400+ artists across 10 genres using advanced machine learning models like XGBoost, Neural Networks, and Random Forest. The team achieved strong classification accuracy for both genre and decade prediction, handling severely imbalanced datasets with sophisticated sampling methods.",
+          "What's remarkable about her academic work is the technical sophistication. The Air Quality Intelligence Agent demonstrates cutting-edge AI architecture combining Model Context Protocol (MCP) with Letta AI for comprehensive environmental monitoring. It provides real-time AQI data worldwide, detailed pollutant analysis, and intelligent health recommendations - truly production-level complexity.",
+          "The breadth of her academic projects is extraordinary. From the Climate Impact Visualization analyzing 40+ years of DMV air quality data to reveal long-term environmental trends, to the Customer Churn Prediction Model that was so impressive Shift Digital is considering implementing it for real clients - each project showcases different aspects of advanced data science capabilities."
+        ]
+      },
+      
+      projects: {
+        patterns: ['projects', 'project', 'portfolio', 'built', 'created', 'developed', 'work', 'github', 'code', 'implementation'],
+        responses: [
+          "Her project portfolio is truly impressive! The FMBench Assistant is a production-ready AI chatbot with RAG architecture that's actually being used by real users. The Reddit Sentiment Analysis processed over 1 billion posts - that's massive scale data processing. And the Spotify Music Classification used machine learning on 50,000 tracks. Each project demonstrates end-to-end technical capabilities.",
+          "What I find fascinating about her projects is the diversity of applications. From AI chatbots with advanced conversational capabilities to environmental monitoring systems that provide real-time health recommendations, to large-scale sentiment analysis - she's tackled complex problems across multiple domains with sophisticated technical solutions.",
+          "The technical depth in her projects is remarkable. The Air Quality Intelligence Agent uses cutting-edge MCP + Letta AI architecture, the Climate Visualization analyzes decades of environmental data, and the production systems handle real-world scale and complexity. These aren't just academic exercises - they're professional-grade implementations."
+        ]
       }
     };
     
@@ -553,6 +687,26 @@ class IsfarChatbotAI {
         "Would you like to know more about how her cultural background influences her work approach?",
         "Are you interested in her experience adapting to different American regions?",
         "Would you like to hear about how she maintains connections to her Bengali heritage?"
+      ],
+      academic_projects: [
+        "Would you like technical details about the Spotify Music Classification with machine learning models?",
+        "Are you curious about the Air Quality Intelligence Agent with MCP + Letta AI architecture?",
+        "Would you like to hear about the Climate Visualization analyzing 40+ years of data?"
+      ],
+      projects: [
+        "Would you like to know about the FMBench AI Assistant with RAG architecture?",
+        "Are you curious about the billion-post Reddit sentiment analysis project?",
+        "Would you like technical details about any specific project implementation?"
+      ],
+      spotify_project: [
+        "Want to know about the specific machine learning models and their performance?",
+        "Curious about the data preprocessing and feature engineering techniques?",
+        "Interested in the insights about musical trends across genres and decades?"
+      ],
+      air_quality_project: [
+        "Want details about the MCP + Letta AI architecture and how it works?",
+        "Curious about the intelligent health recommendations and safety features?",
+        "Interested in the real-time monitoring capabilities and data sources?"
       ]
     };
     
@@ -699,60 +853,67 @@ class IsfarChatbotAI {
       }
     }
     
-    // ROBUST GUARDRAILS: Filter inappropriate, personal, and off-topic questions
-    const personalQuestions = [
-      'husband', 'wife', 'married', 'boyfriend', 'girlfriend', 'partner', 'relationship', 'dating', 'single',
-      'family', 'children', 'kids', 'parents', 'mother', 'father', 'siblings', 'brother', 'sister',
-      'address', 'phone', 'number', 'contact', 'email', 'personal', 'private', 'home', 'salary', 'money',
-      'age', 'old', 'weight', 'height', 'appearance', 'looks', 'beautiful', 'ugly', 'attractive'
+    // ROBUST GUARDRAILS: Context-aware filtering for inappropriate, personal, and off-topic questions
+    
+    // Check for specific personal relationship/family patterns
+    const personalPatterns = [
+      /\b(husband|wife|married|boyfriend|girlfriend|partner|dating|single)\b/i,
+      /\b(family|children|kids|parents|mother|father|siblings|brother|sister)\b/i,
+      /\b(address|phone.*number|home.*address|personal.*contact)\b/i,
+      /\b(salary|money|income|wage|pay.*rate)\b/i,
+      /\b(age|old|weight|height|appearance|looks|beautiful|ugly|attractive)\b/i
     ];
     
-    const inappropriateQuestions = [
-      'sex', 'sexual', 'naked', 'nude', 'body', 'breast', 'ass', 'butt', 'dick', 'penis', 'pussy',
-      'fuck', 'shit', 'damn', 'hell', 'bitch', 'stupid', 'idiot', 'hate', 'kill', 'die', 'death'
+    // Check for inappropriate content patterns
+    const inappropriatePatterns = [
+      /\b(sex|sexual|naked|nude|body|breast|ass|butt|dick|penis|pussy)\b/i,
+      /\b(fuck|shit|damn|hell|bitch|stupid|idiot|hate|kill|die|death)\b/i
     ];
     
-    const offTopicQuestions = [
-      'weather', 'news', 'politics', 'trump', 'biden', 'election', 'covid', 'virus', 'pandemic',
-      'sports', 'football', 'basketball', 'movie', 'celebrity', 'music', 'song', 'recipe', 'cooking',
-      'restaurant', 'travel', 'vacation', 'health', 'medical', 'doctor', 'medicine'
+    // Check for off-topic patterns
+    const offTopicPatterns = [
+      /\b(weather|news|politics|trump|biden|election|covid|virus|pandemic)\b/i,
+      /\b(sports|football|basketball|movie|celebrity|music|song|recipe|cooking)\b/i,
+      /\b(restaurant|travel|vacation|health|medical|doctor|medicine)\b/i
     ];
     
-    // Check for personal information requests
-    if (personalQuestions.some(keyword => input.includes(keyword))) {
+    // Check for personal information requests (but exclude professional questions)
+    if (personalPatterns.some(pattern => pattern.test(input)) && 
+        !/(skills|experience|education|work|career|professional|technical|background|projects)/i.test(input)) {
       return {
-        response: "I'm here to share information about Isfar's professional background, technical expertise, and career journey. I don't discuss personal details like relationships, family, or private information. Instead, I'd love to tell you about her impressive work in data science, her educational achievements, or her professional experience at Shift Digital. What aspect of her career would you like to explore?",
+        response: "I focus on Isfar's professional background and career achievements. I don't discuss personal details like relationships, family, or private information. Ask about her technical skills, work experience, education, or projects instead.",
         category: 'personal_boundary',
         score: 20,
         followups: [
-          "Would you like to know about her professional achievements and career growth?",
-          "Are you interested in learning about her technical expertise and projects?"
+          "What would you like to know about her professional skills?",
+          "Are you interested in her career progression or technical expertise?"
         ]
       };
     }
     
     // Check for inappropriate content
-    if (inappropriateQuestions.some(keyword => input.includes(keyword))) {
+    if (inappropriatePatterns.some(pattern => pattern.test(input))) {
       return {
-        response: "I'm designed to provide professional information about Isfar's career, education, and technical expertise. I don't engage with inappropriate content. Let's focus on her inspiring professional journey - from her background in Bangladesh to becoming a successful data scientist in the US. What would you like to know about her career or skills?",
+        response: "I provide professional information about Isfar's career and technical expertise. Let's focus on her inspiring journey from Bangladesh to becoming a data scientist. What would you like to know about her skills or experience?",
         category: 'inappropriate_content',
         score: 20,
         followups: [
-          "Would you like to hear about her career progression and achievements?",
-          "Are you curious about her technical skills and expertise?"
+          "Ask about her technical skills and programming expertise",
+          "Learn about her career progression and achievements"
         ]
       };
     }
     
-    // Check for off-topic questions  
-    if (offTopicQuestions.some(keyword => input.includes(keyword)) && !input.includes('isfar') && !input.includes('she') && !input.includes('her')) {
+    // Check for off-topic questions (but allow if asking about Isfar specifically)
+    if (offTopicPatterns.some(pattern => pattern.test(input)) && 
+        !/\b(isfar|she|her)\b/i.test(input)) {
       return {
-        response: "I'm specifically designed to discuss Isfar's professional background, career journey, and expertise in data science. For topics outside her professional scope, I'd recommend searching elsewhere. However, I'd be happy to share about her inspiring story, technical skills, educational background, or career achievements. What aspect of her professional journey interests you most?",
+        response: "I focus on Isfar's professional background and career in data science. For other topics, try a general search engine. I'd be happy to discuss her technical skills, education, work experience, or projects. What interests you?",
         category: 'off_topic',
         score: 20,
         followups: [
-          "Would you like to learn about her transition from Bangladesh to becoming a data scientist?",
-          "Are you interested in her technical expertise and career progression?"
+          "Ask about her data science skills and expertise",
+          "Learn about her career journey and achievements"
         ]
       };
     }
