@@ -27,13 +27,26 @@ format:
   --wicked-purple: #8B5CF6;
 }
 
+/* Wand cursor throughout the page */
+* {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🪄</text></svg>'), auto !important;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+a, button, .clickable {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">✨</text></svg>'), pointer !important;
+}
+
 .hero-banner {
-  background: linear-gradient(135deg, var(--wicked-green) 0%, var(--wicked-emerald) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                    url('https://images.unsplash.com/photo-1514306191717-452ec28c7814?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
   color: white;
-  padding: 5rem 3rem;
+  padding: 6rem 3rem;
   border-radius: 0;
   margin: -2rem -2rem 3rem -2rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   animation: fadeIn 0.8s ease-out;
@@ -44,43 +57,30 @@ format:
   to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0, 0, 0, 0.03) 10px,
-    rgba(0, 0, 0, 0.03) 20px
-  );
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 900;
-  margin-bottom: 1rem;
-  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0, 166, 81, 0.5);
   line-height: 1.1;
   letter-spacing: -0.5px;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  opacity: 0.95;
+  font-size: 1.5rem;
   font-weight: 400;
   max-width: 900px;
   margin: 0 auto;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 .stat-grid {
@@ -397,7 +397,7 @@ fig.update_layout(
     xaxis=dict(
         title='',
         tickangle=-45,
-        tickfont=dict(size=11),
+        tickfont=dict(size=11, family='Segoe UI'),
         showgrid=False
     ),
     yaxis=dict(
@@ -467,7 +467,7 @@ fig.update_layout(
     ),
     xaxis=dict(
         title='',
-        tickfont=dict(size=11),
+        tickfont=dict(size=11, family='Segoe UI'),
         showgrid=False
     ),
     yaxis=dict(
@@ -542,7 +542,7 @@ fig.update_layout(
     yaxis=dict(
         title='',
         showgrid=False,
-        tickfont=dict(size=12)
+        tickfont=dict(size=12, family='Segoe UI')
     ),
     plot_bgcolor='white',
     paper_bgcolor='white',
@@ -708,8 +708,8 @@ fig = go.Figure(data=go.Heatmap(
     textfont=dict(size=10, family='Segoe UI', weight='bold'),
     hovertemplate='<b>%{x} vs %{y}</b><br>Correlation: %{z:.2f}<extra></extra>',
     colorbar=dict(
-        title=dict(text='Correlation', font=dict(size=12)),
-        tickfont=dict(size=10),
+        title=dict(text='Correlation', font=dict(size=12, family='Segoe UI')),
+        tickfont=dict(size=10, family='Segoe UI'),
         len=0.7
     )
 ))
@@ -722,12 +722,12 @@ fig.update_layout(
     xaxis=dict(
         title='',
         tickangle=-45,
-        tickfont=dict(size=11),
+        tickfont=dict(size=11, family='Segoe UI'),
         side='bottom'
     ),
     yaxis=dict(
         title='',
-        tickfont=dict(size=11)
+        tickfont=dict(size=11, family='Segoe UI')
     ),
     plot_bgcolor='white',
     paper_bgcolor='white',
