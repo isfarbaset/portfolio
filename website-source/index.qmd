@@ -50,6 +50,19 @@ A conversational AI assistant for Foundation Model Benchmarking built with Amazo
 
 ::: {.project-card}
 ::: {.project-image}
+![Defying Analytics](https://media.giphy.com/media/l0HlHJGHe3yAMhdQY/giphy.gif)
+:::
+::: {.project-content}
+### Defying Analytics: What Made Wicked TikTok-able?
+Turns out "Defying Gravity" doesn't just defy physics—it defies predictability too. I analyzed what actually drove Wicked's viral explosion on TikTok: spoiler alert, high danceability helps, but Ariana Grande posting about it helps *way* more. A retrospective study proving that musical theatre can absolutely break the internet (with the right memes, celebrities, and 287,000 lip-sync videos).
+
+**Tech Stack:** Python • Spotify API • Plotly • Random Forest • Quarto  
+**Key Finding:** Audio features create potential, but celebrity boosts and duet formats make it go viral
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
 ![US Insights](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif)
 :::
 ::: {.project-content}
