@@ -387,6 +387,8 @@ fig.show()
 **Observation**: "For Good" takes the crown with a popularity score of 58, despite being one of the soundtrack's longer tracks at 5.11 minutes. The emotional ballad outperforms even the showstopping "Defying Gravity" (56). 
 
 **What this challenges:** The assumption that "big, loud finales" are always the most popular. Sometimes the heartfelt conversation between two friends hits harder than the woman flying away on a broomstick. Data: 1, Conventional Wisdom: 0.
+
+**Bottom Line:** The quiet moments win. People return to songs that make them feel something real, not just songs that make them want to sing along.
 :::
 
 ### Duration vs. Popularity: The Surprising Non-Relationship
@@ -493,6 +495,8 @@ fig.show()
 **Statistical Reality Check**: With a correlation coefficient of just **r=0.05** and **p=0.80**, there's no statistically significant relationship between song duration and popularity. Duration explains less than 0.3% of variance in popularity (r²=0.0025).
 
 **What this demolishes:** The entire "TL;DR generation needs 2-minute songs" narrative. "Dancing Through Life" clocks in at 7.62 minutes and sits comfortably in the top 10. Long-form content wins when it's actually *good*. Revolutionary concept, I know.
+
+**Bottom Line:** Song length doesn't matter. If people love it, they'll listen to all 7 minutes. If they don't, they'll skip it at 30 seconds. Quality > runtime.
 :::
 
 ### K-Means Clustering: Three Song Archetypes
@@ -614,6 +618,8 @@ fig.show()
 - **Cluster 2: Solid Mid-Tier** — Shorter (avg 2.69 min), balanced popularity (avg 47.9), the narrative glue holding it all together
 
 **What this reveals:** Successful soundtracks aren't monoliths. They need peaks *and* valleys. The "filler tracks" aren't filler—they're structural. Remove them and the whole thing collapses. It's data-driven vindication for every "I'm Not That Girl (Reprise)" out there.
+
+**Bottom Line:** Great albums need variety. You can't have all bangers—the quiet moments make the big moments matter. The "boring" tracks aren't mistakes; they're part of the design.
 :::
 
 ### PCA Visualization: The Hidden Structure
@@ -706,6 +712,8 @@ fig.show()
 **PCA Interpretation**: Principal Component Analysis reduces our duration-popularity feature space to 2D while retaining 100% of the variance. PC1 (x-axis) captures combined magnitude (longer + more popular → right side), while PC2 (y-axis) represents the trade-off (long-but-unpopular vs. short-but-popular).
 
 **The vindication:** The clear cluster separation validates our K-means groupings. The algorithm found *real structure* in the data, not random noise or wishful thinking. Sometimes machine learning actually works exactly as advertised. Mark this day.
+
+**Bottom Line:** The songs naturally group into distinct types. It's not random—there's an actual pattern to what works and what doesn't. Math proves the soundtrack is well-designed, whether or not that was intentional.
 :::
 
 ### Popularity Distribution: The Full Picture
@@ -814,6 +822,8 @@ fig.show()
 **Distribution Stats**: The popularity distribution is relatively symmetric with mean (46.9) kissing close to median (49.0), suggesting balanced representation across the soundtrack. No extreme outliers—even the top songs stay within 2 standard deviations. 
 
 **What this means:** This isn't a "one-hit wonder" album propped up by a single mega-hit while everything else languishes. It's a soundtrack with *consistent quality*—the kind of depth that keeps entire albums in rotation instead of just the singles. Old-school music industry, meet your validation.
+
+**Bottom Line:** Every song holds its own. You're not fast-forwarding through filler to get to the good parts—the whole album is worth listening to. That's increasingly rare.
 :::
 
 ### Duration Distribution by Popularity Tier
@@ -883,6 +893,8 @@ fig.show()
 **Tier Analysis**: ANOVA on duration across popularity tiers yields **F=1.76, p=0.19**—not statistically significant. The violin plots confirm it visually: all tiers show similar spread and central tendency.
 
 **Translation for executives:** Stop telling artists to "cut it down to 3 minutes." High-popularity songs aren't systematically shorter than mid or low-popularity tracks. Make it good, make it memorable, and listeners will stay for however long it takes. The data has spoken, and it's tired of your arbitrary time limits.
+
+**Bottom Line:** The "3-minute rule" is made up. Popular songs can be any length. The only rule is: don't be boring.
 :::
 
 ## Statistical Rigor: The Tests That Matter
