@@ -38,8 +38,8 @@ a, button, .clickable {
 }
 
 .hero-banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
-                    url('https://share.google/images/4PbzMzbzzdjt2bTuC');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
+                    url('images/wicked-banner.png');
   background-size: cover;
   background-position: center;
   color: white;
