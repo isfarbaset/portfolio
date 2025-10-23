@@ -39,7 +39,7 @@ a, button, .clickable {
 
 .hero-banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
-                    url('images/wicked-banner.png');
+                    url('images/banner-wicked.png');
   background-size: cover;
   background-position: center;
   color: white;
