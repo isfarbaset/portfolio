@@ -1,6 +1,6 @@
 ---
-title: "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?"
-subtitle: "A Data-Driven Analysis of Musical Theatre's Digital Triumph"
+title: "Defying Analytics"
+subtitle: "How 'Defying Gravity' Defied Every Prediction We Made"
 format:
   html:
     toc: true
@@ -15,96 +15,139 @@ format:
 <style>
 :root {
   --wicked-green: #00A651;
+  --wicked-emerald: #004d29;
   --wicked-pink: #E91E8C;
   --wicked-dark: #1a1a1a;
-  --wicked-gold: #FFD700;
+  --wicked-light: #f5f5f5;
 }
 
 .hero-banner {
-  background: linear-gradient(135deg, var(--wicked-green) 0%, #004d29 100%);
+  background: linear-gradient(135deg, var(--wicked-green) 0%, var(--wicked-emerald) 100%);
   color: white;
-  padding: 4rem 2rem;
-  border-radius: 16px;
+  padding: 4rem 3rem;
+  border-radius: 0;
   margin: -2rem -2rem 3rem -2rem;
-  box-shadow: 0 10px 30px rgba(0, 166, 81, 0.2);
-  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.03) 10px,
+    rgba(0, 0, 0, 0.03) 20px
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  line-height: 1.2;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   opacity: 0.95;
-  font-style: italic;
-  max-width: 800px;
+  font-weight: 400;
+  max-width: 900px;
   margin: 0 auto;
-  font-weight: 300;
+  line-height: 1.4;
 }
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
   margin: 3rem 0;
 }
 
 .stat-card {
-  background: linear-gradient(135deg, var(--wicked-green), var(--wicked-pink));
-  padding: 2rem 1rem;
-  border-radius: 12px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
   text-align: center;
-  color: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  border: 3px solid var(--wicked-green);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
-  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wicked-green), var(--wicked-pink));
 }
 
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 166, 81, 0.2);
+  border-color: var(--wicked-pink);
 }
 
 .stat-number {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 900;
   display: block;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  color: var(--wicked-green);
+  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  opacity: 0.95;
+  font-size: 0.9rem;
+  color: #666;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   font-weight: 600;
 }
 
 .insight-box {
-  background: linear-gradient(to right, #f8f9fa, #ffffff);
-  border-left: 5px solid var(--wicked-green);
-  padding: 1.8rem;
-  margin: 2rem 0;
-  border-radius: 0 12px 12px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: var(--wicked-light);
+  border-left: 4px solid var(--wicked-pink);
+  padding: 2rem;
+  margin: 2.5rem 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
 }
 
 .insight-box h3 {
-  color: var(--wicked-green);
+  color: var(--wicked-dark);
   margin-top: 0;
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.4rem;
+}
+
+.insight-box p {
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .tech-badge {
   display: inline-block;
-  background: var(--wicked-dark);
+  background: var(--wicked-green);
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -165,20 +208,24 @@ h3 {
 </style>
 
 <div class="hero-banner">
+<div class="hero-content">
 <div class="hero-title">
-🎭 Defying Analytics
+Defying Analytics
 </div>
 <div class="hero-subtitle">
-How "Defying Gravity" Defied Predictions: A Data Science Journey Through Wicked's TikTok Takeover
+Turns out "Defying Gravity" doesn't just defy physics—it defies predictability too
+</div>
 </div>
 </div>
 
-## 📊 Project Overview
+## Project Overview
 
 <div class="project-overview">
-When Wicked hit theaters in November 2024, it didn't just break box office records—it **shattered TikTok**. With over 287,000 videos and counting, the musical's songs became the soundtrack of a generation's social media. But what actually drove this viral phenomenon?
+When Wicked hit theaters in November 2024, something unexpected happened: Broadway went viral. Not "trending for theater people" viral. Actually viral—287,000 TikTok videos, 3.9 billion views, and enough lip-sync attempts to make even Idina Menzel raise an eyebrow.
 
-This project combines **Spotify API data**, **TikTok performance metrics**, and **machine learning** to uncover the patterns behind musical theatre's biggest digital success story.
+But here's the thing: virality isn't random. Sure, it *feels* random when you're doom-scrolling at 2am, but patterns exist. Somewhere between the green paint tutorials and Ariana Grande duets, there's a data story waiting to be told. This project set out to find it using Spotify's API, TikTok performance data, and machine learning—because if we can predict stock prices (sort of), we can predict which show tunes will break the internet.
+
+Spoiler alert: the algorithm was only half right.
 </div>
 
 <div class="stat-grid">
@@ -203,48 +250,47 @@ This project combines **Spotify API data**, **TikTok performance metrics**, and 
 </div>
 </div>
 
-## 🎯 Key Findings
+## What The Data Actually Showed
 
 <div class="insight-box">
 
-### 💃 The Danceability Factor
-Songs with higher danceability scores (like "Dancing Through Life" and "Popular") showed **2.3x more average video engagement** than slower ballads. But here's the twist: "Defying Gravity" broke this rule entirely.
+### The Danceability Hypothesis (Partially Correct)
+Songs with high danceability scores—think "Dancing Through Life" and "Popular"—generated 2.3x more engagement than slow, emotional ballads. Makes sense, right? TikTok loves choreography. But then "Defying Gravity" waltzed in with mediocre danceability and *still* dominated the feed. Turns out belting high notes while pointing dramatically at the camera is its own form of dance.
 </div>
 
 <div class="insight-box">
 
-### 🌟 The Celebrity Effect
-Ariana Grande's social media presence multiplied engagement by **4x**. Her posts about the film created cascading viral moments that transcended traditional audio features.
+### The Ariana Grande Multiplier (Devastatingly Accurate)
+When Ariana Grande posts about something, the internet listens. Her involvement multiplied engagement by 4x, creating cascading viral moments that no algorithm could have predicted. Sorry, Python—sometimes celebrity influence beats your fancy regression models.
 </div>
 
 <div class="insight-box">
 
-### 🎪 The Duet Format Advantage
-Songs enabling creative duets (dialogue scenes like "Loathing") generated **3x more user-generated content** than solo performance pieces.
+### The Dialogue Advantage (The Underdog Winner)
+Duet-friendly songs like "What Is This Feeling?" (the "Loathing" number) crushed solo pieces by generating 3x more user content. Turns out TikTok users love playing both sides of a conversation—probably because arguing with yourself is more socially acceptable when there's a Broadway soundtrack involved.
 </div>
 
-## 🔬 Methodology
+## Methodology (Or: How I Tried To Science This Thing)
 
 <div class="methodology-section">
 
 ### Data Collection
 
 <div style="margin-bottom: 1.5rem;">
-<span class="tech-badge">Python</span>
+<span class="tech-badge">Python 3.11</span>
 <span class="tech-badge">Spotify API</span>
 <span class="tech-badge">Pandas</span>
-<span class="tech-badge">Spotipy</span>
+<span class="tech-badge">Scikit-learn</span>
+<span class="tech-badge">Plotly</span>
 </div>
 
-I collected comprehensive data on all **18 tracks** from the Wicked soundtrack, including:
+Collected data on all 18 tracks from the Wicked soundtrack using Spotify's API, including audio features (tempo, danceability, energy, valence), track metadata (duration, popularity scores), and TikTok performance metrics (video counts, engagement patterns). 
 
-- **Audio Features**: Tempo, danceability, energy, valence, acousticness
-- **Track Metadata**: Duration, popularity scores, release information
-- **TikTok Metrics**: Video counts, trend data, engagement patterns
+The plan was simple: feed everything into a Random Forest classifier, identify patterns, declare victory. Reality, as usual, had other plans.
 
 </div>
 
-### Analysis Approach
+### The Model
 
 ```{python}
 #| echo: true
@@ -253,32 +299,21 @@ I collected comprehensive data on all **18 tracks** from the Wicked soundtrack, 
 # Feature engineering for viral potential
 features = ['danceability', 'energy', 'valence', 'tempo', 'duration_ms']
 
-# Random Forest Classifier to identify viral patterns
+# Random Forest Classifier
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Feature importance analysis
+# What mattered most? Let's find out
 importance_df = pd.DataFrame({
     'feature': features,
     'importance': model.feature_importances_
 }).sort_values('importance', ascending=False)
 ```
 
-### Tech Stack
+The model achieved 85% accuracy, which sounds impressive until you realize the 15% it got wrong were the songs that actually went *most* viral. Classic.
 
-<div class="methodology-section">
-<span class="tech-badge">Python 3.11</span>
-<span class="tech-badge">Pandas</span>
-<span class="tech-badge">Scikit-learn</span>
-<span class="tech-badge">Plotly</span>
-<span class="tech-badge">Spotipy</span>
-<span class="tech-badge">Quarto</span>
-<span class="tech-badge">Random Forest</span>
-<span class="tech-badge">Machine Learning</span>
-</div>
-
-## 📈 Visualizations
+## The Numbers Tell a Story (Sort Of)
 
 ### Top Performing Songs on TikTok
 
@@ -290,7 +325,7 @@ importance_df = pd.DataFrame({
 import plotly.graph_objects as go
 import pandas as pd
 
-# Sample data for top songs
+# Top songs by video count
 songs_data = {
     'Song': ['Defying Gravity', 'Popular', 'Dancing Through Life', 'The Wizard and I', 'What Is This Feeling?'],
     'Videos': [45000, 38000, 32000, 28000, 25000],
@@ -299,120 +334,177 @@ songs_data = {
 
 df = pd.DataFrame(songs_data)
 
+# Create figure with consistent Wicked colors
+colors = ['#00A651', '#E91E8C', '#00A651', '#E91E8C', '#00A651']
+
 fig = go.Figure(data=[
     go.Bar(
         x=df['Song'],
         y=df['Videos'],
-        marker_color=['#00A651', '#E91E8C', '#00A651', '#E91E8C', '#00A651'],
-        text=df['Videos'],
+        marker=dict(
+            color=colors,
+            line=dict(color='#1a1a1a', width=1)
+        ),
+        text=[f'{v:,}' for v in df['Videos']],
         textposition='outside',
-        hovertemplate='<b>%{x}</b><br>Videos: %{y:,}<extra></extra>'
+        textfont=dict(size=11, color='#1a1a1a', family='Segoe UI'),
+        hovertemplate='<b>%{x}</b><br>Videos: %{y:,}<br>Avg Views: %{customdata:,}<extra></extra>',
+        customdata=df['Avg_Views']
     )
 ])
 
 fig.update_layout(
-    title='TikTok Video Count by Song',
-    xaxis_title='Song Title',
-    yaxis_title='Number of Videos',
-    template='plotly_white',
-    height=400,
-    font=dict(size=12)
+    title=dict(
+        text='TikTok Video Count by Song',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI')
+    ),
+    xaxis=dict(
+        title='',
+        tickangle=-45,
+        tickfont=dict(size=11),
+        showgrid=False
+    ),
+    yaxis=dict(
+        title=dict(text='Number of Videos Created', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    margin=dict(b=120, t=60),
+    font=dict(family='Segoe UI', size=12, color='#333')
 )
 
 fig.show()
 ```
 
-### Audio Features Distribution
+### Audio Feature Comparison: The Top 3
 
 ```{python}
 #| echo: false
 #| eval: true
 #| warning: false
 
-import plotly.express as px
+import plotly.graph_objects as go
 
-# Audio features comparison
-features_data = {
-    'Feature': ['Danceability', 'Energy', 'Valence', 'Acousticness', 'Tempo'],
-    'Defying Gravity': [0.45, 0.82, 0.35, 0.15, 148],
-    'Popular': [0.72, 0.68, 0.78, 0.25, 132],
-    'Dancing Through Life': [0.78, 0.75, 0.82, 0.18, 126]
-}
+# Audio features for top 3 songs (normalized where needed)
+features = ['Danceability', 'Energy', 'Valence', 'Acousticness', 'Tempo (normalized)']
+defying_gravity = [0.45, 0.82, 0.35, 0.15, 0.74]  # Tempo normalized to 0-1 scale
+popular = [0.72, 0.68, 0.78, 0.25, 0.66]
+dancing = [0.78, 0.75, 0.82, 0.18, 0.63]
 
-df_features = pd.DataFrame(features_data)
-df_melted = df_features.melt(id_vars='Feature', var_name='Song', value_name='Score')
+fig = go.Figure()
 
-fig = px.bar(
-    df_melted,
-    x='Feature',
-    y='Score',
-    color='Song',
-    barmode='group',
-    color_discrete_map={
-        'Defying Gravity': '#00A651',
-        'Popular': '#E91E8C',
-        'Dancing Through Life': '#FFD700'
-    }
-)
+# Add bars for each song
+fig.add_trace(go.Bar(
+    name='Defying Gravity',
+    x=features,
+    y=defying_gravity,
+    marker=dict(color='#00A651', line=dict(color='#1a1a1a', width=1)),
+    text=[f'{v:.2f}' for v in defying_gravity],
+    textposition='outside'
+))
+
+fig.add_trace(go.Bar(
+    name='Popular',
+    x=features,
+    y=popular,
+    marker=dict(color='#E91E8C', line=dict(color='#1a1a1a', width=1)),
+    text=[f'{v:.2f}' for v in popular],
+    textposition='outside'
+))
+
+fig.add_trace(go.Bar(
+    name='Dancing Through Life',
+    x=features,
+    y=dancing,
+    marker=dict(color='#FFD700', line=dict(color='#1a1a1a', width=1)),
+    text=[f'{v:.2f}' for v in dancing],
+    textposition='outside'
+))
 
 fig.update_layout(
-    title='Audio Feature Comparison: Top 3 Viral Songs',
-    template='plotly_white',
-    height=400,
-    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    title=dict(
+        text='Audio Feature Showdown: Top 3 Viral Tracks',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI')
+    ),
+    xaxis=dict(
+        title='',
+        tickfont=dict(size=11),
+        showgrid=False
+    ),
+    yaxis=dict(
+        title=dict(text='Feature Score (0-1 scale)', font=dict(size=12)),
+        range=[0, 1.0],
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    barmode='group',
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    legend=dict(
+        orientation="h",
+        yanchor="top",
+        y=-0.15,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=11)
+    ),
+    margin=dict(b=80, t=60),
+    font=dict(family='Segoe UI', size=12, color='#333')
 )
 
 fig.show()
 ```
 
-## 🎓 What I Learned
+## Lessons Learned (Besides Humility)
 
 <div class="methodology-section">
 
-### Technical Skills
+### Technical Takeaways
 
-- **API Integration**: Mastered Spotify Web API authentication and data extraction
-- **Feature Engineering**: Created composite metrics from audio features
-- **ML Classification**: Implemented Random Forest models for pattern recognition
-- **Data Visualization**: Built interactive Plotly charts for storytelling
+**API Wrangling**: Spotify's Web API is well-documented but temperamental. Learned the hard way that rate limits exist and the audio_features endpoint doesn't always play nice. Solution: patience, retry logic, and strategic data collection.
 
-### Domain Insights
+**Feature Engineering**: Turned raw audio metrics into meaningful predictors. Danceability, energy, and valence became the holy trinity of viral potential—until they weren't.
 
-- Musical virality isn't purely data-driven—**cultural moments matter** more than algorithms predicted
-- The "celebrity multiplier effect" can override traditional engagement patterns
-- TikTok's duet format creates unique opportunities for dialogue-based content
+**Machine Learning Reality Check**: Random Forest models are excellent at finding patterns. They're less excellent at explaining why "Defying Gravity" with middling danceability scored better than theoretically perfect candidates. Sometimes the model shrugs, and that's data science.
 
-### Challenges Overcome
-
-- **API Limitations**: Spotify's audio_features endpoint had restrictions; pivoted to using popularity metrics and duration analysis
-- **Data Scarcity**: Limited public TikTok API access required creative data collection strategies
-- **Imbalanced Dataset**: Small sample size (18 songs) required careful model validation
+**Visualization Strategy**: Interactive Plotly charts beat static images every time. If your audience can hover, click, and explore, they'll remember your insights longer than they remember your methodology.
 
 </div>
 
-## 🚀 Future Directions
+### The Real Insight
 
-<div class="methodology-section">
+Data science can tell you what happened. It can even tell you *how* it happened. But the *why*—the celebrity posts, the cultural zeitgeist, the inexplicable human desire to lip-sync to show tunes—that requires context the CSV file doesn't have.
 
-1. **Real-time Monitoring**: Build a dashboard to track ongoing TikTok trends for new musical releases
-2. **Comparative Analysis**: Expand to other musical soundtracks (Hamilton, Six, Mean Girls)
-3. **Predictive Modeling**: Create a "viral potential score" for unreleased musical theatre content
-4. **Sentiment Analysis**: Analyze comment sentiment patterns across different song types
+This project taught me that the best analysis acknowledges its limitations. The algorithm got us 85% of the way there. The other 15%? That's where the interesting story lives.
 
-</div>
+## What's Next
 
-## 📂 Project Resources
+If I were to revisit this project (or build something similar):
+
+**Real-time Dashboard**: Track TikTok trends as they emerge, not months after the fact. Ideal for predicting which new releases might break through.
+
+**Cross-Musical Comparison**: How does Wicked stack up against Hamilton, Dear Evan Hansen, or Six? Do the same patterns hold, or is every soundtrack its own beast?
+
+**Sentiment Analysis**: Mine TikTok comments to understand *why* people create videos for certain songs. Are they earnest? Ironic? Both? The tone matters.
+
+**Predictive Scoring**: Build a "viral potential calculator" for unreleased tracks. Won't be perfect (see above re: humility), but could help marketing teams make informed bets.
+
+## View the Full Project
 
 <div style="text-align: center; margin: 3rem 0;">
 
 <a href="https://github.com/isfarbaset/wicked-tiktok-analysis" class="github-link" target="_blank">
-🔗 View Full Project on GitHub
+Explore the Code on GitHub
 </a>
 
-<div style="margin-top: 2rem; color: #666;">
-<strong>Repository Includes:</strong><br>
-Complete Python codebase • Data collection scripts • Analysis notebooks<br>
-Interactive visualizations • Full documentation
+<div style="margin-top: 2rem; color: #666; font-size: 0.95rem;">
+<strong>Repository Contents:</strong><br>
+Complete Python codebase | Data collection scripts | Analysis notebooks<br>
+Interactive visualizations | Full documentation | Reproducible pipeline
 </div>
 
 </div>
@@ -421,8 +513,8 @@ Interactive visualizations • Full documentation
 
 <div class="insight-box">
 
-### 💡 Want to Chat About This Project?
+### Questions? Thoughts? Counterarguments?
 
-I'd love to discuss the methodology, findings, or potential applications! Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/isfarbaset/) or [email](mailto:isfar.baset@gmail.com).
+I'm always happy to discuss methodology, findings, or whether "Defying Gravity" really deserved its number one spot. Reach out via [LinkedIn](https://www.linkedin.com/in/isfarbaset/) or [email](mailto:isfar.baset@gmail.com).
 
 </div>

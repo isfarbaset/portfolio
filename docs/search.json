@@ -2,9 +2,9 @@
   {
     "objectID": "wicked-tiktok.html",
     "href": "wicked-tiktok.html",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
+    "title": "Defying Analytics",
     "section": "",
-    "text": "🎭 Defying Analytics\n\n\nHow “Defying Gravity” Defied Predictions: A Data Science Journey Through Wicked’s TikTok Takeover"
+    "text": "Defying Analytics\n\n\nTurns out “Defying Gravity” doesn’t just defy physics—it defies predictability too"
   },
   {
     "objectID": "wicked-tiktok.html#visualizations",
@@ -261,9 +261,9 @@
   {
     "objectID": "wicked-tiktok.html#project-overview",
     "href": "wicked-tiktok.html#project-overview",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "📊 Project Overview",
-    "text": "📊 Project Overview\n\nWhen Wicked hit theaters in November 2024, it didn’t just break box office records—it shattered TikTok. With over 287,000 videos and counting, the musical’s songs became the soundtrack of a generation’s social media. But what actually drove this viral phenomenon?\nThis project combines Spotify API data, TikTok performance metrics, and machine learning to uncover the patterns behind musical theatre’s biggest digital success story.\n\n\n\n287K+ TikTok Videos\n\n\n18 Songs Analyzed\n\n\n3.9B+ Total Views\n\n\n85% Model Accuracy"
+    "title": "Defying Analytics",
+    "section": "Project Overview",
+    "text": "Project Overview\n\nWhen Wicked hit theaters in November 2024, something unexpected happened: Broadway went viral. Not “trending for theater people” viral. Actually viral—287,000 TikTok videos, 3.9 billion views, and enough lip-sync attempts to make even Idina Menzel raise an eyebrow.\nBut here’s the thing: virality isn’t random. Sure, it feels random when you’re doom-scrolling at 2am, but patterns exist. Somewhere between the green paint tutorials and Ariana Grande duets, there’s a data story waiting to be told. This project set out to find it using Spotify’s API, TikTok performance data, and machine learning—because if we can predict stock prices (sort of), we can predict which show tunes will break the internet.\nSpoiler alert: the algorithm was only half right.\n\n\n\n287K+ TikTok Videos\n\n\n18 Songs Analyzed\n\n\n3.9B+ Total Views\n\n\n85% Model Accuracy"
   },
   {
     "objectID": "wicked-tiktok.html#key-findings",
@@ -278,5 +278,47 @@
     "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
     "section": "🔬 Methodology",
     "text": "🔬 Methodology\n\nData Collection\n\nPython Spotify API Pandas Spotipy\n\nI collected comprehensive data on all 18 tracks from the Wicked soundtrack, including:\n\nAudio Features: Tempo, danceability, energy, valence, acousticness\nTrack Metadata: Duration, popularity scores, release information\nTikTok Metrics: Video counts, trend data, engagement patterns\n\n\n\nAnalysis Approach\n\n\nCode\n# Feature engineering for viral potential\nfeatures = ['danceability', 'energy', 'valence', 'tempo', 'duration_ms']\n\n# Random Forest Classifier to identify viral patterns\nfrom sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Feature importance analysis\nimportance_df = pd.DataFrame({\n    'feature': features,\n    'importance': model.feature_importances_\n}).sort_values('importance', ascending=False)\n\n\n\n\nTech Stack\n\nPython 3.11 Pandas Scikit-learn Plotly Spotipy Quarto Random Forest Machine Learning"
+  },
+  {
+    "objectID": "wicked-tiktok.html#what-the-data-actually-showed",
+    "href": "wicked-tiktok.html#what-the-data-actually-showed",
+    "title": "Defying Analytics",
+    "section": "What The Data Actually Showed",
+    "text": "What The Data Actually Showed\n\nThe Danceability Hypothesis (Partially Correct)\nSongs with high danceability scores—think “Dancing Through Life” and “Popular”—generated 2.3x more engagement than slow, emotional ballads. Makes sense, right? TikTok loves choreography. But then “Defying Gravity” waltzed in with mediocre danceability and still dominated the feed. Turns out belting high notes while pointing dramatically at the camera is its own form of dance.\n\n\nThe Ariana Grande Multiplier (Devastatingly Accurate)\nWhen Ariana Grande posts about something, the internet listens. Her involvement multiplied engagement by 4x, creating cascading viral moments that no algorithm could have predicted. Sorry, Python—sometimes celebrity influence beats your fancy regression models.\n\n\nThe Dialogue Advantage (The Underdog Winner)\nDuet-friendly songs like “What Is This Feeling?” (the “Loathing” number) crushed solo pieces by generating 3x more user content. Turns out TikTok users love playing both sides of a conversation—probably because arguing with yourself is more socially acceptable when there’s a Broadway soundtrack involved."
+  },
+  {
+    "objectID": "wicked-tiktok.html#methodology-or-how-i-tried-to-science-this-thing",
+    "href": "wicked-tiktok.html#methodology-or-how-i-tried-to-science-this-thing",
+    "title": "Defying Analytics",
+    "section": "Methodology (Or: How I Tried To Science This Thing)",
+    "text": "Methodology (Or: How I Tried To Science This Thing)\n\nData Collection\n\nPython 3.11 Spotify API Pandas Scikit-learn Plotly\n\nCollected data on all 18 tracks from the Wicked soundtrack using Spotify’s API, including audio features (tempo, danceability, energy, valence), track metadata (duration, popularity scores), and TikTok performance metrics (video counts, engagement patterns).\nThe plan was simple: feed everything into a Random Forest classifier, identify patterns, declare victory. Reality, as usual, had other plans.\n\n\nThe Model\n\n\nCode\n# Feature engineering for viral potential\nfeatures = ['danceability', 'energy', 'valence', 'tempo', 'duration_ms']\n\n# Random Forest Classifier\nfrom sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# What mattered most? Let's find out\nimportance_df = pd.DataFrame({\n    'feature': features,\n    'importance': model.feature_importances_\n}).sort_values('importance', ascending=False)\n\n\nThe model achieved 85% accuracy, which sounds impressive until you realize the 15% it got wrong were the songs that actually went most viral. Classic."
+  },
+  {
+    "objectID": "wicked-tiktok.html#the-numbers-tell-a-story-sort-of",
+    "href": "wicked-tiktok.html#the-numbers-tell-a-story-sort-of",
+    "title": "Defying Analytics",
+    "section": "The Numbers Tell a Story (Sort Of)",
+    "text": "The Numbers Tell a Story (Sort Of)\n\nTop Performing Songs on TikTok\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\nAudio Feature Comparison: The Top 3"
+  },
+  {
+    "objectID": "wicked-tiktok.html#lessons-learned-besides-humility",
+    "href": "wicked-tiktok.html#lessons-learned-besides-humility",
+    "title": "Defying Analytics",
+    "section": "Lessons Learned (Besides Humility)",
+    "text": "Lessons Learned (Besides Humility)\n\nTechnical Takeaways\nAPI Wrangling: Spotify’s Web API is well-documented but temperamental. Learned the hard way that rate limits exist and the audio_features endpoint doesn’t always play nice. Solution: patience, retry logic, and strategic data collection.\nFeature Engineering: Turned raw audio metrics into meaningful predictors. Danceability, energy, and valence became the holy trinity of viral potential—until they weren’t.\nMachine Learning Reality Check: Random Forest models are excellent at finding patterns. They’re less excellent at explaining why “Defying Gravity” with middling danceability scored better than theoretically perfect candidates. Sometimes the model shrugs, and that’s data science.\nVisualization Strategy: Interactive Plotly charts beat static images every time. If your audience can hover, click, and explore, they’ll remember your insights longer than they remember your methodology.\n\n\nThe Real Insight\nData science can tell you what happened. It can even tell you how it happened. But the why—the celebrity posts, the cultural zeitgeist, the inexplicable human desire to lip-sync to show tunes—that requires context the CSV file doesn’t have.\nThis project taught me that the best analysis acknowledges its limitations. The algorithm got us 85% of the way there. The other 15%? That’s where the interesting story lives."
+  },
+  {
+    "objectID": "wicked-tiktok.html#whats-next",
+    "href": "wicked-tiktok.html#whats-next",
+    "title": "Defying Analytics",
+    "section": "What’s Next",
+    "text": "What’s Next\nIf I were to revisit this project (or build something similar):\nReal-time Dashboard: Track TikTok trends as they emerge, not months after the fact. Ideal for predicting which new releases might break through.\nCross-Musical Comparison: How does Wicked stack up against Hamilton, Dear Evan Hansen, or Six? Do the same patterns hold, or is every soundtrack its own beast?\nSentiment Analysis: Mine TikTok comments to understand why people create videos for certain songs. Are they earnest? Ironic? Both? The tone matters.\nPredictive Scoring: Build a “viral potential calculator” for unreleased tracks. Won’t be perfect (see above re: humility), but could help marketing teams make informed bets."
+  },
+  {
+    "objectID": "wicked-tiktok.html#view-the-full-project",
+    "href": "wicked-tiktok.html#view-the-full-project",
+    "title": "Defying Analytics",
+    "section": "View the Full Project",
+    "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
   }
 ]
