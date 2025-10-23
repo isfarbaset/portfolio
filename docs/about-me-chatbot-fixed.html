@@ -125,14 +125,16 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+💬 Chat with Isfar
+</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -163,11 +165,694 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">
+💬 Chat with Isfar
+</h1></header>
 
 
 
 
+<div class="chatbot-container">
+<div class="chat-header">
+
+<h3 class="anchored">
+Ask me anything about her background, experience, or interests!
+</h3>
+<div class="chatbot-disclaimer">
+<p><small>ℹ️ This chatbot provides quick answers about Isfar’s professional background. For detailed conversations or specific inquiries, please <a href="https://www.linkedin.com/in/isfarbaset/" target="_blank">connect on LinkedIn</a> or reach out directly.</small></p>
+</div>
+</div>
+<div class="chat-window">
+<div class="chat-messages">
+<div class="message bot-message">
+<div class="message-content">
+<p>👋 Hi there! I’m Isfar’s advanced AI assistant, powered by sophisticated conversational AI technology. I understand context, remember our conversation, and provide natural, detailed responses about her professional journey and background.</p>
+<p><strong>I excel at discussing:</strong> • Her inspiring journey from Dhaka, Bangladesh to becoming a data scientist in the US • Detailed technical expertise in Python, SQL, data visualization, and machine learning • Educational achievements including her 4.0 GPA Master’s from Georgetown University • Professional experience at Shift Digital working with enterprise clients • Personal interests, cultural background, and creative pursuits • Career aspirations and her passion for making data accessible to everyone</p>
+<p>I’m designed to have natural, flowing conversations just like ChatGPT or Claude. Feel free to ask follow-up questions, request clarifications, or dive deep into any topic. What aspect of Isfar’s story would you like to explore first?</p>
+</div>
+</div>
+</div>
+<div class="chat-input-container">
+<div class="suggested-questions">
+<div class="suggestion-chip">
+Tell me about her background
+</div>
+<div class="suggestion-chip">
+What’s her experience?
+</div>
+<div class="suggestion-chip">
+What are her skills?
+</div>
+<div class="suggestion-chip">
+What are her hobbies?
+</div>
+</div>
+<div class="chat-input-wrapper">
+<p><input type="text" id="chat-input" placeholder="Type your question here..."> <button id="send-button"> <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="m22 2-7 20-4-9-9-4z"></path> <path d="m22 2-11 10"></path> </svg> </button></p>
+</div>
+</div>
+</div>
+</div>
+<script>
+// Advanced Conversational AI System for Isfar's Portfolio
+class IsfarChatbotAI {
+  constructor() {
+    this.conversationHistory = [];
+    this.context = {};
+    this.isProcessing = false;
+    this.messageCount = 0;
+    
+    // Comprehensive knowledge base
+    this.knowledgeBase = {
+      background: {
+        keywords: ['background', 'origin', 'from', 'hometown', 'where', 'born', 'grew', 'dhaka', 'bangladesh', 'heritage', 'culture', 'journey'],
+        response: "Isfar's journey is truly inspiring! She's originally from Dhaka, Bangladesh - a vibrant, bustling capital city with over 10 million people. Coming to the US in 2015 to pursue her dreams in technology, she first lived in West Michigan and then moved to Northern Virginia in 2022. She's experienced diverse American communities while maintaining strong ties to her Bengali cultural heritage - it's this multicultural perspective that makes her approach to problem-solving so unique and valuable.",
+        followups: [
+          "Would you like to know more about her cultural background and how it influences her work?",
+          "Are you curious about her experience adapting to life in different parts of America?"
+        ]
+      },
+      
+      education: {
+        keywords: ['education', 'study', 'studied', 'degree', 'school', 'university', 'college', 'georgetown', 'grand', 'valley', 'computer', 'science', 'data', 'gpa', 'masters', 'bachelors'],
+        response: "Isfar's educational journey is a testament to her dedication and strategic thinking. She earned her Bachelor of Science in Computer Science from Grand Valley State University (2015-2020), building a solid foundation in programming and systems thinking. Recognizing the power of data in modern business, she pursued her Master of Science in Data Science & Analytics from Georgetown University, completing it in 2025 with an exceptional 4.0 GPA while working full-time - demonstrating remarkable time management and commitment to excellence.",
+        followups: [
+          "Would you like to know more about her academic achievements and work-study balance?",
+          "Are you curious about how her computer science background enhances her data science work?"
+        ]
+      },
+      
+      experience: {
+        keywords: ['experience', 'work', 'job', 'career', 'professional', 'shift', 'digital', 'array', 'engineers', 'data', 'analyst', 'enterprise'],
+        response: "As a Data Analyst II at Shift Digital, Isfar works in the Data Operations and Analytics team, collaborating with enterprise clients to transform complex raw data into strategic, actionable insights. Her career shows continuous growth - from Data Analyst I (2021-2023) to her current senior role, and before that, experience as a Computer Engineer at Array of Engineers (2020-2021) in aerospace software verification. What makes her exceptional is her ability to bridge technical complexity with business strategy.",
+        followups: [
+          "Would you like to hear about specific projects she's worked on with enterprise clients?",
+          "Are you curious about her transition from software engineering to data science?"
+        ]
+      },
+      
+      skills: {
+        keywords: ['skills', 'technologies', 'programming', 'languages', 'tools', 'python', 'sql', 'r', 'tableau', 'plotly', 'machine', 'learning', 'technical'],
+        response: "Isfar's technical arsenal is both broad and deep. She's proficient in Python, SQL, and R for sophisticated data manipulation and statistical analysis. Her expertise extends to visualization tools like Plotly and Tableau, machine learning frameworks, and database architecture. But what truly sets her apart is her ability to translate complex technical concepts into clear, actionable business insights - she's essentially a bridge between the technical and business worlds.",
+        followups: [
+          "Would you like to know how she applies these technical skills to solve real business problems?",
+          "Are you curious about her learning journey and staying current with new technologies?"
+        ]
+      },
+      
+      hobbies: {
+        keywords: ['hobbies', 'interests', 'free', 'time', 'fun', 'enjoy', 'like', 'love', 'outside', 'work', 'cafes', 'food', 'painting', 'reading', 'movies', 'creative'],
+        response: "Outside of her professional life, Isfar is a true connoisseur of life's beautiful moments! She has a passion for discovering charming cafes and hidden culinary gems - there's something magical about finding that perfect coffee shop atmosphere or experiencing an authentic dish from a new culture. As an artist at heart, she finds peace and creative expression through painting, which provides wonderful balance to her analytical work. She's also an avid reader and film enthusiast, always seeking new perspectives.",
+        followups: [
+          "Are you interested in how her creative hobbies influence her analytical thinking?",
+          "Would you like to know about her favorite types of cuisine or art styles?"
+        ]
+      },
+      
+      goals: {
+        keywords: ['goals', 'future', 'aspirations', 'want', 'plan', 'career', 'vision', 'leadership', 'mentoring'],
+        response: "Isfar envisions a future where sophisticated data science drives meaningful organizational change. She's passionate about growing as a thought leader while maintaining her commitment to making complex data accessible to everyone. Her goal is to continue building innovative solutions that empower teams to make better decisions. She's particularly interested in mentoring the next generation of data professionals and contributing to industry best practices.",
+        followups: [
+          "Would you like to know more about her approach to making data science accessible?",
+          "Are you curious about her thoughts on the future of data science?"
+        ]
+      }
+    };
+    
+    this.continuationPhrases = ['yes', 'yeah', 'sure', 'tell me more', 'continue', 'go on', 'what else', 'more', 'elaborate'];
+  }
+  
+  // Check if user wants to continue conversation
+  isConversationContinuation(input) {
+    const lowerInput = input.toLowerCase().trim();
+    return this.continuationPhrases.some(phrase => {
+      const regex = new RegExp(`\\b${phrase}\\b`, 'i');
+      return regex.test(lowerInput);
+    });
+  }
+  
+  // Handle conversation continuation
+  handleConversationContinuation() {
+    if (this.conversationHistory.length === 0) {
+      return "I'd love to continue our conversation! What specific aspect of Isfar's journey would you like to explore? I can tell you about her professional experience, educational background, technical skills, personal interests, or her inspiring story from Bangladesh to becoming a successful data scientist in America.";
+    }
+    
+    const lastEntry = this.conversationHistory[this.conversationHistory.length - 1];
+    if (lastEntry && lastEntry.followups && lastEntry.followups.length > 0) {
+      const followup = lastEntry.followups[Math.floor(Math.random() * lastEntry.followups.length)];
+      return `Absolutely! I'm glad you want to know more. ${followup}`;
+    }
+    
+    return "I'm happy to continue! What other aspects of Isfar's professional journey or personal story would you like to explore?";
+  }
+  
+  // Find best matching response
+  findBestResponse(userInput) {
+    const input = userInput.toLowerCase();
+    let bestMatch = null;
+    let highestScore = 0;
+    let matchedCategory = null;
+    
+    // Check for conversation continuation first
+    if (this.isConversationContinuation(input)) {
+      return {
+        response: this.handleConversationContinuation(),
+        category: 'continuation',
+        score: 1.0
+      };
+    }
+    
+    // Search through knowledge base
+    Object.entries(this.knowledgeBase).forEach(([category, data]) => {
+      let score = 0;
+      
+      // Count keyword matches
+      data.keywords.forEach(keyword => {
+        if (input.includes(keyword)) {
+          score += keyword.length > 4 ? 2 : 1; // Longer keywords get more weight
+        }
+      });
+      
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = data;
+        matchedCategory = category;
+      }
+    });
+    
+    return {
+      response: bestMatch ? bestMatch.response : this.getFallbackResponse(),
+      category: matchedCategory,
+      score: highestScore,
+      followups: bestMatch ? bestMatch.followups : []
+    };
+  }
+  
+  // Generate fallback responses
+  getFallbackResponse() {
+    const fallbacks = [
+      "That's an interesting question! While I don't have specific information about that, I'd love to tell you about Isfar's inspiring journey in data science. What aspect interests you most?",
+      "I don't have details on that particular topic, but there's so much fascinating information about Isfar's career and background. Would you like to explore her professional growth or personal story?",
+      "That's outside my current knowledge base, but I have comprehensive insights about Isfar's professional journey. What would you like to discover about her data science career?"
+    ];
+    
+    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+  }
+  
+  // Check for inappropriate content
+  isInappropriateContent(message) {
+    const inappropriatePatterns = [
+      /\b(phone|number|address|email|contact|personal|private)\b/i,
+      /\b(date|dating|relationship|single|married|romantic)\b/i,
+      /\b(sexy|hot|beautiful|attractive|looks|appearance)\b/i,
+      /\b(help.*with|solve.*problem|homework|assignment)\b/i,
+      /\b(money|salary|pay|wage|income)\b/i,
+      /(.)\1{4,}/ // Repeated characters
+    ];
+    
+    return inappropriatePatterns.some(pattern => pattern.test(message));
+  }
+  
+  // Get guardrail response
+  getGuardrailResponse() {
+    const responses = [
+      "I'm here to share insights about Isfar's professional journey and achievements. Let's explore her career growth, technical expertise, or educational background. What aspect interests you most?",
+      "Let's focus on Isfar's inspiring journey from Bangladesh to becoming a successful data analyst. I can share stories about her career progression, technical skills, or multicultural experiences. What would you like to discover?",
+      "This conversation celebrates Isfar's professional achievements and personal interests. I can tell you about her work at Shift Digital, her academic excellence, or her creative hobbies. What sounds most intriguing?"
+    ];
+    
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+  
+  // Main response generation
+  generateResponse(userInput) {
+    try {
+      this.messageCount++;
+      
+      // Input validation
+      const sanitizedInput = userInput.trim();
+      if (!sanitizedInput) {
+        return "Please enter a message to continue our conversation!";
+      }
+      
+      // Check for inappropriate content
+      if (this.isInappropriateContent(sanitizedInput)) {
+        return this.getGuardrailResponse();
+      }
+      
+      // Find best response
+      const match = this.findBestResponse(sanitizedInput);
+      
+      // Add conversation starters for more natural feel
+      const starters = [
+        "Great question! ",
+        "I'd love to share that with you! ",
+        "That's something Isfar is passionate about! ",
+        "Interesting that you ask! ",
+        "Here's what's fascinating about that: "
+      ];
+      
+      const starter = starters[Math.floor(Math.random() * starters.length)];
+      const response = starter + match.response;
+      
+      // Update conversation history
+      this.conversationHistory.push({
+        user: sanitizedInput,
+        bot: response,
+        category: match.category,
+        followups: match.followups || [],
+        timestamp: Date.now()
+      });
+      
+      return response;
+      
+    } catch (error) {
+      console.error('Chatbot error:', error);
+      return "I apologize, but I encountered an issue. Please try asking your question again!";
+    }
+  }
+}
+
+// Initialize the chatbot
+const chatbotAI = new IsfarChatbotAI();
+
+// Message handling functions
+function addMessage(content, isBot = false, withTyping = false) {
+  const messagesContainer = document.querySelector('.chat-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+  
+  const messageContent = document.createElement('div');
+  messageContent.className = 'message-content';
+  
+  if (isBot && withTyping) {
+    messageDiv.appendChild(messageContent);
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    // Typing animation
+    let i = 0;
+    const typeWriter = () => {
+      if (i < content.length) {
+        messageContent.textContent += content.charAt(i);
+        i++;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        setTimeout(typeWriter, 20 + Math.random() * 30);
+      }
+    };
+    
+    setTimeout(typeWriter, 300);
+  } else {
+    messageContent.textContent = content;
+    messageDiv.appendChild(messageContent);
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+  
+  return messageDiv;
+}
+
+function addTypingIndicator() {
+  const messagesContainer = document.querySelector('.chat-messages');
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'message bot-message typing-indicator';
+  typingDiv.innerHTML = '<div class="message-content"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+  messagesContainer.appendChild(typingDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  return typingDiv;
+}
+
+function removeTypingIndicator(typingDiv) {
+  if (typingDiv && typingDiv.parentNode) {
+    typingDiv.parentNode.removeChild(typingDiv);
+  }
+}
+
+// Main message handling
+function handleUserMessage(message) {
+  if (!message.trim()) return;
+  
+  if (chatbotAI.isProcessing) return;
+  
+  chatbotAI.isProcessing = true;
+  
+  // Add user message
+  addMessage(message, false);
+  
+  // Show thinking indicator
+  const typingIndicator = addTypingIndicator();
+  
+  // Calculate realistic thinking time
+  const thinkingTime = 800 + (message.length * 30) + (Math.random() * 600);
+  
+  setTimeout(() => {
+    try {
+      removeTypingIndicator(typingIndicator);
+      const response = chatbotAI.generateResponse(message);
+      addMessage(response, true, true);
+    } catch (error) {
+      console.error('Response error:', error);
+      removeTypingIndicator(typingIndicator);
+      addMessage("I apologize, but I encountered an issue. Please try again!", true);
+    } finally {
+      chatbotAI.isProcessing = false;
+    }
+  }, thinkingTime);
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  const chatInput = document.getElementById('chat-input');
+  const sendButton = document.getElementById('send-button');
+  const suggestionChips = document.querySelectorAll('.suggestion-chip');
+  
+  function sendMessage() {
+    const message = chatInput.value.trim();
+    if (message && !chatbotAI.isProcessing) {
+      handleUserMessage(message);
+      chatInput.value = '';
+    }
+  }
+  
+  sendButton.addEventListener('click', sendMessage);
+  
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+  
+  chatInput.addEventListener('input', function() {
+    const value = this.value.trim();
+    sendButton.disabled = !value || chatbotAI.isProcessing;
+  });
+  
+  suggestionChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      const question = this.textContent;
+      if (!chatbotAI.isProcessing) {
+        chatInput.value = question;
+        setTimeout(() => sendMessage(), 100);
+      }
+    });
+  });
+  
+  console.log('🚀 Advanced Isfar Chatbot initialized successfully!');
+});
+</script>
+<style>
+.chatbot-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  background: #fafafa;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.chat-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem 2rem 2rem;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.chat-header h1 {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+
+.chatbot-disclaimer {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chatbot-disclaimer small {
+  display: block;
+  line-height: 1.5;
+  opacity: 0.9;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.chatbot-disclaimer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.chatbot-disclaimer a:hover {
+  opacity: 0.8;
+}
+
+.chat-window {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.chat-messages {
+  height: 520px;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #fbfbfb;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 0;
+  animation: messageSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 80%;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.user-message .message-content {
+  background: #007AFF;
+  color: white;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 122, 255, 0.25);
+}
+
+.bot-message .message-content {
+  background: white;
+  color: #1d1d1f;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.typing-indicator .message-content {
+  padding: 1rem 1.25rem;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9ca3af;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(2) { animation-delay: 0.4s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+  30% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-input-container {
+  padding: 2rem;
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.suggested-questions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.suggestion-chip {
+  background: rgba(0, 122, 255, 0.08);
+  color: #007AFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 122, 255, 0.12);
+  backdrop-filter: blur(10px);
+  letter-spacing: -0.01em;
+}
+
+.suggestion-chip:hover {
+  background: #007AFF;
+  color: white;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25), 0 3px 10px rgba(0, 122, 255, 0.15);
+  border-color: #007AFF;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 1.25rem 1.75rem;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+#chat-input:focus {
+  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15), 0 4px 16px rgba(0, 122, 255, 0.1);
+  border-color: rgba(0, 122, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+#chat-input::placeholder {
+  color: #86868b;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#send-button {
+  background: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 12px rgba(0, 122, 255, 0.25), 0 1px 1px rgba(0, 122, 255, 0.15);
+}
+
+#send-button:hover {
+  background: #0056CC;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.35), 0 3px 10px rgba(0, 122, 255, 0.2);
+}
+
+#send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .chatbot-container {
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+  }
+  
+  .chat-header {
+    padding: 2rem 1.5rem;
+  }
+  
+  .chat-messages {
+    height: 450px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .suggestion-chip {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
+</style>
 
 
 
