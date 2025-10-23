@@ -4,7 +4,7 @@
     "href": "wicked-tiktok.html",
     "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
     "section": "",
-    "text": "```{css, echo=FALSE} :root { –wicked-green: #00A651; –wicked-pink: #E91E8C; –wicked-dark: #1a1a1a; –wicked-gold: #FFD700; }\n.hero-banner { background: linear-gradient(135deg, var(–wicked-green) 0%, var(–wicked-dark) 100%); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3); }\n.hero-title { font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }\n.hero-subtitle { font-size: 1.2rem; opacity: 0.95; font-style: italic; }\n.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }\n.stat-card { background: linear-gradient(135deg, var(–wicked-green), var(–wicked-pink)); padding: 1.5rem; border-radius: 10px; text-align: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease; }\n.stat-card:hover { transform: translateY(-5px); }\n.stat-number { font-size: 2.5rem; font-weight: bold; display: block; margin-bottom: 0.5rem; }\n.stat-label { font-size: 0.9rem; opacity: 0.95; text-transform: uppercase; letter-spacing: 1px; }\n.insight-box { background: #f8f9fa; border-left: 4px solid var(–wicked-green); padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }\n.insight-box h3 { color: var(–wicked-green); margin-top: 0; }\n.tech-badge { display: inline-block; background: var(–wicked-dark); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; margin: 0.2rem; font-size: 0.85rem; }\n.github-link { display: inline-block; background: var(–wicked-pink); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; margin: 1rem 0; }\n.github-link:hover { background: var(–wicked-green); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }\n:::"
+    "text": "🎭 Defying Analytics\n\n\nHow “Defying Gravity” Defied Predictions: A Data Science Journey Through Wicked’s TikTok Takeover"
   },
   {
     "objectID": "wicked-tiktok.html#visualizations",
@@ -18,21 +18,21 @@
     "href": "wicked-tiktok.html#what-i-learned",
     "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
     "section": "🎓 What I Learned",
-    "text": "🎓 What I Learned\n\nTechnical Skills\n\nAPI Integration: Mastered Spotify Web API authentication and data extraction\nFeature Engineering: Created composite metrics from audio features\nML Classification: Implemented Random Forest models for pattern recognition\nData Visualization: Built interactive Plotly charts for storytelling\n\n\n\nDomain Insights\n\nMusical virality isn’t purely data-driven—cultural moments matter more than algorithms predicted\nThe “celebrity multiplier effect” can override traditional engagement patterns\nTikTok’s duet format creates unique opportunities for dialogue-based content\n\n\n\nChallenges Overcome\n\nAPI Limitations: Spotify’s audio_features endpoint had restrictions; pivoted to using popularity metrics and duration analysis\nData Scarcity: Limited public TikTok API access required creative data collection strategies\nImbalanced Dataset: Small sample size (18 songs) required careful model validation"
+    "text": "🎓 What I Learned\n\n\nTechnical Skills\n\nAPI Integration: Mastered Spotify Web API authentication and data extraction\nFeature Engineering: Created composite metrics from audio features\nML Classification: Implemented Random Forest models for pattern recognition\nData Visualization: Built interactive Plotly charts for storytelling\n\n\n\nDomain Insights\n\nMusical virality isn’t purely data-driven—cultural moments matter more than algorithms predicted\nThe “celebrity multiplier effect” can override traditional engagement patterns\nTikTok’s duet format creates unique opportunities for dialogue-based content\n\n\n\nChallenges Overcome\n\nAPI Limitations: Spotify’s audio_features endpoint had restrictions; pivoted to using popularity metrics and duration analysis\nData Scarcity: Limited public TikTok API access required creative data collection strategies\nImbalanced Dataset: Small sample size (18 songs) required careful model validation"
   },
   {
     "objectID": "wicked-tiktok.html#future-directions",
     "href": "wicked-tiktok.html#future-directions",
     "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
     "section": "🚀 Future Directions",
-    "text": "🚀 Future Directions\n\nReal-time Monitoring: Build a dashboard to track ongoing TikTok trends for new musical releases\nComparative Analysis: Expand to other musical soundtracks (Hamilton, Six, Mean Girls)\nPredictive Modeling: Create a “viral potential score” for unreleased musical theatre content\nSentiment Analysis: Analyze comment sentiment patterns across different song types"
+    "text": "🚀 Future Directions\n\n\nReal-time Monitoring: Build a dashboard to track ongoing TikTok trends for new musical releases\nComparative Analysis: Expand to other musical soundtracks (Hamilton, Six, Mean Girls)\nPredictive Modeling: Create a “viral potential score” for unreleased musical theatre content\nSentiment Analysis: Analyze comment sentiment patterns across different song types"
   },
   {
     "objectID": "wicked-tiktok.html#project-resources",
     "href": "wicked-tiktok.html#project-resources",
     "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
     "section": "📂 Project Resources",
-    "text": "📂 Project Resources\n 🔗 View Full Project on GitHub \nRepository Includes:\n\nComplete Python codebase\nData collection scripts\nAnalysis notebooks\nInteractive visualizations\nFull documentation\n\n\n\n💡 Want to Chat About This Project?\nI’d love to discuss the methodology, findings, or potential applications! Feel free to reach out via LinkedIn or email."
+    "text": "📂 Project Resources\n\n 🔗 View Full Project on GitHub \n\nRepository Includes: Complete Python codebase • Data collection scripts • Analysis notebooks Interactive visualizations • Full documentation\n\n\n\n\n💡 Want to Chat About This Project?\nI’d love to discuss the methodology, findings, or potential applications! Feel free to reach out via LinkedIn or email."
   },
   {
     "objectID": "conclusion.html",
@@ -257,5 +257,26 @@
     "title": "",
     "section": "",
     "text": "Isfar Baset\n\nData Analyst\n\n\nCrafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.\n\n\nView Projects About Me Chat with Isfar\n\n\n\n\n\n\n\n\nFeatured Projects\n\n\n\n\n\n\nFMBench Assistant\n\n\n\n\nFMBench Assistant\nA conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.\n\n\n\n\n\n\n\nDefying Analytics\n\n\n\n\nDefying Analytics: What Made Wicked TikTok-able?\nTurns out “Defying Gravity” doesn’t just defy physics—it defies predictability too. I analyzed what actually drove Wicked’s viral explosion on TikTok: spoiler alert, high danceability helps, but Ariana Grande posting about it helps way more. A retrospective study proving that musical theatre can absolutely break the internet (with the right memes, celebrities, and 287,000 lip-sync videos).\nTech Stack: Python • Spotify API • Plotly • Random Forest • Quarto\nKey Finding: Audio features create potential, but celebrity boosts and duet formats make it go viral\n\n\n\n\n\n\n\nUS Insights\n\n\n\n\nUS Insights\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.\n\n\n\n\n\n\n\nTemp Talk\n\n\n\n\nTemp Talk\nExploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.\n\n\n\n\n\n\n\nBeats and Bytes\n\n\n\n\nBeats and Bytes\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.\n\n\n\n\n\n\n\nEV Insights\n\n\n\n\nEV Insights\nExamining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.\n\n\n\n\n\n\n\nAQI MCP\n\n\n\n\nAI-Powered AQI Assistant (In Progress)\nAn interactive Gen-AI tool that lets users query real-time Air Quality Index (AQI) data for any city using natural language. Built on an MCP server and powered by the API Ninjas data source, this project aims to make environmental data easily accessible and conversational. Currently under development.\n\n\n\n\n\n\n\nPortfolio curated by Isfar Baset"
+  },
+  {
+    "objectID": "wicked-tiktok.html#project-overview",
+    "href": "wicked-tiktok.html#project-overview",
+    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
+    "section": "📊 Project Overview",
+    "text": "📊 Project Overview\n\nWhen Wicked hit theaters in November 2024, it didn’t just break box office records—it shattered TikTok. With over 287,000 videos and counting, the musical’s songs became the soundtrack of a generation’s social media. But what actually drove this viral phenomenon?\nThis project combines Spotify API data, TikTok performance metrics, and machine learning to uncover the patterns behind musical theatre’s biggest digital success story.\n\n\n\n287K+ TikTok Videos\n\n\n18 Songs Analyzed\n\n\n3.9B+ Total Views\n\n\n85% Model Accuracy"
+  },
+  {
+    "objectID": "wicked-tiktok.html#key-findings",
+    "href": "wicked-tiktok.html#key-findings",
+    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
+    "section": "🎯 Key Findings",
+    "text": "🎯 Key Findings\n\n💃 The Danceability Factor\nSongs with higher danceability scores (like “Dancing Through Life” and “Popular”) showed 2.3x more average video engagement than slower ballads. But here’s the twist: “Defying Gravity” broke this rule entirely.\n\n\n🌟 The Celebrity Effect\nAriana Grande’s social media presence multiplied engagement by 4x. Her posts about the film created cascading viral moments that transcended traditional audio features.\n\n\n🎪 The Duet Format Advantage\nSongs enabling creative duets (dialogue scenes like “Loathing”) generated 3x more user-generated content than solo performance pieces."
+  },
+  {
+    "objectID": "wicked-tiktok.html#methodology",
+    "href": "wicked-tiktok.html#methodology",
+    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
+    "section": "🔬 Methodology",
+    "text": "🔬 Methodology\n\nData Collection\n\nPython Spotify API Pandas Spotipy\n\nI collected comprehensive data on all 18 tracks from the Wicked soundtrack, including:\n\nAudio Features: Tempo, danceability, energy, valence, acousticness\nTrack Metadata: Duration, popularity scores, release information\nTikTok Metrics: Video counts, trend data, engagement patterns\n\n\n\nAnalysis Approach\n\n\nCode\n# Feature engineering for viral potential\nfeatures = ['danceability', 'energy', 'valence', 'tempo', 'duration_ms']\n\n# Random Forest Classifier to identify viral patterns\nfrom sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Feature importance analysis\nimportance_df = pd.DataFrame({\n    'feature': features,\n    'importance': model.feature_importances_\n}).sort_values('importance', ascending=False)\n\n\n\n\nTech Stack\n\nPython 3.11 Pandas Scikit-learn Plotly Spotipy Quarto Random Forest Machine Learning"
   }
 ]
