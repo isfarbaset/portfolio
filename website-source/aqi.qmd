@@ -1,62 +1,389 @@
-# MCP + Letta Air Quality Intelligence Agent
+---
+title: ""
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    css: style.css
+    theme: cosmo
+    page-layout: article
+---
 
-An intelligent agent system that combines the Model Context Protocol (MCP) with Letta AI to provide comprehensive air quality monitoring and personalized health recommendations.
+<style>
+:root {
+  --aqi-green: #00C853;
+  --aqi-blue: #2196F3;
+  --aqi-orange: #FF9800;
+  --aqi-red: #F44336;
+  --aqi-dark: #1a1a1a;
+  --aqi-light: #f5f5f5;
+}
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body, p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #2196F3 0%, #00C853 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: -2rem -2rem 2rem -2rem;
+  border-radius: 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.page-title-section {
+  text-align: center;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.demo-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--aqi-blue);
+}
+
+.output-box {
+  background: #1a1a1a;
+  color: #00ff00;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 3px solid var(--aqi-blue);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--aqi-dark);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--aqi-blue), #1976D2);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #1976D2, var(--aqi-blue));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+code {
+  background: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+h2 {
+  color: var(--aqi-blue);
+  font-weight: 800;
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--aqi-green);
+}
+
+h3 {
+  color: var(--aqi-dark);
+  font-weight: 700;
+  margin-top: 2rem;
+}
+</style>
+
+<div class="page-title-section">
+<div class="page-title">
+🌍 Air Quality Intelligence
+</div>
+<div class="page-subtitle">
+Real-time environmental monitoring with AI-powered health recommendations
+</div>
+</div>
 
 ## Overview
 
-This project demonstrates advanced AI agent architecture by integrating:
-- **Letta AI** for intelligent conversational agents
-- **Model Context Protocol (MCP)** for standardized data access
-- **API Ninjas Air Quality API** for real-time environmental data
-- **Comprehensive health intelligence** for activity-specific recommendations
+An intelligent agent system combining the **Model Context Protocol (MCP)** with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.
+
+<div class="stat-grid">
+<div class="stat-card">
+<span class="stat-number">🌍</span>
+<span class="stat-label">Global Coverage</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">6</span>
+<span class="stat-label">Pollutants Tracked</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">15min</span>
+<span class="stat-label">Update Frequency</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">⚡</span>
+<span class="stat-label">Real-Time Data</span>
+</div>
+</div>
 
 ## Key Features
 
-### Real-Time Air Quality Monitoring
-- Live AQI data for cities worldwide
-- Detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)
-- Historical trend analysis capabilities
-- GPS coordinate-based precise location tracking
+<div class="feature-grid">
 
-### Intelligent Health Recommendations
-- **Activity-Specific Advice**: Tailored recommendations for jogging, cycling, walking, outdoor sports
-- **Sensitive Group Protection**: Special guidance for children, elderly, and people with respiratory conditions
-- **Protective Measures**: N95/P100 mask recommendations, air purifier usage, indoor alternatives
-- **Optimal Timing**: Best times for outdoor activities based on air quality patterns
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<div class="feature-title">Real-Time Monitoring</div>
+Live AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)
+</div>
 
-### Multi-City Comparison
-- Side-by-side air quality analysis
-- Travel recommendations based on air quality
-- Pollution trend comparisons
-- Best/worst air quality insights
+<div class="feature-card">
+<div class="feature-icon">💡</div>
+<div class="feature-title">Smart Recommendations</div>
+Activity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions
+</div>
 
-### Advanced MCP Integration
-- Standardized data access protocols
-- Extensible architecture for additional environmental data sources
-- Robust error handling and fallback mechanisms
-- Asynchronous data processing for optimal performance
+<div class="feature-card">
+<div class="feature-icon">🔍</div>
+<div class="feature-title">Multi-City Compare</div>
+Side-by-side analysis of air quality across multiple cities for travel planning
+</div>
 
-## Architecture
+<div class="feature-card">
+<div class="feature-icon">🛡️</div>
+<div class="feature-title">Health Protection</div>
+Special guidance for sensitive groups including children, elderly, and those with respiratory conditions
+</div>
+
+</div>
+
+## Live Demo Output
+
+### Quick Report: Global Air Quality Snapshot
+
+<div class="demo-section">
+<div class="output-box">
+🌍 AIR QUALITY QUICK REPORT
+============================================================
+🟠 Dhaka           | AQI: 116 | Unhealthy for Sensitive Groups
+🟢 New York        | AQI:  45 | Good
+🟠 Los Angeles     | AQI: 112 | Unhealthy for Sensitive Groups
+🟡 Seattle         | AQI:  96 | Moderate
+🔴 London          | AQI: 153 | Unhealthy
+</div>
+
+**Interpretation**: Color-coded health categories make it easy to assess air quality at a glance. Green = safe for all activities, Yellow = generally acceptable, Orange = sensitive groups should take precautions, Red = everyone should limit outdoor exposure.
+</div>
+
+### Detailed City Analysis: Boston
+
+<div class="demo-section">
+<div class="output-box">
+============================================================
+🟢 BOSTON - Good
+============================================================
+Overall AQI: 47
+Location: (42.3554, -71.0605)
+
+Pollutant Concentrations:
+  PM2.5: 0.7 µg/m³
+  PM10:  1.3 µg/m³
+  O3:    56.3 µg/m³
+  NO2:   3.6 µg/m³
+  SO2:   0.8 µg/m³
+  CO:    130.0 µg/m³
+
+💡 HEALTH RECOMMENDATIONS
+------------------------------------------------------------
+General: Air quality is excellent. Enjoy outdoor activities!
+
+For Jogging: Perfect conditions for jogging and running.
+
+For Cycling: Ideal day for cycling.
+
+Sensitive Groups: No precautions needed.
+</div>
+
+**Features Demonstrated**:
+- Real-time AQI calculation (47 = Good)
+- GPS coordinate precision for exact location
+- Comprehensive pollutant breakdown
+- Activity-specific health recommendations
+- Sensitive group guidance
+
+</div>
+
+### Multi-City Comparison: Travel Planning
+
+<div class="demo-section">
+<div class="output-box">
+📊 Comparing air quality across 3 cities...
+
+🏆 Rankings (Best to Worst):
+------------------------------------------------------------
+🟡 1. Seattle
+   AQI: 96 (Moderate)
+   PM2.5: 1.1 µg/m³
+
+🟠 2. Dhaka
+   AQI: 116 (Unhealthy for Sensitive Groups)
+   PM2.5: 48.9 µg/m³
+
+🟠 3. Tokyo
+   AQI: 122 (Unhealthy for Sensitive Groups)
+   PM2.5: 3.2 µg/m³
+
+✅ Best: Seattle (AQI 96)
+⚠️  Worst: Tokyo (AQI 122)
+</div>
+
+**Use Case**: Perfect for travel planning - compare air quality across potential destinations to make informed decisions about outdoor activities and health precautions.
+</div>
+
+## Technical Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Letta Agent   │◄──►│  MCP Server     │◄──►│ API Ninjas API  │
-│   (AI Brain)    │    │ (Data Bridge)   │    │ (Data Source)   │
+│   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │
+│ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Conversation    │    │ AQI Data        │    │ Real-time       │
-│ Management      │    │ Processing      │    │ Environmental   │
-│                 │    │                 │    │ Data            │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │  Health Engine  │
+                       │  (WHO/EPA Rules)│
+                       └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │   Response      │
+                       │  + Advice       │
+                       └─────────────────┘
 ```
-
-## Technical Implementation
 
 ### Core Components
 
-#### 1. AQIData Class
+**1. AQI MCP Server** (`aqi_mcp_server.py`)
+- Asynchronous API integration with aiohttp
+- Geocoding for city → GPS coordinate conversion
+- Real-time air quality data retrieval
+- Health category classification (Good, Moderate, Unhealthy, etc.)
+- Activity-specific recommendation engine
+
+**2. Interactive Demo** (`aqi_demo.py`)
+- Two modes: Interactive and Quick Report
+- Multi-city comparison with rankings
+- Color-coded terminal output
+- Comprehensive error handling
+
+**3. Data Model** (AQIData class)
 ```python
 @dataclass
 class AQIData:
@@ -73,178 +400,209 @@ class AQIData:
     timestamp: str
 ```
 
-#### 2. MCP Server Integration
-- **Asynchronous API calls** for optimal performance
-- **Geocoding integration** for precise location mapping
-- **Error handling** with graceful degradation
-- **Data validation** ensuring reliable information
-
-#### 3. Intelligent Agent Tools
-- `current_aqi_tool`: Real-time air quality data retrieval
-- `aqi_comparison_tool`: Multi-city comparative analysis
-- `aqi_health_advice_tool`: Personalized health recommendations
-
-## Installation & Setup
+## Installation & Quick Start
 
 ### Prerequisites
 ```bash
-# Install required packages
-pip install letta-client
 pip install aiohttp
-pip install mcp  # Model Context Protocol
-
-# Optional: For enhanced functionality
-pip install asyncio
-pip install dataclasses
 ```
 
-### API Configuration
-1. **Get API Ninjas Key**: Sign up at [api.api-ninjas.com](https://api.api-ninjas.com)
-2. **Set up Letta Server**: Follow [Letta installation guide](https://letta.com/docs)
-3. **Configure endpoints** in the agent initialization
-
-### Quick Start
-```python
-# Initialize the agent
-aqi_agent = LettaAQIAgent(
-    letta_base_url="http://localhost:8283",
-    api_ninjas_key="your_api_key_here"
-)
-
-# Create and deploy
-agent = aqi_agent.create_agent()
-
-# Start interacting
-response = aqi_agent.interact("What's the air quality in Dhaka?")
+### Get API Key
+1. Sign up at [API Ninjas](https://api.api-ninjas.com)
+2. Get your free API key
+3. Set environment variable:
+```bash
+export API_NINJAS_KEY='your_key_here'
 ```
 
-## Use Cases
+### Run the Demo
+```bash
+# Quick Report
+python3 aqi_demo.py quick
 
-### 1. Personal Health Management
-- **Daily Planning**: "Is it safe to jog in Central Park this morning?"
-- **Allergy Management**: "Should I take extra precautions due to today's air quality in Dhaka?"
-- **Activity Optimization**: "What's the best time to take my kids to the playground in Houston?"
+# Interactive Mode
+python3 aqi_demo.py
+```
+
+## Real-World Use Cases## Real-World Use Cases
+
+### 1. Daily Health Management
+**Scenario**: "Should I go jogging this morning?"
+
+The system provides instant analysis:
+- Current AQI level for your location
+- Specific advice for jogging/running
+- Best time windows for outdoor exercise
+- Alternative indoor options if needed
+
+**Real Example** (Dhaka, AQI 116):
+> "Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions."
 
 ### 2. Travel Planning
-- **Destination Selection**: "Which city has better air quality: Boston or Los Angeles?"
-- **Packing Decisions**: "Do I need to bring masks for my trip to Dhaka?"
-- **Itinerary Optimization**: "When should I schedule outdoor activities in Sylhet?"
+**Scenario**: "Which city has better air quality: Boston or Los Angeles?"
 
-### 3. Business Intelligence
-- **Location Analytics**: Air quality impact on business operations
-- **Employee Health**: Workplace safety recommendations
-- **Event Planning**: Outdoor event feasibility assessment
+Multi-city comparison shows:
+- Boston: AQI 45 (Good) - Perfect for outdoor activities
+- Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended
 
-## Data Sources & APIs
+**Decision**: Boston offers significantly better conditions for travelers with respiratory concerns.
+
+### 3. Family Safety
+**Scenario**: "Is it safe to take my kids to the playground?"
+
+Sensitive group guidance provides:
+- Real-time safety assessment
+- Protective measures if needed (masks, timing)
+- Alternative indoor activities
+- Hourly recommendations
+
+## Health Category System
+
+The system uses WHO/EPA guidelines to classify air quality:
+
+| Category | AQI Range | Indicator | Meaning |
+|----------|-----------|-----------|---------|
+| 🟢 Good | 0-50 | Excellent | Safe for all activities |
+| 🟡 Moderate | 51-100 | Acceptable | Generally safe, sensitive individuals may want to limit prolonged exertion |
+| 🟠 Unhealthy for Sensitive | 101-150 | Caution | Sensitive groups should reduce outdoor activities |
+| 🔴 Unhealthy | 151-200 | Alert | Everyone should limit outdoor exertion |
+| 🟣 Very Unhealthy | 201-300 | Warning | Avoid all outdoor activities |
+| ⚫ Hazardous | 301+ | Emergency | Health emergency - stay indoors |
+
+## Data Sources & Accuracy
 
 ### API Ninjas Air Quality API
-- **Coverage**: Global air quality data
-- **Update Frequency**: Real-time updates
-- **Pollutants Tracked**: PM2.5, PM10, O3, NO2, SO2, CO
-- **Additional Data**: GPS coordinates, AQI calculations
+- **Coverage**: Worldwide (all major cities + GPS coordinates)
+- **Update Frequency**: Real-time (15-minute intervals)
+- **Pollutants**: PM2.5, PM10, O3, NO2, SO2, CO
+- **Accuracy**: Based on ground-level monitoring stations
+- **Validation**: Cross-referenced with EPA/WHO standards
 
-### Data Processing Pipeline
-1. **Location Resolution**: City name → GPS coordinates
-2. **API Integration**: Real-time data retrieval
-3. **Data Validation**: Ensuring data integrity
-4. **Health Mapping**: AQI → Health recommendations
-5. **Response Generation**: Natural language insights
+### Real Test Results (October 24, 2025)
 
-## Example Interactions
+| City | AQI | Category | PM2.5 | Key Recommendation |
+|------|-----|----------|-------|-------------------|
+| New York | 45 | Good | 0.7 | Perfect for all activities |
+| Boston | 47 | Good | 0.7 | Ideal outdoor conditions |
+| Seattle | 96 | Moderate | 1.1 | Generally safe |
+| Los Angeles | 112 | Unhealthy (Sensitive) | - | Limited outdoor time |
+| Dhaka | 116 | Unhealthy (Sensitive) | 48.9 | Use precautions |
+| London | 153 | Unhealthy | - | Avoid prolonged exposure |
 
-### Basic Air Quality Query
+## Project Structure
+
 ```
-User: "What's the air quality like in Dhaka right now?"
-
-Agent: "Dhaka currently has an AQI of 189 (Unhealthy). The main concern is 
-PM2.5 at 148 µg/m³. I recommend staying indoors and using air purifiers. 
-If you must go outside, wear an N95 mask and limit exposure time."
-```
-
-### Activity-Specific Advice
-```
-User: "I have asthma and want to go cycling in Seattle. Is it safe?"
-
-Agent: "Seattle's current AQI is 76 (Moderate). For someone with asthma, I'd 
-recommend postponing outdoor cycling. The O3 levels are elevated at 92 µg/m³. 
-Consider indoor cycling or wait until evening when air quality typically improves."
+code/
+├── aqi_mcp_server.py      # Core MCP server (210 lines)
+├── aqi_demo.py            # Interactive demo (160 lines)
+├── README_AQI.md          # Documentation
+├── .env.aqi               # API configuration
+└── aqi_example_output.txt # Sample outputs
 ```
 
-### Multi-City Comparison
-```
-User: "Compare air quality between Dhaka, Chittagong, and New York City"
+## Performance Metrics
 
-Agent: "Here's the comparison:
-• Dhaka: AQI 189 (Unhealthy) - Avoid all outdoor activities
-• Chittagong: AQI 145 (Unhealthy for Sensitive Groups) - Limited outdoor time
-• New York City: AQI 67 (Moderate) - Best option for outdoor activities
-
-Recommendation: If traveling, New York City offers the cleanest air quality."
-```
+- **Response Time**: < 2 seconds for single city
+- **Multi-City Compare**: < 5 seconds for 3-5 cities
+- **Data Freshness**: 15-minute updates from API
+- **Accuracy**: GPS-precise location mapping
+- **Reliability**: Graceful error handling with fallbacks
 
 ## Future Enhancements
 
 ### Planned Features
-- **Predictive Analytics**: 24-48 hour air quality forecasting
-- **Weather Integration**: Combined air quality and weather analysis
-- **Health Tracking**: Personal exposure monitoring
-- **Alert System**: Automated notifications for air quality changes
-- **Mobile App**: Cross-platform mobile application
+- 📈 **Predictive Analytics**: 24-48 hour air quality forecasting
+- 🌤️ **Weather Integration**: Combined air quality + weather analysis
+- 📱 **Mobile App**: Cross-platform application
+- 🔔 **Alert System**: Automated notifications for threshold breaches
+- 📊 **Historical Trends**: Long-term pattern analysis
 
 ### Advanced Integrations
-- **IoT Sensors**: Personal air quality monitors
-- **Smart Home**: Automated air purifier control
-- **Wearables**: Real-time health impact tracking
-- **Social Media**: Community air quality reporting
+- IoT sensors for hyper-local monitoring
+- Smart home automation (air purifier control)
+- Wearable health impact tracking
+- Community reporting platform
+
+## Technologies Used
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="feature-icon">🐍</div>
+<div class="feature-title">Python 3.11</div>
+Async/await architecture for optimal performance
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<div class="feature-title">Aiohttp</div>
+Asynchronous HTTP client for non-blocking API calls
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🔌</div>
+<div class="feature-title">Model Context Protocol</div>
+Standardized data access layer for extensibility
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🌐</div>
+<div class="feature-title">API Ninjas</div>
+Real-time global air quality data source
+</div>
+
+</div>
 
 ## Error Handling & Reliability
 
-### Robust Architecture
-- **API Fallbacks**: Multiple data source options
-- **Graceful Degradation**: Partial functionality during outages
-- **Data Validation**: Comprehensive input/output checking
-- **Async Processing**: Non-blocking operations for better UX
+The system includes comprehensive error handling:
 
-### Monitoring & Logging
-- **Health Checks**: Continuous system monitoring
-- **Performance Metrics**: Response time tracking
-- **Error Reporting**: Detailed error analysis
-- **Usage Analytics**: User interaction patterns
+- **API Fallbacks**: Graceful degradation if API is unavailable
+- **Data Validation**: Input/output checking for data integrity
+- **Geocoding Errors**: Clear messaging for invalid city names
+- **Network Issues**: Retry logic with exponential backoff
+- **Rate Limiting**: Respects API limits and queues requests
 
-## Performance Metrics
+## Try It Yourself
 
-### Response Times
-- **Real-time Queries**: < 2 seconds average
-- **Multi-city Comparisons**: < 5 seconds average
-- **Complex Analysis**: < 10 seconds average
+<div class="demo-section">
 
-### Accuracy
-- **Data Freshness**: Updates every 15 minutes
-- **Location Precision**: GPS coordinate accuracy
-- **Health Recommendations**: Based on WHO/EPA guidelines
+### Quick Start Commands
 
-## Contributing
+```bash
+# Clone the repository
+git clone https://github.com/isfarbaset/portfolio.git
+cd portfolio/code
 
-This project demonstrates advanced AI agent architecture and environmental data integration. Key areas for contribution:
+# Install dependencies
+pip install aiohttp
 
-- **New Data Sources**: Additional environmental APIs
-- **Enhanced AI**: More sophisticated health recommendations
-- **UI/UX**: Web and mobile interfaces
-- **Analytics**: Advanced data visualization
+# Set your API key
+export API_NINJAS_KEY='your_key_here'
 
-## License & Credits
+# Run quick report
+python3 aqi_demo.py quick
 
-### Data Sources
-- **API Ninjas**: Air quality and geocoding data
-- **WHO/EPA**: Health guideline standards
-- **Environmental Agencies**: AQI calculation methodologies
+# Run interactive mode
+python3 aqi_demo.py
+```
 
-### Technologies
-- **Letta AI**: Conversational agent framework
-- **MCP**: Model Context Protocol for standardized data access
-- **Python**: Core implementation language
-- **AsyncIO**: Asynchronous processing
+### Example Queries to Try
+
+1. **Single city**: `Dhaka`, `Paris`, `Mumbai`, `Sydney`
+2. **Compare**: `compare Boston Seattle Miami`
+3. **Your location**: `[Your City Name]`
+
+</div>
+
+## Code Repository
+
+<div style="text-align: center;">
+<a href="https://github.com/isfarbaset/portfolio/tree/main/code" class="github-link" target="_blank">
+🔗 View Full Source Code on GitHub
+</a>
+</div>
 
 ---
 
-*This project showcases the future of intelligent environmental monitoring, combining cutting-edge AI with real-world health applications.*
+*This project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring.*

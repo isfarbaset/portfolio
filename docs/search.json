@@ -149,23 +149,23 @@
   {
     "objectID": "aqi.html",
     "href": "aqi.html",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
     "section": "",
-    "text": "An intelligent agent system that combines the Model Context Protocol (MCP) with Letta AI to provide comprehensive air quality monitoring and personalized health recommendations.\n\n\nThis project demonstrates advanced AI agent architecture by integrating: - Letta AI for intelligent conversational agents - Model Context Protocol (MCP) for standardized data access - API Ninjas Air Quality API for real-time environmental data - Comprehensive health intelligence for activity-specific recommendations\n\n\n\n\n\n\nLive AQI data for cities worldwide\nDetailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\nHistorical trend analysis capabilities\nGPS coordinate-based precise location tracking\n\n\n\n\n\nActivity-Specific Advice: Tailored recommendations for jogging, cycling, walking, outdoor sports\nSensitive Group Protection: Special guidance for children, elderly, and people with respiratory conditions\nProtective Measures: N95/P100 mask recommendations, air purifier usage, indoor alternatives\nOptimal Timing: Best times for outdoor activities based on air quality patterns\n\n\n\n\n\nSide-by-side air quality analysis\nTravel recommendations based on air quality\nPollution trend comparisons\nBest/worst air quality insights\n\n\n\n\n\nStandardized data access protocols\nExtensible architecture for additional environmental data sources\nRobust error handling and fallback mechanisms\nAsynchronous data processing for optimal performance\n\n\n\n\n\n┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐\n│   Letta Agent   │◄──►│  MCP Server     │◄──►│ API Ninjas API  │\n│   (AI Brain)    │    │ (Data Bridge)   │    │ (Data Source)   │\n└─────────────────┘    └─────────────────┘    └─────────────────┘\n         │                       │                       │\n         ▼                       ▼                       ▼\n┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐\n│ Conversation    │    │ AQI Data        │    │ Real-time       │\n│ Management      │    │ Processing      │    │ Environmental   │\n│                 │    │                 │    │ Data            │\n└─────────────────┘    └─────────────────┘    └─────────────────┘\n\n\n\n\n\n\n\n@dataclass\nclass AQIData:\n    location: str\n    latitude: float\n    longitude: float\n    overall_aqi: int\n    co_concentration: float\n    no2_concentration: float\n    o3_concentration: float\n    so2_concentration: float\n    pm2_5_concentration: float\n    pm10_concentration: float\n    timestamp: str\n\n\n\n\nAsynchronous API calls for optimal performance\nGeocoding integration for precise location mapping\nError handling with graceful degradation\nData validation ensuring reliable information\n\n\n\n\n\ncurrent_aqi_tool: Real-time air quality data retrieval\naqi_comparison_tool: Multi-city comparative analysis\naqi_health_advice_tool: Personalized health recommendations\n\n\n\n\n\n\n\n\n# Install required packages\npip install letta-client\npip install aiohttp\npip install mcp  # Model Context Protocol\n\n# Optional: For enhanced functionality\npip install asyncio\npip install dataclasses\n\n\n\n\nGet API Ninjas Key: Sign up at api.api-ninjas.com\nSet up Letta Server: Follow Letta installation guide\nConfigure endpoints in the agent initialization\n\n\n\n\n# Initialize the agent\naqi_agent = LettaAQIAgent(\n    letta_base_url=\"http://localhost:8283\",\n    api_ninjas_key=\"your_api_key_here\"\n)\n\n# Create and deploy\nagent = aqi_agent.create_agent()\n\n# Start interacting\nresponse = aqi_agent.interact(\"What's the air quality in Dhaka?\")\n\n\n\n\n\n\n\nDaily Planning: “Is it safe to jog in Central Park this morning?”\nAllergy Management: “Should I take extra precautions due to today’s air quality in Dhaka?”\nActivity Optimization: “What’s the best time to take my kids to the playground in Houston?”\n\n\n\n\n\nDestination Selection: “Which city has better air quality: Boston or Los Angeles?”\nPacking Decisions: “Do I need to bring masks for my trip to Dhaka?”\nItinerary Optimization: “When should I schedule outdoor activities in Sylhet?”\n\n\n\n\n\nLocation Analytics: Air quality impact on business operations\nEmployee Health: Workplace safety recommendations\nEvent Planning: Outdoor event feasibility assessment\n\n\n\n\n\n\n\n\nCoverage: Global air quality data\nUpdate Frequency: Real-time updates\nPollutants Tracked: PM2.5, PM10, O3, NO2, SO2, CO\nAdditional Data: GPS coordinates, AQI calculations\n\n\n\n\n\nLocation Resolution: City name → GPS coordinates\nAPI Integration: Real-time data retrieval\nData Validation: Ensuring data integrity\nHealth Mapping: AQI → Health recommendations\nResponse Generation: Natural language insights\n\n\n\n\n\n\n\nUser: \"What's the air quality like in Dhaka right now?\"\n\nAgent: \"Dhaka currently has an AQI of 189 (Unhealthy). The main concern is \nPM2.5 at 148 µg/m³. I recommend staying indoors and using air purifiers. \nIf you must go outside, wear an N95 mask and limit exposure time.\"\n\n\n\nUser: \"I have asthma and want to go cycling in Seattle. Is it safe?\"\n\nAgent: \"Seattle's current AQI is 76 (Moderate). For someone with asthma, I'd \nrecommend postponing outdoor cycling. The O3 levels are elevated at 92 µg/m³. \nConsider indoor cycling or wait until evening when air quality typically improves.\"\n\n\n\nUser: \"Compare air quality between Dhaka, Chittagong, and New York City\"\n\nAgent: \"Here's the comparison:\n• Dhaka: AQI 189 (Unhealthy) - Avoid all outdoor activities\n• Chittagong: AQI 145 (Unhealthy for Sensitive Groups) - Limited outdoor time\n• New York City: AQI 67 (Moderate) - Best option for outdoor activities\n\nRecommendation: If traveling, New York City offers the cleanest air quality.\"\n\n\n\n\n\n\n\nPredictive Analytics: 24-48 hour air quality forecasting\nWeather Integration: Combined air quality and weather analysis\nHealth Tracking: Personal exposure monitoring\nAlert System: Automated notifications for air quality changes\nMobile App: Cross-platform mobile application\n\n\n\n\n\nIoT Sensors: Personal air quality monitors\nSmart Home: Automated air purifier control\nWearables: Real-time health impact tracking\nSocial Media: Community air quality reporting\n\n\n\n\n\n\n\n\nAPI Fallbacks: Multiple data source options\nGraceful Degradation: Partial functionality during outages\nData Validation: Comprehensive input/output checking\nAsync Processing: Non-blocking operations for better UX\n\n\n\n\n\nHealth Checks: Continuous system monitoring\nPerformance Metrics: Response time tracking\nError Reporting: Detailed error analysis\nUsage Analytics: User interaction patterns\n\n\n\n\n\n\n\n\nReal-time Queries: &lt; 2 seconds average\nMulti-city Comparisons: &lt; 5 seconds average\nComplex Analysis: &lt; 10 seconds average\n\n\n\n\n\nData Freshness: Updates every 15 minutes\nLocation Precision: GPS coordinate accuracy\nHealth Recommendations: Based on WHO/EPA guidelines\n\n\n\n\n\nThis project demonstrates advanced AI agent architecture and environmental data integration. Key areas for contribution:\n\nNew Data Sources: Additional environmental APIs\nEnhanced AI: More sophisticated health recommendations\nUI/UX: Web and mobile interfaces\nAnalytics: Advanced data visualization\n\n\n\n\n\n\n\nAPI Ninjas: Air quality and geocoding data\nWHO/EPA: Health guideline standards\nEnvironmental Agencies: AQI calculation methodologies\n\n\n\n\n\nLetta AI: Conversational agent framework\nMCP: Model Context Protocol for standardized data access\nPython: Core implementation language\nAsyncIO: Asynchronous processing\n\n\nThis project showcases the future of intelligent environmental monitoring, combining cutting-edge AI with real-world health applications."
+    "text": "🌍 Air Quality Intelligence\n\n\nReal-time environmental monitoring with AI-powered health recommendations"
   },
   {
     "objectID": "aqi.html#overview",
     "href": "aqi.html#overview",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "This project demonstrates advanced AI agent architecture by integrating: - Letta AI for intelligent conversational agents - Model Context Protocol (MCP) for standardized data access - API Ninjas Air Quality API for real-time environmental data - Comprehensive health intelligence for activity-specific recommendations"
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Overview",
+    "text": "Overview\nAn intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.\n\n\n🌍 Global Coverage\n\n\n6 Pollutants Tracked\n\n\n15min Update Frequency\n\n\n⚡ Real-Time Data"
   },
   {
     "objectID": "aqi.html#key-features",
     "href": "aqi.html#key-features",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "Live AQI data for cities worldwide\nDetailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\nHistorical trend analysis capabilities\nGPS coordinate-based precise location tracking\n\n\n\n\n\nActivity-Specific Advice: Tailored recommendations for jogging, cycling, walking, outdoor sports\nSensitive Group Protection: Special guidance for children, elderly, and people with respiratory conditions\nProtective Measures: N95/P100 mask recommendations, air purifier usage, indoor alternatives\nOptimal Timing: Best times for outdoor activities based on air quality patterns\n\n\n\n\n\nSide-by-side air quality analysis\nTravel recommendations based on air quality\nPollution trend comparisons\nBest/worst air quality insights\n\n\n\n\n\nStandardized data access protocols\nExtensible architecture for additional environmental data sources\nRobust error handling and fallback mechanisms\nAsynchronous data processing for optimal performance"
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Key Features",
+    "text": "Key Features\n\n\n\n📊\n\n\nReal-Time Monitoring\n\nLive AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\n\n\n\n💡\n\n\nSmart Recommendations\n\nActivity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions\n\n\n\n🔍\n\n\nMulti-City Compare\n\nSide-by-side analysis of air quality across multiple cities for travel planning\n\n\n\n🛡️\n\n\nHealth Protection\n\nSpecial guidance for sensitive groups including children, elderly, and those with respiratory conditions"
   },
   {
     "objectID": "aqi.html#architecture",
@@ -212,23 +212,23 @@
   {
     "objectID": "aqi.html#future-enhancements",
     "href": "aqi.html#future-enhancements",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "Predictive Analytics: 24-48 hour air quality forecasting\nWeather Integration: Combined air quality and weather analysis\nHealth Tracking: Personal exposure monitoring\nAlert System: Automated notifications for air quality changes\nMobile App: Cross-platform mobile application\n\n\n\n\n\nIoT Sensors: Personal air quality monitors\nSmart Home: Automated air purifier control\nWearables: Real-time health impact tracking\nSocial Media: Community air quality reporting"
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Future Enhancements",
+    "text": "Future Enhancements\n\nPlanned Features\n\n📈 Predictive Analytics: 24-48 hour air quality forecasting\n🌤️ Weather Integration: Combined air quality + weather analysis\n📱 Mobile App: Cross-platform application\n🔔 Alert System: Automated notifications for threshold breaches\n📊 Historical Trends: Long-term pattern analysis\n\n\n\nAdvanced Integrations\n\nIoT sensors for hyper-local monitoring\nSmart home automation (air purifier control)\nWearable health impact tracking\nCommunity reporting platform"
   },
   {
     "objectID": "aqi.html#error-handling-reliability",
     "href": "aqi.html#error-handling-reliability",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "API Fallbacks: Multiple data source options\nGraceful Degradation: Partial functionality during outages\nData Validation: Comprehensive input/output checking\nAsync Processing: Non-blocking operations for better UX\n\n\n\n\n\nHealth Checks: Continuous system monitoring\nPerformance Metrics: Response time tracking\nError Reporting: Detailed error analysis\nUsage Analytics: User interaction patterns"
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Error Handling & Reliability",
+    "text": "Error Handling & Reliability\nThe system includes comprehensive error handling:\n\nAPI Fallbacks: Graceful degradation if API is unavailable\nData Validation: Input/output checking for data integrity\nGeocoding Errors: Clear messaging for invalid city names\nNetwork Issues: Retry logic with exponential backoff\nRate Limiting: Respects API limits and queues requests"
   },
   {
     "objectID": "aqi.html#performance-metrics",
     "href": "aqi.html#performance-metrics",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "Real-time Queries: &lt; 2 seconds average\nMulti-city Comparisons: &lt; 5 seconds average\nComplex Analysis: &lt; 10 seconds average\n\n\n\n\n\nData Freshness: Updates every 15 minutes\nLocation Precision: GPS coordinate accuracy\nHealth Recommendations: Based on WHO/EPA guidelines"
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Performance Metrics",
+    "text": "Performance Metrics\n\nResponse Time: &lt; 2 seconds for single city\nMulti-City Compare: &lt; 5 seconds for 3-5 cities\nData Freshness: 15-minute updates from API\nAccuracy: GPS-precise location mapping\nReliability: Graceful error handling with fallbacks"
   },
   {
     "objectID": "aqi.html#contributing",
@@ -453,5 +453,89 @@
     "title": "",
     "section": "",
     "text": "Code"
+  },
+  {
+    "objectID": "aqi.html#live-demo-output",
+    "href": "aqi.html#live-demo-output",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Live Demo Output",
+    "text": "Live Demo Output\n\nQuick Report: Global Air Quality Snapshot"
+  },
+  {
+    "objectID": "aqi.html#health-recommendations",
+    "href": "aqi.html#health-recommendations",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "💡 HEALTH RECOMMENDATIONS",
+    "text": "💡 HEALTH RECOMMENDATIONS\nGeneral: Air quality is excellent. Enjoy outdoor activities!\nFor Jogging: Perfect conditions for jogging and running.\nFor Cycling: Ideal day for cycling.\nSensitive Groups: No precautions needed."
+  },
+  {
+    "objectID": "aqi.html#rankings-best-to-worst",
+    "href": "aqi.html#rankings-best-to-worst",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "🏆 Rankings (Best to Worst):",
+    "text": "🏆 Rankings (Best to Worst):\n🟡 1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³\n🟠 2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³\n🟠 3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³\n✅ Best: Seattle (AQI 96) ⚠️ Worst: Tokyo (AQI 122)"
+  },
+  {
+    "objectID": "aqi.html#technical-architecture",
+    "href": "aqi.html#technical-architecture",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Technical Architecture",
+    "text": "Technical Architecture\n┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐\n│   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │\n│ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │\n└─────────────────┘    └─────────────────┘    └─────────────────┘\n                                │\n                                ▼\n                       ┌─────────────────┐\n                       │  Health Engine  │\n                       │  (WHO/EPA Rules)│\n                       └─────────────────┘\n                                │\n                                ▼\n                       ┌─────────────────┐\n                       │   Response      │\n                       │  + Advice       │\n                       └─────────────────┘\n\nCore Components\n1. AQI MCP Server (aqi_mcp_server.py) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine\n2. Interactive Demo (aqi_demo.py) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling\n3. Data Model (AQIData class)\n@dataclass\nclass AQIData:\n    location: str\n    latitude: float\n    longitude: float\n    overall_aqi: int\n    co_concentration: float\n    no2_concentration: float\n    o3_concentration: float\n    so2_concentration: float\n    pm2_5_concentration: float\n    pm10_concentration: float\n    timestamp: str"
+  },
+  {
+    "objectID": "aqi.html#installation-quick-start",
+    "href": "aqi.html#installation-quick-start",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Installation & Quick Start",
+    "text": "Installation & Quick Start\n\nPrerequisites\npip install aiohttp\n\n\nGet API Key\n\nSign up at API Ninjas\nGet your free API key\nSet environment variable:\n\nexport API_NINJAS_KEY='your_key_here'\n\n\nRun the Demo\n# Quick Report\npython3 aqi_demo.py quick\n\n# Interactive Mode\npython3 aqi_demo.py"
+  },
+  {
+    "objectID": "aqi.html#real-world-use-cases-real-world-use-cases",
+    "href": "aqi.html#real-world-use-cases-real-world-use-cases",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Real-World Use Cases## Real-World Use Cases",
+    "text": "Real-World Use Cases## Real-World Use Cases\n\n1. Daily Health Management\nScenario: “Should I go jogging this morning?”\nThe system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed\nReal Example (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”\n\n\n2. Travel Planning\nScenario: “Which city has better air quality: Boston or Los Angeles?”\nMulti-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended\nDecision: Boston offers significantly better conditions for travelers with respiratory concerns.\n\n\n3. Family Safety\nScenario: “Is it safe to take my kids to the playground?”\nSensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations"
+  },
+  {
+    "objectID": "aqi.html#health-category-system",
+    "href": "aqi.html#health-category-system",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Health Category System",
+    "text": "Health Category System\nThe system uses WHO/EPA guidelines to classify air quality:\n\n\n\n\n\n\n\n\n\nCategory\nAQI Range\nIndicator\nMeaning\n\n\n\n\n🟢 Good\n0-50\nExcellent\nSafe for all activities\n\n\n🟡 Moderate\n51-100\nAcceptable\nGenerally safe, sensitive individuals may want to limit prolonged exertion\n\n\n🟠 Unhealthy for Sensitive\n101-150\nCaution\nSensitive groups should reduce outdoor activities\n\n\n🔴 Unhealthy\n151-200\nAlert\nEveryone should limit outdoor exertion\n\n\n🟣 Very Unhealthy\n201-300\nWarning\nAvoid all outdoor activities\n\n\n⚫ Hazardous\n301+\nEmergency\nHealth emergency - stay indoors"
+  },
+  {
+    "objectID": "aqi.html#data-sources-accuracy",
+    "href": "aqi.html#data-sources-accuracy",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Data Sources & Accuracy",
+    "text": "Data Sources & Accuracy\n\nAPI Ninjas Air Quality API\n\nCoverage: Worldwide (all major cities + GPS coordinates)\nUpdate Frequency: Real-time (15-minute intervals)\nPollutants: PM2.5, PM10, O3, NO2, SO2, CO\nAccuracy: Based on ground-level monitoring stations\nValidation: Cross-referenced with EPA/WHO standards\n\n\n\nReal Test Results (October 24, 2025)\n\n\n\nCity\nAQI\nCategory\nPM2.5\nKey Recommendation\n\n\n\n\nNew York\n45\nGood\n0.7\nPerfect for all activities\n\n\nBoston\n47\nGood\n0.7\nIdeal outdoor conditions\n\n\nSeattle\n96\nModerate\n1.1\nGenerally safe\n\n\nLos Angeles\n112\nUnhealthy (Sensitive)\n-\nLimited outdoor time\n\n\nDhaka\n116\nUnhealthy (Sensitive)\n48.9\nUse precautions\n\n\nLondon\n153\nUnhealthy\n-\nAvoid prolonged exposure"
+  },
+  {
+    "objectID": "aqi.html#project-structure",
+    "href": "aqi.html#project-structure",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Project Structure",
+    "text": "Project Structure\ncode/\n├── aqi_mcp_server.py      # Core MCP server (210 lines)\n├── aqi_demo.py            # Interactive demo (160 lines)\n├── README_AQI.md          # Documentation\n├── .env.aqi               # API configuration\n└── aqi_example_output.txt # Sample outputs"
+  },
+  {
+    "objectID": "aqi.html#technologies-used",
+    "href": "aqi.html#technologies-used",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\n\n\n🐍\n\n\nPython 3.11\n\nAsync/await architecture for optimal performance\n\n\n\n⚡\n\n\nAiohttp\n\nAsynchronous HTTP client for non-blocking API calls\n\n\n\n🔌\n\n\nModel Context Protocol\n\nStandardized data access layer for extensibility\n\n\n\n🌐\n\n\nAPI Ninjas\n\nReal-time global air quality data source"
+  },
+  {
+    "objectID": "aqi.html#try-it-yourself",
+    "href": "aqi.html#try-it-yourself",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Try It Yourself",
+    "text": "Try It Yourself\n\n\nQuick Start Commands\n# Clone the repository\ngit clone https://github.com/isfarbaset/portfolio.git\ncd portfolio/code\n\n# Install dependencies\npip install aiohttp\n\n# Set your API key\nexport API_NINJAS_KEY='your_key_here'\n\n# Run quick report\npython3 aqi_demo.py quick\n\n# Run interactive mode\npython3 aqi_demo.py\n\n\nExample Queries to Try\n\nSingle city: Dhaka, Paris, Mumbai, Sydney\nCompare: compare Boston Seattle Miami\nYour location: [Your City Name]"
+  },
+  {
+    "objectID": "aqi.html#code-repository",
+    "href": "aqi.html#code-repository",
+    "title": "🌍 AIR QUALITY QUICK REPORT",
+    "section": "Code Repository",
+    "text": "Code Repository\n\n 🔗 View Full Source Code on GitHub \n\n\nThis project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring."
   }
 ]

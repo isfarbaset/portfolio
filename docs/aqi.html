@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🌍 AIR QUALITY QUICK REPORT</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -199,141 +199,381 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mcp-letta-air-quality-intelligence-agent" id="toc-mcp-letta-air-quality-intelligence-agent" class="nav-link active" data-scroll-target="#mcp-letta-air-quality-intelligence-agent">MCP + Letta Air Quality Intelligence Agent</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
+  <li><a href="#live-demo-output" id="toc-live-demo-output" class="nav-link" data-scroll-target="#live-demo-output">Live Demo Output</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a>
-  <ul class="collapse">
-  <li><a href="#real-time-air-quality-monitoring" id="toc-real-time-air-quality-monitoring" class="nav-link" data-scroll-target="#real-time-air-quality-monitoring">Real-Time Air Quality Monitoring</a></li>
-  <li><a href="#intelligent-health-recommendations" id="toc-intelligent-health-recommendations" class="nav-link" data-scroll-target="#intelligent-health-recommendations">Intelligent Health Recommendations</a></li>
-  <li><a href="#multi-city-comparison" id="toc-multi-city-comparison" class="nav-link" data-scroll-target="#multi-city-comparison">Multi-City Comparison</a></li>
-  <li><a href="#advanced-mcp-integration" id="toc-advanced-mcp-integration" class="nav-link" data-scroll-target="#advanced-mcp-integration">Advanced MCP Integration</a></li>
+  <li><a href="#quick-report-global-air-quality-snapshot" id="toc-quick-report-global-air-quality-snapshot" class="nav-link" data-scroll-target="#quick-report-global-air-quality-snapshot">Quick Report: Global Air Quality Snapshot</a></li>
   </ul></li>
-  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
-  <li><a href="#technical-implementation" id="toc-technical-implementation" class="nav-link" data-scroll-target="#technical-implementation">Technical Implementation</a>
+  <li><a href="#detailed-city-analysis-boston" id="toc-detailed-city-analysis-boston" class="nav-link" data-scroll-target="#detailed-city-analysis-boston">Detailed City Analysis: Boston</a></li>
+  <li><a href="#multi-city-comparison-travel-planning" id="toc-multi-city-comparison-travel-planning" class="nav-link" data-scroll-target="#multi-city-comparison-travel-planning">Multi-City Comparison: Travel Planning</a></li>
+  <li><a href="#technical-architecture" id="toc-technical-architecture" class="nav-link" data-scroll-target="#technical-architecture">Technical Architecture</a>
   <ul class="collapse">
   <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a></li>
   </ul></li>
-  <li><a href="#installation-setup" id="toc-installation-setup" class="nav-link" data-scroll-target="#installation-setup">Installation &amp; Setup</a>
+  <li><a href="#installation-quick-start" id="toc-installation-quick-start" class="nav-link" data-scroll-target="#installation-quick-start">Installation &amp; Quick Start</a>
   <ul class="collapse">
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#api-configuration" id="toc-api-configuration" class="nav-link" data-scroll-target="#api-configuration">API Configuration</a></li>
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick Start</a></li>
+  <li><a href="#get-api-key" id="toc-get-api-key" class="nav-link" data-scroll-target="#get-api-key">Get API Key</a></li>
+  <li><a href="#run-the-demo" id="toc-run-the-demo" class="nav-link" data-scroll-target="#run-the-demo">Run the Demo</a></li>
   </ul></li>
-  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a>
+  <li><a href="#real-world-use-cases-real-world-use-cases" id="toc-real-world-use-cases-real-world-use-cases" class="nav-link" data-scroll-target="#real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</a>
   <ul class="collapse">
-  <li><a href="#personal-health-management" id="toc-personal-health-management" class="nav-link" data-scroll-target="#personal-health-management">1. Personal Health Management</a></li>
+  <li><a href="#daily-health-management" id="toc-daily-health-management" class="nav-link" data-scroll-target="#daily-health-management">1. Daily Health Management</a></li>
   <li><a href="#travel-planning" id="toc-travel-planning" class="nav-link" data-scroll-target="#travel-planning">2. Travel Planning</a></li>
-  <li><a href="#business-intelligence" id="toc-business-intelligence" class="nav-link" data-scroll-target="#business-intelligence">3. Business Intelligence</a></li>
+  <li><a href="#family-safety" id="toc-family-safety" class="nav-link" data-scroll-target="#family-safety">3. Family Safety</a></li>
   </ul></li>
-  <li><a href="#data-sources-apis" id="toc-data-sources-apis" class="nav-link" data-scroll-target="#data-sources-apis">Data Sources &amp; APIs</a>
+  <li><a href="#health-category-system" id="toc-health-category-system" class="nav-link" data-scroll-target="#health-category-system">Health Category System</a></li>
+  <li><a href="#data-sources-accuracy" id="toc-data-sources-accuracy" class="nav-link" data-scroll-target="#data-sources-accuracy">Data Sources &amp; Accuracy</a>
   <ul class="collapse">
   <li><a href="#api-ninjas-air-quality-api" id="toc-api-ninjas-air-quality-api" class="nav-link" data-scroll-target="#api-ninjas-air-quality-api">API Ninjas Air Quality API</a></li>
-  <li><a href="#data-processing-pipeline" id="toc-data-processing-pipeline" class="nav-link" data-scroll-target="#data-processing-pipeline">Data Processing Pipeline</a></li>
+  <li><a href="#real-test-results-october-24-2025" id="toc-real-test-results-october-24-2025" class="nav-link" data-scroll-target="#real-test-results-october-24-2025">Real Test Results (October 24, 2025)</a></li>
   </ul></li>
-  <li><a href="#example-interactions" id="toc-example-interactions" class="nav-link" data-scroll-target="#example-interactions">Example Interactions</a>
-  <ul class="collapse">
-  <li><a href="#basic-air-quality-query" id="toc-basic-air-quality-query" class="nav-link" data-scroll-target="#basic-air-quality-query">Basic Air Quality Query</a></li>
-  <li><a href="#activity-specific-advice" id="toc-activity-specific-advice" class="nav-link" data-scroll-target="#activity-specific-advice">Activity-Specific Advice</a></li>
-  <li><a href="#multi-city-comparison-1" id="toc-multi-city-comparison-1" class="nav-link" data-scroll-target="#multi-city-comparison-1">Multi-City Comparison</a></li>
-  </ul></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a></li>
+  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">Performance Metrics</a></li>
   <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">Future Enhancements</a>
   <ul class="collapse">
   <li><a href="#planned-features" id="toc-planned-features" class="nav-link" data-scroll-target="#planned-features">Planned Features</a></li>
   <li><a href="#advanced-integrations" id="toc-advanced-integrations" class="nav-link" data-scroll-target="#advanced-integrations">Advanced Integrations</a></li>
   </ul></li>
-  <li><a href="#error-handling-reliability" id="toc-error-handling-reliability" class="nav-link" data-scroll-target="#error-handling-reliability">Error Handling &amp; Reliability</a>
-  <ul class="collapse">
-  <li><a href="#robust-architecture" id="toc-robust-architecture" class="nav-link" data-scroll-target="#robust-architecture">Robust Architecture</a></li>
-  <li><a href="#monitoring-logging" id="toc-monitoring-logging" class="nav-link" data-scroll-target="#monitoring-logging">Monitoring &amp; Logging</a></li>
-  </ul></li>
-  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">Performance Metrics</a>
-  <ul class="collapse">
-  <li><a href="#response-times" id="toc-response-times" class="nav-link" data-scroll-target="#response-times">Response Times</a></li>
-  <li><a href="#accuracy" id="toc-accuracy" class="nav-link" data-scroll-target="#accuracy">Accuracy</a></li>
-  </ul></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
-  <li><a href="#license-credits" id="toc-license-credits" class="nav-link" data-scroll-target="#license-credits">License &amp; Credits</a>
-  <ul class="collapse">
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
-  <li><a href="#technologies" id="toc-technologies" class="nav-link" data-scroll-target="#technologies">Technologies</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#technologies-used" id="toc-technologies-used" class="nav-link" data-scroll-target="#technologies-used">Technologies Used</a></li>
+  <li><a href="#error-handling-reliability" id="toc-error-handling-reliability" class="nav-link" data-scroll-target="#error-handling-reliability">Error Handling &amp; Reliability</a></li>
+  <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link" data-scroll-target="#try-it-yourself">Try It Yourself</a></li>
+  <li><a href="#code-repository" id="toc-code-repository" class="nav-link" data-scroll-target="#code-repository">Code Repository</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">🌍 AIR QUALITY QUICK REPORT</h1></header>
 
 
 
 
-<section id="mcp-letta-air-quality-intelligence-agent" class="level1">
-<h1>MCP + Letta Air Quality Intelligence Agent</h1>
-<p>An intelligent agent system that combines the Model Context Protocol (MCP) with Letta AI to provide comprehensive air quality monitoring and personalized health recommendations.</p>
+<style>
+:root {
+  --aqi-green: #00C853;
+  --aqi-blue: #2196F3;
+  --aqi-orange: #FF9800;
+  --aqi-red: #F44336;
+  --aqi-dark: #1a1a1a;
+  --aqi-light: #f5f5f5;
+}
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body, p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #2196F3 0%, #00C853 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: -2rem -2rem 2rem -2rem;
+  border-radius: 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.page-title-section {
+  text-align: center;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.demo-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--aqi-blue);
+}
+
+.output-box {
+  background: #1a1a1a;
+  color: #00ff00;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 3px solid var(--aqi-blue);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--aqi-dark);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--aqi-blue), #1976D2);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #1976D2, var(--aqi-blue));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+code {
+  background: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+h2 {
+  color: var(--aqi-blue);
+  font-weight: 800;
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--aqi-green);
+}
+
+h3 {
+  color: var(--aqi-dark);
+  font-weight: 700;
+  margin-top: 2rem;
+}
+</style>
+<div class="page-title-section">
+<div class="page-title">
+<p>🌍 Air Quality Intelligence</p>
+</div>
+<div class="page-subtitle">
+<p>Real-time environmental monitoring with AI-powered health recommendations</p>
+</div>
+</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This project demonstrates advanced AI agent architecture by integrating: - <strong>Letta AI</strong> for intelligent conversational agents - <strong>Model Context Protocol (MCP)</strong> for standardized data access - <strong>API Ninjas Air Quality API</strong> for real-time environmental data - <strong>Comprehensive health intelligence</strong> for activity-specific recommendations</p>
+<p>An intelligent agent system combining the <strong>Model Context Protocol (MCP)</strong> with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.</p>
+<div class="stat-grid">
+<div class="stat-card">
+<p><span class="stat-number">🌍</span> <span class="stat-label">Global Coverage</span></p>
+</div>
+<div class="stat-card">
+<p><span class="stat-number">6</span> <span class="stat-label">Pollutants Tracked</span></p>
+</div>
+<div class="stat-card">
+<p><span class="stat-number">15min</span> <span class="stat-label">Update Frequency</span></p>
+</div>
+<div class="stat-card">
+<p><span class="stat-number">⚡</span> <span class="stat-label">Real-Time Data</span></p>
+</div>
+</div>
 </section>
 <section id="key-features" class="level2">
 <h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
-<section id="real-time-air-quality-monitoring" class="level3">
-<h3 class="anchored" data-anchor-id="real-time-air-quality-monitoring">Real-Time Air Quality Monitoring</h3>
-<ul>
-<li>Live AQI data for cities worldwide</li>
-<li>Detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)</li>
-<li>Historical trend analysis capabilities</li>
-<li>GPS coordinate-based precise location tracking</li>
-</ul>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">
+📊
+</div>
+<div class="feature-title">
+Real-Time Monitoring
+</div>
+<p>Live AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+💡
+</div>
+<div class="feature-title">
+Smart Recommendations
+</div>
+<p>Activity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+🔍
+</div>
+<div class="feature-title">
+Multi-City Compare
+</div>
+<p>Side-by-side analysis of air quality across multiple cities for travel planning</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+🛡️
+</div>
+<div class="feature-title">
+Health Protection
+</div>
+<p>Special guidance for sensitive groups including children, elderly, and those with respiratory conditions</p>
+</div>
+</div>
 </section>
-<section id="intelligent-health-recommendations" class="level3">
-<h3 class="anchored" data-anchor-id="intelligent-health-recommendations">Intelligent Health Recommendations</h3>
-<ul>
-<li><strong>Activity-Specific Advice</strong>: Tailored recommendations for jogging, cycling, walking, outdoor sports</li>
-<li><strong>Sensitive Group Protection</strong>: Special guidance for children, elderly, and people with respiratory conditions</li>
-<li><strong>Protective Measures</strong>: N95/P100 mask recommendations, air purifier usage, indoor alternatives</li>
-<li><strong>Optimal Timing</strong>: Best times for outdoor activities based on air quality patterns</li>
-</ul>
-</section>
-<section id="multi-city-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="multi-city-comparison">Multi-City Comparison</h3>
-<ul>
-<li>Side-by-side air quality analysis</li>
-<li>Travel recommendations based on air quality</li>
-<li>Pollution trend comparisons</li>
-<li>Best/worst air quality insights</li>
-</ul>
-</section>
-<section id="advanced-mcp-integration" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-mcp-integration">Advanced MCP Integration</h3>
-<ul>
-<li>Standardized data access protocols</li>
-<li>Extensible architecture for additional environmental data sources</li>
-<li>Robust error handling and fallback mechanisms</li>
-<li>Asynchronous data processing for optimal performance</li>
-</ul>
+<section id="live-demo-output" class="level2">
+<h2 class="anchored" data-anchor-id="live-demo-output">Live Demo Output</h2>
+<section id="quick-report-global-air-quality-snapshot" class="level3">
+<h3 class="anchored" data-anchor-id="quick-report-global-air-quality-snapshot">Quick Report: Global Air Quality Snapshot</h3>
 </section>
 </section>
-<section id="architecture" class="level2">
-<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<div class="demo-section">
+<section id="air-quality-quick-report" class="level1 output-box">
+
+<p>🟠 Dhaka | AQI: 116 | Unhealthy for Sensitive Groups 🟢 New York | AQI: 45 | Good 🟠 Los Angeles | AQI: 112 | Unhealthy for Sensitive Groups 🟡 Seattle | AQI: 96 | Moderate 🔴 London | AQI: 153 | Unhealthy</p>
+</section>
+<p><strong>Interpretation</strong>: Color-coded health categories make it easy to assess air quality at a glance. Green = safe for all activities, Yellow = generally acceptable, Orange = sensitive groups should take precautions, Red = everyone should limit outdoor exposure.</p>
+</div>
+<section id="detailed-city-analysis-boston" class="level3">
+<h3 class="anchored">Detailed City Analysis: Boston</h3>
+<div class="demo-section">
+<div class="output-box">
+<p>============================================================ 🟢 BOSTON - Good ============================================================ Overall AQI: 47 Location: (42.3554, -71.0605)</p>
+<p>Pollutant Concentrations: PM2.5: 0.7 µg/m³ PM10: 1.3 µg/m³ O3: 56.3 µg/m³ NO2: 3.6 µg/m³ SO2: 0.8 µg/m³ CO: 130.0 µg/m³</p>
+<section id="health-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="health-recommendations">💡 HEALTH RECOMMENDATIONS</h2>
+<p>General: Air quality is excellent. Enjoy outdoor activities!</p>
+<p>For Jogging: Perfect conditions for jogging and running.</p>
+<p>For Cycling: Ideal day for cycling.</p>
+<p>Sensitive Groups: No precautions needed.</p>
+</section>
+</div>
+<p><strong>Features Demonstrated</strong>: - Real-time AQI calculation (47 = Good) - GPS coordinate precision for exact location - Comprehensive pollutant breakdown - Activity-specific health recommendations - Sensitive group guidance</p>
+</div>
+</section>
+<section id="multi-city-comparison-travel-planning" class="level3">
+<h3 class="anchored">Multi-City Comparison: Travel Planning</h3>
+<div class="demo-section">
+<div class="output-box">
+<p>📊 Comparing air quality across 3 cities…</p>
+<section id="rankings-best-to-worst" class="level2">
+<h2 class="anchored" data-anchor-id="rankings-best-to-worst">🏆 Rankings (Best to Worst):</h2>
+<p>🟡 1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³</p>
+<p>🟠 2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³</p>
+<p>🟠 3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³</p>
+<p>✅ Best: Seattle (AQI 96) ⚠️ Worst: Tokyo (AQI 122)</p>
+</section>
+</div>
+<p><strong>Use Case</strong>: Perfect for travel planning - compare air quality across potential destinations to make informed decisions about outdoor activities and health precautions.</p>
+</div>
+</section>
+<section id="technical-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
 <pre><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Letta Agent   │◄──►│  MCP Server     │◄──►│ API Ninjas API  │
-│   (AI Brain)    │    │ (Data Bridge)   │    │ (Data Source)   │
+│   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │
+│ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Conversation    │    │ AQI Data        │    │ Real-time       │
-│ Management      │    │ Processing      │    │ Environmental   │
-│                 │    │                 │    │ Data            │
-└─────────────────┘    └─────────────────┘    └─────────────────┘</code></pre>
-</section>
-<section id="technical-implementation" class="level2">
-<h2 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h2>
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │  Health Engine  │
+                       │  (WHO/EPA Rules)│
+                       └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │   Response      │
+                       │  + Advice       │
+                       └─────────────────┘</code></pre>
 <section id="core-components" class="level3">
 <h3 class="anchored" data-anchor-id="core-components">Core Components</h3>
-<section id="aqidata-class" class="level4">
-<h4 class="anchored" data-anchor-id="aqidata-class">1. AQIData Class</h4>
+<p><strong>1. AQI MCP Server</strong> (<code>aqi_mcp_server.py</code>) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine</p>
+<p><strong>2. Interactive Demo</strong> (<code>aqi_demo.py</code>) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling</p>
+<p><strong>3. Data Model</strong> (AQIData class)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AQIData:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    location: <span class="bu">str</span></span>
@@ -348,236 +588,313 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    pm10_concentration: <span class="bu">float</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    timestamp: <span class="bu">str</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="mcp-server-integration" class="level4">
-<h4 class="anchored" data-anchor-id="mcp-server-integration">2. MCP Server Integration</h4>
-<ul>
-<li><strong>Asynchronous API calls</strong> for optimal performance</li>
-<li><strong>Geocoding integration</strong> for precise location mapping</li>
-<li><strong>Error handling</strong> with graceful degradation</li>
-<li><strong>Data validation</strong> ensuring reliable information</li>
-</ul>
 </section>
-<section id="intelligent-agent-tools" class="level4">
-<h4 class="anchored" data-anchor-id="intelligent-agent-tools">3. Intelligent Agent Tools</h4>
-<ul>
-<li><code>current_aqi_tool</code>: Real-time air quality data retrieval</li>
-<li><code>aqi_comparison_tool</code>: Multi-city comparative analysis</li>
-<li><code>aqi_health_advice_tool</code>: Personalized health recommendations</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="installation-setup" class="level2">
-<h2 class="anchored" data-anchor-id="installation-setup">Installation &amp; Setup</h2>
+<section id="installation-quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="installation-quick-start">Installation &amp; Quick Start</h2>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required packages</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install letta-client</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mcp  <span class="co"># Model Context Protocol</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: For enhanced functionality</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install asyncio</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install dataclasses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="api-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="api-configuration">API Configuration</h3>
+<section id="get-api-key" class="level3">
+<h3 class="anchored" data-anchor-id="get-api-key">Get API Key</h3>
 <ol type="1">
-<li><strong>Get API Ninjas Key</strong>: Sign up at <a href="https://api.api-ninjas.com">api.api-ninjas.com</a></li>
-<li><strong>Set up Letta Server</strong>: Follow <a href="https://letta.com/docs">Letta installation guide</a></li>
-<li><strong>Configure endpoints</strong> in the agent initialization</li>
+<li>Sign up at <a href="https://api.api-ninjas.com">API Ninjas</a></li>
+<li>Get your free API key</li>
+<li>Set environment variable:</li>
 </ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="quick-start" class="level3">
-<h3 class="anchored" data-anchor-id="quick-start">Quick Start</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the agent</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>aqi_agent <span class="op">=</span> LettaAQIAgent(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    letta_base_url<span class="op">=</span><span class="st">"http://localhost:8283"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    api_ninjas_key<span class="op">=</span><span class="st">"your_api_key_here"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and deploy</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> aqi_agent.create_agent()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Start interacting</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> aqi_agent.interact(<span class="st">"What's the air quality in Dhaka?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="run-the-demo" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-demo">Run the Demo</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick Report</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive Mode</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
-<section id="personal-health-management" class="level3">
-<h3 class="anchored" data-anchor-id="personal-health-management">1. Personal Health Management</h3>
-<ul>
-<li><strong>Daily Planning</strong>: “Is it safe to jog in Central Park this morning?”</li>
-<li><strong>Allergy Management</strong>: “Should I take extra precautions due to today’s air quality in Dhaka?”</li>
-<li><strong>Activity Optimization</strong>: “What’s the best time to take my kids to the playground in Houston?”</li>
-</ul>
+<section id="real-world-use-cases-real-world-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</h2>
+<section id="daily-health-management" class="level3">
+<h3 class="anchored" data-anchor-id="daily-health-management">1. Daily Health Management</h3>
+<p><strong>Scenario</strong>: “Should I go jogging this morning?”</p>
+<p>The system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed</p>
+<p><strong>Real Example</strong> (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”</p>
 </section>
 <section id="travel-planning" class="level3">
 <h3 class="anchored" data-anchor-id="travel-planning">2. Travel Planning</h3>
-<ul>
-<li><strong>Destination Selection</strong>: “Which city has better air quality: Boston or Los Angeles?”</li>
-<li><strong>Packing Decisions</strong>: “Do I need to bring masks for my trip to Dhaka?”</li>
-<li><strong>Itinerary Optimization</strong>: “When should I schedule outdoor activities in Sylhet?”</li>
-</ul>
+<p><strong>Scenario</strong>: “Which city has better air quality: Boston or Los Angeles?”</p>
+<p>Multi-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended</p>
+<p><strong>Decision</strong>: Boston offers significantly better conditions for travelers with respiratory concerns.</p>
 </section>
-<section id="business-intelligence" class="level3">
-<h3 class="anchored" data-anchor-id="business-intelligence">3. Business Intelligence</h3>
-<ul>
-<li><strong>Location Analytics</strong>: Air quality impact on business operations</li>
-<li><strong>Employee Health</strong>: Workplace safety recommendations</li>
-<li><strong>Event Planning</strong>: Outdoor event feasibility assessment</li>
-</ul>
+<section id="family-safety" class="level3">
+<h3 class="anchored" data-anchor-id="family-safety">3. Family Safety</h3>
+<p><strong>Scenario</strong>: “Is it safe to take my kids to the playground?”</p>
+<p>Sensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations</p>
 </section>
 </section>
-<section id="data-sources-apis" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources-apis">Data Sources &amp; APIs</h2>
+<section id="health-category-system" class="level2">
+<h2 class="anchored" data-anchor-id="health-category-system">Health Category System</h2>
+<p>The system uses WHO/EPA guidelines to classify air quality:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>AQI Range</th>
+<th>Indicator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🟢 Good</td>
+<td>0-50</td>
+<td>Excellent</td>
+<td>Safe for all activities</td>
+</tr>
+<tr class="even">
+<td>🟡 Moderate</td>
+<td>51-100</td>
+<td>Acceptable</td>
+<td>Generally safe, sensitive individuals may want to limit prolonged exertion</td>
+</tr>
+<tr class="odd">
+<td>🟠 Unhealthy for Sensitive</td>
+<td>101-150</td>
+<td>Caution</td>
+<td>Sensitive groups should reduce outdoor activities</td>
+</tr>
+<tr class="even">
+<td>🔴 Unhealthy</td>
+<td>151-200</td>
+<td>Alert</td>
+<td>Everyone should limit outdoor exertion</td>
+</tr>
+<tr class="odd">
+<td>🟣 Very Unhealthy</td>
+<td>201-300</td>
+<td>Warning</td>
+<td>Avoid all outdoor activities</td>
+</tr>
+<tr class="even">
+<td>⚫ Hazardous</td>
+<td>301+</td>
+<td>Emergency</td>
+<td>Health emergency - stay indoors</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-sources-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources-accuracy">Data Sources &amp; Accuracy</h2>
 <section id="api-ninjas-air-quality-api" class="level3">
 <h3 class="anchored" data-anchor-id="api-ninjas-air-quality-api">API Ninjas Air Quality API</h3>
 <ul>
-<li><strong>Coverage</strong>: Global air quality data</li>
-<li><strong>Update Frequency</strong>: Real-time updates</li>
-<li><strong>Pollutants Tracked</strong>: PM2.5, PM10, O3, NO2, SO2, CO</li>
-<li><strong>Additional Data</strong>: GPS coordinates, AQI calculations</li>
+<li><strong>Coverage</strong>: Worldwide (all major cities + GPS coordinates)</li>
+<li><strong>Update Frequency</strong>: Real-time (15-minute intervals)</li>
+<li><strong>Pollutants</strong>: PM2.5, PM10, O3, NO2, SO2, CO</li>
+<li><strong>Accuracy</strong>: Based on ground-level monitoring stations</li>
+<li><strong>Validation</strong>: Cross-referenced with EPA/WHO standards</li>
 </ul>
 </section>
-<section id="data-processing-pipeline" class="level3">
-<h3 class="anchored" data-anchor-id="data-processing-pipeline">Data Processing Pipeline</h3>
-<ol type="1">
-<li><strong>Location Resolution</strong>: City name → GPS coordinates</li>
-<li><strong>API Integration</strong>: Real-time data retrieval</li>
-<li><strong>Data Validation</strong>: Ensuring data integrity</li>
-<li><strong>Health Mapping</strong>: AQI → Health recommendations</li>
-<li><strong>Response Generation</strong>: Natural language insights</li>
-</ol>
+<section id="real-test-results-october-24-2025" class="level3">
+<h3 class="anchored" data-anchor-id="real-test-results-october-24-2025">Real Test Results (October 24, 2025)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>City</th>
+<th>AQI</th>
+<th>Category</th>
+<th>PM2.5</th>
+<th>Key Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>New York</td>
+<td>45</td>
+<td>Good</td>
+<td>0.7</td>
+<td>Perfect for all activities</td>
+</tr>
+<tr class="even">
+<td>Boston</td>
+<td>47</td>
+<td>Good</td>
+<td>0.7</td>
+<td>Ideal outdoor conditions</td>
+</tr>
+<tr class="odd">
+<td>Seattle</td>
+<td>96</td>
+<td>Moderate</td>
+<td>1.1</td>
+<td>Generally safe</td>
+</tr>
+<tr class="even">
+<td>Los Angeles</td>
+<td>112</td>
+<td>Unhealthy (Sensitive)</td>
+<td>-</td>
+<td>Limited outdoor time</td>
+</tr>
+<tr class="odd">
+<td>Dhaka</td>
+<td>116</td>
+<td>Unhealthy (Sensitive)</td>
+<td>48.9</td>
+<td>Use precautions</td>
+</tr>
+<tr class="even">
+<td>London</td>
+<td>153</td>
+<td>Unhealthy</td>
+<td>-</td>
+<td>Avoid prolonged exposure</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="example-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="example-interactions">Example Interactions</h2>
-<section id="basic-air-quality-query" class="level3">
-<h3 class="anchored" data-anchor-id="basic-air-quality-query">Basic Air Quality Query</h3>
-<pre><code>User: "What's the air quality like in Dhaka right now?"
-
-Agent: "Dhaka currently has an AQI of 189 (Unhealthy). The main concern is 
-PM2.5 at 148 µg/m³. I recommend staying indoors and using air purifiers. 
-If you must go outside, wear an N95 mask and limit exposure time."</code></pre>
+<section id="project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-structure">Project Structure</h2>
+<pre><code>code/
+├── aqi_mcp_server.py      # Core MCP server (210 lines)
+├── aqi_demo.py            # Interactive demo (160 lines)
+├── README_AQI.md          # Documentation
+├── .env.aqi               # API configuration
+└── aqi_example_output.txt # Sample outputs</code></pre>
 </section>
-<section id="activity-specific-advice" class="level3">
-<h3 class="anchored" data-anchor-id="activity-specific-advice">Activity-Specific Advice</h3>
-<pre><code>User: "I have asthma and want to go cycling in Seattle. Is it safe?"
-
-Agent: "Seattle's current AQI is 76 (Moderate). For someone with asthma, I'd 
-recommend postponing outdoor cycling. The O3 levels are elevated at 92 µg/m³. 
-Consider indoor cycling or wait until evening when air quality typically improves."</code></pre>
-</section>
-<section id="multi-city-comparison-1" class="level3">
-<h3 class="anchored" data-anchor-id="multi-city-comparison-1">Multi-City Comparison</h3>
-<pre><code>User: "Compare air quality between Dhaka, Chittagong, and New York City"
-
-Agent: "Here's the comparison:
-• Dhaka: AQI 189 (Unhealthy) - Avoid all outdoor activities
-• Chittagong: AQI 145 (Unhealthy for Sensitive Groups) - Limited outdoor time
-• New York City: AQI 67 (Moderate) - Best option for outdoor activities
-
-Recommendation: If traveling, New York City offers the cleanest air quality."</code></pre>
-</section>
+<section id="performance-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="performance-metrics">Performance Metrics</h2>
+<ul>
+<li><strong>Response Time</strong>: &lt; 2 seconds for single city</li>
+<li><strong>Multi-City Compare</strong>: &lt; 5 seconds for 3-5 cities</li>
+<li><strong>Data Freshness</strong>: 15-minute updates from API</li>
+<li><strong>Accuracy</strong>: GPS-precise location mapping</li>
+<li><strong>Reliability</strong>: Graceful error handling with fallbacks</li>
+</ul>
 </section>
 <section id="future-enhancements" class="level2">
 <h2 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h2>
 <section id="planned-features" class="level3">
 <h3 class="anchored" data-anchor-id="planned-features">Planned Features</h3>
 <ul>
-<li><strong>Predictive Analytics</strong>: 24-48 hour air quality forecasting</li>
-<li><strong>Weather Integration</strong>: Combined air quality and weather analysis</li>
-<li><strong>Health Tracking</strong>: Personal exposure monitoring</li>
-<li><strong>Alert System</strong>: Automated notifications for air quality changes</li>
-<li><strong>Mobile App</strong>: Cross-platform mobile application</li>
+<li>📈 <strong>Predictive Analytics</strong>: 24-48 hour air quality forecasting</li>
+<li>🌤️ <strong>Weather Integration</strong>: Combined air quality + weather analysis</li>
+<li>📱 <strong>Mobile App</strong>: Cross-platform application</li>
+<li>🔔 <strong>Alert System</strong>: Automated notifications for threshold breaches</li>
+<li>📊 <strong>Historical Trends</strong>: Long-term pattern analysis</li>
 </ul>
 </section>
 <section id="advanced-integrations" class="level3">
 <h3 class="anchored" data-anchor-id="advanced-integrations">Advanced Integrations</h3>
 <ul>
-<li><strong>IoT Sensors</strong>: Personal air quality monitors</li>
-<li><strong>Smart Home</strong>: Automated air purifier control</li>
-<li><strong>Wearables</strong>: Real-time health impact tracking</li>
-<li><strong>Social Media</strong>: Community air quality reporting</li>
+<li>IoT sensors for hyper-local monitoring</li>
+<li>Smart home automation (air purifier control)</li>
+<li>Wearable health impact tracking</li>
+<li>Community reporting platform</li>
 </ul>
 </section>
+</section>
+<section id="technologies-used" class="level2">
+<h2 class="anchored" data-anchor-id="technologies-used">Technologies Used</h2>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">
+🐍
+</div>
+<div class="feature-title">
+Python 3.11
+</div>
+<p>Async/await architecture for optimal performance</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+⚡
+</div>
+<div class="feature-title">
+Aiohttp
+</div>
+<p>Asynchronous HTTP client for non-blocking API calls</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+🔌
+</div>
+<div class="feature-title">
+Model Context Protocol
+</div>
+<p>Standardized data access layer for extensibility</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+🌐
+</div>
+<div class="feature-title">
+API Ninjas
+</div>
+<p>Real-time global air quality data source</p>
+</div>
+</div>
 </section>
 <section id="error-handling-reliability" class="level2">
 <h2 class="anchored" data-anchor-id="error-handling-reliability">Error Handling &amp; Reliability</h2>
-<section id="robust-architecture" class="level3">
-<h3 class="anchored" data-anchor-id="robust-architecture">Robust Architecture</h3>
+<p>The system includes comprehensive error handling:</p>
 <ul>
-<li><strong>API Fallbacks</strong>: Multiple data source options</li>
-<li><strong>Graceful Degradation</strong>: Partial functionality during outages</li>
-<li><strong>Data Validation</strong>: Comprehensive input/output checking</li>
-<li><strong>Async Processing</strong>: Non-blocking operations for better UX</li>
+<li><strong>API Fallbacks</strong>: Graceful degradation if API is unavailable</li>
+<li><strong>Data Validation</strong>: Input/output checking for data integrity</li>
+<li><strong>Geocoding Errors</strong>: Clear messaging for invalid city names</li>
+<li><strong>Network Issues</strong>: Retry logic with exponential backoff</li>
+<li><strong>Rate Limiting</strong>: Respects API limits and queues requests</li>
 </ul>
 </section>
-<section id="monitoring-logging" class="level3">
-<h3 class="anchored" data-anchor-id="monitoring-logging">Monitoring &amp; Logging</h3>
-<ul>
-<li><strong>Health Checks</strong>: Continuous system monitoring</li>
-<li><strong>Performance Metrics</strong>: Response time tracking</li>
-<li><strong>Error Reporting</strong>: Detailed error analysis</li>
-<li><strong>Usage Analytics</strong>: User interaction patterns</li>
-</ul>
+<section id="try-it-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-yourself">Try It Yourself</h2>
+<div class="demo-section">
+<section id="quick-start-commands" class="level3">
+<h3 class="anchored" data-anchor-id="quick-start-commands">Quick Start Commands</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/isfarbaset/portfolio.git</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> portfolio/code</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your API key</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run quick report</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run interactive mode</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="example-queries-to-try" class="level3">
+<h3 class="anchored" data-anchor-id="example-queries-to-try">Example Queries to Try</h3>
+<ol type="1">
+<li><strong>Single city</strong>: <code>Dhaka</code>, <code>Paris</code>, <code>Mumbai</code>, <code>Sydney</code></li>
+<li><strong>Compare</strong>: <code>compare Boston Seattle Miami</code></li>
+<li><strong>Your location</strong>: <code>[Your City Name]</code></li>
+</ol>
 </section>
-<section id="performance-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="performance-metrics">Performance Metrics</h2>
-<section id="response-times" class="level3">
-<h3 class="anchored" data-anchor-id="response-times">Response Times</h3>
-<ul>
-<li><strong>Real-time Queries</strong>: &lt; 2 seconds average</li>
-<li><strong>Multi-city Comparisons</strong>: &lt; 5 seconds average</li>
-<li><strong>Complex Analysis</strong>: &lt; 10 seconds average</li>
-</ul>
+</div>
 </section>
-<section id="accuracy" class="level3">
-<h3 class="anchored" data-anchor-id="accuracy">Accuracy</h3>
-<ul>
-<li><strong>Data Freshness</strong>: Updates every 15 minutes</li>
-<li><strong>Location Precision</strong>: GPS coordinate accuracy</li>
-<li><strong>Health Recommendations</strong>: Based on WHO/EPA guidelines</li>
-</ul>
-</section>
-</section>
-<section id="contributing" class="level2">
-<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
-<p>This project demonstrates advanced AI agent architecture and environmental data integration. Key areas for contribution:</p>
-<ul>
-<li><strong>New Data Sources</strong>: Additional environmental APIs</li>
-<li><strong>Enhanced AI</strong>: More sophisticated health recommendations</li>
-<li><strong>UI/UX</strong>: Web and mobile interfaces</li>
-<li><strong>Analytics</strong>: Advanced data visualization</li>
-</ul>
-</section>
-<section id="license-credits" class="level2">
-<h2 class="anchored" data-anchor-id="license-credits">License &amp; Credits</h2>
-<section id="data-sources" class="level3">
-<h3 class="anchored" data-anchor-id="data-sources">Data Sources</h3>
-<ul>
-<li><strong>API Ninjas</strong>: Air quality and geocoding data</li>
-<li><strong>WHO/EPA</strong>: Health guideline standards</li>
-<li><strong>Environmental Agencies</strong>: AQI calculation methodologies</li>
-</ul>
-</section>
-<section id="technologies" class="level3">
-<h3 class="anchored" data-anchor-id="technologies">Technologies</h3>
-<ul>
-<li><strong>Letta AI</strong>: Conversational agent framework</li>
-<li><strong>MCP</strong>: Model Context Protocol for standardized data access</li>
-<li><strong>Python</strong>: Core implementation language</li>
-<li><strong>AsyncIO</strong>: Asynchronous processing</li>
-</ul>
+<section id="code-repository" class="level2">
+<h2 class="anchored" data-anchor-id="code-repository">Code Repository</h2>
+<div style="text-align: center;">
+<p><a href="https://github.com/isfarbaset/portfolio/tree/main/code" class="github-link" target="_blank"> 🔗 View Full Source Code on GitHub </a></p>
+</div>
 <hr>
-<p><em>This project showcases the future of intelligent environmental monitoring, combining cutting-edge AI with real-world health applications.</em></p>
+<p><em>This project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring.</em></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
