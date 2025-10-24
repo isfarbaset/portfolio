@@ -464,24 +464,75 @@ Rankings (Best to Worst):
 
 ## Technical Architecture
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │
-│ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │  Health Engine  │
-                       │  (WHO/EPA Rules)│
-                       └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │   Response      │
-                       │  + Advice       │
-                       └─────────────────┘
-```
+<div class="architecture-diagram" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem 2rem; border-radius: 15px; margin: 2rem 0; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
+
+<div style="text-align: center; margin-bottom: 2rem;">
+
+### System Architecture Flow
+
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #3498db;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">👤</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">User Query</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">Natural language or city name</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #3498db;">→</div>
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #9b59b6;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">GenAI Agent</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">OpenAI GPT-4 processing</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #3498db;">→</div>
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #e74c3c;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">🔌</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">MCP Server</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">Data orchestration layer</div>
+</div>
+
+</div>
+
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">↓</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #f39c12;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">Geocoding API</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">City → GPS coordinates</div>
+</div>
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #27ae60;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">🌫️</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">Air Quality API</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">Real-time AQI data</div>
+</div>
+
+</div>
+
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">↓</div>
+
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #16a085; max-width: 500px; margin: 0 auto;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">⚕️</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">Health Engine</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">EPA/WHO standards + AI recommendations</div>
+</div>
+
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">↓</div>
+
+<div class="arch-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; max-width: 500px; margin: 0 auto;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem; color: white;">💬</div>
+<div style="font-weight: 600; color: white; margin-bottom: 0.5rem; font-size: 1.2rem;">Personalized Response</div>
+<div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">AQI data + Health advice + Activity recommendations</div>
+</div>
+
+</div>
 
 ### Core Components
 
@@ -539,7 +590,7 @@ python3 aqi_demo.py quick
 python3 aqi_demo.py
 ```
 
-## Real-World Use Cases## Real-World Use Cases
+## Real-World Use Cases
 
 ### 1. Daily Health Management
 **Scenario**: "Should I go jogging this morning?"

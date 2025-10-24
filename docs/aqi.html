@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#get-api-key" id="toc-get-api-key" class="nav-link" data-scroll-target="#get-api-key">Get API Key</a></li>
   <li><a href="#run-the-demo" id="toc-run-the-demo" class="nav-link" data-scroll-target="#run-the-demo">Run the Demo</a></li>
   </ul></li>
-  <li><a href="#real-world-use-cases-real-world-use-cases" id="toc-real-world-use-cases-real-world-use-cases" class="nav-link" data-scroll-target="#real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</a>
+  <li><a href="#real-world-use-cases" id="toc-real-world-use-cases" class="nav-link" data-scroll-target="#real-world-use-cases">Real-World Use Cases</a>
   <ul class="collapse">
   <li><a href="#daily-health-management" id="toc-daily-health-management" class="nav-link" data-scroll-target="#daily-health-management">1. Daily Health Management</a></li>
   <li><a href="#travel-planning" id="toc-travel-planning" class="nav-link" data-scroll-target="#travel-planning">2. Travel Planning</a></li>
@@ -668,47 +668,132 @@ Health Protection
 </section>
 <section id="technical-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
-<pre><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │
-│ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │  Health Engine  │
-                       │  (WHO/EPA Rules)│
-                       └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │   Response      │
-                       │  + Advice       │
-                       └─────────────────┘</code></pre>
+<div class="architecture-diagram" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem 2rem; border-radius: 15px; margin: 2rem 0; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
+<section id="system-architecture-flow" class="level3" style="text-align: center; margin-bottom: 2rem;">
+<h3 class="anchored" data-anchor-id="system-architecture-flow">System Architecture Flow</h3>
+</section>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #3498db;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+👤
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+User Query
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+Natural language or city name
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #3498db;">
+→
+</div>
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #9b59b6;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+🤖
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+GenAI Agent
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+OpenAI GPT-4 processing
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #3498db;">
+→
+</div>
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #e74c3c;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+🔌
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+MCP Server
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+Data orchestration layer
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">
+↓
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #f39c12;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+🌍
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+Geocoding API
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+City → GPS coordinates
+</div>
+</div>
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #27ae60;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+🌫️
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+Air Quality API
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+Real-time AQI data
+</div>
+</div>
+</div>
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">
+↓
+</div>
+<div class="arch-box" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #16a085; max-width: 500px; margin: 0 auto;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem;">
+⚕️
+</div>
+<div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem;">
+Health Engine
+</div>
+<div style="font-size: 0.85rem; color: #7f8c8d;">
+EPA/WHO standards + AI recommendations
+</div>
+</div>
+<div style="text-align: center; font-size: 2rem; color: #3498db; margin: 1rem 0;">
+↓
+</div>
+<div class="arch-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; max-width: 500px; margin: 0 auto;">
+<div style="font-size: 2rem; margin-bottom: 0.5rem; color: white;">
+💬
+</div>
+<div style="font-weight: 600; color: white; margin-bottom: 0.5rem; font-size: 1.2rem;">
+Personalized Response
+</div>
+<div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">
+AQI data + Health advice + Activity recommendations
+</div>
+</div>
+</div>
 <section id="core-components" class="level3">
 <h3 class="anchored" data-anchor-id="core-components">Core Components</h3>
 <p><strong>1. AQI MCP Server</strong> (<code>aqi_mcp_server.py</code>) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine</p>
 <p><strong>2. Interactive Demo</strong> (<code>aqi_demo.py</code>) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling</p>
 <p><strong>3. Data Model</strong> (AQIData class)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AQIData:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    location: <span class="bu">str</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    latitude: <span class="bu">float</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    longitude: <span class="bu">float</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    overall_aqi: <span class="bu">int</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    co_concentration: <span class="bu">float</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    no2_concentration: <span class="bu">float</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    o3_concentration: <span class="bu">float</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    so2_concentration: <span class="bu">float</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    pm2_5_concentration: <span class="bu">float</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    pm10_concentration: <span class="bu">float</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    timestamp: <span class="bu">str</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AQIData:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    location: <span class="bu">str</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    latitude: <span class="bu">float</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    longitude: <span class="bu">float</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    overall_aqi: <span class="bu">int</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    co_concentration: <span class="bu">float</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    no2_concentration: <span class="bu">float</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    o3_concentration: <span class="bu">float</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    so2_concentration: <span class="bu">float</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    pm2_5_concentration: <span class="bu">float</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    pm10_concentration: <span class="bu">float</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    timestamp: <span class="bu">str</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="installation-quick-start" class="level2">
 <h2 class="anchored" data-anchor-id="installation-quick-start">Installation &amp; Quick Start</h2>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="get-api-key" class="level3">
 <h3 class="anchored" data-anchor-id="get-api-key">Get API Key</h3>
@@ -717,19 +802,19 @@ Health Protection
 <li>Get your free API key</li>
 <li>Set environment variable:</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="run-the-demo" class="level3">
 <h3 class="anchored" data-anchor-id="run-the-demo">Run the Demo</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick Report</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive Mode</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick Report</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive Mode</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="real-world-use-cases-real-world-use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</h2>
+<section id="real-world-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-use-cases">Real-World Use Cases</h2>
 <section id="daily-health-management" class="level3">
 <h3 class="anchored" data-anchor-id="daily-health-management">1. Daily Health Management</h3>
 <p><strong>Scenario</strong>: “Should I go jogging this morning?”</p>
@@ -831,18 +916,18 @@ Conversation Memory
 </section>
 <section id="try-the-gen-ai-agent" class="level3">
 <h3 class="anchored" data-anchor-id="try-the-gen-ai-agent">Try the Gen AI Agent</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp openai</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set API keys</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_air_quality_key'</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span><span class="st">'your_openai_key'</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run Gen AI agent</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run demo conversations</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py demo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp openai</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set API keys</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_air_quality_key'</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span><span class="st">'your_openai_key'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run Gen AI agent</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run demo conversations</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py demo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See genai_example_conversations.txt for more examples. export API_NINJAS_KEY=‘your_key_here’</p>
 </section>
 </section>
