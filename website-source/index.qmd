@@ -103,11 +103,14 @@ Examining EVs' environmental impact, market share, and performance compared to g
 
 ::: {.project-card}
 ::: {.project-image}
-![AQI MCP](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmh5cW1wcGZtcGhncDVwNTNlbGM4dmtoaHdyMXBtYzFjMGk3cTdzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y4vip84hg9BhdNidTR/giphy.gif)
+![Air Quality Intelligence](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmh5cW1wcGZtcGhncDVwNTNlbGM4dmtoaHdyMXBtYzFjMGk3cTdzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y4vip84hg9BhdNidTR/giphy.gif)
 :::
 ::: {.project-content}
-### [AI-Powered AQI Assistant (In Progress)](aqi.qmd)
-An interactive Gen-AI tool that lets users query real-time Air Quality Index (AQI) data for any city using natural language. Built on an MCP server and powered by the API Ninjas data source, this project aims to make environmental data easily accessible and conversational. Currently under development.
+### [Air Quality Intelligence](aqi.html)
+A Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.
+
+**Tech Stack:** Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas  
+**Key Feature:** Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning
 :::
 :::
 
