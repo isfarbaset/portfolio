@@ -252,6 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   --text-light: #7f8c8d;
   --bg-light: #f8f9fa;
   --border: #e1e8ed;
+  --max-width: 900px;
 }
 
 * {
@@ -264,10 +265,21 @@ body, p {
   color: var(--text);
 }
 
+.quarto-title {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .page-title-section {
   text-align: center;
-  padding: 4rem 2rem 3rem 2rem;
-  max-width: 800px;
+  padding: 4rem 0 3rem 0;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
