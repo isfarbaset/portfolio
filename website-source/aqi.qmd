@@ -11,168 +11,155 @@ format:
 
 <style>
 :root {
-  --aqi-green: #00C853;
-  --aqi-blue: #2196F3;
-  --aqi-orange: #FF9800;
-  --aqi-red: #F44336;
-  --aqi-dark: #1a1a1a;
-  --aqi-light: #f5f5f5;
+  --primary: #2c3e50;
+  --accent: #3498db;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --bg-light: #f8f9fa;
+  --border: #e1e8ed;
 }
 
 * {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 body, p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.hero-banner {
-  background: linear-gradient(135deg, #2196F3 0%, #00C853 100%);
-  padding: 4rem 2rem;
-  text-align: center;
-  margin: -2rem -2rem 2rem -2rem;
-  border-radius: 0;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
 }
 
 .page-title-section {
   text-align: center;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 4rem 2rem 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .page-title {
-  font-size: 3.5rem;
-  font-weight: 900;
+  font-size: 2.5rem;
+  font-weight: 300;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .page-subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #555;
-  max-width: 900px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--text-light);
+  max-width: 700px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .demo-section {
-  background: #f8f9fa;
+  background: white;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 2px;
   margin: 2rem 0;
-  border-left: 4px solid var(--aqi-blue);
+  border-left: 2px solid var(--accent);
 }
 
 .output-box {
-  background: #1a1a1a;
-  color: #00ff00;
+  background: #fafafa;
+  color: var(--text);
   padding: 1.5rem;
-  border-radius: 8px;
-  font-family: 'Monaco', 'Courier New', monospace !important;
+  border-radius: 2px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace !important;
   font-size: 0.9rem;
   line-height: 1.6;
   overflow-x: auto;
   margin: 1rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
 }
 
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
 .feature-card {
   background: white;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-top: 3px solid var(--aqi-blue);
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
 }
+
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  border-color: var(--accent);
 }
 
 .feature-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--aqi-dark);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
 .stat-card {
-  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  background: white;
   padding: 2rem 1.5rem;
-  border-radius: 12px;
+  border-radius: 2px;
   text-align: center;
-  border: 1px solid #e0e0e0;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
 }
 
 .stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
 }
 
 .stat-number {
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: 2rem;
+  font-weight: 300;
   display: block;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--aqi-blue), var(--aqi-green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary);
 }
 
 .stat-label {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-light);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-weight: 400;
 }
 
 .github-link {
   display: inline-block;
-  background: linear-gradient(135deg, var(--aqi-blue), #1976D2);
+  background: var(--primary);
   color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
   text-decoration: none;
-  font-weight: 700;
-  transition: all 0.3s;
+  font-weight: 400;
+  transition: background 0.3s;
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  font-size: 0.95rem;
 }
 
 .github-link:hover {
-  background: linear-gradient(135deg, #1976D2, var(--aqi-blue));
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  background: #1a252f;
   color: white;
   text-decoration: none;
 }
@@ -180,28 +167,40 @@ body, p {
 code {
   background: #f5f5f5;
   padding: 0.2rem 0.4rem;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 0.9em;
+  color: var(--primary);
 }
 
 h2 {
-  color: var(--aqi-blue);
-  font-weight: 800;
-  margin-top: 3rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid var(--aqi-green);
+  color: var(--primary);
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
 h3 {
-  color: var(--aqi-dark);
-  font-weight: 700;
-  margin-top: 2rem;
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 </style>
 
 <div class="page-title-section">
 <div class="page-title">
-🌍 Air Quality Intelligence
+Air Quality Intelligence
 </div>
 <div class="page-subtitle">
 Real-time environmental monitoring with AI-powered health recommendations
@@ -210,12 +209,12 @@ Real-time environmental monitoring with AI-powered health recommendations
 
 ## Overview
 
-An intelligent agent system combining the **Model Context Protocol (MCP)** with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.
+An intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.
 
 <div class="stat-grid">
 <div class="stat-card">
-<span class="stat-number">🌍</span>
-<span class="stat-label">Global Coverage</span>
+<span class="stat-number">Global</span>
+<span class="stat-label">Coverage</span>
 </div>
 
 <div class="stat-card">
@@ -224,12 +223,12 @@ An intelligent agent system combining the **Model Context Protocol (MCP)** with 
 </div>
 
 <div class="stat-card">
-<span class="stat-number">15min</span>
+<span class="stat-number">15 min</span>
 <span class="stat-label">Update Frequency</span>
 </div>
 
 <div class="stat-card">
-<span class="stat-number">⚡</span>
+<span class="stat-number">Live</span>
 <span class="stat-label">Real-Time Data</span>
 </div>
 </div>
@@ -239,27 +238,31 @@ An intelligent agent system combining the **Model Context Protocol (MCP)** with 
 <div class="feature-grid">
 
 <div class="feature-card">
-<div class="feature-icon">📊</div>
 <div class="feature-title">Real-Time Monitoring</div>
+<div class="feature-description">
 Live AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)
 </div>
+</div>
 
 <div class="feature-card">
-<div class="feature-icon">💡</div>
 <div class="feature-title">Smart Recommendations</div>
+<div class="feature-description">
 Activity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions
 </div>
-
-<div class="feature-card">
-<div class="feature-icon">🔍</div>
-<div class="feature-title">Multi-City Compare</div>
-Side-by-side analysis of air quality across multiple cities for travel planning
 </div>
 
 <div class="feature-card">
-<div class="feature-icon">🛡️</div>
+<div class="feature-title">Multi-City Compare</div>
+<div class="feature-description">
+Side-by-side analysis of air quality across multiple cities for travel planning
+</div>
+</div>
+
+<div class="feature-card">
 <div class="feature-title">Health Protection</div>
+<div class="feature-description">
 Special guidance for sensitive groups including children, elderly, and those with respiratory conditions
+</div>
 </div>
 
 </div>
@@ -270,24 +273,24 @@ Special guidance for sensitive groups including children, elderly, and those wit
 
 <div class="demo-section">
 <div class="output-box">
-🌍 AIR QUALITY QUICK REPORT
+AIR QUALITY QUICK REPORT
 ============================================================
-🟠 Dhaka           | AQI: 116 | Unhealthy for Sensitive Groups
-🟢 New York        | AQI:  45 | Good
-🟠 Los Angeles     | AQI: 112 | Unhealthy for Sensitive Groups
-🟡 Seattle         | AQI:  96 | Moderate
-🔴 London          | AQI: 153 | Unhealthy
+Dhaka           | AQI: 116 | Unhealthy for Sensitive Groups
+New York        | AQI:  45 | Good
+Los Angeles     | AQI: 112 | Unhealthy for Sensitive Groups
+Seattle         | AQI:  96 | Moderate
+London          | AQI: 153 | Unhealthy
 </div>
 
-**Interpretation**: Color-coded health categories make it easy to assess air quality at a glance. Green = safe for all activities, Yellow = generally acceptable, Orange = sensitive groups should take precautions, Red = everyone should limit outdoor exposure.
+**Interpretation**: Color-coded health categories make it easy to assess air quality at a glance.
 </div>
 
 ### Detailed City Analysis: Boston
 
-<div class="demo-section">
+<parameter name="demo-section">
 <div class="output-box">
 ============================================================
-🟢 BOSTON - Good
+BOSTON - Good
 ============================================================
 Overall AQI: 47
 Location: (42.3554, -71.0605)
@@ -300,9 +303,9 @@ Pollutant Concentrations:
   SO2:   0.8 µg/m³
   CO:    130.0 µg/m³
 
-💡 HEALTH RECOMMENDATIONS
+HEALTH RECOMMENDATIONS
 ------------------------------------------------------------
-General: Air quality is excellent. Enjoy outdoor activities!
+General: Air quality is excellent. Enjoy outdoor activities.
 
 For Jogging: Perfect conditions for jogging and running.
 
@@ -311,12 +314,7 @@ For Cycling: Ideal day for cycling.
 Sensitive Groups: No precautions needed.
 </div>
 
-**Features Demonstrated**:
-- Real-time AQI calculation (47 = Good)
-- GPS coordinate precision for exact location
-- Comprehensive pollutant breakdown
-- Activity-specific health recommendations
-- Sensitive group guidance
+**Features Demonstrated**: Real-time AQI calculation, GPS coordinate precision, comprehensive pollutant breakdown, activity-specific health recommendations, sensitive group guidance.
 
 </div>
 
@@ -324,27 +322,27 @@ Sensitive Groups: No precautions needed.
 
 <div class="demo-section">
 <div class="output-box">
-📊 Comparing air quality across 3 cities...
+Comparing air quality across 3 cities...
 
-🏆 Rankings (Best to Worst):
+Rankings (Best to Worst):
 ------------------------------------------------------------
-🟡 1. Seattle
+1. Seattle
    AQI: 96 (Moderate)
    PM2.5: 1.1 µg/m³
 
-🟠 2. Dhaka
+2. Dhaka
    AQI: 116 (Unhealthy for Sensitive Groups)
    PM2.5: 48.9 µg/m³
 
-🟠 3. Tokyo
+3. Tokyo
    AQI: 122 (Unhealthy for Sensitive Groups)
    PM2.5: 3.2 µg/m³
 
-✅ Best: Seattle (AQI 96)
-⚠️  Worst: Tokyo (AQI 122)
+Best: Seattle (AQI 96)
+Worst: Tokyo (AQI 122)
 </div>
 
-**Use Case**: Perfect for travel planning - compare air quality across potential destinations to make informed decisions about outdoor activities and health precautions.
+**Use Case**: Perfect for travel planning to compare air quality across potential destinations and make informed decisions about outdoor activities and health precautions.
 </div>
 
 ## Technical Architecture
@@ -456,36 +454,40 @@ Sensitive group guidance provides:
 - Alternative indoor activities
 - Hourly recommendations
 
-## 🤖 Gen AI Conversational Agent (New!)
+## Gen AI Conversational Agent
 
-Building on the core MCP architecture, I've enhanced this project with **AI-powered natural language understanding** using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.
+Building on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.
 
-### What Makes It Gen AI?
+### What Makes It Gen AI
 
 <div class="feature-grid">
 
 <div class="feature-card">
-<div class="feature-icon">💬</div>
 <div class="feature-title">Natural Language Understanding</div>
-Ask questions in plain English - no commands to memorize. The AI understands context and intent.
+<div class="feature-description">
+Ask questions in plain English with no commands to memorize. The AI understands context and intent.
+</div>
 </div>
 
 <div class="feature-card">
-<div class="feature-icon">🎯</div>
 <div class="feature-title">Personalized Recommendations</div>
+<div class="feature-description">
 Tailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)
 </div>
-
-<div class="feature-card">
-<div class="feature-icon">🧠</div>
-<div class="feature-title">Contextual Intelligence</div>
-Combines real-time data with medical knowledge, considers multiple factors for nuanced advice
 </div>
 
 <div class="feature-card">
-<div class="feature-icon">🔄</div>
+<div class="feature-title">Contextual Intelligence</div>
+<div class="feature-description">
+Combines real-time data with medical knowledge, considers multiple factors for nuanced advice
+</div>
+</div>
+
+<div class="feature-card">
 <div class="feature-title">Conversation Memory</div>
+<div class="feature-description">
 Maintains context across multi-turn conversations for follow-up questions and clarifications
+</div>
 </div>
 
 </div>
@@ -497,23 +499,23 @@ Maintains context across multi-turn conversations for follow-up questions and cl
 #### Example 1: Simple Air Quality Check
 
 <div class="output-box">
-💬 User: What's the air quality like in Boston today?
+User: What's the air quality like in Boston today?
 
-🤖 AI Assistant:
-Great news! The air quality in Boston is currently excellent 
-with an AQI of 47, which falls in the "Good" category.
+AI Assistant:
+Great news. The air quality in Boston is currently excellent 
+with an AQI of 47, which falls in the Good category.
 
 Here's what this means for you:
-• Air is safe for everyone - All outdoor activities are perfectly fine
-• PM2.5: 0.7 µg/m³ (very low particulate matter)
-• Ozone: 56.3 µg/m³ (within safe limits)
+Air is safe for everyone. All outdoor activities are perfectly fine.
+PM2.5: 0.7 µg/m³ (very low particulate matter)
+Ozone: 56.3 µg/m³ (within safe limits)
 
-This is ideal weather for outdoor activities! Whether you want to 
-jog, cycle, or spend time in the park, the air quality won't be 
-a concern today. Enjoy the fresh air! 🌤️
+This is ideal weather for outdoor activities. Whether you want to 
+jog, cycle, or spend time in the park, the air quality will not be 
+a concern today. Enjoy the fresh air.
 </div>
 
-**What's Different**: Unlike the basic demo, the Gen AI agent provides empathetic, conversational responses that explain "why" and "what to do" - not just data dumps.
+**Key Difference**: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.
 
 </div>
 
@@ -522,40 +524,36 @@ a concern today. Enjoy the fresh air! 🌤️
 #### Example 2: Health-Specific Personalized Advice
 
 <div class="output-box">
-💬 User: I have asthma. Can I go jogging in Dhaka today?
+User: I have asthma. Can I go jogging in Dhaka today?
 
-🤖 AI Assistant:
-I'd advise caution for jogging in Dhaka today. The current AQI 
-is 116, which is in the "Unhealthy for Sensitive Groups" category.
+AI Assistant:
+I would advise caution for jogging in Dhaka today. The current AQI 
+is 116, which is in the Unhealthy for Sensitive Groups category.
 
-Since you have asthma, here's what I recommend:
+Since you have asthma, here is what I recommend:
 
-⚠️  Today's Conditions:
-• AQI: 116 (Unhealthy for Sensitive Groups)
-• PM2.5: 48.9 µg/m³ (elevated particulate matter)
-• PM10: 58.6 µg/m³ (elevated)
+Today's Conditions:
+AQI: 116 (Unhealthy for Sensitive Groups)
+PM2.5: 48.9 µg/m³ (elevated particulate matter)
+PM10: 58.6 µg/m³ (elevated)
 
-🏃 Jogging Recommendations:
+Jogging Recommendations:
 1. Best option: Exercise indoors today (gym, treadmill, indoor track)
 2. If you must jog outside:
-   - Go early morning or late evening when AQI is typically better
-   - Keep it short (15-20 minutes max)
-   - Stay at a comfortable pace - avoid intense exertion
-   - Carry your inhaler
-   - Monitor how you feel - stop if you experience any symptoms
+   Go early morning or late evening when AQI is typically better
+   Keep it short (15-20 minutes max)
+   Stay at a comfortable pace, avoid intense exertion
+   Carry your inhaler
+   Monitor how you feel, stop if you experience any symptoms
 
 3. Watch for symptoms: Coughing, wheezing, shortness of breath, 
    or chest tightness mean you should stop immediately
 
-📱 Better days ahead: Check the AQI forecast - it might improve 
-in the next day or two. Your health comes first! 💙
+Better days ahead: Check the AQI forecast, it might improve 
+in the next day or two. Your health comes first.
 </div>
 
-**Intelligence at Work**: The AI understands the user has a pre-existing condition and provides:
-- Risk assessment specific to asthma
-- Tiered recommendations (best → acceptable)
-- Symptom monitoring guidance
-- Empathetic, safety-first messaging
+**Intelligence at Work**: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.
 
 </div>
 
@@ -564,28 +562,28 @@ in the next day or two. Your health comes first! 💙
 #### Example 3: Intelligent City Comparison for Travel
 
 <div class="output-box">
-💬 User: Compare air quality in Seattle and Los Angeles
+User: Compare air quality in Seattle and Los Angeles
 
-🤖 AI Assistant:
-Here's your air quality comparison:
+AI Assistant:
+Here is your air quality comparison:
 
-🌲 Seattle: AQI 96 (Moderate) ⭐⭐⭐
-• Generally acceptable air quality
-• Most people can enjoy outdoor activities
+Seattle: AQI 96 (Moderate)
+Generally acceptable air quality
+Most people can enjoy outdoor activities
 
-🌴 Los Angeles: AQI 107 (Unhealthy for Sensitive Groups) ⭐⭐
-• Sensitive groups should limit outdoor exertion
-• Higher ozone levels (78.2 µg/m³)
+Los Angeles: AQI 107 (Unhealthy for Sensitive Groups)
+Sensitive groups should limit outdoor exertion
+Higher ozone levels (78.2 µg/m³)
 
-Winner: Seattle has better air quality today! 🏆
+Winner: Seattle has better air quality today.
 
 Key Differences:
-• Seattle's AQI is 11 points better
-• Both cities have low PM2.5
-• LA has higher ozone due to Southern California weather patterns
+Seattle AQI is 11 points better
+Both cities have low PM2.5
+LA has higher ozone due to Southern California weather patterns
 
-If you're deciding where to visit, remember this is just today's 
-snapshot - check historical trends for the full picture! 📊
+If you are deciding where to visit, remember this is just today's 
+snapshot. Check historical trends for the full picture.
 </div>
 
 **Beyond Basic Comparison**: The AI explains differences, provides context, and suggests long-term thinking.
@@ -609,7 +607,7 @@ python3 aqi_genai_agent.py
 python3 aqi_genai_agent.py demo
 ```
 
-See `genai_example_conversations.txt` for more examples!
+See genai_example_conversations.txt for more examples.
 export API_NINJAS_KEY='your_key_here'
 
 # Run quick report
