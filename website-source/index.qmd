@@ -50,14 +50,14 @@ A conversational AI assistant for Foundation Model Benchmarking built with Amazo
 
 ::: {.project-card}
 ::: {.project-image}
-![Defying Analytics](https://media.giphy.com/media/l0HlHJGHe3yAMhdQY/giphy.gif)
+![Defying Analytics](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnY5ZnUxeW1mdHl1anB5bzc2bmFmZjBnNDhtOHFpcXBiOXp0enl2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aKpk3YNM7yzsyO6FUy/giphy.gif)
 :::
 ::: {.project-content}
-### [Defying Analytics: What Made Wicked TikTok-able?](wicked-tiktok.html)
-Turns out "Defying Gravity" doesn't just defy physics—it defies predictability too. I analyzed what actually drove Wicked's viral explosion on TikTok: spoiler alert, high danceability helps, but Ariana Grande posting about it helps *way* more. A retrospective study proving that musical theatre can absolutely break the internet (with the right memes, celebrities, and 287,000 lip-sync videos).
+### [Defying Analytics: What Spotify Reveals About Wicked](wicked.html)
+Twenty years after its Broadway debut, Wicked's soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.
 
-**Tech Stack:** Python • Spotify API • Plotly • Random Forest • Quarto  
-**Key Finding:** Audio features create potential, but celebrity boosts and duet formats make it go viral
+**Tech Stack:** Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto  
+**Key Finding:** Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers
 :::
 :::
 

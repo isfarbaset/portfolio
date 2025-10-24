@@ -37,6 +37,12 @@ a, button, .clickable {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">✨</text></svg>'), pointer !important;
 }
 
+/* Body text styling to match about me page */
+body, p, .project-overview, .insight-box, .methodology-section {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .hero-banner {
   background-image: url('images/banner-wicked.png');
   background-size: cover;
@@ -57,7 +63,7 @@ a, button, .clickable {
 }
 
 .page-title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 900;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, var(--wicked-green), var(--wicked-emerald));
@@ -70,7 +76,7 @@ a, button, .clickable {
 }
 
 .page-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
   color: #555;
   max-width: 900px;
@@ -286,19 +292,19 @@ Turns out "For Good" wins, duration doesn't matter even slightly (r=0.05, p=0.80
 <div class="insight-box">
 
 ### The Winner Nobody Expected (Sorry, Elphaba)
-"For Good"—the emotional duet near the finale—scores highest in Spotify popularity (58/100), edging out crowd favorites like "Defying Gravity" (56) and "No Good Deed" (57). Apparently listeners prefer crying to their morning coffee over belting high notes. Who knew?
+"For Good," the emotional duet near the finale, scores highest in Spotify popularity (58/100), edging out crowd favorites like "Defying Gravity" (56) and "No Good Deed" (57). Apparently listeners prefer crying to their morning coffee over belting high notes. Who knew?
 </div>
 
 <div class="insight-box">
 
 ### Duration Doesn't Matter (And I Have Receipts)
-Correlation between song length and popularity? A measly **r=0.05 with p=0.80**. Translation: whether a song runs 50 seconds or 7.6 minutes has *zero* predictive power for streaming success. ANOVA confirms it (F=1.76, p=0.19). The "keep it short for attention spans" advice? Statistically baseless—at least for this soundtrack.
+Correlation between song length and popularity? A measly **r=0.05 with p=0.80**. Translation: whether a song runs 50 seconds or 7.6 minutes has *zero* predictive power for streaming success. ANOVA confirms it (F=1.76, p=0.19). The "keep it short for attention spans" advice? Statistically baseless-at least for this soundtrack.
 </div>
 
 <div class="insight-box">
 
 ### Three Song Archetypes Nobody Talks About
-K-means clustering (k=3) reveals distinct groups: **Epic Numbers** (long, popular showstoppers), **Deep Cuts** (short, less-streamed but plot-essential tracks), and **Solid Mid-Tier** (balanced popularity and length). It's not a hierarchy—each serves a different purpose. The soundtrack works *because* it has variety, not despite it.
+K-means clustering (k=3) reveals distinct groups: **Epic Numbers** (long, popular showstoppers), **Deep Cuts** (short, less-streamed but plot-essential tracks), and **Solid Mid-Tier** (balanced popularity and length). It's not a hierarchy. Each serves a different purpose. The soundtrack works *because* it has variety, not despite it.
 </div>
 
 ## Methodology: Data Collection & Analysis
@@ -316,7 +322,7 @@ K-means clustering (k=3) reveals distinct groups: **Epic Numbers** (long, popula
 
 I collected data on 28 tracks from the Wicked soundtrack using Spotify's Web API, capturing track metadata (name, duration, popularity scores) and analyzing patterns in listener engagement. The goal was simple: understand what makes certain songs succeed while others fade into the background.
 
-The approach: descriptive statistics, correlation analysis, hypothesis testing (ANOVA, t-tests), unsupervised learning (K-means clustering, PCA), and interactive visualizations. No simulated data, no assumptions—just real numbers from real listeners.
+The approach: descriptive statistics, correlation analysis, hypothesis testing (ANOVA, t-tests), unsupervised learning (K-means clustering, PCA), and interactive visualizations. No simulated data, no assumptions. Just real numbers from real listeners.
 
 </div>
 
@@ -617,13 +623,13 @@ fig.show()
 ::: {.insight-box}
 **Cluster Insight**: K-means analysis (k=3) reveals three distinct song types that actually make sense:
 
-- **Cluster 0: Epic Showstoppers** — Long (avg 6.18 min), popular (avg 50.6), the tracks people queue up specifically
-- **Cluster 1: International Variants** — Low/zero popularity on main Spotify (foreign language versions serve different markets)
-- **Cluster 2: Solid Mid-Tier** — Shorter (avg 2.69 min), balanced popularity (avg 47.9), the narrative glue holding it all together
+- **Cluster 0: Epic Showstoppers** - Long (avg 6.18 min), popular (avg 50.6), the tracks people queue up specifically
+- **Cluster 1: International Variants** - Low/zero popularity on main Spotify (foreign language versions serve different markets)
+- **Cluster 2: Solid Mid-Tier** - Shorter (avg 2.69 min), balanced popularity (avg 47.9), the narrative glue holding it all together
 
-**What this reveals:** Successful soundtracks aren't monoliths. They need peaks *and* valleys. The "filler tracks" aren't filler—they're structural. Remove them and the whole thing collapses. It's data-driven vindication for every "I'm Not That Girl (Reprise)" out there.
+**What this reveals:** Successful soundtracks aren't monoliths. They need peaks *and* valleys. The "filler tracks" aren't filler-they're structural. Remove them and the whole thing collapses. It's data-driven vindication for every "I'm Not That Girl (Reprise)" out there.
 
-**Bottom Line:** Great albums need variety. You can't have all bangers—the quiet moments make the big moments matter. The "boring" tracks aren't mistakes; they're part of the design.
+**Bottom Line:** Great albums need variety. You can't have all bangers-the quiet moments make the big moments matter. The "boring" tracks aren't mistakes; they're part of the design.
 :::
 
 ### PCA Visualization: The Hidden Structure
@@ -717,7 +723,7 @@ fig.show()
 
 **The vindication:** The clear cluster separation validates our K-means groupings. The algorithm found *real structure* in the data, not random noise or wishful thinking. Sometimes machine learning actually works exactly as advertised. Mark this day.
 
-**Bottom Line:** The songs naturally group into distinct types. It's not random—there's an actual pattern to what works and what doesn't. Math proves the soundtrack is well-designed, whether or not that was intentional.
+**Bottom Line:** The songs naturally group into distinct types. It's not random-there's an actual pattern to what works and what doesn't. Math proves the soundtrack is well-designed, whether or not that was intentional.
 :::
 
 ### Popularity Distribution: The Full Picture
@@ -823,11 +829,11 @@ fig.show()
 ```
 
 ::: {.insight-box}
-**Distribution Stats**: The popularity distribution is relatively symmetric with mean (46.9) kissing close to median (49.0), suggesting balanced representation across the soundtrack. No extreme outliers—even the top songs stay within 2 standard deviations. 
+**Distribution Stats**: The popularity distribution is relatively symmetric with mean (46.9) kissing close to median (49.0), suggesting balanced representation across the soundtrack. No extreme outliers-even the top songs stay within 2 standard deviations. 
 
-**What this means:** This isn't a "one-hit wonder" album propped up by a single mega-hit while everything else languishes. It's a soundtrack with *consistent quality*—the kind of depth that keeps entire albums in rotation instead of just the singles. Old-school music industry, meet your validation.
+**What this means:** This isn't a "one-hit wonder" album propped up by a single mega-hit while everything else languishes. It's a soundtrack with *consistent quality*-the kind of depth that keeps entire albums in rotation instead of just the singles. Old-school music industry, meet your validation.
 
-**Bottom Line:** Every song holds its own. You're not fast-forwarding through filler to get to the good parts—the whole album is worth listening to. That's increasingly rare.
+**Bottom Line:** Every song holds its own. You're not fast-forwarding through filler to get to the good parts-the whole album is worth listening to. That's increasingly rare.
 :::
 
 ### Duration Distribution by Popularity Tier
@@ -894,7 +900,7 @@ fig.show()
 ```
 
 ::: {.insight-box}
-**Tier Analysis**: ANOVA on duration across popularity tiers yields **F=1.76, p=0.19**—not statistically significant. The violin plots confirm it visually: all tiers show similar spread and central tendency.
+**Tier Analysis**: ANOVA on duration across popularity tiers yields **F=1.76, p=0.19**-not statistically significant. The violin plots confirm it visually: all tiers show similar spread and central tendency.
 
 **Translation for executives:** Stop telling artists to "cut it down to 3 minutes." High-popularity songs aren't systematically shorter than mid or low-popularity tracks. Make it good, make it memorable, and listeners will stay for however long it takes. The data has spoken, and it's tired of your arbitrary time limits.
 
@@ -953,31 +959,31 @@ Every streaming era thinkpiece insists "shorter songs perform better because att
 
 With r=0.05 and p=0.80, there's no statistical relationship between song length and popularity. "Dancing Through Life" (7.62 minutes) and "For Good" (5.11 minutes) both outperform most shorter tracks. ANOVA confirms no difference across popularity tiers (F=1.76, p=0.19). T-test comparing long vs. short songs? t=-0.15, p=0.88. Statistically identical.
 
-**Real lesson:** Content quality and emotional resonance matter more than runtime. Listeners will stick with a song if it delivers—whether it's 90 seconds or 7 minutes. Stop cutting good art to fit arbitrary time limits that the data doesn't support.
+**Real lesson:** Content quality and emotional resonance matter more than runtime. Listeners will stick with a song if it delivers-whether it's 90 seconds or 7 minutes. Stop cutting good art to fit arbitrary time limits that the data doesn't support.
 
 ### 2. Three Distinct Song Archetypes (That the Industry Doesn't Name)
 
 K-means clustering reveals the soundtrack serves three distinct functions:
 
-- **Epic Showstoppers:** Long, popular, memorable—the tracks people think of when they hear "Wicked"
+- **Epic Showstoppers:** Long, popular, memorable-the tracks people think of when they hear "Wicked"
 - **Narrative Builders:** Shorter supporting tracks that advance plot but don't necessarily dominate playlists
 - **International Variants:** Translations and alternate versions (low Spotify presence but crucial for global reach)
 
-**Real lesson:** A successful soundtrack isn't monolithic. It needs variety—peaks and valleys, bombast and intimacy. The "filler" tracks aren't failures; they're structural necessities. Remove the connective tissue and the whole body stops working.
+**Real lesson:** A successful soundtrack isn't monolithic. It needs variety-peaks and valleys, bombast and intimacy. The "filler" tracks aren't failures; they're structural necessities. Remove the connective tissue and the whole body stops working.
 
 ### 3. "For Good" Defies Every Prediction
 
-Nobody—and I mean *nobody*—predicted the quiet, emotional duet would beat "Defying Gravity." But it does (58 vs. 56). This might reflect:
+Nobody-and I mean *nobody*-predicted the quiet, emotional duet would beat "Defying Gravity." But it does (58 vs. 56). This might reflect:
 
 - **Emotional depth:** Listeners return to songs that make them *feel*, not just sing along
-- **Replayability:** "Defying Gravity" is a showstopper, but you don't blast it at 7 AM every Tuesday. "For Good" is a comfort song—the one you need when life gets complicated.
+- **Replayability:** "Defying Gravity" is a showstopper, but you don't blast it at 7 AM every Tuesday. "For Good" is a comfort song-the one you need when life gets complicated.
 - **Under-the-radar favoritism:** Not the flashiest choice, but the one that sticks in your chest
 
-**Real lesson:** Flashy doesn't always equal popular. The moments that make us cry often resonate more deeply than the ones that make us cheer. Marketing loves the big moments, but listeners love what they love—and data doesn't lie about it.
+**Real lesson:** Flashy doesn't always equal popular. The moments that make us cry often resonate more deeply than the ones that make us cheer. Marketing loves the big moments, but listeners love what they love-and data doesn't lie about it.
 
 ### 4. The Data's Blind Spots (And Why That's Important)
 
-This analysis tells us *what* is popular and *what* correlates (or doesn't). But it can't explain *why* certain songs resonate. Was "For Good" boosted by a viral moment we missed? A celebrity cover? An emotional TikTok trend? The CSV doesn't capture cultural context, personal memories, or the specific moment someone first heard a song that changed them.
+This analysis tells us *what* is popular and *what* correlates (or doesn't). But it can't explain *why* certain songs resonate. Was "For Good" boosted by a viral moment we missed? A celebrity cover? An emotional social media trend? The CSV doesn't capture cultural context, personal memories, or the specific moment someone first heard a song that changed them.
 
 **Real lesson:** Numbers tell you where to look. Context tells you what you're seeing. Good data science acknowledges its limits. Great data science uses those limits to ask better questions for the next project.
 
@@ -1003,20 +1009,20 @@ This analysis tells us *what* is popular and *what* correlates (or doesn't). But
 ### Statistical Analysis Pipeline
 
 **Tools Used:**
-- **Python 3.11** — Core programming language
-- **Pandas** — Data manipulation and cleaning
-- **SciPy** — Statistical tests (correlation, ANOVA, t-tests)
-- **Scikit-learn** — K-means clustering and PCA
-- **Plotly** — Interactive visualizations
-- **Jupyter Notebooks** — Exploratory analysis
+- **Python 3.11** - Core programming language
+- **Pandas** - Data manipulation and cleaning
+- **SciPy** - Statistical tests (correlation, ANOVA, t-tests)
+- **Scikit-learn** - K-means clustering and PCA
+- **Plotly** - Interactive visualizations
+- **Jupyter Notebooks** - Exploratory analysis
 
 **Analysis Steps:**
-1. **Descriptive Statistics** — Computed mean, median, std, range for all metrics
-2. **Correlation Analysis** — Pearson correlation between duration and popularity
-3. **ANOVA** — Tested duration differences across popularity tiers
-4. **T-Tests** — Compared long vs. short songs (median split)
-5. **K-Means Clustering** — Identified song archetypes (k=3)
-6. **PCA** — Reduced feature space to 2D for visualization
+1. **Descriptive Statistics** - Computed mean, median, std, range for all metrics
+2. **Correlation Analysis** - Pearson correlation between duration and popularity
+3. **ANOVA** - Tested duration differences across popularity tiers
+4. **T-Tests** - Compared long vs. short songs (median split)
+5. **K-Means Clustering** - Identified song archetypes (k=3)
+6. **PCA** - Reduced feature space to 2D for visualization
 
 ### Code Architecture
 
@@ -1054,19 +1060,19 @@ df.to_csv('spotify_analysis_results.csv')
 
 <div class="methodology-section">
 
-**API Integration:** Working with Spotify's Web API taught me the importance of rate limiting, error handling, and data validation. Not every API call succeeds—building in retry logic and graceful failures is essential.
+**API Integration:** Working with Spotify's Web API taught me the importance of rate limiting, error handling, and data validation. Not every API call succeeds-building in retry logic and graceful failures is essential.
 
 **Statistical Storytelling:** Raw test results (r=0.05, p=0.80) mean nothing without interpretation. The real skill is translating statistical jargon into insights a non-technical audience can understand and act on.
 
 **Visualization Choices:** Interactive charts > static images. Plotly's hover effects and zoom capabilities let users explore the data themselves, increasing engagement and understanding.
 
-**Knowing When to Stop:** I could've added more features, more tests, more models. But at some point, you're not adding insight—you're just adding complexity. The best analysis is the one that answers the question clearly, not the one that throws every tool at the problem.
+**Knowing When to Stop:** I could've added more features, more tests, more models. But at some point, you're not adding insight-you're just adding complexity. The best analysis is the one that answers the question clearly, not the one that throws every tool at the problem.
 
 </div>
 
 ### The Real Insight
 
-Data science can tell you *what* happened. With enough data, it can even tell you *how* it happened. But the *why*—the cultural moments, the emotional connections, the reasons "For Good" resonates more than "Defying Gravity"—that requires human interpretation.
+Data science can tell you *what* happened. With enough data, it can even tell you *how* it happened. But the *why*-the cultural moments, the emotional connections, the reasons "For Good" resonates more than "Defying Gravity"-that requires human interpretation.
 
 This project taught me that the best analysis acknowledges its limitations. The numbers got us 80% of the way there. The other 20%? That's where the story lives.
 
@@ -1092,7 +1098,7 @@ Mine YouTube comments, Reddit discussions, and social media to understand *why* 
 Build a model to predict which tracks from *new* musicals will become streaming hits. Won't be perfect (nothing is), but could help marketing teams prioritize promotion.
 
 **6. Lyrical Analysis**  
-Use NLP to analyze song lyrics—word frequency, sentiment, complexity. Do simpler lyrics correlate with higher popularity? Do emotional themes matter?
+Use NLP to analyze song lyrics-word frequency, sentiment, complexity. Do simpler lyrics correlate with higher popularity? Do emotional themes matter?
 
 
 
