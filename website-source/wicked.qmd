@@ -1051,7 +1051,7 @@ coords = pca.fit_transform(X)
 df.to_csv('spotify_analysis_results.csv')
 ```
 
-**Reproducibility:** All code, data, and analysis scripts are available in the [GitHub repository](https://github.com/isfarbaset/wicked-tiktok-analysis).
+**Reproducibility:** All code and analysis are available in the [GitHub repository](https://github.com/isfarbaset/portfolio/blob/main/website-source/wicked.qmd).
 
 </div>
 
@@ -1105,7 +1105,7 @@ Use NLP to analyze song lyrics-word frequency, sentiment, complexity. Do simpler
 
 <div style="text-align: center; margin: 3rem 0;">
 
-<a href="https://github.com/isfarbaset/wicked-tiktok-analysis" class="github-link" target="_blank">
+<a href="https://github.com/isfarbaset/portfolio/blob/main/website-source/wicked.qmd" class="github-link" target="_blank">
 Explore the Code on GitHub
 </a>
 
