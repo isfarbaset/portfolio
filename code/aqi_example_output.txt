@@ -1,0 +1,39 @@
+
+🌍 AIR QUALITY INTELLIGENCE SYSTEM
+============================================================
+Ask me about air quality in any city!
+Commands:
+  - Type a city name (e.g., 'Dhaka', 'New York')
+  - 'compare [city1] [city2] [city3]' to compare cities
+  - 'quit' to exit
+============================================================
+
+🔍 Your question: 
+📍 Checking air quality in Boston...
+
+============================================================
+🟢 BOSTON - Good
+============================================================
+Overall AQI: 47
+Location: (42.3554, -71.0605)
+
+Pollutant Concentrations:
+  PM2.5: 0.7 µg/m³
+  PM10:  1.3 µg/m³
+  O3:    56.3 µg/m³
+  NO2:   3.6 µg/m³
+  SO2:   0.8 µg/m³
+  CO:    130.0 µg/m³
+
+💡 HEALTH RECOMMENDATIONS
+------------------------------------------------------------
+General: Air quality is excellent. Enjoy outdoor activities!
+
+For Jogging: Perfect conditions for jogging and running.
+
+For Cycling: Ideal day for cycling.
+
+Sensitive Groups: No precautions needed.
+
+🔍 Your question: 
+👋 Thanks for using Air Quality Intelligence!
