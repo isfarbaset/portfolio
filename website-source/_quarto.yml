@@ -15,6 +15,7 @@ website:
       - text: "About Me"
         href: "about-me.qmd"
       - text: "Projects"
+        href: "index.qmd#projects"
         menu:
           - text: "Air Quality Intelligence"
             href: "aqi.qmd"
