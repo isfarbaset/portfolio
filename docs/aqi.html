@@ -223,23 +223,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#travel-planning" id="toc-travel-planning" class="nav-link" data-scroll-target="#travel-planning">2. Travel Planning</a></li>
   <li><a href="#family-safety" id="toc-family-safety" class="nav-link" data-scroll-target="#family-safety">3. Family Safety</a></li>
   </ul></li>
-  <li><a href="#health-category-system" id="toc-health-category-system" class="nav-link" data-scroll-target="#health-category-system">Health Category System</a></li>
-  <li><a href="#data-sources-accuracy" id="toc-data-sources-accuracy" class="nav-link" data-scroll-target="#data-sources-accuracy">Data Sources &amp; Accuracy</a>
+  <li><a href="#gen-ai-conversational-agent-new" id="toc-gen-ai-conversational-agent-new" class="nav-link" data-scroll-target="#gen-ai-conversational-agent-new">🤖 Gen AI Conversational Agent (New!)</a>
   <ul class="collapse">
-  <li><a href="#api-ninjas-air-quality-api" id="toc-api-ninjas-air-quality-api" class="nav-link" data-scroll-target="#api-ninjas-air-quality-api">API Ninjas Air Quality API</a></li>
-  <li><a href="#real-test-results-october-24-2025" id="toc-real-test-results-october-24-2025" class="nav-link" data-scroll-target="#real-test-results-october-24-2025">Real Test Results (October 24, 2025)</a></li>
+  <li><a href="#what-makes-it-gen-ai" id="toc-what-makes-it-gen-ai" class="nav-link" data-scroll-target="#what-makes-it-gen-ai">What Makes It Gen AI?</a></li>
+  <li><a href="#live-gen-ai-conversations" id="toc-live-gen-ai-conversations" class="nav-link" data-scroll-target="#live-gen-ai-conversations">Live Gen AI Conversations</a></li>
+  <li><a href="#try-the-gen-ai-agent" id="toc-try-the-gen-ai-agent" class="nav-link" data-scroll-target="#try-the-gen-ai-agent">Try the Gen AI Agent</a></li>
   </ul></li>
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a></li>
-  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">Performance Metrics</a></li>
-  <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">Future Enhancements</a>
+  <li><a href="#run-quick-report" id="toc-run-quick-report" class="nav-link" data-scroll-target="#run-quick-report">Run quick report</a></li>
+  <li><a href="#run-interactive-mode" id="toc-run-interactive-mode" class="nav-link" data-scroll-target="#run-interactive-mode">Run interactive mode</a>
   <ul class="collapse">
-  <li><a href="#planned-features" id="toc-planned-features" class="nav-link" data-scroll-target="#planned-features">Planned Features</a></li>
-  <li><a href="#advanced-integrations" id="toc-advanced-integrations" class="nav-link" data-scroll-target="#advanced-integrations">Advanced Integrations</a></li>
-  </ul></li>
-  <li><a href="#technologies-used" id="toc-technologies-used" class="nav-link" data-scroll-target="#technologies-used">Technologies Used</a></li>
-  <li><a href="#error-handling-reliability" id="toc-error-handling-reliability" class="nav-link" data-scroll-target="#error-handling-reliability">Error Handling &amp; Reliability</a></li>
-  <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link" data-scroll-target="#try-it-yourself">Try It Yourself</a></li>
+  <li><a href="#example-queries-to-try" id="toc-example-queries-to-try" class="nav-link" data-scroll-target="#example-queries-to-try">Example Queries to Try</a></li>
   <li><a href="#code-repository" id="toc-code-repository" class="nav-link" data-scroll-target="#code-repository">Code Repository</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -633,249 +628,115 @@ Health Protection
 <p>Sensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations</p>
 </section>
 </section>
-<section id="health-category-system" class="level2">
-<h2 class="anchored" data-anchor-id="health-category-system">Health Category System</h2>
-<p>The system uses WHO/EPA guidelines to classify air quality:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Category</th>
-<th>AQI Range</th>
-<th>Indicator</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>🟢 Good</td>
-<td>0-50</td>
-<td>Excellent</td>
-<td>Safe for all activities</td>
-</tr>
-<tr class="even">
-<td>🟡 Moderate</td>
-<td>51-100</td>
-<td>Acceptable</td>
-<td>Generally safe, sensitive individuals may want to limit prolonged exertion</td>
-</tr>
-<tr class="odd">
-<td>🟠 Unhealthy for Sensitive</td>
-<td>101-150</td>
-<td>Caution</td>
-<td>Sensitive groups should reduce outdoor activities</td>
-</tr>
-<tr class="even">
-<td>🔴 Unhealthy</td>
-<td>151-200</td>
-<td>Alert</td>
-<td>Everyone should limit outdoor exertion</td>
-</tr>
-<tr class="odd">
-<td>🟣 Very Unhealthy</td>
-<td>201-300</td>
-<td>Warning</td>
-<td>Avoid all outdoor activities</td>
-</tr>
-<tr class="even">
-<td>⚫ Hazardous</td>
-<td>301+</td>
-<td>Emergency</td>
-<td>Health emergency - stay indoors</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data-sources-accuracy" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources-accuracy">Data Sources &amp; Accuracy</h2>
-<section id="api-ninjas-air-quality-api" class="level3">
-<h3 class="anchored" data-anchor-id="api-ninjas-air-quality-api">API Ninjas Air Quality API</h3>
-<ul>
-<li><strong>Coverage</strong>: Worldwide (all major cities + GPS coordinates)</li>
-<li><strong>Update Frequency</strong>: Real-time (15-minute intervals)</li>
-<li><strong>Pollutants</strong>: PM2.5, PM10, O3, NO2, SO2, CO</li>
-<li><strong>Accuracy</strong>: Based on ground-level monitoring stations</li>
-<li><strong>Validation</strong>: Cross-referenced with EPA/WHO standards</li>
-</ul>
-</section>
-<section id="real-test-results-october-24-2025" class="level3">
-<h3 class="anchored" data-anchor-id="real-test-results-october-24-2025">Real Test Results (October 24, 2025)</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>City</th>
-<th>AQI</th>
-<th>Category</th>
-<th>PM2.5</th>
-<th>Key Recommendation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>New York</td>
-<td>45</td>
-<td>Good</td>
-<td>0.7</td>
-<td>Perfect for all activities</td>
-</tr>
-<tr class="even">
-<td>Boston</td>
-<td>47</td>
-<td>Good</td>
-<td>0.7</td>
-<td>Ideal outdoor conditions</td>
-</tr>
-<tr class="odd">
-<td>Seattle</td>
-<td>96</td>
-<td>Moderate</td>
-<td>1.1</td>
-<td>Generally safe</td>
-</tr>
-<tr class="even">
-<td>Los Angeles</td>
-<td>112</td>
-<td>Unhealthy (Sensitive)</td>
-<td>-</td>
-<td>Limited outdoor time</td>
-</tr>
-<tr class="odd">
-<td>Dhaka</td>
-<td>116</td>
-<td>Unhealthy (Sensitive)</td>
-<td>48.9</td>
-<td>Use precautions</td>
-</tr>
-<tr class="even">
-<td>London</td>
-<td>153</td>
-<td>Unhealthy</td>
-<td>-</td>
-<td>Avoid prolonged exposure</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="project-structure" class="level2">
-<h2 class="anchored" data-anchor-id="project-structure">Project Structure</h2>
-<pre><code>code/
-├── aqi_mcp_server.py      # Core MCP server (210 lines)
-├── aqi_demo.py            # Interactive demo (160 lines)
-├── README_AQI.md          # Documentation
-├── .env.aqi               # API configuration
-└── aqi_example_output.txt # Sample outputs</code></pre>
-</section>
-<section id="performance-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="performance-metrics">Performance Metrics</h2>
-<ul>
-<li><strong>Response Time</strong>: &lt; 2 seconds for single city</li>
-<li><strong>Multi-City Compare</strong>: &lt; 5 seconds for 3-5 cities</li>
-<li><strong>Data Freshness</strong>: 15-minute updates from API</li>
-<li><strong>Accuracy</strong>: GPS-precise location mapping</li>
-<li><strong>Reliability</strong>: Graceful error handling with fallbacks</li>
-</ul>
-</section>
-<section id="future-enhancements" class="level2">
-<h2 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h2>
-<section id="planned-features" class="level3">
-<h3 class="anchored" data-anchor-id="planned-features">Planned Features</h3>
-<ul>
-<li>📈 <strong>Predictive Analytics</strong>: 24-48 hour air quality forecasting</li>
-<li>🌤️ <strong>Weather Integration</strong>: Combined air quality + weather analysis</li>
-<li>📱 <strong>Mobile App</strong>: Cross-platform application</li>
-<li>🔔 <strong>Alert System</strong>: Automated notifications for threshold breaches</li>
-<li>📊 <strong>Historical Trends</strong>: Long-term pattern analysis</li>
-</ul>
-</section>
-<section id="advanced-integrations" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-integrations">Advanced Integrations</h3>
-<ul>
-<li>IoT sensors for hyper-local monitoring</li>
-<li>Smart home automation (air purifier control)</li>
-<li>Wearable health impact tracking</li>
-<li>Community reporting platform</li>
-</ul>
-</section>
-</section>
-<section id="technologies-used" class="level2">
-<h2 class="anchored" data-anchor-id="technologies-used">Technologies Used</h2>
+<section id="gen-ai-conversational-agent-new" class="level2">
+<h2 class="anchored" data-anchor-id="gen-ai-conversational-agent-new">🤖 Gen AI Conversational Agent (New!)</h2>
+<p>Building on the core MCP architecture, I’ve enhanced this project with <strong>AI-powered natural language understanding</strong> using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.</p>
+<section id="what-makes-it-gen-ai" class="level3">
+<h3 class="anchored" data-anchor-id="what-makes-it-gen-ai">What Makes It Gen AI?</h3>
 <div class="feature-grid">
 <div class="feature-card">
 <div class="feature-icon">
-🐍
+💬
 </div>
 <div class="feature-title">
-Python 3.11
+Natural Language Understanding
 </div>
-<p>Async/await architecture for optimal performance</p>
+<p>Ask questions in plain English - no commands to memorize. The AI understands context and intent.</p>
 </div>
 <div class="feature-card">
 <div class="feature-icon">
-⚡
+🎯
 </div>
 <div class="feature-title">
-Aiohttp
+Personalized Recommendations
 </div>
-<p>Asynchronous HTTP client for non-blocking API calls</p>
+<p>Tailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)</p>
 </div>
 <div class="feature-card">
 <div class="feature-icon">
-🔌
+🧠
 </div>
 <div class="feature-title">
-Model Context Protocol
+Contextual Intelligence
 </div>
-<p>Standardized data access layer for extensibility</p>
+<p>Combines real-time data with medical knowledge, considers multiple factors for nuanced advice</p>
 </div>
 <div class="feature-card">
 <div class="feature-icon">
-🌐
+🔄
 </div>
 <div class="feature-title">
-API Ninjas
+Conversation Memory
 </div>
-<p>Real-time global air quality data source</p>
+<p>Maintains context across multi-turn conversations for follow-up questions and clarifications</p>
 </div>
 </div>
 </section>
-<section id="error-handling-reliability" class="level2">
-<h2 class="anchored" data-anchor-id="error-handling-reliability">Error Handling &amp; Reliability</h2>
-<p>The system includes comprehensive error handling:</p>
-<ul>
-<li><strong>API Fallbacks</strong>: Graceful degradation if API is unavailable</li>
-<li><strong>Data Validation</strong>: Input/output checking for data integrity</li>
-<li><strong>Geocoding Errors</strong>: Clear messaging for invalid city names</li>
-<li><strong>Network Issues</strong>: Retry logic with exponential backoff</li>
-<li><strong>Rate Limiting</strong>: Respects API limits and queues requests</li>
-</ul>
+<section id="live-gen-ai-conversations" class="level3">
+<h3 class="anchored" data-anchor-id="live-gen-ai-conversations">Live Gen AI Conversations</h3>
+<section id="example-1-simple-air-quality-check" class="level4 demo-section">
+<h4 class="anchored" data-anchor-id="example-1-simple-air-quality-check">Example 1: Simple Air Quality Check</h4>
+<div class="output-box">
+<p>💬 User: What’s the air quality like in Boston today?</p>
+<p>🤖 AI Assistant: Great news! The air quality in Boston is currently excellent with an AQI of 47, which falls in the “Good” category.</p>
+<p>Here’s what this means for you: • Air is safe for everyone - All outdoor activities are perfectly fine • PM2.5: 0.7 µg/m³ (very low particulate matter) • Ozone: 56.3 µg/m³ (within safe limits)</p>
+<p>This is ideal weather for outdoor activities! Whether you want to jog, cycle, or spend time in the park, the air quality won’t be a concern today. Enjoy the fresh air! 🌤️</p>
+</div>
+<p><strong>What’s Different</strong>: Unlike the basic demo, the Gen AI agent provides empathetic, conversational responses that explain “why” and “what to do” - not just data dumps.</p>
 </section>
-<section id="try-it-yourself" class="level2">
-<h2 class="anchored" data-anchor-id="try-it-yourself">Try It Yourself</h2>
-<div class="demo-section">
-<section id="quick-start-commands" class="level3">
-<h3 class="anchored" data-anchor-id="quick-start-commands">Quick Start Commands</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/isfarbaset/portfolio.git</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> portfolio/code</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your API key</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run quick report</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run interactive mode</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-2-health-specific-personalized-advice" class="level4 demo-section">
+<h4 class="anchored" data-anchor-id="example-2-health-specific-personalized-advice">Example 2: Health-Specific Personalized Advice</h4>
+<div class="output-box">
+<p>💬 User: I have asthma. Can I go jogging in Dhaka today?</p>
+<p>🤖 AI Assistant: I’d advise caution for jogging in Dhaka today. The current AQI is 116, which is in the “Unhealthy for Sensitive Groups” category.</p>
+<p>Since you have asthma, here’s what I recommend:</p>
+<p>⚠️ Today’s Conditions: • AQI: 116 (Unhealthy for Sensitive Groups) • PM2.5: 48.9 µg/m³ (elevated particulate matter) • PM10: 58.6 µg/m³ (elevated)</p>
+<p>🏃 Jogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: - Go early morning or late evening when AQI is typically better - Keep it short (15-20 minutes max) - Stay at a comfortable pace - avoid intense exertion - Carry your inhaler - Monitor how you feel - stop if you experience any symptoms</p>
+<ol start="3" type="1">
+<li>Watch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately</li>
+</ol>
+<p>📱 Better days ahead: Check the AQI forecast - it might improve in the next day or two. Your health comes first! 💙</p>
+</div>
+<p><strong>Intelligence at Work</strong>: The AI understands the user has a pre-existing condition and provides: - Risk assessment specific to asthma - Tiered recommendations (best → acceptable) - Symptom monitoring guidance - Empathetic, safety-first messaging</p>
 </section>
+<section id="example-3-intelligent-city-comparison-for-travel" class="level4 demo-section">
+<h4 class="anchored" data-anchor-id="example-3-intelligent-city-comparison-for-travel">Example 3: Intelligent City Comparison for Travel</h4>
+<div class="output-box">
+<p>💬 User: Compare air quality in Seattle and Los Angeles</p>
+<p>🤖 AI Assistant: Here’s your air quality comparison:</p>
+<p>🌲 Seattle: AQI 96 (Moderate) ⭐⭐⭐ • Generally acceptable air quality • Most people can enjoy outdoor activities</p>
+<p>🌴 Los Angeles: AQI 107 (Unhealthy for Sensitive Groups) ⭐⭐ • Sensitive groups should limit outdoor exertion • Higher ozone levels (78.2 µg/m³)</p>
+<p>Winner: Seattle has better air quality today! 🏆</p>
+<p>Key Differences: • Seattle’s AQI is 11 points better • Both cities have low PM2.5 • LA has higher ozone due to Southern California weather patterns</p>
+<p>If you’re deciding where to visit, remember this is just today’s snapshot - check historical trends for the full picture! 📊</p>
+</div>
+<p><strong>Beyond Basic Comparison</strong>: The AI explains differences, provides context, and suggests long-term thinking.</p>
+</section>
+</section>
+<section id="try-the-gen-ai-agent" class="level3">
+<h3 class="anchored" data-anchor-id="try-the-gen-ai-agent">Try the Gen AI Agent</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp openai</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set API keys</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_air_quality_key'</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span><span class="st">'your_openai_key'</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run Gen AI agent</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run demo conversations</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_genai_agent.py demo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See <code>genai_example_conversations.txt</code> for more examples! export API_NINJAS_KEY=‘your_key_here’</p>
+</section>
+</section>
+<section id="run-quick-report" class="level1">
+<h1>Run quick report</h1>
+<p>python3 aqi_demo.py quick</p>
+</section>
+<section id="run-interactive-mode" class="level1">
+<h1>Run interactive mode</h1>
+<p>python3 aqi_demo.py ```</p>
 <section id="example-queries-to-try" class="level3">
 <h3 class="anchored" data-anchor-id="example-queries-to-try">Example Queries to Try</h3>
 <ol type="1">
@@ -883,11 +744,10 @@ API Ninjas
 <li><strong>Compare</strong>: <code>compare Boston Seattle Miami</code></li>
 <li><strong>Your location</strong>: <code>[Your City Name]</code></li>
 </ol>
-</section>
-</div>
-</section>
+</section></section></main></div>
+
 <section id="code-repository" class="level2">
-<h2 class="anchored" data-anchor-id="code-repository">Code Repository</h2>
+<h2 data-anchor-id="code-repository">Code Repository</h2>
 <div style="text-align: center;">
 <p><a href="https://github.com/isfarbaset/portfolio/tree/main/code" class="github-link" target="_blank"> 🔗 View Full Source Code on GitHub </a></p>
 </div>
@@ -897,7 +757,8 @@ API Ninjas
 
 </section>
 
-</main> <!-- /main -->
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1297,7 +1158,7 @@ API Ninjas
     }
   });
   </script>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 

@@ -1,0 +1,102 @@
+⚠️  OpenAI not available: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+Falling back to rule-based responses
+
+🤖 GEN AI AIR QUALITY DEMO CONVERSATIONS
+============================================================
+
+============================================================
+Demo 1/3
+============================================================
+💬 User: What's the air quality in Boston right now?
+
+🤔 AI thinking...
+
+🤖 AI Assistant:
+Here's the air quality information I found:
+
+Air Quality Data for 2 location(s):
+
+**What**:
+- AQI: 45 (Good)
+- PM2.5: 4.2 µg/m³
+- PM10: 4.5 µg/m³
+- O3: 54.1 µg/m³
+- Location: (41.4014, -92.3546)
+
+**Boston**:
+- AQI: 47 (Good)
+- PM2.5: 0.7 µg/m³
+- PM10: 1.3 µg/m³
+- O3: 56.3 µg/m³
+- Location: (42.3554, -71.0605)
+
+
+
+For personalized AI recommendations, please set up OpenAI API key.
+
+============================================================
+Demo 2/3
+============================================================
+💬 User: I want to go jogging in Dhaka. Is it safe?
+
+🤔 AI thinking...
+
+🤖 AI Assistant:
+Here's the air quality information I found:
+
+Air Quality Data for 2 location(s):
+
+**Dhaka**:
+- AQI: 116 (Unhealthy for Sensitive Groups)
+- PM2.5: 48.9 µg/m³
+- PM10: 58.6 µg/m³
+- O3: 29.2 µg/m³
+- Location: (23.7644, 90.3890)
+
+**Is**:
+- AQI: 161 (Unhealthy)
+- PM2.5: 84.4 µg/m³
+- PM10: 143.9 µg/m³
+- O3: 67.4 µg/m³
+- Location: (33.6938, 73.0652)
+
+
+
+For personalized AI recommendations, please set up OpenAI API key.
+
+============================================================
+Demo 3/3
+============================================================
+💬 User: Compare the air quality between Seattle and Los Angeles
+
+🤔 AI thinking...
+
+🤖 AI Assistant:
+Here's the air quality information I found:
+
+Air Quality Data for 3 location(s):
+
+**Seattle**:
+- AQI: 96 (Moderate)
+- PM2.5: 1.1 µg/m³
+- PM10: 1.4 µg/m³
+- O3: 73.9 µg/m³
+- Location: (47.6038, -122.3301)
+
+**Los**:
+- AQI: 107 (Unhealthy for Sensitive Groups)
+- PM2.5: 0.5 µg/m³
+- PM10: 0.8 µg/m³
+- O3: 78.2 µg/m³
+- Location: (47.1282, 0.9980)
+
+**Angeles**:
+- AQI: 30 (Good)
+- PM2.5: 7.7 µg/m³
+- PM10: 9.0 µg/m³
+- O3: 36.5 µg/m³
+- Location: (15.1400, 120.5879)
+
+
+
+For personalized AI recommendations, please set up OpenAI API key.
