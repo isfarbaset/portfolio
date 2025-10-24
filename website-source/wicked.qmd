@@ -62,7 +62,7 @@ body, p, .project-overview, .insight-box, .methodology-section {
 }
 
 .page-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, var(--wicked-green), var(--wicked-emerald));
@@ -75,7 +75,7 @@ body, p, .project-overview, .insight-box, .methodology-section {
 }
 
 .page-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #555;
   max-width: 900px;
