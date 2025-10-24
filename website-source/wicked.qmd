@@ -1,6 +1,5 @@
 ---
-title: "Defying Analytics"
-subtitle: "What Spotify Data Reveals About Broadway's Most Iconic Soundtrack"
+title: ""
 format:
   html:
     toc: true
