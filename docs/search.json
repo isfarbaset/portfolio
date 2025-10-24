@@ -1,381 +1,10 @@
 [
   {
-    "objectID": "wicked-tiktok.html",
-    "href": "wicked-tiktok.html",
-    "title": "Defying Analytics",
-    "section": "",
-    "text": "Defying Analytics\n\n\nA statistical deep-dive proving that everything you thought you knew about hit songs is probably wrong"
-  },
-  {
-    "objectID": "wicked-tiktok.html#visualizations",
-    "href": "wicked-tiktok.html#visualizations",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "📈 Visualizations",
-    "text": "📈 Visualizations\n\nTop Performing Songs on TikTok\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\nAudio Features Distribution"
-  },
-  {
-    "objectID": "wicked-tiktok.html#what-i-learned",
-    "href": "wicked-tiktok.html#what-i-learned",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "🎓 What I Learned",
-    "text": "🎓 What I Learned\n\n\nTechnical Skills\n\nAPI Integration: Mastered Spotify Web API authentication and data extraction\nFeature Engineering: Created composite metrics from audio features\nML Classification: Implemented Random Forest models for pattern recognition\nData Visualization: Built interactive Plotly charts for storytelling\n\n\n\nDomain Insights\n\nMusical virality isn’t purely data-driven—cultural moments matter more than algorithms predicted\nThe “celebrity multiplier effect” can override traditional engagement patterns\nTikTok’s duet format creates unique opportunities for dialogue-based content\n\n\n\nChallenges Overcome\n\nAPI Limitations: Spotify’s audio_features endpoint had restrictions; pivoted to using popularity metrics and duration analysis\nData Scarcity: Limited public TikTok API access required creative data collection strategies\nImbalanced Dataset: Small sample size (18 songs) required careful model validation"
-  },
-  {
-    "objectID": "wicked-tiktok.html#future-directions",
-    "href": "wicked-tiktok.html#future-directions",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "🚀 Future Directions",
-    "text": "🚀 Future Directions\n\n\nReal-time Monitoring: Build a dashboard to track ongoing TikTok trends for new musical releases\nComparative Analysis: Expand to other musical soundtracks (Hamilton, Six, Mean Girls)\nPredictive Modeling: Create a “viral potential score” for unreleased musical theatre content\nSentiment Analysis: Analyze comment sentiment patterns across different song types"
-  },
-  {
-    "objectID": "wicked-tiktok.html#project-resources",
-    "href": "wicked-tiktok.html#project-resources",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "📂 Project Resources",
-    "text": "📂 Project Resources\n\n 🔗 View Full Project on GitHub \n\nRepository Includes: Complete Python codebase • Data collection scripts • Analysis notebooks Interactive visualizations • Full documentation\n\n\n\n\n💡 Want to Chat About This Project?\nI’d love to discuss the methodology, findings, or potential applications! Feel free to reach out via LinkedIn or email."
-  },
-  {
-    "objectID": "conclusion.html",
-    "href": "conclusion.html",
-    "title": "Conclusion",
-    "section": "",
-    "text": "Conclusion"
-  },
-  {
-    "objectID": "chatbot-test-simple.html",
-    "href": "chatbot-test-simple.html",
-    "title": "Simple Test",
-    "section": "",
-    "text": "Simple Test\n\n\nClick Me"
-  },
-  {
-    "objectID": "about-me.html",
-    "href": "about-me.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a Master’s of Science in Data Science & Analytics from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.\n\n\n\n\n  \n    \n    \n      \n      Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming\n    \n  \n\n\n\nFor a detailed overview of my experience:\nDownload Resume\n:::"
-  },
-  {
-    "objectID": "about-me.html#professional-journey",
-    "href": "about-me.html#professional-journey",
-    "title": "About Me",
-    "section": "",
-    "text": "Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming"
-  },
-  {
-    "objectID": "about-me.html#education",
-    "href": "about-me.html#education",
-    "title": "About Me",
-    "section": "🎓 Education",
-    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • May 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
-  },
-  {
-    "objectID": "about-me.html#professional-experience",
-    "href": "about-me.html#professional-experience",
-    "title": "About Me",
-    "section": "💼 Professional Experience",
-    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • May 2025 - Present\n\n\n\nLeading advanced data operations and analytics initiatives for enterprise clients\nDriving strategic data architecture decisions and mentoring junior analysts\n\n\n\n\nData Analyst I\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - May 2023\n\n\n\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
-  },
-  {
-    "objectID": "about-me.html#technical-skills",
-    "href": "about-me.html#technical-skills",
-    "title": "About Me",
-    "section": "🛠️ Technical Skills",
-    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
-  },
-  {
-    "objectID": "about-me-chatbot-new.html",
-    "href": "about-me-chatbot-new.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot-final.html",
-    "href": "about-me-chatbot-final.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "Group37_Final_Report.html",
-    "href": "Group37_Final_Report.html",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "",
-    "text": "Through this project, our group sought to bridge the gap between music and data science by employing Spotify’s extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector."
-  },
-  {
-    "objectID": "Group37_Final_Report.html#artist-level-genre-classification",
-    "href": "Group37_Final_Report.html#artist-level-genre-classification",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "Artist Level Genre Classification",
-    "text": "Artist Level Genre Classification\n\nData Setup\nIn the initial steps of our project, we utilized essential Python libraries, such as numpy and pandas, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, artists.csv, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.\n\n\nData Exploration and Cleansing\nDuring our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like “The Beach Boys” and removing entries with corrupted data, such as “Roger Miller.” This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling.\n\n\nAssigning a Primary Genre\nAs musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.\n\n\nMachine Learning Preparation\nWe prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model’s performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.\n\n\nModel Training and Evaluation\nIn this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:\n\nLogistic Regression\n\nTest Accuracy: 81.03%\nComputation Time: 3.2 seconds\nComments: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 77.59%\nComputation Time: 3.4 seconds\nComments: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.\n\n\n\nNeural Network\n\nTrain Accuracy: 68.85%\nTest Accuracy: 70.69%\nComputation Time: 11 minutes 46.2 seconds\nComments: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.\n\n\n\nRandom Forest\n\nTest Accuracy: 79.31%\nComputation Time: 1 minute 6.4 seconds\nComments: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.\n\n\n\nXGBoost\n\nTest Accuracy: 77.59%\nComputation Time: 24.5 seconds\nComments: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.\n\n\n\n\nHyperparameter Tuning\nWe implemented grid searches to fine tune each model’s hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model’s performance and its ability to generalize on new data.\n\n\nConclusion: Classifying Artists into Genres\nThe genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques."
-  },
-  {
-    "objectID": "Group37_Final_Report.html#track-level-genre-classification",
-    "href": "Group37_Final_Report.html#track-level-genre-classification",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "Track Level Genre Classification",
-    "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy."
-  },
-  {
-    "objectID": "5100-website/slideshow.html",
-    "href": "5100-website/slideshow.html",
-    "title": "Airy Tales Slideshow",
-    "section": "",
-    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
-  },
-  {
-    "objectID": "about-me-chatbot-clean.html",
-    "href": "about-me-chatbot-clean.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot-fixed.html",
-    "href": "about-me-chatbot-fixed.html",
-    "title": "\n💬 Chat with Isfar\n",
-    "section": "",
-    "text": "Ask me anything about her background, experience, or interests!\n\n\nℹ️ This chatbot provides quick answers about Isfar’s professional background. For detailed conversations or specific inquiries, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n👋 Hi there! I’m Isfar’s advanced AI assistant, powered by sophisticated conversational AI technology. I understand context, remember our conversation, and provide natural, detailed responses about her professional journey and background.\nI excel at discussing: • Her inspiring journey from Dhaka, Bangladesh to becoming a data scientist in the US • Detailed technical expertise in Python, SQL, data visualization, and machine learning • Educational achievements including her 4.0 GPA Master’s from Georgetown University • Professional experience at Shift Digital working with enterprise clients • Personal interests, cultural background, and creative pursuits • Career aspirations and her passion for making data accessible to everyone\nI’m designed to have natural, flowing conversations just like ChatGPT or Claude. Feel free to ask follow-up questions, request clarifications, or dive deep into any topic. What aspect of Isfar’s story would you like to explore first?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot.html",
-    "href": "about-me-chatbot.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "aqi.html",
-    "href": "aqi.html",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "",
-    "text": "Air Quality Intelligence\n\n\nReal-time environmental monitoring with AI-powered health recommendations"
-  },
-  {
-    "objectID": "aqi.html#overview",
-    "href": "aqi.html#overview",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Overview",
-    "text": "Overview\nAn intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.\n\n\nGlobal Coverage\n\n\n6 Pollutants Tracked\n\n\n15 min Update Frequency\n\n\nLive Real-Time Data"
-  },
-  {
-    "objectID": "aqi.html#key-features",
-    "href": "aqi.html#key-features",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Key Features",
-    "text": "Key Features\n\n\n\nReal-Time Monitoring\n\n\nLive AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\n\n\n\n\nSmart Recommendations\n\n\nActivity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions\n\n\n\n\nMulti-City Compare\n\n\nSide-by-side analysis of air quality across multiple cities for travel planning\n\n\n\n\nHealth Protection\n\n\nSpecial guidance for sensitive groups including children, elderly, and those with respiratory conditions"
-  },
-  {
-    "objectID": "aqi.html#architecture",
-    "href": "aqi.html#architecture",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐\n│   Letta Agent   │◄──►│  MCP Server     │◄──►│ API Ninjas API  │\n│   (AI Brain)    │    │ (Data Bridge)   │    │ (Data Source)   │\n└─────────────────┘    └─────────────────┘    └─────────────────┘\n         │                       │                       │\n         ▼                       ▼                       ▼\n┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐\n│ Conversation    │    │ AQI Data        │    │ Real-time       │\n│ Management      │    │ Processing      │    │ Environmental   │\n│                 │    │                 │    │ Data            │\n└─────────────────┘    └─────────────────┘    └─────────────────┘"
-  },
-  {
-    "objectID": "aqi.html#technical-implementation",
-    "href": "aqi.html#technical-implementation",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "@dataclass\nclass AQIData:\n    location: str\n    latitude: float\n    longitude: float\n    overall_aqi: int\n    co_concentration: float\n    no2_concentration: float\n    o3_concentration: float\n    so2_concentration: float\n    pm2_5_concentration: float\n    pm10_concentration: float\n    timestamp: str\n\n\n\n\nAsynchronous API calls for optimal performance\nGeocoding integration for precise location mapping\nError handling with graceful degradation\nData validation ensuring reliable information\n\n\n\n\n\ncurrent_aqi_tool: Real-time air quality data retrieval\naqi_comparison_tool: Multi-city comparative analysis\naqi_health_advice_tool: Personalized health recommendations"
-  },
-  {
-    "objectID": "aqi.html#installation-setup",
-    "href": "aqi.html#installation-setup",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "# Install required packages\npip install letta-client\npip install aiohttp\npip install mcp  # Model Context Protocol\n\n# Optional: For enhanced functionality\npip install asyncio\npip install dataclasses\n\n\n\n\nGet API Ninjas Key: Sign up at api.api-ninjas.com\nSet up Letta Server: Follow Letta installation guide\nConfigure endpoints in the agent initialization\n\n\n\n\n# Initialize the agent\naqi_agent = LettaAQIAgent(\n    letta_base_url=\"http://localhost:8283\",\n    api_ninjas_key=\"your_api_key_here\"\n)\n\n# Create and deploy\nagent = aqi_agent.create_agent()\n\n# Start interacting\nresponse = aqi_agent.interact(\"What's the air quality in Dhaka?\")"
-  },
-  {
-    "objectID": "aqi.html#use-cases",
-    "href": "aqi.html#use-cases",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "Daily Planning: “Is it safe to jog in Central Park this morning?”\nAllergy Management: “Should I take extra precautions due to today’s air quality in Dhaka?”\nActivity Optimization: “What’s the best time to take my kids to the playground in Houston?”\n\n\n\n\n\nDestination Selection: “Which city has better air quality: Boston or Los Angeles?”\nPacking Decisions: “Do I need to bring masks for my trip to Dhaka?”\nItinerary Optimization: “When should I schedule outdoor activities in Sylhet?”\n\n\n\n\n\nLocation Analytics: Air quality impact on business operations\nEmployee Health: Workplace safety recommendations\nEvent Planning: Outdoor event feasibility assessment"
-  },
-  {
-    "objectID": "aqi.html#data-sources-apis",
-    "href": "aqi.html#data-sources-apis",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "Coverage: Global air quality data\nUpdate Frequency: Real-time updates\nPollutants Tracked: PM2.5, PM10, O3, NO2, SO2, CO\nAdditional Data: GPS coordinates, AQI calculations\n\n\n\n\n\nLocation Resolution: City name → GPS coordinates\nAPI Integration: Real-time data retrieval\nData Validation: Ensuring data integrity\nHealth Mapping: AQI → Health recommendations\nResponse Generation: Natural language insights"
-  },
-  {
-    "objectID": "aqi.html#example-interactions",
-    "href": "aqi.html#example-interactions",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "User: \"What's the air quality like in Dhaka right now?\"\n\nAgent: \"Dhaka currently has an AQI of 189 (Unhealthy). The main concern is \nPM2.5 at 148 µg/m³. I recommend staying indoors and using air purifiers. \nIf you must go outside, wear an N95 mask and limit exposure time.\"\n\n\n\nUser: \"I have asthma and want to go cycling in Seattle. Is it safe?\"\n\nAgent: \"Seattle's current AQI is 76 (Moderate). For someone with asthma, I'd \nrecommend postponing outdoor cycling. The O3 levels are elevated at 92 µg/m³. \nConsider indoor cycling or wait until evening when air quality typically improves.\"\n\n\n\nUser: \"Compare air quality between Dhaka, Chittagong, and New York City\"\n\nAgent: \"Here's the comparison:\n• Dhaka: AQI 189 (Unhealthy) - Avoid all outdoor activities\n• Chittagong: AQI 145 (Unhealthy for Sensitive Groups) - Limited outdoor time\n• New York City: AQI 67 (Moderate) - Best option for outdoor activities\n\nRecommendation: If traveling, New York City offers the cleanest air quality.\""
-  },
-  {
-    "objectID": "aqi.html#future-enhancements",
-    "href": "aqi.html#future-enhancements",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Future Enhancements",
-    "text": "Future Enhancements\n\nPlanned Features\n\n📈 Predictive Analytics: 24-48 hour air quality forecasting\n🌤️ Weather Integration: Combined air quality + weather analysis\n📱 Mobile App: Cross-platform application\n🔔 Alert System: Automated notifications for threshold breaches\n📊 Historical Trends: Long-term pattern analysis\n\n\n\nAdvanced Integrations\n\nIoT sensors for hyper-local monitoring\nSmart home automation (air purifier control)\nWearable health impact tracking\nCommunity reporting platform"
-  },
-  {
-    "objectID": "aqi.html#error-handling-reliability",
-    "href": "aqi.html#error-handling-reliability",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Error Handling & Reliability",
-    "text": "Error Handling & Reliability\nThe system includes comprehensive error handling:\n\nAPI Fallbacks: Graceful degradation if API is unavailable\nData Validation: Input/output checking for data integrity\nGeocoding Errors: Clear messaging for invalid city names\nNetwork Issues: Retry logic with exponential backoff\nRate Limiting: Respects API limits and queues requests"
-  },
-  {
-    "objectID": "aqi.html#performance-metrics",
-    "href": "aqi.html#performance-metrics",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Performance Metrics",
-    "text": "Performance Metrics\n\nResponse Time: &lt; 2 seconds for single city\nMulti-City Compare: &lt; 5 seconds for 3-5 cities\nData Freshness: 15-minute updates from API\nAccuracy: GPS-precise location mapping\nReliability: Graceful error handling with fallbacks"
-  },
-  {
-    "objectID": "aqi.html#contributing",
-    "href": "aqi.html#contributing",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "This project demonstrates advanced AI agent architecture and environmental data integration. Key areas for contribution:\n\nNew Data Sources: Additional environmental APIs\nEnhanced AI: More sophisticated health recommendations\nUI/UX: Web and mobile interfaces\nAnalytics: Advanced data visualization"
-  },
-  {
-    "objectID": "aqi.html#license-credits",
-    "href": "aqi.html#license-credits",
-    "title": "MCP + Letta Air Quality Intelligence Agent",
-    "section": "",
-    "text": "API Ninjas: Air quality and geocoding data\nWHO/EPA: Health guideline standards\nEnvironmental Agencies: AQI calculation methodologies\n\n\n\n\n\nLetta AI: Conversational agent framework\nMCP: Model Context Protocol for standardized data access\nPython: Core implementation language\nAsyncIO: Asynchronous processing\n\n\nThis project showcases the future of intelligent environmental monitoring, combining cutting-edge AI with real-world health applications."
-  },
-  {
-    "objectID": "chatbot-test.html",
-    "href": "chatbot-test.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n🎯 CACHE TEST VERSION - If you see this message, the file is updating correctly!\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\nThis is the TEST version to verify cache updates work correctly."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "wicked.html",
+    "href": "wicked.html",
     "title": "",
     "section": "",
-    "text": "Isfar Baset\n\nData Analyst\n\n\nCrafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.\n\n\nView Projects About Me Chat with Isfar\n\n\n\n\n\n\n\n\nFeatured Projects\n\n\n\n\n\n\nFMBench Assistant\n\n\n\n\nFMBench Assistant\nA conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.\n\n\n\n\n\n\n\nDefying Analytics\n\n\n\n\nDefying Analytics: What Spotify Reveals About Wicked\nTwenty years after its Broadway debut, Wicked’s soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.\nTech Stack: Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto\nKey Finding: Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers\n\n\n\n\n\n\n\nUS Insights\n\n\n\n\nUS Insights\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.\n\n\n\n\n\n\n\nTemp Talk\n\n\n\n\nTemp Talk\nExploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.\n\n\n\n\n\n\n\nBeats and Bytes\n\n\n\n\nBeats and Bytes\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.\n\n\n\n\n\n\n\nEV Insights\n\n\n\n\nEV Insights\nExamining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.\n\n\n\n\n\n\n\nAir Quality Intelligence\n\n\n\n\nAir Quality Intelligence\nA Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.\nTech Stack: Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas\nKey Feature: Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning\n\n\n\n\n\n\n\nPortfolio curated by Isfar Baset"
-  },
-  {
-    "objectID": "wicked-tiktok.html#project-overview",
-    "href": "wicked-tiktok.html#project-overview",
-    "title": "Defying Analytics",
-    "section": "Project Overview",
-    "text": "Project Overview\n\nTwenty years after its Broadway debut, Wicked remains a streaming phenomenon. But what separates the most-played tracks from the forgotten ones? I set out to answer this using real Spotify data from 28 tracks, armed with statistics and a healthy skepticism of conventional wisdom.\nSpoiler alert: Almost everything the music industry tells you about “successful songs” is backwards.\nUsing correlation analysis, ANOVA, K-means clustering, and PCA, I analyzed actual Spotify metrics to understand what makes certain songs resonate. The plan was simple: prove that shorter songs dominate streaming, that popularity follows predictable patterns, and that “Defying Gravity” reigns supreme.\nReality had other plans.\nTurns out “For Good” wins, duration doesn’t matter even slightly (r=0.05, p=0.80), and the data reveals three distinct song archetypes that nobody talks about. Sometimes the best research findings are the ones that make you rethink everything you thought you knew.\n\n\n\n28 Tracks Analyzed\n\n\n58 Highest Popularity Score\n\n\n3.88 Avg Song Length (min)\n\n\n3 Distinct Song Clusters"
-  },
-  {
-    "objectID": "wicked-tiktok.html#key-findings",
-    "href": "wicked-tiktok.html#key-findings",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "🎯 Key Findings",
-    "text": "🎯 Key Findings\n\n💃 The Danceability Factor\nSongs with higher danceability scores (like “Dancing Through Life” and “Popular”) showed 2.3x more average video engagement than slower ballads. But here’s the twist: “Defying Gravity” broke this rule entirely.\n\n\n🌟 The Celebrity Effect\nAriana Grande’s social media presence multiplied engagement by 4x. Her posts about the film created cascading viral moments that transcended traditional audio features.\n\n\n🎪 The Duet Format Advantage\nSongs enabling creative duets (dialogue scenes like “Loathing”) generated 3x more user-generated content than solo performance pieces."
-  },
-  {
-    "objectID": "wicked-tiktok.html#methodology",
-    "href": "wicked-tiktok.html#methodology",
-    "title": "Defying Analytics: What Made Wicked Songs Go Viral on TikTok?",
-    "section": "🔬 Methodology",
-    "text": "🔬 Methodology\n\nData Collection\n\nPython Spotify API Pandas Spotipy\n\nI collected comprehensive data on all 18 tracks from the Wicked soundtrack, including:\n\nAudio Features: Tempo, danceability, energy, valence, acousticness\nTrack Metadata: Duration, popularity scores, release information\nTikTok Metrics: Video counts, trend data, engagement patterns\n\n\n\nAnalysis Approach\n\n\nCode\n# Feature engineering for viral potential\nfeatures = ['danceability', 'energy', 'valence', 'tempo', 'duration_ms']\n\n# Random Forest Classifier to identify viral patterns\nfrom sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Feature importance analysis\nimportance_df = pd.DataFrame({\n    'feature': features,\n    'importance': model.feature_importances_\n}).sort_values('importance', ascending=False)\n\n\n\n\nTech Stack\n\nPython 3.11 Pandas Scikit-learn Plotly Spotipy Quarto Random Forest Machine Learning"
-  },
-  {
-    "objectID": "wicked-tiktok.html#what-the-data-actually-showed",
-    "href": "wicked-tiktok.html#what-the-data-actually-showed",
-    "title": "Defying Analytics",
-    "section": "What The Data Actually Showed",
-    "text": "What The Data Actually Showed\n\nThe Winner Nobody Expected (Sorry, Elphaba)\n“For Good,” the emotional duet near the finale, scores highest in Spotify popularity (58/100), edging out crowd favorites like “Defying Gravity” (56) and “No Good Deed” (57). Apparently listeners prefer crying to their morning coffee over belting high notes. Who knew?\n\n\nDuration Doesn’t Matter (And I Have Receipts)\nCorrelation between song length and popularity? A measly r=0.05 with p=0.80. Translation: whether a song runs 50 seconds or 7.6 minutes has zero predictive power for streaming success. ANOVA confirms it (F=1.76, p=0.19). The “keep it short for attention spans” advice? Statistically baseless-at least for this soundtrack.\n\n\nThree Song Archetypes Nobody Talks About\nK-means clustering (k=3) reveals distinct groups: Epic Numbers (long, popular showstoppers), Deep Cuts (short, less-streamed but plot-essential tracks), and Solid Mid-Tier (balanced popularity and length). It’s not a hierarchy. Each serves a different purpose. The soundtrack works because it has variety, not despite it."
-  },
-  {
-    "objectID": "wicked-tiktok.html#methodology-or-how-i-tried-to-science-this-thing",
-    "href": "wicked-tiktok.html#methodology-or-how-i-tried-to-science-this-thing",
-    "title": "Defying Analytics",
-    "section": "Methodology (Or: How I Tried To Science This Thing)",
-    "text": "Methodology (Or: How I Tried To Science This Thing)\n\nData Collection\n\nPython 3.11 Spotify API Pandas Scikit-learn Plotly\n\nCollected data on all 18 tracks from the Wicked soundtrack using Spotify’s API, including audio features (tempo, danceability, energy, valence), track metadata (duration, popularity scores), and TikTok performance metrics (video counts, engagement patterns).\nThe plan was simple: feed everything into a Random Forest classifier, identify patterns, declare victory. Reality, as usual, had other plans.\n\n\nThe Model Stack\n\n\nCode\n# Modern ML pipeline with XGBoost and ensemble methods\nfrom sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier\nfrom xgboost import XGBClassifier\nfrom sklearn.model_selection import cross_val_score, StratifiedKFold\nimport numpy as np\n\n# Feature engineering\nfeatures = ['danceability', 'energy', 'valence', 'tempo', \n            'duration_ms', 'acousticness', 'speechiness']\n\n# Ensemble approach: Random Forest + XGBoost\nrf_model = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)\nxgb_model = XGBClassifier(n_estimators=150, learning_rate=0.1, max_depth=6)\n\n# Cross-validation for robust estimates\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nrf_scores = cross_val_score(rf_model, X, y, cv=cv, scoring='accuracy')\nxgb_scores = cross_val_score(xgb_model, X, y, cv=cv, scoring='accuracy')\n\nprint(f\"RF Accuracy: {rf_scores.mean():.2%} ± {rf_scores.std():.2%}\")\nprint(f\"XGB Accuracy: {xgb_scores.mean():.2%} ± {xgb_scores.std():.2%}\")\n\n# SHAP values for interpretability\nimport shap\nexplainer = shap.TreeExplainer(rf_model)\nshap_values = explainer.shap_values(X)\n\n\nThe model achieved 85% accuracy, which sounds impressive until you realize the 15% it got wrong were the songs that actually went most viral. Classic."
-  },
-  {
-    "objectID": "wicked-tiktok.html#the-numbers-tell-a-story-sort-of",
-    "href": "wicked-tiktok.html#the-numbers-tell-a-story-sort-of",
-    "title": "Defying Analytics",
-    "section": "The Numbers Tell a Story (Sort Of)",
-    "text": "The Numbers Tell a Story (Sort Of)\n\nTop Performing Songs on TikTok\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\nAudio Feature Comparison: The Top 3\n\n\n                            \n                                            \n\n\n\n\nFeature Importance: What Actually Drives Virality\n\n\n                            \n                                            \n\n\n\nKey Insight: Celebrity influence (35%) matters more than any audio feature. The “Ariana Grande Effect” is real and measurable—when she posts, engagement skyrockets regardless of tempo or danceability.\n\n\n\nViral Trajectory: Videos Over Time\n\n\n                            \n                                            \n\n\n\n\nInteractive Feature Correlation Heatmap\n\n\n                            \n                                            \n\n\n\nCorrelation Insight: Danceability and valence (happiness) show strong positive correlation (0.68), suggesting upbeat, happy songs naturally invite dancing. However, their combined effect on virality (0.45) is weaker than expected—celebrity influence still wins.\n\n\n\nEngagement Distribution: The Long Tail\n\n\n                            \n                                            \n\n\n\nDistribution Insight: Both songs show classic long-tail distributions—most videos get modest engagement, but the top 1% drive massive viewership. This “viral lottery” effect means a few breakout videos can skew total impact significantly."
-  },
-  {
-    "objectID": "wicked-tiktok.html#lessons-learned-besides-humility",
-    "href": "wicked-tiktok.html#lessons-learned-besides-humility",
-    "title": "Defying Analytics",
-    "section": "Lessons Learned (Besides Humility)",
-    "text": "Lessons Learned (Besides Humility)\n\nTechnical Takeaways\nAPI Wrangling: Spotify’s Web API is well-documented but temperamental. Learned the hard way that rate limits exist and the audio_features endpoint doesn’t always play nice. Solution: patience, retry logic, and strategic data collection.\nFeature Engineering: Turned raw audio metrics into meaningful predictors. Danceability, energy, and valence became the holy trinity of viral potential—until they weren’t.\nMachine Learning Reality Check: Random Forest models are excellent at finding patterns. They’re less excellent at explaining why “Defying Gravity” with middling danceability scored better than theoretically perfect candidates. Sometimes the model shrugs, and that’s data science.\nVisualization Strategy: Interactive Plotly charts beat static images every time. If your audience can hover, click, and explore, they’ll remember your insights longer than they remember your methodology.\n\n\nThe Real Insight\nData science can tell you what happened. It can even tell you how it happened. But the why—the celebrity posts, the cultural zeitgeist, the inexplicable human desire to lip-sync to show tunes—that requires context the CSV file doesn’t have.\nThis project taught me that the best analysis acknowledges its limitations. The algorithm got us 85% of the way there. The other 15%? That’s where the interesting story lives."
-  },
-  {
-    "objectID": "wicked-tiktok.html#whats-next",
-    "href": "wicked-tiktok.html#whats-next",
-    "title": "Defying Analytics",
-    "section": "What’s Next",
-    "text": "What’s Next\nIf I were to revisit this project (or build something similar):\nReal-time Dashboard: Track TikTok trends as they emerge, not months after the fact. Ideal for predicting which new releases might break through.\nCross-Musical Comparison: How does Wicked stack up against Hamilton, Dear Evan Hansen, or Six? Do the same patterns hold, or is every soundtrack its own beast?\nSentiment Analysis: Mine TikTok comments to understand why people create videos for certain songs. Are they earnest? Ironic? Both? The tone matters.\nPredictive Scoring: Build a “viral potential calculator” for unreleased tracks. Won’t be perfect (see above re: humility), but could help marketing teams make informed bets."
-  },
-  {
-    "objectID": "wicked-tiktok.html#view-the-full-project",
-    "href": "wicked-tiktok.html#view-the-full-project",
-    "title": "Defying Analytics",
-    "section": "View the Full Project",
-    "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
-  },
-  {
-    "objectID": "wicked-tiktok.html#methodology-data-collection-analysis",
-    "href": "wicked-tiktok.html#methodology-data-collection-analysis",
-    "title": "Defying Analytics",
-    "section": "Methodology: Data Collection & Analysis",
-    "text": "Methodology: Data Collection & Analysis\n\n\nPython 3.11 Spotify API Pandas SciPy Scikit-learn Plotly\n\nI collected data on 28 tracks from the Wicked soundtrack using Spotify’s Web API, capturing track metadata (name, duration, popularity scores) and analyzing patterns in listener engagement. The goal was simple: understand what makes certain songs succeed while others fade into the background.\nThe approach: descriptive statistics, correlation analysis, hypothesis testing (ANOVA, t-tests), unsupervised learning (K-means clustering, PCA), and interactive visualizations. No simulated data, no assumptions. Just real numbers from real listeners."
-  },
-  {
-    "objectID": "wicked-tiktok.html#the-numbers-tell-a-story",
-    "href": "wicked-tiktok.html#the-numbers-tell-a-story",
-    "title": "Defying Analytics",
-    "section": "The Numbers Tell a Story",
-    "text": "The Numbers Tell a Story\n\nTop 10 Songs by Spotify Popularity\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\nObservation: “For Good” takes the crown with a popularity score of 58, despite being one of the soundtrack’s longer tracks at 5.11 minutes. The emotional ballad outperforms even the showstopping “Defying Gravity” (56).\nWhat this challenges: The assumption that “big, loud finales” are always the most popular. Sometimes the heartfelt conversation between two friends hits harder than the woman flying away on a broomstick. Data: 1, Conventional Wisdom: 0.\nBottom Line: The quiet moments win. People return to songs that make them feel something real, not just songs that make them want to sing along.\n\n\n\nDuration vs. Popularity: The Surprising Non-Relationship\n\n\n                            \n                                            \n\n\n\nStatistical Reality Check: With a correlation coefficient of just r=0.05 and p=0.80, there’s no statistically significant relationship between song duration and popularity. Duration explains less than 0.3% of variance in popularity (r²=0.0025).\nWhat this demolishes: The entire “TL;DR generation needs 2-minute songs” narrative. “Dancing Through Life” clocks in at 7.62 minutes and sits comfortably in the top 10. Long-form content wins when it’s actually good. Revolutionary concept, I know.\nBottom Line: Song length doesn’t matter. If people love it, they’ll listen to all 7 minutes. If they don’t, they’ll skip it at 30 seconds. Quality &gt; runtime.\n\n\n\nK-Means Clustering: Three Song Archetypes\n\n\n                            \n                                            \n\n\n\nCluster Insight: K-means analysis (k=3) reveals three distinct song types that actually make sense:\n\nCluster 0: Epic Showstoppers - Long (avg 6.18 min), popular (avg 50.6), the tracks people queue up specifically\nCluster 1: International Variants - Low/zero popularity on main Spotify (foreign language versions serve different markets)\nCluster 2: Solid Mid-Tier - Shorter (avg 2.69 min), balanced popularity (avg 47.9), the narrative glue holding it all together\n\nWhat this reveals: Successful soundtracks aren’t monoliths. They need peaks and valleys. The “filler tracks” aren’t filler-they’re structural. Remove them and the whole thing collapses. It’s data-driven vindication for every “I’m Not That Girl (Reprise)” out there.\nBottom Line: Great albums need variety. You can’t have all bangers-the quiet moments make the big moments matter. The “boring” tracks aren’t mistakes; they’re part of the design.\n\n\n\nPCA Visualization: The Hidden Structure\n\n\n                            \n                                            \n\n\n\nPCA Interpretation: Principal Component Analysis reduces our duration-popularity feature space to 2D while retaining 100% of the variance. PC1 (x-axis) captures combined magnitude (longer + more popular → right side), while PC2 (y-axis) represents the trade-off (long-but-unpopular vs. short-but-popular).\nThe vindication: The clear cluster separation validates our K-means groupings. The algorithm found real structure in the data, not random noise or wishful thinking. Sometimes machine learning actually works exactly as advertised. Mark this day.\nBottom Line: The songs naturally group into distinct types. It’s not random-there’s an actual pattern to what works and what doesn’t. Math proves the soundtrack is well-designed, whether or not that was intentional.\n\n\n\nPopularity Distribution: The Full Picture\n\n\n                            \n                                            \n\n\n\nDistribution Stats: The popularity distribution is relatively symmetric with mean (46.9) kissing close to median (49.0), suggesting balanced representation across the soundtrack. No extreme outliers-even the top songs stay within 2 standard deviations.\nWhat this means: This isn’t a “one-hit wonder” album propped up by a single mega-hit while everything else languishes. It’s a soundtrack with consistent quality-the kind of depth that keeps entire albums in rotation instead of just the singles. Old-school music industry, meet your validation.\nBottom Line: Every song holds its own. You’re not fast-forwarding through filler to get to the good parts-the whole album is worth listening to. That’s increasingly rare.\n\n\n\nDuration Distribution by Popularity Tier\n\n\n                            \n                                            \n\n\n\nTier Analysis: ANOVA on duration across popularity tiers yields F=1.76, p=0.19-not statistically significant. The violin plots confirm it visually: all tiers show similar spread and central tendency.\nTranslation for executives: Stop telling artists to “cut it down to 3 minutes.” High-popularity songs aren’t systematically shorter than mid or low-popularity tracks. Make it good, make it memorable, and listeners will stay for however long it takes. The data has spoken, and it’s tired of your arbitrary time limits.\nBottom Line: The “3-minute rule” is made up. Popular songs can be any length. The only rule is: don’t be boring."
-  },
-  {
-    "objectID": "wicked-tiktok.html#statistical-rigor-the-tests-that-matter",
-    "href": "wicked-tiktok.html#statistical-rigor-the-tests-that-matter",
-    "title": "Defying Analytics",
-    "section": "Statistical Rigor: The Tests That Matter",
-    "text": "Statistical Rigor: The Tests That Matter\n\n\nCorrelation Analysis\nPearson Correlation (Duration vs. Popularity):\n- r = 0.05, p = 0.80\n- Interpretation: Essentially zero correlation. Duration explains less than 0.3% of variance in popularity (r² = 0.0025).\n\n\nANOVA: Duration Across Popularity Tiers\nOne-Way ANOVA:\n- F-statistic = 1.76, p-value = 0.19\n- Interpretation: No significant difference in mean duration across low/mid/high popularity groups. Fails to reject null hypothesis at α=0.05.\n\n\nT-Test: Long vs. Short Songs\nIndependent Samples T-Test (median split at 3.88 min):\n- t = -0.15, p = 0.88\n- Interpretation: Long songs (&gt;3.88 min) have nearly identical mean popularity (46.0) as short songs (45.8). No meaningful difference.\n\n\nK-Means Clustering\nOptimal Clusters: k=3 (Elbow Method + Silhouette Score)\n- Cluster 0: n=8, epic showstoppers (long, popular)\n- Cluster 1: n=5, international variants (moderate length, low/zero popularity)\n- Cluster 2: n=15, solid mid-tier (short-to-moderate, balanced popularity)\nWithin-Cluster Sum of Squares: Well-separated clusters with minimal intra-cluster variance.\n\n\nPrincipal Component Analysis\nExplained Variance:\n- PC1: 78.3% (captures combined duration + popularity magnitude)\n- PC2: 21.7% (captures duration-popularity trade-off)\n- Total: 100% variance explained with 2 components\nInterpretation: The 2D projection retains all information from the original 2-feature space (duration, popularity), making it ideal for visualization without information loss."
-  },
-  {
-    "objectID": "wicked-tiktok.html#key-takeaways-what-the-data-actually-says",
-    "href": "wicked-tiktok.html#key-takeaways-what-the-data-actually-says",
-    "title": "Defying Analytics",
-    "section": "Key Takeaways: What The Data Actually Says",
-    "text": "Key Takeaways: What The Data Actually Says\n\n\n1. Duration Is a Red Herring\nEvery piece of conventional wisdom says “shorter songs perform better in the streaming era.” The Wicked soundtrack says: not so fast. With r=0.05 and p=0.80, there’s no statistical relationship between song length and popularity. “Dancing Through Life” (7.62 minutes) and “For Good” (5.11 minutes) both outperform most shorter tracks.\nLesson: Content quality and emotional resonance matter more than runtime. Listeners will stick with a song if it delivers—whether it’s 90 seconds or 7 minutes.\n\n\n2. Three Distinct Song Archetypes\nK-means clustering reveals the soundtrack serves three audiences:\n\nEpic Showstoppers: Long, popular, memorable—the tracks people think of when they think “Wicked”\nNarrative Builders: Shorter supporting tracks that advance the plot but don’t necessarily dominate playlists\nInternational Variants: Translations and alternate versions (low Spotify presence but important for global reach)\n\nLesson: A successful soundtrack isn’t monolithic. It needs variety—peaks and valleys, bombast and intimacy.\n\n\n3. “For Good” Defies Expectations\nNobody predicted the quiet, emotional duet would beat “Defying Gravity.” But it does (58 vs. 56). This might reflect:\n\nEmotional depth: Listeners return to songs that make them feel, not just sing along\nReplayability: “Defying Gravity” is a showstopper, but you don’t play it every day. “For Good” is a comfort song.\nUnder-the-radar favoritism: Not the flashiest choice, but the one that sticks\n\nLesson: Flashy doesn’t always equal popular. Sometimes the understated moments resonate more deeply.\n\n\n4. The Data’s Blind Spots\nThis analysis tells us what is popular (and what isn’t), but it can’t explain why certain songs resonate. The Spotify API gives us numbers—duration, popularity scores—but it can’t capture cultural moments, emotional connections, or the ineffable magic that makes a song meaningful to listeners.\nLesson: Numbers tell you where to look. Context tells you what you’re looking at. Good data science acknowledges its limits."
-  },
-  {
-    "objectID": "wicked-tiktok.html#methodology-technical-approach",
-    "href": "wicked-tiktok.html#methodology-technical-approach",
-    "title": "Defying Analytics",
-    "section": "Methodology & Technical Approach",
-    "text": "Methodology & Technical Approach\n\n\nData Collection\nSource: Spotify Web API\nTracks: 28 songs from Wicked soundtrack (original Broadway cast + international versions)\nFeatures: Track metadata (name, popularity, duration), streaming metrics\nProcess: 1. Authenticated with Spotify API using client credentials 2. Searched for “Wicked” soundtrack tracks 3. Extracted metadata and popularity scores 4. Cleaned and standardized track names 5. Saved to CSV for reproducible analysis\n\n\nStatistical Analysis Pipeline\nTools Used: - Python 3.11 - Core programming language - Pandas - Data manipulation and cleaning - SciPy - Statistical tests (correlation, ANOVA, t-tests) - Scikit-learn - K-means clustering and PCA - Plotly - Interactive visualizations - Jupyter Notebooks - Exploratory analysis\nAnalysis Steps: 1. Descriptive Statistics - Computed mean, median, std, range for all metrics 2. Correlation Analysis - Pearson correlation between duration and popularity 3. ANOVA - Tested duration differences across popularity tiers 4. T-Tests - Compared long vs. short songs (median split) 5. K-Means Clustering - Identified song archetypes (k=3) 6. PCA - Reduced feature space to 2D for visualization\n\n\nCode Architecture\n# Core analysis script structure\nimport pandas as pd\nfrom scipy import stats\nfrom sklearn.cluster import KMeans\nfrom sklearn.decomposition import PCA\n\n# 1. Load and clean data\ndf = pd.read_csv('wicked_tracks_REAL.csv')\ndf['duration_min'] = df['duration_ms'] / 60000\n\n# 2. Statistical tests\ncorr, p_value = stats.pearsonr(df['duration_min'], df['popularity'])\nf_stat, anova_p = stats.f_oneway(*groups)\nt_stat, t_p = stats.ttest_ind(long_songs, short_songs)\n\n# 3. Machine learning\nkmeans = KMeans(n_clusters=3, random_state=42)\nclusters = kmeans.fit_predict(X)\npca = PCA(n_components=2)\ncoords = pca.fit_transform(X)\n\n# 4. Export results\ndf.to_csv('spotify_analysis_results.csv')\nReproducibility: All code, data, and analysis scripts are available in the GitHub repository."
-  },
-  {
-    "objectID": "wicked-tiktok.html#technical-learnings",
-    "href": "wicked-tiktok.html#technical-learnings",
-    "title": "Defying Analytics",
-    "section": "Technical Learnings",
-    "text": "Technical Learnings\n\nAPI Integration: Working with Spotify’s Web API taught me the importance of rate limiting, error handling, and data validation. Not every API call succeeds-building in retry logic and graceful failures is essential.\nStatistical Storytelling: Raw test results (r=0.05, p=0.80) mean nothing without interpretation. The real skill is translating statistical jargon into insights a non-technical audience can understand and act on.\nVisualization Choices: Interactive charts &gt; static images. Plotly’s hover effects and zoom capabilities let users explore the data themselves, increasing engagement and understanding.\nKnowing When to Stop: I could’ve added more features, more tests, more models. But at some point, you’re not adding insight-you’re just adding complexity. The best analysis is the one that answers the question clearly, not the one that throws every tool at the problem.\n\n\nThe Real Insight\nData science can tell you what happened. With enough data, it can even tell you how it happened. But the why-the cultural moments, the emotional connections, the reasons “For Good” resonates more than “Defying Gravity”-that requires human interpretation.\nThis project taught me that the best analysis acknowledges its limitations. The numbers got us 80% of the way there. The other 20%? That’s where the story lives."
-  },
-  {
-    "objectID": "wicked-tiktok.html#whats-next-future-directions",
-    "href": "wicked-tiktok.html#whats-next-future-directions",
-    "title": "Defying Analytics",
-    "section": "What’s Next: Future Directions",
-    "text": "What’s Next: Future Directions\nIf I were to extend this analysis or build something similar:\n1. Audio Feature Deep-Dive\nSpotify provides 10+ audio features (danceability, energy, valence, tempo, acousticness, etc.). Analyzing how these correlate with popularity could reveal why certain songs succeed beyond just duration.\n2. Time-Series Analysis\nTrack how popularity scores change over time. Do songs gain popularity post-movie release? Do certain tracks spike during award season or viral moments?\n3. Cross-Soundtrack Comparison\nHow does Wicked compare to Hamilton, Dear Evan Hansen, or Six? Are the patterns universal across Broadway soundtracks, or is each unique?\n4. Sentiment Analysis\nMine YouTube comments, Reddit discussions, and social media to understand why people connect with certain songs. Qualitative data could fill in the gaps quantitative analysis misses.\n5. Predictive Modeling\nBuild a model to predict which tracks from new musicals will become streaming hits. Won’t be perfect (nothing is), but could help marketing teams prioritize promotion.\n6. Lyrical Analysis\nUse NLP to analyze song lyrics-word frequency, sentiment, complexity. Do simpler lyrics correlate with higher popularity? Do emotional themes matter?"
-  },
-  {
-    "objectID": "wicked-tiktok.html#key-takeaways-what-the-data-actually-says-vs.-what-everyone-assumes",
-    "href": "wicked-tiktok.html#key-takeaways-what-the-data-actually-says-vs.-what-everyone-assumes",
-    "title": "Defying Analytics",
-    "section": "Key Takeaways: What The Data Actually Says (vs. What Everyone Assumes)",
-    "text": "Key Takeaways: What The Data Actually Says (vs. What Everyone Assumes)\n\n\n1. Duration Is a Red Herring (But Everyone Acts Like It Isn’t)\nEvery streaming era thinkpiece insists “shorter songs perform better because attention spans are dead.” The Wicked soundtrack responds: citation needed.\nWith r=0.05 and p=0.80, there’s no statistical relationship between song length and popularity. “Dancing Through Life” (7.62 minutes) and “For Good” (5.11 minutes) both outperform most shorter tracks. ANOVA confirms no difference across popularity tiers (F=1.76, p=0.19). T-test comparing long vs. short songs? t=-0.15, p=0.88. Statistically identical.\nReal lesson: Content quality and emotional resonance matter more than runtime. Listeners will stick with a song if it delivers-whether it’s 90 seconds or 7 minutes. Stop cutting good art to fit arbitrary time limits that the data doesn’t support.\n\n\n2. Three Distinct Song Archetypes (That the Industry Doesn’t Name)\nK-means clustering reveals the soundtrack serves three distinct functions:\n\nEpic Showstoppers: Long, popular, memorable-the tracks people think of when they hear “Wicked”\nNarrative Builders: Shorter supporting tracks that advance plot but don’t necessarily dominate playlists\nInternational Variants: Translations and alternate versions (low Spotify presence but crucial for global reach)\n\nReal lesson: A successful soundtrack isn’t monolithic. It needs variety-peaks and valleys, bombast and intimacy. The “filler” tracks aren’t failures; they’re structural necessities. Remove the connective tissue and the whole body stops working.\n\n\n3. “For Good” Defies Every Prediction\nNobody-and I mean nobody-predicted the quiet, emotional duet would beat “Defying Gravity.” But it does (58 vs. 56). This might reflect:\n\nEmotional depth: Listeners return to songs that make them feel, not just sing along\nReplayability: “Defying Gravity” is a showstopper, but you don’t blast it at 7 AM every Tuesday. “For Good” is a comfort song-the one you need when life gets complicated.\nUnder-the-radar favoritism: Not the flashiest choice, but the one that sticks in your chest\n\nReal lesson: Flashy doesn’t always equal popular. The moments that make us cry often resonate more deeply than the ones that make us cheer. Marketing loves the big moments, but listeners love what they love-and data doesn’t lie about it.\n\n\n4. The Data’s Blind Spots (And Why That’s Important)\nThis analysis tells us what is popular and what correlates (or doesn’t). But it can’t explain why certain songs resonate. Was “For Good” boosted by a viral moment we missed? A celebrity cover? An emotional TikTok trend? The CSV doesn’t capture cultural context, personal memories, or the specific moment someone first heard a song that changed them.\nReal lesson: Numbers tell you where to look. Context tells you what you’re seeing. Good data science acknowledges its limits. Great data science uses those limits to ask better questions for the next project."
+    "text": "Code"
   },
   {
     "objectID": "wicked.html#project-overview",
@@ -448,11 +77,39 @@
     "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
   },
   {
-    "objectID": "wicked.html",
-    "href": "wicked.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "",
     "section": "",
-    "text": "Code"
+    "text": "Isfar Baset\n\nData Analyst\n\n\nCrafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.\n\n\nView Projects About Me Chat with Isfar\n\n\n\n\n\n\n\n\nFeatured Projects\n\n\n\n\n\n\nFMBench Assistant\n\n\n\n\nFMBench Assistant\nA conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.\n\n\n\n\n\n\n\nDefying Analytics\n\n\n\n\nDefying Analytics: What Spotify Reveals About Wicked\nTwenty years after its Broadway debut, Wicked’s soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.\nTech Stack: Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto\nKey Finding: Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers\n\n\n\n\n\n\n\nUS Insights\n\n\n\n\nUS Insights\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.\n\n\n\n\n\n\n\nTemp Talk\n\n\n\n\nTemp Talk\nExploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.\n\n\n\n\n\n\n\nBeats and Bytes\n\n\n\n\nBeats and Bytes\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.\n\n\n\n\n\n\n\nEV Insights\n\n\n\n\nEV Insights\nExamining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.\n\n\n\n\n\n\n\nAir Quality Intelligence\n\n\n\n\nAir Quality Intelligence\nA Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.\nTech Stack: Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas\nKey Feature: Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning\n\n\n\n\n\n\n\nPortfolio curated by Isfar Baset"
+  },
+  {
+    "objectID": "chatbot-test.html",
+    "href": "chatbot-test.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n🎯 CACHE TEST VERSION - If you see this message, the file is updating correctly!\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\nThis is the TEST version to verify cache updates work correctly."
+  },
+  {
+    "objectID": "aqi.html",
+    "href": "aqi.html",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "",
+    "text": "Air Quality Intelligence\n\n\nReal-time environmental monitoring with AI-powered health recommendations"
+  },
+  {
+    "objectID": "aqi.html#overview",
+    "href": "aqi.html#overview",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Overview",
+    "text": "Overview\nAn intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.\n\n\nGlobal Coverage\n\n\n6 Pollutants Tracked\n\n\n15 min Update Frequency\n\n\nLive Real-Time Data"
+  },
+  {
+    "objectID": "aqi.html#key-features",
+    "href": "aqi.html#key-features",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Key Features",
+    "text": "Key Features\n\n\n\nReal-Time Monitoring\n\n\nLive AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\n\n\n\n\nSmart Recommendations\n\n\nActivity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions\n\n\n\n\nMulti-City Compare\n\n\nSide-by-side analysis of air quality across multiple cities for travel planning\n\n\n\n\nHealth Protection\n\n\nSpecial guidance for sensitive groups including children, elderly, and those with respiratory conditions"
   },
   {
     "objectID": "aqi.html#live-demo-output",
@@ -497,39 +154,11 @@
     "text": "Real-World Use Cases## Real-World Use Cases\n\n1. Daily Health Management\nScenario: “Should I go jogging this morning?”\nThe system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed\nReal Example (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”\n\n\n2. Travel Planning\nScenario: “Which city has better air quality: Boston or Los Angeles?”\nMulti-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended\nDecision: Boston offers significantly better conditions for travelers with respiratory concerns.\n\n\n3. Family Safety\nScenario: “Is it safe to take my kids to the playground?”\nSensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations"
   },
   {
-    "objectID": "aqi.html#health-category-system",
-    "href": "aqi.html#health-category-system",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Health Category System",
-    "text": "Health Category System\nThe system uses WHO/EPA guidelines to classify air quality:\n\n\n\n\n\n\n\n\n\nCategory\nAQI Range\nIndicator\nMeaning\n\n\n\n\n🟢 Good\n0-50\nExcellent\nSafe for all activities\n\n\n🟡 Moderate\n51-100\nAcceptable\nGenerally safe, sensitive individuals may want to limit prolonged exertion\n\n\n🟠 Unhealthy for Sensitive\n101-150\nCaution\nSensitive groups should reduce outdoor activities\n\n\n🔴 Unhealthy\n151-200\nAlert\nEveryone should limit outdoor exertion\n\n\n🟣 Very Unhealthy\n201-300\nWarning\nAvoid all outdoor activities\n\n\n⚫ Hazardous\n301+\nEmergency\nHealth emergency - stay indoors"
-  },
-  {
-    "objectID": "aqi.html#data-sources-accuracy",
-    "href": "aqi.html#data-sources-accuracy",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Data Sources & Accuracy",
-    "text": "Data Sources & Accuracy\n\nAPI Ninjas Air Quality API\n\nCoverage: Worldwide (all major cities + GPS coordinates)\nUpdate Frequency: Real-time (15-minute intervals)\nPollutants: PM2.5, PM10, O3, NO2, SO2, CO\nAccuracy: Based on ground-level monitoring stations\nValidation: Cross-referenced with EPA/WHO standards\n\n\n\nReal Test Results (October 24, 2025)\n\n\n\nCity\nAQI\nCategory\nPM2.5\nKey Recommendation\n\n\n\n\nNew York\n45\nGood\n0.7\nPerfect for all activities\n\n\nBoston\n47\nGood\n0.7\nIdeal outdoor conditions\n\n\nSeattle\n96\nModerate\n1.1\nGenerally safe\n\n\nLos Angeles\n112\nUnhealthy (Sensitive)\n-\nLimited outdoor time\n\n\nDhaka\n116\nUnhealthy (Sensitive)\n48.9\nUse precautions\n\n\nLondon\n153\nUnhealthy\n-\nAvoid prolonged exposure"
-  },
-  {
-    "objectID": "aqi.html#project-structure",
-    "href": "aqi.html#project-structure",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Project Structure",
-    "text": "Project Structure\ncode/\n├── aqi_mcp_server.py      # Core MCP server (210 lines)\n├── aqi_demo.py            # Interactive demo (160 lines)\n├── README_AQI.md          # Documentation\n├── .env.aqi               # API configuration\n└── aqi_example_output.txt # Sample outputs"
-  },
-  {
-    "objectID": "aqi.html#technologies-used",
-    "href": "aqi.html#technologies-used",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Technologies Used",
-    "text": "Technologies Used\n\n\n\n🐍\n\n\nPython 3.11\n\nAsync/await architecture for optimal performance\n\n\n\n⚡\n\n\nAiohttp\n\nAsynchronous HTTP client for non-blocking API calls\n\n\n\n🔌\n\n\nModel Context Protocol\n\nStandardized data access layer for extensibility\n\n\n\n🌐\n\n\nAPI Ninjas\n\nReal-time global air quality data source"
-  },
-  {
-    "objectID": "aqi.html#try-it-yourself",
-    "href": "aqi.html#try-it-yourself",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "Try It Yourself",
-    "text": "Try It Yourself\n\n\nQuick Start Commands\n# Clone the repository\ngit clone https://github.com/isfarbaset/portfolio.git\ncd portfolio/code\n\n# Install dependencies\npip install aiohttp\n\n# Set your API key\nexport API_NINJAS_KEY='your_key_here'\n\n# Run quick report\npython3 aqi_demo.py quick\n\n# Run interactive mode\npython3 aqi_demo.py\n\n\nExample Queries to Try\n\nSingle city: Dhaka, Paris, Mumbai, Sydney\nCompare: compare Boston Seattle Miami\nYour location: [Your City Name]"
+    "objectID": "aqi.html#gen-ai-conversational-agent",
+    "href": "aqi.html#gen-ai-conversational-agent",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Gen AI Conversational Agent",
+    "text": "Gen AI Conversational Agent\nBuilding on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.\n\nWhat Makes It Gen AI\n\n\n\nNatural Language Understanding\n\n\nAsk questions in plain English with no commands to memorize. The AI understands context and intent.\n\n\n\n\nPersonalized Recommendations\n\n\nTailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)\n\n\n\n\nContextual Intelligence\n\n\nCombines real-time data with medical knowledge, considers multiple factors for nuanced advice\n\n\n\n\nConversation Memory\n\n\nMaintains context across multi-turn conversations for follow-up questions and clarifications\n\n\n\n\n\nLive Gen AI Conversations\n\nExample 1: Simple Air Quality Check\n\nUser: What’s the air quality like in Boston today?\nAI Assistant: Great news. The air quality in Boston is currently excellent with an AQI of 47, which falls in the Good category.\nHere’s what this means for you: Air is safe for everyone. All outdoor activities are perfectly fine. PM2.5: 0.7 µg/m³ (very low particulate matter) Ozone: 56.3 µg/m³ (within safe limits)\nThis is ideal weather for outdoor activities. Whether you want to jog, cycle, or spend time in the park, the air quality will not be a concern today. Enjoy the fresh air.\n\nKey Difference: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.\n\n\nExample 2: Health-Specific Personalized Advice\n\nUser: I have asthma. Can I go jogging in Dhaka today?\nAI Assistant: I would advise caution for jogging in Dhaka today. The current AQI is 116, which is in the Unhealthy for Sensitive Groups category.\nSince you have asthma, here is what I recommend:\nToday’s Conditions: AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³ (elevated particulate matter) PM10: 58.6 µg/m³ (elevated)\nJogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: Go early morning or late evening when AQI is typically better Keep it short (15-20 minutes max) Stay at a comfortable pace, avoid intense exertion Carry your inhaler Monitor how you feel, stop if you experience any symptoms\n\nWatch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately\n\nBetter days ahead: Check the AQI forecast, it might improve in the next day or two. Your health comes first.\n\nIntelligence at Work: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.\n\n\nExample 3: Intelligent City Comparison for Travel\n\nUser: Compare air quality in Seattle and Los Angeles\nAI Assistant: Here is your air quality comparison:\nSeattle: AQI 96 (Moderate) Generally acceptable air quality Most people can enjoy outdoor activities\nLos Angeles: AQI 107 (Unhealthy for Sensitive Groups) Sensitive groups should limit outdoor exertion Higher ozone levels (78.2 µg/m³)\nWinner: Seattle has better air quality today.\nKey Differences: Seattle AQI is 11 points better Both cities have low PM2.5 LA has higher ozone due to Southern California weather patterns\nIf you are deciding where to visit, remember this is just today’s snapshot. Check historical trends for the full picture.\n\nBeyond Basic Comparison: The AI explains differences, provides context, and suggests long-term thinking.\n\n\n\nTry the Gen AI Agent\n# Install dependencies\npip install aiohttp openai\n\n# Set API keys\nexport API_NINJAS_KEY='your_air_quality_key'\nexport OPENAI_API_KEY='your_openai_key'\n\n# Run Gen AI agent\npython3 aqi_genai_agent.py\n\n# Run demo conversations\npython3 aqi_genai_agent.py demo\nSee genai_example_conversations.txt for more examples. export API_NINJAS_KEY=‘your_key_here’"
   },
   {
     "objectID": "aqi.html#code-repository",
@@ -539,17 +168,171 @@
     "text": "Code Repository\n\n 🔗 View Full Source Code on GitHub \n\n\nThis project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring."
   },
   {
-    "objectID": "aqi.html#gen-ai-conversational-agent-new",
-    "href": "aqi.html#gen-ai-conversational-agent-new",
-    "title": "🌍 AIR QUALITY QUICK REPORT",
-    "section": "🤖 Gen AI Conversational Agent (New!)",
-    "text": "🤖 Gen AI Conversational Agent (New!)\nBuilding on the core MCP architecture, I’ve enhanced this project with AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.\n\nWhat Makes It Gen AI?\n\n\n\n💬\n\n\nNatural Language Understanding\n\nAsk questions in plain English - no commands to memorize. The AI understands context and intent.\n\n\n\n🎯\n\n\nPersonalized Recommendations\n\nTailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)\n\n\n\n🧠\n\n\nContextual Intelligence\n\nCombines real-time data with medical knowledge, considers multiple factors for nuanced advice\n\n\n\n🔄\n\n\nConversation Memory\n\nMaintains context across multi-turn conversations for follow-up questions and clarifications\n\n\n\n\nLive Gen AI Conversations\n\nExample 1: Simple Air Quality Check\n\n💬 User: What’s the air quality like in Boston today?\n🤖 AI Assistant: Great news! The air quality in Boston is currently excellent with an AQI of 47, which falls in the “Good” category.\nHere’s what this means for you: • Air is safe for everyone - All outdoor activities are perfectly fine • PM2.5: 0.7 µg/m³ (very low particulate matter) • Ozone: 56.3 µg/m³ (within safe limits)\nThis is ideal weather for outdoor activities! Whether you want to jog, cycle, or spend time in the park, the air quality won’t be a concern today. Enjoy the fresh air! 🌤️\n\nWhat’s Different: Unlike the basic demo, the Gen AI agent provides empathetic, conversational responses that explain “why” and “what to do” - not just data dumps.\n\n\nExample 2: Health-Specific Personalized Advice\n\n💬 User: I have asthma. Can I go jogging in Dhaka today?\n🤖 AI Assistant: I’d advise caution for jogging in Dhaka today. The current AQI is 116, which is in the “Unhealthy for Sensitive Groups” category.\nSince you have asthma, here’s what I recommend:\n⚠️ Today’s Conditions: • AQI: 116 (Unhealthy for Sensitive Groups) • PM2.5: 48.9 µg/m³ (elevated particulate matter) • PM10: 58.6 µg/m³ (elevated)\n🏃 Jogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: - Go early morning or late evening when AQI is typically better - Keep it short (15-20 minutes max) - Stay at a comfortable pace - avoid intense exertion - Carry your inhaler - Monitor how you feel - stop if you experience any symptoms\n\nWatch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately\n\n📱 Better days ahead: Check the AQI forecast - it might improve in the next day or two. Your health comes first! 💙\n\nIntelligence at Work: The AI understands the user has a pre-existing condition and provides: - Risk assessment specific to asthma - Tiered recommendations (best → acceptable) - Symptom monitoring guidance - Empathetic, safety-first messaging\n\n\nExample 3: Intelligent City Comparison for Travel\n\n💬 User: Compare air quality in Seattle and Los Angeles\n🤖 AI Assistant: Here’s your air quality comparison:\n🌲 Seattle: AQI 96 (Moderate) ⭐⭐⭐ • Generally acceptable air quality • Most people can enjoy outdoor activities\n🌴 Los Angeles: AQI 107 (Unhealthy for Sensitive Groups) ⭐⭐ • Sensitive groups should limit outdoor exertion • Higher ozone levels (78.2 µg/m³)\nWinner: Seattle has better air quality today! 🏆\nKey Differences: • Seattle’s AQI is 11 points better • Both cities have low PM2.5 • LA has higher ozone due to Southern California weather patterns\nIf you’re deciding where to visit, remember this is just today’s snapshot - check historical trends for the full picture! 📊\n\nBeyond Basic Comparison: The AI explains differences, provides context, and suggests long-term thinking.\n\n\n\nTry the Gen AI Agent\n# Install dependencies\npip install aiohttp openai\n\n# Set API keys\nexport API_NINJAS_KEY='your_air_quality_key'\nexport OPENAI_API_KEY='your_openai_key'\n\n# Run Gen AI agent\npython3 aqi_genai_agent.py\n\n# Run demo conversations\npython3 aqi_genai_agent.py demo\nSee genai_example_conversations.txt for more examples! export API_NINJAS_KEY=‘your_key_here’"
+    "objectID": "about-me-chatbot.html",
+    "href": "about-me-chatbot.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
   },
   {
-    "objectID": "aqi.html#gen-ai-conversational-agent",
-    "href": "aqi.html#gen-ai-conversational-agent",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Gen AI Conversational Agent",
-    "text": "Gen AI Conversational Agent\nBuilding on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.\n\nWhat Makes It Gen AI\n\n\n\nNatural Language Understanding\n\n\nAsk questions in plain English with no commands to memorize. The AI understands context and intent.\n\n\n\n\nPersonalized Recommendations\n\n\nTailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)\n\n\n\n\nContextual Intelligence\n\n\nCombines real-time data with medical knowledge, considers multiple factors for nuanced advice\n\n\n\n\nConversation Memory\n\n\nMaintains context across multi-turn conversations for follow-up questions and clarifications\n\n\n\n\n\nLive Gen AI Conversations\n\nExample 1: Simple Air Quality Check\n\nUser: What’s the air quality like in Boston today?\nAI Assistant: Great news. The air quality in Boston is currently excellent with an AQI of 47, which falls in the Good category.\nHere’s what this means for you: Air is safe for everyone. All outdoor activities are perfectly fine. PM2.5: 0.7 µg/m³ (very low particulate matter) Ozone: 56.3 µg/m³ (within safe limits)\nThis is ideal weather for outdoor activities. Whether you want to jog, cycle, or spend time in the park, the air quality will not be a concern today. Enjoy the fresh air.\n\nKey Difference: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.\n\n\nExample 2: Health-Specific Personalized Advice\n\nUser: I have asthma. Can I go jogging in Dhaka today?\nAI Assistant: I would advise caution for jogging in Dhaka today. The current AQI is 116, which is in the Unhealthy for Sensitive Groups category.\nSince you have asthma, here is what I recommend:\nToday’s Conditions: AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³ (elevated particulate matter) PM10: 58.6 µg/m³ (elevated)\nJogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: Go early morning or late evening when AQI is typically better Keep it short (15-20 minutes max) Stay at a comfortable pace, avoid intense exertion Carry your inhaler Monitor how you feel, stop if you experience any symptoms\n\nWatch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately\n\nBetter days ahead: Check the AQI forecast, it might improve in the next day or two. Your health comes first.\n\nIntelligence at Work: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.\n\n\nExample 3: Intelligent City Comparison for Travel\n\nUser: Compare air quality in Seattle and Los Angeles\nAI Assistant: Here is your air quality comparison:\nSeattle: AQI 96 (Moderate) Generally acceptable air quality Most people can enjoy outdoor activities\nLos Angeles: AQI 107 (Unhealthy for Sensitive Groups) Sensitive groups should limit outdoor exertion Higher ozone levels (78.2 µg/m³)\nWinner: Seattle has better air quality today.\nKey Differences: Seattle AQI is 11 points better Both cities have low PM2.5 LA has higher ozone due to Southern California weather patterns\nIf you are deciding where to visit, remember this is just today’s snapshot. Check historical trends for the full picture.\n\nBeyond Basic Comparison: The AI explains differences, provides context, and suggests long-term thinking.\n\n\n\nTry the Gen AI Agent\n# Install dependencies\npip install aiohttp openai\n\n# Set API keys\nexport API_NINJAS_KEY='your_air_quality_key'\nexport OPENAI_API_KEY='your_openai_key'\n\n# Run Gen AI agent\npython3 aqi_genai_agent.py\n\n# Run demo conversations\npython3 aqi_genai_agent.py demo\nSee genai_example_conversations.txt for more examples. export API_NINJAS_KEY=‘your_key_here’"
+    "objectID": "about-me-chatbot-fixed.html",
+    "href": "about-me-chatbot-fixed.html",
+    "title": "\n💬 Chat with Isfar\n",
+    "section": "",
+    "text": "Ask me anything about her background, experience, or interests!\n\n\nℹ️ This chatbot provides quick answers about Isfar’s professional background. For detailed conversations or specific inquiries, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n👋 Hi there! I’m Isfar’s advanced AI assistant, powered by sophisticated conversational AI technology. I understand context, remember our conversation, and provide natural, detailed responses about her professional journey and background.\nI excel at discussing: • Her inspiring journey from Dhaka, Bangladesh to becoming a data scientist in the US • Detailed technical expertise in Python, SQL, data visualization, and machine learning • Educational achievements including her 4.0 GPA Master’s from Georgetown University • Professional experience at Shift Digital working with enterprise clients • Personal interests, cultural background, and creative pursuits • Career aspirations and her passion for making data accessible to everyone\nI’m designed to have natural, flowing conversations just like ChatGPT or Claude. Feel free to ask follow-up questions, request clarifications, or dive deep into any topic. What aspect of Isfar’s story would you like to explore first?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me-chatbot-clean.html",
+    "href": "about-me-chatbot-clean.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "5100-website/slideshow.html",
+    "href": "5100-website/slideshow.html",
+    "title": "Airy Tales Slideshow",
+    "section": "",
+    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
+  },
+  {
+    "objectID": "Group37_Final_Report.html",
+    "href": "Group37_Final_Report.html",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "",
+    "text": "Through this project, our group sought to bridge the gap between music and data science by employing Spotify’s extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector."
+  },
+  {
+    "objectID": "Group37_Final_Report.html#artist-level-genre-classification",
+    "href": "Group37_Final_Report.html#artist-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Artist Level Genre Classification",
+    "text": "Artist Level Genre Classification\n\nData Setup\nIn the initial steps of our project, we utilized essential Python libraries, such as numpy and pandas, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, artists.csv, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.\n\n\nData Exploration and Cleansing\nDuring our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like “The Beach Boys” and removing entries with corrupted data, such as “Roger Miller.” This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling.\n\n\nAssigning a Primary Genre\nAs musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.\n\n\nMachine Learning Preparation\nWe prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model’s performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.\n\n\nModel Training and Evaluation\nIn this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:\n\nLogistic Regression\n\nTest Accuracy: 81.03%\nComputation Time: 3.2 seconds\nComments: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 77.59%\nComputation Time: 3.4 seconds\nComments: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.\n\n\n\nNeural Network\n\nTrain Accuracy: 68.85%\nTest Accuracy: 70.69%\nComputation Time: 11 minutes 46.2 seconds\nComments: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.\n\n\n\nRandom Forest\n\nTest Accuracy: 79.31%\nComputation Time: 1 minute 6.4 seconds\nComments: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.\n\n\n\nXGBoost\n\nTest Accuracy: 77.59%\nComputation Time: 24.5 seconds\nComments: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.\n\n\n\n\nHyperparameter Tuning\nWe implemented grid searches to fine tune each model’s hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model’s performance and its ability to generalize on new data.\n\n\nConclusion: Classifying Artists into Genres\nThe genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques."
+  },
+  {
+    "objectID": "Group37_Final_Report.html#track-level-genre-classification",
+    "href": "Group37_Final_Report.html#track-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Track Level Genre Classification",
+    "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy."
+  },
+  {
+    "objectID": "about-me-chatbot-final.html",
+    "href": "about-me-chatbot-final.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me-chatbot-new.html",
+    "href": "about-me-chatbot-new.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me.html",
+    "href": "about-me.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a Master’s of Science in Data Science & Analytics from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.\n\n\n\n\n  \n    \n    \n      \n      Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming\n    \n  \n\n\n\nFor a detailed overview of my experience:\nDownload Resume\n:::"
+  },
+  {
+    "objectID": "about-me.html#professional-journey",
+    "href": "about-me.html#professional-journey",
+    "title": "About Me",
+    "section": "",
+    "text": "Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming"
+  },
+  {
+    "objectID": "about-me.html#education",
+    "href": "about-me.html#education",
+    "title": "About Me",
+    "section": "🎓 Education",
+    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • May 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
+  },
+  {
+    "objectID": "about-me.html#professional-experience",
+    "href": "about-me.html#professional-experience",
+    "title": "About Me",
+    "section": "💼 Professional Experience",
+    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • May 2025 - Present\n\n\n\nLeading advanced data operations and analytics initiatives for enterprise clients\nDriving strategic data architecture decisions and mentoring junior analysts\n\n\n\n\nData Analyst I\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - May 2023\n\n\n\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
+  },
+  {
+    "objectID": "about-me.html#technical-skills",
+    "href": "about-me.html#technical-skills",
+    "title": "About Me",
+    "section": "🛠️ Technical Skills",
+    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
+  },
+  {
+    "objectID": "chatbot-test-simple.html",
+    "href": "chatbot-test-simple.html",
+    "title": "Simple Test",
+    "section": "",
+    "text": "Simple Test\n\n\nClick Me"
+  },
+  {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "Conclusion",
+    "section": "",
+    "text": "Conclusion"
+  },
+  {
+    "objectID": "wicked-backup.html",
+    "href": "wicked-backup.html",
+    "title": "Defying Analytics",
+    "section": "",
+    "text": "Defying Analytics\n\n\nA statistical deep-dive into what makes Wicked’s soundtrack endure on Spotify"
+  },
+  {
+    "objectID": "wicked-backup.html#project-overview",
+    "href": "wicked-backup.html#project-overview",
+    "title": "Defying Analytics",
+    "section": "Project Overview",
+    "text": "Project Overview\n\nTwenty years after its Broadway debut, Wicked remains a streaming phenomenon. But what separates the most-played tracks from the forgotten ones? This analysis uses real Spotify data from 28 tracks across the Wicked soundtrack to uncover patterns in popularity, duration, and listener engagement.\nUsing statistical methods including correlation analysis, ANOVA, K-means clustering, and PCA, I analyzed actual Spotify metrics to understand what makes certain songs resonate more than others—and whether conventional wisdom about “hit songs” holds up under scrutiny.\nSpoiler: “For Good” wins, duration doesn’t matter as much as you’d think, and the data reveals three distinct song archetypes.\n\n\n\n28 Tracks Analyzed\n\n\n58 Highest Popularity Score\n\n\n3.88 Avg Song Length (min)\n\n\n3 Distinct Song Clusters"
+  },
+  {
+    "objectID": "wicked-backup.html#what-the-data-actually-showed",
+    "href": "wicked-backup.html#what-the-data-actually-showed",
+    "title": "Defying Analytics",
+    "section": "What The Data Actually Showed",
+    "text": "What The Data Actually Showed\n\nThe Winner Nobody Expected\n“For Good”—the emotional duet near the finale—scores highest in Spotify popularity (58/100), edging out crowd favorites like “Defying Gravity” (56) and “No Good Deed” (57). The quiet moments win.\n\n\nDuration Doesn’t Matter (Statistically)\nCorrelation between song length and popularity? A measly 0.05 with p-value of 0.80. Translation: whether a song runs 50 seconds or 7 minutes has zero predictive power for its streaming success. ANOVA confirms it: no significant effect (p=0.19).\n\n\nThree Song Archetypes Emerge\nK-means clustering reveals three distinct groups: Epic Numbers (long, popular showstoppers), Deep Cuts (short, less-streamed tracks), and Solid Mid-Tier (balanced popularity and length). Each serves a different role in the soundtrack’s ecosystem."
+  },
+  {
+    "objectID": "wicked-backup.html#methodology-or-how-i-tried-to-science-this-thing",
+    "href": "wicked-backup.html#methodology-or-how-i-tried-to-science-this-thing",
+    "title": "Defying Analytics",
+    "section": "Methodology (Or: How I Tried To Science This Thing)",
+    "text": "Methodology (Or: How I Tried To Science This Thing)\n\nData Collection\n\nPython 3.11 Spotify API Pandas Scikit-learn Plotly\n\nCollected data on all 18 tracks from the Wicked soundtrack using Spotify’s API, including audio features (tempo, danceability, energy, valence), track metadata (duration, popularity scores), and TikTok performance metrics (video counts, engagement patterns).\nThe plan was simple: feed everything into a Random Forest classifier, identify patterns, declare victory. Reality, as usual, had other plans.\n\n\nThe Model Stack\n\n\nCode\n# Modern ML pipeline with XGBoost and ensemble methods\nfrom sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier\nfrom xgboost import XGBClassifier\nfrom sklearn.model_selection import cross_val_score, StratifiedKFold\nimport numpy as np\n\n# Feature engineering\nfeatures = ['danceability', 'energy', 'valence', 'tempo', \n            'duration_ms', 'acousticness', 'speechiness']\n\n# Ensemble approach: Random Forest + XGBoost\nrf_model = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)\nxgb_model = XGBClassifier(n_estimators=150, learning_rate=0.1, max_depth=6)\n\n# Cross-validation for robust estimates\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nrf_scores = cross_val_score(rf_model, X, y, cv=cv, scoring='accuracy')\nxgb_scores = cross_val_score(xgb_model, X, y, cv=cv, scoring='accuracy')\n\nprint(f\"RF Accuracy: {rf_scores.mean():.2%} ± {rf_scores.std():.2%}\")\nprint(f\"XGB Accuracy: {xgb_scores.mean():.2%} ± {xgb_scores.std():.2%}\")\n\n# SHAP values for interpretability\nimport shap\nexplainer = shap.TreeExplainer(rf_model)\nshap_values = explainer.shap_values(X)\n\n\nThe model achieved 85% accuracy, which sounds impressive until you realize the 15% it got wrong were the songs that actually went most viral. Classic."
+  },
+  {
+    "objectID": "wicked-backup.html#the-numbers-tell-a-story-sort-of",
+    "href": "wicked-backup.html#the-numbers-tell-a-story-sort-of",
+    "title": "Defying Analytics",
+    "section": "The Numbers Tell a Story (Sort Of)",
+    "text": "The Numbers Tell a Story (Sort Of)\n\nTop Performing Songs on TikTok\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\nAudio Feature Comparison: The Top 3\n\n\n                            \n                                            \n\n\n\n\nFeature Importance: What Actually Drives Virality\n\n\n                            \n                                            \n\n\n\nKey Insight: Celebrity influence (35%) matters more than any audio feature. The “Ariana Grande Effect” is real and measurable—when she posts, engagement skyrockets regardless of tempo or danceability.\n\n\n\nViral Trajectory: Videos Over Time\n\n\n                            \n                                            \n\n\n\n\nInteractive Feature Correlation Heatmap\n\n\n                            \n                                            \n\n\n\nCorrelation Insight: Danceability and valence (happiness) show strong positive correlation (0.68), suggesting upbeat, happy songs naturally invite dancing. However, their combined effect on virality (0.45) is weaker than expected—celebrity influence still wins.\n\n\n\nEngagement Distribution: The Long Tail\n\n\n                            \n                                            \n\n\n\nDistribution Insight: Both songs show classic long-tail distributions—most videos get modest engagement, but the top 1% drive massive viewership. This “viral lottery” effect means a few breakout videos can skew total impact significantly."
+  },
+  {
+    "objectID": "wicked-backup.html#lessons-learned-besides-humility",
+    "href": "wicked-backup.html#lessons-learned-besides-humility",
+    "title": "Defying Analytics",
+    "section": "Lessons Learned (Besides Humility)",
+    "text": "Lessons Learned (Besides Humility)\n\nTechnical Takeaways\nAPI Wrangling: Spotify’s Web API is well-documented but temperamental. Learned the hard way that rate limits exist and the audio_features endpoint doesn’t always play nice. Solution: patience, retry logic, and strategic data collection.\nFeature Engineering: Turned raw audio metrics into meaningful predictors. Danceability, energy, and valence became the holy trinity of viral potential—until they weren’t.\nMachine Learning Reality Check: Random Forest models are excellent at finding patterns. They’re less excellent at explaining why “Defying Gravity” with middling danceability scored better than theoretically perfect candidates. Sometimes the model shrugs, and that’s data science.\nVisualization Strategy: Interactive Plotly charts beat static images every time. If your audience can hover, click, and explore, they’ll remember your insights longer than they remember your methodology.\n\n\nThe Real Insight\nData science can tell you what happened. It can even tell you how it happened. But the why—the celebrity posts, the cultural zeitgeist, the inexplicable human desire to lip-sync to show tunes—that requires context the CSV file doesn’t have.\nThis project taught me that the best analysis acknowledges its limitations. The algorithm got us 85% of the way there. The other 15%? That’s where the interesting story lives."
+  },
+  {
+    "objectID": "wicked-backup.html#whats-next",
+    "href": "wicked-backup.html#whats-next",
+    "title": "Defying Analytics",
+    "section": "What’s Next",
+    "text": "What’s Next\nIf I were to revisit this project (or build something similar):\nReal-time Dashboard: Track TikTok trends as they emerge, not months after the fact. Ideal for predicting which new releases might break through.\nCross-Musical Comparison: How does Wicked stack up against Hamilton, Dear Evan Hansen, or Six? Do the same patterns hold, or is every soundtrack its own beast?\nSentiment Analysis: Mine TikTok comments to understand why people create videos for certain songs. Are they earnest? Ironic? Both? The tone matters.\nPredictive Scoring: Build a “viral potential calculator” for unreleased tracks. Won’t be perfect (see above re: humility), but could help marketing teams make informed bets."
+  },
+  {
+    "objectID": "wicked-backup.html#view-the-full-project",
+    "href": "wicked-backup.html#view-the-full-project",
+    "title": "Defying Analytics",
+    "section": "View the Full Project",
+    "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
   }
 ]
