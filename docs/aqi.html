@@ -205,6 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
+  <li><a href="#health-categories-color-coding" id="toc-health-categories-color-coding" class="nav-link" data-scroll-target="#health-categories-color-coding">Health Categories &amp; Color Coding</a></li>
   <li><a href="#live-demo-output" id="toc-live-demo-output" class="nav-link" data-scroll-target="#live-demo-output">Live Demo Output</a>
   <ul class="collapse">
   <li><a href="#quick-report-global-air-quality-snapshot" id="toc-quick-report-global-air-quality-snapshot" class="nav-link" data-scroll-target="#quick-report-global-air-quality-snapshot">Quick Report: Global Air Quality Snapshot</a></li>
@@ -565,6 +566,60 @@ Health Protection
 </div>
 </div>
 </section>
+<section id="health-categories-color-coding" class="level2">
+<h2 class="anchored" data-anchor-id="health-categories-color-coding">Health Categories &amp; Color Coding</h2>
+<p>The system uses the EPA Air Quality Index (AQI) standard to categorize air quality levels:</p>
+<div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+<div class="feature-card" style="border-left: 4px solid var(--aqi-good);">
+<div class="feature-title">
+<span class="aqi-good">Good (0-50)</span>
+</div>
+<div class="feature-description">
+<p>Air quality is excellent. Safe for all outdoor activities. No health concerns for any population group.</p>
+</div>
+</div>
+<div class="feature-card" style="border-left: 4px solid #d4a000;">
+<div class="feature-title">
+<span class="aqi-moderate">Moderate (51-100)</span>
+</div>
+<div class="feature-description">
+<p>Air quality is acceptable. Unusually sensitive individuals should consider limiting prolonged outdoor exertion.</p>
+</div>
+</div>
+<div class="feature-card" style="border-left: 4px solid var(--aqi-sensitive);">
+<div class="feature-title">
+<span class="aqi-sensitive">Unhealthy for Sensitive Groups (101-150)</span>
+</div>
+<div class="feature-description">
+<p>Sensitive groups (children, elderly, people with respiratory conditions) should reduce prolonged outdoor activities.</p>
+</div>
+</div>
+<div class="feature-card" style="border-left: 4px solid var(--aqi-unhealthy);">
+<div class="feature-title">
+<span class="aqi-unhealthy">Unhealthy (151-200)</span>
+</div>
+<div class="feature-description">
+<p>Everyone should avoid prolonged outdoor activities. Sensitive groups should stay indoors.</p>
+</div>
+</div>
+<div class="feature-card" style="border-left: 4px solid var(--aqi-very-unhealthy);">
+<div class="feature-title">
+<span class="aqi-very-unhealthy">Very Unhealthy (201-300)</span>
+</div>
+<div class="feature-description">
+<p>Health alert! Everyone should avoid all outdoor activities. Emergency precautions recommended.</p>
+</div>
+</div>
+<div class="feature-card" style="border-left: 4px solid var(--aqi-hazardous);">
+<div class="feature-title">
+<span class="aqi-hazardous">Hazardous (301+)</span>
+</div>
+<div class="feature-description">
+<p>Health emergency! Everyone should remain indoors. Seek immediate medical attention if experiencing symptoms.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="live-demo-output" class="level2">
 <h2 class="anchored" data-anchor-id="live-demo-output">Live Demo Output</h2>
 <section id="quick-report-global-air-quality-snapshot" class="level3">
@@ -576,7 +631,7 @@ Health Protection
 
 <p><span class="aqi-sensitive">Dhaka | AQI: 116 | Unhealthy for Sensitive Groups</span> <span class="aqi-good">New York | AQI: 45 | Good</span> <span class="aqi-sensitive">Los Angeles | AQI: 112 | Unhealthy for Sensitive Groups</span> <span class="aqi-moderate">Seattle | AQI: 96 | Moderate</span> <span class="aqi-unhealthy">London | AQI: 153 | Unhealthy</span></p>
 </section>
-<p><strong>Interpretation</strong>: Health categories are color-coded (green for good, yellow for moderate, orange for sensitive groups, red for unhealthy) to quickly assess air quality.</p>
+<p><strong>Interpretation</strong>: Health categories are color-coded following EPA standards: <span class="aqi-good">green (good)</span>, <span class="aqi-moderate">yellow (moderate)</span>, <span class="aqi-sensitive">orange (sensitive groups)</span>, <span class="aqi-unhealthy">red (unhealthy)</span>, <span class="aqi-very-unhealthy">purple (very unhealthy)</span>, and <span class="aqi-hazardous">maroon (hazardous)</span> for quick visual assessment.</p>
 </div>
 <section id="detailed-city-analysis-boston" class="level3">
 <h3 class="anchored">Detailed City Analysis: Boston</h3>

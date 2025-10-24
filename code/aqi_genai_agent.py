@@ -32,20 +32,42 @@ class GenAIAQIAgent:
         # Simple city extraction (can be enhanced with NLP)
         import re
         
+        cities = []
+        
         # Look for compare commands
         if 'compare' in query.lower():
             words = query.split()
-            cities = [w.strip(',').strip('.') for w in words if w[0].isupper() and w.lower() not in ['compare', 'and', 'or']]
+            cities = [w.strip(',').strip('.').strip('?') for w in words if w[0].isupper() and w.lower() not in ['compare', 'and', 'or']]
         else:
             # Extract capitalized words as potential cities
-            cities = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b', query)
+            capitalized = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b', query)
+            cities.extend(capitalized)
+            
+            # Also look for common city patterns (e.g., "in reston", "reston,")
+            # Extract words after "in", "at", "for" that might be cities
+            patterns = [
+                r'(?:in|at|for)\s+([a-zA-Z]+(?:\s+[a-zA-Z]+)?)',
+                r'([a-zA-Z]+(?:\s+[a-zA-Z]+)?)\s*,\s*[A-Z]{2}',  # City, ST pattern
+            ]
+            for pattern in patterns:
+                matches = re.findall(pattern, query, re.IGNORECASE)
+                cities.extend([m.title() for m in matches if m.lower() not in ['the', 'a', 'an', 'is', 'are', 'was', 'were']])
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_cities = []
+        for city in cities:
+            city_clean = city.strip()
+            if city_clean and city_clean not in seen:
+                seen.add(city_clean)
+                unique_cities.append(city_clean)
         
         context = ""
         
-        if cities:
-            context += f"Air Quality Data for {len(cities)} location(s):\n\n"
+        if unique_cities:
+            context += f"Air Quality Data for {len(unique_cities)} location(s):\n\n"
             
-            for city in cities[:5]:  # Limit to 5 cities
+            for city in unique_cities[:5]:  # Limit to 5 cities
                 aqi_data = await self.mcp_server.get_air_quality(city)
                 if aqi_data:
                     category = self.mcp_server.get_health_category(aqi_data.overall_aqi)

@@ -334,5 +334,12 @@
     "title": "Defying Analytics",
     "section": "View the Full Project",
     "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
+  },
+  {
+    "objectID": "aqi.html#health-categories-color-coding",
+    "href": "aqi.html#health-categories-color-coding",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Health Categories & Color Coding",
+    "text": "Health Categories & Color Coding\nThe system uses the EPA Air Quality Index (AQI) standard to categorize air quality levels:\n\n\n\nGood (0-50)\n\n\nAir quality is excellent. Safe for all outdoor activities. No health concerns for any population group.\n\n\n\n\nModerate (51-100)\n\n\nAir quality is acceptable. Unusually sensitive individuals should consider limiting prolonged outdoor exertion.\n\n\n\n\nUnhealthy for Sensitive Groups (101-150)\n\n\nSensitive groups (children, elderly, people with respiratory conditions) should reduce prolonged outdoor activities.\n\n\n\n\nUnhealthy (151-200)\n\n\nEveryone should avoid prolonged outdoor activities. Sensitive groups should stay indoors.\n\n\n\n\nVery Unhealthy (201-300)\n\n\nHealth alert! Everyone should avoid all outdoor activities. Emergency precautions recommended.\n\n\n\n\nHazardous (301+)\n\n\nHealth emergency! Everyone should remain indoors. Seek immediate medical attention if experiencing symptoms."
   }
 ]
