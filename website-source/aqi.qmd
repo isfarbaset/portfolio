@@ -19,6 +19,14 @@ format:
   --bg-light: #f8f9fa;
   --border: #e1e8ed;
   --max-width: 900px;
+  
+  /* AQI Color Categories */
+  --aqi-good: #00e400;
+  --aqi-moderate: #ffff00;
+  --aqi-sensitive: #ff7e00;
+  --aqi-unhealthy: #ff0000;
+  --aqi-very-unhealthy: #8f3f97;
+  --aqi-hazardous: #7e0023;
 }
 
 * {
@@ -31,21 +39,26 @@ body, p {
   color: var(--text);
 }
 
-.quarto-title {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-main {
+/* Fix for Quarto container */
+#quarto-content {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+.quarto-title {
+  max-width: 100%;
+  margin: 0;
+}
+
+main.content {
+  max-width: 100%;
+  padding: 0;
+}
+
 .page-title-section {
   text-align: center;
   padding: 4rem 0 3rem 0;
-  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -86,7 +99,16 @@ main {
   overflow-x: auto;
   margin: 1rem 0;
   border: 1px solid var(--border);
+  white-space: pre-wrap;
 }
+
+/* AQI Category Color Indicators */
+.aqi-good { color: var(--aqi-good); font-weight: 500; }
+.aqi-moderate { color: #d4a000; font-weight: 500; }
+.aqi-sensitive { color: var(--aqi-sensitive); font-weight: 500; }
+.aqi-unhealthy { color: var(--aqi-unhealthy); font-weight: 500; }
+.aqi-very-unhealthy { color: var(--aqi-very-unhealthy); font-weight: 500; }
+.aqi-hazardous { color: var(--aqi-hazardous); font-weight: 500; }
 
 .feature-grid {
   display: grid;
@@ -102,7 +124,6 @@ main {
   border: 1px solid var(--border);
   transition: border-color 0.3s;
 }
-
 
 .feature-card:hover {
   border-color: var(--accent);
@@ -185,6 +206,14 @@ code {
   color: var(--primary);
 }
 
+pre {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
 h2 {
   color: var(--primary);
   font-weight: 300;
@@ -208,6 +237,31 @@ h4 {
   font-size: 1.1rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
+}
+
+/* Fix table overflow */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #quarto-content {
+    padding: 0 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
 
@@ -288,22 +342,22 @@ Special guidance for sensitive groups including children, elderly, and those wit
 <div class="output-box">
 AIR QUALITY QUICK REPORT
 ============================================================
-Dhaka           | AQI: 116 | Unhealthy for Sensitive Groups
-New York        | AQI:  45 | Good
-Los Angeles     | AQI: 112 | Unhealthy for Sensitive Groups
-Seattle         | AQI:  96 | Moderate
-London          | AQI: 153 | Unhealthy
+<span class="aqi-sensitive">Dhaka           | AQI: 116 | Unhealthy for Sensitive Groups</span>
+<span class="aqi-good">New York        | AQI:  45 | Good</span>
+<span class="aqi-sensitive">Los Angeles     | AQI: 112 | Unhealthy for Sensitive Groups</span>
+<span class="aqi-moderate">Seattle         | AQI:  96 | Moderate</span>
+<span class="aqi-unhealthy">London          | AQI: 153 | Unhealthy</span>
 </div>
 
-**Interpretation**: Color-coded health categories make it easy to assess air quality at a glance.
+**Interpretation**: Health categories are color-coded (green for good, yellow for moderate, orange for sensitive groups, red for unhealthy) to quickly assess air quality.
 </div>
 
 ### Detailed City Analysis: Boston
 
-<parameter name="demo-section">
+<div class="demo-section">
 <div class="output-box">
 ============================================================
-BOSTON - Good
+<span class="aqi-good">BOSTON - Good</span>
 ============================================================
 Overall AQI: 47
 Location: (42.3554, -71.0605)
@@ -339,20 +393,20 @@ Comparing air quality across 3 cities...
 
 Rankings (Best to Worst):
 ------------------------------------------------------------
-1. Seattle
+<span class="aqi-moderate">1. Seattle
    AQI: 96 (Moderate)
-   PM2.5: 1.1 µg/m³
+   PM2.5: 1.1 µg/m³</span>
 
-2. Dhaka
+<span class="aqi-sensitive">2. Dhaka
    AQI: 116 (Unhealthy for Sensitive Groups)
-   PM2.5: 48.9 µg/m³
+   PM2.5: 48.9 µg/m³</span>
 
-3. Tokyo
+<span class="aqi-sensitive">3. Tokyo
    AQI: 122 (Unhealthy for Sensitive Groups)
-   PM2.5: 3.2 µg/m³
+   PM2.5: 3.2 µg/m³</span>
 
-Best: Seattle (AQI 96)
-Worst: Tokyo (AQI 122)
+<span class="aqi-moderate">Best: Seattle (AQI 96)</span>
+<span class="aqi-sensitive">Worst: Tokyo (AQI 122)</span>
 </div>
 
 **Use Case**: Perfect for travel planning to compare air quality across potential destinations and make informed decisions about outdoor activities and health precautions.

@@ -288,6 +288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   --bg-light: #f8f9fa;
   --border: #e1e8ed;
   --max-width: 900px;
+  
+  /* AQI Color Categories */
+  --aqi-good: #00e400;
+  --aqi-moderate: #ffff00;
+  --aqi-sensitive: #ff7e00;
+  --aqi-unhealthy: #ff0000;
+  --aqi-very-unhealthy: #8f3f97;
+  --aqi-hazardous: #7e0023;
 }
 
 * {
@@ -300,21 +308,26 @@ body, p {
   color: var(--text);
 }
 
-.quarto-title {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-main {
+/* Fix for Quarto container */
+#quarto-content {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+.quarto-title {
+  max-width: 100%;
+  margin: 0;
+}
+
+main.content {
+  max-width: 100%;
+  padding: 0;
+}
+
 .page-title-section {
   text-align: center;
   padding: 4rem 0 3rem 0;
-  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -355,7 +368,16 @@ main {
   overflow-x: auto;
   margin: 1rem 0;
   border: 1px solid var(--border);
+  white-space: pre-wrap;
 }
+
+/* AQI Category Color Indicators */
+.aqi-good { color: var(--aqi-good); font-weight: 500; }
+.aqi-moderate { color: #d4a000; font-weight: 500; }
+.aqi-sensitive { color: var(--aqi-sensitive); font-weight: 500; }
+.aqi-unhealthy { color: var(--aqi-unhealthy); font-weight: 500; }
+.aqi-very-unhealthy { color: var(--aqi-very-unhealthy); font-weight: 500; }
+.aqi-hazardous { color: var(--aqi-hazardous); font-weight: 500; }
 
 .feature-grid {
   display: grid;
@@ -371,7 +393,6 @@ main {
   border: 1px solid var(--border);
   transition: border-color 0.3s;
 }
-
 
 .feature-card:hover {
   border-color: var(--accent);
@@ -454,6 +475,14 @@ code {
   color: var(--primary);
 }
 
+pre {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
 h2 {
   color: var(--primary);
   font-weight: 300;
@@ -477,6 +506,31 @@ h4 {
   font-size: 1.1rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
+}
+
+/* Fix table overflow */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #quarto-content {
+    padding: 0 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
 <div class="page-title-section">
@@ -551,15 +605,15 @@ Health Protection
 <div class="demo-section">
 <section id="air-quality-quick-report" class="level1 output-box">
 
-<p>Dhaka | AQI: 116 | Unhealthy for Sensitive Groups New York | AQI: 45 | Good Los Angeles | AQI: 112 | Unhealthy for Sensitive Groups Seattle | AQI: 96 | Moderate London | AQI: 153 | Unhealthy</p>
+<p><span class="aqi-sensitive">Dhaka | AQI: 116 | Unhealthy for Sensitive Groups</span> <span class="aqi-good">New York | AQI: 45 | Good</span> <span class="aqi-sensitive">Los Angeles | AQI: 112 | Unhealthy for Sensitive Groups</span> <span class="aqi-moderate">Seattle | AQI: 96 | Moderate</span> <span class="aqi-unhealthy">London | AQI: 153 | Unhealthy</span></p>
 </section>
-<p><strong>Interpretation</strong>: Color-coded health categories make it easy to assess air quality at a glance.</p>
+<p><strong>Interpretation</strong>: Health categories are color-coded (green for good, yellow for moderate, orange for sensitive groups, red for unhealthy) to quickly assess air quality.</p>
 </div>
 <section id="detailed-city-analysis-boston" class="level3">
 <h3 class="anchored">Detailed City Analysis: Boston</h3>
-<parameter name="demo-section">
+<div class="demo-section">
 <div class="output-box">
-<p>============================================================ BOSTON - Good ============================================================ Overall AQI: 47 Location: (42.3554, -71.0605)</p>
+<p>============================================================ <span class="aqi-good">BOSTON - Good</span> ============================================================ Overall AQI: 47 Location: (42.3554, -71.0605)</p>
 <p>Pollutant Concentrations: PM2.5: 0.7 µg/m³ PM10: 1.3 µg/m³ O3: 56.3 µg/m³ NO2: 3.6 µg/m³ SO2: 0.8 µg/m³ CO: 130.0 µg/m³</p>
 <section id="health-recommendations" class="level2">
 <h2 class="anchored" data-anchor-id="health-recommendations">HEALTH RECOMMENDATIONS</h2>
@@ -570,28 +624,26 @@ Health Protection
 </section>
 </div>
 <p><strong>Features Demonstrated</strong>: Real-time AQI calculation, GPS coordinate precision, comprehensive pollutant breakdown, activity-specific health recommendations, sensitive group guidance.</p>
-</parameter></section></main></div>
-
+</div>
+</section>
 <section id="multi-city-comparison-travel-planning" class="level3">
-<h3>Multi-City Comparison: Travel Planning</h3>
+<h3 class="anchored">Multi-City Comparison: Travel Planning</h3>
 <div class="demo-section">
 <div class="output-box">
 <p>Comparing air quality across 3 cities…</p>
 <section id="rankings-best-to-worst" class="level2">
-<h2 data-anchor-id="rankings-best-to-worst">Rankings (Best to Worst):</h2>
-<ol type="1">
-<li><p>Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³</p></li>
-<li><p>Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³</p></li>
-<li><p>Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³</p></li>
-</ol>
-<p>Best: Seattle (AQI 96) Worst: Tokyo (AQI 122)</p>
+<h2 class="anchored" data-anchor-id="rankings-best-to-worst">Rankings (Best to Worst):</h2>
+<p><span class="aqi-moderate">1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³</span></p>
+<p><span class="aqi-sensitive">2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³</span></p>
+<p><span class="aqi-sensitive">3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³</span></p>
+<p><span class="aqi-moderate">Best: Seattle (AQI 96)</span> <span class="aqi-sensitive">Worst: Tokyo (AQI 122)</span></p>
 </section>
 </div>
 <p><strong>Use Case</strong>: Perfect for travel planning to compare air quality across potential destinations and make informed decisions about outdoor activities and health precautions.</p>
 </div>
 </section>
 <section id="technical-architecture" class="level2">
-<h2 data-anchor-id="technical-architecture">Technical Architecture</h2>
+<h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
 <pre><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   User Query    │───▶│  MCP Server     │───▶│ API Ninjas API  │
 │ (City/Compare)  │    │ (Data Bridge)   │    │ (Live Data)     │
@@ -609,7 +661,7 @@ Health Protection
                        │  + Advice       │
                        └─────────────────┘</code></pre>
 <section id="core-components" class="level3">
-<h3 data-anchor-id="core-components">Core Components</h3>
+<h3 class="anchored" data-anchor-id="core-components">Core Components</h3>
 <p><strong>1. AQI MCP Server</strong> (<code>aqi_mcp_server.py</code>) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine</p>
 <p><strong>2. Interactive Demo</strong> (<code>aqi_demo.py</code>) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling</p>
 <p><strong>3. Data Model</strong> (AQIData class)</p>
@@ -629,13 +681,13 @@ Health Protection
 </section>
 </section>
 <section id="installation-quick-start" class="level2">
-<h2 data-anchor-id="installation-quick-start">Installation &amp; Quick Start</h2>
+<h2 class="anchored" data-anchor-id="installation-quick-start">Installation &amp; Quick Start</h2>
 <section id="prerequisites" class="level3">
-<h3 data-anchor-id="prerequisites">Prerequisites</h3>
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="get-api-key" class="level3">
-<h3 data-anchor-id="get-api-key">Get API Key</h3>
+<h3 class="anchored" data-anchor-id="get-api-key">Get API Key</h3>
 <ol type="1">
 <li>Sign up at <a href="https://api.api-ninjas.com">API Ninjas</a></li>
 <li>Get your free API key</li>
@@ -644,7 +696,7 @@ Health Protection
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">API_NINJAS_KEY</span><span class="op">=</span><span class="st">'your_key_here'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="run-the-demo" class="level3">
-<h3 data-anchor-id="run-the-demo">Run the Demo</h3>
+<h3 class="anchored" data-anchor-id="run-the-demo">Run the Demo</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick Report</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> aqi_demo.py quick</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -653,30 +705,30 @@ Health Protection
 </section>
 </section>
 <section id="real-world-use-cases-real-world-use-cases" class="level2">
-<h2 data-anchor-id="real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</h2>
+<h2 class="anchored" data-anchor-id="real-world-use-cases-real-world-use-cases">Real-World Use Cases## Real-World Use Cases</h2>
 <section id="daily-health-management" class="level3">
-<h3 data-anchor-id="daily-health-management">1. Daily Health Management</h3>
+<h3 class="anchored" data-anchor-id="daily-health-management">1. Daily Health Management</h3>
 <p><strong>Scenario</strong>: “Should I go jogging this morning?”</p>
 <p>The system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed</p>
 <p><strong>Real Example</strong> (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”</p>
 </section>
 <section id="travel-planning" class="level3">
-<h3 data-anchor-id="travel-planning">2. Travel Planning</h3>
+<h3 class="anchored" data-anchor-id="travel-planning">2. Travel Planning</h3>
 <p><strong>Scenario</strong>: “Which city has better air quality: Boston or Los Angeles?”</p>
 <p>Multi-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended</p>
 <p><strong>Decision</strong>: Boston offers significantly better conditions for travelers with respiratory concerns.</p>
 </section>
 <section id="family-safety" class="level3">
-<h3 data-anchor-id="family-safety">3. Family Safety</h3>
+<h3 class="anchored" data-anchor-id="family-safety">3. Family Safety</h3>
 <p><strong>Scenario</strong>: “Is it safe to take my kids to the playground?”</p>
 <p>Sensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations</p>
 </section>
 </section>
 <section id="gen-ai-conversational-agent" class="level2">
-<h2 data-anchor-id="gen-ai-conversational-agent">Gen AI Conversational Agent</h2>
+<h2 class="anchored" data-anchor-id="gen-ai-conversational-agent">Gen AI Conversational Agent</h2>
 <p>Building on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.</p>
 <section id="what-makes-it-gen-ai" class="level3">
-<h3 data-anchor-id="what-makes-it-gen-ai">What Makes It Gen AI</h3>
+<h3 class="anchored" data-anchor-id="what-makes-it-gen-ai">What Makes It Gen AI</h3>
 <div class="feature-grid">
 <div class="feature-card">
 <div class="feature-title">
@@ -713,9 +765,9 @@ Conversation Memory
 </div>
 </section>
 <section id="live-gen-ai-conversations" class="level3">
-<h3 data-anchor-id="live-gen-ai-conversations">Live Gen AI Conversations</h3>
+<h3 class="anchored" data-anchor-id="live-gen-ai-conversations">Live Gen AI Conversations</h3>
 <section id="example-1-simple-air-quality-check" class="level4 demo-section">
-<h4 data-anchor-id="example-1-simple-air-quality-check">Example 1: Simple Air Quality Check</h4>
+<h4 class="anchored" data-anchor-id="example-1-simple-air-quality-check">Example 1: Simple Air Quality Check</h4>
 <div class="output-box">
 <p>User: What’s the air quality like in Boston today?</p>
 <p>AI Assistant: Great news. The air quality in Boston is currently excellent with an AQI of 47, which falls in the Good category.</p>
@@ -725,7 +777,7 @@ Conversation Memory
 <p><strong>Key Difference</strong>: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.</p>
 </section>
 <section id="example-2-health-specific-personalized-advice" class="level4 demo-section">
-<h4 data-anchor-id="example-2-health-specific-personalized-advice">Example 2: Health-Specific Personalized Advice</h4>
+<h4 class="anchored" data-anchor-id="example-2-health-specific-personalized-advice">Example 2: Health-Specific Personalized Advice</h4>
 <div class="output-box">
 <p>User: I have asthma. Can I go jogging in Dhaka today?</p>
 <p>AI Assistant: I would advise caution for jogging in Dhaka today. The current AQI is 116, which is in the Unhealthy for Sensitive Groups category.</p>
@@ -740,7 +792,7 @@ Conversation Memory
 <p><strong>Intelligence at Work</strong>: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.</p>
 </section>
 <section id="example-3-intelligent-city-comparison-for-travel" class="level4 demo-section">
-<h4 data-anchor-id="example-3-intelligent-city-comparison-for-travel">Example 3: Intelligent City Comparison for Travel</h4>
+<h4 class="anchored" data-anchor-id="example-3-intelligent-city-comparison-for-travel">Example 3: Intelligent City Comparison for Travel</h4>
 <div class="output-box">
 <p>User: Compare air quality in Seattle and Los Angeles</p>
 <p>AI Assistant: Here is your air quality comparison:</p>
@@ -754,7 +806,7 @@ Conversation Memory
 </section>
 </section>
 <section id="try-the-gen-ai-agent" class="level3">
-<h3 data-anchor-id="try-the-gen-ai-agent">Try the Gen AI Agent</h3>
+<h3 class="anchored" data-anchor-id="try-the-gen-ai-agent">Try the Gen AI Agent</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install aiohttp openai</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -778,14 +830,14 @@ Conversation Memory
 <h1>Run interactive mode</h1>
 <p>python3 aqi_demo.py ```</p>
 <section id="example-queries-to-try" class="level3">
-<h3 data-anchor-id="example-queries-to-try">Example Queries to Try</h3>
+<h3 class="anchored" data-anchor-id="example-queries-to-try">Example Queries to Try</h3>
 <ol type="1">
 <li><strong>Single city</strong>: <code>Dhaka</code>, <code>Paris</code>, <code>Mumbai</code>, <code>Sydney</code></li>
 <li><strong>Compare</strong>: <code>compare Boston Seattle Miami</code></li>
 <li><strong>Your location</strong>: <code>[Your City Name]</code></li>
 </ol>
+</section></section></main></div>
 
-</section>
 <section id="code-repository" class="level2">
 <h2 data-anchor-id="code-repository">Code Repository</h2>
 <div style="text-align: center;">
@@ -796,7 +848,7 @@ Conversation Memory
 
 
 </section>
-</section>
+
 
  <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

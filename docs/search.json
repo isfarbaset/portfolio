@@ -130,7 +130,7 @@
     "href": "aqi.html#rankings-best-to-worst",
     "title": "AIR QUALITY QUICK REPORT",
     "section": "Rankings (Best to Worst):",
-    "text": "Rankings (Best to Worst):\n\nSeattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³\nDhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³\nTokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³\n\nBest: Seattle (AQI 96) Worst: Tokyo (AQI 122)"
+    "text": "Rankings (Best to Worst):\n1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³\n2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³\n3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³\nBest: Seattle (AQI 96) Worst: Tokyo (AQI 122)"
   },
   {
     "objectID": "aqi.html#technical-architecture",
