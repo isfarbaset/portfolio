@@ -369,6 +369,8 @@ p {
   opacity: 0;
   transform: translateY(40px);
   animation: slideInUp 1s ease-out forwards;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -388,6 +390,8 @@ p {
   overflow: hidden;
   position: relative;
   background: linear-gradient(135deg, #f5f3f0 0%, #ebe7e3 100%);
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Project-specific colors for titles */
@@ -498,6 +502,7 @@ p {
 .project-content {
   padding: 2.5rem 2.5rem !important;
   background: white !important;
+  margin: 0 !important;
 }
 
 /* Remove h3 styling override - titles are now visible in project-content */
@@ -583,7 +588,23 @@ p {
     gap: 3rem !important;
   }
   
+  .project-card {
+    background: white !important;
+  }
+  
   .project-image {
     height: 300px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .project-content {
+    padding: 2rem 1.5rem !important;
+    margin-top: 0 !important;
+    background: white !important;
+  }
+  
+  .project-content h3 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 }
