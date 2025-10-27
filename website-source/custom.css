@@ -390,74 +390,39 @@ p {
   background: linear-gradient(135deg, #f5f3f0 0%, #ebe7e3 100%);
 }
 
-/* Project-specific gradient backgrounds - Editorial/Luxury inspired */
-/* FMBench Assistant - AI/Tech theme - Deep blue to purple */
-.project-card:nth-child(1) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(1) .project-title,
-.project-card:nth-child(1) a.project-title {
+/* Project-specific colors for titles */
+/* FMBench Assistant - AI/Tech theme - Deep blue */
+.project-card:nth-child(1) .project-content h3 a {
   color: #4a5fd9 !important;
 }
 
-/* Wicked/Spotify - Music/Entertainment theme - Warm coral to hot pink */
-.project-card:nth-child(2) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(2) .project-title,
-.project-card:nth-child(2) a.project-title {
+/* Wicked/Spotify - Music/Entertainment theme - Warm coral */
+.project-card:nth-child(2) .project-content h3 a {
   color: #ff6b6b !important;
 }
 
-/* US Insights - Data/Analytics theme - Deep blue to teal */
-.project-card:nth-child(3) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(3) .project-title,
-.project-card:nth-child(3) a.project-title {
+/* US Insights - Data/Analytics theme - Deep blue */
+.project-card:nth-child(3) .project-content h3 a {
   color: #3b82f6 !important;
 }
 
-/* Temp Talk - Climate/Nature theme - Forest green to emerald */
-.project-card:nth-child(4) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(4) .project-title,
-.project-card:nth-child(4) a.project-title {
+/* Temp Talk - Climate/Nature theme - Forest green */
+.project-card:nth-child(4) .project-content h3 a {
   color: #10b981 !important;
 }
 
-/* Beats and Bytes - Music/ML theme - Orange to amber */
-.project-card:nth-child(5) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(5) .project-title,
-.project-card:nth-child(5) a.project-title {
+/* Beats and Bytes - Music/ML theme - Orange */
+.project-card:nth-child(5) .project-content h3 a {
   color: #f97316 !important;
 }
 
-/* EV Insights - Electric/Environmental theme - Teal to purple */
-.project-card:nth-child(6) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(6) .project-title,
-.project-card:nth-child(6) a.project-title {
+/* EV Insights - Electric/Environmental theme - Teal */
+.project-card:nth-child(6) .project-content h3 a {
   color: #14b8a6 !important;
 }
 
-/* Air Quality Intelligence - Health/Environment theme - Rose to magenta */
-.project-card:nth-child(7) .project-image {
-  background: transparent;
-}
-
-.project-card:nth-child(7) .project-title,
-.project-card:nth-child(7) a.project-title {
+/* Air Quality Intelligence - Health/Environment theme - Rose */
+.project-card:nth-child(7) .project-content h3 a {
   color: #ec4899 !important;
 }
 
@@ -535,9 +500,14 @@ p {
   background: white !important;
 }
 
-/* Remove h3 styling since titles are now in image containers */
+/* Remove h3 styling override - titles are now visible in project-content */
 .project-content h3 {
-  display: none !important;
+  display: block !important;
+  margin: 0 0 1rem 0 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  line-height: 1.3 !important;
 }
 
 /* Ensure no hash symbols appear in project titles */
