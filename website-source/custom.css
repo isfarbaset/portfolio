@@ -29,6 +29,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Global paragraph spacing */
+p {
+  line-height: 1.85 !important;
+  margin-bottom: 1rem !important;
+  word-spacing: 0.05em !important;
+}
+
 /* Elegant container */
 .container-fluid,
 #quarto-content {
@@ -179,6 +186,7 @@ body {
 
 .hero-subtitle p {
   margin: 0 !important;
+  line-height: 1.6 !important;
 }
 
 .hero-subtitle .animated-text {
@@ -188,17 +196,20 @@ body {
 .hero-description,
 .hero-section .hero-description {
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
-  line-height: 1.9 !important;
+  line-height: 2 !important;
   color: #4a4a4a !important;
   font-weight: 300 !important;
   max-width: 750px;
   margin: 0 auto 4rem !important;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 0.9s forwards;
+  word-spacing: 0.05em !important;
 }
 
 .hero-description p {
   margin: 0 !important;
+  line-height: 2 !important;
+  word-spacing: 0.05em !important;
 }
 
 .hero-buttons,
@@ -209,6 +220,7 @@ body {
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 1.2s forwards;
+  margin-top: 0.5rem !important;
 }
 
 .hero-buttons p {
@@ -216,6 +228,7 @@ body {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Hide profile image for editorial minimalism */
@@ -398,6 +411,18 @@ body {
   font-size: 1rem !important;
   font-weight: 300 !important;
   letter-spacing: 0.01em !important;
+  word-spacing: 0.05em !important;
+  margin-bottom: 1rem !important;
+}
+
+.project-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Better spacing for strong and emphasis */
+.project-content strong {
+  font-weight: 600 !important;
+  color: #2a2a2a !important;
 }
 
 /* ============================================
