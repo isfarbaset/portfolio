@@ -396,7 +396,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(1) .project-title {
+.project-card:nth-child(1) .project-title,
+.project-card:nth-child(1) a.project-title {
   color: #4a5fd9 !important;
 }
 
@@ -405,7 +406,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(2) .project-title {
+.project-card:nth-child(2) .project-title,
+.project-card:nth-child(2) a.project-title {
   color: #ff6b6b !important;
 }
 
@@ -414,7 +416,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(3) .project-title {
+.project-card:nth-child(3) .project-title,
+.project-card:nth-child(3) a.project-title {
   color: #3b82f6 !important;
 }
 
@@ -423,7 +426,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(4) .project-title {
+.project-card:nth-child(4) .project-title,
+.project-card:nth-child(4) a.project-title {
   color: #10b981 !important;
 }
 
@@ -432,7 +436,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(5) .project-title {
+.project-card:nth-child(5) .project-title,
+.project-card:nth-child(5) a.project-title {
   color: #f97316 !important;
 }
 
@@ -441,7 +446,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(6) .project-title {
+.project-card:nth-child(6) .project-title,
+.project-card:nth-child(6) a.project-title {
   color: #14b8a6 !important;
 }
 
@@ -450,7 +456,8 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(7) .project-title {
+.project-card:nth-child(7) .project-title,
+.project-card:nth-child(7) a.project-title {
   color: #ec4899 !important;
 }
 
@@ -483,11 +490,12 @@ p {
 
 /* Project titles below image containers with improved readability */
 .project-image h3,
-.project-image .project-title {
-  position: relative;
-  bottom: auto;
-  left: auto;
-  right: auto;
+.project-image .project-title,
+.project-image a.project-title {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
   margin: 0 !important;
   padding: 1.5rem 2rem !important;
   background: rgba(255, 255, 255, 0.95) !important;
@@ -504,6 +512,8 @@ p {
   text-decoration: none !important;
   cursor: pointer !important;
   pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Ensure the paragraph containing image and title displays properly */
