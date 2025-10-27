@@ -81,6 +81,24 @@ p {
   color: #666 !important;
 }
 
+/* Search icon and hamburger menu */
+.navbar-toggler,
+.navbar-toggler:focus {
+  color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+#quarto-search .aa-DetachedSearchButton,
+#quarto-search .aa-DetachedSearchButtonQuery,
+#quarto-search i {
+  color: #1a1a1a !important;
+}
+
 /* Dropdown menus */
 .dropdown-menu {
   background: #ffffff !important;
@@ -370,6 +388,42 @@ p {
   overflow: hidden;
   position: relative;
   background: linear-gradient(135deg, #f5f3f0 0%, #ebe7e3 100%);
+}
+
+/* Project-specific gradient backgrounds */
+/* FMBench Assistant - AI/Tech theme */
+.project-card:nth-child(1) .project-image {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Wicked/Spotify - Music/Entertainment theme */
+.project-card:nth-child(2) .project-image {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* US Insights - Data/Analytics theme */
+.project-card:nth-child(3) .project-image {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Temp Talk - Climate/Nature theme */
+.project-card:nth-child(4) .project-image {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Beats and Bytes - Music/ML theme */
+.project-card:nth-child(5) .project-image {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* EV Insights - Electric/Environmental theme */
+.project-card:nth-child(6) .project-image {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+/* Air Quality Intelligence - Health/Environment theme */
+.project-card:nth-child(7) .project-image {
+  background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
 }
 
 .project-image img {
