@@ -453,30 +453,45 @@ p {
   display: none !important;
 }
 
+/* Project titles inside image containers */
+.project-image h3,
+.project-image .project-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 !important;
+  padding: 2rem !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  color: white !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  text-align: left !important;
+  transition: all 0.3s ease !important;
+}
+
+.project-image h3 a,
+.project-image .project-title a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.project-image h3 a:hover,
+.project-image .project-title a:hover {
+  color: rgba(255,255,255,0.9) !important;
+}
+
 .project-content {
-  padding: 3rem 2.5rem !important;
+  padding: 2.5rem 2.5rem !important;
   background: white !important;
 }
 
+/* Remove h3 styling since titles are now in image containers */
 .project-content h3 {
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 500 !important;
-  color: #1a1a1a !important;
-  letter-spacing: -0.02em !important;
-  line-height: 1.25 !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.project-content h3 a {
-  color: inherit !important;
-  text-decoration: none !important;
-  position: relative;
-  transition: color 0.4s ease !important;
-}
-
-.project-content h3 a:hover {
-  color: #666 !important;
+  display: none !important;
 }
 
 .project-content p {
