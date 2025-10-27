@@ -502,15 +502,15 @@ p {
   display: none !important;
 }
 
-/* Project titles inside image containers */
+/* Project titles below image containers */
 .project-image h3,
 .project-image .project-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
   margin: 0 !important;
-  padding: 2rem !important;
+  padding: 1.5rem 0 0 0 !important;
   background: transparent !important;
   font-family: 'Cormorant Garamond', serif !important;
   font-size: 1.8rem !important;
@@ -519,7 +519,7 @@ p {
   letter-spacing: -0.01em !important;
   text-align: center !important;
   transition: all 0.3s ease !important;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+  text-shadow: none !important;
 }
 
 .project-image h3 a,

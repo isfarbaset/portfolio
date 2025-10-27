@@ -94,7 +94,7 @@ Exploring the intersection of music and machine learning. Discover patterns in p
 
 ::: {.project-card}
 ::: {.project-image}
-![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZ3d3pwMndianJjd3M4Y29hN3dtdHdoNHprenU0dXNkdGxmYzZnZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NeZy9rJpzJeA5TgpkC/giphy.gif)
+![](images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg)
 [EV Insights](https://isfarbaset.github.io/ev-insights/){.project-title}
 :::
 ::: {.project-content}
