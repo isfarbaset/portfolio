@@ -397,10 +397,7 @@ p {
 }
 
 .project-card:nth-child(1) .project-title a {
-  background: linear-gradient(135deg, #4a5fd9 0%, #9370db 50%, #d946a4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #4a5fd9 !important;
 }
 
 /* Wicked/Spotify - Music/Entertainment theme - Warm coral to hot pink */
@@ -409,10 +406,7 @@ p {
 }
 
 .project-card:nth-child(2) .project-title a {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff5e94 50%, #ff3f8e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ff6b6b !important;
 }
 
 /* US Insights - Data/Analytics theme - Deep blue to teal */
@@ -421,10 +415,7 @@ p {
 }
 
 .project-card:nth-child(3) .project-title a {
-  background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #3b82f6 !important;
 }
 
 /* Temp Talk - Climate/Nature theme - Forest green to emerald */
@@ -433,10 +424,7 @@ p {
 }
 
 .project-card:nth-child(4) .project-title a {
-  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #10b981 !important;
 }
 
 /* Beats and Bytes - Music/ML theme - Orange to amber */
@@ -445,10 +433,7 @@ p {
 }
 
 .project-card:nth-child(5) .project-title a {
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f97316 !important;
 }
 
 /* EV Insights - Electric/Environmental theme - Teal to purple */
@@ -457,10 +442,7 @@ p {
 }
 
 .project-card:nth-child(6) .project-title a {
-  background: linear-gradient(135deg, #14b8a6 0%, #8b5cf6 50%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #14b8a6 !important;
 }
 
 /* Air Quality Intelligence - Health/Environment theme - Rose to magenta */
@@ -469,10 +451,7 @@ p {
 }
 
 .project-card:nth-child(7) .project-title a {
-  background: linear-gradient(135deg, #ec4899 0%, #d946ef 50%, #c026d3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ec4899 !important;
 }
 
 .project-image img {
