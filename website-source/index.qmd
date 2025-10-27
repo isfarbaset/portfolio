@@ -41,7 +41,7 @@ Specializing in machine learning, data visualization, and conversational AI syst
 
 ::: {.project-card}
 ::: {.project-image}
-![](images/mermaid.png)
+![](images/DTS_JELLY_(MISC)_JELLY_LUISE_Photos_ID10196.jpg)
 [FMBench Assistant](https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161){.project-title}
 :::
 ::: {.project-content}
