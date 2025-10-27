@@ -195,18 +195,19 @@ p {
 .hero-description,
 .hero-section .hero-description {
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
-  line-height: 1.8 !important;
+  line-height: 2 !important;
   color: #4a4a4a !important;
   font-weight: 300 !important;
   max-width: 750px;
   margin: 0 auto 4rem !important;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 0.9s forwards;
+  text-align: center;
 }
 
 .hero-description p {
   margin: 0 !important;
-  line-height: 1.8 !important;
+  line-height: 2 !important;
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
   font-weight: 300 !important;
   color: #4a4a4a !important;
