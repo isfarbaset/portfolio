@@ -521,6 +521,15 @@ p {
   transition: all 0.3s ease !important;
   text-shadow: none !important;
   border-radius: 0 0 12px 12px !important;
+  display: block !important;
+}
+
+/* Ensure the paragraph containing image and title displays properly */
+.project-image p {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .project-image h3 a,
