@@ -51,7 +51,7 @@ A conversational AI assistant for Foundation Model Benchmarking built with Amazo
 
 ::: {.project-card}
 ::: {.project-image}
-![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnY5ZnUxeW1mdHl1anB5bzc2bmFmZjBnNDhtOHFpcXBiOXp0enl2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aKpk3YNM7yzsyO6FUy/giphy.gif)
+![](images/wicked.jpg)
 [Defying Analytics: What Spotify Reveals About Wicked](wicked.html){.project-title}
 :::
 ::: {.project-content}
@@ -84,7 +84,7 @@ Exploring climate trends in Southeastern Utah National Parks and their impacts o
 
 ::: {.project-card}
 ::: {.project-image}
-![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZreWUyYTF2MTZpZGkzM3RiZjZuZ3FlYzZuYnpzdjZ5MXh5NG5iZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NDRkEY9whird0UOu9b/giphy.gif)
+![](images/beat-bytes.jpg)
 [Beats and Bytes](Group37_final_Report.html){.project-title}
 :::
 ::: {.project-content}
