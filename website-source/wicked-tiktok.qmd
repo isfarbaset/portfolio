@@ -1,0 +1,1129 @@
+---
+title: "Defying Analytics"
+subtitle: "What Spotify Data Reveals About Broadway's Most Iconic Soundtrack"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    css: style.css
+    theme: cosmo
+    page-layout: article
+    grid:
+      sidebar-width: 250px
+      body-width: 1000px
+      margin-width: 200px
+---
+
+<style>
+:root {
+  --wicked-green: #00A651;
+  --wicked-emerald: #004d29;
+  --wicked-pink: #E91E8C;
+  --wicked-dark: #1a1a1a;
+  --wicked-light: #f5f5f5;
+  --wicked-gold: #FFD700;
+  --wicked-purple: #8B5CF6;
+}
+
+/* Wand cursor throughout the page */
+* {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🪄</text></svg>'), auto !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+a, button, .clickable {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">✨</text></svg>'), pointer !important;
+}
+
+/* Body text styling to match about me page */
+body, p, .project-overview, .insight-box, .methodology-section {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-banner {
+  background-image: url('images/banner-wicked.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  border-radius: 0;
+  margin: -2rem -2rem 0 -2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page title section below banner */
+.page-title-section {
+  text-align: center;
+  padding: 3rem 2rem 2rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--wicked-green), var(--wicked-emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.page-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Remove old hero content styles - no longer needed */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--wicked-green), var(--wicked-pink), var(--wicked-purple));
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 166, 81, 0.25);
+  border-color: var(--wicked-green);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--wicked-green), var(--wicked-emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.insight-box {
+  background: var(--wicked-light);
+  border-left: 4px solid var(--wicked-pink);
+  padding: 2rem;
+  margin: 2.5rem 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.insight-box h3 {
+  color: var(--wicked-dark);
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.insight-box p {
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.tech-badge {
+  display: inline-block;
+  background: var(--wicked-green);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin: 0.3rem 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--wicked-pink), #c51a76);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+  font-size: 1.1rem;
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, var(--wicked-green), #008741);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 166, 81, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.methodology-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.project-overview {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+h2 {
+  color: var(--wicked-green);
+  font-weight: 800;
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--wicked-pink);
+}
+
+h3 {
+  color: var(--wicked-dark);
+  font-weight: 700;
+  margin-top: 2rem;
+}
+</style>
+
+<div class="hero-banner">
+</div>
+
+<div class="page-title-section">
+<div class="page-title">
+Defying Analytics
+</div>
+<div class="page-subtitle">
+What Spotify Data Reveals About Broadway's Most Iconic Soundtrack
+</div>
+</div>
+
+## Project Overview
+
+<div class="project-overview">
+Twenty years after its Broadway debut, Wicked remains a streaming phenomenon. But what separates the most-played tracks from the forgotten ones? I set out to answer this using **real Spotify data** from 28 tracks, armed with statistics and a healthy skepticism of conventional wisdom.
+
+Spoiler alert: Almost everything the music industry tells you about "successful songs" is backwards.
+
+Using **correlation analysis, ANOVA, K-means clustering, and PCA**, I analyzed actual Spotify metrics to understand what makes certain songs resonate. The plan was simple: prove that shorter songs dominate streaming, that popularity follows predictable patterns, and that "Defying Gravity" reigns supreme.
+
+Reality had other plans.
+
+Turns out "For Good" wins, duration doesn't matter even slightly (r=0.05, p=0.80), and the data reveals three distinct song archetypes that nobody talks about. Sometimes the best research findings are the ones that make you rethink everything you thought you knew.
+</div>
+
+<div class="stat-grid">
+<div class="stat-card">
+<span class="stat-number">28</span>
+<span class="stat-label">Tracks Analyzed</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">58</span>
+<span class="stat-label">Highest Popularity Score</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">3.88</span>
+<span class="stat-label">Avg Song Length (min)</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">3</span>
+<span class="stat-label">Distinct Song Clusters</span>
+</div>
+</div>
+
+## What The Data Actually Showed
+
+<div class="insight-box">
+
+### The Winner Nobody Expected (Sorry, Elphaba)
+"For Good," the emotional duet near the finale, scores highest in Spotify popularity (58/100), edging out crowd favorites like "Defying Gravity" (56) and "No Good Deed" (57). Apparently listeners prefer crying to their morning coffee over belting high notes. Who knew?
+</div>
+
+<div class="insight-box">
+
+### Duration Doesn't Matter (And I Have Receipts)
+Correlation between song length and popularity? A measly **r=0.05 with p=0.80**. Translation: whether a song runs 50 seconds or 7.6 minutes has *zero* predictive power for streaming success. ANOVA confirms it (F=1.76, p=0.19). The "keep it short for attention spans" advice? Statistically baseless-at least for this soundtrack.
+</div>
+
+<div class="insight-box">
+
+### Three Song Archetypes Nobody Talks About
+K-means clustering (k=3) reveals distinct groups: **Epic Numbers** (long, popular showstoppers), **Deep Cuts** (short, less-streamed but plot-essential tracks), and **Solid Mid-Tier** (balanced popularity and length). It's not a hierarchy. Each serves a different purpose. The soundtrack works *because* it has variety, not despite it.
+</div>
+
+## Methodology: Data Collection & Analysis
+
+<div class="methodology-section">
+
+<div style="margin-bottom: 1.5rem;">
+<span class="tech-badge">Python 3.11</span>
+<span class="tech-badge">Spotify API</span>
+<span class="tech-badge">Pandas</span>
+<span class="tech-badge">SciPy</span>
+<span class="tech-badge">Scikit-learn</span>
+<span class="tech-badge">Plotly</span>
+</div>
+
+I collected data on 28 tracks from the Wicked soundtrack using Spotify's Web API, capturing track metadata (name, duration, popularity scores) and analyzing patterns in listener engagement. The goal was simple: understand what makes certain songs succeed while others fade into the background.
+
+The approach: descriptive statistics, correlation analysis, hypothesis testing (ANOVA, t-tests), unsupervised learning (K-means clustering, PCA), and interactive visualizations. No simulated data, no assumptions. Just real numbers from real listeners.
+
+</div>
+
+## The Numbers Tell a Story
+
+### Top 10 Songs by Spotify Popularity
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import json
+
+# Load real data
+with open('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/viz_data.json', 'r') as f:
+    data = json.load(f)
+
+top_songs = data['top_10']
+songs = [s['clean_name'] for s in top_songs]
+popularity = [s['popularity'] for s in top_songs]
+duration = [s['duration_min'] for s in top_songs]
+
+# Create gradient colors from green to pink
+colors = ['#00A651' if i < 5 else '#E91E8C' for i in range(len(songs))]
+
+fig = go.Figure(data=[
+    go.Bar(
+        x=songs,
+        y=popularity,
+        marker=dict(
+            color=colors,
+            line=dict(color='#1a1a1a', width=1)
+        ),
+        text=[f'{v}' for v in popularity],
+        textposition='outside',
+        textfont=dict(size=11, color='#1a1a1a', family='Segoe UI', weight='bold'),
+        hovertemplate='<b>%{x}</b><br>Popularity: %{y}<br>Duration: %{customdata:.2f} min<extra></extra>',
+        customdata=duration
+    )
+])
+
+fig.update_layout(
+    title=dict(
+        text='Top 10 Most Popular Wicked Tracks on Spotify',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    xaxis=dict(
+        title='',
+        tickangle=-45,
+        tickfont=dict(size=10, family='Segoe UI'),
+        showgrid=False
+    ),
+    yaxis=dict(
+        title=dict(text='Spotify Popularity Score', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        range=[0, 65]
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    margin=dict(b=140, t=60),
+    font=dict(family='Segoe UI', size=12, color='#333')
+)
+
+fig.show()
+```
+
+::: {.insight-box}
+**Observation**: "For Good" takes the crown with a popularity score of 58, despite being one of the soundtrack's longer tracks at 5.11 minutes. The emotional ballad outperforms even the showstopping "Defying Gravity" (56). 
+
+**What this challenges:** The assumption that "big, loud finales" are always the most popular. Sometimes the heartfelt conversation between two friends hits harder than the woman flying away on a broomstick. Data: 1, Conventional Wisdom: 0.
+
+**Bottom Line:** The quiet moments win. People return to songs that make them feel something real, not just songs that make them want to sing along.
+:::
+
+### Duration vs. Popularity: The Surprising Non-Relationship
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import json
+import numpy as np
+from scipy import stats
+
+# Load real data
+with open('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/viz_data.json', 'r') as f:
+    data = json.load(f)
+
+scatter_data = data['scatter']
+
+# Filter out tracks with 0 popularity (international versions not on main platform)
+filtered = [s for s in scatter_data if s['popularity'] > 0]
+
+songs = [s['clean_name'] for s in filtered]
+duration = [s['duration_min'] for s in filtered]
+popularity = [s['popularity'] for s in filtered]
+
+# Calculate correlation
+corr, p_value = stats.pearsonr(duration, popularity)
+
+# Size markers by popularity
+sizes = [p * 1.2 for p in popularity]
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    x=duration,
+    y=popularity,
+    mode='markers',
+    marker=dict(
+        size=sizes,
+        color=popularity,
+        colorscale=[[0, '#E91E8C'], [0.5, '#FFD700'], [1, '#00A651']],
+        showscale=True,
+        colorbar=dict(
+            title=dict(text='Popularity', font=dict(size=11)),
+            tickfont=dict(size=10)
+        ),
+        line=dict(color='#1a1a1a', width=1),
+        opacity=0.8
+    ),
+    text=songs,
+    hovertemplate='<b>%{text}</b><br>Duration: %{x:.2f} min<br>Popularity: %{y}<extra></extra>'
+))
+
+# Add trendline
+z = np.polyfit(duration, popularity, 1)
+p = np.poly1d(z)
+x_line = np.linspace(min(duration), max(duration), 100)
+y_line = p(x_line)
+
+fig.add_trace(go.Scatter(
+    x=x_line,
+    y=y_line,
+    mode='lines',
+    line=dict(color='#8B5CF6', width=2, dash='dash'),
+    name=f'Trend (r={corr:.3f}, p={p_value:.3f})',
+    hoverinfo='skip'
+))
+
+fig.update_layout(
+    title=dict(
+        text=f'Duration vs. Popularity: Weak Correlation (r={corr:.3f})',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    xaxis=dict(
+        title=dict(text='Song Duration (minutes)', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    yaxis=dict(
+        title=dict(text='Spotify Popularity Score', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=500,
+    showlegend=True,
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        bgcolor='rgba(255,255,255,0.9)',
+        bordercolor='#1a1a1a',
+        borderwidth=1
+    ),
+    font=dict(family='Segoe UI', size=12, color='#333')
+)
+
+fig.show()
+```
+
+::: {.insight-box}
+**Statistical Reality Check**: With a correlation coefficient of just **r=0.05** and **p=0.80**, there's no statistically significant relationship between song duration and popularity. Duration explains less than 0.3% of variance in popularity (r²=0.0025).
+
+**What this demolishes:** The entire "TL;DR generation needs 2-minute songs" narrative. "Dancing Through Life" clocks in at 7.62 minutes and sits comfortably in the top 10. Long-form content wins when it's actually *good*. Revolutionary concept, I know.
+
+**Bottom Line:** Song length doesn't matter. If people love it, they'll listen to all 7 minutes. If they don't, they'll skip it at 30 seconds. Quality > runtime.
+:::
+
+### K-Means Clustering: Three Song Archetypes
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import json
+
+# Load real data
+with open('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/viz_data.json', 'r') as f:
+    data = json.load(f)
+
+clusters = data['clusters']
+
+cluster_names = ['Epic Showstoppers', 'International Variants', 'Solid Mid-Tier']
+avg_pop = [c['avg_popularity'] for c in clusters]
+avg_dur = [c['avg_duration'] for c in clusters]
+counts = [c['count'] for c in clusters]
+
+colors_cluster = ['#00A651', '#8B5CF6', '#E91E8C']
+
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    name='Avg Popularity',
+    x=cluster_names,
+    y=avg_pop,
+    marker=dict(color=colors_cluster, line=dict(color='#1a1a1a', width=1)),
+    text=[f'{v:.1f}' for v in avg_pop],
+    textposition='outside',
+    textfont=dict(size=12, weight='bold'),
+    yaxis='y',
+    offsetgroup=1,
+    hovertemplate='<b>%{x}</b><br>Avg Popularity: %{y:.1f}<extra></extra>'
+))
+
+fig.add_trace(go.Bar(
+    name='Avg Duration (min)',
+    x=cluster_names,
+    y=avg_dur,
+    marker=dict(
+        color=colors_cluster,
+        line=dict(color='#1a1a1a', width=1),
+        pattern=dict(shape='/', fgcolor='white', solidity=0.4)
+    ),
+    text=[f'{v:.1f}' for v in avg_dur],
+    textposition='outside',
+    textfont=dict(size=12, weight='bold'),
+    yaxis='y2',
+    offsetgroup=2,
+    hovertemplate='<b>%{x}</b><br>Avg Duration: %{y:.2f} min<extra></extra>'
+))
+
+fig.update_layout(
+    title=dict(
+        text='Song Clusters: Popularity vs. Duration Patterns',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    xaxis=dict(
+        title='',
+        tickfont=dict(size=11, family='Segoe UI'),
+        showgrid=False
+    ),
+    yaxis=dict(
+        title=dict(text='Avg Popularity Score', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        range=[0, 70]
+    ),
+    yaxis2=dict(
+        title=dict(text='Avg Duration (minutes)', font=dict(size=12)),
+        overlaying='y',
+        side='right',
+        showgrid=False,
+        range=[0, 10]
+    ),
+    barmode='group',
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    legend=dict(
+        orientation="h",
+        yanchor="top",
+        y=-0.12,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=11)
+    ),
+    margin=dict(b=80, t=60),
+    font=dict(family='Segoe UI', size=12, color='#333')
+)
+
+# Add annotations for cluster sizes
+for i, (name, count) in enumerate(zip(cluster_names, counts)):
+    fig.add_annotation(
+        x=i,
+        y=65,
+        text=f'n={count} tracks',
+        showarrow=False,
+        font=dict(size=10, color='#666', family='Segoe UI'),
+        bgcolor='rgba(255,255,255,0.8)',
+        bordercolor='#ddd',
+        borderwidth=1,
+        borderpad=4
+    )
+
+fig.show()
+```
+
+::: {.insight-box}
+**Cluster Insight**: K-means analysis (k=3) reveals three distinct song types that actually make sense:
+
+- **Cluster 0: Epic Showstoppers** - Long (avg 6.18 min), popular (avg 50.6), the tracks people queue up specifically
+- **Cluster 1: International Variants** - Low/zero popularity on main Spotify (foreign language versions serve different markets)
+- **Cluster 2: Solid Mid-Tier** - Shorter (avg 2.69 min), balanced popularity (avg 47.9), the narrative glue holding it all together
+
+**What this reveals:** Successful soundtracks aren't monoliths. They need peaks *and* valleys. The "filler tracks" aren't filler-they're structural. Remove them and the whole thing collapses. It's data-driven vindication for every "I'm Not That Girl (Reprise)" out there.
+
+**Bottom Line:** Great albums need variety. You can't have all bangers-the quiet moments make the big moments matter. The "boring" tracks aren't mistakes; they're part of the design.
+:::
+
+### PCA Visualization: The Hidden Structure
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import pandas as pd
+
+# Load the full analysis results with PCA coordinates
+df = pd.read_csv('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/spotify_analysis_results.csv')
+
+# Filter for clarity (remove 0-popularity tracks)
+df_filtered = df[df['popularity'] > 0].copy()
+
+# Clean track names
+df_filtered['clean_name'] = df_filtered['track_name'].str.extract(r'^"?([^"]+?)"?\s*-?\s*From')[0]
+df_filtered['clean_name'] = df_filtered['clean_name'].fillna(df_filtered['track_name'].str.split(' - ').str[0])
+
+# Color by cluster
+cluster_colors = {0: '#00A651', 1: '#8B5CF6', 2: '#E91E8C'}
+df_filtered['color'] = df_filtered['cluster'].map(cluster_colors)
+
+fig = go.Figure()
+
+for cluster_id in sorted(df_filtered['cluster'].unique()):
+    cluster_data = df_filtered[df_filtered['cluster'] == cluster_id]
+    cluster_names = ['Epic Showstoppers', 'International', 'Mid-Tier']
+    
+    fig.add_trace(go.Scatter(
+        x=cluster_data['PC1'],
+        y=cluster_data['PC2'],
+        mode='markers+text',
+        name=cluster_names[cluster_id],
+        marker=dict(
+            size=cluster_data['popularity'] * 0.8,
+            color=cluster_colors[cluster_id],
+            line=dict(color='#1a1a1a', width=1),
+            opacity=0.7
+        ),
+        text=cluster_data['clean_name'],
+        textposition='top center',
+        textfont=dict(size=8, family='Segoe UI'),
+        hovertemplate='<b>%{text}</b><br>PC1: %{x:.2f}<br>PC2: %{y:.2f}<br>Popularity: %{marker.size:.0f}<extra></extra>'
+    ))
+
+fig.update_layout(
+    title=dict(
+        text='PCA: Songs in 2D Feature Space (Colored by Cluster)',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    xaxis=dict(
+        title=dict(text='Principal Component 1 (Duration + Popularity)', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        zeroline=True,
+        zerolinecolor='#999',
+        zerolinewidth=2
+    ),
+    yaxis=dict(
+        title=dict(text='Principal Component 2 (Duration vs. Popularity)', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        zeroline=True,
+        zerolinecolor='#999',
+        zerolinewidth=2
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=550,
+    showlegend=True,
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        bgcolor='rgba(255,255,255,0.9)',
+        bordercolor='#1a1a1a',
+        borderwidth=1,
+        font=dict(size=11)
+    ),
+    font=dict(family='Segoe UI', size=12, color='#333')
+)
+
+fig.show()
+```
+
+::: {.insight-box}
+**PCA Interpretation**: Principal Component Analysis reduces our duration-popularity feature space to 2D while retaining 100% of the variance. PC1 (x-axis) captures combined magnitude (longer + more popular → right side), while PC2 (y-axis) represents the trade-off (long-but-unpopular vs. short-but-popular).
+
+**The vindication:** The clear cluster separation validates our K-means groupings. The algorithm found *real structure* in the data, not random noise or wishful thinking. Sometimes machine learning actually works exactly as advertised. Mark this day.
+
+**Bottom Line:** The songs naturally group into distinct types. It's not random-there's an actual pattern to what works and what doesn't. Math proves the soundtrack is well-designed, whether or not that was intentional.
+:::
+
+### Popularity Distribution: The Full Picture
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import pandas as pd
+
+# Load real data
+df = pd.read_csv('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/spotify_analysis_results.csv')
+
+# Filter out 0-popularity tracks for main distribution
+df_main = df[df['popularity'] > 0]
+
+fig = go.Figure()
+
+# Add histogram
+fig.add_trace(go.Histogram(
+    x=df_main['popularity'],
+    nbinsx=15,
+    marker=dict(
+        color='#00A651',
+        line=dict(color='#1a1a1a', width=1)
+    ),
+    opacity=0.75,
+    name='Popularity Distribution',
+    hovertemplate='Popularity: %{x}<br>Count: %{y}<extra></extra>'
+))
+
+# Add box plot on top
+fig.add_trace(go.Box(
+    x=df_main['popularity'],
+    marker=dict(color='#E91E8C'),
+    line=dict(color='#1a1a1a'),
+    name='Box Plot',
+    yaxis='y2',
+    hovertemplate='Popularity: %{x}<extra></extra>'
+))
+
+fig.update_layout(
+    title=dict(
+        text='Popularity Distribution Across All Tracks',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    xaxis=dict(
+        title=dict(text='Spotify Popularity Score', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    yaxis=dict(
+        title=dict(text='Number of Tracks', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    yaxis2=dict(
+        overlaying='y',
+        side='right',
+        showticklabels=False,
+        showgrid=False
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    showlegend=True,
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        bgcolor='rgba(255,255,255,0.9)',
+        bordercolor='#1a1a1a',
+        borderwidth=1
+    ),
+    font=dict(family='Segoe UI', size=12, color='#333')
+)
+
+# Add mean and median lines
+import numpy as np
+mean_pop = df_main['popularity'].mean()
+median_pop = df_main['popularity'].median()
+
+fig.add_vline(
+    x=mean_pop,
+    line_dash='dash',
+    line_color='#8B5CF6',
+    line_width=2,
+    annotation_text=f'Mean: {mean_pop:.1f}',
+    annotation_position='top'
+)
+
+fig.add_vline(
+    x=median_pop,
+    line_dash='dot',
+    line_color='#FFD700',
+    line_width=2,
+    annotation_text=f'Median: {median_pop:.1f}',
+    annotation_position='bottom'
+)
+
+fig.show()
+```
+
+::: {.insight-box}
+**Distribution Stats**: The popularity distribution is relatively symmetric with mean (46.9) kissing close to median (49.0), suggesting balanced representation across the soundtrack. No extreme outliers-even the top songs stay within 2 standard deviations. 
+
+**What this means:** This isn't a "one-hit wonder" album propped up by a single mega-hit while everything else languishes. It's a soundtrack with *consistent quality*-the kind of depth that keeps entire albums in rotation instead of just the singles. Old-school music industry, meet your validation.
+
+**Bottom Line:** Every song holds its own. You're not fast-forwarding through filler to get to the good parts-the whole album is worth listening to. That's increasingly rare.
+:::
+
+### Duration Distribution by Popularity Tier
+
+```{python}
+#| echo: false
+#| eval: true
+#| warning: false
+
+import plotly.graph_objects as go
+import pandas as pd
+
+# Load real data
+df = pd.read_csv('/Users/isfarbaset/Documents/wicked-tiktok-analysis/data/processed/spotify_analysis_results.csv')
+
+# Filter and categorize
+df_main = df[df['popularity'] > 0].copy()
+df_main['popularity_tier'] = pd.cut(
+    df_main['popularity'],
+    bins=[0, 45, 50, 60],
+    labels=['Lower (0-45)', 'Mid (46-50)', 'High (51+)']
+)
+
+fig = go.Figure()
+
+for tier, color in zip(['Lower (0-45)', 'Mid (46-50)', 'High (51+)'], ['#E91E8C', '#FFD700', '#00A651']):
+    tier_data = df_main[df_main['popularity_tier'] == tier]
+    
+    fig.add_trace(go.Violin(
+        y=tier_data['duration_min'],
+        name=tier,
+        box_visible=True,
+        meanline_visible=True,
+        fillcolor=color,
+        line=dict(color='#1a1a1a', width=1),
+        opacity=0.6,
+        scalemode='width',
+        hovertemplate=f'<b>{tier}</b><br>Duration: %{{y:.2f}} min<extra></extra>'
+    ))
+
+fig.update_layout(
+    title=dict(
+        text='Duration Distribution by Popularity Tier',
+        font=dict(size=18, color='#1a1a1a', family='Segoe UI', weight='bold')
+    ),
+    yaxis=dict(
+        title=dict(text='Song Duration (minutes)', font=dict(size=12)),
+        showgrid=True,
+        gridcolor='#f0f0f0'
+    ),
+    xaxis=dict(
+        title=dict(text='Popularity Tier', font=dict(size=12)),
+        showgrid=False
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    height=450,
+    showlegend=False,
+    font=dict(family='Segoe UI', size=12, color='#333'),
+    violinmode='group'
+)
+
+fig.show()
+```
+
+::: {.insight-box}
+**Tier Analysis**: ANOVA on duration across popularity tiers yields **F=1.76, p=0.19**-not statistically significant. The violin plots confirm it visually: all tiers show similar spread and central tendency.
+
+**Translation for executives:** Stop telling artists to "cut it down to 3 minutes." High-popularity songs aren't systematically shorter than mid or low-popularity tracks. Make it good, make it memorable, and listeners will stay for however long it takes. The data has spoken, and it's tired of your arbitrary time limits.
+
+**Bottom Line:** The "3-minute rule" is made up. Popular songs can be any length. The only rule is: don't be boring.
+:::
+
+## Statistical Rigor: The Tests That Matter
+
+<div class="methodology-section">
+
+### Correlation Analysis
+
+**Pearson Correlation (Duration vs. Popularity):**  
+- r = 0.05, p = 0.80  
+- **Interpretation**: Essentially zero correlation. Duration explains less than 0.3% of variance in popularity (r² = 0.0025).
+
+### ANOVA: Duration Across Popularity Tiers
+
+**One-Way ANOVA:**  
+- F-statistic = 1.76, p-value = 0.19  
+- **Interpretation**: No significant difference in mean duration across low/mid/high popularity groups. Fails to reject null hypothesis at α=0.05.
+
+### T-Test: Long vs. Short Songs
+
+**Independent Samples T-Test (median split at 3.88 min):**  
+- t = -0.15, p = 0.88  
+- **Interpretation**: Long songs (>3.88 min) have nearly identical mean popularity (46.0) as short songs (45.8). No meaningful difference.
+
+### K-Means Clustering
+
+**Optimal Clusters: k=3 (Elbow Method + Silhouette Score)**  
+- Cluster 0: n=8, epic showstoppers (long, popular)  
+- Cluster 1: n=5, international variants (moderate length, low/zero popularity)  
+- Cluster 2: n=15, solid mid-tier (short-to-moderate, balanced popularity)
+
+**Within-Cluster Sum of Squares:** Well-separated clusters with minimal intra-cluster variance.
+
+### Principal Component Analysis
+
+**Explained Variance:**  
+- PC1: 78.3% (captures combined duration + popularity magnitude)  
+- PC2: 21.7% (captures duration-popularity trade-off)  
+- **Total:** 100% variance explained with 2 components
+
+**Interpretation:** The 2D projection retains all information from the original 2-feature space (duration, popularity), making it ideal for visualization without information loss.
+
+</div>
+
+## Key Takeaways: What The Data Actually Says (vs. What Everyone Assumes)
+
+<div class="methodology-section">
+
+### 1. Duration Is a Red Herring (But Everyone Acts Like It Isn't)
+
+Every streaming era thinkpiece insists "shorter songs perform better because attention spans are dead." The Wicked soundtrack responds: **citation needed**. 
+
+With r=0.05 and p=0.80, there's no statistical relationship between song length and popularity. "Dancing Through Life" (7.62 minutes) and "For Good" (5.11 minutes) both outperform most shorter tracks. ANOVA confirms no difference across popularity tiers (F=1.76, p=0.19). T-test comparing long vs. short songs? t=-0.15, p=0.88. Statistically identical.
+
+**Real lesson:** Content quality and emotional resonance matter more than runtime. Listeners will stick with a song if it delivers-whether it's 90 seconds or 7 minutes. Stop cutting good art to fit arbitrary time limits that the data doesn't support.
+
+### 2. Three Distinct Song Archetypes (That the Industry Doesn't Name)
+
+K-means clustering reveals the soundtrack serves three distinct functions:
+
+- **Epic Showstoppers:** Long, popular, memorable-the tracks people think of when they hear "Wicked"
+- **Narrative Builders:** Shorter supporting tracks that advance plot but don't necessarily dominate playlists
+- **International Variants:** Translations and alternate versions (low Spotify presence but crucial for global reach)
+
+**Real lesson:** A successful soundtrack isn't monolithic. It needs variety-peaks and valleys, bombast and intimacy. The "filler" tracks aren't failures; they're structural necessities. Remove the connective tissue and the whole body stops working.
+
+### 3. "For Good" Defies Every Prediction
+
+Nobody-and I mean *nobody*-predicted the quiet, emotional duet would beat "Defying Gravity." But it does (58 vs. 56). This might reflect:
+
+- **Emotional depth:** Listeners return to songs that make them *feel*, not just sing along
+- **Replayability:** "Defying Gravity" is a showstopper, but you don't blast it at 7 AM every Tuesday. "For Good" is a comfort song-the one you need when life gets complicated.
+- **Under-the-radar favoritism:** Not the flashiest choice, but the one that sticks in your chest
+
+**Real lesson:** Flashy doesn't always equal popular. The moments that make us cry often resonate more deeply than the ones that make us cheer. Marketing loves the big moments, but listeners love what they love-and data doesn't lie about it.
+
+### 4. The Data's Blind Spots (And Why That's Important)
+
+This analysis tells us *what* is popular and *what* correlates (or doesn't). But it can't explain *why* certain songs resonate. Was "For Good" boosted by a viral moment we missed? A celebrity cover? An emotional TikTok trend? The CSV doesn't capture cultural context, personal memories, or the specific moment someone first heard a song that changed them.
+
+**Real lesson:** Numbers tell you where to look. Context tells you what you're seeing. Good data science acknowledges its limits. Great data science uses those limits to ask better questions for the next project.
+
+</div>
+
+## Methodology & Technical Approach
+
+<div class="methodology-section">
+
+### Data Collection
+
+**Source:** Spotify Web API  
+**Tracks:** 28 songs from Wicked soundtrack (original Broadway cast + international versions)  
+**Features:** Track metadata (name, popularity, duration), streaming metrics
+
+**Process:**
+1. Authenticated with Spotify API using client credentials
+2. Searched for "Wicked" soundtrack tracks
+3. Extracted metadata and popularity scores
+4. Cleaned and standardized track names
+5. Saved to CSV for reproducible analysis
+
+### Statistical Analysis Pipeline
+
+**Tools Used:**
+- **Python 3.11** - Core programming language
+- **Pandas** - Data manipulation and cleaning
+- **SciPy** - Statistical tests (correlation, ANOVA, t-tests)
+- **Scikit-learn** - K-means clustering and PCA
+- **Plotly** - Interactive visualizations
+- **Jupyter Notebooks** - Exploratory analysis
+
+**Analysis Steps:**
+1. **Descriptive Statistics** - Computed mean, median, std, range for all metrics
+2. **Correlation Analysis** - Pearson correlation between duration and popularity
+3. **ANOVA** - Tested duration differences across popularity tiers
+4. **T-Tests** - Compared long vs. short songs (median split)
+5. **K-Means Clustering** - Identified song archetypes (k=3)
+6. **PCA** - Reduced feature space to 2D for visualization
+
+### Code Architecture
+
+```python
+# Core analysis script structure
+import pandas as pd
+from scipy import stats
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+
+# 1. Load and clean data
+df = pd.read_csv('wicked_tracks_REAL.csv')
+df['duration_min'] = df['duration_ms'] / 60000
+
+# 2. Statistical tests
+corr, p_value = stats.pearsonr(df['duration_min'], df['popularity'])
+f_stat, anova_p = stats.f_oneway(*groups)
+t_stat, t_p = stats.ttest_ind(long_songs, short_songs)
+
+# 3. Machine learning
+kmeans = KMeans(n_clusters=3, random_state=42)
+clusters = kmeans.fit_predict(X)
+pca = PCA(n_components=2)
+coords = pca.fit_transform(X)
+
+# 4. Export results
+df.to_csv('spotify_analysis_results.csv')
+```
+
+**Reproducibility:** All code, data, and analysis scripts are available in the [GitHub repository](https://github.com/isfarbaset/wicked-tiktok-analysis).
+
+</div>
+
+## Technical Learnings
+
+<div class="methodology-section">
+
+**API Integration:** Working with Spotify's Web API taught me the importance of rate limiting, error handling, and data validation. Not every API call succeeds-building in retry logic and graceful failures is essential.
+
+**Statistical Storytelling:** Raw test results (r=0.05, p=0.80) mean nothing without interpretation. The real skill is translating statistical jargon into insights a non-technical audience can understand and act on.
+
+**Visualization Choices:** Interactive charts > static images. Plotly's hover effects and zoom capabilities let users explore the data themselves, increasing engagement and understanding.
+
+**Knowing When to Stop:** I could've added more features, more tests, more models. But at some point, you're not adding insight-you're just adding complexity. The best analysis is the one that answers the question clearly, not the one that throws every tool at the problem.
+
+</div>
+
+### The Real Insight
+
+Data science can tell you *what* happened. With enough data, it can even tell you *how* it happened. But the *why*-the cultural moments, the emotional connections, the reasons "For Good" resonates more than "Defying Gravity"-that requires human interpretation.
+
+This project taught me that the best analysis acknowledges its limitations. The numbers got us 80% of the way there. The other 20%? That's where the story lives.
+
+</div>
+
+## What's Next: Future Directions
+
+If I were to extend this analysis or build something similar:
+
+**1. Audio Feature Deep-Dive**  
+Spotify provides 10+ audio features (danceability, energy, valence, tempo, acousticness, etc.). Analyzing how these correlate with popularity could reveal *why* certain songs succeed beyond just duration.
+
+**2. Time-Series Analysis**  
+Track how popularity scores change over time. Do songs gain popularity post-movie release? Do certain tracks spike during award season or viral moments?
+
+**3. Cross-Soundtrack Comparison**  
+How does Wicked compare to Hamilton, Dear Evan Hansen, or Six? Are the patterns universal across Broadway soundtracks, or is each unique?
+
+**4. Sentiment Analysis**  
+Mine YouTube comments, Reddit discussions, and social media to understand *why* people connect with certain songs. Qualitative data could fill in the gaps quantitative analysis misses.
+
+**5. Predictive Modeling**  
+Build a model to predict which tracks from *new* musicals will become streaming hits. Won't be perfect (nothing is), but could help marketing teams prioritize promotion.
+
+**6. Lyrical Analysis**  
+Use NLP to analyze song lyrics-word frequency, sentiment, complexity. Do simpler lyrics correlate with higher popularity? Do emotional themes matter?
+
+
+
+## View the Full Project
+
+<div style="text-align: center; margin: 3rem 0;">
+
+<a href="https://github.com/isfarbaset/wicked-tiktok-analysis" class="github-link" target="_blank">
+Explore the Code on GitHub
+</a>
+
+<div style="margin-top: 2rem; color: #666; font-size: 0.95rem;">
+<strong>Repository Contents:</strong><br>
+Complete Python codebase | Data collection scripts | Analysis notebooks<br>
+Interactive visualizations | Full documentation | Reproducible pipeline
+</div>
+
+</div>
+
+---
+
+<div class="insight-box">
+
+### Questions? Thoughts? Counterarguments?
+
+I'm always happy to discuss methodology, findings, or whether "Defying Gravity" really deserved its number one spot. Reach out via [LinkedIn](https://www.linkedin.com/in/isfarbaset/) or [email](mailto:isfar.baset@gmail.com).
+
+</div>

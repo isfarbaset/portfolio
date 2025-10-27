@@ -25,18 +25,14 @@ body {
   background: #faf8f5 !important;
   color: #1a1a1a !important;
   font-weight: 300;
-  line-height: 1.8 !important;
+  line-height: 1.7 !important;
   overflow-x: hidden;
-  letter-spacing: 0.01em !important;
 }
 
 /* Global paragraph spacing */
 p {
-  line-height: 1.9 !important;
+  line-height: 1.7 !important;
   margin-bottom: 1rem !important;
-  word-spacing: 0.1em !important;
-  letter-spacing: 0.01em !important;
-  white-space: normal !important;
 }
 
 /* Elegant container */
@@ -179,7 +175,7 @@ p {
   font-family: 'Inter', sans-serif !important;
   font-size: 0.85rem !important;
   font-weight: 500 !important;
-  letter-spacing: 0.3em !important;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
   color: #666 !important;
   margin-bottom: 3rem !important;
@@ -199,23 +195,18 @@ p {
 .hero-description,
 .hero-section .hero-description {
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
-  line-height: 2 !important;
+  line-height: 1.8 !important;
   color: #4a4a4a !important;
   font-weight: 300 !important;
   max-width: 750px;
   margin: 0 auto 4rem !important;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 0.9s forwards;
-  word-spacing: 0.1em !important;
-  letter-spacing: 0.01em !important;
 }
 
 .hero-description p {
   margin: 0 !important;
-  line-height: 2 !important;
-  word-spacing: 0.1em !important;
-  letter-spacing: 0.01em !important;
-  white-space: normal !important;
+  line-height: 1.8 !important;
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
   font-weight: 300 !important;
   color: #4a4a4a !important;
@@ -416,11 +407,9 @@ p {
 
 .project-content p {
   color: #5a5a5a !important;
-  line-height: 1.85 !important;
+  line-height: 1.7 !important;
   font-size: 1rem !important;
   font-weight: 300 !important;
-  letter-spacing: 0.01em !important;
-  word-spacing: 0.05em !important;
   margin-bottom: 1rem !important;
 }
 
