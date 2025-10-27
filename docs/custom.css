@@ -371,6 +371,11 @@ p {
   animation: slideInUp 1s ease-out forwards;
   display: flex;
   flex-direction: column;
+  gap: 0 !important;
+}
+
+.project-card > * {
+  margin: 0 !important;
 }
 
 .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -446,10 +451,12 @@ p {
 
 /* Remove any spacing issues with figure elements */
 .project-image figure,
-.project-image .figure {
+.project-image .figure,
+.project-image p {
   margin: 0 !important;
   padding: 0 !important;
   height: 100%;
+  display: block !important;
 }
 
 .project-image figcaption,
@@ -499,10 +506,12 @@ p {
   transform: translateY(-1px);
 }
 
-.project-content {
+.project-content,
+section.project-content {
   padding: 2.5rem 2.5rem !important;
   background: white !important;
   margin: 0 !important;
+  padding-top: 2.5rem !important;
 }
 
 /* Remove h3 styling override - titles are now visible in project-content */
@@ -597,9 +606,17 @@ p {
     margin-bottom: 0 !important;
   }
   
-  .project-content {
+  /* Remove all spacing from the paragraph containing the image */
+  .project-image p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .project-content,
+  section.project-content {
     padding: 2rem 1.5rem !important;
     margin-top: 0 !important;
+    padding-top: 2rem !important;
     background: white !important;
   }
   
