@@ -396,7 +396,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(1) .project-title a {
+.project-card:nth-child(1) .project-title {
   color: #4a5fd9 !important;
 }
 
@@ -405,7 +405,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(2) .project-title a {
+.project-card:nth-child(2) .project-title {
   color: #ff6b6b !important;
 }
 
@@ -414,7 +414,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(3) .project-title a {
+.project-card:nth-child(3) .project-title {
   color: #3b82f6 !important;
 }
 
@@ -423,7 +423,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(4) .project-title a {
+.project-card:nth-child(4) .project-title {
   color: #10b981 !important;
 }
 
@@ -432,7 +432,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(5) .project-title a {
+.project-card:nth-child(5) .project-title {
   color: #f97316 !important;
 }
 
@@ -441,7 +441,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(6) .project-title a {
+.project-card:nth-child(6) .project-title {
   color: #14b8a6 !important;
 }
 
@@ -450,7 +450,7 @@ p {
   background: transparent;
 }
 
-.project-card:nth-child(7) .project-title a {
+.project-card:nth-child(7) .project-title {
   color: #ec4899 !important;
 }
 
@@ -501,6 +501,9 @@ p {
   text-shadow: none !important;
   border-radius: 0 0 12px 12px !important;
   display: block !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 /* Ensure the paragraph containing image and title displays properly */
@@ -511,16 +514,8 @@ p {
   flex-direction: column !important;
 }
 
-.project-image h3 a,
-.project-image .project-title a {
-  text-decoration: none !important;
-  display: inline-block !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
-}
-
-.project-image h3 a:hover,
-.project-image .project-title a:hover {
+.project-image h3:hover,
+.project-image .project-title:hover {
   opacity: 0.8;
   transform: translateY(-1px);
 }
