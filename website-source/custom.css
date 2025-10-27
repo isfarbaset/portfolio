@@ -393,37 +393,86 @@ p {
 /* Project-specific gradient backgrounds - Editorial/Luxury inspired */
 /* FMBench Assistant - AI/Tech theme - Deep blue to purple */
 .project-card:nth-child(1) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(1) .project-title a {
   background: linear-gradient(135deg, #667eea 0%, #c9a9dd 50%, #f8d7da 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Wicked/Spotify - Music/Entertainment theme - Warm coral to soft pink */
 .project-card:nth-child(2) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(2) .project-title a {
   background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* US Insights - Data/Analytics theme - Cool blue to soft gray */
 .project-card:nth-child(3) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(3) .project-title a {
   background: linear-gradient(135deg, #a8c8ec 0%, #d6e9ff 50%, #f0f4f8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Temp Talk - Climate/Nature theme - Sage green to cream */
 .project-card:nth-child(4) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(4) .project-title a {
   background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #f5f3f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Beats and Bytes - Music/ML theme - Warm peach to soft yellow */
 .project-card:nth-child(5) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(5) .project-title a {
   background: linear-gradient(135deg, #ffb199 0%, #ffd1a9 50%, #fff2e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* EV Insights - Electric/Environmental theme - Mint to lavender */
 .project-card:nth-child(6) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(6) .project-title a {
   background: linear-gradient(135deg, #b8e6d1 0%, #d4b5e8 50%, #f0ebf5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Air Quality Intelligence - Health/Environment theme - Soft lavender to cream */
 .project-card:nth-child(7) .project-image {
+  background: transparent;
+}
+
+.project-card:nth-child(7) .project-title a {
   background: linear-gradient(135deg, #d4a5c7 0%, #e8d5e3 50%, #f8f6f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .project-image img {
@@ -463,7 +512,6 @@ p {
   margin: 0 !important;
   padding: 2rem !important;
   background: transparent !important;
-  color: white !important;
   font-family: 'Cormorant Garamond', serif !important;
   font-size: 1.8rem !important;
   font-weight: 500 !important;
@@ -476,13 +524,12 @@ p {
 
 .project-image h3 a,
 .project-image .project-title a {
-  color: white !important;
   text-decoration: none !important;
 }
 
 .project-image h3 a:hover,
 .project-image .project-title a:hover {
-  color: rgba(255,255,255,0.9) !important;
+  opacity: 0.9;
 }
 
 .project-content {
