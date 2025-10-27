@@ -1,0 +1,450 @@
+/* ============================================
+   LUXURY EDITORIAL PORTFOLIO DESIGN
+   High-fashion magazine aesthetic
+   ============================================ */
+
+/* Import sophisticated fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap');
+
+/* ============================================
+   GLOBAL RESETS & BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: #faf8f5 !important;
+  color: #1a1a1a !important;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Elegant container */
+.container-fluid,
+#quarto-content {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ============================================
+   NAVBAR - MINIMAL LUXURY
+   ============================================ */
+
+#quarto-header {
+  background: rgba(250, 248, 245, 0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08) !important;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+.navbar {
+  background: transparent !important;
+  padding: 1.5rem 3rem !important;
+}
+
+.navbar-brand {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  letter-spacing: 0.02em !important;
+}
+
+.navbar a,
+.nav-link {
+  color: #1a1a1a !important;
+  font-weight: 400 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.03em !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar a:hover,
+.nav-link:hover {
+  color: #666 !important;
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12) !important;
+  border-radius: 8px !important;
+  padding: 1rem 0 !important;
+}
+
+.dropdown-item {
+  color: #1a1a1a !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.dropdown-item:hover {
+  background: #f5f3f0 !important;
+  color: #1a1a1a !important;
+  transform: translateX(5px);
+}
+
+/* ============================================
+   HERO SECTION - DRAMATIC EDITORIAL
+   ============================================ */
+
+.hero-section {
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8rem 3rem !important;
+  background: linear-gradient(165deg, 
+    #fcfaf7 0%, 
+    #f5ebe1 25%,
+    #ebdce6 50%,
+    #dcd2eb 75%,
+    #f0ebf5 100%) !important;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  flex-direction: column !important;
+}
+
+/* Floating artistic gradient */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(255, 245, 240, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(230, 210, 240, 0.5) 0%, transparent 40%);
+  animation: floatingGradient 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes floatingGradient {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -5%) rotate(5deg); }
+  66% { transform: translate(-5%, 5%) rotate(-5deg); }
+}
+
+/* Target Quarto's section with both hero-title and hero-content classes */
+.hero-section > section.hero-content.hero-title,
+.hero-section > .hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+
+/* The name "Isfar Baset" is the first direct <p> child of the hero section */
+.hero-section > section.hero-content.hero-title > p:first-of-type {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(5rem, 12vw, 10rem) !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: #1a1a1a !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.95 !important;
+  margin-bottom: 2rem !important;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 0.3s forwards;
+}
+
+.hero-subtitle,
+.hero-section .hero-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: #666 !important;
+  margin-bottom: 3rem !important;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 0.6s forwards;
+}
+
+.hero-subtitle p {
+  margin: 0 !important;
+}
+
+.hero-subtitle .animated-text {
+  display: inline-block;
+}
+
+.hero-description,
+.hero-section .hero-description {
+  font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+  line-height: 1.9 !important;
+  color: #4a4a4a !important;
+  font-weight: 300 !important;
+  max-width: 750px;
+  margin: 0 auto 4rem !important;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 0.9s forwards;
+}
+
+.hero-description p {
+  margin: 0 !important;
+}
+
+.hero-buttons,
+.hero-section .hero-buttons {
+  display: flex !important;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 1.2s forwards;
+}
+
+.hero-buttons p {
+  margin: 0 !important;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Hide profile image for editorial minimalism */
+.hero-image,
+.profile-image {
+  display: none !important;
+}
+
+/* ============================================
+   BUTTONS - MINIMALIST LUXURY
+   ============================================ */
+
+.animated-btn,
+.btn {
+  display: inline-block !important;
+  padding: 16px 48px !important;
+  text-decoration: none !important;
+  border-radius: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.btn-primary,
+.animated-btn.btn-primary {
+  background: #1a1a1a !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background: #2a2a2a !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(26, 26, 26, 0.25) !important;
+}
+
+.btn-outline,
+.animated-btn.btn-outline {
+  background: transparent !important;
+  color: #1a1a1a !important;
+}
+
+.btn-outline:hover {
+  background: #1a1a1a !important;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(26, 26, 26, 0.15) !important;
+}
+
+.btn-chat,
+.animated-btn.btn-chat {
+  background: linear-gradient(135deg, #b4a5d6 0%, #d4b5c9 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.btn-chat:hover {
+  background: linear-gradient(135deg, #a595c6 0%, #c4a5b9 100%) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(180, 165, 214, 0.35) !important;
+}
+
+/* ============================================
+   PROJECTS SECTION - VOGUE EDITORIAL
+   ============================================ */
+
+.projects-section {
+  padding: 10rem 4rem !important;
+  background: #faf8f5 !important;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(3.5rem, 8vw, 7rem) !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: #1a1a1a !important;
+  text-align: center;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 7rem !important;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1a1a1a, transparent);
+}
+
+.project-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  gap: 5rem 4rem !important;
+  margin-top: 5rem;
+}
+
+.project-card {
+  background: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06) !important;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideInUp 1s ease-out forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+.project-card:nth-child(4) { animation-delay: 0.55s; }
+.project-card:nth-child(5) { animation-delay: 0.7s; }
+.project-card:nth-child(6) { animation-delay: 0.85s; }
+
+.project-card:hover {
+  transform: translateY(-15px) !important;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.12) !important;
+}
+
+.project-image {
+  height: 400px !important;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #f5f3f0 0%, #ebe7e3 100%);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  filter: grayscale(30%) contrast(1.05);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.08);
+  filter: grayscale(0%) contrast(1.1);
+}
+
+.project-content {
+  padding: 3rem 2.5rem !important;
+  background: white !important;
+}
+
+.project-content h3 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.25 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.project-content h3 a {
+  color: inherit !important;
+  text-decoration: none !important;
+  position: relative;
+  transition: color 0.4s ease !important;
+}
+
+.project-content h3 a:hover {
+  color: #666 !important;
+}
+
+.project-content p {
+  color: #5a5a5a !important;
+  line-height: 1.85 !important;
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 6rem 2rem !important;
+  }
+  
+  .projects-section {
+    padding: 6rem 2rem !important;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  
+  .project-image {
+    height: 300px !important;
+  }
+}

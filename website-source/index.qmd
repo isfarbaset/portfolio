@@ -4,7 +4,8 @@ listing-opts:
   fields: [image, title, description, date]
 format:
   html:
-    css: style.css
+    css: 
+      - custom.css
 ---
 
 ::: {.hero-section}

@@ -77,209 +77,6 @@
     "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "",
-    "section": "",
-    "text": "Isfar Baset\n\nData Analyst\n\n\nCrafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.\n\n\nView Projects About Me Chat with Isfar\n\n\n\n\n\n\n\n\nFeatured Projects\n\n\n\n\n\n\nFMBench Assistant\n\n\n\n\nFMBench Assistant\nA conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.\n\n\n\n\n\n\n\nDefying Analytics\n\n\n\n\nDefying Analytics: What Spotify Reveals About Wicked\nTwenty years after its Broadway debut, Wicked’s soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.\nTech Stack: Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto\nKey Finding: Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers\n\n\n\n\n\n\n\nUS Insights\n\n\n\n\nUS Insights\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.\n\n\n\n\n\n\n\nTemp Talk\n\n\n\n\nTemp Talk\nExploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.\n\n\n\n\n\n\n\nBeats and Bytes\n\n\n\n\nBeats and Bytes\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.\n\n\n\n\n\n\n\nEV Insights\n\n\n\n\nEV Insights\nExamining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.\n\n\n\n\n\n\n\nAir Quality Intelligence\n\n\n\n\nAir Quality Intelligence\nA Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.\nTech Stack: Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas\nKey Feature: Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning\n\n\n\n\n\n\n\nPortfolio curated by Isfar Baset"
-  },
-  {
-    "objectID": "chatbot-test.html",
-    "href": "chatbot-test.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n🎯 CACHE TEST VERSION - If you see this message, the file is updating correctly!\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\nThis is the TEST version to verify cache updates work correctly."
-  },
-  {
-    "objectID": "aqi.html",
-    "href": "aqi.html",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "",
-    "text": "Air Quality Intelligence\n\n\nReal-time environmental monitoring with AI-powered health recommendations"
-  },
-  {
-    "objectID": "aqi.html#overview",
-    "href": "aqi.html#overview",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Overview",
-    "text": "Overview\nAn intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.\n\n\nGlobal Coverage\n\n\n6 Pollutants Tracked\n\n\n15 min Update Frequency\n\n\nLive Real-Time Data"
-  },
-  {
-    "objectID": "aqi.html#key-features",
-    "href": "aqi.html#key-features",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Key Features",
-    "text": "Key Features\n\n\n\nReal-Time Monitoring\n\n\nLive AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\n\n\n\n\nSmart Recommendations\n\n\nActivity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions\n\n\n\n\nMulti-City Compare\n\n\nSide-by-side analysis of air quality across multiple cities for travel planning\n\n\n\n\nHealth Protection\n\n\nSpecial guidance for sensitive groups including children, elderly, and those with respiratory conditions"
-  },
-  {
-    "objectID": "aqi.html#live-demo-output",
-    "href": "aqi.html#live-demo-output",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Live Demo Output",
-    "text": "Live Demo Output\n\nQuick Report: Global Air Quality Snapshot"
-  },
-  {
-    "objectID": "aqi.html#health-recommendations",
-    "href": "aqi.html#health-recommendations",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "HEALTH RECOMMENDATIONS",
-    "text": "HEALTH RECOMMENDATIONS\nGeneral: Air quality is excellent. Enjoy outdoor activities.\nFor Jogging: Perfect conditions for jogging and running.\nFor Cycling: Ideal day for cycling.\nSensitive Groups: No precautions needed."
-  },
-  {
-    "objectID": "aqi.html#rankings-best-to-worst",
-    "href": "aqi.html#rankings-best-to-worst",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Rankings (Best to Worst):",
-    "text": "Rankings (Best to Worst):\n1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³\n2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³\n3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³\nBest: Seattle (AQI 96) Worst: Tokyo (AQI 122)"
-  },
-  {
-    "objectID": "aqi.html#technical-architecture",
-    "href": "aqi.html#technical-architecture",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Technical Architecture",
-    "text": "Technical Architecture\n\n\nSystem Architecture Flow\n\n\n\n\n👤\n\n\nUser Query\n\n\nNatural language or city name\n\n\n\n→\n\n\n\n🤖\n\n\nGenAI Agent\n\n\nOpenAI GPT-4 processing\n\n\n\n→\n\n\n\n🔌\n\n\nMCP Server\n\n\nData orchestration layer\n\n\n\n\n↓\n\n\n\n\n🌍\n\n\nGeocoding API\n\n\nCity → GPS coordinates\n\n\n\n\n🌫️\n\n\nAir Quality API\n\n\nReal-time AQI data\n\n\n\n\n↓\n\n\n\n⚕️\n\n\nHealth Engine\n\n\nEPA/WHO standards + AI recommendations\n\n\n\n↓\n\n\n\n💬\n\n\nPersonalized Response\n\n\nAQI data + Health advice + Activity recommendations\n\n\n\n\nCore Components\n1. AQI MCP Server (aqi_mcp_server.py) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine\n2. Interactive Demo (aqi_demo.py) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling\n3. Data Model (AQIData class)\n@dataclass\nclass AQIData:\n    location: str\n    latitude: float\n    longitude: float\n    overall_aqi: int\n    co_concentration: float\n    no2_concentration: float\n    o3_concentration: float\n    so2_concentration: float\n    pm2_5_concentration: float\n    pm10_concentration: float\n    timestamp: str"
-  },
-  {
-    "objectID": "aqi.html#installation-quick-start",
-    "href": "aqi.html#installation-quick-start",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Installation & Quick Start",
-    "text": "Installation & Quick Start\n\nPrerequisites\npip install aiohttp\n\n\nGet API Key\n\nSign up at API Ninjas\nGet your free API key\nSet environment variable:\n\nexport API_NINJAS_KEY='your_key_here'\n\n\nRun the Demo\n# Quick Report\npython3 aqi_demo.py quick\n\n# Interactive Mode\npython3 aqi_demo.py"
-  },
-  {
-    "objectID": "aqi.html#real-world-use-cases-real-world-use-cases",
-    "href": "aqi.html#real-world-use-cases-real-world-use-cases",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Real-World Use Cases## Real-World Use Cases",
-    "text": "Real-World Use Cases## Real-World Use Cases\n\n1. Daily Health Management\nScenario: “Should I go jogging this morning?”\nThe system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed\nReal Example (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”\n\n\n2. Travel Planning\nScenario: “Which city has better air quality: Boston or Los Angeles?”\nMulti-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended\nDecision: Boston offers significantly better conditions for travelers with respiratory concerns.\n\n\n3. Family Safety\nScenario: “Is it safe to take my kids to the playground?”\nSensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations"
-  },
-  {
-    "objectID": "aqi.html#gen-ai-conversational-agent",
-    "href": "aqi.html#gen-ai-conversational-agent",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Gen AI Conversational Agent",
-    "text": "Gen AI Conversational Agent\nBuilding on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.\n\nWhat Makes It Gen AI\n\n\n\nNatural Language Understanding\n\n\nAsk questions in plain English with no commands to memorize. The AI understands context and intent.\n\n\n\n\nPersonalized Recommendations\n\n\nTailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)\n\n\n\n\nContextual Intelligence\n\n\nCombines real-time data with medical knowledge, considers multiple factors for nuanced advice\n\n\n\n\nConversation Memory\n\n\nMaintains context across multi-turn conversations for follow-up questions and clarifications\n\n\n\n\n\nLive Gen AI Conversations\n\nExample 1: Simple Air Quality Check\n\nUser: What’s the air quality like in Boston today?\nAI Assistant: Great news. The air quality in Boston is currently excellent with an AQI of 47, which falls in the Good category.\nHere’s what this means for you: Air is safe for everyone. All outdoor activities are perfectly fine. PM2.5: 0.7 µg/m³ (very low particulate matter) Ozone: 56.3 µg/m³ (within safe limits)\nThis is ideal weather for outdoor activities. Whether you want to jog, cycle, or spend time in the park, the air quality will not be a concern today. Enjoy the fresh air.\n\nKey Difference: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.\n\n\nExample 2: Health-Specific Personalized Advice\n\nUser: I have asthma. Can I go jogging in Dhaka today?\nAI Assistant: I would advise caution for jogging in Dhaka today. The current AQI is 116, which is in the Unhealthy for Sensitive Groups category.\nSince you have asthma, here is what I recommend:\nToday’s Conditions: AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³ (elevated particulate matter) PM10: 58.6 µg/m³ (elevated)\nJogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: Go early morning or late evening when AQI is typically better Keep it short (15-20 minutes max) Stay at a comfortable pace, avoid intense exertion Carry your inhaler Monitor how you feel, stop if you experience any symptoms\n\nWatch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately\n\nBetter days ahead: Check the AQI forecast, it might improve in the next day or two. Your health comes first.\n\nIntelligence at Work: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.\n\n\nExample 3: Intelligent City Comparison for Travel\n\nUser: Compare air quality in Seattle and Los Angeles\nAI Assistant: Here is your air quality comparison:\nSeattle: AQI 96 (Moderate) Generally acceptable air quality Most people can enjoy outdoor activities\nLos Angeles: AQI 107 (Unhealthy for Sensitive Groups) Sensitive groups should limit outdoor exertion Higher ozone levels (78.2 µg/m³)\nWinner: Seattle has better air quality today.\nKey Differences: Seattle AQI is 11 points better Both cities have low PM2.5 LA has higher ozone due to Southern California weather patterns\nIf you are deciding where to visit, remember this is just today’s snapshot. Check historical trends for the full picture.\n\nBeyond Basic Comparison: The AI explains differences, provides context, and suggests long-term thinking.\n\n\n\nTry the Gen AI Agent\n# Install dependencies\npip install aiohttp openai\n\n# Set API keys\nexport API_NINJAS_KEY='your_air_quality_key'\nexport OPENAI_API_KEY='your_openai_key'\n\n# Run Gen AI agent\npython3 aqi_genai_agent.py\n\n# Run demo conversations\npython3 aqi_genai_agent.py demo\nSee genai_example_conversations.txt for more examples. export API_NINJAS_KEY=‘your_key_here’"
-  },
-  {
-    "objectID": "aqi.html#code-repository",
-    "href": "aqi.html#code-repository",
-    "title": "AIR QUALITY QUICK REPORT",
-    "section": "Code Repository",
-    "text": "Code Repository\n\n 🔗 View Full Source Code on GitHub \n\n\nThis project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring."
-  },
-  {
-    "objectID": "about-me-chatbot.html",
-    "href": "about-me-chatbot.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot-fixed.html",
-    "href": "about-me-chatbot-fixed.html",
-    "title": "\n💬 Chat with Isfar\n",
-    "section": "",
-    "text": "Ask me anything about her background, experience, or interests!\n\n\nℹ️ This chatbot provides quick answers about Isfar’s professional background. For detailed conversations or specific inquiries, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n👋 Hi there! I’m Isfar’s advanced AI assistant, powered by sophisticated conversational AI technology. I understand context, remember our conversation, and provide natural, detailed responses about her professional journey and background.\nI excel at discussing: • Her inspiring journey from Dhaka, Bangladesh to becoming a data scientist in the US • Detailed technical expertise in Python, SQL, data visualization, and machine learning • Educational achievements including her 4.0 GPA Master’s from Georgetown University • Professional experience at Shift Digital working with enterprise clients • Personal interests, cultural background, and creative pursuits • Career aspirations and her passion for making data accessible to everyone\nI’m designed to have natural, flowing conversations just like ChatGPT or Claude. Feel free to ask follow-up questions, request clarifications, or dive deep into any topic. What aspect of Isfar’s story would you like to explore first?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot-clean.html",
-    "href": "about-me-chatbot-clean.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "5100-website/slideshow.html",
-    "href": "5100-website/slideshow.html",
-    "title": "Airy Tales Slideshow",
-    "section": "",
-    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
-  },
-  {
-    "objectID": "Group37_Final_Report.html",
-    "href": "Group37_Final_Report.html",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "",
-    "text": "Through this project, our group sought to bridge the gap between music and data science by employing Spotify’s extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector."
-  },
-  {
-    "objectID": "Group37_Final_Report.html#artist-level-genre-classification",
-    "href": "Group37_Final_Report.html#artist-level-genre-classification",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "Artist Level Genre Classification",
-    "text": "Artist Level Genre Classification\n\nData Setup\nIn the initial steps of our project, we utilized essential Python libraries, such as numpy and pandas, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, artists.csv, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.\n\n\nData Exploration and Cleansing\nDuring our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like “The Beach Boys” and removing entries with corrupted data, such as “Roger Miller.” This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling.\n\n\nAssigning a Primary Genre\nAs musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.\n\n\nMachine Learning Preparation\nWe prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model’s performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.\n\n\nModel Training and Evaluation\nIn this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:\n\nLogistic Regression\n\nTest Accuracy: 81.03%\nComputation Time: 3.2 seconds\nComments: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 77.59%\nComputation Time: 3.4 seconds\nComments: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.\n\n\n\nNeural Network\n\nTrain Accuracy: 68.85%\nTest Accuracy: 70.69%\nComputation Time: 11 minutes 46.2 seconds\nComments: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.\n\n\n\nRandom Forest\n\nTest Accuracy: 79.31%\nComputation Time: 1 minute 6.4 seconds\nComments: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.\n\n\n\nXGBoost\n\nTest Accuracy: 77.59%\nComputation Time: 24.5 seconds\nComments: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.\n\n\n\n\nHyperparameter Tuning\nWe implemented grid searches to fine tune each model’s hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model’s performance and its ability to generalize on new data.\n\n\nConclusion: Classifying Artists into Genres\nThe genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques."
-  },
-  {
-    "objectID": "Group37_Final_Report.html#track-level-genre-classification",
-    "href": "Group37_Final_Report.html#track-level-genre-classification",
-    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
-    "section": "Track Level Genre Classification",
-    "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy."
-  },
-  {
-    "objectID": "about-me-chatbot-final.html",
-    "href": "about-me-chatbot-final.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me-chatbot-new.html",
-    "href": "about-me-chatbot-new.html",
-    "title": "\nAsk About Isfar\n",
-    "section": "",
-    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
-  },
-  {
-    "objectID": "about-me.html",
-    "href": "about-me.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a Master’s of Science in Data Science & Analytics from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.\n\n\n\n\n  \n    \n    \n      \n      Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming\n    \n  \n\n\n\nFor a detailed overview of my experience:\nDownload Resume\n:::"
-  },
-  {
-    "objectID": "about-me.html#professional-journey",
-    "href": "about-me.html#professional-journey",
-    "title": "About Me",
-    "section": "",
-    "text": "Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming"
-  },
-  {
-    "objectID": "about-me.html#education",
-    "href": "about-me.html#education",
-    "title": "About Me",
-    "section": "🎓 Education",
-    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • May 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
-  },
-  {
-    "objectID": "about-me.html#professional-experience",
-    "href": "about-me.html#professional-experience",
-    "title": "About Me",
-    "section": "💼 Professional Experience",
-    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • May 2025 - Present\n\n\n\nLeading advanced data operations and analytics initiatives for enterprise clients\nDriving strategic data architecture decisions and mentoring junior analysts\n\n\n\n\nData Analyst I\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - May 2023\n\n\n\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
-  },
-  {
-    "objectID": "about-me.html#technical-skills",
-    "href": "about-me.html#technical-skills",
-    "title": "About Me",
-    "section": "🛠️ Technical Skills",
-    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
-  },
-  {
-    "objectID": "chatbot-test-simple.html",
-    "href": "chatbot-test-simple.html",
-    "title": "Simple Test",
-    "section": "",
-    "text": "Simple Test\n\n\nClick Me"
-  },
-  {
-    "objectID": "conclusion.html",
-    "href": "conclusion.html",
-    "title": "Conclusion",
-    "section": "",
-    "text": "Conclusion"
-  },
-  {
     "objectID": "wicked-backup.html",
     "href": "wicked-backup.html",
     "title": "Defying Analytics",
@@ -336,6 +133,139 @@
     "text": "View the Full Project\n\n Explore the Code on GitHub \n\nRepository Contents: Complete Python codebase | Data collection scripts | Analysis notebooks Interactive visualizations | Full documentation | Reproducible pipeline\n\n\n\n\nQuestions? Thoughts? Counterarguments?\nI’m always happy to discuss methodology, findings, or whether “Defying Gravity” really deserved its number one spot. Reach out via LinkedIn or email."
   },
   {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "Conclusion",
+    "section": "",
+    "text": "Conclusion"
+  },
+  {
+    "objectID": "chatbot-test-simple.html",
+    "href": "chatbot-test-simple.html",
+    "title": "Simple Test",
+    "section": "",
+    "text": "Simple Test\n\n\nClick Me"
+  },
+  {
+    "objectID": "about-me.html",
+    "href": "about-me.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! I’m originally from Dhaka, the vibrant capital city of Bangladesh. I came to the US in 2015 in pursuit of my bachelor’s degree in Computer Science and lived in West Michigan before moving to Northern Virginia in 2022.\nI am currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where I leverage data-driven solutions for enterprise clients. I graduated with a Master’s of Science in Data Science & Analytics from Georgetown University in 2025. My passion lies in leveraging tailored data and algorithms to solve intricate business problems and communicating complex insights to non-technical stakeholders.\nI love spending time in charming cafes and exploring new cuisines. During my downtime I enjoy reading, painting and watching movies/TV shows.\n\n\n\n\n  \n    \n    \n      \n      Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming\n    \n  \n\n\n\nFor a detailed overview of my experience:\nDownload Resume\n:::"
+  },
+  {
+    "objectID": "about-me.html#professional-journey",
+    "href": "about-me.html#professional-journey",
+    "title": "About Me",
+    "section": "",
+    "text": "Georgetown University\n      2023-2025\n      Advanced specialization in data science, machine learning, and analytics\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2025-Present\n      Leading analytics initiatives and mentoring team members\n    \n  \n  \n    \n    \n      \n      Shift Digital\n      2021-2023\n      Data operations and analytics for enterprise clients\n    \n  \n  \n    \n    \n      \n      Array of Engineers\n      2020-2021\n      Aerospace software verification and web development\n    \n  \n  \n    \n    \n      \n      Grand Valley State University\n      2015-2020\n      Foundation in computer science and programming"
+  },
+  {
+    "objectID": "about-me.html#education",
+    "href": "about-me.html#education",
+    "title": "About Me",
+    "section": "🎓 Education",
+    "text": "🎓 Education\n\nGeorgetown University\n\nMaster of Science in Data Science and Analytics • GPA: 4.0\n📍 Washington, D.C. • May 2023 - May 2025\n\n\nKey Coursework:\nProbabilistic Modeling • Database Systems • Advanced Data Visualization • Data Ethics • Computational Linguistics • Machine Learning Deployment • Digital Storytelling • Big Data & Cloud Computing • Applied Generative AI\n\n\nLeadership: Social Committee Member & Lead Mentor in the Data Science and Analytics program\n\n\n\nGrand Valley State University\n\nBachelor of Science in Computer Science\n📍 Grand Rapids, MI • Aug 2015 - May 2020"
+  },
+  {
+    "objectID": "about-me.html#professional-experience",
+    "href": "about-me.html#professional-experience",
+    "title": "About Me",
+    "section": "💼 Professional Experience",
+    "text": "💼 Professional Experience\n\nData Analyst II (Current)\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • May 2025 - Present\n\n\n\nLeading advanced data operations and analytics initiatives for enterprise clients\nDriving strategic data architecture decisions and mentoring junior analysts\n\n\n\n\nData Analyst I\n\nShift Digital, Data Operations and Analytics Team • Birmingham, MI • Nov 2021 - May 2023\n\n\n\nImproved data accuracy by 25% across 10+ enterprise projects by optimizing big data ETL processes\nWorked with cross-functional teams to design scalable data architecture, delivering actionable findings to senior executives\nStreamlined operations for 12 high-value clients and saved 15 hours weekly by automating billing data processing\nManaged data migration and transformation within Databricks, creating efficient pipelines for business-critical insights\nLeveraged SQL and Python within PySpark to transform raw data into cleaned, analysis-ready datasets\nEnhanced data visibility with interactive dashboards, enabling faster decisions for key stakeholders\nCrafted technical proposals achieving near 100% customer approval rate\n\n\n\n\nComputer Engineer\n\nArray of Engineers • Grand Rapids, MI • Jul 2020 - Nov 2021\n\n\n\nVerified Airbus A350 avionics software using DOORS and Ansys SCADE, ensuring aerospace industry compliance\nImproved user experience by optimizing web app features with AngularJS, increasing client retention by 25%\nIntroduced modular workflows for software testing, achieving 98% on-time delivery\nConducted A/B testing on web app features, identifying improvements to enhance functionality and usability\nLed GitHub code reviews across multidisciplinary teams, mitigating critical issues early in development"
+  },
+  {
+    "objectID": "about-me.html#technical-skills",
+    "href": "about-me.html#technical-skills",
+    "title": "About Me",
+    "section": "🛠️ Technical Skills",
+    "text": "🛠️ Technical Skills\n\n\nProgramming\nPython • SQL • R • Java • C++\n\n\nMachine Learning\nScikit-learn • TensorFlow • PyTorch • XGBoost\n\n\nData Visualization\nTableau • Plotly • Seaborn\n\n\nBig Data & Cloud\nApache Spark • Databricks • AWS SageMaker\n\n\nNLP\nspaCy • Hugging Face • BERT\n\n\nDatabases\nMySQL • PostgreSQL • MongoDB • Snowflake\n\n\nTools & Methods\nDocker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis"
+  },
+  {
+    "objectID": "about-me-chatbot-new.html",
+    "href": "about-me-chatbot-new.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me-chatbot-final.html",
+    "href": "about-me-chatbot-final.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "Group37_Final_Report.html",
+    "href": "Group37_Final_Report.html",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "",
+    "text": "Through this project, our group sought to bridge the gap between music and data science by employing Spotify’s extensive datasets to perform assorted classification tasks. Using various metrics provided by Spotify, such as danceability, energy, and loudness, we aimed to categorize music into genres and decades. Our goal was to implement sophisticated data analysis techniques learned in class to perform classification at both the artist and track levels. This project explores the feasibility of such classifications and tests the effectiveness of different machine-learning models in handling uniquely complex data, such as music. By applying these methods, we aim to deepen our understanding of musical trends and patterns, enhancing our ability to predict and categorize musical genres more effectively. Furthermore, this study is a practical example of how data science can be applied in creative industries, demonstrating the potential for machine learning to influence and innovate within the music sector."
+  },
+  {
+    "objectID": "Group37_Final_Report.html#artist-level-genre-classification",
+    "href": "Group37_Final_Report.html#artist-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Artist Level Genre Classification",
+    "text": "Artist Level Genre Classification\n\nData Setup\nIn the initial steps of our project, we utilized essential Python libraries, such as numpy and pandas, which are crucial for numerical operations and data manipulation. We loaded our primary dataset, artists.csv, into a pandas DataFrame. This dataset contains detailed information about music artists, including their names and associated genres. An immediate examination of the dataset provided an understanding of its structure, which includes various columns critical to our analysis.\n\n\nData Exploration and Cleansing\nDuring our data exploration phase, we identified rows where the genre information was missing key data for our genre classification model. Specific corrections included rectifying genre assignments for artists like “The Beach Boys” and removing entries with corrupted data, such as “Roger Miller.” This cleansing step ensured the accuracy and reliability of our dataset, setting a solid foundation for further analysis and modeling.\n\n\nAssigning a Primary Genre\nAs musicians can belong to numerous genres, we initially investigated performing multi-label, multi-class classification. This effort proved ineffective with such a small dataset of approximately 400 artists. Next, we assigned a primary genre for each artist and perform single-label, multi-class classification. To do this, we first removed four of the ten genres: pop, rap, jazz, and funk. These genres were chosen for a combination of two reasons: cannibalization with other genres and lacking a specific genre identity. We were then left with six distinct genres: country, EDM, hip-hop, Latin, rock, and soul. While we had removed much of the cannibalization, numerous artists still had more than one Spotify-assigned genre. To address this issue, we used the Spotify rankings within each genre. We created a function capable of comparing their rank across genres in hopes of determining what genre an artist was more important to. These comparisons allowed us to assign a primary genre for each artist in our dataset, leaving us with about 300 artists while ensuring that our classifications are accurate. This comprehensive approach to data preparation prepared our dataset for effective machine learning applications.\n\n\nMachine Learning Preparation\nWe prepared our dataset for machine learning by splitting it into training and test sets, which is a standard practice for evaluating a model’s performance on unseen data. We also converted categorical variables into numerical format using techniques such as one-hot encoding. These transformations are crucial for training machine learning models that require numerical input, setting the stage for robust model training.\n\n\nModel Training and Evaluation\nIn this section of our project, we evaluated several machine learning models to determine the most effective approach for classifying music genres based on artist data. Each model was assessed based upon its accuracy and computation time, which are crucial factors in practical applications. Below is a summary of the outcomes for each model:\n\nLogistic Regression\n\nTest Accuracy: 81.03%\nComputation Time: 3.2 seconds\nComments: Logistic Regression provided a robust balance between speed and accuracy, proving to be highly efficient for scenarios where prompt results are necessary without significantly compromising performance.\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 77.59%\nComputation Time: 3.4 seconds\nComments: SVM displayed slightly lower accuracy compared to Logistic Regression and had a comparable speed. It is generally well-suited for linearly separable data, but showed moderate performance in our multi-class classification task.\n\n\n\nNeural Network\n\nTrain Accuracy: 68.85%\nTest Accuracy: 70.69%\nComputation Time: 11 minutes 46.2 seconds\nComments: The Neural Network required considerably more training time and yielded lower accuracy even with adjusted hyperparameters. Despite their capabilities, neural networks generally require a lot of data to learn effectively and might overfit or underperform on smaller datasets where simpler models may be more effective.\n\n\n\nRandom Forest\n\nTest Accuracy: 79.31%\nComputation Time: 1 minute 6.4 seconds\nComments: Random Forest achieved good accuracy, suggesting effective handling of the diverse and feature-rich data through its ensemble method. The computational time was reasonable for an ensemble approach, making it a strong contender.\n\n\n\nXGBoost\n\nTest Accuracy: 77.59%\nComputation Time: 24.5 seconds\nComments: XGBoost is well known for its high performance in structured data problems. Here, it offered competitive accuracy with SVM but required longer training time. Its efficient management of various data structures makes it a valuable model despite the higher computational cost.\n\n\n\n\nHyperparameter Tuning\nWe implemented grid searches to fine tune each model’s hyperparameters and optimize its performance. This step was crucial in identifying the most effective model settings for our specific dataset and artist-based genre classification task. With the chosen hyperparameters, the models were evaluated on the test set to determine how they perform on unseen data. These results provided a definitive assessment of our model’s performance and its ability to generalize on new data.\n\n\nConclusion: Classifying Artists into Genres\nThe genre classification at the artist level proved to be quite successful, routinely achieving test accuracies over 75%, with logistic regression peaking at 81%. This classification was significantly higher than a baseline model of random guessing, indicative of the effectiveness of our feature selection and machine learning techniques."
+  },
+  {
+    "objectID": "Group37_Final_Report.html#track-level-genre-classification",
+    "href": "Group37_Final_Report.html#track-level-genre-classification",
+    "title": "Harmony Through Numbers: Classifying Spotify Data Across Genres and Decades",
+    "section": "Track Level Genre Classification",
+    "text": "Track Level Genre Classification\n\nData Setup\nWe imported necessary Python libraries such as numpy and pandas, essential for handling large datasets and numerical computations. The primary dataset, tracks.csv, was loaded into a pandas DataFrame. This dataset contains detailed attributes of music tracks such as danceability, energy, loudness, and other features that describe the audio characteristics of the tracks.\n\n\nData Cleaning and Preprocessing\nInitial data cleaning involved handling missing values, especially in the genre column, which is crucial for our classification task. We also discarded any irrelevant or redundant data points to avoid skewing our results and impairing our models’ efficiency. This cleaning step ensured a more focused and efficient dataset ready for the subsequent stages of our analysis.\n\n\nIntegration and Processing of Genre-Specific Data\nBy integrating genre_of_artists.csv with our track data, we linked each track with its corresponding artist’s genre, thereby enriching our dataset with essential classification labels. This integration streamlined the data and enriched it, providing a solid foundation for accurate genre classification. We decided to use this approach since we were unable to acquire genre information for individual tracks.\n\n\nFeature Engineering and Data Integration\nWe conducted feature engineering as well, which included encoding categorical variables, normalizing numerical values, and creating new features that could provide more insights into the genre classification. Features derived from the key_mode column, such as musical key and mode, were particularly significant, as these musical aspects are often strong indicators of genre.\n\n\nMachine Learning Preparation\nThe prepared dataset was split into training and test sets to validate the effectiveness of the models. This step is critical in assessing how well our model performs on new, unseen data and ensuring that we accurately gauge its real world applicability.\n\n\nModel Training and Evaluation\nWe trained and evaluated several machine learning models to classify tracks into genres. Each model’s performance was assessed based on accuracy and computation time. Below is a summary of how each model performed:\n\nLogistic Regression\n\nTest Accuracy: 51.38%\nComputation Time: 6 minutes 3.89 seconds\n\n\n\nSupport Vector Machine (SVM)\n\nTest Accuracy: 54.89%\nComputation Time: 80 minutes 4.4 seconds\n\n\n\nNeural Network\n\nTrain Accuracy: 54.45%\nTest Accuracy: 49.18%\nComputation Time: 44 minutes\n\n\n\nRandom Forest\n\nTest Accuracy: 61.68%\nComputation Time: 46 minutes 49.8 seconds\n\n\n\nXGBoost\n\nTest Accuracy: 63.03%\nComputation Time: 2 minutes 51.4 seconds\n\n\n\n\nHyperparameter Tuning\nWe performed hyperparameter tuning using techniques such GridSearchCV to optimize each model’s performance. This process involved systematically testing different combinations of parameters to find the best setup for each model. The tuning was particularly crucial for complex models like Neural Networks and XGBoost, where the right combination of parameters can significantly impact the model’s effectiveness and efficiency.\n\n\nConclusion: Classifying Tracks into Genres\nThe track-level genre classification performed less optimally due to the inherent variability in songs by the same artist, peaking at 63% accuracy with XGBoost. This suggests that while machine learning can significantly aid in genre classification, the complex nature of music genres often requires more sophisticated models or multi-modal data integration to improve accuracy."
+  },
+  {
+    "objectID": "5100-website/slideshow.html",
+    "href": "5100-website/slideshow.html",
+    "title": "Airy Tales Slideshow",
+    "section": "",
+    "text": "Below is an embedded Google Slides presentation.\nUse the left/right arrows in the slide player to navigate."
+  },
+  {
+    "objectID": "about-me-chatbot-clean.html",
+    "href": "about-me-chatbot-clean.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me-chatbot-fixed.html",
+    "href": "about-me-chatbot-fixed.html",
+    "title": "\n💬 Chat with Isfar\n",
+    "section": "",
+    "text": "Ask me anything about her background, experience, or interests!\n\n\nℹ️ This chatbot provides quick answers about Isfar’s professional background. For detailed conversations or specific inquiries, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n👋 Hi there! I’m Isfar’s advanced AI assistant, powered by sophisticated conversational AI technology. I understand context, remember our conversation, and provide natural, detailed responses about her professional journey and background.\nI excel at discussing: • Her inspiring journey from Dhaka, Bangladesh to becoming a data scientist in the US • Detailed technical expertise in Python, SQL, data visualization, and machine learning • Educational achievements including her 4.0 GPA Master’s from Georgetown University • Professional experience at Shift Digital working with enterprise clients • Personal interests, cultural background, and creative pursuits • Career aspirations and her passion for making data accessible to everyone\nI’m designed to have natural, flowing conversations just like ChatGPT or Claude. Feel free to ask follow-up questions, request clarifications, or dive deep into any topic. What aspect of Isfar’s story would you like to explore first?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "about-me-chatbot.html",
+    "href": "about-me-chatbot.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\n\nTell me about her background\n\n\nWhat’s her experience?\n\n\nWhat are her skills?\n\n\nWhat are her hobbies?"
+  },
+  {
+    "objectID": "aqi.html",
+    "href": "aqi.html",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "",
+    "text": "Air Quality Intelligence\n\n\nReal-time environmental monitoring with AI-powered health recommendations"
+  },
+  {
+    "objectID": "aqi.html#overview",
+    "href": "aqi.html#overview",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Overview",
+    "text": "Overview\nAn intelligent agent system combining the Model Context Protocol (MCP) with real-time air quality data to provide personalized health recommendations for outdoor activities. Built with Python, async architecture, and the API Ninjas Air Quality API.\n\n\nGlobal Coverage\n\n\n6 Pollutants Tracked\n\n\n15 min Update Frequency\n\n\nLive Real-Time Data"
+  },
+  {
+    "objectID": "aqi.html#key-features",
+    "href": "aqi.html#key-features",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Key Features",
+    "text": "Key Features\n\n\n\nReal-Time Monitoring\n\n\nLive AQI data for cities worldwide with detailed pollutant breakdown (PM2.5, PM10, O3, NO2, SO2, CO)\n\n\n\n\nSmart Recommendations\n\n\nActivity-specific advice for jogging, cycling, walking, and outdoor sports tailored to current conditions\n\n\n\n\nMulti-City Compare\n\n\nSide-by-side analysis of air quality across multiple cities for travel planning\n\n\n\n\nHealth Protection\n\n\nSpecial guidance for sensitive groups including children, elderly, and those with respiratory conditions"
+  },
+  {
     "objectID": "aqi.html#health-categories-color-coding",
     "href": "aqi.html#health-categories-color-coding",
     "title": "AIR QUALITY QUICK REPORT",
@@ -343,10 +273,73 @@
     "text": "Health Categories & Color Coding\nThe system uses the EPA Air Quality Index (AQI) standard to categorize air quality levels:\n\n\n\nGood (0-50)\n\n\nAir quality is excellent. Safe for all outdoor activities. No health concerns for any population group.\n\n\n\n\nModerate (51-100)\n\n\nAir quality is acceptable. Unusually sensitive individuals should consider limiting prolonged outdoor exertion.\n\n\n\n\nUnhealthy for Sensitive Groups (101-150)\n\n\nSensitive groups (children, elderly, people with respiratory conditions) should reduce prolonged outdoor activities.\n\n\n\n\nUnhealthy (151-200)\n\n\nEveryone should avoid prolonged outdoor activities. Sensitive groups should stay indoors.\n\n\n\n\nVery Unhealthy (201-300)\n\n\nHealth alert! Everyone should avoid all outdoor activities. Emergency precautions recommended.\n\n\n\n\nHazardous (301+)\n\n\nHealth emergency! Everyone should remain indoors. Seek immediate medical attention if experiencing symptoms."
   },
   {
+    "objectID": "aqi.html#live-demo-output",
+    "href": "aqi.html#live-demo-output",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Live Demo Output",
+    "text": "Live Demo Output\n\nQuick Report: Global Air Quality Snapshot"
+  },
+  {
+    "objectID": "aqi.html#health-recommendations",
+    "href": "aqi.html#health-recommendations",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "HEALTH RECOMMENDATIONS",
+    "text": "HEALTH RECOMMENDATIONS\nGeneral: Air quality is excellent. Enjoy outdoor activities.\nFor Jogging: Perfect conditions for jogging and running.\nFor Cycling: Ideal day for cycling.\nSensitive Groups: No precautions needed."
+  },
+  {
+    "objectID": "aqi.html#rankings-best-to-worst",
+    "href": "aqi.html#rankings-best-to-worst",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Rankings (Best to Worst):",
+    "text": "Rankings (Best to Worst):\n1. Seattle AQI: 96 (Moderate) PM2.5: 1.1 µg/m³\n2. Dhaka AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³\n3. Tokyo AQI: 122 (Unhealthy for Sensitive Groups) PM2.5: 3.2 µg/m³\nBest: Seattle (AQI 96) Worst: Tokyo (AQI 122)"
+  },
+  {
+    "objectID": "aqi.html#technical-architecture",
+    "href": "aqi.html#technical-architecture",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Technical Architecture",
+    "text": "Technical Architecture\n\n\nSystem Architecture Flow\n\n\n\n\n👤\n\n\nUser Query\n\n\nNatural language or city name\n\n\n\n→\n\n\n\n🤖\n\n\nGenAI Agent\n\n\nOpenAI GPT-4 processing\n\n\n\n→\n\n\n\n🔌\n\n\nMCP Server\n\n\nData orchestration layer\n\n\n\n\n↓\n\n\n\n\n🌍\n\n\nGeocoding API\n\n\nCity → GPS coordinates\n\n\n\n\n🌫️\n\n\nAir Quality API\n\n\nReal-time AQI data\n\n\n\n\n↓\n\n\n\n⚕️\n\n\nHealth Engine\n\n\nEPA/WHO standards + AI recommendations\n\n\n\n↓\n\n\n\n💬\n\n\nPersonalized Response\n\n\nAQI data + Health advice + Activity recommendations\n\n\n\n\nCore Components\n1. AQI MCP Server (aqi_mcp_server.py) - Asynchronous API integration with aiohttp - Geocoding for city → GPS coordinate conversion - Real-time air quality data retrieval - Health category classification (Good, Moderate, Unhealthy, etc.) - Activity-specific recommendation engine\n2. Interactive Demo (aqi_demo.py) - Two modes: Interactive and Quick Report - Multi-city comparison with rankings - Color-coded terminal output - Comprehensive error handling\n3. Data Model (AQIData class)\n@dataclass\nclass AQIData:\n    location: str\n    latitude: float\n    longitude: float\n    overall_aqi: int\n    co_concentration: float\n    no2_concentration: float\n    o3_concentration: float\n    so2_concentration: float\n    pm2_5_concentration: float\n    pm10_concentration: float\n    timestamp: str"
+  },
+  {
+    "objectID": "aqi.html#installation-quick-start",
+    "href": "aqi.html#installation-quick-start",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Installation & Quick Start",
+    "text": "Installation & Quick Start\n\nPrerequisites\npip install aiohttp\n\n\nGet API Key\n\nSign up at API Ninjas\nGet your free API key\nSet environment variable:\n\nexport API_NINJAS_KEY='your_key_here'\n\n\nRun the Demo\n# Quick Report\npython3 aqi_demo.py quick\n\n# Interactive Mode\npython3 aqi_demo.py"
+  },
+  {
     "objectID": "aqi.html#real-world-use-cases",
     "href": "aqi.html#real-world-use-cases",
     "title": "AIR QUALITY QUICK REPORT",
     "section": "Real-World Use Cases",
     "text": "Real-World Use Cases\n\n1. Daily Health Management\nScenario: “Should I go jogging this morning?”\nThe system provides instant analysis: - Current AQI level for your location - Specific advice for jogging/running - Best time windows for outdoor exercise - Alternative indoor options if needed\nReal Example (Dhaka, AQI 116): &gt; “Sensitive individuals should reduce jogging duration or exercise indoors. Consider indoor cycling if you have respiratory conditions.”\n\n\n2. Travel Planning\nScenario: “Which city has better air quality: Boston or Los Angeles?”\nMulti-city comparison shows: - Boston: AQI 45 (Good) - Perfect for outdoor activities - Los Angeles: AQI 112 (Unhealthy for Sensitive Groups) - Limited outdoor time recommended\nDecision: Boston offers significantly better conditions for travelers with respiratory concerns.\n\n\n3. Family Safety\nScenario: “Is it safe to take my kids to the playground?”\nSensitive group guidance provides: - Real-time safety assessment - Protective measures if needed (masks, timing) - Alternative indoor activities - Hourly recommendations"
+  },
+  {
+    "objectID": "aqi.html#gen-ai-conversational-agent",
+    "href": "aqi.html#gen-ai-conversational-agent",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Gen AI Conversational Agent",
+    "text": "Gen AI Conversational Agent\nBuilding on the core MCP architecture, this project features AI-powered natural language understanding using OpenAI GPT. The Gen AI agent transforms raw air quality data into personalized, contextual health advice through natural conversations.\n\nWhat Makes It Gen AI\n\n\n\nNatural Language Understanding\n\n\nAsk questions in plain English with no commands to memorize. The AI understands context and intent.\n\n\n\n\nPersonalized Recommendations\n\n\nTailored advice based on your health conditions, activities, and concerns (asthma, allergies, age, etc.)\n\n\n\n\nContextual Intelligence\n\n\nCombines real-time data with medical knowledge, considers multiple factors for nuanced advice\n\n\n\n\nConversation Memory\n\n\nMaintains context across multi-turn conversations for follow-up questions and clarifications\n\n\n\n\n\nLive Gen AI Conversations\n\nExample 1: Simple Air Quality Check\n\nUser: What’s the air quality like in Boston today?\nAI Assistant: Great news. The air quality in Boston is currently excellent with an AQI of 47, which falls in the Good category.\nHere’s what this means for you: Air is safe for everyone. All outdoor activities are perfectly fine. PM2.5: 0.7 µg/m³ (very low particulate matter) Ozone: 56.3 µg/m³ (within safe limits)\nThis is ideal weather for outdoor activities. Whether you want to jog, cycle, or spend time in the park, the air quality will not be a concern today. Enjoy the fresh air.\n\nKey Difference: The Gen AI agent provides empathetic, conversational responses that explain why and what to do, not just data dumps.\n\n\nExample 2: Health-Specific Personalized Advice\n\nUser: I have asthma. Can I go jogging in Dhaka today?\nAI Assistant: I would advise caution for jogging in Dhaka today. The current AQI is 116, which is in the Unhealthy for Sensitive Groups category.\nSince you have asthma, here is what I recommend:\nToday’s Conditions: AQI: 116 (Unhealthy for Sensitive Groups) PM2.5: 48.9 µg/m³ (elevated particulate matter) PM10: 58.6 µg/m³ (elevated)\nJogging Recommendations: 1. Best option: Exercise indoors today (gym, treadmill, indoor track) 2. If you must jog outside: Go early morning or late evening when AQI is typically better Keep it short (15-20 minutes max) Stay at a comfortable pace, avoid intense exertion Carry your inhaler Monitor how you feel, stop if you experience any symptoms\n\nWatch for symptoms: Coughing, wheezing, shortness of breath, or chest tightness mean you should stop immediately\n\nBetter days ahead: Check the AQI forecast, it might improve in the next day or two. Your health comes first.\n\nIntelligence at Work: The AI understands the user has a pre-existing condition and provides risk assessment specific to asthma, tiered recommendations (best to acceptable), symptom monitoring guidance, and empathetic, safety-first messaging.\n\n\nExample 3: Intelligent City Comparison for Travel\n\nUser: Compare air quality in Seattle and Los Angeles\nAI Assistant: Here is your air quality comparison:\nSeattle: AQI 96 (Moderate) Generally acceptable air quality Most people can enjoy outdoor activities\nLos Angeles: AQI 107 (Unhealthy for Sensitive Groups) Sensitive groups should limit outdoor exertion Higher ozone levels (78.2 µg/m³)\nWinner: Seattle has better air quality today.\nKey Differences: Seattle AQI is 11 points better Both cities have low PM2.5 LA has higher ozone due to Southern California weather patterns\nIf you are deciding where to visit, remember this is just today’s snapshot. Check historical trends for the full picture.\n\nBeyond Basic Comparison: The AI explains differences, provides context, and suggests long-term thinking.\n\n\n\nTry the Gen AI Agent\n# Install dependencies\npip install aiohttp openai\n\n# Set API keys\nexport API_NINJAS_KEY='your_air_quality_key'\nexport OPENAI_API_KEY='your_openai_key'\n\n# Run Gen AI agent\npython3 aqi_genai_agent.py\n\n# Run demo conversations\npython3 aqi_genai_agent.py demo\nSee genai_example_conversations.txt for more examples. export API_NINJAS_KEY=‘your_key_here’"
+  },
+  {
+    "objectID": "aqi.html#code-repository",
+    "href": "aqi.html#code-repository",
+    "title": "AIR QUALITY QUICK REPORT",
+    "section": "Code Repository",
+    "text": "Code Repository\n\n 🔗 View Full Source Code on GitHub \n\n\nThis project demonstrates practical application of the Model Context Protocol, async Python programming, and real-world API integration for environmental health monitoring."
+  },
+  {
+    "objectID": "chatbot-test.html",
+    "href": "chatbot-test.html",
+    "title": "\nAsk About Isfar\n",
+    "section": "",
+    "text": "Get insights about her background, experience, and expertise\n\n\nThis AI assistant provides information about Isfar’s professional background and achievements. For direct conversations or specific opportunities, please connect on LinkedIn or reach out directly.\n\n\n\n\n\n\n🎯 CACHE TEST VERSION - If you see this message, the file is updating correctly!\nHi there! I’m an AI assistant here to share insights about Isfar Baset’s journey and work. You can ask me about:\n• Her path so far in building a career in data science  • Technical toolkit: Python, SQL, machine learning, NLP, cloud computing  • Education: MS in Data Science (Georgetown), BS in Computer Science  • Work Experience and Projects \nThink of me as your guide if you’re curious about her background, skills, or projects. Where would you like to start?\n\n\n\n\n\nThis is the TEST version to verify cache updates work correctly."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Isfar Baset\n\nData Analyst\n\n\nCrafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.\n\n\nView Projects About Me Chat with Isfar\n\n\n\n\n\n\n\n\nFeatured Projects\n\n\n\n\n\n\nFMBench Assistant\n\n\n\n\nFMBench Assistant\nA conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.\n\n\n\n\n\n\n\nDefying Analytics\n\n\n\n\nDefying Analytics: What Spotify Reveals About Wicked\nTwenty years after its Broadway debut, Wicked’s soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.\nTech Stack: Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto\nKey Finding: Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers\n\n\n\n\n\n\n\nUS Insights\n\n\n\n\nUS Insights\nAnalyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.\n\n\n\n\n\n\n\nTemp Talk\n\n\n\n\nTemp Talk\nExploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.\n\n\n\n\n\n\n\nBeats and Bytes\n\n\n\n\nBeats and Bytes\nExploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.\n\n\n\n\n\n\n\nEV Insights\n\n\n\n\nEV Insights\nExamining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.\n\n\n\n\n\n\n\nAir Quality Intelligence\n\n\n\n\nAir Quality Intelligence\nA Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.\nTech Stack: Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas\nKey Feature: Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning\n\n\n\n\n\n\n\nPortfolio curated by Isfar Baset"
   }
 ]
