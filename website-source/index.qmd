@@ -64,7 +64,7 @@ Twenty years after its Broadway debut, Wicked's soundtrack still dominates Spoti
 
 ::: {.project-card}
 ::: {.project-image}
-![](https://media.giphy.com/media/WfoXfffR51Mwugkd5M/giphy.gif)
+![](images/us-insights.jpg)
 [US Insights](https://isfarbaset.github.io/fall-2024-project-team-29/){.project-title}
 :::
 ::: {.project-content}

@@ -502,7 +502,7 @@ p {
   display: none !important;
 }
 
-/* Project titles below image containers */
+/* Project titles below image containers with improved readability */
 .project-image h3,
 .project-image .project-title {
   position: relative;
@@ -510,16 +510,17 @@ p {
   left: auto;
   right: auto;
   margin: 0 !important;
-  padding: 1.5rem 0 0 0 !important;
-  background: transparent !important;
+  padding: 1.5rem 2rem !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   font-family: 'Cormorant Garamond', serif !important;
   font-size: 1.8rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.01em !important;
   text-align: center !important;
   transition: all 0.3s ease !important;
   text-shadow: none !important;
+  border-radius: 0 0 12px 12px !important;
 }
 
 .project-image h3 a,
@@ -529,7 +530,7 @@ p {
 
 .project-image h3 a:hover,
 .project-image .project-title a:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .project-content {
