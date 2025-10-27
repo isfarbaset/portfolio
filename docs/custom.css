@@ -203,6 +203,9 @@ p {
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 0.9s forwards;
   text-align: center;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  transform: none !important;
 }
 
 .hero-description p {
@@ -211,6 +214,8 @@ p {
   font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
   font-weight: 300 !important;
   color: #4a4a4a !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
 }
 
 .hero-buttons,
