@@ -104,7 +104,7 @@ Examining EVs' environmental impact, market share, and performance compared to g
 
 ::: {.project-card}
 ::: {.project-image}
-![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmh5cW1wcGZtcGhncDVwNTNlbGM4dmtoaHdyMXBtYzFjMGk3cTdzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y4vip84hg9BhdNidTR/giphy.gif)
+![](images/DTS_MISC_3_(Maddie_Spanier)_Madeline_Spanier_Photos_ID5261.jpg)
 [Air Quality Intelligence](aqi.html){.project-title}
 :::
 ::: {.project-content}
