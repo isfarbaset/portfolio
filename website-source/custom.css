@@ -25,15 +25,18 @@ body {
   background: #faf8f5 !important;
   color: #1a1a1a !important;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.8 !important;
   overflow-x: hidden;
+  letter-spacing: 0.01em !important;
 }
 
 /* Global paragraph spacing */
 p {
-  line-height: 1.85 !important;
+  line-height: 1.9 !important;
   margin-bottom: 1rem !important;
-  word-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  letter-spacing: 0.01em !important;
+  white-space: normal !important;
 }
 
 /* Elegant container */
@@ -203,13 +206,19 @@ p {
   margin: 0 auto 4rem !important;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out 0.9s forwards;
-  word-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  letter-spacing: 0.01em !important;
 }
 
 .hero-description p {
   margin: 0 !important;
   line-height: 2 !important;
-  word-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  letter-spacing: 0.01em !important;
+  white-space: normal !important;
+  font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+  font-weight: 300 !important;
+  color: #4a4a4a !important;
 }
 
 .hero-buttons,
