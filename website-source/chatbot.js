@@ -12,7 +12,7 @@ class IsfarChatbotAI {
       questionType: null
     };
     
-    // Advanced NLP: Common word variations and synonyms
+    // Advanced • NLP: Common word variations and synonyms
     this.synonymMap = {
       'proficient': ['skilled', 'expert', 'good at', 'knows', 'familiar with', 'experienced in'],
       'work': ['job', 'position', 'role', 'career', 'employment', 'occupation'],
@@ -26,7 +26,7 @@ class IsfarChatbotAI {
       'what': ['which', 'describe', 'tell me about']
     };
     
-    // NLP: Question word patterns
+    // • NLP: Question word patterns
     this.questionPatterns = {
       who: /\b(who|whom)\b/i,
       what: /\b(what|which)\b/i,
@@ -39,7 +39,7 @@ class IsfarChatbotAI {
       is: /\b(is|are|was|were)\b/i
     };
     
-    // NLP: Stopwords for better keyword extraction
+    // • NLP: Stopwords for better keyword extraction
     this.stopwords = new Set([
       'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
       'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'should',
@@ -92,25 +92,25 @@ class IsfarChatbotAI {
       
       skills: {
         patterns: ['skill', 'skills', 'skils', 'technical', 'technology', 'technologies', 'tool', 'tools', 'programming', 'language', 'languages', 'stack', 'proficient', 'good at', 'know', 'expertise', 'capabilities'],
-        response: "Isfar's technical skills include:\n\n**Programming:** Python, SQL, R, Java, C++\n\n**Machine Learning:** Scikit-learn, TensorFlow, PyTorch, XGBoost\n\n**Data Visualization:** Tableau, Plotly, Seaborn\n\n**Big Data & Cloud:** Apache Spark, Databricks, AWS SageMaker\n\n**NLP:** spaCy, Hugging Face, BERT\n\n**Databases:** MySQL, PostgreSQL, MongoDB, Snowflake\n\n**Tools & Methods:** Docker, Flask, Git, Quarto, A/B Testing, Bayesian Analysis\n\nShe specializes in leveraging data-driven solutions and communicating complex insights to non-technical stakeholders.",
+        response: "Isfar's technical skills include:\n\n• Programming: Python, SQL, R, Java, C++\n\n• Machine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\n\n• Data Visualization: Tableau, Plotly, Seaborn\n\n• Big Data & Cloud: Apache Spark, Databricks, AWS SageMaker\n\n• NLP: spaCy, Hugging Face, BERT\n\n• Databases: MySQL, PostgreSQL, MongoDB, Snowflake\n\n• Tools & Methods: Docker, Flask, Git, Quarto, A/B Testing, Bayesian Analysis\n\nShe specializes in leveraging data-driven solutions and communicating complex insights to non-technical stakeholders.",
         category: 'technical'
       },
       
       projects: {
         patterns: ['project', 'projects', 'work on', 'built', 'created', 'developed', 'portfolio', 'showcase', 'work'],
-        response: "Isfar has worked on several exciting projects:\n\n🤖 **FMBench Assistant** - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 **Wicked Spotify Analysis** - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 **US Insights** - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ **Temp Talk** - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 **Beats and Bytes** - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 **EV Insights** - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n🌫️ **Air Quality Intelligence** - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
+        response: "Isfar has worked on several exciting projects:\n\n🤖 FMBench Assistant - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 Wicked Spotify Analysis - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 US Insights - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ Temp Talk - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 Beats and Bytes - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 EV Insights - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n🌫️ Air Quality Intelligence - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
         category: 'technical'
       },
       
       experience: {
         patterns: ['experience', 'work', 'job', 'career', 'position', 'role', 'working', 'worked', 'employment', 'professional', 'company', 'employer'],
-        response: "Isfar is currently a **Data Analyst II** at Shift Digital in the Data Operations and Analytics team, where she leverages data-driven solutions for enterprise clients.\n\n**Key Achievements:**\n• Leading advanced data operations and analytics initiatives\n• Improved data accuracy by 25% across 10+ enterprise projects\n• Saved 15 hours weekly by automating billing data processing\n• Streamlined operations for 12 high-value clients\n• Achieved near 100% customer approval rate on technical proposals\n• Enhanced data visibility with interactive dashboards\n\n**Previous Experience:**\n• Data Analyst I at Shift Digital (Nov 2021 - May 2023)\n• Computer Engineer at Array of Engineers (Jul 2020 - Nov 2021) - Verified Airbus A350 avionics software and optimized web apps",
+        response: "Isfar is currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where she leverages data-driven solutions for enterprise clients.\n\nKey Achievements:\n• Leading advanced data operations and analytics initiatives\n• Improved data accuracy by 25% across 10+ enterprise projects\n• Saved 15 hours weekly by automating billing data processing\n• Streamlined operations for 12 high-value clients\n• Achieved near 100% customer approval rate on technical proposals\n• Enhanced data visibility with interactive dashboards\n\nPrevious Experience:\n• Data Analyst I at Shift Digital (Nov 2021 - May 2023)\n• Computer Engineer at Array of Engineers (Jul 2020 - Nov 2021) - Verified Airbus A350 avionics software and optimized web apps",
         category: 'professional'
       },
       
       education: {
         patterns: ['education', 'degree', 'school', 'university', 'college', 'study', 'studied', 'georgetown', 'grand valley', 'gvsu', 'gpa', 'academic', 'masters', 'bachelor', 'coursework', 'courses'],
-        response: "Isfar has an exceptional academic background:\n\n🎓 **Master of Science in Data Science and Analytics**\nGeorgetown University, Washington D.C. (2023-2025)\n• Perfect 4.0 GPA\n• Completed while working full-time\n• Key Coursework: Probabilistic Modeling, Database Systems, Advanced Data Visualization, Data Ethics, Computational Linguistics, Machine Learning Deployment, Digital Storytelling, Big Data & Cloud Computing, Applied Generative AI\n• Leadership: Social Committee Member & Lead Mentor\n\n🎓 **Bachelor of Science in Computer Science**\nGrand Valley State University, Grand Rapids MI (2015-2020)\n• Strong foundation in computer science and programming",
+        response: "Isfar has an exceptional academic background:\n\n🎓 Master of Science in Data Science and Analytics\nGeorgetown University, Washington D.C. (2023-2025)\n• Perfect 4.0 GPA\n• Completed while working full-time\n• Key Coursework: Probabilistic Modeling, Database Systems, Advanced Data Visualization, Data Ethics, Computational Linguistics, Machine Learning Deployment, Digital Storytelling, Big Data & Cloud Computing, Applied Generative AI\n• Leadership: Social Committee Member & Lead Mentor\n\n🎓 Bachelor of Science in Computer Science\nGrand Valley State University, Grand Rapids MI (2015-2020)\n• Strong foundation in computer science and programming",
         category: 'education'
       },
       
@@ -188,17 +188,17 @@ class IsfarChatbotAI {
     return { isInappropriate: false };
   }
 
-  // NLP: Tokenize and clean
+  // • NLP: Tokenize and clean
   tokenize(text) {
     return text.toLowerCase().replace(/[^\w\s'-]/g, ' ').split(/\s+/).filter(word => word.length > 0);
   }
 
-  // NLP: Extract keywords (remove stopwords)
+  // • NLP: Extract keywords (remove stopwords)
   extractKeywords(text) {
     return this.tokenize(text).filter(word => !this.stopwords.has(word));
   }
 
-  // NLP: Detect question type
+  // • NLP: Detect question type
   detectQuestionType(text) {
     for (const [type, pattern] of Object.entries(this.questionPatterns)) {
       if (pattern.test(text)) return type;
@@ -206,7 +206,7 @@ class IsfarChatbotAI {
     return 'statement';
   }
 
-  // NLP: Basic sentiment analysis
+  // • NLP: Basic sentiment analysis
   analyzeSentiment(text) {
     const positive = ['love', 'great', 'awesome', 'excellent', 'amazing', 'wonderful', 'fantastic', 'good', 'like', 'enjoy', 'impressed', 'interested'];
     const negative = ['hate', 'bad', 'terrible', 'awful', 'worst', 'dislike', 'poor', 'disappointed'];
