@@ -625,3 +625,420 @@ section.project-content {
     padding-top: 0 !important;
   }
 }
+
+/* ============================================
+   ABOUT ME PAGE - EDITORIAL STYLING
+   ============================================ */
+
+/* Main container styling */
+.quarto-about-jolla {
+  background: linear-gradient(165deg, 
+    #fcfaf7 0%, 
+    #f5ebe1 25%,
+    #ebdce6 50%,
+    #dcd2eb 75%,
+    #f0ebf5 100%) !important;
+  min-height: 100vh;
+  padding: 6rem 2rem !important;
+}
+
+/* Profile image - elegant circular with subtle shadow */
+.quarto-about-jolla .about-image {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+  border: 4px solid rgba(255, 255, 255, 0.8) !important;
+  margin-bottom: 2rem !important;
+  transition: all 0.5s ease !important;
+}
+
+.quarto-about-jolla .about-image:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Page title */
+.quarto-about-jolla .quarto-title h1.title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(3rem, 6vw, 5rem) !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: #1a1a1a !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 3rem !important;
+}
+
+/* About content wrapper */
+.about-content {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Intro section */
+.about-intro {
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+  padding: 3rem !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
+}
+
+.about-intro p {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.9 !important;
+  color: #4a4a4a !important;
+  font-weight: 300 !important;
+  margin-bottom: 1.2rem !important;
+}
+
+.about-intro p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Section cards */
+.section-card {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  padding: 3rem !important;
+  margin-bottom: 3rem !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.4s ease !important;
+}
+
+.section-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+}
+
+.section-card h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 2rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.1) !important;
+}
+
+/* Timeline styling */
+.simple-timeline {
+  position: relative !important;
+  padding-left: 30px !important;
+}
+
+.simple-timeline::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 2px !important;
+  background: linear-gradient(to bottom, #b4a5d6, #d4b5c9) !important;
+}
+
+.timeline-item {
+  position: relative !important;
+  margin-bottom: 2rem !important;
+  padding-left: 20px !important;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.timeline-dot {
+  position: absolute !important;
+  left: -26px !important;
+  top: 5px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: white !important;
+  border: 3px solid #b4a5d6 !important;
+  box-shadow: 0 0 0 4px rgba(180, 165, 214, 0.2) !important;
+}
+
+.timeline-item.education .timeline-dot {
+  border-color: #b4a5d6 !important;
+  box-shadow: 0 0 0 4px rgba(180, 165, 214, 0.2) !important;
+}
+
+.timeline-item.work .timeline-dot {
+  border-color: #d4b5c9 !important;
+  box-shadow: 0 0 0 4px rgba(212, 181, 201, 0.2) !important;
+}
+
+.timeline-content h4 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.timeline-org {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  display: block !important;
+}
+
+.timeline-period {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  color: #999 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.timeline-content p {
+  font-size: 0.95rem !important;
+  color: #5a5a5a !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+/* Resume download button */
+.resume-download {
+  text-align: center !important;
+  margin: 3rem 0 !important;
+  padding: 2rem !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 15px !important;
+}
+
+.resume-download p {
+  margin-bottom: 1rem !important;
+  color: #666 !important;
+  font-size: 1rem !important;
+}
+
+.download-btn {
+  background: #1a1a1a !important;
+  color: white !important;
+  padding: 14px 40px !important;
+  border-radius: 0 !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  transition: all 0.4s ease !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.download-btn:hover {
+  background: transparent !important;
+  color: #1a1a1a !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Education items */
+.education-item,
+.experience-item {
+  margin-bottom: 2.5rem !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.06) !important;
+}
+
+.education-item:last-child,
+.experience-item:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.education-item h3,
+.experience-item h3 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.edu-details,
+.company-info {
+  margin-bottom: 1rem !important;
+}
+
+.edu-details p,
+.company-info p {
+  font-size: 0.95rem !important;
+  color: #5a5a5a !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+.coursework,
+.activities {
+  margin-top: 1rem !important;
+}
+
+.coursework p,
+.activities p {
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  line-height: 1.7 !important;
+}
+
+.achievements ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.achievements li {
+  position: relative !important;
+  padding-left: 1.5rem !important;
+  margin-bottom: 0.8rem !important;
+  font-size: 0.95rem !important;
+  color: #5a5a5a !important;
+  line-height: 1.6 !important;
+}
+
+.achievements li::before {
+  content: '→' !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: #b4a5d6 !important;
+  font-weight: 500 !important;
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.6) !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.skill-category:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.skill-category p {
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  color: #5a5a5a !important;
+}
+
+.skill-category strong {
+  display: block !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* About footer */
+.about-footer {
+  text-align: center !important;
+  margin-top: 3rem !important;
+  padding: 2rem !important;
+}
+
+.about-footer p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-style: italic !important;
+  color: #666 !important;
+  margin: 0 !important;
+}
+
+/* Social links */
+.about-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  margin-top: 2rem !important;
+  flex-wrap: wrap !important;
+}
+
+.about-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.3s ease !important;
+  padding: 0.8rem 1.5rem !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 30px !important;
+}
+
+.about-link:hover {
+  background: #1a1a1a !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+.about-link i {
+  font-size: 1.1rem !important;
+}
+
+/* About separator */
+hr.about-sep {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(26, 26, 26, 0.15), transparent) !important;
+  margin: 3rem auto !important;
+  max-width: 300px !important;
+}
+
+/* Hide TOC on about page for cleaner look */
+.quarto-about-jolla #TOC {
+  display: none !important;
+}
+
+/* Responsive adjustments for About page */
+@media (max-width: 768px) {
+  .quarto-about-jolla {
+    padding: 4rem 1rem !important;
+  }
+  
+  .about-intro,
+  .section-card {
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .about-links {
+    gap: 1rem !important;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.1rem !important;
+  }
+}

@@ -5,7 +5,9 @@ page-layout: full
 output-dir: ../../../docs
 format:
   html:
-    css: style.css
+    css: 
+      - style.css
+      - custom.css
 about:
   template: jolla
   image-shape: round
