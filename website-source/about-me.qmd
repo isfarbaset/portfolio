@@ -39,16 +39,6 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 
 ```{=html}
 <div class="simple-timeline">
-  <div class="timeline-item education">
-    <div class="timeline-dot"></div>
-    <div class="timeline-content">
-      <h4>Master of Science in Data Science & Analytics</h4>
-      <span class="timeline-org">Georgetown University</span>
-      <span class="timeline-period">2023-2025</span>
-      <p>Advanced specialization in data science, machine learning, and analytics</p>
-    </div>
-  </div>
-  
   <div class="timeline-item work">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
@@ -56,6 +46,16 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
       <span class="timeline-org">Shift Digital</span>
       <span class="timeline-period">2025-Present</span>
       <p>Leading analytics initiatives and mentoring team members</p>
+    </div>
+  </div>
+  
+  <div class="timeline-item education">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Master of Science in Data Science & Analytics</h4>
+      <span class="timeline-org">Georgetown University</span>
+      <span class="timeline-period">2023-2025</span>
+      <p>Advanced specialization in data science, machine learning, and analytics</p>
     </div>
   </div>
   
