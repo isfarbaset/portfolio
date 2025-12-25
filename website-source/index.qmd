@@ -51,6 +51,18 @@ A conversational AI assistant for Foundation Model Benchmarking built with Amazo
 
 ::: {.project-card}
 ::: {.project-image}
+![](images/netflix.png)
+:::
+::: {.project-content}
+### [Netflix Wrapped](https://isfarbaset.github.io/netflix-wrapped/)
+A personalized Netflix viewing analytics dashboard that transforms your watch history into beautiful insights. Discover your viewing patterns, favorite genres, binge-watching habits, and more through interactive visualizations.
+
+**Tech Stack:** Python • Data Visualization • Pandas • Interactive Dashboard
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
 ![](images/wicked.jpg)
 :::
 ::: {.project-content}
