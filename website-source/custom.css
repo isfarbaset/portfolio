@@ -644,19 +644,21 @@ section.project-content {
 
 /* Profile image - elegant circular with subtle shadow */
 .quarto-about-jolla .about-image {
-  width: 200px !important;
-  height: 200px !important;
+  width: 220px !important;
+  height: 220px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
-  border: 4px solid rgba(255, 255, 255, 0.8) !important;
-  margin-bottom: 2rem !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.12) !important;
+  border: 5px solid white !important;
+  margin-bottom: 2.5rem !important;
   transition: all 0.5s ease !important;
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 .quarto-about-jolla .about-image:hover {
-  transform: scale(1.02) !important;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2) !important;
+  transform: scale(1.03) !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Page title */
@@ -1018,6 +1020,51 @@ hr.about-sep {
   display: none !important;
 }
 
+/* Hobbies Grid */
+.hobbies-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+}
+
+.hobby-item {
+  background: rgba(255, 255, 255, 0.5) !important;
+  padding: 2rem 1.5rem !important;
+  border-radius: 16px !important;
+  text-align: center !important;
+  transition: all 0.4s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+.hobby-item:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.hobby-icon {
+  font-size: 2rem !important;
+  display: block !important;
+  margin-bottom: 1rem !important;
+  filter: grayscale(0%) !important;
+}
+
+.hobby-item p {
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  color: #5a5a5a !important;
+}
+
+.hobby-item strong {
+  display: block !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+  margin-bottom: 0.5rem !important;
+}
+
 /* Responsive adjustments for About page */
 @media (max-width: 768px) {
   .quarto-about-jolla {
@@ -1030,6 +1077,11 @@ hr.about-sep {
   }
   
   .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .hobbies-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1rem !important;
   }

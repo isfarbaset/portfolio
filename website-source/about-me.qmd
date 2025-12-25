@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-image: images/ib-new.png
+image: images/isfar-b.png
 page-layout: full
 output-dir: ../../../docs
 format:
@@ -35,7 +35,7 @@ I love spending time in charming cafes and exploring new cuisines. During my dow
 :::
 
 ::: {.section-card}
-## 📊 Professional Journey
+## Professional Journey
 
 ```{=html}
 <div class="simple-timeline">
@@ -100,13 +100,13 @@ For a detailed overview of my experience:
 :::
 
 ::: {.section-card}
-## 🎓 Education
+## Education
 
 ::: {.education-item}
 ### Georgetown University
 ::: {.edu-details}
 **Master of Science in Data Science and Analytics** • GPA: 4.0  
-📍 Washington, D.C. • May 2023 - May 2025
+Washington, D.C. • May 2023 - May 2025
 :::
 
 ::: {.coursework}
@@ -123,13 +123,13 @@ Probabilistic Modeling • Database Systems • Advanced Data Visualization • 
 ### Grand Valley State University
 ::: {.edu-details}
 **Bachelor of Science in Computer Science**  
-📍 Grand Rapids, MI • Aug 2015 - May 2020
+Grand Rapids, MI • Aug 2015 - May 2020
 :::
 :::
 :::
 
 ::: {.section-card}
-## 💼 Professional Experience
+## Professional Experience
 
 ::: {.experience-item}
 ### Data Analyst II (Current)
@@ -177,7 +177,7 @@ Probabilistic Modeling • Database Systems • Advanced Data Visualization • 
 :::
 
 ::: {.section-card}
-## 🛠️ Technical Skills
+## Technical Skills
 
 ::: {.skills-grid}
 ::: {.skill-category}
@@ -217,8 +217,47 @@ Docker • Flask • Git • Quarto • A/B Testing • Bayesian Analysis
 :::
 :::
 
+::: {.section-card}
+## Beyond the Data
+
+```{=html}
+<div class="hobbies-grid">
+<div class="hobby-item">
+<span class="hobby-icon">☕</span>
+<p><strong>Café Culture</strong><br>
+Seeking out charming coffee shops and hidden gems in every city I visit</p>
+</div>
+<div class="hobby-item">
+<span class="hobby-icon">🎨</span>
+<p><strong>Painting</strong><br>
+Expressing creativity through colors and brushstrokes in my free time</p>
+</div>
+<div class="hobby-item">
+<span class="hobby-icon">📚</span>
+<p><strong>Reading</strong><br>
+Losing myself in fiction, non-fiction, and everything in between</p>
+</div>
+<div class="hobby-item">
+<span class="hobby-icon">🍜</span>
+<p><strong>Culinary Adventures</strong><br>
+Exploring diverse cuisines and discovering new favorite dishes</p>
+</div>
+<div class="hobby-item">
+<span class="hobby-icon">🎬</span>
+<p><strong>Film & Television</strong><br>
+Appreciating storytelling through cinema and binge-worthy series</p>
+</div>
+<div class="hobby-item">
+<span class="hobby-icon">✈️</span>
+<p><strong>Travel</strong><br>
+Exploring new places and experiencing different cultures firsthand</p>
+</div>
+</div>
+```
+:::
+
 ::: {.about-footer}
-*Building data-driven solutions with coffee, creativity and precision* ✨
+*Building data-driven solutions with coffee, creativity and precision*
 :::
 
 :::
