@@ -63,6 +63,18 @@ A personalized Netflix viewing analytics dashboard that transforms your watch hi
 
 ::: {.project-card}
 ::: {.project-image}
+![](images/git-insights.png)
+:::
+::: {.project-content}
+### [GitHub Insights](https://isfarbaset.github.io/github-insights/)
+An interactive exploration of GitHub activity and developer behavior. Analyzing commit patterns, repository trends, and collaboration dynamics to uncover what drives open source contribution.
+
+**Tech Stack:** Python • GitHub API • Data Analysis • Visualization
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
 ![](images/wicked.jpg)
 :::
 ::: {.project-content}
