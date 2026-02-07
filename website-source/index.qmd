@@ -67,9 +67,9 @@ A personalized Netflix viewing analytics dashboard that transforms your watch hi
 :::
 ::: {.project-content}
 ### [GitHub Insights](https://isfarbaset.github.io/github-insights/)
-An interactive exploration of GitHub activity and developer behavior. Analyzing commit patterns, repository trends, and collaboration dynamics to uncover what drives open source contribution.
+Generate your own GitHub stats card. Enter any username and get a downloadable PNG with lifetime stats, streaks, top repos, coding activity breakdowns, developer personality badges, and more — ready to share on LinkedIn or add to your portfolio.
 
-**Tech Stack:** Python • GitHub API • Data Analysis • Visualization
+**Tech Stack:** JavaScript • CSS • GitHub API • HTML Canvas • Quarto
 :::
 :::
 
