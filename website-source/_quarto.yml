@@ -31,6 +31,8 @@ website:
             href: "Group37_final_Report.qmd"
           - text: "EV Insights"
             href: "https://isfarbaset.github.io/ev-insights/"
+          - text: "DMV Blooms"
+            href: "https://isfarbaset.github.io/dmv-blooms/"
       - text: "Chat with Isfar"
         href: "about-me-chatbot.qmd"
     right:

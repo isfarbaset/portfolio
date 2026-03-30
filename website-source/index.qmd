@@ -128,6 +128,18 @@ Examining EVs' environmental impact, market share, and performance compared to g
 
 ::: {.project-card}
 ::: {.project-image}
+![](images/dmv-blooms.jpg)
+:::
+::: {.project-content}
+### [DMV Blooms](https://isfarbaset.github.io/dmv-blooms/)
+A seasonal field guide to the flowers of DC, Maryland & Virginia. See what's blooming right now, get weekend recommendations, browse 20 locations on an interactive map, and plan ahead with a full-year bloom calendar. No app needed, just open and go.
+
+**Tech Stack:** Vanilla JS • Leaflet.js • OpenStreetMap • GitHub Pages
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
 ![](images/DTS_MISC_3_(Maddie_Spanier)_Madeline_Spanier_Photos_ID5261.jpg)
 :::
 ::: {.project-content}
