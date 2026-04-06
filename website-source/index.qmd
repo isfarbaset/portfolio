@@ -101,7 +101,7 @@ Analyzing sentiment patterns across U.S. states based on Reddit conversations. D
 ![](images/DTS_my_own_summer_Daniel_Farò_Photos_ID9746.jpg)
 :::
 ::: {.project-content}
-### [Temp Talk](https://github.com/isfarbaset/story-project)
+### [Temp Talk](https://isfarbaset.github.io/story-project/)
 Exploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.
 :::
 :::
