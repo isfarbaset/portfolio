@@ -101,7 +101,7 @@ Analyzing sentiment patterns across U.S. states based on Reddit conversations. D
 ![](images/DTS_my_own_summer_Daniel_Farò_Photos_ID9746.jpg)
 :::
 ::: {.project-content}
-### [Temp Talk](https://isfarbaset.georgetown.domains/story-project/_site/)
+### [Temp Talk](https://github.com/isfarbaset/story-project)
 Exploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.
 :::
 :::
@@ -123,18 +123,6 @@ Exploring the intersection of music and machine learning. Discover patterns in p
 ::: {.project-content}
 ### [EV Insights](https://isfarbaset.github.io/ev-insights/)
 Examining EVs' environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.
-:::
-:::
-
-::: {.project-card}
-::: {.project-image}
-![](images/dmv-blooms.jpg)
-:::
-::: {.project-content}
-### [DMV Blooms](https://isfarbaset.github.io/dmv-blooms/)
-A seasonal field guide to the flowers of DC, Maryland & Virginia. See what's blooming right now, get weekend recommendations, browse 20 locations on an interactive map, and plan ahead with a full-year bloom calendar. No app needed, just open and go.
-
-**Tech Stack:** Vanilla JS • Leaflet.js • OpenStreetMap • GitHub Pages
 :::
 :::
 
