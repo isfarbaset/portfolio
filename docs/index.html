@@ -341,7 +341,91 @@ document.addEventListener('DOMContentLoaded', function() {
 Portfolio curated by Isfar Baset
 </footer>
 
+<script>
+// Custom scroll-spy for project cards in grid layout
+// Overrides Quarto's default TOC tracking which doesn't handle CSS grid well
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('#TOC a.nav-link');
+  const projectSectionIds = [
+    'fmbench-assistant', 'netflix-wrapped', 'github-insights',
+    'defying-analytics-what-spotify-reveals-about-wicked',
+    'us-insights', 'temp-talk', 'beats-and-bytes',
+    'ev-insights', 'air-quality-intelligence'
+  ];
 
+  function updateTocHighlight() {
+    const headerOffset = document.querySelector('#quarto-header')?.offsetHeight || 80;
+    const scrollY = window.scrollY + headerOffset + 60;
+    let activeId = null;
+
+    // Check "Featured Projects" h1 first
+    const featuredEl = document.getElementById('featured-projects');
+    if (featuredEl && scrollY >= featuredEl.offsetTop) {
+      activeId = 'featured-projects';
+    }
+
+    // Find the last project card whose top is above the scroll threshold
+    // Walk cards in DOM order so the last one passing the threshold wins
+    for (const id of projectSectionIds) {
+      const section = document.getElementById(id);
+      if (!section) continue;
+      // Get the parent .project-card for accurate position
+      const card = section.closest('.project-card');
+      const el = card || section;
+      if (el.getBoundingClientRect().top <= 150) {
+        activeId = id;
+      }
+    }
+
+    // If we haven't scrolled to the projects section at all, clear everything
+    if (featuredEl && scrollY < featuredEl.offsetTop) {
+      activeId = null;
+    }
+
+    // Update TOC link active states
+    tocLinks.forEach(function(link) {
+      link.classList.remove('active');
+    });
+
+    if (activeId) {
+      const activeLink = document.querySelector('#TOC a[data-scroll-target="#' + activeId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        // Also highlight parent "Featured Projects" if a child project is active
+        if (activeId !== 'featured-projects') {
+          const parentLink = document.querySelector('#TOC a[data-scroll-target="#featured-projects"]');
+          if (parentLink) parentLink.classList.add('active');
+        }
+      }
+    }
+  }
+
+  // Run on scroll with throttle
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateTocHighlight();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Run once on load (with small delay to let Quarto finish its own setup)
+  setTimeout(updateTocHighlight, 300);
+
+  // Also override Quarto's own observer to prevent it from fighting
+  // by re-applying our highlights after any Quarto TOC update
+  const tocObserver = new MutationObserver(function() {
+    setTimeout(updateTocHighlight, 10);
+  });
+  const tocNav = document.getElementById('TOC');
+  if (tocNav) {
+    tocObserver.observe(tocNav, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  }
+});
+</script>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
