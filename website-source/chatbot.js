@@ -1,5 +1,5 @@
-// ADVANCED AI CHATBOT - NLP-Enhanced with Comprehensive Knowledge Base and Guardrails
-console.log('🚀 Advanced External JavaScript file loaded!');
+// ADVANCED AI CHATBOT - NLP-Enhanced with Comprehensive Knowledge Base
+console.log('🚀 External JavaScript file loaded!');
 
 class IsfarChatbotAI {
   constructor() {
@@ -12,7 +12,7 @@ class IsfarChatbotAI {
       questionType: null
     };
     
-    // Advanced • NLP: Common word variations and synonyms
+    // Advanced NLP: Common word variations and synonyms
     this.synonymMap = {
       'proficient': ['skilled', 'expert', 'good at', 'knows', 'familiar with', 'experienced in'],
       'work': ['job', 'position', 'role', 'career', 'employment', 'occupation'],
@@ -26,7 +26,7 @@ class IsfarChatbotAI {
       'what': ['which', 'describe', 'tell me about']
     };
     
-    // • NLP: Question word patterns
+    // NLP: Question word patterns
     this.questionPatterns = {
       who: /\b(who|whom)\b/i,
       what: /\b(what|which)\b/i,
@@ -39,7 +39,7 @@ class IsfarChatbotAI {
       is: /\b(is|are|was|were)\b/i
     };
     
-    // • NLP: Stopwords for better keyword extraction
+    // NLP: Stopwords for better keyword extraction
     this.stopwords = new Set([
       'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
       'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'should',
@@ -52,37 +52,50 @@ class IsfarChatbotAI {
     
     // GUARDRAILS: Inappropriate content detection
     this.inappropriatePatterns = {
+      // Romantic/Dating
       romantic: {
         patterns: ['date', 'dating', 'marry', 'marriage', 'relationship', 'single', 'boyfriend', 'girlfriend', 'romance', 'romantic', 'attractive', 'hot', 'sexy', 'beautiful', 'pretty', 'cute', 'gorgeous'],
         response: "I'm here to share information about Isfar's professional background and achievements. For professional networking, please connect via LinkedIn at linkedin.com/in/isfarbaset."
       },
+      
+      // Personal/Private Information
       personal: {
         patterns: ['address', 'home address', 'street', 'apartment', 'phone number', 'cell phone', 'mobile number', 'telephone', 'social security', 'ssn', 'bank', 'credit card', 'salary', 'how much earn', 'how much make', 'income', 'age', 'how old', 'weight', 'height', 'religion', 'religious', 'political', 'politics', 'vote', 'democrat', 'republican'],
         response: "I respect privacy and don't share personal information. I can tell you about Isfar's professional experience, education, skills, and public projects. What would you like to know about her professional work?"
       },
+      
+      // Offensive/Inappropriate
       offensive: {
         patterns: ['hate', 'stupid', 'dumb', 'idiot', 'moron', 'loser', 'suck', 'terrible person', 'awful person', 'worst', 'garbage', 'trash', 'pathetic', 'useless'],
         response: "I'm designed to have respectful, professional conversations. I'd be happy to share information about Isfar's technical expertise, projects, or career journey. What would you like to learn about?"
       },
+      
+      // Overly Personal Questions
       tooPersonal: {
         patterns: ['married', 'husband', 'wife', 'spouse', 'partner', 'children', 'kids', 'baby', 'pregnant', 'pregnancy', 'family', 'parents', 'mother', 'father', 'sexual', 'orientation', 'health', 'medical', 'disease', 'illness', 'mental health', 'therapy', 'medication', 'disability'],
         response: "That's outside the scope of what I can discuss. I focus on Isfar's professional accomplishments, technical skills, and career development. Is there something specific about her work experience or projects you'd like to know?"
       },
+      
+      // Financial Information
       financial: {
         patterns: ['net worth', 'how much money', 'rich', 'wealth', 'wealthy', 'assets', 'finances', 'debt', 'loan', 'mortgage', 'investment'],
         response: "I don't have access to personal financial information. I can share details about Isfar's professional experience, technical projects, and career achievements instead. What interests you?"
       },
+      
+      // Illegal/Unethical Requests
       illegal: {
         patterns: ['hack', 'crack', 'steal', 'illegal', 'cheat', 'fraud', 'scam', 'password', 'breach', 'exploit', 'bypass'],
         response: "I can't help with that. I'm here to provide information about Isfar's professional background and technical expertise in data science and AI. What would you like to know about her work?"
       },
+      
+      // Spam/Inappropriate Requests
       spam: {
         patterns: ['buy', 'purchase', 'sell', 'sale', 'discount', 'cheap', 'offer', 'deal', 'subscribe', 'sign up', 'free money', 'click here', 'download now'],
         response: "This chatbot is designed to share information about Isfar's professional background. I'm not equipped to handle commercial requests. Would you like to learn about her technical skills or projects instead?"
       }
     };
     
-    // Comprehensive knowledge base
+    // Comprehensive knowledge base with multiple matching strategies
     this.knowledgeBase = {
       hobbies: {
         patterns: ['hobby', 'hobbies', 'free time', 'leisure', 'fun', 'do for fun', 'outside work', 'personal', 'interest', 'interests', 'passion', 'passions', 'enjoy', 'like to do', 'downtime', 'spare time'],
@@ -92,25 +105,25 @@ class IsfarChatbotAI {
       
       skills: {
         patterns: ['skill', 'skills', 'skils', 'technical', 'technology', 'technologies', 'tool', 'tools', 'programming', 'language', 'languages', 'stack', 'proficient', 'good at', 'know', 'expertise', 'capabilities'],
-        response: "Isfar's technical skills include:\n\n• Programming: Python, SQL, R, Java, C++\n\n• Machine Learning: Scikit-learn, TensorFlow, PyTorch, XGBoost\n\n• Data Visualization: Tableau, Plotly, Seaborn\n\n• Big Data & Cloud: Apache Spark, Databricks, AWS SageMaker\n\n• NLP: spaCy, Hugging Face, BERT\n\n• Databases: MySQL, PostgreSQL, MongoDB, Snowflake\n\n• Tools & Methods: Docker, Flask, Git, Quarto, A/B Testing, Bayesian Analysis\n\nShe specializes in leveraging data-driven solutions and communicating complex insights to non-technical stakeholders.",
+        response: "Isfar's technical skills include:\n\n**Programming:** Python, SQL, R, Java, C++\n\n**Machine Learning:** Scikit-learn, TensorFlow, PyTorch, XGBoost\n\n**Data Visualization:** Tableau, Plotly, Seaborn\n\n**Big Data & Cloud:** Apache Spark, Databricks, AWS SageMaker\n\n**NLP:** spaCy, Hugging Face, BERT\n\n**Databases:** MySQL, PostgreSQL, MongoDB, Snowflake\n\n**Tools & Methods:** Docker, Flask, Git, Quarto, A/B Testing, Bayesian Analysis\n\nShe specializes in leveraging data-driven solutions and communicating complex insights to non-technical stakeholders.",
         category: 'technical'
       },
       
       projects: {
         patterns: ['project', 'projects', 'work on', 'built', 'created', 'developed', 'portfolio', 'showcase', 'work'],
-        response: "Isfar has worked on several exciting projects:\n\n🤖 FMBench Assistant - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 Wicked Spotify Analysis - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 US Insights - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ Temp Talk - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 Beats and Bytes - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 EV Insights - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n🌫️ Air Quality Intelligence - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
+        response: "Isfar has worked on several exciting projects:\n\n🤖 **FMBench Assistant** - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 **Wicked Spotify Analysis** - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 **US Insights** - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ **Temp Talk** - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 **Beats and Bytes** - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 **EV Insights** - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n�️ **Air Quality Intelligence** - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
         category: 'technical'
       },
       
       experience: {
         patterns: ['experience', 'work', 'job', 'career', 'position', 'role', 'working', 'worked', 'employment', 'professional', 'company', 'employer'],
-        response: "Isfar is currently a Data Analyst II at Shift Digital in the Data Operations and Analytics team, where she leverages data-driven solutions for enterprise clients.\n\nKey Achievements:\n• Leading advanced data operations and analytics initiatives\n• Improved data accuracy by 25% across 10+ enterprise projects\n• Saved 15 hours weekly by automating billing data processing\n• Streamlined operations for 12 high-value clients\n• Achieved near 100% customer approval rate on technical proposals\n• Enhanced data visibility with interactive dashboards\n\nPrevious Experience:\n• Data Analyst I at Shift Digital (Nov 2021 - May 2023)\n• Computer Engineer at Array of Engineers (Jul 2020 - Nov 2021) - Verified Airbus A350 avionics software and optimized web apps",
+        response: "Isfar is currently a **Data Analyst II** at Shift Digital in the Data Operations and Analytics team, where she leverages data-driven solutions for enterprise clients.\n\n**Key Achievements:**\n• Leading advanced data operations and analytics initiatives\n• Improved data accuracy by 25% across 10+ enterprise projects\n• Saved 15 hours weekly by automating billing data processing\n• Streamlined operations for 12 high-value clients\n• Achieved near 100% customer approval rate on technical proposals\n• Enhanced data visibility with interactive dashboards\n\n**Previous Experience:**\n• Data Analyst I at Shift Digital (Nov 2021 - May 2023)\n• Computer Engineer at Array of Engineers (Jul 2020 - Nov 2021) - Verified Airbus A350 avionics software and optimized web apps",
         category: 'professional'
       },
       
       education: {
         patterns: ['education', 'degree', 'school', 'university', 'college', 'study', 'studied', 'georgetown', 'grand valley', 'gvsu', 'gpa', 'academic', 'masters', 'bachelor', 'coursework', 'courses'],
-        response: "Isfar has an exceptional academic background:\n\n🎓 Master of Science in Data Science and Analytics\nGeorgetown University, Washington D.C. (2023-2025)\n• Perfect 4.0 GPA\n• Completed while working full-time\n• Key Coursework: Probabilistic Modeling, Database Systems, Advanced Data Visualization, Data Ethics, Computational Linguistics, Machine Learning Deployment, Digital Storytelling, Big Data & Cloud Computing, Applied Generative AI\n• Leadership: Social Committee Member & Lead Mentor\n\n🎓 Bachelor of Science in Computer Science\nGrand Valley State University, Grand Rapids MI (2015-2020)\n• Strong foundation in computer science and programming",
+        response: "Isfar has an exceptional academic background:\n\n🎓 **Master of Science in Data Science and Analytics**\nGeorgetown University, Washington D.C. (2023-2025)\n• Perfect 4.0 GPA\n• Completed while working full-time\n• Key Coursework: Probabilistic Modeling, Database Systems, Advanced Data Visualization, Data Ethics, Computational Linguistics, Machine Learning Deployment, Digital Storytelling, Big Data & Cloud Computing, Applied Generative AI\n• Leadership: Social Committee Member & Lead Mentor\n\n🎓 **Bachelor of Science in Computer Science**\nGrand Valley State University, Grand Rapids MI (2015-2020)\n• Strong foundation in computer science and programming",
         category: 'education'
       },
       
@@ -158,7 +171,7 @@ class IsfarChatbotAI {
       
       achievements: {
         patterns: ['achievement', 'achievements', 'accomplish', 'proud', 'success', 'award', 'recognition', 'accomplishment'],
-        response: "Some of Isfar's notable achievements:\n\n🏆 Perfect 4.0 GPA in her Master's program at Georgetown University\n💼 Improved data accuracy by 25% across 10+ enterprise projects\n⏱️ Saved 15 hours weekly by automating billing data processing\n📊 Achieved near 100% customer approval rate on technical proposals\n🎓 Completed Master's degree while working full-time\n💻 Increased client retention by 25% through web app optimization\n📈 Achieved 98% on-time delivery rate for software testing workflows\n👥 Served as Lead Mentor in Georgetown's Data Science program",
+        response: "Some of Isfar's notable achievements:\n\n🏆 Perfect 4.0 GPA in her Master's program at Georgetown University\n� Improved data accuracy by 25% across 10+ enterprise projects\n⏱️ Saved 15 hours weekly by automating billing data processing\n📊 Achieved near 100% customer approval rate on technical proposals\n🎓 Completed Master's degree while working full-time\n� Increased client retention by 25% through web app optimization\n📈 Achieved 98% on-time delivery rate for software testing workflows\n👥 Served as Lead Mentor in Georgetown's Data Science program",
         category: 'achievements'
       },
       
@@ -167,65 +180,168 @@ class IsfarChatbotAI {
         response: "Isfar is focused on continuing to leverage data-driven solutions to solve complex business problems:\n\n• Building production-ready AI/ML systems with real-world impact\n• Deepening expertise in advanced machine learning and generative AI\n• Leading data science initiatives and mentoring team members\n• Contributing to innovative projects that bridge research and practical applications\n• Continuing to grow in roles that combine technical challenge with meaningful business impact",
         category: 'professional'
       }
-    };;
-
-    console.log('✅ IsfarChatbotAI initialized with NLP, guardrails, and 14+ knowledge domains');
+    };
+    
+    console.log('✅ IsfarChatbotAI initialized with comprehensive knowledge base');
   }
 
-  // GUARDRAILS: Check for inappropriate content FIRST
-  checkInappropriateContent(userInput) {
-    const input = userInput.toLowerCase().trim();
-    
-    for (const [category, data] of Object.entries(this.inappropriatePatterns)) {
-      for (const pattern of data.patterns) {
-        const regex = new RegExp('\\b' + pattern + '\\b', 'i');
-        if (regex.test(input)) {
-          console.log('🚫 Guardrail triggered:', category, pattern);
-          return { isInappropriate: true, category, response: data.response };
+  // NLP: Tokenize and clean input
+  tokenize(text) {
+    return text.toLowerCase()
+      .replace(/[^\w\s'-]/g, ' ')
+      .split(/\s+/)
+      .filter(word => word.length > 0);
+  }
+
+  // NLP: Remove stopwords and extract meaningful keywords
+  extractKeywords(text) {
+    const tokens = this.tokenize(text);
+    return tokens.filter(word => !this.stopwords.has(word));
+  }
+
+  // NLP: Expand query with synonyms
+  expandWithSynonyms(keywords) {
+    const expanded = new Set(keywords);
+    keywords.forEach(keyword => {
+      for (const [base, synonyms] of Object.entries(this.synonymMap)) {
+        if (synonyms.includes(keyword) || keyword === base) {
+          expanded.add(base);
+          synonyms.forEach(syn => expanded.add(syn));
         }
       }
-    }
-    return { isInappropriate: false };
+    });
+    return Array.from(expanded);
   }
 
-  // • NLP: Tokenize and clean
-  tokenize(text) {
-    return text.toLowerCase().replace(/[^\w\s'-]/g, ' ').split(/\s+/).filter(word => word.length > 0);
-  }
-
-  // • NLP: Extract keywords (remove stopwords)
-  extractKeywords(text) {
-    return this.tokenize(text).filter(word => !this.stopwords.has(word));
-  }
-
-  // • NLP: Detect question type
+  // NLP: Detect question type for context-aware responses
   detectQuestionType(text) {
     for (const [type, pattern] of Object.entries(this.questionPatterns)) {
-      if (pattern.test(text)) return type;
+      if (pattern.test(text)) {
+        return type;
+      }
     }
     return 'statement';
   }
 
-  // • NLP: Basic sentiment analysis
+  // NLP: Basic sentiment analysis
   analyzeSentiment(text) {
     const positive = ['love', 'great', 'awesome', 'excellent', 'amazing', 'wonderful', 'fantastic', 'good', 'like', 'enjoy', 'impressed', 'interested'];
     const negative = ['hate', 'bad', 'terrible', 'awful', 'worst', 'dislike', 'poor', 'disappointed'];
+    
     const words = this.tokenize(text);
     let score = 0;
+    
     words.forEach(word => {
       if (positive.includes(word)) score += 1;
       if (negative.includes(word)) score -= 1;
     });
+    
     if (score > 0) return 'positive';
     if (score < 0) return 'negative';
     return 'neutral';
   }
 
-  // Advanced pattern matching with scoring
+  // NLP: Extract named entities (simple version)
+  extractEntities(text) {
+    const entities = [];
+    const words = text.split(/\s+/);
+    
+    // Look for capitalized words (potential names/places)
+    words.forEach((word, idx) => {
+      if (/^[A-Z][a-z]+/.test(word) && !this.stopwords.has(word.toLowerCase())) {
+        entities.push(word);
+      }
+    });
+    
+    // Look for technologies mentioned
+    const techKeywords = ['python', 'sql', 'aws', 'bedrock', 'lambda', 'tableau', 'plotly', 'langchain', 'docker', 'git', 'postgresql', 'mongodb'];
+    const lowerText = text.toLowerCase();
+    techKeywords.forEach(tech => {
+      if (lowerText.includes(tech)) {
+        entities.push(tech);
+      }
+    });
+    
+    return entities;
+  }
+
+  // NLP: Calculate semantic similarity using Jaccard similarity
+  calculateSimilarity(set1, set2) {
+    const intersection = set1.filter(x => set2.includes(x)).length;
+    const union = new Set([...set1, ...set2]).size;
+    return union === 0 ? 0 : intersection / union;
+  }
+
+  // NLP: Fuzzy matching for typo tolerance
+  levenshteinDistance(str1, str2) {
+    const matrix = [];
+    
+    for (let i = 0; i <= str2.length; i++) {
+      matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= str1.length; j++) {
+      matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= str2.length; i++) {
+      for (let j = 1; j <= str1.length; j++) {
+        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          );
+        }
+      }
+    }
+    
+    return matrix[str2.length][str1.length];
+  }
+
+  // NLP: Check if words are similar (typo tolerance)
+  isSimilar(word1, word2, threshold = 2) {
+    if (word1 === word2) return true;
+    if (word1.includes(word2) || word2.includes(word1)) return true;
+    return this.levenshteinDistance(word1, word2) <= threshold;
+  }
+
+  // GUARDRAILS: Check for inappropriate content
+  checkInappropriateContent(userInput) {
+    const input = userInput.toLowerCase().trim();
+    
+    for (const [category, data] of Object.entries(this.inappropriatePatterns)) {
+      for (const pattern of data.patterns) {
+        // Check for exact word matches to avoid false positives
+        const regex = new RegExp(`\\b${pattern}\\b`, 'i');
+        if (regex.test(input)) {
+          console.log('🚫 Inappropriate content detected:', category, '- pattern:', pattern);
+          return {
+            isInappropriate: true,
+            category: category,
+            response: data.response
+          };
+        }
+      }
+    }
+    
+    return { isInappropriate: false };
+  }
+
+  // Advanced pattern matching with NLP techniques
   findBestMatch(userInput) {
     const input = userInput.toLowerCase().trim();
+    
+    // Update conversation context with NLP analysis
     this.conversationContext.questionType = this.detectQuestionType(input);
     this.conversationContext.sentiment = this.analyzeSentiment(input);
+    this.conversationContext.entities = this.extractEntities(userInput);
+    
+    // Extract and expand keywords
+    const keywords = this.extractKeywords(input);
+    const expandedKeywords = this.expandWithSynonyms(keywords);
     
     let bestMatch = null;
     let highestScore = 0;
@@ -233,21 +349,54 @@ class IsfarChatbotAI {
     for (const [key, data] of Object.entries(this.knowledgeBase)) {
       let score = 0;
       
-      // Pattern matching
+      // Method 1: Direct pattern matching (high weight)
       for (const pattern of data.patterns) {
         if (input.includes(pattern)) {
           score += pattern.length * 3;
-          const regex = new RegExp('\\b' + pattern + '\\b', 'i');
-          if (regex.test(input)) score += 15;
+          
+          // Exact word boundary matches get bonus
+          const regex = new RegExp(`\\b${pattern}\\b`, 'i');
+          if (regex.test(input)) {
+            score += 15;
+          }
         }
+        
+        // Fuzzy matching for typo tolerance
+        const inputWords = this.tokenize(input);
+        const patternWords = this.tokenize(pattern);
+        
+        patternWords.forEach(pWord => {
+          inputWords.forEach(iWord => {
+            if (this.isSimilar(pWord, iWord)) {
+              score += 5;
+            }
+          });
+        });
       }
       
-      // Context bonus
-      if (this.conversationContext.lastTopic === key) score += 5;
+      // Method 2: Keyword similarity (medium weight)
+      const patternKeywords = data.patterns.flatMap(p => this.extractKeywords(p));
+      const similarity = this.calculateSimilarity(expandedKeywords, patternKeywords);
+      score += similarity * 20;
       
-      // Question type alignment
-      if (this.conversationContext.questionType === 'what' && ['skills', 'projects', 'experience', 'education'].includes(key)) score += 3;
-      if (this.conversationContext.questionType === 'where' && ['location', 'background'].includes(key)) score += 5;
+      // Method 3: Context bonus - if continuing conversation on same topic
+      if (this.conversationContext.lastTopic === key) {
+        score += 5;
+      }
+      
+      // Method 4: Question type alignment
+      if (this.conversationContext.questionType === 'what' && 
+          ['skills', 'projects', 'experience', 'education'].includes(key)) {
+        score += 3;
+      }
+      if (this.conversationContext.questionType === 'where' && 
+          ['location', 'background'].includes(key)) {
+        score += 5;
+      }
+      if (this.conversationContext.questionType === 'how' && 
+          ['contact', 'projects', 'ai_ml'].includes(key)) {
+        score += 3;
+      }
       
       if (score > highestScore) {
         highestScore = score;
@@ -255,57 +404,67 @@ class IsfarChatbotAI {
       }
     }
     
-    console.log('🎯 Match:', bestMatch?.key, 'Score:', bestMatch?.score, 'Q-Type:', this.conversationContext.questionType, 'Sentiment:', this.conversationContext.sentiment);
+    console.log('🎯 Best match:', bestMatch?.key, 'with score:', bestMatch?.score);
+    console.log('📊 Question type:', this.conversationContext.questionType);
+    console.log('💭 Sentiment:', this.conversationContext.sentiment);
+    console.log('🏷️ Entities:', this.conversationContext.entities);
+    
     return highestScore > 5 ? bestMatch : null;
   }
 
-  // Generate response with guardrails and NLP
+  // Generate context-aware response with sentiment adaptation and guardrails
   generateResponse(userInput) {
-    console.log('🔍 Processing:', userInput);
+    console.log('🔍 generateResponse called with:', userInput);
     
-    // STEP 1: Check guardrails FIRST
+    // STEP 1: Check for inappropriate content FIRST
     const guardrailCheck = this.checkInappropriateContent(userInput);
     if (guardrailCheck.isInappropriate) {
+      console.log('⚠️ Guardrail triggered:', guardrailCheck.category);
       return guardrailCheck.response;
     }
     
-    // STEP 2: Find best knowledge match
+    // STEP 2: Proceed with normal matching
     const match = this.findBestMatch(userInput);
     
     if (match) {
       this.conversationContext.lastTopic = match.key;
       this.conversationContext.askedTopics.push(match.key);
       
+      // Add sentiment-aware response prefix
       let response = match.data.response;
       
-      // Add positive sentiment prefix
       if (this.conversationContext.sentiment === 'positive') {
-        const prefix = ["I'm glad you're interested! ", "Great question! ", "Happy to share! "][Math.floor(Math.random() * 3)];
-        response = prefix + response;
+        const positivePrefix = ["I'm glad you're interested! ", "Great question! ", "Happy to share! "][Math.floor(Math.random() * 3)];
+        response = positivePrefix + response;
       }
       
       return response;
     }
     
-    // STEP 3: Helpful fallback
-    const suggestedTopics = this.conversationContext.askedTopics.length > 0
-      ? "You could also ask about her hobbies, goals, achievements, or specific technologies!"
-      : "You can ask me about her skills, projects, experience, education, background, hobbies, goals, or achievements!";
+    // STEP 3: Smart fallback with entity recognition
+    if (this.conversationContext.entities.length > 0) {
+      return `I noticed you mentioned ${this.conversationContext.entities.join(', ')}. While I don't have specific information about that exact query, I can tell you about Isfar's skills, projects, experience, education, background, hobbies, goals, or achievements. What would you like to know?`;
+    }
     
-    return "I'd love to help you learn about Isfar! " + suggestedTopics + "\n\nWhat would you like to know?";
+    // Provide helpful default with suggestions
+    const suggestedTopics = this.conversationContext.askedTopics.length > 0
+      ? "You could also ask about her hobbies, goals, achievements, or specific technologies she works with!"
+      : "You can ask me about her skills, projects, experience, education, background, hobbies, or anything else about her professional journey!";
+    
+    return `I'd love to help you learn about Isfar! ${suggestedTopics}\n\nWhat would you like to know?`;
   }
 }
 
-// Initialize chatbot
-console.log('🚀 Initializing advanced chatbot...');
+// Initialize the chatbot
+console.log('🚀 Initializing chatbot...');
 const chatbotAI = new IsfarChatbotAI();
 
-// Message handling
+// Message handling functions
 function addMessage(content, isBot = false, withTyping = false) {
-  console.log('📝 Adding message:', content.substring(0, 50), '...');
+  console.log('📝 Adding message:', content, 'isBot:', isBot);
   const messagesContainer = document.querySelector('.chat-messages');
   const messageDiv = document.createElement('div');
-  messageDiv.className = 'message ' + (isBot ? 'bot-message' : 'user-message');
+  messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
   
   const messageContent = document.createElement('div');
   messageContent.className = 'message-content';
@@ -315,6 +474,7 @@ function addMessage(content, isBot = false, withTyping = false) {
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
     
+    // Typing animation
     let i = 0;
     const typeWriter = () => {
       if (i < content.length) {
@@ -324,6 +484,7 @@ function addMessage(content, isBot = false, withTyping = false) {
         setTimeout(typeWriter, 20 + Math.random() * 30);
       }
     };
+    
     setTimeout(typeWriter, 300);
   } else {
     messageContent.textContent = content;
@@ -331,6 +492,8 @@ function addMessage(content, isBot = false, withTyping = false) {
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
+  
+  return messageDiv;
 }
 
 function addTypingIndicator() {
@@ -344,17 +507,27 @@ function addTypingIndicator() {
 }
 
 function removeTypingIndicator(typingDiv) {
-  if (typingDiv && typingDiv.parentNode) typingDiv.parentNode.removeChild(typingDiv);
+  if (typingDiv && typingDiv.parentNode) {
+    typingDiv.parentNode.removeChild(typingDiv);
+  }
 }
 
+// Main message handling
 function handleUserMessage(message) {
-  console.log('💬 User message:', message);
-  if (!message.trim() || chatbotAI.isProcessing) return;
+  console.log('💬 Handling user message:', message);
+  if (!message.trim()) return;
+  
+  if (chatbotAI.isProcessing) return;
   
   chatbotAI.isProcessing = true;
+  
+  // Add user message
   addMessage(message, false);
   
+  // Show thinking indicator
   const typingIndicator = addTypingIndicator();
+  
+  // Calculate realistic thinking time
   const thinkingTime = 800 + (message.length * 30) + (Math.random() * 600);
   
   setTimeout(() => {
@@ -363,7 +536,7 @@ function handleUserMessage(message) {
       const response = chatbotAI.generateResponse(message);
       addMessage(response, true, true);
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error('❌ Response error:', error);
       removeTypingIndicator(typingIndicator);
       addMessage("I apologize, but I encountered an issue. Please try again!", true);
     } finally {
@@ -374,23 +547,24 @@ function handleUserMessage(message) {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('�� DOM loaded - setting up chatbot...');
+  console.log('🎯 DOM Content Loaded - Setting up event listeners');
   
   const chatInput = document.getElementById('chat-input');
   const sendButton = document.getElementById('send-button');
   const suggestionChips = document.querySelectorAll('.suggestion-chip');
   
   if (!chatInput || !sendButton) {
-    console.error('❌ Required elements not found!');
+    console.error('❌ Critical elements not found!');
     return;
   }
   
   function sendMessage() {
+    console.log('📤 Send message triggered');
     const message = chatInput.value.trim();
     if (message && !chatbotAI.isProcessing) {
       handleUserMessage(message);
       chatInput.value = '';
-      chatInput.style.height = '56px';
+      chatInput.style.height = '56px'; // Reset height
     }
   }
   
@@ -406,14 +580,20 @@ document.addEventListener('DOMContentLoaded', function() {
   chatInput.addEventListener('input', function() {
     const value = this.value.trim();
     sendButton.disabled = !value || chatbotAI.isProcessing;
+    
+    // Auto-resize textarea
     this.style.height = 'auto';
     this.style.height = Math.min(this.scrollHeight, 120) + 'px';
-    if (this.scrollHeight < 56) this.style.height = '56px';
+    
+    // Ensure minimum height
+    if (this.scrollHeight < 56) {
+      this.style.height = '56px';
+    }
   });
   
   suggestionChips.forEach(chip => {
     chip.addEventListener('click', function() {
-      const question = this.textContent.trim();
+      const question = this.textContent;
       if (!chatbotAI.isProcessing) {
         chatInput.value = question;
         setTimeout(() => sendMessage(), 100);
@@ -421,5 +601,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  console.log('✅ Advanced chatbot ready! NLP + Guardrails + 14 domains active');
+  console.log('✅ Advanced Isfar Chatbot initialized successfully with comprehensive knowledge base!');
 });
