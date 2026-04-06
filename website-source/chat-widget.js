@@ -153,10 +153,10 @@
     font-size: 0.88rem;
     line-height: 1.55;
     font-weight: 400;
-    white-space: pre-wrap;
     word-wrap: break-word;
   }
   .cw-msg.user .cw-msg-bubble {
+    white-space: pre-wrap;
     background: #b4a5d6; color: #fff;
     border-bottom-right-radius: 6px;
     box-shadow: 0 2px 8px rgba(180,165,214,0.3);
@@ -167,6 +167,16 @@
     box-shadow: 0 1px 6px rgba(0,0,0,0.06);
     border: 1px solid rgba(0,0,0,0.04);
   }
+  .cw-msg-bubble p { margin: 0 0 0.4rem 0; }
+  .cw-msg-bubble p:last-child { margin-bottom: 0; }
+  .cw-msg-bubble ul {
+    margin: 0.3rem 0; padding-left: 1.1rem;
+    list-style: disc;
+  }
+  .cw-msg-bubble li {
+    margin-bottom: 0.25rem; line-height: 1.45;
+  }
+  .cw-msg-bubble strong { font-weight: 600; }
 
   @keyframes cwMsgIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -367,13 +377,38 @@
       }
     });
 
+    // Convert markdown-style text to clean HTML
+    function formatResponse(text) {
+      // Escape HTML entities first
+      var safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      // Bold: **text**
+      safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      // Bullet lines: • item  →  <li>item</li>
+      safe = safe.replace(/^[•●]\s*(.+)$/gm, '<li>$1</li>');
+      // Wrap consecutive <li> items in <ul>
+      safe = safe.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+      // Paragraph breaks: double newlines
+      safe = safe.replace(/\n{2,}/g, '</p><p>');
+      // Single newlines inside paragraphs → <br>
+      safe = safe.replace(/\n/g, '<br>');
+      // Wrap in paragraph tags
+      safe = '<p>' + safe + '</p>';
+      // Clean up empty paragraphs
+      safe = safe.replace(/<p>\s*<\/p>/g, '');
+      return safe;
+    }
+
     // Add a message to the panel
     function addMsg(text, type) {
       var div = document.createElement('div');
       div.className = 'cw-msg ' + type;
       var bub = document.createElement('div');
       bub.className = 'cw-msg-bubble';
-      bub.textContent = text;
+      if (type === 'bot') {
+        bub.innerHTML = formatResponse(text);
+      } else {
+        bub.textContent = text;
+      }
       div.appendChild(bub);
       msgBox.appendChild(div);
       msgBox.scrollTop = msgBox.scrollHeight;

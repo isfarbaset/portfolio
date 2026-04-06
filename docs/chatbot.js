@@ -111,7 +111,7 @@ class IsfarChatbotAI {
       
       projects: {
         patterns: ['project', 'projects', 'work on', 'built', 'created', 'developed', 'portfolio', 'showcase', 'work'],
-        response: "Isfar has worked on several exciting projects:\n\n🤖 **FMBench Assistant** - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 **Wicked Spotify Analysis** - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 **US Insights** - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ **Temp Talk** - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 **Beats and Bytes** - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 **EV Insights** - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n�️ **Air Quality Intelligence** - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
+        response: "Isfar has worked on several exciting projects:\n\n🤖 **FMBench Assistant** - A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph\n\n🎵 **Wicked Spotify Analysis** - Analyzed 20 years of streaming data from all 28 Wicked tracks. Key finding: song length has zero impact on popularity!\n\n🌍 **US Insights** - Analyzing sentiment patterns across U.S. states based on Reddit conversations\n\n🌡️ **Temp Talk** - Exploring climate trends in Southeastern Utah National Parks and their impacts on ecosystems\n\n🎼 **Beats and Bytes** - Exploring the intersection of music and machine learning through data analysis and predictive models\n\n🚗 **EV Insights** - Examining EVs' environmental impact using Naïve Bayes, clustering, decision trees and ARM\n\n🌬️ **Air Quality Intelligence** - A Gen AI conversational agent for real-time air quality monitoring with personalized health recommendations using GPT-4 and MCP",
         category: 'technical'
       },
       
@@ -460,6 +460,19 @@ console.log('🚀 Initializing chatbot...');
 const chatbotAI = new IsfarChatbotAI();
 
 // Message handling functions
+// Convert markdown-style text to clean HTML
+function formatBotResponse(text) {
+  var safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  safe = safe.replace(/^[•●]\s*(.+)$/gm, '<li>$1</li>');
+  safe = safe.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+  safe = safe.replace(/\n{2,}/g, '</p><p>');
+  safe = safe.replace(/\n/g, '<br>');
+  safe = '<p>' + safe + '</p>';
+  safe = safe.replace(/<p>\s*<\/p>/g, '');
+  return safe;
+}
+
 function addMessage(content, isBot = false, withTyping = false) {
   console.log('📝 Adding message:', content, 'isBot:', isBot);
   const messagesContainer = document.querySelector('.chat-messages');
@@ -469,23 +482,12 @@ function addMessage(content, isBot = false, withTyping = false) {
   const messageContent = document.createElement('div');
   messageContent.className = 'message-content';
   
-  if (isBot && withTyping) {
+  if (isBot) {
+    // Render bot messages as formatted HTML
+    messageContent.innerHTML = formatBotResponse(content);
     messageDiv.appendChild(messageContent);
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    
-    // Typing animation
-    let i = 0;
-    const typeWriter = () => {
-      if (i < content.length) {
-        messageContent.textContent += content.charAt(i);
-        i++;
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        setTimeout(typeWriter, 20 + Math.random() * 30);
-      }
-    };
-    
-    setTimeout(typeWriter, 300);
   } else {
     messageContent.textContent = content;
     messageDiv.appendChild(messageContent);
