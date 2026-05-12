@@ -1,269 +1,295 @@
 // ============================================
-// FLOATING CHAT WIDGET - "Chat with Isfar"
-// Self-contained: injects CSS, HTML, and wires up the chatbot AI
-// Skip rendering on the dedicated chatbot page
+// POSTCARDS FROM ISFAR
+// A tiny, no-AI corner of the site.
+// Floating postage-stamp button → opens a paper postcard
+// with rotating handwritten-style notes + a mailto "write back".
 // ============================================
 
 (function () {
   'use strict';
 
-  // Don't show the widget on the dedicated chatbot page
-  if (window.location.pathname.includes('about-me-chatbot')) return;
+  // ---- Notes (lowercase on purpose — feels less corporate) ----
+  const POSTCARDS = [
+    "this week i'm romanticizing 4pm coffee with a thick novel & the way the kitchen light goes peach right before it disappears.",
+    "currently obsessed with: oat milk cortados, the smell of new paperback books, & pretending i'll one day learn portuguese.",
+    "a stranger held the elevator & asked if i'd seen the magnolias on 14th street. i hadn't. they were extraordinary. that was the whole tuesday.",
+    "i think 'making a good chart' and 'making a good meal' use the same part of the brain — the part that wants to feed people.",
+    "the bookstore on the corner has a striped cat who has decided the philosophy section is hers. i respect her completely.",
+    "weekend plan: paint something bad on purpose, walk somewhere new, leave my phone face-down. that's the whole list.",
+    "the chai near my apartment doesn't quite taste like dhaka but it tries, & i love it for trying."
+  ];
 
-  // ---- 1. Inject CSS ----
+  // ---- 1. Styles ----
   const css = `
-  /* ---- Floating bubble ---- */
-  #chat-widget-bubble {
+  /* ---- Floating postage-stamp button ---- */
+  #postcard-bubble {
     position: fixed;
     bottom: 28px;
     right: 28px;
     z-index: 99999;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #b4a5d6 0%, #d4b5c9 100%);
-    color: #fff;
+    width: 64px;
+    height: 64px;
     border: none;
+    background: transparent;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(180,165,214,0.45), 0 2px 8px rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease;
+    padding: 0;
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+    animation: postcardSway 6s ease-in-out infinite;
   }
-  #chat-widget-bubble:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(180,165,214,0.5), 0 3px 12px rgba(0,0,0,0.18);
+  #postcard-bubble:hover {
+    transform: rotate(-6deg) scale(1.08);
   }
-  #chat-widget-bubble svg { pointer-events: none; }
-  #chat-widget-bubble .bubble-close { display: none; }
-  #chat-widget-bubble.open .bubble-open { display: none; }
-  #chat-widget-bubble.open .bubble-close { display: block; }
-
-  /* Pulse animation on first load */
-  @keyframes widgetPulse {
-    0%   { box-shadow: 0 4px 20px rgba(180,165,214,0.45), 0 0 0 0 rgba(180,165,214,0.5); }
-    70%  { box-shadow: 0 4px 20px rgba(180,165,214,0.45), 0 0 0 14px rgba(180,165,214,0); }
-    100% { box-shadow: 0 4px 20px rgba(180,165,214,0.45), 0 0 0 0 rgba(180,165,214,0); }
-  }
-  #chat-widget-bubble:not(.open) {
-    animation: widgetPulse 2.5s ease-out 1s 3;
-  }
-
-  /* Tooltip label */
-  #chat-widget-label {
-    position: fixed;
-    bottom: 96px;
-    right: 28px;
-    z-index: 99998;
-    background: #1d1d1f;
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 500;
-    padding: 6px 14px;
+  #postcard-bubble:focus { outline: none; }
+  #postcard-bubble:focus-visible {
+    outline: 2px dashed #a8b89a;
+    outline-offset: 4px;
     border-radius: 8px;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
   }
-  #chat-widget-bubble:hover ~ #chat-widget-label,
-  #chat-widget-label.show {
-    opacity: 1;
-    transform: translateY(0);
+  #postcard-bubble svg {
+    width: 100%; height: 100%;
+    filter: drop-shadow(0 6px 14px rgba(58, 42, 32, 0.18));
   }
-  #chat-widget-bubble.open ~ #chat-widget-label { opacity: 0 !important; }
+  @keyframes postcardSway {
+    0%, 100% { transform: rotate(-2deg); }
+    50%      { transform: rotate(2deg); }
+  }
+  #postcard-bubble.open {
+    animation: none;
+    transform: rotate(0deg) scale(0.9);
+    opacity: 0.55;
+  }
 
-  /* ---- Chat panel ---- */
-  #chat-widget-panel {
+  /* Tooltip — only on hover, no auto-show pulse */
+  #postcard-label {
     position: fixed;
     bottom: 100px;
     right: 28px;
     z-index: 99998;
-    width: 400px;
-    max-height: 580px;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #fafafa;
-    box-shadow: 0 12px 48px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    background: #fdf6e8;
+    color: #3a2a20;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    border: 1px solid rgba(168, 184, 154, 0.5);
+    border-radius: 2px;
+    white-space: nowrap;
     pointer-events: none;
-    transition: opacity 0.3s cubic-bezier(.16,1,.3,1),
-                transform 0.3s cubic-bezier(.16,1,.3,1);
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+    opacity: 0;
+    transform: translateY(4px) rotate(-1deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(58, 42, 32, 0.08);
   }
-  #chat-widget-panel.open {
+  #postcard-bubble:hover + #postcard-label {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) rotate(-2deg);
+  }
+  #postcard-bubble.open + #postcard-label { opacity: 0 !important; }
+
+  /* ---- Postcard panel ---- */
+  #postcard-panel {
+    position: fixed;
+    bottom: 110px;
+    right: 28px;
+    z-index: 99998;
+    width: 360px;
+    max-width: calc(100vw - 40px);
+    opacity: 0;
+    transform: translateY(20px) rotate(-3deg) scale(0.94);
+    transform-origin: bottom right;
+    pointer-events: none;
+    transition: opacity 0.45s cubic-bezier(.34,1.2,.64,1),
+                transform 0.45s cubic-bezier(.34,1.2,.64,1);
+  }
+  #postcard-panel.open {
+    opacity: 1;
+    transform: translateY(0) rotate(-1.5deg) scale(1);
     pointer-events: auto;
   }
 
-  /* Header */
-  #chat-widget-panel .cw-header {
-    background: linear-gradient(135deg, #b4a5d6 0%, #d4b5c9 100%);
-    color: #fff;
-    padding: 1.1rem 1.25rem;
+  /* Paper */
+  .pc-paper {
+    position: relative;
+    background: #fdf6e8;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(212, 181, 201, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(168, 184, 154, 0.06) 0%, transparent 50%);
+    color: #3a2a20;
+    padding: 1.6rem 1.6rem 1.4rem;
+    border-radius: 3px;
+    box-shadow:
+      0 1px 1px rgba(58, 42, 32, 0.04),
+      0 8px 24px rgba(58, 42, 32, 0.15),
+      0 18px 48px rgba(58, 42, 32, 0.12);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  /* faint paper edge */
+  .pc-paper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(168, 154, 130, 0.18);
+    border-radius: 3px;
+    pointer-events: none;
+  }
+  /* close button (small "×" in top right, hand-drawn feel) */
+  .pc-close {
+    position: absolute;
+    top: 8px; right: 10px;
+    background: transparent;
+    border: none;
+    width: 26px; height: 26px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #a8978a;
+    opacity: 0.7;
+    padding: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .pc-close:hover { opacity: 1; transform: rotate(90deg); }
+  .pc-close:focus { outline: none; }
+  .pc-close:focus-visible { outline: 1px dotted #3a2a20; outline-offset: 2px; }
+
+  /* Header row: from line + index */
+  .pc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(168, 154, 130, 0.25);
+  }
+  .pc-from {
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #3a2a20;
+  }
+  .pc-from .pc-mark {
+    color: #a8b89a;
+    margin-right: 0.25em;
+  }
+  .pc-index {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a8978a;
+    font-weight: 400;
+  }
+
+  /* Body text — the postcard message */
+  .pc-body {
+    min-height: 140px;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    flex-shrink: 0;
+    padding: 0.4rem 0 0.6rem;
   }
-  #chat-widget-panel .cw-header-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; flex-shrink: 0;
-  }
-  #chat-widget-panel .cw-header-text h4 {
-    margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em;
-  }
-  #chat-widget-panel .cw-header-text p {
-    margin: 2px 0 0 0; font-size: 0.78rem; opacity: 0.85; font-weight: 400;
-  }
-
-  /* Messages area */
-  #cw-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem 1rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    background: #f5f5f7;
-    min-height: 260px;
-    max-height: 340px;
-  }
-  #cw-messages::-webkit-scrollbar { width: 4px; }
-  #cw-messages::-webkit-scrollbar-track { background: transparent; }
-  #cw-messages::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
-
-  .cw-msg { display: flex; animation: cwMsgIn 0.35s cubic-bezier(.16,1,.3,1); }
-  .cw-msg.user { justify-content: flex-end; }
-  .cw-msg.bot  { justify-content: flex-start; }
-
-  .cw-msg-bubble {
-    max-width: 82%;
-    padding: 0.7rem 1rem;
-    border-radius: 16px;
-    font-size: 0.88rem;
-    line-height: 1.55;
+  .pc-body-text {
+    font-style: italic;
+    font-size: 1.08rem;
     font-weight: 400;
-    word-wrap: break-word;
+    line-height: 1.6;
+    color: #3a2a20;
+    transition: opacity 0.3s ease;
+    margin: 0;
   }
-  .cw-msg.user .cw-msg-bubble {
-    white-space: pre-wrap;
-    background: #b4a5d6; color: #fff;
-    border-bottom-right-radius: 6px;
-    box-shadow: 0 2px 8px rgba(180,165,214,0.3);
-  }
-  .cw-msg.bot .cw-msg-bubble {
-    background: #fff; color: #1d1d1f;
-    border-bottom-left-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.04);
-  }
-  .cw-msg-bubble p { margin: 0 0 0.4rem 0; }
-  .cw-msg-bubble p:last-child { margin-bottom: 0; }
-  .cw-msg-bubble ul {
-    margin: 0.3rem 0; padding-left: 1.1rem;
-    list-style: disc;
-  }
-  .cw-msg-bubble li {
-    margin-bottom: 0.25rem; line-height: 1.45;
-  }
-  .cw-msg-bubble strong { font-weight: 600; }
+  .pc-body-text.fading { opacity: 0; }
 
-  @keyframes cwMsgIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+  /* Sign-off */
+  .pc-signoff {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #6a5a4a;
+    text-align: right;
+    margin: 0 0.2rem 0.8rem 0;
+  }
+  .pc-signoff::before {
+    content: '── ';
+    color: #a8978a;
   }
 
-  /* Typing dots */
-  .cw-typing { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
-  .cw-typing span {
-    width: 7px; height: 7px; border-radius: 50%; background: #9ca3af;
-    animation: cwDot 1.4s infinite ease-in-out;
+  /* Controls: prev / dots / next */
+  .pc-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(168, 154, 130, 0.3);
   }
-  .cw-typing span:nth-child(1) { animation-delay: 0.2s; }
-  .cw-typing span:nth-child(2) { animation-delay: 0.4s; }
-  .cw-typing span:nth-child(3) { animation-delay: 0.6s; }
-  @keyframes cwDot {
-    0%,60%,100% { opacity: 0.3; transform: scale(0.8); }
-    30%         { opacity: 1;   transform: scale(1);   }
+  .pc-arrow {
+    background: transparent;
+    border: none;
+    color: #a8978a;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.3rem;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 2px;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .pc-arrow:hover { color: #3a2a20; transform: translateY(-1px); }
+  .pc-arrow:focus { outline: none; }
+  .pc-arrow:focus-visible { outline: 1px dotted #3a2a20; outline-offset: 2px; }
+  .pc-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .pc-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(168, 154, 130, 0.35);
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .pc-dot.active {
+    background: #a8b89a;
+    transform: scale(1.4);
   }
 
-  /* Suggestion chips */
-  #cw-suggestions {
-    display: flex; gap: 0.5rem; flex-wrap: wrap;
-    padding: 0.6rem 1rem; background: #fafafa;
+  /* Write back link */
+  .pc-writeback {
+    display: block;
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(168, 154, 130, 0.2);
+    text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #6a5a4a;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.25s ease, letter-spacing 0.3s ease;
   }
-  .cw-chip {
-    background: rgba(180,165,214,0.1); color: #9a8abf;
-    padding: 0.45rem 0.9rem; border-radius: 16px;
-    font-size: 0.78rem; font-weight: 500;
-    cursor: pointer; border: 1px solid rgba(180,165,214,0.2);
-    transition: all 0.2s ease; white-space: nowrap;
+  .pc-writeback:hover {
+    color: #3a2a20;
+    letter-spacing: 0.04em;
   }
-  .cw-chip:hover {
-    background: linear-gradient(135deg, #b4a5d6 0%, #d4b5c9 100%); color: #fff;
-    box-shadow: 0 2px 10px rgba(180,165,214,0.35);
-  }
-
-  /* Input bar */
-  #cw-input-bar {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.7rem 0.8rem;
-    background: #fff;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    flex-shrink: 0;
-  }
-  #cw-input {
-    flex: 1;
-    border: 1.5px solid rgba(0,0,0,0.08);
-    border-radius: 22px;
-    padding: 0.65rem 1rem;
-    font-size: 0.88rem;
-    font-family: inherit;
-    outline: none;
-    resize: none;
-    min-height: 40px;
-    max-height: 80px;
-    line-height: 1.4;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  #cw-input:focus {
-    border-color: rgba(180,165,214,0.45);
-    box-shadow: 0 0 0 3px rgba(180,165,214,0.15);
-  }
-  #cw-input::placeholder { color: #86868b; }
-
-  #cw-send {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: linear-gradient(135deg, #b4a5d6 0%, #d4b5c9 100%); color: #fff;
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 2px 6px rgba(180,165,214,0.3);
-  }
-  #cw-send:hover { background: linear-gradient(135deg, #a595c6 0%, #c4a5b9 100%); transform: scale(1.06); }
-  #cw-send:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .pc-writeback .pc-pen { color: #d4b5c9; margin-right: 0.2em; }
 
   /* Mobile */
   @media (max-width: 500px) {
-    #chat-widget-panel {
-      width: calc(100vw - 20px);
-      right: 10px;
-      bottom: 90px;
-      max-height: 70vh;
+    #postcard-panel {
+      width: calc(100vw - 24px);
+      right: 12px;
+      bottom: 92px;
     }
-    #chat-widget-bubble { bottom: 18px; right: 18px; width: 54px; height: 54px; }
-    #chat-widget-label  { bottom: 80px; right: 18px; }
+    #postcard-bubble {
+      bottom: 18px; right: 18px;
+      width: 56px; height: 56px;
+    }
+    #postcard-label { bottom: 82px; right: 18px; font-size: 0.9rem; }
+    .pc-paper { padding: 1.3rem 1.3rem 1.1rem; }
+    .pc-from { font-size: 1rem; }
+    .pc-body-text { font-size: 1rem; }
+    .pc-body { min-height: 120px; }
   }
   `;
 
@@ -271,205 +297,138 @@
   styleEl.textContent = css;
   document.head.appendChild(styleEl);
 
-  // ---- 2. Inject HTML ----
-  const wrapper = document.createElement('div');
-  wrapper.id = 'chat-widget-root';
-  wrapper.innerHTML = `
-    <button id="chat-widget-bubble" aria-label="Chat with Isfar">
-      <svg class="bubble-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      <svg class="bubble-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  // ---- 2. HTML ----
+  const wrap = document.createElement('div');
+  wrap.id = 'postcard-root';
+  wrap.innerHTML = `
+    <button id="postcard-bubble" aria-label="Open a postcard from Isfar" aria-expanded="false">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- stamp body -->
+        <rect x="3" y="3" width="58" height="58" rx="3" ry="3"
+              fill="#fdf6e8"
+              stroke="#a8b89a"
+              stroke-width="1.4"
+              stroke-dasharray="2 1.6"/>
+        <!-- inner frame -->
+        <rect x="9" y="9" width="46" height="46" rx="2" ry="2"
+              fill="none"
+              stroke="#a8b89a"
+              stroke-width="0.8"
+              opacity="0.55"/>
+        <!-- tiny pressed flower in center -->
+        <g transform="translate(32 32)" fill="#fdf6e8" stroke="#a8b89a" stroke-width="1.3">
+          <ellipse cx="0" cy="-8" rx="3.6" ry="5"/>
+          <ellipse cx="8" cy="0" rx="5" ry="3.6"/>
+          <ellipse cx="0" cy="8" rx="3.6" ry="5"/>
+          <ellipse cx="-8" cy="0" rx="5" ry="3.6"/>
+          <circle cx="0" cy="0" r="2.6" fill="#d4b5c9" stroke="none"/>
+        </g>
       </svg>
     </button>
-    <div id="chat-widget-label">Chat with Isfar</div>
+    <div id="postcard-label">a postcard from isfar</div>
 
-    <div id="chat-widget-panel">
-      <div class="cw-header">
-        <div class="cw-header-avatar">💬</div>
-        <div class="cw-header-text">
-          <h4>Chat with Isfar</h4>
-          <p>Ask about skills, projects, experience &amp; more</p>
+    <div id="postcard-panel" role="dialog" aria-label="A postcard from Isfar" aria-hidden="true">
+      <div class="pc-paper">
+        <button class="pc-close" aria-label="Close postcard">×</button>
+        <div class="pc-header">
+          <span class="pc-from"><span class="pc-mark">✿</span>a postcard from isfar</span>
+          <span class="pc-index" id="pc-index">no. 1 / ${POSTCARDS.length}</span>
         </div>
-      </div>
-
-      <div id="cw-messages">
-        <div class="cw-msg bot">
-          <div class="cw-msg-bubble">Hi! 👋 I'm an AI assistant for Isfar's portfolio. Ask me about her skills, projects, experience, or education!</div>
+        <div class="pc-body">
+          <p class="pc-body-text" id="pc-body-text">${POSTCARDS[0]}</p>
         </div>
-      </div>
-
-      <div id="cw-suggestions">
-        <div class="cw-chip">Skills</div>
-        <div class="cw-chip">Projects</div>
-        <div class="cw-chip">Experience</div>
-        <div class="cw-chip">Education</div>
-      </div>
-
-      <div id="cw-input-bar">
-        <textarea id="cw-input" placeholder="Type a message…" rows="1"></textarea>
-        <button id="cw-send" aria-label="Send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z"/><path d="m22 2-11 10"/></svg>
-        </button>
+        <div class="pc-signoff">xo, isfar</div>
+        <div class="pc-controls">
+          <button class="pc-arrow pc-prev" aria-label="Previous postcard">‹ prev</button>
+          <div class="pc-dots" id="pc-dots"></div>
+          <button class="pc-arrow pc-next" aria-label="Next postcard">next ›</button>
+        </div>
+        <a class="pc-writeback"
+           href="mailto:isfar.baset@gmail.com?subject=re%3A%20your%20postcard"
+           aria-label="Write back to Isfar by email">
+          <span class="pc-pen">✎</span>write back →
+        </a>
       </div>
     </div>
   `;
-  document.body.appendChild(wrapper);
+  document.body.appendChild(wrap);
 
-  // ---- 3. Load the chatbot AI class (chatbot.js) ----
-  // Resolve path relative to the current page
-  function resolveChatbotPath() {
-    const scripts = document.querySelectorAll('script[src*="chat-widget"]');
-    if (scripts.length) {
-      const src = scripts[scripts.length - 1].src;
-      return src.replace('chat-widget.js', 'chatbot.js');
-    }
-    // Fallback: assume same directory
-    return 'chatbot.js';
-  }
+  // ---- 3. Wire up ----
+  const bubble  = document.getElementById('postcard-bubble');
+  const panel   = document.getElementById('postcard-panel');
+  const closeBt = panel.querySelector('.pc-close');
+  const prevBt  = panel.querySelector('.pc-prev');
+  const nextBt  = panel.querySelector('.pc-next');
+  const bodyEl  = document.getElementById('pc-body-text');
+  const indexEl = document.getElementById('pc-index');
+  const dotsEl  = document.getElementById('pc-dots');
 
-  function ensureChatbotAI(callback) {
-    if (typeof IsfarChatbotAI !== 'undefined') {
-      callback();
-      return;
-    }
-    const s = document.createElement('script');
-    s.src = resolveChatbotPath();
-    s.onload = callback;
-    s.onerror = function () {
-      console.warn('⚠️ Could not load chatbot.js – widget will use a fallback.');
-      callback();
-    };
-    document.head.appendChild(s);
-  }
-
-  // ---- 4. Wire everything up ----
-  ensureChatbotAI(function () {
-    var ai;
-    try { ai = new IsfarChatbotAI(); } catch (e) { ai = null; }
-
-    var isProcessing = false;
-    var bubble = document.getElementById('chat-widget-bubble');
-    var panel  = document.getElementById('chat-widget-panel');
-    var msgBox = document.getElementById('cw-messages');
-    var input  = document.getElementById('cw-input');
-    var send   = document.getElementById('cw-send');
-    var chips  = document.querySelectorAll('.cw-chip');
-    var label  = document.getElementById('chat-widget-label');
-
-    // Show tooltip briefly on load
-    setTimeout(function () { label.classList.add('show'); }, 2000);
-    setTimeout(function () { label.classList.remove('show'); }, 5500);
-
-    // Toggle open/close
-    bubble.addEventListener('click', function () {
-      var isOpen = panel.classList.toggle('open');
-      bubble.classList.toggle('open', isOpen);
-      if (isOpen) input.focus();
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && panel.classList.contains('open')) {
-        panel.classList.remove('open');
-        bubble.classList.remove('open');
-      }
-    });
-
-    // Convert markdown-style text to clean HTML
-    function formatResponse(text) {
-      // Escape HTML entities first
-      var safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      // Bold: **text**
-      safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-      // Bullet lines: • item  →  <li>item</li>
-      safe = safe.replace(/^[•●]\s*(.+)$/gm, '<li>$1</li>');
-      // Wrap consecutive <li> items in <ul>
-      safe = safe.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
-      // Paragraph breaks: double newlines
-      safe = safe.replace(/\n{2,}/g, '</p><p>');
-      // Single newlines inside paragraphs → <br>
-      safe = safe.replace(/\n/g, '<br>');
-      // Wrap in paragraph tags
-      safe = '<p>' + safe + '</p>';
-      // Clean up empty paragraphs
-      safe = safe.replace(/<p>\s*<\/p>/g, '');
-      return safe;
-    }
-
-    // Add a message to the panel
-    function addMsg(text, type) {
-      var div = document.createElement('div');
-      div.className = 'cw-msg ' + type;
-      var bub = document.createElement('div');
-      bub.className = 'cw-msg-bubble';
-      if (type === 'bot') {
-        bub.innerHTML = formatResponse(text);
-      } else {
-        bub.textContent = text;
-      }
-      div.appendChild(bub);
-      msgBox.appendChild(div);
-      msgBox.scrollTop = msgBox.scrollHeight;
-      return div;
-    }
-
-    function addTyping() {
-      var div = document.createElement('div');
-      div.className = 'cw-msg bot';
-      div.innerHTML = '<div class="cw-msg-bubble"><div class="cw-typing"><span></span><span></span><span></span></div></div>';
-      msgBox.appendChild(div);
-      msgBox.scrollTop = msgBox.scrollHeight;
-      return div;
-    }
-
-    function handleSend() {
-      var text = input.value.trim();
-      if (!text || isProcessing) return;
-      isProcessing = true;
-
-      addMsg(text, 'user');
-      input.value = '';
-      input.style.height = '40px';
-
-      var typing = addTyping();
-
-      var delay = 600 + text.length * 20 + Math.random() * 400;
-      setTimeout(function () {
-        typing.remove();
-        var response;
-        if (ai) {
-          try { response = ai.generateResponse(text); } catch (e) { response = null; }
-        }
-        if (!response) {
-          response = "Thanks for your question! For the best experience, visit the full Chat with Isfar page. You can ask me about skills, projects, experience, or education.";
-        }
-        addMsg(response, 'bot');
-        isProcessing = false;
-      }, delay);
-    }
-
-    send.addEventListener('click', handleSend);
-
-    input.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        handleSend();
-      }
-    });
-
-    input.addEventListener('input', function () {
-      this.style.height = 'auto';
-      this.style.height = Math.min(this.scrollHeight, 80) + 'px';
-    });
-
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        if (isProcessing) return;
-        input.value = this.textContent.trim();
-        handleSend();
-      });
-    });
+  // Build dots
+  POSTCARDS.forEach((_, i) => {
+    const d = document.createElement('span');
+    d.className = 'pc-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'button');
+    d.setAttribute('aria-label', 'Go to postcard ' + (i + 1));
+    d.dataset.idx = String(i);
+    dotsEl.appendChild(d);
   });
+  const dotEls = dotsEl.querySelectorAll('.pc-dot');
+
+  let current = 0;
+  let isAnimating = false;
+
+  function renderCard(idx) {
+    if (isAnimating) return;
+    isAnimating = true;
+    bodyEl.classList.add('fading');
+    setTimeout(() => {
+      bodyEl.textContent = POSTCARDS[idx];
+      indexEl.textContent = 'no. ' + (idx + 1) + ' / ' + POSTCARDS.length;
+      dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+      bodyEl.classList.remove('fading');
+      isAnimating = false;
+    }, 250);
+    current = idx;
+  }
+
+  function nudge(delta) {
+    const next = (current + delta + POSTCARDS.length) % POSTCARDS.length;
+    renderCard(next);
+  }
+
+  function togglePanel(force) {
+    const open = typeof force === 'boolean'
+      ? force
+      : !panel.classList.contains('open');
+    panel.classList.toggle('open', open);
+    bubble.classList.toggle('open', open);
+    bubble.setAttribute('aria-expanded', String(open));
+    panel.setAttribute('aria-hidden', String(!open));
+  }
+
+  bubble.addEventListener('click', () => togglePanel());
+  closeBt.addEventListener('click', () => togglePanel(false));
+  prevBt.addEventListener('click', () => nudge(-1));
+  nextBt.addEventListener('click', () => nudge(1));
+
+  dotEls.forEach(d => {
+    d.addEventListener('click', () => renderCard(parseInt(d.dataset.idx, 10)));
+  });
+
+  // Keyboard: Esc closes, arrows navigate when open
+  document.addEventListener('keydown', (e) => {
+    if (!panel.classList.contains('open')) return;
+    if (e.key === 'Escape') togglePanel(false);
+    if (e.key === 'ArrowLeft')  nudge(-1);
+    if (e.key === 'ArrowRight') nudge(1);
+  });
+
+  // Start with a random card so each visit feels a little different
+  const startIdx = Math.floor(Math.random() * POSTCARDS.length);
+  if (startIdx !== 0) {
+    current = startIdx;
+    bodyEl.textContent = POSTCARDS[startIdx];
+    indexEl.textContent = 'no. ' + (startIdx + 1) + ' / ' + POSTCARDS.length;
+    dotEls.forEach((d, i) => d.classList.toggle('active', i === startIdx));
+  }
 })();
