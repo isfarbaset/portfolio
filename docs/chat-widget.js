@@ -13,7 +13,7 @@
     "this week i'm romanticizing 4pm coffee with a thick novel & the way the kitchen light goes peach right before it disappears.",
     "currently obsessed with: oat milk cortados, the smell of new paperback books, & pretending i'll one day learn portuguese.",
     "a stranger held the elevator & asked if i'd seen the magnolias on 14th street. i hadn't. they were extraordinary. that was the whole tuesday.",
-    "i think 'making a good chart' and 'making a good meal' use the same part of the brain — the part that wants to feed people.",
+    "i think 'making a good chart' and 'making a good meal' use the same part of the brain: the part that wants to feed people.",
     "the bookstore on the corner has a striped cat who has decided the philosophy section is hers. i respect her completely.",
     "weekend plan: paint something bad on purpose, walk somewhere new, leave my phone face-down. that's the whole list.",
     "the chai near my apartment doesn't quite taste like dhaka but it tries, & i love it for trying."
