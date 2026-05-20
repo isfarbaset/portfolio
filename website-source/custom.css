@@ -568,42 +568,50 @@ section.project-content {
   .hero-section {
     padding: 6rem 2rem !important;
   }
-  
+
   .projects-section {
-    padding: 6rem 2rem !important;
+    padding: 5rem 1rem !important;
   }
-  
+
   .project-grid {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
   }
-  
+
   .project-card {
     background: white !important;
+    max-width: none !important;
   }
-  
+
   .project-image {
-    height: 300px !important;
+    height: 160px !important;
     margin-bottom: 0 !important;
   }
-  
+
   /* Remove all spacing from the paragraph containing the image */
   .project-image p {
     margin: 0 !important;
     padding: 0 !important;
   }
-  
+
   .project-content,
   section.project-content {
-    padding: 2rem 1.5rem !important;
+    padding: 1rem 1rem !important;
     margin-top: 0 !important;
-    padding-top: 2rem !important;
+    padding-top: 1rem !important;
     background: white !important;
   }
-  
+
   .project-content h3 {
     margin-top: 0 !important;
     padding-top: 0 !important;
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .project-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
   }
 }
 
