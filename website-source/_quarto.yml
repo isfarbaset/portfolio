@@ -17,6 +17,8 @@ website:
       - text: "Projects"
         href: "index.qmd#projects"
         menu:
+          - text: "Almanac"
+            href: "https://isfarbaset.github.io/almanac/"
           - text: "Air Quality Intelligence"
             href: "aqi.qmd"
           - text: "Defying Analytics: Wicked"

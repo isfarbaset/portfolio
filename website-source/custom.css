@@ -323,9 +323,9 @@ p {
    ============================================ */
 
 .projects-section {
-  padding: 10rem 4rem !important;
+  padding: 8rem 2rem !important;
   background: #faf8f5 !important;
-  max-width: 1800px;
+  max-width: 2200px;
   margin: 0 auto;
 }
 
@@ -354,8 +354,8 @@ p {
 
 .project-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
-  gap: 5rem 4rem !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 3rem 2.5rem !important;
   margin-top: 5rem;
 }
 
@@ -372,6 +372,9 @@ p {
   display: flex;
   flex-direction: column;
   gap: 0 !important;
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
 }
 
 .project-card > * {
@@ -391,7 +394,7 @@ p {
 }
 
 .project-image {
-  height: 400px !important;
+  height: 320px !important;
   overflow: hidden;
   position: relative;
   background: linear-gradient(135deg, #f5f3f0 0%, #ebe7e3 100%);
@@ -400,40 +403,18 @@ p {
 }
 
 /* Project-specific colors for titles */
-/* FMBench Assistant - AI/Tech theme - Deep blue */
-.project-card:nth-child(1) .project-content h3 a {
-  color: #4a5fd9 !important;
-}
+.project-card:nth-child(1) .project-content h3 a { color: #b56576 !important; }
+.project-card:nth-child(2) .project-content h3 a { color: #5f7a5e !important; }
+.project-card:nth-child(3) .project-content h3 a { color: #4a5fd9 !important; }
+.project-card:nth-child(4) .project-content h3 a { color: #e50914 !important; }
+.project-card:nth-child(5) .project-content h3 a { color: #6e40c9 !important; }
+.project-card:nth-child(6) .project-content h3 a { color: #ff6b6b !important; }
+.project-card:nth-child(7) .project-content h3 a { color: #3b82f6 !important; }
+.project-card:nth-child(8) .project-content h3 a { color: #10b981 !important; }
+.project-card:nth-child(9) .project-content h3 a { color: #f97316 !important; }
+.project-card:nth-child(10) .project-content h3 a { color: #14b8a6 !important; }
+.project-card:nth-child(11) .project-content h3 a { color: #ec4899 !important; }
 
-/* Wicked/Spotify - Music/Entertainment theme - Warm coral */
-.project-card:nth-child(2) .project-content h3 a {
-  color: #ff6b6b !important;
-}
-
-/* US Insights - Data/Analytics theme - Deep blue */
-.project-card:nth-child(3) .project-content h3 a {
-  color: #3b82f6 !important;
-}
-
-/* Temp Talk - Climate/Nature theme - Forest green */
-.project-card:nth-child(4) .project-content h3 a {
-  color: #10b981 !important;
-}
-
-/* Beats and Bytes - Music/ML theme - Orange */
-.project-card:nth-child(5) .project-content h3 a {
-  color: #f97316 !important;
-}
-
-/* EV Insights - Electric/Environmental theme - Teal */
-.project-card:nth-child(6) .project-content h3 a {
-  color: #14b8a6 !important;
-}
-
-/* Air Quality Intelligence - Health/Environment theme - Rose */
-.project-card:nth-child(7) .project-content h3 a {
-  color: #ec4899 !important;
-}
 
 .project-image img {
   width: 100%;
@@ -508,10 +489,10 @@ p {
 
 .project-content,
 section.project-content {
-  padding: 2.5rem 2.5rem !important;
+  padding: 1.75rem 2rem !important;
   background: white !important;
   margin: 0 !important;
-  padding-top: 2.5rem !important;
+  padding-top: 1.75rem !important;
 }
 
 /* Remove h3 styling override - titles are now visible in project-content */

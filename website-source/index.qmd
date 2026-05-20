@@ -40,6 +40,32 @@ Specializing in machine learning, data visualization, and conversational AI syst
 
 ::: {.project-card}
 ::: {.project-image}
+![](images/almanac-cal.jpeg)
+:::
+::: {.project-content}
+### [Almanac](https://isfarbaset.github.io/almanac/)
+A private, local-only menstrual tracker. No accounts, no servers, no ads — period data stays in your browser via IndexedDB. Built after watching Flo get fined by the FTC for handing health data to Facebook.
+
+**Tech Stack:** React • IndexedDB • PWA • Vite  
+**Key Feature:** Weighted next-period prediction with a confidence window instead of a fake-precise single date
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
+![](images/dmv-blooms.jpg)
+:::
+::: {.project-content}
+### [DMV Blooms](https://isfarbaset.github.io/dmv-blooms/)
+A seasonal field guide to flowers across DC, Maryland, and Virginia. Find what's peaking right now and where to chase it — cherry blossoms, bluebells, lotus, lavender, and nine more, mapped across 28 spots.
+
+**Tech Stack:** JavaScript • Interactive Map • Quarto • CSS  
+**Key Feature:** Weekend picks driven by live bloom status, plus a full-year calendar for planning ahead
+:::
+:::
+
+::: {.project-card}
+::: {.project-image}
 ![](images/DTS_JELLY_(MISC)_JELLY_LUISE_Photos_ID10196.jpg)
 :::
 ::: {.project-content}
