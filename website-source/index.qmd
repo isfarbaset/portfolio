@@ -44,10 +44,7 @@ Specializing in machine learning, data visualization, and conversational AI syst
 :::
 ::: {.project-content}
 ### [Almanac](https://isfarbaset.github.io/almanac/)
-A private, local-only menstrual tracker. No accounts, no servers, no ads — period data stays in your browser via IndexedDB. Built after watching Flo get fined by the FTC for handing health data to Facebook.
-
-**Tech Stack:** React • IndexedDB • PWA • Vite  
-**Key Feature:** Weighted next-period prediction with a confidence window instead of a fake-precise single date
+A private, local-only menstrual tracker. No accounts, no servers — period data never leaves your browser.
 :::
 :::
 
@@ -57,10 +54,7 @@ A private, local-only menstrual tracker. No accounts, no servers, no ads — per
 :::
 ::: {.project-content}
 ### [DMV Blooms](https://isfarbaset.github.io/dmv-blooms/)
-A seasonal field guide to flowers across DC, Maryland, and Virginia. Find what's peaking right now and where to chase it — cherry blossoms, bluebells, lotus, lavender, and nine more, mapped across 28 spots.
-
-**Tech Stack:** JavaScript • Interactive Map • Quarto • CSS  
-**Key Feature:** Weekend picks driven by live bloom status, plus a full-year calendar for planning ahead
+A seasonal field guide to flowers across DC, Maryland, and Virginia. Find what's peaking now and where to go see it.
 :::
 :::
 
@@ -70,7 +64,7 @@ A seasonal field guide to flowers across DC, Maryland, and Virginia. Find what's
 :::
 ::: {.project-content}
 ### [FMBench Assistant](https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161)
-A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.
+A conversational AI assistant for Foundation Model Benchmarking, built on Amazon Bedrock, AWS Lambda, and LangGraph.
 :::
 :::
 
@@ -80,9 +74,7 @@ A conversational AI assistant for Foundation Model Benchmarking built with Amazo
 :::
 ::: {.project-content}
 ### [Netflix Recap](https://isfarbaset.github.io/netflix-recap/)
-A personalized Netflix viewing analytics dashboard that transforms your watch history into beautiful insights. Discover your viewing patterns, favorite genres, binge-watching habits, and more through interactive visualizations.
-
-**Tech Stack:** Python • Data Visualization • Pandas • Interactive Dashboard
+A personalized Netflix dashboard that turns your watch history into viewing patterns, top genres, and binge stats.
 :::
 :::
 
@@ -92,9 +84,7 @@ A personalized Netflix viewing analytics dashboard that transforms your watch hi
 :::
 ::: {.project-content}
 ### [GitHub Insights](https://isfarbaset.github.io/github-insights/)
-Generate your own GitHub stats card. Enter any username and get a downloadable PNG with lifetime stats, streaks, top repos, coding activity breakdowns, developer personality badges, and more — ready to share on LinkedIn or add to your portfolio.
-
-**Tech Stack:** JavaScript • CSS • GitHub API • HTML Canvas • Quarto
+Enter any username and get a shareable PNG with lifetime stats, streaks, top repos, and activity breakdowns.
 :::
 :::
 
@@ -104,10 +94,7 @@ Generate your own GitHub stats card. Enter any username and get a downloadable P
 :::
 ::: {.project-content}
 ### [Defying Analytics: What Spotify Reveals About Wicked](wicked.html)
-Twenty years after its Broadway debut, Wicked's soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.
-
-**Tech Stack:** Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto  
-**Key Finding:** Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers
+Twenty years on, Wicked's soundtrack still dominates Spotify. I analyzed all 28 tracks — most of what the industry says about hits is wrong.
 :::
 :::
 
@@ -117,7 +104,7 @@ Twenty years after its Broadway debut, Wicked's soundtrack still dominates Spoti
 :::
 ::: {.project-content}
 ### [US Insights](https://isfarbaset.github.io/fall-2024-project-team-29/)
-Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.
+Sentiment patterns across U.S. states, sourced from Reddit conversations. See what states talk about and how the tone varies.
 :::
 :::
 
@@ -127,7 +114,7 @@ Analyzing sentiment patterns across U.S. states based on Reddit conversations. D
 :::
 ::: {.project-content}
 ### [Temp Talk](https://isfarbaset.github.io/story-project/)
-Exploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.
+Climate trends in Southeastern Utah's National Parks — heat, soil, evaporation, and precipitation patterns shaping the region.
 :::
 :::
 
@@ -137,7 +124,7 @@ Exploring climate trends in Southeastern Utah National Parks and their impacts o
 :::
 ::: {.project-content}
 ### [Beats and Bytes](Group37_final_Report.html)
-Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.
+The intersection of music and machine learning — patterns in popular music via data analysis and predictive models.
 :::
 :::
 
@@ -147,7 +134,7 @@ Exploring the intersection of music and machine learning. Discover patterns in p
 :::
 ::: {.project-content}
 ### [EV Insights](https://isfarbaset.github.io/ev-insights/)
-Examining EVs' environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.
+EVs' environmental impact, market share, and performance vs. gas cars — analyzed with Naïve Bayes, clustering, and decision trees.
 :::
 :::
 
@@ -157,10 +144,7 @@ Examining EVs' environmental impact, market share, and performance compared to g
 :::
 ::: {.project-content}
 ### [Air Quality Intelligence](aqi.html)
-A Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.
-
-**Tech Stack:** Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas  
-**Key Feature:** Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning
+A Gen AI agent for real-time air quality monitoring. Ask in natural language and get health advice tailored to your conditions.
 :::
 :::
 
