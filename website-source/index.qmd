@@ -41,7 +41,7 @@ Specializing in machine learning, data visualization, and conversational AI syst
 
 ::: {.project-card}
 ::: {.project-image}
-![](images/almanac-cal.jpeg)
+![](images/almanac.jpg)
 :::
 ::: {.project-content}
 ### [Almanac](https://isfarbaset.github.io/almanac/)
