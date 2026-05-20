@@ -352,11 +352,68 @@ p {
   background: linear-gradient(90deg, transparent, #1a1a1a, transparent);
 }
 
-.project-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 3rem 2.5rem !important;
+.projects-carousel-wrap {
+  position: relative;
   margin-top: 5rem;
+}
+
+.project-grid {
+  display: flex !important;
+  gap: 2rem !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem 0.5rem 2rem !important;
+  margin: 0 !important;
+}
+
+.project-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: calc(50% - 1rem);
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-bottom: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-btn:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
+}
+
+.carousel-btn:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-prev {
+  left: -1.25rem;
+}
+
+.carousel-next {
+  right: -1.25rem;
 }
 
 .project-card {
@@ -372,9 +429,10 @@ p {
   display: flex;
   flex-direction: column;
   gap: 0 !important;
-  width: 100%;
-  max-width: 520px;
-  justify-self: center;
+  flex: 0 0 420px;
+  width: 420px;
+  max-width: 420px;
+  scroll-snap-align: start;
 }
 
 .project-card > * {
@@ -574,18 +632,34 @@ section.project-content {
   }
 
   .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 1rem !important;
+    padding: 0.5rem 1rem 1.5rem !important;
   }
 
   .project-card {
     background: white !important;
-    max-width: none !important;
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 82vw !important;
   }
 
   .project-image {
-    height: 160px !important;
+    height: 200px !important;
     margin-bottom: 0 !important;
+  }
+
+  .carousel-btn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.5rem !important;
+  }
+
+  .carousel-prev {
+    left: 0.25rem !important;
+  }
+
+  .carousel-next {
+    right: 0.25rem !important;
   }
 
   /* Remove all spacing from the paragraph containing the image */
