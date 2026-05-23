@@ -238,26 +238,65 @@
       );
     }
 
+    function MobileProjectCard({ project }) {
+      return (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-md overflow-hidden border border-border/70 bg-background shadow-sm active:scale-[0.99] transition-transform"
+        >
+          <div className="aspect-[16/10] overflow-hidden bg-neutral-200">
+            <img alt={project.title} src={project.src} className="h-full w-full object-cover" />
+          </div>
+          <div className="p-3.5">
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 block">{project.kicker}</span>
+            <h4 className="font-display text-lg font-black text-foreground leading-tight mb-1">{project.title}</h4>
+            <p className="text-[13px] text-foreground/75 leading-snug">{project.description}</p>
+            <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
+              View project
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      );
+    }
+
     function RevealRow({ text, projects }) {
       const containerBase = "absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40";
       return (
-        <div className="group relative w-full min-h-[12rem] flex items-center overflow-visible">
-          <h2 className="font-display text-5xl sm:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-25 group-hover:tracking-tight pointer-events-none relative z-10">
-            {text}
-          </h2>
-          <div className={cn(containerBase, "z-30")}>
-            <RevealCard project={projects[1]} />
+        <>
+          {/* Mobile: stacked cards, no hover needed */}
+          <div className="sm:hidden py-5 border-b border-border/50 last:border-0">
+            <h2 className="font-display text-3xl font-black text-foreground leading-tight mb-4">
+              {text}
+            </h2>
+            <div className="grid grid-cols-1 gap-3">
+              {projects.map((p, i) => (
+                <MobileProjectCard key={i} project={p} />
+              ))}
+            </div>
           </div>
-          <div
-            className={cn(containerBase,
-              "z-40 translate-x-0 rotate-0",
-              "group-hover:-translate-x-[15.5rem] sm:group-hover:-translate-x-[17.5rem] group-hover:rotate-[-3deg]",
-              "transition-all duration-500 delay-150")}
-            style={{ transformOrigin: "right center" }}
-          >
-            <RevealCard project={projects[0]} durationClass="duration-200" />
+
+          {/* Desktop: hover-reveal */}
+          <div className="hidden sm:flex group relative w-full min-h-[12rem] items-center overflow-visible">
+            <h2 className="font-display text-5xl sm:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-25 group-hover:tracking-tight pointer-events-none relative z-10">
+              {text}
+            </h2>
+            <div className={cn(containerBase, "z-30")}>
+              <RevealCard project={projects[1]} />
+            </div>
+            <div
+              className={cn(containerBase,
+                "z-40 translate-x-0 rotate-0",
+                "group-hover:-translate-x-[15.5rem] sm:group-hover:-translate-x-[17.5rem] group-hover:rotate-[-3deg]",
+                "transition-all duration-500 delay-150")}
+              style={{ transformOrigin: "right center" }}
+            >
+              <RevealCard project={projects[0]} durationClass="duration-200" />
+            </div>
           </div>
-        </div>
+        </>
       );
     }
 
@@ -301,7 +340,7 @@
       ];
 
       return (
-        <div className="flex flex-col gap-1 rounded-sm bg-background px-6 sm:px-10 py-8">
+        <div className="flex flex-col gap-1 rounded-sm bg-background px-4 sm:px-10 py-6 sm:py-8">
           <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-2">
             What I work on
           </h3>
@@ -416,7 +455,8 @@
                   </h2>
                 </div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground max-w-xs">
-                  Hover any category — peek at the work. Click a card to open the project.
+                  <span className="hidden sm:inline">Hover any category, peek at the work. Click a card to open the project.</span>
+                  <span className="sm:hidden">Tap any card to open the project.</span>
                 </p>
               </div>
 
