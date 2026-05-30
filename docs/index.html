@@ -53,7 +53,7 @@
     /* animated role text */
     .roll-mask { display: inline-block; vertical-align: baseline; height: 1em; overflow: hidden; line-height: 1; }
     .roll-track { display: flex; flex-direction: column; transition: transform 600ms cubic-bezier(.6,.05,.2,1); }
-    .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; }
+    .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; white-space: nowrap; }
     /* hide caption on touch — prevents sticky hover */
     @media (hover: none) {
       .reveal-caption { opacity: 1 !important; transform: none !important; }
