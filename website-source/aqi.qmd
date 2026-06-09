@@ -574,7 +574,7 @@ pip install aiohttp
 ```
 
 ### Get API Key
-1. Sign up at [API Ninjas](https://api.api-ninjas.com)
+1. Sign up at [API Ninjas](https://api-ninjas.com)
 2. Get your free API key
 3. Set environment variable:
 ```bash
