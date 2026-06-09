@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/isfar-about.png" width="130" alt="Isfar Baset" />
+<img src="docs/images/isfar-about-circle.png" width="130" alt="Isfar Baset" />
 
 # Isfar Baset
 
