@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Isfar Baset — Data &amp; AI Portfolio</title>
-  <meta name="description" content="Isfar Baset · Data Analyst & Data Scientist · Building tailored data and AI systems that translate research into real-world impact." />
+  <title>Isfar Baset · Data &amp; AI Portfolio</title>
+  <meta name="description" content="Isfar Baset · Data analyst and data scientist in Northern Virginia. I build ML systems and explain them in plain English." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
       --foreground: 24 10% 10%;
       --muted-foreground: 24 6% 38%;
       --border: 24 8% 86%;
-      /* sage-green / sea-blue accent — between green and blue */
+      /* sage-green / sea-blue accent, between green and blue */
       --accent: 192 32% 38%;
       --accent-2: 165 22% 42%;
     }
@@ -54,7 +54,7 @@
     .roll-mask { display: inline-block; vertical-align: baseline; height: 1em; overflow: hidden; line-height: 1; }
     .roll-track { display: flex; flex-direction: column; transition: transform 600ms cubic-bezier(.6,.05,.2,1); }
     .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; white-space: nowrap; }
-    /* hide caption on touch — prevents sticky hover */
+    /* hide caption on touch, prevents sticky hover */
     @media (hover: none) {
       .reveal-caption { opacity: 1 !important; transform: none !important; }
     }
@@ -68,8 +68,8 @@
     .marquee-track { animation: marquee 30s linear infinite; }
   </style>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body class="min-h-screen paper-grain">
@@ -97,7 +97,7 @@
         )}>
           <div className="mx-auto max-w-5xl px-6 sm:px-10 py-4 flex items-center justify-between">
             <a href="#top" className="font-display font-black tracking-tight text-lg">
-              Isfar<span data-comment-anchor="cc-1" className="text-[hsl(var(--accent))]">.</span>
+              Isfar<span className="text-[hsl(var(--accent))]">.</span>
             </a>
             <div className="flex items-center gap-6 sm:gap-8">
               <a className={link} href="#work">Work</a>
@@ -111,7 +111,7 @@
 
     /* ---------- Animated role roller ---------- */
     function RoleRoller() {
-      const roles = ["Data Analyst", "Data Scientist", "ML Engineer", "AI Builder", "Storyteller", "Curious Human", "Problem Solver", "Lifelong Learner", "Chronic Overthinker", "Serial Daydreamer", "Caffeine Enthusiast", "Espresso Apologist"];
+      const roles = ["Data Analyst", "Data Scientist", "ML Engineer", "Storyteller", "Chronic Overthinker", "Espresso Apologist"];
       const [i, setI] = useState(0);
       useEffect(() => {
         const id = setInterval(() => setI(p => (p + 1) % roles.length), 2200);
@@ -121,7 +121,7 @@
         <span className="roll-mask align-baseline">
           <span className="roll-track" style={{ transform: `translateY(-${i}em)` }}>
             {roles.map((r, idx) => (
-              <span key={idx} data-comment-anchor="cc-1" className="text-[hsl(var(--accent))] italic">{r}</span>
+              <span key={idx} className="text-[hsl(var(--accent))] italic">{r}</span>
             ))}
             <span className="text-[hsl(var(--accent))] italic">{roles[0]}</span>
           </span>
@@ -149,7 +149,7 @@
 
               <p className="mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
                 Data Analyst II at Shift Digital, Master's in Data Science from Georgetown ('25).
-                I make tailored ML systems and tell stories with the numbers behind them.
+                I build ML systems and tell stories with the numbers behind them.
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -169,7 +169,7 @@
             {/* portrait */}
             <div className="relative justify-self-start md:justify-self-end">
               <div className="absolute -inset-3 bg-gradient-to-br from-[hsl(var(--accent))]/20 to-transparent rounded-full blur-2xl"></div>
-              <img src="images/isfar-about.png" alt="Isfar Baset" data-comment-anchor="cc-2"
+              <img src="images/isfar-about.png" alt="Isfar Baset"
                 className="relative w-80 sm:w-[28rem] md:w-[34rem] max-w-full aspect-square object-cover rounded-full border border-border shadow-md" />
               <span className="absolute -bottom-3 -left-3 bg-background border border-border rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70">
                 ✦ hi there
@@ -305,35 +305,35 @@
         {
           text: "Machine Learning",
           projects: [
-            { kicker: "Spotify · Plotly · scikit-learn", title: "Defying Analytics", description: "What 20 years of Wicked streaming data reveals about what actually makes a song stick. Length doesn't matter — vulnerability does.", src: "images/wicked.jpg", href: "wicked.html" },
-            { kicker: "Python · ML · Spotify API", title: "Beats and Bytes", description: "Patterns in popular music through analysis, visualizations, and predictive models — what audio features actually predict popularity.", src: "images/beat-bytes.jpg", href: "Group37_final_Report.html" },
+            { kicker: "Spotify · Plotly · scikit-learn", title: "Defying Analytics", description: "What 20 years of Wicked streaming data reveals about what makes a song stick. Length doesn't matter. Vulnerability does.", src: "images/wicked.jpg", href: "wicked.html" },
+            { kicker: "Python · ML · Spotify API", title: "Beats and Bytes", description: "Patterns in popular music through analysis, visualizations, and predictive models: which audio features predict popularity.", src: "images/beat-bytes.jpg", href: "Group37_final_Report.html" },
           ],
         },
         {
           text: "Conversational AI",
           projects: [
             { kicker: "Bedrock · LangGraph · Lambda", title: "FMBench Assistant", description: "A conversational AI that walks users through foundation-model benchmarking choices in natural dialogue instead of dense docs.", src: "images/fmbench.jpg", href: "https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161" },
-            { kicker: "GPT-4 · MCP · Async Python", title: "Air Quality Intelligence", description: "Ask about air quality in any city and get health-aware advice for jogging, cycling, travel — built on a custom MCP server.", src: "images/aqi.jpg", href: "aqi.html" },
+            { kicker: "GPT-4 · MCP · Async Python", title: "Air Quality Intelligence", description: "Ask about air quality in any city and get health-aware advice for jogging, cycling, travel, built on a custom MCP server.", src: "images/aqi.jpg", href: "aqi.html" },
           ],
         },
         {
           text: "Data Storytelling",
           projects: [
-            { kicker: "Python · Pandas · Dashboards", title: "Netflix Recap", description: "Turn your Netflix watch history into a personal year-in-review — viewing patterns, binge habits, and genre obsessions, visualized.", src: "images/netflix.png", href: "https://isfarbaset.github.io/netflix-recap/" },
-            { kicker: "GitHub API · Canvas · JS", title: "GitHub Insights", description: "Drop in a username, get a downloadable stats card — lifetime activity, streaks, top repos, and developer-personality badges.", src: "images/git-insights.png", href: "https://isfarbaset.github.io/github-insights/" },
+            { kicker: "Python · Pandas · Dashboards", title: "Netflix Recap", description: "Turn your Netflix watch history into a personal year-in-review: viewing patterns, binge habits, and genre obsessions, visualized.", src: "images/netflix.png", href: "https://isfarbaset.github.io/netflix-recap/" },
+            { kicker: "GitHub API · Canvas · JS", title: "GitHub Insights", description: "Drop in a username, get a downloadable stats card: lifetime activity, streaks, top repos, and developer-personality badges.", src: "images/git-insights.png", href: "https://isfarbaset.github.io/github-insights/" },
           ],
         },
         {
           text: "Web Apps",
           projects: [
-            { kicker: "React · IndexedDB · PWA", title: "Almanac", description: "A private, local-only menstrual tracker. No accounts, no servers — period data stays in your browser. Built post-FTC-Flo.", src: "images/almanac.jpg", href: "https://isfarbaset.github.io/almanac/" },
-            { kicker: "JS · Quarto · Interactive Map", title: "DMV Blooms", description: "A seasonal field guide to flowers across DC, Maryland & Virginia — what's peaking now and where to chase it across 28 spots.", src: "images/dmv-blooms.jpg", href: "https://isfarbaset.github.io/dmv-blooms/" },
+            { kicker: "React · IndexedDB · PWA", title: "Almanac", description: "A private, local-only menstrual tracker. No accounts, no servers; period data stays in your browser. Built post-FTC-Flo.", src: "images/almanac.jpg", href: "https://isfarbaset.github.io/almanac/" },
+            { kicker: "JS · Quarto · Interactive Map", title: "DMV Blooms", description: "A seasonal field guide to flowers across DC, Maryland & Virginia: what's peaking now and where to chase it across 28 spots.", src: "images/dmv-blooms.jpg", href: "https://isfarbaset.github.io/dmv-blooms/" },
           ],
         },
         {
           text: "Analytics",
           projects: [
-            { kicker: "NLP · Sentiment · Reddit", title: "US Insights", description: "Sentiment patterns across U.S. states based on Reddit conversations — what each state is talking about and how it feels.", src: "images/us-insights.jpg", href: "https://isfarbaset.github.io/fall-2024-project-team-29/" },
+            { kicker: "NLP · Sentiment · Reddit", title: "US Insights", description: "Sentiment patterns across U.S. states based on Reddit conversations: what each state is talking about and how it feels.", src: "images/us-insights.jpg", href: "https://isfarbaset.github.io/fall-2024-project-team-29/" },
             { kicker: "Climate · Time Series", title: "Temp Talk", description: "Climate trends across Southeastern Utah national parks and their impact on heat, soil, evaporation, and precipitation cycles.", src: "images/temp-talk.jpg", href: "https://isfarbaset.github.io/story-project/" },
           ],
         },
@@ -368,13 +368,13 @@
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">About</p>
             <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] mb-6">
-              Hi, I'm Isfar. <span className="text-muted-foreground">I build data &amp; AI systems that translate research into real-world impact.</span>
+              Hi, I'm Isfar. <span className="text-muted-foreground">I turn research-grade models into things people use.</span>
             </h2>
             <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-4">
               Originally from <strong className="font-semibold text-foreground">Dhaka</strong>, now in Northern Virginia. I'm a <strong className="font-semibold text-foreground">Data Analyst II</strong> at Shift Digital, where I work on analytics for enterprise clients, and I hold a <strong className="font-semibold text-foreground">Master's in Data Science &amp; Analytics</strong> from Georgetown ('25).
             </p>
             <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-8">
-              My favorite work lives at the intersection of <em>tailored algorithms</em> and <em>plain-English storytelling</em> — building models that solve specific business problems, and explaining them in a way non-technical stakeholders can actually act on. Off-keyboard I'm usually in a café, painting, reading, or chasing a new cuisine.
+              My favorite work sits between <em>modeling</em> and <em>storytelling</em>: building a model for a specific business problem, then explaining it so the non-technical folks in the room can make a call. Off-keyboard I'm usually in a café, painting, reading, or chasing a new cuisine.
             </p>
 
             {/* Skills grid */}
@@ -471,7 +471,7 @@
 
           <footer className="border-t border-border/70 mt-10">
             <div className="mx-auto max-w-5xl px-6 sm:px-10 py-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
-              <span>© {new Date().getFullYear()} Isfar Baset · Built with coffee &amp; care.</span>
+              <span>© {new Date().getFullYear()} Isfar Baset</span>
               <div className="flex gap-5">
                 <a className="hover:text-foreground transition-colors" href="https://www.linkedin.com/in/isfarbaset/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a className="hover:text-foreground transition-colors" href="https://github.com/isfarbaset" target="_blank" rel="noopener noreferrer">GitHub</a>
