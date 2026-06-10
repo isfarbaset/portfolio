@@ -263,7 +263,7 @@
     }
 
     function RevealRow({ text, projects }) {
-      const containerBase = "absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40";
+      const containerBase = "absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20";
       return (
         <>
           {/* Mobile: stacked cards, no hover needed */}
@@ -283,18 +283,22 @@
             <h2 className="font-display text-5xl sm:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-25 group-hover:tracking-tight pointer-events-none relative z-10">
               {text}
             </h2>
-            <div className={cn(containerBase, "z-30")}>
-              <RevealCard project={projects[1]} />
-            </div>
-            <div
-              className={cn(containerBase,
-                "z-40 translate-x-0 rotate-0",
+            {[...projects].reverse().map((p, off) => {
+              const shift = [
+                "",
                 "group-hover:-translate-x-[15.5rem] sm:group-hover:-translate-x-[17.5rem] group-hover:rotate-[-3deg]",
-                "transition-all duration-500 delay-150")}
-              style={{ transformOrigin: "right center" }}
-            >
-              <RevealCard project={projects[0]} durationClass="duration-200" />
-            </div>
+                "group-hover:-translate-x-[31rem] sm:group-hover:-translate-x-[35rem] group-hover:rotate-[-5deg]",
+              ][off];
+              return (
+                <div key={off}
+                  className={cn(containerBase, "translate-x-0 rotate-0", shift,
+                    "transition-all duration-500", off === 1 ? "delay-150" : off === 2 ? "delay-200" : "")}
+                  style={{ transformOrigin: "right center" }}
+                >
+                  <RevealCard project={p} durationClass={off > 0 ? "duration-200" : undefined} />
+                </div>
+              );
+            })}
           </div>
         </>
       );
@@ -335,6 +339,7 @@
           projects: [
             { kicker: "NLP · Sentiment · Reddit", title: "US Insights", description: "Sentiment patterns across U.S. states based on Reddit conversations: what each state is talking about and how it feels.", src: "images/us-insights.jpg", href: "https://isfarbaset.github.io/fall-2024-project-team-29/" },
             { kicker: "Climate · Time Series", title: "Temp Talk", description: "Climate trends across Southeastern Utah national parks and their impact on heat, soil, evaporation, and precipitation cycles.", src: "images/temp-talk.jpg", href: "https://isfarbaset.github.io/story-project/" },
+            { kicker: "EVs · ML · Market Data", title: "EV Insights", description: "Electric vehicles vs gas cars: environmental impact, market share, and performance, explored with the classic ML toolkit.", src: "images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg", href: "https://isfarbaset.github.io/ev-insights/" },
           ],
         },
       ];
