@@ -22,7 +22,7 @@ Data Analyst II @ Shift Digital &nbsp;·&nbsp; MS Data Science, Georgetown ('25)
 
 ## What this is
 
-My portfolio. One hand-built page, ten projects, and a running theme: take something technical, make it useful, explain it like a human. Originally from Dhaka, now based in the DMV, which explains at least two of the projects below.
+My portfolio. One hand-built page, eleven projects, and a running theme: take something technical, make it useful, explain it like a human. Originally from Dhaka, now based in the DMV, which explains at least two of the projects below.
 
 <br/>
 
@@ -98,6 +98,15 @@ My portfolio. One hand-built page, ten projects, and a running theme: take somet
       <sup>CLIMATE · TIME SERIES</sup>
       <p>Climate trends across Southeastern Utah's national parks: heat, soil, evaporation, and precipitation, told as a story.</p>
     </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://isfarbaset.github.io/ev-insights/"><img src="docs/images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg" alt="EV Insights" /></a>
+      <h3><a href="https://isfarbaset.github.io/ev-insights/">EV Insights</a></h3>
+      <sup>EVS · ML · MARKET DATA</sup>
+      <p>Electric vehicles vs gas cars: environmental impact, market share, and performance, explored with the classic ML toolkit.</p>
+    </td>
+    <td width="50%" valign="top"></td>
   </tr>
 </table>
 
