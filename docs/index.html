@@ -421,16 +421,16 @@
       const p = pieces[index];
       return (
         <div onClick={() => setIndex(null)}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-10 bg-black/85 backdrop-blur-sm">
+          className="fixed inset-0 z-[100] flex items-center justify-center px-14 py-6 sm:p-10 bg-black/85 backdrop-blur-sm">
           <button aria-label="Close" onClick={() => setIndex(null)}
-            className="absolute top-4 right-5 text-white/80 hover:text-white text-3xl leading-none font-light">×</button>
+            className="absolute top-3 right-3 sm:top-4 sm:right-5 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-2xl leading-none transition-colors">×</button>
           <button aria-label="Previous" onClick={(e) => { e.stopPropagation(); setIndex(i => (i - 1 + pieces.length) % pieces.length); }}
-            className="absolute left-2 sm:left-6 text-white/70 hover:text-white text-4xl leading-none px-2">‹</button>
+            className="absolute left-2 sm:left-6 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-3xl leading-none pb-1 transition-colors">‹</button>
           <button aria-label="Next" onClick={(e) => { e.stopPropagation(); setIndex(i => (i + 1) % pieces.length); }}
-            className="absolute right-2 sm:right-6 text-white/70 hover:text-white text-4xl leading-none px-2">›</button>
+            className="absolute right-2 sm:right-6 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-3xl leading-none pb-1 transition-colors">›</button>
           <figure onClick={(e) => e.stopPropagation()} className="max-w-3xl max-h-[88vh] flex flex-col items-center m-0">
             <img src={p.src} alt={p.title}
-              className="max-h-[76vh] w-auto max-w-full rounded-md shadow-2xl object-contain" />
+              className="max-h-[68vh] sm:max-h-[76vh] w-auto max-w-full rounded-md shadow-2xl object-contain" />
             <figcaption className="mt-4 text-center">
               <span className="font-display text-lg font-black text-white">{p.title}</span>
               <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-white/60 mt-1">{p.medium}</span>
@@ -487,7 +487,9 @@
       }, [index]);
 
       const current = pieces[index];
-      const arrow = "absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center border border-border/70 bg-background/90 backdrop-blur shadow-sm transition-all z-10";
+      /* arrows are desktop-only: on touch, swiping and the thumbnail strip cover it
+         and the buttons would sit on top of the artwork */
+      const arrow = "absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full hidden sm:flex items-center justify-center border border-border/70 bg-background/90 backdrop-blur shadow-sm transition-all z-10";
 
       return (
         <div className="flex flex-col gap-3">
@@ -506,9 +508,9 @@
               onPointerCancel={endDrag}
             >
               {pieces.map((p, i) => (
-                <div key={p.src} className="shrink-0 w-full h-[360px] sm:h-[520px] flex items-center justify-center p-3 sm:p-5">
+                <div key={p.src} className="shrink-0 w-full h-[440px] sm:h-[520px] flex items-center justify-center p-3 sm:p-5">
                   <img src={p.src} alt={p.title} draggable={false} loading={i === 0 ? "eager" : "lazy"}
-                    onClick={() => { if (moved.current < 6) onOpen(i); }}
+                    onClick={() => { if (moved.current < 10) onOpen(i); }}
                     className="max-h-full max-w-full object-contain rounded-sm shadow-md select-none cursor-zoom-in" />
                 </div>
               ))}
@@ -529,12 +531,15 @@
           </div>
 
           {/* caption */}
-          <div className="flex items-baseline justify-between gap-4">
-            <div>
-              <span className="font-display text-xl font-black tracking-tight">{current.title}</span>
-              <span className="ml-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{current.medium}</span>
+          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+            <div className="min-w-0">
+              <span className="font-display text-lg sm:text-xl font-black tracking-tight">{current.title}</span>
+              <span className="ml-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">{current.medium}</span>
             </div>
-            <span className="hidden sm:block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Drag &nbsp;·&nbsp; tap to enlarge</span>
+            <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
+              <span className="sm:hidden">Swipe &nbsp;·&nbsp; tap</span>
+              <span className="hidden sm:inline">Drag &nbsp;·&nbsp; tap to enlarge</span>
+            </span>
           </div>
 
           {/* thumbnail strip */}
