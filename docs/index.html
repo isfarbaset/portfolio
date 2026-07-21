@@ -1,494 +1,920 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Isfar Baset · Data &amp; AI Portfolio</title>
-  <meta name="description" content="Isfar Baset · Data analyst and data scientist in Northern Virginia. I build ML systems and explain them in plain English." />
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            foreground: "hsl(var(--foreground))",
-            background: "hsl(var(--background))",
-            "muted-foreground": "hsl(var(--muted-foreground))",
-            border: "hsl(var(--border))",
-            accent: "hsl(var(--accent))",
-          },
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Isfar Baset Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9344fb9851b4da3cab95007ef9d770dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Isfar Baset Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#about"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#hobbies"> 
+<span class="menu-text">Hobbies</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html#work"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/isfarbaset/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text">LinkedIn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/isfarbaset"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="mailto:isfar.baset@gmail.com" class="sidebar-item-text sidebar-link"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="menu-text">Email</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text"> </span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Isfar Baset Resume.pdf" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-text" role="img">
+</i> 
+ <span class="menu-text">Resume</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#featured-projects" id="toc-featured-projects" class="nav-link active" data-scroll-target="#featured-projects">Featured Projects</a></li>
+  <li><a href="#beyond-the-data" id="toc-beyond-the-data" class="nav-link" data-scroll-target="#beyond-the-data">Beyond the Data</a>
+  <ul class="collapse">
+  <li><a href="#the-oil-pastel-gallery" id="toc-the-oil-pastel-gallery" class="nav-link" data-scroll-target="#the-oil-pastel-gallery">The Oil Pastel Gallery</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="hero-title title display-7"></h1></header>
+
+
+
+
+<div class="hero-section">
+<section id="section" class="level1 hero-title hero-content">
+
+<p>Isfar Baset</p>
+<div class="hero-subtitle">
+<p><span class="animated-text">Data Analyst</span></p>
+</div>
+<div class="hero-description">
+<p>Crafting AI solutions that bridge the gap between research and real-world impact. Specializing in machine learning, data visualization, and conversational AI systems.</p>
+</div>
+<div class="hero-buttons">
+<p><a href="#projects" class="btn btn-primary animated-btn">View Projects</a> <a href="about-me.html" class="btn btn-outline animated-btn">About Me</a></p>
+</div>
+</section>
+<div class="hero-image">
+<p><img src="images/ib-new.png" class="profile-image img-fluid"></p>
+</div>
+</div>
+<div id="projects" class="projects-section">
+<section id="featured-projects" class="level1 section-title">
+<h1 class="section-title">Featured Projects</h1>
+<div class="projects-carousel-wrap">
+<div class="project-grid">
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/almanac.jpg" class="img-fluid"></p>
+</div>
+<section id="almanac" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="almanac"><a href="https://isfarbaset.github.io/almanac/">Almanac</a></h3>
+<p>A private, local-only menstrual tracker. No accounts, no servers, no ads — period data stays in your browser via IndexedDB. Built after watching Flo get fined by the FTC for handing health data to Facebook.</p>
+<p><strong>Tech Stack:</strong> React • IndexedDB • PWA • Vite<br>
+<strong>Key Feature:</strong> Weighted next-period prediction with a confidence window instead of a fake-precise single date</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/dmv-blooms.jpg" class="img-fluid"></p>
+</div>
+<section id="dmv-blooms" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="dmv-blooms"><a href="https://isfarbaset.github.io/dmv-blooms/">DMV Blooms</a></h3>
+<p>A seasonal field guide to flowers across DC, Maryland, and Virginia. Find what’s peaking right now and where to chase it — cherry blossoms, bluebells, lotus, lavender, and nine more, mapped across 28 spots.</p>
+<p><strong>Tech Stack:</strong> JavaScript • Interactive Map • Quarto • CSS<br>
+<strong>Key Feature:</strong> Weekend picks driven by live bloom status, plus a full-year calendar for planning ahead</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/DTS_JELLY_(MISC)_JELLY_LUISE_Photos_ID10196.jpg" class="img-fluid"></p>
+</div>
+<section id="fmbench-assistant" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="fmbench-assistant"><a href="https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161">FMBench Assistant</a></h3>
+<p>A conversational AI assistant for Foundation Model Benchmarking built with Amazon Bedrock, AWS Lambda, and LangGraph. This tool helps users navigate complex benchmarking options through natural dialogue.</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/netflix.png" class="img-fluid"></p>
+</div>
+<section id="netflix-recap" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="netflix-recap"><a href="https://isfarbaset.github.io/netflix-recap/">Netflix Recap</a></h3>
+<p>A personalized Netflix viewing analytics dashboard that transforms your watch history into beautiful insights. Discover your viewing patterns, favorite genres, binge-watching habits, and more through interactive visualizations.</p>
+<p><strong>Tech Stack:</strong> Python • Data Visualization • Pandas • Interactive Dashboard</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/git-insights.png" class="img-fluid"></p>
+</div>
+<section id="github-insights" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="github-insights"><a href="https://isfarbaset.github.io/github-insights/">GitHub Insights</a></h3>
+<p>Generate your own GitHub stats card. Enter any username and get a downloadable PNG with lifetime stats, streaks, top repos, coding activity breakdowns, developer personality badges, and more — ready to share on LinkedIn or add to your portfolio.</p>
+<p><strong>Tech Stack:</strong> JavaScript • CSS • GitHub API • HTML Canvas • Quarto</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/wicked.jpg" class="img-fluid"></p>
+</div>
+<section id="defying-analytics-what-spotify-reveals-about-wicked" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="defying-analytics-what-spotify-reveals-about-wicked"><a href="wicked.html">Defying Analytics: What Spotify Reveals About Wicked</a></h3>
+<p>Twenty years after its Broadway debut, Wicked’s soundtrack still dominates Spotify. I analyzed real streaming data from all 28 tracks to figure out what makes certain songs succeed. Turns out everything the music industry tells you about hit songs is backwards.</p>
+<p><strong>Tech Stack:</strong> Python • Spotify API • Plotly • Scikit-learn • SciPy • Quarto<br>
+<strong>Key Finding:</strong> Song length has zero impact on popularity, and the quiet emotional moments beat the showstoppers</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/us-insights.jpg" class="img-fluid"></p>
+</div>
+<section id="us-insights" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="us-insights"><a href="https://isfarbaset.github.io/fall-2024-project-team-29/">US Insights</a></h3>
+<p>Analyzing sentiment patterns across U.S. states based on Reddit conversations. Discover what different states are talking about and how those discussions vary in emotional tone.</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/DTS_my_own_summer_Daniel_Farò_Photos_ID9746.jpg" class="img-fluid"></p>
+</div>
+<section id="temp-talk" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="temp-talk"><a href="https://isfarbaset.github.io/story-project/">Temp Talk</a></h3>
+<p>Exploring climate trends in Southeastern Utah National Parks and their impacts on delicate ecosystems. Analysis of heat, soil conditions, evaporation and precipitation patterns affecting the region.</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/beat-bytes.jpg" class="img-fluid"></p>
+</div>
+<section id="beats-and-bytes" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="beats-and-bytes"><a href="Group37_final_Report.html">Beats and Bytes</a></h3>
+<p>Exploring the intersection of music and machine learning. Discover patterns in popular music through data analysis, visualizations, and predictive models.</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg" class="img-fluid"></p>
+</div>
+<section id="ev-insights" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="ev-insights"><a href="https://isfarbaset.github.io/ev-insights/">EV Insights</a></h3>
+<p>Examining EVs’ environmental impact, market share, and performance compared to gasoline vehicles. This analysis uses multiple data science techniques including Naïve Bayes classification, dimensionality reduction, clustering, decision trees and ARM to extract meaningful insights.</p>
+</section>
+</div>
+<div class="project-card">
+<div class="project-image">
+<p><img src="images/DTS_MISC_3_(Maddie_Spanier)_Madeline_Spanier_Photos_ID5261.jpg" class="img-fluid"></p>
+</div>
+<section id="air-quality-intelligence" class="level3 project-content">
+<h3 class="anchored" data-anchor-id="air-quality-intelligence"><a href="aqi.html">Air Quality Intelligence</a></h3>
+<p>A Gen AI conversational agent for real-time air quality monitoring and personalized health recommendations. Ask natural language questions about air quality in any city and receive AI-powered advice tailored to your health conditions.</p>
+<p><strong>Tech Stack:</strong> Python • OpenAI GPT-4 • MCP • Async/Await • API Ninjas<br>
+<strong>Key Feature:</strong> Natural language understanding with context-aware health recommendations for activities like jogging, cycling, and travel planning</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="hobbies" class="hobbies-section">
+<section id="beyond-the-data" class="level1 section-title">
+<h1 class="section-title">Beyond the Data</h1>
+<div class="hobbies-intro">
+<p>When I close the laptop, this is where I end up. A few things I make time for that have nothing to do with a query or a dashboard.</p>
+</div>
+<div class="hobbies-grid hobbies-grid-4">
+  <div class="hobby-item">
+    <span class="hobby-icon">🎨</span>
+    <p><strong>Oil Pastels</strong><br>
+    Food, flowers, and the occasional fish. It started as a way to unwind and turned into a small obsession. Gallery is right below.</p>
+  </div>
+  <div class="hobby-item">
+    <span class="hobby-icon">📚</span>
+    <p><strong>Reading</strong><br>
+    Usually two books deep at once. Fiction to unwind, nonfiction to feel productive about unwinding.</p>
+  </div>
+  <div class="hobby-item">
+    <span class="hobby-icon">🎾</span>
+    <p><strong>Tennis</strong><br>
+    Picked it up this year. Still losing to people who started last month, but my forehand and I are working on it.</p>
+  </div>
+  <a class="hobby-item hobby-item-link" href="https://www.instagram.com/is.far/" target="_blank" rel="noopener">
+    <span class="hobby-icon">📷</span>
+    <p><strong>Photography</strong><br>
+    I take way too many photos. The ones worth keeping end up on Instagram.</p>
+  </a>
+</div>
+<section id="the-oil-pastel-gallery" class="level2 subsection-title art-block">
+<h2 class="subsection-title anchored" data-anchor-id="the-oil-pastel-gallery">The Oil Pastel Gallery</h2>
+<div class="art-lede">
+<p>No grand plan here, just me, a sketchbook, and a box of oil pastels. Mostly still lifes: fruit, flowers, and one very smug fish. Click any piece to see it up close.</p>
+</div>
+<div class="art-gallery">
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: Un Croissant" data-full="images/art/croissant.jpg" data-caption="Un Croissant · oil pastel">
+    <img src="images/art/croissant.jpg" alt="Oil pastel drawing of a golden croissant on a blue background" loading="lazy" class="figure-img">
+    <figcaption>Un Croissant</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: Tomatoes on the Vine" data-full="images/art/tomatoes.jpg" data-caption="Tomatoes on the Vine · oil pastel">
+    <img src="images/art/tomatoes.jpg" alt="Oil pastel drawing of ripe tomatoes on the vine over a blue background" loading="lazy" class="figure-img">
+    <figcaption>Tomatoes on the Vine</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: One Fish" data-full="images/art/fish.jpg" data-caption="One Fish · oil pastel">
+    <img src="images/art/fish.jpg" alt="Oil pastel drawing of a blue fish on a hot pink background" loading="lazy" class="figure-img">
+    <figcaption>One Fish</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: Marigolds" data-full="images/art/marigolds.jpg" data-caption="Marigolds · oil pastel">
+    <img src="images/art/marigolds.jpg" alt="Oil pastel drawing of a bouquet of orange marigolds in a vase" loading="lazy" class="figure-img">
+    <figcaption>Marigolds</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: One Apple" data-full="images/art/apple.jpg" data-caption="One Apple · oil pastel">
+    <img src="images/art/apple.jpg" alt="Oil pastel drawing of a red apple with a leaf on a purple background" loading="lazy" class="figure-img">
+    <figcaption>One Apple</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: Calla Lilies" data-full="images/art/calla-lilies.jpg" data-caption="Calla Lilies · oil pastel">
+    <img src="images/art/calla-lilies.jpg" alt="Oil pastel drawing of two pink calla lilies on a peach background" loading="lazy" class="figure-img">
+    <figcaption>Calla Lilies</figcaption>
+  </figure>
+  <figure class="art-tile figure" tabindex="0" role="button" aria-label="View: Pink Lily" data-full="images/art/lily.jpg" data-caption="Pink Lily · oil pastel">
+    <img src="images/art/lily.jpg" alt="Oil pastel drawing of a pink lily with green leaves on a black background" loading="lazy" class="figure-img">
+    <figcaption>Pink Lily</figcaption>
+  </figure>
+</div>
+
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="art-lightbox-close" aria-label="Close">×</button>
+  <figure class="art-lightbox-inner figure">
+    <img src="" alt="" class="figure-img">
+    <figcaption></figcaption>
+  </figure>
+</div>
+</section>
+</section>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const roles = [
+        'Data Analyst',
+        'Data Scientist', 
+        'Data Engineer',
+        'Machine Learning Engineer',
+        'Software Engineer'
+    ];
+    
+    const animatedText = document.querySelector('.animated-text');
+    let currentIndex = 0;
+    
+    function changeText() {
+        // Fade out current text
+        animatedText.classList.add('text-fade-out');
+        
+        setTimeout(() => {
+            // Change text and fade in
+            currentIndex = (currentIndex + 1) % roles.length;
+            animatedText.textContent = roles[currentIndex];
+            animatedText.classList.remove('text-fade-out');
+            animatedText.classList.add('text-fade-in');
+            
+            setTimeout(() => {
+                animatedText.classList.remove('text-fade-in');
+            }, 500);
+        }, 500);
+    }
+    
+    // Change text every 2 seconds
+    setInterval(changeText, 2000);
+
+    // Projects carousel
+    const wrap = document.querySelector('.projects-carousel-wrap');
+    const grid = wrap && wrap.querySelector('.project-grid');
+    if (wrap && grid) {
+        const prev = document.createElement('button');
+        prev.className = 'carousel-btn carousel-prev';
+        prev.setAttribute('aria-label', 'Previous projects');
+        prev.innerHTML = '‹';
+
+        const next = document.createElement('button');
+        next.className = 'carousel-btn carousel-next';
+        next.setAttribute('aria-label', 'Next projects');
+        next.innerHTML = '›';
+
+        wrap.appendChild(prev);
+        wrap.appendChild(next);
+
+        const stepBy = () => {
+            const card = grid.querySelector('.project-card');
+            const gap = parseFloat(getComputedStyle(grid).columnGap || getComputedStyle(grid).gap || 32) || 32;
+            return card ? card.offsetWidth + gap : 400;
+        };
+
+        prev.addEventListener('click', () => grid.scrollBy({ left: -stepBy(), behavior: 'smooth' }));
+        next.addEventListener('click', () => grid.scrollBy({ left: stepBy(), behavior: 'smooth' }));
+
+        const updateButtons = () => {
+            prev.disabled = grid.scrollLeft <= 2;
+            next.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 2;
+        };
+
+        grid.addEventListener('scroll', updateButtons);
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+    }
+
+    // Art gallery lightbox
+    const lightbox = document.getElementById('artLightbox');
+    if (lightbox) {
+        const lbImg = lightbox.querySelector('img');
+        const lbCap = lightbox.querySelector('figcaption');
+        const closeBtn = lightbox.querySelector('.art-lightbox-close');
+
+        const openLightbox = (tile) => {
+            const img = tile.querySelector('img');
+            lbImg.src = tile.getAttribute('data-full') || (img && img.src) || '';
+            lbImg.alt = (img && img.alt) || '';
+            lbCap.innerHTML = tile.getAttribute('data-caption') || '';
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+        };
+
+        document.querySelectorAll('.art-tile').forEach((tile) => {
+            tile.addEventListener('click', () => openLightbox(tile));
+            tile.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(tile);
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+        });
+    }
+});
+</script>
+<footer style="text-align: center; margin-top: 2rem; padding: 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9rem;">
+Portfolio curated by Isfar Baset
+</footer>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
   </script>
+</div> <!-- /content -->
 
-  <style>
-    :root {
-      --background: 34 25% 97%;
-      --foreground: 24 10% 10%;
-      --muted-foreground: 24 6% 38%;
-      --border: 24 8% 86%;
-      /* sage-green / sea-blue accent, between green and blue */
-      --accent: 192 32% 38%;
-      --accent-2: 165 22% 42%;
-    }
-    html { scroll-behavior: smooth; }
-    html, body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
-    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-    .font-display { font-family: 'Inter', sans-serif; letter-spacing: -0.04em; }
-    .paper-grain {
-      background-image:
-        radial-gradient(circle at 20% 10%, hsla(24,15%,80%,0.08) 0%, transparent 45%),
-        radial-gradient(circle at 80% 85%, hsla(18,30%,70%,0.06) 0%, transparent 45%);
-    }
-    /* animated role text */
-    .roll-mask { display: inline-block; vertical-align: baseline; height: 1em; overflow: hidden; line-height: 1; }
-    .roll-track { display: flex; flex-direction: column; transition: transform 600ms cubic-bezier(.6,.05,.2,1); }
-    .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; white-space: nowrap; }
-    /* hide caption on touch, prevents sticky hover */
-    @media (hover: none) {
-      .reveal-caption { opacity: 1 !important; transform: none !important; }
-    }
-    /* tiny dot pattern for hero side */
-    .dotgrid {
-      background-image: radial-gradient(hsl(var(--foreground) / 0.10) 1px, transparent 1px);
-      background-size: 14px 14px;
-    }
-    /* subtle marquee for tape strip */
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-track { animation: marquee 30s linear infinite; }
-  </style>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-</head>
-<body class="min-h-screen paper-grain">
-  <div id="root"></div>
 
-  <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
 
-    function cn(...classes) { return classes.filter(Boolean).join(" "); }
-
-    /* ---------- Nav ---------- */
-    function Nav() {
-      const [scrolled, setScrolled] = useState(false);
-      useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 40);
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-      }, []);
-
-      const link = "font-mono text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors";
-      return (
-        <nav className={cn(
-          "sticky top-0 z-50 transition-all duration-300",
-          scrolled ? "bg-background/85 backdrop-blur border-b border-border/60" : "bg-transparent"
-        )}>
-          <div className="mx-auto max-w-5xl px-6 sm:px-10 py-4 flex items-center justify-between">
-            <a href="#top" className="font-display font-black tracking-tight text-lg">
-              Isfar<span className="text-[hsl(var(--accent))]">.</span>
-            </a>
-            <div className="flex items-center gap-6 sm:gap-8">
-              <a className={link} href="#work">Work</a>
-              <a className={link} href="#about">About</a>
-              <a className={link} href="#contact">Contact</a>
-            </div>
-          </div>
-        </nav>
-      );
-    }
-
-    /* ---------- Animated role roller ---------- */
-    function RoleRoller() {
-      const roles = ["Data Analyst", "Data Scientist", "ML Engineer", "Storyteller", "Chronic Overthinker", "Espresso Apologist"];
-      const [i, setI] = useState(0);
-      useEffect(() => {
-        const id = setInterval(() => setI(p => (p + 1) % roles.length), 2200);
-        return () => clearInterval(id);
-      }, []);
-      return (
-        <span className="roll-mask align-baseline">
-          <span className="roll-track" style={{ transform: `translateY(-${i}em)` }}>
-            {roles.map((r, idx) => (
-              <span key={idx} className="text-[hsl(var(--accent))] italic">{r}</span>
-            ))}
-            <span className="text-[hsl(var(--accent))] italic">{roles[0]}</span>
-          </span>
-        </span>
-      );
-    }
-
-    /* ---------- Hero ---------- */
-    function Hero() {
-      return (
-        <section id="top" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28">
-          {/* background dot grid panel on the right */}
-          <div className="absolute right-0 top-20 hidden md:block w-[220px] h-[220px] dotgrid opacity-60 pointer-events-none"></div>
-
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-14 items-end">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">
-                Isfar Baset &nbsp;·&nbsp; Northern Virginia
-              </p>
-              <h1 className="font-display text-[40px] sm:text-[56px] md:text-[64px] font-black leading-[0.95] tracking-tight max-w-3xl">
-                I'm a <RoleRoller />
-                <br className="hidden sm:block" /> building data &amp; AI that
-                <br className="hidden sm:block" /> <span className="text-muted-foreground">actually ships.</span>
-              </h1>
-
-              <p className="mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
-                Data Analyst II at Shift Digital, Master's in Data Science from Georgetown ('25).
-                I build ML systems and tell stories with the numbers behind them.
-              </p>
-
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a href="#work" className="inline-flex items-center gap-2 bg-foreground text-background font-mono text-xs uppercase tracking-[0.2em] px-5 py-3 rounded-full hover:bg-[hsl(var(--accent))] transition-colors">
-                  See the work
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-2 border border-border bg-background font-mono text-xs uppercase tracking-[0.2em] px-5 py-3 rounded-full hover:border-foreground transition-colors">
-                  Get in touch
-                </a>
-                <a href="Isfar Baset Resume.pdf" target="_blank" rel="noopener noreferrer" className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors ml-1 underline-offset-4 hover:underline">
-                  Resume ↗
-                </a>
-              </div>
-            </div>
-
-            {/* portrait */}
-            <div className="relative justify-self-start md:justify-self-end">
-              <div className="absolute -inset-3 bg-gradient-to-br from-[hsl(var(--accent))]/20 to-transparent rounded-full blur-2xl"></div>
-              <img src="images/isfar-about.png" alt="Isfar Baset"
-                className="relative w-80 sm:w-[28rem] md:w-[34rem] max-w-full aspect-square object-cover rounded-full border border-border shadow-md" />
-              <span className="absolute -bottom-3 -left-3 bg-background border border-border rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70">
-                ✦ hi there
-              </span>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    /* ---------- Marquee strip ---------- */
-    function StripMarquee() {
-      const items = ["Python", "PyTorch", "scikit-learn", "Hugging Face", "Spark", "Snowflake", "AWS Bedrock", "LangGraph", "Plotly", "Tableau", "Bayesian Inference", "SQL"];
-      const Row = () => (
-        <div className="flex items-center gap-10 px-5 shrink-0">
-          {items.map((s, i) => (
-            <React.Fragment key={i}>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-foreground/70 whitespace-nowrap">{s}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent))]/80"></span>
-            </React.Fragment>
-          ))}
-        </div>
-      );
-      return (
-        <div className="border-y border-border/70 py-4 bg-background/50 overflow-hidden">
-          <div className="marquee-track flex" style={{ width: "max-content" }}>
-            <Row /><Row />
-          </div>
-        </div>
-      );
-    }
-
-    /* ---------- Reveal card ---------- */
-    function RevealCard({ project, durationClass }) {
-      return (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "w-16 h-20",
-            "group-hover:w-[15rem] group-hover:h-[11rem] sm:group-hover:w-[17rem] sm:group-hover:h-[12rem]",
-            "relative block rounded-md overflow-hidden bg-neutral-300",
-            "shadow-sm group-hover:shadow-2xl",
-            "transition-all duration-500 delay-100",
-            durationClass
-          )}
-        >
-          <img alt={project.title} src={project.src}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <div className={cn(
-            "reveal-caption absolute inset-0 flex flex-col justify-end p-3.5 sm:p-4",
-            "bg-gradient-to-t from-black/90 via-black/40 to-transparent",
-            "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
-            "transition-all duration-500 delay-300"
-          )}>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/70 mb-1.5">{project.kicker}</span>
-            <h4 className="font-display text-lg sm:text-xl font-black text-white leading-tight mb-1">{project.title}</h4>
-            <p className="text-[12px] sm:text-[13px] text-white/85 leading-snug line-clamp-3">{project.description}</p>
-            <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-              View project
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-      );
-    }
-
-    function MobileProjectCard({ project }) {
-      return (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block rounded-md overflow-hidden border border-border/70 bg-background shadow-sm active:scale-[0.99] transition-transform"
-        >
-          <div className="aspect-[16/10] overflow-hidden bg-neutral-200">
-            <img alt={project.title} src={project.src} className="h-full w-full object-cover" />
-          </div>
-          <div className="p-3.5">
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 block">{project.kicker}</span>
-            <h4 className="font-display text-lg font-black text-foreground leading-tight mb-1">{project.title}</h4>
-            <p className="text-[13px] text-foreground/75 leading-snug">{project.description}</p>
-            <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
-              View project
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-      );
-    }
-
-    function RevealRow({ text, projects }) {
-      const containerBase = "absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20";
-      return (
-        <>
-          {/* Mobile: stacked cards, no hover needed */}
-          <div className="sm:hidden py-5 border-b border-border/50 last:border-0">
-            <h2 className="font-display text-3xl font-black text-foreground leading-tight mb-4">
-              {text}
-            </h2>
-            <div className="grid grid-cols-1 gap-3">
-              {projects.map((p, i) => (
-                <MobileProjectCard key={i} project={p} />
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: hover-reveal */}
-          <div className="hidden sm:flex group relative w-full min-h-[12rem] items-center overflow-visible">
-            <h2 className="font-display text-5xl sm:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-25 group-hover:tracking-tight pointer-events-none relative z-10">
-              {text}
-            </h2>
-            {[...projects].reverse().map((p, off) => {
-              const shift = [
-                "",
-                "group-hover:-translate-x-[15.5rem] sm:group-hover:-translate-x-[17.5rem] group-hover:rotate-[-3deg]",
-                "group-hover:-translate-x-[31rem] sm:group-hover:-translate-x-[35rem] group-hover:rotate-[-5deg]",
-              ][off];
-              return (
-                <div key={off}
-                  className={cn(containerBase, "translate-x-0 rotate-0", shift,
-                    "transition-all duration-500", off === 1 ? "delay-150" : off === 2 ? "delay-200" : "")}
-                  style={{ transformOrigin: "right center" }}
-                >
-                  <RevealCard project={p} durationClass={off > 0 ? "duration-200" : undefined} />
-                </div>
-              );
-            })}
-          </div>
-        </>
-      );
-    }
-
-    function RevealImageList() {
-      const items = [
-        {
-          text: "Machine Learning",
-          projects: [
-            { kicker: "Spotify · Plotly · scikit-learn", title: "Defying Analytics", description: "What 20 years of Wicked streaming data reveals about what makes a song stick. Length doesn't matter. Vulnerability does.", src: "images/wicked.jpg", href: "wicked.html" },
-            { kicker: "Python · ML · Spotify API", title: "Beats and Bytes", description: "Patterns in popular music through analysis, visualizations, and predictive models: which audio features predict popularity.", src: "images/beat-bytes.jpg", href: "Group37_final_Report.html" },
-          ],
-        },
-        {
-          text: "Conversational AI",
-          projects: [
-            { kicker: "Bedrock · LangGraph · Lambda", title: "FMBench Assistant", description: "A conversational AI that walks users through foundation-model benchmarking choices in natural dialogue instead of dense docs.", src: "images/fmbench.jpg", href: "https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161" },
-            { kicker: "GPT-4 · MCP · Async Python", title: "Air Quality Intelligence", description: "Ask about air quality in any city and get health-aware advice for jogging, cycling, travel, built on a custom MCP server.", src: "images/aqi.jpg", href: "aqi.html" },
-          ],
-        },
-        {
-          text: "Data Storytelling",
-          projects: [
-            { kicker: "Python · Pandas · Dashboards", title: "Netflix Recap", description: "Turn your Netflix watch history into a personal year-in-review: viewing patterns, binge habits, and genre obsessions, visualized.", src: "images/netflix.png", href: "https://isfarbaset.github.io/netflix-recap/" },
-            { kicker: "GitHub API · Canvas · JS", title: "GitHub Insights", description: "Drop in a username, get a downloadable stats card: lifetime activity, streaks, top repos, and developer-personality badges.", src: "images/git-insights.png", href: "https://isfarbaset.github.io/github-insights/" },
-          ],
-        },
-        {
-          text: "Web Apps",
-          projects: [
-            { kicker: "React · IndexedDB · PWA", title: "Almanac", description: "A private, local-only menstrual tracker. No accounts, no servers; period data stays in your browser. Built post-FTC-Flo.", src: "images/almanac.jpg", href: "https://isfarbaset.github.io/almanac/" },
-            { kicker: "JS · Quarto · Interactive Map", title: "DMV Blooms", description: "A seasonal field guide to flowers across DC, Maryland & Virginia: what's peaking now and where to chase it across 28 spots.", src: "images/dmv-blooms.jpg", href: "https://isfarbaset.github.io/dmv-blooms/" },
-          ],
-        },
-        {
-          text: "Analytics",
-          projects: [
-            { kicker: "NLP · Sentiment · Reddit", title: "US Insights", description: "Sentiment patterns across U.S. states based on Reddit conversations: what each state is talking about and how it feels.", src: "images/us-insights.jpg", href: "https://isfarbaset.github.io/fall-2024-project-team-29/" },
-            { kicker: "Climate · Time Series", title: "Temp Talk", description: "Climate trends across Southeastern Utah national parks and their impact on heat, soil, evaporation, and precipitation cycles.", src: "images/temp-talk.jpg", href: "https://isfarbaset.github.io/story-project/" },
-            { kicker: "EVs · ML · Market Data", title: "EV Insights", description: "Electric vehicles vs gas cars: environmental impact, market share, and performance, explored with the classic ML toolkit.", src: "images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg", href: "https://isfarbaset.github.io/ev-insights/" },
-          ],
-        },
-      ];
-
-      return (
-        <div className="flex flex-col gap-1 rounded-sm bg-background px-4 sm:px-10 py-6 sm:py-8">
-          <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-2">
-            What I work on
-          </h3>
-          {items.map((item, i) => (
-            <RevealRow key={i} text={item.text} projects={item.projects} />
-          ))}
-        </div>
-      );
-    }
-
-    /* ---------- About ---------- */
-    function About() {
-      return (
-        <section id="about" className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-14 items-start py-20">
-          <div className="relative">
-            <div className="absolute -inset-2 bg-gradient-to-br from-[hsl(var(--accent))]/15 to-transparent rounded-full blur-xl"></div>
-            <img src="images/isfar-about.png" alt="Isfar Baset"
-              className="relative w-44 h-44 rounded-full object-cover border border-border/70 shadow-md" />
-            <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground space-y-1.5">
-              <div className="flex justify-between"><span>Based</span><span className="text-foreground">Northern VA</span></div>
-              <div className="flex justify-between"><span>From</span><span className="text-foreground">Dhaka, BD</span></div>
-              <div className="flex justify-between"><span>Coffee</span><span className="text-foreground">Black, daily</span></div>
-            </div>
-          </div>
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">About</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] mb-6">
-              Hi, I'm Isfar. <span className="text-muted-foreground">I turn research-grade models into things people use.</span>
-            </h2>
-            <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-4">
-              Originally from <strong className="font-semibold text-foreground">Dhaka</strong>, now in Northern Virginia. I'm a <strong className="font-semibold text-foreground">Data Analyst II</strong> at Shift Digital, where I work on analytics for enterprise clients, and I hold a <strong className="font-semibold text-foreground">Master's in Data Science &amp; Analytics</strong> from Georgetown ('25).
-            </p>
-            <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-8">
-              My favorite work sits between <em>modeling</em> and <em>storytelling</em>: building a model for a specific business problem, then explaining it so the non-technical folks in the room can make a call. Off-keyboard I'm usually in a café, painting, reading, or chasing a new cuisine.
-            </p>
-
-            {/* Skills grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-2xl text-sm">
-              {[
-                ["Programming", "Python · SQL · R · Java"],
-                ["Machine Learning", "scikit-learn · PyTorch · XGBoost"],
-                ["NLP", "spaCy · Hugging Face · BERT"],
-                ["Data Viz", "Plotly · Tableau · Seaborn"],
-                ["Big Data & Cloud", "Spark · Databricks · AWS"],
-                ["Databases", "Postgres · Snowflake · Mongo"],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-1">{k}</div>
-                  <div className="text-foreground/85">{v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    /* ---------- Contact ---------- */
-    function Contact() {
-      const links = [
-        { label: "Email",     value: "isfar.baset@gmail.com", href: "mailto:isfar.baset@gmail.com" },
-        { label: "LinkedIn",  value: "/in/isfarbaset",    href: "https://www.linkedin.com/in/isfarbaset/" },
-        { label: "GitHub",    value: "@isfarbaset",       href: "https://github.com/isfarbaset" },
-        { label: "Instagram", value: "@is.far",            href: "https://www.instagram.com/is.far/" },
-      ];
-      return (
-        <section id="contact" className="py-20 sm:py-28">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Contact</p>
-          <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight leading-[1.02] max-w-3xl">
-            Want to build something together? <span className="text-muted-foreground">Or just talk café recommendations.</span>
-          </h2>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-px bg-border/70 border border-border/70 rounded-md overflow-hidden">
-            {links.map(l => (
-              <a key={l.label} href={l.href} target={l.href.startsWith('mailto:') ? undefined : "_blank"} rel="noopener noreferrer"
-                 className="group block bg-background hover:bg-foreground hover:text-background transition-colors p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.22em] opacity-70 mb-1.5">{l.label}</div>
-                    <div className="font-display text-2xl font-black tracking-tight">{l.value}</div>
-                  </div>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
-                       className="opacity-50 group-hover:opacity-100 group-hover:rotate-[-45deg] transition-all">
-                    <path d="M5 12 H19 M19 12 L13 6 M19 12 L13 18" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      );
-    }
-
-    /* ---------- App ---------- */
-    function App() {
-      return (
-        <>
-          <Nav />
-          <main className="mx-auto max-w-5xl px-6 sm:px-10">
-            <Hero />
-          </main>
-
-          <StripMarquee />
-
-          <main className="mx-auto max-w-5xl px-6 sm:px-10">
-            <section id="work" className="py-20">
-              <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Work</p>
-                  <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight leading-[1.05]">
-                    Selected projects.
-                  </h2>
-                </div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground max-w-xs">
-                  <span className="hidden sm:inline">Hover any category, peek at the work. Click a card to open the project.</span>
-                  <span className="sm:hidden">Tap any card to open the project.</span>
-                </p>
-              </div>
-
-              <div className="border border-border/70 bg-background rounded-md shadow-[0_1px_0_rgba(0,0,0,0.02),0_24px_60px_-30px_rgba(20,12,4,0.15)]">
-                <RevealImageList />
-              </div>
-            </section>
-
-            <About />
-            <Contact />
-          </main>
-
-          <footer className="border-t border-border/70 mt-10">
-            <div className="mx-auto max-w-5xl px-6 sm:px-10 py-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
-              <span>© {new Date().getFullYear()} Isfar Baset</span>
-              <div className="flex gap-5">
-                <a className="hover:text-foreground transition-colors" href="https://www.linkedin.com/in/isfarbaset/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a className="hover:text-foreground transition-colors" href="https://github.com/isfarbaset" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a className="hover:text-foreground transition-colors" href="https://www.instagram.com/is.far/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              </div>
-            </div>
-          </footer>
-        </>
-      );
-    }
-
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
-</body>
-</html>
+</body></html>

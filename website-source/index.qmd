@@ -169,6 +169,88 @@ A Gen AI conversational agent for real-time air quality monitoring and personali
 :::
 :::
 
+::: {#hobbies .hobbies-section}
+# Beyond the Data {.section-title}
+
+::: {.hobbies-intro}
+When I close the laptop, this is where I end up. A few things I make time for that have nothing to do with a query or a dashboard.
+:::
+
+```{=html}
+<div class="hobbies-grid hobbies-grid-4">
+  <div class="hobby-item">
+    <span class="hobby-icon">🎨</span>
+    <p><strong>Oil Pastels</strong><br>
+    Food, flowers, and the occasional fish. It started as a way to unwind and turned into a small obsession. Gallery is right below.</p>
+  </div>
+  <div class="hobby-item">
+    <span class="hobby-icon">📚</span>
+    <p><strong>Reading</strong><br>
+    Usually two books deep at once. Fiction to unwind, nonfiction to feel productive about unwinding.</p>
+  </div>
+  <div class="hobby-item">
+    <span class="hobby-icon">🎾</span>
+    <p><strong>Tennis</strong><br>
+    Picked it up this year. Still losing to people who started last month, but my forehand and I are working on it.</p>
+  </div>
+  <a class="hobby-item hobby-item-link" href="https://www.instagram.com/is.far/" target="_blank" rel="noopener">
+    <span class="hobby-icon">📷</span>
+    <p><strong>Photography</strong><br>
+    I take way too many photos. The ones worth keeping end up on Instagram.</p>
+  </a>
+</div>
+```
+
+::: {.art-block}
+## The Oil Pastel Gallery {.subsection-title}
+
+::: {.art-lede}
+No grand plan here, just me, a sketchbook, and a box of oil pastels. Mostly still lifes: fruit, flowers, and one very smug fish. Click any piece to see it up close.
+:::
+
+```{=html}
+<div class="art-gallery">
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: Un Croissant" data-full="images/art/croissant.jpg" data-caption="Un Croissant &middot; oil pastel">
+    <img src="images/art/croissant.jpg" alt="Oil pastel drawing of a golden croissant on a blue background" loading="lazy">
+    <figcaption>Un Croissant</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: Tomatoes on the Vine" data-full="images/art/tomatoes.jpg" data-caption="Tomatoes on the Vine &middot; oil pastel">
+    <img src="images/art/tomatoes.jpg" alt="Oil pastel drawing of ripe tomatoes on the vine over a blue background" loading="lazy">
+    <figcaption>Tomatoes on the Vine</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: One Fish" data-full="images/art/fish.jpg" data-caption="One Fish &middot; oil pastel">
+    <img src="images/art/fish.jpg" alt="Oil pastel drawing of a blue fish on a hot pink background" loading="lazy">
+    <figcaption>One Fish</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: Marigolds" data-full="images/art/marigolds.jpg" data-caption="Marigolds &middot; oil pastel">
+    <img src="images/art/marigolds.jpg" alt="Oil pastel drawing of a bouquet of orange marigolds in a vase" loading="lazy">
+    <figcaption>Marigolds</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: One Apple" data-full="images/art/apple.jpg" data-caption="One Apple &middot; oil pastel">
+    <img src="images/art/apple.jpg" alt="Oil pastel drawing of a red apple with a leaf on a purple background" loading="lazy">
+    <figcaption>One Apple</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: Calla Lilies" data-full="images/art/calla-lilies.jpg" data-caption="Calla Lilies &middot; oil pastel">
+    <img src="images/art/calla-lilies.jpg" alt="Oil pastel drawing of two pink calla lilies on a peach background" loading="lazy">
+    <figcaption>Calla Lilies</figcaption>
+  </figure>
+  <figure class="art-tile" tabindex="0" role="button" aria-label="View: Pink Lily" data-full="images/art/lily.jpg" data-caption="Pink Lily &middot; oil pastel">
+    <img src="images/art/lily.jpg" alt="Oil pastel drawing of a pink lily with green leaves on a black background" loading="lazy">
+    <figcaption>Pink Lily</figcaption>
+  </figure>
+</div>
+
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="art-lightbox-close" aria-label="Close">&times;</button>
+  <figure class="art-lightbox-inner">
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+</div>
+```
+:::
+:::
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const roles = [
@@ -236,6 +318,49 @@ document.addEventListener('DOMContentLoaded', function() {
         grid.addEventListener('scroll', updateButtons);
         window.addEventListener('resize', updateButtons);
         updateButtons();
+    }
+
+    // Art gallery lightbox
+    const lightbox = document.getElementById('artLightbox');
+    if (lightbox) {
+        const lbImg = lightbox.querySelector('img');
+        const lbCap = lightbox.querySelector('figcaption');
+        const closeBtn = lightbox.querySelector('.art-lightbox-close');
+
+        const openLightbox = (tile) => {
+            const img = tile.querySelector('img');
+            lbImg.src = tile.getAttribute('data-full') || (img && img.src) || '';
+            lbImg.alt = (img && img.alt) || '';
+            lbCap.innerHTML = tile.getAttribute('data-caption') || '';
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+        };
+
+        document.querySelectorAll('.art-tile').forEach((tile) => {
+            tile.addEventListener('click', () => openLightbox(tile));
+            tile.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(tile);
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+        });
     }
 });
 </script>

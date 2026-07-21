@@ -14,6 +14,8 @@ website:
         href: "index.qmd"
       - text: "About Me"
         href: "index.html#about"
+      - text: "Hobbies"
+        href: "index.html#hobbies"
       - text: "Projects"
         href: "index.html#work"
         menu:
