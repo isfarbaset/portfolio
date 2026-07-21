@@ -66,6 +66,8 @@
     /* subtle marquee for tape strip */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-track { animation: marquee 30s linear infinite; }
+    /* hide scrollbar on the gallery thumbnail strip */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
   </style>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
@@ -438,6 +440,122 @@
       );
     }
 
+    /* ---------- Studio: drag carousel with animated thumbnail strip ---------- */
+    const THUMB_FULL = 120;
+    const THUMB_COLLAPSED = 36;
+
+    function GalleryCarousel({ pieces, onOpen }) {
+      const [index, setIndex] = useState(0);
+      const [dragging, setDragging] = useState(false);
+      const [offset, setOffset] = useState(0);
+      const startX = useRef(0);
+      const moved = useRef(0);
+      const containerRef = useRef(null);
+      const thumbsRef = useRef(null);
+
+      const clamp = (i) => Math.max(0, Math.min(pieces.length - 1, i));
+
+      const onPointerDown = (e) => {
+        setDragging(true);
+        startX.current = e.clientX;
+        moved.current = 0;
+        try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+      };
+      const onPointerMove = (e) => {
+        if (!dragging) return;
+        const d = e.clientX - startX.current;
+        moved.current = Math.max(moved.current, Math.abs(d));
+        setOffset(d);
+      };
+      const endDrag = () => {
+        if (!dragging) return;
+        const w = containerRef.current ? containerRef.current.offsetWidth : 1;
+        let next = index;
+        if (Math.abs(offset) > w * 0.2) next = offset > 0 ? index - 1 : index + 1;
+        setIndex(clamp(next));
+        setOffset(0);
+        setDragging(false);
+      };
+
+      /* keep the active thumbnail centered when the strip overflows */
+      useEffect(() => {
+        const el = thumbsRef.current;
+        if (!el || el.scrollWidth <= el.clientWidth) return;
+        const active = el.querySelector('[data-active="true"]');
+        if (!active) return;
+        el.scrollTo({ left: active.offsetLeft - el.clientWidth / 2 + active.offsetWidth / 2, behavior: "smooth" });
+      }, [index]);
+
+      const current = pieces[index];
+      const arrow = "absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center border border-border/70 bg-background/90 backdrop-blur shadow-sm transition-all z-10";
+
+      return (
+        <div className="flex flex-col gap-3">
+          {/* main frame */}
+          <div ref={containerRef} className="relative overflow-hidden rounded-md border border-border/70 bg-[hsl(var(--foreground)/0.04)]">
+            <div
+              className="flex touch-pan-y"
+              style={{
+                transform: `translateX(calc(${-index * 100}% + ${offset}px))`,
+                transition: dragging ? "none" : "transform 500ms cubic-bezier(.6,.05,.2,1)",
+                cursor: dragging ? "grabbing" : "grab",
+              }}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={endDrag}
+              onPointerCancel={endDrag}
+            >
+              {pieces.map((p, i) => (
+                <div key={p.src} className="shrink-0 w-full h-[360px] sm:h-[520px] flex items-center justify-center p-3 sm:p-5">
+                  <img src={p.src} alt={p.title} draggable={false} loading={i === 0 ? "eager" : "lazy"}
+                    onClick={() => { if (moved.current < 6) onOpen(i); }}
+                    className="max-h-full max-w-full object-contain rounded-sm shadow-md select-none cursor-zoom-in" />
+                </div>
+              ))}
+            </div>
+
+            <button aria-label="Previous piece" disabled={index === 0} onClick={() => setIndex(i => clamp(i - 1))}
+              className={cn(arrow, "left-3 sm:left-4", index === 0 ? "opacity-30 cursor-not-allowed" : "hover:scale-110 hover:bg-background")}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button aria-label="Next piece" disabled={index === pieces.length - 1} onClick={() => setIndex(i => clamp(i + 1))}
+              className={cn(arrow, "right-3 sm:right-4", index === pieces.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:scale-110 hover:bg-background")}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+
+            <span className="absolute top-3 right-3 sm:right-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground bg-background/85 border border-border/60 rounded-full px-2.5 py-1">
+              {String(index + 1).padStart(2, "0")} / {String(pieces.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          {/* caption */}
+          <div className="flex items-baseline justify-between gap-4">
+            <div>
+              <span className="font-display text-xl font-black tracking-tight">{current.title}</span>
+              <span className="ml-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{current.medium}</span>
+            </div>
+            <span className="hidden sm:block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Drag &nbsp;·&nbsp; tap to enlarge</span>
+          </div>
+
+          {/* thumbnail strip */}
+          <div ref={thumbsRef} className="overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            <div className="flex gap-1 h-20 mx-auto" style={{ width: "fit-content" }}>
+              {pieces.map((p, i) => (
+                <button key={p.src} data-active={i === index} onClick={() => setIndex(i)}
+                  aria-label={p.title}
+                  style={{ width: i === index ? THUMB_FULL : THUMB_COLLAPSED, transition: "width 300ms ease-out" }}
+                  className={cn("relative shrink-0 h-full overflow-hidden rounded-sm border transition-colors",
+                    i === index ? "border-[hsl(var(--accent))]" : "border-border/60 opacity-60 hover:opacity-100")}>
+                  <img src={p.src} alt="" loading="lazy" draggable={false}
+                    className="w-full h-full object-cover pointer-events-none select-none" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     /* ---------- Studio (hobbies + oil-pastel gallery) ---------- */
     function Studio() {
       const pieces = [
@@ -497,19 +615,7 @@
             <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-5">
               The oil pastel gallery
             </h3>
-            <div className="columns-2 lg:columns-3 [column-gap:1rem] sm:[column-gap:1.25rem]">
-              {pieces.map((p, i) => (
-                <button key={i} onClick={() => setIndex(i)}
-                  className="group relative mb-4 sm:mb-5 block w-full break-inside-avoid overflow-hidden rounded-md border border-border/70 bg-neutral-200 shadow-sm hover:shadow-xl transition-shadow">
-                  <img src={p.src} alt={p.title} loading="lazy"
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                  <div className="reveal-caption absolute inset-0 flex flex-col justify-end p-3.5 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <span className="font-display text-lg font-black text-white leading-tight">{p.title}</span>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/70 mt-1">{p.medium}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
+            <GalleryCarousel pieces={pieces} onOpen={(i) => setIndex(i)} />
           </div>
 
           {index !== null && <Lightbox pieces={pieces} index={index} setIndex={setIndex} />}
