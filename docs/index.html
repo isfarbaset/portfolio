@@ -455,26 +455,40 @@
 
       const clamp = (i) => Math.max(0, Math.min(pieces.length - 1, i));
 
+      /* Drag state lives in refs as well as state: setPointerCapture retargets the
+         subsequent click to the capturing element, so a tap has to be detected here
+         on pointerup rather than via an onClick on the image. */
+      const draggingRef = useRef(false);
+      const offsetRef = useRef(0);
+
       const onPointerDown = (e) => {
+        draggingRef.current = true;
         setDragging(true);
         startX.current = e.clientX;
         moved.current = 0;
+        offsetRef.current = 0;
         try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
       };
       const onPointerMove = (e) => {
-        if (!dragging) return;
+        if (!draggingRef.current) return;
         const d = e.clientX - startX.current;
         moved.current = Math.max(moved.current, Math.abs(d));
+        offsetRef.current = d;
         setOffset(d);
       };
-      const endDrag = () => {
-        if (!dragging) return;
+      const endDrag = (e) => {
+        if (!draggingRef.current) return;
+        draggingRef.current = false;
         const w = containerRef.current ? containerRef.current.offsetWidth : 1;
-        let next = index;
-        if (Math.abs(offset) > w * 0.2) next = offset > 0 ? index - 1 : index + 1;
-        setIndex(clamp(next));
+        const off = offsetRef.current;
+        const isTap = moved.current < 10 && e && e.type === "pointerup";
+        if (!isTap && Math.abs(off) > w * 0.2) {
+          setIndex(clamp(off > 0 ? index - 1 : index + 1));
+        }
+        offsetRef.current = 0;
         setOffset(0);
         setDragging(false);
+        if (isTap) onOpen(index);
       };
 
       /* keep the active thumbnail centered when the strip overflows */
@@ -510,7 +524,6 @@
               {pieces.map((p, i) => (
                 <div key={p.src} className="shrink-0 w-full h-[440px] sm:h-[520px] flex items-center justify-center p-3 sm:p-5">
                   <img src={p.src} alt={p.title} draggable={false} loading={i === 0 ? "eager" : "lazy"}
-                    onClick={() => { if (moved.current < 10) onOpen(i); }}
                     className="max-h-full max-w-full object-contain rounded-sm shadow-md select-none cursor-zoom-in" />
                 </div>
               ))}
