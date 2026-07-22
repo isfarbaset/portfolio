@@ -60,11 +60,6 @@
     @media (hover: none) {
       .reveal-caption { opacity: 1 !important; transform: none !important; }
     }
-    /* tiny dot pattern for hero side */
-    .dotgrid {
-      background-image: radial-gradient(hsl(var(--foreground) / 0.10) 1px, transparent 1px);
-      background-size: 14px 14px;
-    }
     /* subtle marquee for tape strip */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-track { animation: marquee 30s linear infinite; }
@@ -138,9 +133,6 @@
     function Hero() {
       return (
         <section id="top" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28">
-          {/* background dot grid panel on the right */}
-          <div className="absolute right-0 top-20 hidden md:block w-[220px] h-[220px] dotgrid opacity-60 pointer-events-none"></div>
-
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-14 items-end">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">
