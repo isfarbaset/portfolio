@@ -54,6 +54,8 @@
     .roll-mask { display: inline-block; vertical-align: baseline; height: 1em; overflow: hidden; line-height: 1; }
     .roll-track { display: flex; flex-direction: column; transition: transform 600ms cubic-bezier(.6,.05,.2,1); }
     .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; white-space: nowrap; }
+    /* longest roles overflow the hero width on small phones; shrink just the animated word */
+    @media (max-width: 480px) { .roll-mask { font-size: 0.8em; } }
     /* hide caption on touch, prevents sticky hover */
     @media (hover: none) {
       .reveal-caption { opacity: 1 !important; transform: none !important; }
@@ -172,7 +174,7 @@
             {/* portrait */}
             <div className="relative justify-self-start md:justify-self-end">
               <div className="absolute -inset-3 bg-gradient-to-br from-[hsl(var(--accent))]/20 to-transparent rounded-full blur-2xl"></div>
-              <img src="images/isfar-about.png" alt="Isfar Baset"
+              <img src="images/isfar-about.jpg" alt="Isfar Baset"
                 className="relative w-80 sm:w-[28rem] md:w-[34rem] max-w-full aspect-square object-cover rounded-full border border-border shadow-md" />
               <span className="absolute -bottom-3 -left-3 bg-background border border-border rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70">
                 ✦ hi there
@@ -365,7 +367,7 @@
         <section id="about" className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-14 items-start py-20">
           <div className="relative">
             <div className="absolute -inset-2 bg-gradient-to-br from-[hsl(var(--accent))]/15 to-transparent rounded-full blur-xl"></div>
-            <img src="images/isfar-about.png" alt="Isfar Baset"
+            <img src="images/isfar-about.jpg" alt="Isfar Baset"
               className="relative w-44 h-44 rounded-full object-cover border border-border/70 shadow-md" />
             <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground space-y-1.5">
               <div className="flex justify-between"><span>Based</span><span className="text-foreground">Northern VA</span></div>
@@ -443,6 +445,8 @@
     /* ---------- Studio: drag carousel with animated thumbnail strip ---------- */
     const THUMB_FULL = 120;
     const THUMB_COLLAPSED = 36;
+    /* small versions for the thumbnail strip so it doesn't pull full-size images */
+    const thumbOf = (src) => src.replace("/art/", "/art/thumbs/");
 
     function GalleryCarousel({ pieces, onOpen }) {
       const [index, setIndex] = useState(0);
@@ -564,7 +568,7 @@
                   style={{ width: i === index ? THUMB_FULL : THUMB_COLLAPSED, transition: "width 300ms ease-out" }}
                   className={cn("relative shrink-0 h-full overflow-hidden rounded-sm border transition-colors",
                     i === index ? "border-[hsl(var(--accent))]" : "border-border/60 opacity-60 hover:opacity-100")}>
-                  <img src={p.src} alt="" loading="lazy" draggable={false}
+                  <img src={thumbOf(p.src)} alt="" loading="lazy" draggable={false}
                     className="w-full h-full object-cover pointer-events-none select-none" />
                 </button>
               ))}
@@ -584,6 +588,7 @@
         { title: "One Apple", medium: "Oil pastel", src: "images/art/apple.jpg" },
         { title: "Calla Lilies", medium: "Oil pastel", src: "images/art/calla-lilies.jpg" },
         { title: "Pink Lily", medium: "Oil pastel", src: "images/art/lily.jpg" },
+        { title: "Goldfish", medium: "Oil pastel", src: "images/art/goldfish.jpg" },
       ];
       const chips = [
         { icon: "📚", label: "Reading", note: "two books deep, always" },
@@ -596,11 +601,11 @@
         <section id="studio" className="py-20 sm:py-28">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Off the keyboard</p>
           <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight leading-[1.02] max-w-3xl">
-            When I close the laptop, <span className="text-muted-foreground">I make a mess with oil pastels.</span>
+            When I close the laptop, <span className="text-muted-foreground">I reach for the sketchbook.</span>
           </h2>
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
-            Mostly food and flowers, plus one very smug fish. Somewhere between the modeling and the
-            storytelling, this is where I actually unplug. A few other things I make time for:
+            Whatever catches my eye ends up on paper. The medium changes, the subjects change,
+            but this is where I actually unplug. A few other things I make time for:
           </p>
 
           {/* hobby chips */}
@@ -631,7 +636,7 @@
           {/* oil pastel gallery: masonry columns */}
           <div className="mt-12">
             <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-5">
-              The oil pastel gallery
+              From the sketchbook
             </h3>
             <GalleryCarousel pieces={pieces} onOpen={(i) => setIndex(i)} />
           </div>
