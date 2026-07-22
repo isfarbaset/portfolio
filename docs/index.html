@@ -601,11 +601,12 @@
         <section id="studio" className="py-20 sm:py-28">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Off the keyboard</p>
           <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight leading-[1.02] max-w-3xl">
-            When I close the laptop, <span className="text-muted-foreground">I reach for the sketchbook.</span>
+            When I close the laptop, <span className="text-muted-foreground">I make things I can't ctrl+Z.</span>
           </h2>
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
-            Whatever catches my eye ends up on paper. The medium changes, the subjects change,
-            but this is where I actually unplug. A few other things I make time for:
+            Sketchbooks, canvases, and whatever craft project is currently taking over the
+            dining table. No metrics, no deadlines, nothing to optimize. A few other things
+            I make time for:
           </p>
 
           {/* hobby chips */}
@@ -615,7 +616,7 @@
                 <>
                   <span className="text-base leading-none">{c.icon}</span>
                   <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80">{c.label}</span>
-                  <span className="hidden sm:inline text-[13px] text-muted-foreground">— {c.note}</span>
+                  <span className="hidden sm:inline text-[13px] text-muted-foreground">· {c.note}</span>
                   {c.href && <span className="font-mono text-[11px] text-[hsl(var(--accent))]">↗</span>}
                 </>
               );
@@ -636,7 +637,7 @@
           {/* oil pastel gallery: masonry columns */}
           <div className="mt-12">
             <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-5">
-              From the sketchbook
+              Recent pieces
             </h3>
             <GalleryCarousel pieces={pieces} onOpen={(i) => setIndex(i)} />
           </div>
