@@ -583,9 +583,9 @@
         { title: "Goldfish", medium: "Oil pastel", src: "images/art/goldfish.jpg" },
       ];
       const chips = [
-        { icon: "📚", label: "Reading", note: "two books deep, always" },
+        { icon: "📚", label: "Reading", note: "what I'm on now, and everything before it", href: "https://www.goodreads.com/user/show/197465023-isfar-baset" },
         { icon: "🎾", label: "Tennis", note: "new this year, improving slowly" },
-        { icon: "📷", label: "Photography", note: "the keepers live on Instagram", href: "https://www.instagram.com/is.far/" },
+        { icon: "📷", label: "Photography", note: "photos I've taken and edits I've made, over on Instagram", href: "https://www.instagram.com/is.far/" },
       ];
       const [index, setIndex] = useState(null);
 
@@ -613,12 +613,12 @@
               );
               return c.href ? (
                 <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5 hover:border-foreground transition-colors">
+                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5 min-h-[44px] sm:min-h-0 hover:border-foreground transition-colors">
                   {inner}
                 </a>
               ) : (
                 <span key={c.label}
-                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5">
+                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5 min-h-[44px] sm:min-h-0">
                   {inner}
                 </span>
               );
