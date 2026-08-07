@@ -586,6 +586,7 @@
       const chips = [
         { icon: "📚", label: "Reading", note: "some of my reads, over on Goodreads", href: "https://www.goodreads.com/user/show/197465023-isfar-baset" },
         { icon: "🎾", label: "Tennis", note: "new this year, improving slowly" },
+        { icon: "🏊", label: "Swimming" },
         { icon: "📷", label: "Photography", note: "photos I've taken and edits I've made, over on Instagram", href: "https://www.instagram.com/is.far/" },
       ];
       const [index, setIndex] = useState(null);
@@ -608,7 +609,7 @@
                 <>
                   <span className="text-base leading-none">{c.icon}</span>
                   <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80">{c.label}</span>
-                  <span className="hidden sm:inline text-[13px] text-muted-foreground">· {c.note}</span>
+                  {c.note && <span className="hidden sm:inline text-[13px] text-muted-foreground">· {c.note}</span>}
                   {c.href && <span className="font-mono text-[11px] text-[hsl(var(--accent))]">↗</span>}
                 </>
               );
