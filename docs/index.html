@@ -561,6 +561,7 @@
                   className={cn("relative shrink-0 h-full overflow-hidden rounded-sm border transition-colors",
                     i === index ? "border-[hsl(var(--accent))]" : "border-border/60 opacity-60 hover:opacity-100")}>
                   <img src={thumbOf(p.src)} alt="" loading="lazy" draggable={false}
+                    onError={(e) => { e.currentTarget.src = p.src; }}
                     className="w-full h-full object-cover pointer-events-none select-none" />
                 </button>
               ))}
@@ -584,6 +585,18 @@
         { title: "Green Apple", medium: "Oil pastel", src: "images/art/green-apple.jpg" },
         { title: "Two Pairs", medium: "Oil pastel", src: "images/art/two-pairs.jpg" },
         { title: "Blueberries", medium: "Oil pastel", src: "images/art/blueberries.jpg" },
+        { title: "May 10 Study", medium: "Oil pastel", src: "images/art/img_8382.jpg" },
+        { title: "May 11 Study", medium: "Oil pastel", src: "images/art/img_8406.jpg" },
+        { title: "May 14 Study", medium: "Oil pastel", src: "images/art/img_8421.jpg" },
+        { title: "July 18 Study", medium: "Oil pastel", src: "images/art/img_9494.jpg" },
+        { title: "July 19 Study", medium: "Oil pastel", src: "images/art/img_9507.jpg" },
+        { title: "July 21 Study A", medium: "Oil pastel", src: "images/art/img_9516.jpg" },
+        { title: "July 21 Study B", medium: "Oil pastel", src: "images/art/img_9523.jpg" },
+        { title: "July 21 Study C", medium: "Oil pastel", src: "images/art/img_9528.jpg" },
+        { title: "July 30 Study", medium: "Oil pastel", src: "images/art/img_9654.jpg" },
+        { title: "August 7 Study", medium: "Oil pastel", src: "images/art/img_9762.jpg" },
+        { title: "August 10 Study", medium: "Oil pastel", src: "images/art/img_9848.jpeg" },
+        { title: "August 11 Study", medium: "Oil pastel", src: "images/art/img_9886.jpg" },
       ];
       const chips = [
         { icon: "📚", label: "Reading", note: "some of my reads, over on Goodreads", href: "https://www.goodreads.com/user/show/197465023-isfar-baset" },
