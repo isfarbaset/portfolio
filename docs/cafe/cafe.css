@@ -82,7 +82,7 @@ section { position: relative; max-width: var(--max); margin-inline: auto; paddin
 .sk .thin { stroke-width: 1; opacity: .55; }
 .sk .under { stroke: var(--accent); stroke-width: 1.5; }
 .sk .star { stroke-width: 1.4; }
-.sk .ornament { stroke-width: 1.7; transition-duration: 2.8s; }
+.sk .ornament { stroke-width: 2.1; transition-duration: 2.8s; }
 .sk .fill { fill: currentColor; stroke: none; filter: url(#ink); opacity: 0; transition: opacity .8s ease .6s; }
 .sk.drawn .fill { opacity: 1; }
 .sk .axis { stroke-width: 1.6; transition-duration: 1.8s; }
@@ -232,29 +232,18 @@ mark.marker {
    ON THE MENU
    ========================================================= */
 .offer { display: flex; flex-direction: column; align-items: center; padding-block: clamp(40px, 6vw, 80px) clamp(80px, 10vw, 140px); }
-.frame { position: relative; width: min(100%, 520px); padding: 74px 66px 58px; text-align: center; color: var(--ink); }
-.frame-kicker { font-size: 23px; color: var(--soft); }
-.frame-name { font: italic 300 clamp(44px, 5vw, 62px)/1 var(--serif); letter-spacing: -.02em; margin: 2px 0 4px; }
-.frame-sub { font-size: 21px; color: var(--accent); margin-bottom: 4px; }
-.services { margin-top: 10px; }
-.services li { font: 400 clamp(21px, 2.1vw, 28px)/1.5 var(--hand); }
-.services .soft { color: var(--accent); font-size: clamp(18px, 1.7vw, 23px); margin-top: 4px; }
-.frame-foot { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 22px; }
-.frame-foot p { font-size: 19px; color: var(--soft); }
-
-.doodle, .spark { position: absolute; display: block; color: var(--ink); }
-.doodle { pointer-events: none; }
-.plate { position: relative; width: 78px; height: 78px; margin: 14px auto 10px; }
-.fork { width: 30px; height: 96px; left: 8%; top: 46%; rotate: -8deg; }
-.knife { width: 30px; height: 96px; right: 8%; top: 46%; rotate: 8deg; }
-.frame-foot .bottle { position: relative; width: 30px; height: 62px; rotate: -5deg; }
-.frame-foot .jar { position: relative; width: 46px; height: 62px; rotate: 4deg; }
-.spark { width: 18px; height: 18px; }
-.spark { width: 20px; height: 20px; }
-.sp1 { left: -3%; top: 1%; }
-.sp2 { right: -1%; top: 12%; width: 13px; height: 13px; }
-.sp3 { left: 1%; bottom: 9%; width: 13px; height: 13px; }
-.sp4 { right: -3%; bottom: 2%; }
+/* the card itself: Isfar's graduation dinner menu, flattened out of the photo,
+   with her lettering lifted off so the site's own words can sit in it */
+.frame {
+  position: relative; container-type: inline-size;
+  width: min(100%, 540px); aspect-ratio: 831 / 1079; color: var(--ink);
+  background: url("../images/menu-card.webp") center / 100% 100% no-repeat;
+}
+.frame-top { position: absolute; left: 12%; right: 12%; top: 7.5%; text-align: center; }
+.frame-name { font: italic 300 12.5cqw/1.04 var(--serif); letter-spacing: -.02em; margin: 0; }
+.services { position: absolute; left: 12%; right: 12%; top: 59.5%; text-align: center; }
+.services li { font: 400 4.8cqw/1.4 var(--hand); }
+.services .soft { color: var(--accent); font-size: 4.2cqw; margin-top: .4cqw; }
 .scroll-for { margin-top: 38px; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 22px; color: var(--soft); }
 .scroll-for svg { width: 26px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; filter: url(#ink); }
 
@@ -466,9 +455,7 @@ mark.marker {
   .contacts a { font-size: 17px; }
   .contacts a > .hand { font-size: 17px; }
   .coffee .caption { margin-left: 0; }
-  .frame { padding: 62px 46px 50px; }
-  .fork, .knife { display: none; }
-  .qa > div { grid-template-columns: 1fr; gap: 2px; }
+  .fork,   .qa > div { grid-template-columns: 1fr; gap: 2px; }
   .apple-sticker { width: 28%; right: 2%; }
   .lb-stage { padding: 64px 12px 90px; }
   .lb-stage img { max-width: calc(100vw - 24px); max-height: calc(100vh - 240px); }
