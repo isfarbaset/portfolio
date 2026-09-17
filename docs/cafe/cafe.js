@@ -67,17 +67,41 @@ sketchPage();
   ['#work', '#about', '#art', '#hi'].forEach((id) => io.observe($(id)));
 }
 
-/* ---------- the flat white ---------- */
+/* ---------- the latte: Isfar's photo, poured into a fluid sim ---------- */
 {
   const stage = $('#cup');
-  const latte = createLatte($('#latte'), { reducedMotion: reduceMotion });
-  $('#repour').addEventListener('click', () => {
+  const latte = createLatte($('#latte'), {
+    reducedMotion: reduceMotion,
+    photo: 'images/latte-photo.webp',
+    /* amount is how far the spoon has travelled, in cup widths */
+    onStir(amount) {
+      if (amount > 0.05) stage.classList.add('stirring');
+      stage.classList.toggle('spent', amount > 3.4);
+    },
+  });
+
+  const again = () => {
     latte?.pour();
     stage.classList.remove('pour');
     void stage.offsetWidth;
     stage.classList.add('pour');
-  });
-  if (!latte) $('#repour').hidden = true;
+  };
+  $('#repour').addEventListener('click', again);
+  $('#refill').addEventListener('click', again);
+
+  if (!latte) {
+    $('#repour').hidden = true;
+    $('#refill').hidden = true;
+    $('#stirHint').hidden = true;
+  } else {
+    // a short swirl once it has been on screen a moment, so the surface is
+    // visibly liquid. Late enough that the heart in the photo lands first.
+    new IntersectionObserver(([e], io) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      setTimeout(() => latte.demo(), 2400);
+    }, { threshold: 0.6 }).observe($('#latte'));
+  }
 }
 
 /* ---------- the menu: a print follows the cursor ---------- */

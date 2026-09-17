@@ -148,15 +148,12 @@ const SHADERS = {
       fragColor = vec4(vel, 0.0, 1.0);
     }`,
 
-  // The only shader you see. The fluid underneath is real; this pass paints it
-  // in oil pastel, the way Isfar's drawings are made: crema laid in with short
-  // diagonal strokes of umber, terracotta and a little rose, milk in cream with
-  // the odd streak of pale blue, paper tooth showing through, and one loose ink
-  // line wherever the milk meets the crema. Stirring drags the color along.
+  // The only shader you see. The fluid underneath is real; this pass just shows
+  // the photograph Isfar took of her latte, with a soft edge where the liquid
+  // meets the cup. Stirring drags the foam along, the way it does in the cup.
   display: `
     uniform sampler2D uDye;
     uniform vec2 uDyeTexel;
-    uniform vec3 uInk;
     uniform float uWeight;
     float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     float vnoise(vec2 p) {
@@ -164,57 +161,26 @@ const SHADERS = {
       u = u * u * (3.0 - 2.0 * u);
       return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
     }
-    float lum(vec2 uv) { return dot(texture(uDye, uv).rgb, vec3(0.299, 0.587, 0.114)); }
-    float contour(float l, float level, float width) {
-      float fw = fwidth(l) + 1e-4;
-      return 1.0 - smoothstep(width * 0.45, width, abs(l - level) / fw);
-    }
     void main() {
       vec2 uv = vUv;
-      vec2 wob = vec2(vnoise(uv * 6.0), vnoise(uv * 6.0 + 19.0)) - 0.5;
-      vec2 suv = uv + wob * 0.006;
-      vec2 t = uDyeTexel * 2.5;
-      float l = (lum(suv) * 2.0 + lum(suv + vec2(t.x, 0.0)) + lum(suv - vec2(t.x, 0.0)) + lum(suv + vec2(0.0, t.y)) + lum(suv - vec2(0.0, t.y))) / 6.0;
+      vec3 col = texture(uDye, uv).rgb;
 
-      // pastel strokes: long thin noise along a diagonal, two directions layered
-      mat2 rotA = mat2(0.82, -0.57, 0.57, 0.82);
-      mat2 rotB = mat2(0.94, 0.34, -0.34, 0.94);
-      float sA = vnoise(rotA * uv * vec2(220.0, 20.0));
-      float sB = vnoise(rotB * uv * vec2(140.0, 14.0));
-      float strokes = sA * 0.6 + sB * 0.4;
-      float tone = l + (strokes - 0.5) * 0.16;
+      // the photograph loses a little contrast through the simulation, so put it back
+      col = clamp((col - 0.5) * 1.06 + 0.5, 0.0, 1.0);
 
-      vec3 umber = vec3(0.36, 0.21, 0.14);
-      vec3 terracotta = vec3(0.72, 0.43, 0.30);
-      vec3 peach = vec3(0.93, 0.70, 0.53);
-      vec3 cream = vec3(0.98, 0.93, 0.82);
-      vec3 col = umber;
-      col = mix(col, terracotta, smoothstep(0.22, 0.34, tone));
-      col = mix(col, peach, smoothstep(0.42, 0.56, tone));
-      col = mix(col, cream, smoothstep(0.58, 0.68, tone));
-
-      // accent streaks that follow the dye: rose in the crema, sky blue in the foam
-      float blotch = vnoise(uv * 9.0 + 3.0);
-      float crema = 1.0 - smoothstep(0.45, 0.6, tone);
-      float foam = smoothstep(0.62, 0.75, tone);
-      col = mix(col, vec3(0.90, 0.56, 0.60), crema * smoothstep(0.55, 0.9, sB) * smoothstep(0.45, 0.8, blotch) * 0.55);
-      col = mix(col, vec3(0.64, 0.78, 0.90), foam * smoothstep(0.62, 0.95, sA) * smoothstep(0.5, 0.85, 1.0 - blotch) * 0.45);
-
-      // paper tooth where the pastel skipped
-      float tooth = smoothstep(0.66, 0.92, vnoise(uv * 480.0) * 0.55 + strokes * 0.45);
-      col = mix(col, vec3(0.98, 0.95, 0.89), tooth * 0.55);
-
-      // the ink line where milk meets crema
-      float dry = 0.55 + 0.45 * smoothstep(0.2, 0.7, vnoise(uv * 34.0));
-      float ink = contour(l, 0.6, 1.8 * uWeight) * dry;
-      col = mix(col, uInk, ink * 0.9);
-
-      // the colour stops a hair short of the rim, like it was coloured in by hand
       vec2 p = uv - 0.5;
+      float d = length(p);
       float ang = atan(p.y, p.x);
-      float edge = 0.475 - 0.008 * vnoise(vec2(ang * 4.0, 2.0)) - 0.005 * sin(ang * 3.0 + 1.0);
-      float a = 1.0 - smoothstep(edge - 0.004, edge + 0.004, length(p));
-      a *= 0.93 + 0.07 * strokes;
+
+      // the liquid sits a hair inside the cup, and darkens where it meets the wall
+      float edge = 0.492 - 0.004 * vnoise(vec2(ang * 4.0, 2.0));
+      col *= 1.0 - smoothstep(edge - 0.08, edge, d) * 0.22;
+
+      // the shine the ceramic throws across the surface, steady while it swirls
+      float shine = smoothstep(0.82, 0.995, vnoise(vec2(ang * 1.6 + 2.2, 0.5))) * smoothstep(0.30, 0.47, d);
+      col += shine * 0.07;
+
+      float a = 1.0 - smoothstep(edge - 0.006, edge + 0.004, d);
       fragColor = vec4(col * a, a);
     }`,
 };
@@ -228,7 +194,7 @@ function mulberry32(seed) {
   };
 }
 
-/* The starting latte, painted on a 2D canvas: crema, mottling, and a rosetta. */
+/* The starting latte, painted on a 2D canvas: rose crema, mottling, and a heart. */
 export function paintLatte(size = 512) {
   const c = document.createElement('canvas');
   c.width = c.height = size;
@@ -237,75 +203,71 @@ export function paintLatte(size = 512) {
   const rand = mulberry32(2025);
 
   const crema = x.createRadialGradient(256, 270, 20, 256, 256, 256);
-  crema.addColorStop(0, '#9c6a42');
-  crema.addColorStop(0.5, '#7f5232');
-  crema.addColorStop(0.82, '#643819');
-  crema.addColorStop(1, '#3e2211');
+  crema.addColorStop(0, '#cd8b72');
+  crema.addColorStop(0.5, '#bd7359');
+  crema.addColorStop(0.82, '#a75c44');
+  crema.addColorStop(1, '#7c3b2b');
   x.fillStyle = crema;
   x.fillRect(0, 0, 512, 512);
 
   for (let i = 0; i < 900; i++) {
     const a = rand() * Math.PI * 2;
     const r = Math.sqrt(rand()) * 250;
-    x.fillStyle = rand() > 0.5 ? 'rgba(40,20,8,0.10)' : 'rgba(205,145,85,0.08)';
+    x.fillStyle = rand() > 0.5 ? 'rgba(70,24,14,0.10)' : 'rgba(226,160,134,0.09)';
     x.beginPath();
     x.arc(256 + Math.cos(a) * r, 256 + Math.sin(a) * r, 1 + rand() * 5, 0, Math.PI * 2);
     x.fill();
   }
 
-  const MILK = '#f1e3cb';
-  const CREMA = 'rgba(128, 80, 45, 0.92)';
+  const MILK = '#f8efe8';
+  const CREMA = 'rgba(166, 84, 62, 0.92)';
 
-  // the milk body: a slightly lopsided teardrop with a soft, foamy edge
-  const body = new Path2D();
-  body.moveTo(256, 150);
-  body.bezierCurveTo(340, 158, 378, 236, 372, 300);
-  body.bezierCurveTo(366, 372, 318, 428, 258, 432);
-  body.bezierCurveTo(196, 428, 142, 376, 140, 302);
-  body.bezierCurveTo(138, 232, 176, 158, 256, 150);
-  const head = new Path2D();
-  head.ellipse(258, 124, 30, 25, -0.08, 0, Math.PI * 2);
+  // a heart, the way it lands when the pitcher comes in close and lifts at the end:
+  // one wide lobe of milk, a couple of rings inside it, and a line pulled through
+  const heart = (cx, cy, w, h) => {
+    const p = new Path2D();
+    p.moveTo(cx, cy + h * 0.5);
+    p.bezierCurveTo(cx - w * 0.64, cy + h * 0.04, cx - w * 0.54, cy - h * 0.54, cx - w * 0.17, cy - h * 0.36);
+    p.bezierCurveTo(cx - w * 0.07, cy - h * 0.31, cx - w * 0.03, cy - h * 0.25, cx, cy - h * 0.18);
+    p.bezierCurveTo(cx + w * 0.03, cy - h * 0.25, cx + w * 0.07, cy - h * 0.31, cx + w * 0.17, cy - h * 0.36);
+    p.bezierCurveTo(cx + w * 0.54, cy - h * 0.54, cx + w * 0.64, cy + h * 0.04, cx, cy + h * 0.5);
+    return p;
+  };
+  const body = heart(256, 252, 340, 330);
 
   x.save();
   x.fillStyle = MILK;
-  x.shadowColor = 'rgba(241, 227, 203, 0.9)';
+  x.shadowColor = 'rgba(248, 239, 232, 0.9)';
   x.shadowBlur = 14;
   x.fill(body);
-  x.fill(head);
   x.restore();
 
-  // leaves: crescents of crema pushed into the milk, thick in the middle and
-  // tapering at the tips, each one a little off like a real pour
+  // the rings inside: each pass of the pitcher leaves a thin crescent of crema
+  x.save();
+  x.clip(body);
+  x.strokeStyle = CREMA;
+  x.lineJoin = 'round';
+  x.shadowColor = CREMA;
+  x.shadowBlur = 3;
+  for (let i = 0; i < 2; i++) {
+    const k = 0.66 - i * 0.3;
+    const wob = (rand() - 0.5) * 7;
+    x.lineWidth = 5.5 - i * 1.4 + rand();
+    x.stroke(heart(256 + wob * 0.5, 250 - i * 12 + wob, 340 * k, 330 * k));
+  }
+  x.restore();
+
+  // the pull-through: fine at the top, heavier where the pitcher lifted off
   x.save();
   x.clip(body);
   x.fillStyle = CREMA;
   x.shadowColor = CREMA;
-  x.shadowBlur = 3;
-  for (let i = 0; i < 11; i++) {
-    const y = 176 + i * 23 + (rand() - 0.5) * 5;
-    const w = 44 + i * 12.5 + (rand() - 0.5) * 8;
-    const lift = w * (0.34 + rand() * 0.08);
-    const thick = 4.5 + rand() * 2.5 - i * 0.15;
-    const sway = (rand() - 0.5) * 6 + (i - 5) * 0.6;
-    const cx = 256 + sway;
-    x.beginPath();
-    x.moveTo(cx - w, y + w * 0.5);
-    x.quadraticCurveTo(cx, y - lift, cx + w, y + w * 0.5 + (rand() - 0.5) * 6);
-    x.quadraticCurveTo(cx, y - lift + thick * 2.2, cx - w, y + w * 0.5);
-    x.fill();
-  }
-  x.restore();
-
-  // the pull-through: fine at the top, a little heavier where the pitcher lifted off
-  x.save();
-  x.fillStyle = CREMA;
-  x.shadowColor = CREMA;
   x.shadowBlur = 2;
   x.beginPath();
-  x.moveTo(257, 92);
-  x.quadraticCurveTo(255.5, 280, 254, 452);
-  x.lineTo(260, 452);
-  x.quadraticCurveTo(259, 280, 258.4, 92);
+  x.moveTo(256.5, 70);
+  x.quadraticCurveTo(254.5, 280, 252.5, 420);
+  x.lineTo(260, 420);
+  x.quadraticCurveTo(258.5, 280, 258.5, 70);
   x.closePath();
   x.fill();
   x.restore();
@@ -315,8 +277,8 @@ export function paintLatte(size = 512) {
     const px = 150 + rand() * 220;
     const py = 110 + rand() * 330;
     const k = size / 512; // hit-testing happens in canvas pixels, not the scaled space
-    if (!x.isPointInPath(body, px * k, py * k) && !x.isPointInPath(head, px * k, py * k)) continue;
-    x.fillStyle = rand() > 0.5 ? 'rgba(255,250,240,0.25)' : 'rgba(150,110,70,0.06)';
+    if (!x.isPointInPath(body, px * k, py * k)) continue;
+    x.fillStyle = rand() > 0.5 ? 'rgba(255,250,246,0.25)' : 'rgba(180,110,86,0.06)';
     x.beginPath();
     x.arc(px, py, 0.6 + rand() * 1.6, 0, Math.PI * 2);
     x.fill();
@@ -325,7 +287,7 @@ export function paintLatte(size = 512) {
   return c;
 }
 
-export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
+export function createLatte(canvas, { onStir, photo, reducedMotion = false } = {}) {
   const gl = canvas.getContext('webgl2', {
     alpha: true, depth: false, stencil: false, antialias: false, premultipliedAlpha: true,
   });
@@ -424,9 +386,31 @@ export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
   const curl = target(SIM_RES, SIM_RES, gl.NEAREST);
   const simTexel = velocity.texel;
 
-  /* ---------- pour: upload the painted latte, still the liquid ---------- */
+  /* ---------- the surface we pour: Isfar's photo, or the drawn one until it loads ---------- */
+  let shot = null;
+  if (photo) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = photo;
+    (img.decode ? img.decode() : Promise.resolve()).then(() => { shot = img; pour(); }).catch(() => {});
+  }
+
+  function surface(size) {
+    if (!shot) return paintLatte(size);
+    const c = document.createElement('canvas');
+    c.width = c.height = size;
+    const x = c.getContext('2d');
+    x.fillStyle = '#a9604a';                    // behind the corners the photo doesn't cover
+    x.fillRect(0, 0, size, size);
+    x.drawImage(shot, 0, 0, size, size);
+    return c;
+  }
+
+  /* ---------- pour: upload the latte, still the liquid ---------- */
   function pour() {
-    const art = paintLatte(DYE_RES);
+    const art = surface(DYE_RES);
+    stirAmount = 0;
+    onStir?.(0);
     gl.activeTexture(gl.TEXTURE0);
     const tex = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, tex);
@@ -522,7 +506,6 @@ export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
     const u = programs.display();
     gl.uniform1i(u.uDye, dye.read.attach(0));
     gl.uniform2f(u.uDyeTexel, ...dye.texel);
-    gl.uniform3f(u.uInk, 0.18, 0.13, 0.1);
     gl.uniform1f(u.uWeight, dpr());
     blit(null);
   }
@@ -533,6 +516,7 @@ export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
   let awakeUntil = 0;
   let visible = true;
   let stirred = false;
+  let stirAmount = 0;
   let script = null;
   const spoon = { x: 0.5, y: 0.5, dx: 0, dy: 0 };
 
@@ -560,9 +544,11 @@ export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
         script = null;
       } else {
         const e = k < 0.5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
-        const a = -2.75 + e * 2.2;
-        const x = 0.5 + Math.cos(a) * 0.29;
-        const y = 0.5 + Math.sin(a) * 0.29;
+        // a short, shallow pass near the rim: enough to show the surface moves,
+        // not enough to take the heart out before anyone has seen it
+        const a = -2.75 + e * 1.05;
+        const x = 0.5 + Math.cos(a) * 0.35;
+        const y = 0.5 + Math.sin(a) * 0.35;
         if (script.px !== undefined) stir(x, y, x - script.px, y - script.py);
         script.px = x;
         script.py = y;
@@ -589,12 +575,16 @@ export function createLatte(canvas, { onStir, reducedMotion = false } = {}) {
   canvas.addEventListener('pointerdown', place);
   canvas.addEventListener('pointermove', (e) => {
     const [x, y] = toUv(e);
+    const moved = Math.hypot(x - spoon.x, y - spoon.y);
     spoon.dx += x - spoon.x;
     spoon.dy += y - spoon.y;
     spoon.x = x;
     spoon.y = y;
     script = null;
-    if (!stirred) { stirred = true; onStir?.(); }
+    stirred = true;
+    // how far the spoon has travelled across the cup, in cup widths
+    if (Math.hypot(x - 0.5, y - 0.5) < 0.47 && moved < 0.3) stirAmount += moved;
+    onStir?.(stirAmount);
     wake();
   });
 

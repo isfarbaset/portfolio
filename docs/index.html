@@ -10,8 +10,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://isfarbaset.github.io/portfolio/" />
   <meta property="og:title" content="Isfar Baset · Data science, with coffee" />
-  <meta property="og:description" content="Machine learning, data storytelling, oil pastels, and a flat white you can stir." />
-  <meta property="og:image" content="https://isfarbaset.github.io/portfolio/images/isfar-about.jpg" />
+  <meta property="og:description" content="Machine learning, data storytelling, oil pastels, and a latte you can stir." />
+  <meta property="og:image" content="https://isfarbaset.github.io/portfolio/images/isfar-metro.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -73,8 +73,8 @@
 
       <figure class="booth" data-reveal>
         <span class="tape" style="--c: var(--rose); --r: -8deg"></span>
-        <img src="images/isfar-about.jpg" alt="Isfar Baset, smiling, in a knit sweater" width="1200" height="900" />
-        <figcaption class="hand">isfar, pre-coffee</figcaption>
+        <img src="images/isfar-metro.jpg" alt="Isfar Baset on a Washington Metro platform, holding a canvas bag of tulips" width="1200" height="1600" />
+        <figcaption class="hand">tulips, on the metro</figcaption>
       </figure>
 
       <ul class="roles" aria-label="Isfar is a">
@@ -82,8 +82,8 @@
         <li class="role" style="--x: 25%; --y: 50%; --d: .25s"><i data-sk="star"></i>Data Scientist</li>
         <li class="role" style="--x: 67%; --y: 20%; --d: .4s"><i data-sk="star"></i>Oil Pastel Painter</li>
         <li class="role" style="--x: 10%; --y: 76%; --d: .55s"><i data-sk="star"></i>Storyteller</li>
-        <li class="role" style="--x: 72%; --y: 44%; --d: .7s"><i data-sk="star"></i>Espresso Apologist</li>
-        <li class="role" style="--x: 63%; --y: 66%; --d: .85s"><i data-sk="star"></i>Chronic Overthinker</li>
+        <li class="role" style="--x: 72%; --y: 44%; --d: .7s"><i data-sk="star"></i>Creative Technologist</li>
+        <li class="role" style="--x: 71%; --y: 66%; --d: .85s"><i data-sk="star"></i>Jack of Many Hobbies</li>
       </ul>
 
       <p class="hand where" data-reveal>living and working in<br />northern virginia</p>
@@ -92,28 +92,40 @@
     <!-- ============ THE STATEMENT ============ -->
     <section class="statement" aria-labelledby="statement">
       <h1 id="statement" data-reveal>
-        Hi, I'm <em>Isfar Baset.</em> I build models, explain them in plain English,
+        <span class="sr-only">Isfar Baset. </span>I build models, explain them in plain English,
         and paint <mark class="marker">my breakfast.</mark>
       </h1>
 
       <div class="statement-foot">
         <p class="lede" data-reveal>
-          Data Analyst II at Shift Digital. Master's in Data Science from Georgetown, class of '25.
-          Originally from Dhaka, powered by whatever's in the cup on the right.
+          <b>Isfar Baset</b>, Data Analyst II at Shift Digital. Master's in Data Science from
+          Georgetown, class of '25. Originally from Dhaka, powered by whatever's in the cup on the right.
         </p>
 
         <figure class="coffee" data-reveal>
           <div class="cup-stage" id="cup">
             <svg class="cup-art" id="cupArt" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
-            <canvas id="latte" role="img" aria-label="A flat white with a rosetta, drawn in oil pastel. Move your cursor across it to stir."></canvas>
+            <canvas id="latte" role="img" aria-label="A photograph of Isfar's latte, with a heart in the foam. Drag across it to stir."></canvas>
             <svg class="cup-art cup-rim" id="cupRim" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
+
+            <p class="stir-hint" id="stirHint" aria-hidden="true">
+              <span class="orbit"><span class="spoon">
+                <svg viewBox="0 0 34 34"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.4 4.9c3.6-2.1 8.2.5 7.4 4.6-.6 3-4.1 5-6.8 3.7-2.8-1.4-3.4-5.8-.8-8.2" /><path d="M12.8 12.4c5.6 5.3 11.6 11.4 17.1 17.3" /></g></svg>
+              </span></span>
+              <span class="hand hint-label"><span class="on-hover">drag to stir</span><span class="on-touch">swipe to stir</span></span>
+            </p>
+
+            <button class="refill hand" id="refill" type="button">
+              pour another
+              <svg viewBox="0 0 80 46" aria-hidden="true"><path pathLength="1" d="M8 34 C 14 10, 44 4, 64 16 C 70 20, 72 26, 70 32 M70 32 L60 24 M70 32 L78 22" /></svg>
+            </button>
           </div>
           <img class="croissant" src="images/art/cut/croissant.webp" alt="An oil pastel croissant, drawn by Isfar" width="720" height="418" />
           <p class="hand coffee-note" aria-hidden="true">
             <svg viewBox="0 0 120 90"><path pathLength="1" d="M8 12 C 40 4, 86 20, 92 60 M92 60 L78 50 M92 60 L100 44" /></svg>
-            correlation isn't causation.<br />coffee is. (stir it)
+            correlation isn't causation.<br />coffee is.
           </p>
-          <figcaption class="caption"><span class="hand">fig. 1</span> A flat white, simulated live on your graphics card. <button class="hand pen-link" id="repour" type="button">pour another</button></figcaption>
+          <figcaption class="caption"><span class="hand">fig. 1</span> My latte, photographed one afternoon and dropped into a fluid simulation. Drag across it and the foam goes with you. <button class="hand pen-link" id="repour" type="button">pour another</button></figcaption>
         </figure>
       </div>
     </section>
@@ -121,7 +133,19 @@
     <!-- ============ ON THE MENU ============ -->
     <section class="offer" aria-labelledby="offer-title">
       <div class="frame" data-sk="ornament" data-reveal>
-        <p class="hand frame-kicker" id="offer-title">on the menu</p>
+        <i class="spark sp1" data-sk="sparkle"></i>
+        <i class="spark sp2" data-sk="sparkle"></i>
+        <i class="spark sp3" data-sk="sparkle"></i>
+        <i class="spark sp4" data-sk="sparkle"></i>
+
+        <p class="hand frame-kicker" id="offer-title">Welcome to</p>
+        <p class="frame-name">Isfar's</p>
+        <p class="hand frame-sub">kitchen</p>
+
+        <i class="doodle plate" data-sk="plate"></i>
+        <i class="doodle fork" data-sk="fork"></i>
+        <i class="doodle knife" data-sk="knife"></i>
+
         <ul class="services">
           <li>machine learning</li>
           <li>data storytelling</li>
@@ -130,6 +154,12 @@
           <li>plain-English explanations</li>
           <li class="soft">oil pastels, weekends only</li>
         </ul>
+
+        <div class="frame-foot">
+          <i class="doodle bottle" data-sk="bottle"></i>
+          <p class="hand">thank you for stopping by</p>
+          <i class="doodle jar" data-sk="jar"></i>
+        </div>
       </div>
       <p class="hand scroll-for" aria-hidden="true">
         scroll for work
@@ -438,7 +468,7 @@
   </main>
 
   <footer class="foot">
-    <p>The drawings are oil pastels by yours truly. Set in Newsreader, written in Nothing You Could Do, receipt printed in Courier Prime. © <span data-year>2026</span> Isfar Baset.</p>
+    <p>Every drawing and photograph on this page is mine: the oil pastels, the latte, the tulips. Set in Newsreader, written in Nothing You Could Do, receipt printed in Courier Prime. © <span data-year>2026</span> Isfar Baset.</p>
     <a class="hand pen-link" href="#top">back to the top ↑</a>
   </footer>
 

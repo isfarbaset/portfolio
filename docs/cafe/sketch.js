@@ -224,32 +224,119 @@ export const RECIPES = {
     return [['ink star', edges(pts, r, { over: 1.2, shake: 0.3, bow: 0.4 })]];
   },
 
-  /* an ornamental frame: curled corners, a little fleur top and bottom */
+  /* the frame from the menu card at Isfar's graduation dinner: one wavy line
+     all the way round, a curl at every corner, a knot at the middle of each side */
   ornament: (w, h, r) => {
-    const m = 30;
-    const curl = (cx, cy, rad, start) => circle(cx, cy, rad, rad, r, { steps: 18, turns: 1.6, wobble: 0.03, drift: -0.72, start });
-    const side = (pts) => smooth(pts.map(([x, y]) => [x + jit(r, 1.2), y + jit(r, 1.2)]));
-    const cx = w / 2, cy = h / 2;
+    const m = 24, k = 14;
+    const wave = (x1, y1, x2, y2, waves, amp) => {
+      const len = Math.hypot(x2 - x1, y2 - y1) || 1;
+      const ux = (x2 - x1) / len, uy = (y2 - y1) / len, nx = -uy, ny = ux;
+      const steps = Math.max(14, Math.round(len / 6));
+      const pts = [];
+      for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const taper = Math.sin(Math.PI * t) ** 0.4;
+        // the amplitude drifts a little wave to wave, the way a hand does it
+        const swell = 0.75 + 0.35 * Math.sin(t * Math.PI * 2 * waves * 0.5 + 1.3);
+        const off = Math.sin(t * Math.PI * 2 * waves) * amp * taper * swell + jit(r, 0.9);
+        pts.push([x1 + ux * len * t + nx * off, y1 + uy * len * t + ny * off]);
+      }
+      return smooth(pts);
+    };
+    const curl = (cx, cy, start) => circle(cx, cy, k, k, r, { steps: 20, turns: 1.3, drift: -0.5, wobble: 0.05, start });
+    // a curl that sits just outside the line, like a ribbon caught on itself
+    const knot = (cx, cy, ox, oy) => circle(cx + ox * 8, cy + oy * 8, 10, 10, r, { steps: 18, turns: 1.45, drift: -0.4, wobble: 0.05, start: Math.atan2(-oy, -ox) });
+
+    const x0 = m, x1 = w - m, y0 = m, y1 = h - m;
+    const waves = Math.max(2, Math.round((x1 - x0) / 130));
+    const tall = Math.max(2, Math.round((y1 - y0) / 130));
     let d = '';
-    // top and bottom edges, dipping in toward the fleur
-    d += side([[m + 34, m + 4], [w * 0.3, m - 6], [cx - 30, m + 6]]) + side([[cx + 30, m + 6], [w * 0.7, m - 6], [w - m - 34, m + 4]]);
-    d += side([[m + 34, h - m - 4], [w * 0.3, h - m + 6], [cx - 30, h - m - 6]]) + side([[cx + 30, h - m - 6], [w * 0.7, h - m + 6], [w - m - 34, h - m - 4]]);
-    // the sides bow outward, with a small curl halfway
-    d += side([[m + 4, m + 34], [m - 8, cy * 0.55], [m + 8, cy - 22]]) + side([[m + 8, cy + 22], [m - 8, h - cy * 0.55], [m + 4, h - m - 34]]);
-    d += side([[w - m - 4, m + 34], [w - m + 8, cy * 0.55], [w - m - 8, cy - 22]]) + side([[w - m - 8, cy + 22], [w - m + 8, h - cy * 0.55], [w - m - 4, h - m - 34]]);
-    // corner scrolls
-    d += curl(m + 18, m + 18, 20, Math.PI * 1.25) + curl(w - m - 18, m + 18, 20, Math.PI * 1.75);
-    d += curl(m + 18, h - m - 18, 20, Math.PI * 0.75) + curl(w - m - 18, h - m - 18, 20, Math.PI * 0.25);
-    // side curls
-    d += curl(m + 12, cy, 13, 0) + curl(w - m - 12, cy, 13, Math.PI);
-    // fleurs
-    const fleur = (y, dir) => circle(cx, y - dir * 12, 9, 12, r, { steps: 14, turns: 1.05 })
-      + smooth([[cx - 30, y + dir * 4], [cx - 18, y - dir * 10], [cx - 6, y + dir * 2]])
-      + smooth([[cx + 30, y + dir * 4], [cx + 18, y - dir * 10], [cx + 6, y + dir * 2]]);
-    d += fleur(m, 1) + fleur(h - m, -1);
-    // a thin inner rule
-    const t = m + 22;
-    return [['ink ornament', d], ['ink thin', edges(rectPts(t, t, w - 2 * t, h - 2 * t), r, { over: 3, bow: 1.4 })]];
+    // sides, each one broken at the middle where the knot sits
+    d += wave(x0 + k * 1.6, y0, w / 2 - 12, y0, waves, 7) + wave(w / 2 + 12, y0, x1 - k * 1.6, y0, waves, 7);
+    d += wave(x0 + k * 1.6, y1, w / 2 - 12, y1, waves, 7) + wave(w / 2 + 12, y1, x1 - k * 1.6, y1, waves, 7);
+    d += wave(x0, y0 + k * 1.6, x0, h / 2 - 12, tall, 7) + wave(x0, h / 2 + 12, x0, y1 - k * 1.6, tall, 7);
+    d += wave(x1, y0 + k * 1.6, x1, h / 2 - 12, tall, 7) + wave(x1, h / 2 + 12, x1, y1 - k * 1.6, tall, 7);
+    // the curls that hold the corners together
+    d += curl(x0 + k * 0.5, y0 + k * 0.5, Math.PI * 1.15) + curl(x1 - k * 0.5, y0 + k * 0.5, Math.PI * 1.85);
+    d += curl(x0 + k * 0.5, y1 - k * 0.5, Math.PI * 0.85) + curl(x1 - k * 0.5, y1 - k * 0.5, Math.PI * 0.15);
+    // the knots halfway along each side
+    d += knot(w / 2, y0, 0, -1) + knot(w / 2, y1, 0, 1) + knot(x0, h / 2, -1, 0) + knot(x1, h / 2, 1, 0);
+    return [['ink ornament', d]];
+  },
+
+  /* the four-pointed sparkles scattered round the card */
+  sparkle: (w, h, r) => {
+    const c = w / 2, R = w / 2, waist = R * 0.13;
+    const p = (dx, dy) => [c + dx, c + dy];
+    const d = `M${f(c)} ${f(c - R)}Q${f(c + waist)} ${f(c - waist)} ${f(c + R * (0.9 + jit(r, 0.1)))} ${f(c)}`
+      + `Q${f(c + waist)} ${f(c + waist)} ${f(c)} ${f(c + R)}`
+      + `Q${f(c - waist)} ${f(c + waist)} ${f(c - R)} ${f(c)}`
+      + `Q${f(c - waist)} ${f(c - waist)} ${f(c)} ${f(c - R)}Z`;
+    void p;
+    return [['fill', d]];
+  },
+
+  /* the cutlery and the table, drawn the way the menu card draws them */
+  fork: (w, h, r) => {
+    const cx = w / 2;
+    let d = '';
+    for (let i = 0; i < 4; i++) {
+      const x = w * (0.22 + i * 0.185);
+      d += stroke(x + jit(r, 1), h * 0.04, x + jit(r, 1), h * 0.24, r, { over: 1, bow: 0.6 });
+    }
+    d += smooth([[w * 0.2, h * 0.22], [w * 0.24, h * 0.33], [cx - 2, h * 0.42]]);
+    d += smooth([[w * 0.8, h * 0.22], [w * 0.76, h * 0.33], [cx + 2, h * 0.42]]);
+    d += stroke(cx - 2.5, h * 0.42, cx - 2.5, h * 0.97, r, { over: 1.5, bow: 1.2 });
+    d += stroke(cx + 2.5, h * 0.42, cx + 2.5, h * 0.97, r, { over: 1.5, bow: 1.2 });
+    d += smooth([[cx - 2.5, h * 0.97], [cx, h * 0.995], [cx + 2.5, h * 0.97]]);
+    return [['ink', d]];
+  },
+  knife: (w, h, r) => {
+    const cx = w / 2;
+    // a straight back, a belly on the cutting edge, tip at the top
+    let d = smooth([[cx + 2, h * 0.04], [w * 0.7, h * 0.16], [w * 0.68, h * 0.36], [cx + 3.5, h * 0.48]]);
+    d += smooth([[cx + 2, h * 0.04], [w * 0.34, h * 0.18], [w * 0.3, h * 0.4], [cx - 3.5, h * 0.48]]);
+    d += stroke(cx - 3.5, h * 0.48, cx + 3.5, h * 0.48, r, { over: 1, bow: 0.4 });
+    d += stroke(cx - 3, h * 0.48, cx - 3, h * 0.96, r, { over: 1.5, bow: 1.1 });
+    d += stroke(cx + 3, h * 0.48, cx + 3, h * 0.96, r, { over: 1.5, bow: 1.1 });
+    d += smooth([[cx - 3, h * 0.96], [cx, h * 0.995], [cx + 3, h * 0.96]]);
+    return [['ink', d]];
+  },
+  /* the plate with a face on it, the one drawn in the middle of the card */
+  plate: (w, h, r) => {
+    const cx = w / 2, cy = h / 2, rad = Math.min(w, h) / 2 - 3;
+    let d = smooth(ringPts(cx, cy, rad, rad, r, { turns: 1.05, wobble: 0.055, steps: 34 }));
+    d += circle(cx, cy, rad * 0.76, rad * 0.76, r, { wobble: 0.03, steps: 30 });
+    // a face: two eyes, a smile, and a little something on the side
+    d += circle(cx - rad * 0.26, cy - rad * 0.14, 2.6, 3, r, { steps: 8 });
+    d += circle(cx + rad * 0.2, cy - rad * 0.14, 2.6, 3, r, { steps: 8 });
+    d += smooth([[cx - rad * 0.22, cy + rad * 0.12], [cx - rad * 0.02, cy + rad * 0.3], [cx + rad * 0.2, cy + rad * 0.1]]);
+    d += smooth([[cx + rad * 0.34, cy - rad * 0.36], [cx + rad * 0.5, cy - rad * 0.3], [cx + rad * 0.42, cy - rad * 0.12], [cx + rad * 0.3, cy - rad * 0.22]]);
+    return [['ink', d]];
+  },
+  bottle: (w, h, r) => {
+    const cx = w / 2;
+    let d = smooth([[cx - w * 0.12, h * 0.04], [cx - w * 0.12, h * 0.26], [cx - w * 0.3, h * 0.42], [cx - w * 0.32, h * 0.96]]);
+    d += smooth([[cx + w * 0.12, h * 0.04], [cx + w * 0.12, h * 0.26], [cx + w * 0.3, h * 0.42], [cx + w * 0.32, h * 0.96]]);
+    d += stroke(cx - w * 0.32, h * 0.96, cx + w * 0.32, h * 0.96, r, { over: 1, bow: 0.8 });
+    d += stroke(cx - w * 0.12, h * 0.06, cx + w * 0.12, h * 0.06, r, { over: 1, bow: 0.6 });
+    d += stroke(cx - w * 0.3, h * 0.62, cx + w * 0.3, h * 0.62, r, { over: 1, bow: 0.5 });
+    d += stroke(cx - w * 0.3, h * 0.78, cx + w * 0.3, h * 0.78, r, { over: 1, bow: 0.5 });
+    return [['ink', d]];
+  },
+  /* a little jar with a bow on it */
+  jar: (w, h, r) => {
+    const cx = w / 2;
+    let d = smooth([[cx - w * 0.3, h * 0.42], [cx - w * 0.26, h * 0.8], [cx, h * 0.95], [cx + w * 0.26, h * 0.8], [cx + w * 0.3, h * 0.42]]);
+    d += stroke(cx - w * 0.34, h * 0.42, cx + w * 0.34, h * 0.42, r, { over: 1.5, bow: 0.6 });
+    // the bow: two loops off a knot, with the ribbon ends trailing down the neck
+    const ky = h * 0.28;
+    d += smooth([[cx - 2, ky], [cx - w * 0.3, h * 0.1], [cx - w * 0.34, h * 0.21], [cx - 2, ky]]);
+    d += smooth([[cx + 2, ky], [cx + w * 0.3, h * 0.1], [cx + w * 0.34, h * 0.21], [cx + 2, ky]]);
+    d += circle(cx, ky - 1, 3.2, 3, r, { steps: 9 });
+    d += smooth([[cx - 2, ky + 2], [cx - w * 0.1, h * 0.4], [cx - w * 0.06, h * 0.5]]);
+    d += smooth([[cx + 2, ky + 2], [cx + w * 0.12, h * 0.38], [cx + w * 0.1, h * 0.48]]);
+    return [['ink', d]];
   },
 
   /* chart axes through the middle, with arrowheads and ticks */
@@ -369,15 +456,6 @@ export function drawCup(art, rim) {
   L.push(['knock', `${smooth(ringPts(C, C, 338, 338, r, { steps: 44, wobble: 0.004 }))}Z`]);
   L.push(['crayon cream', scribble(ringPts(C, C, 330, 330, r, { steps: 40, wobble: 0.01 }), r, { angle: 20, gap: 20, jitter: 5 })]);
   L.push(['ink', circle(C, C, 338, 338, r, { steps: 56, wobble: 0.008, drift: 0.015 })]);
-
-  // a teaspoon resting on the saucer
-  const sAng = (48 * Math.PI) / 180;
-  const sp = (d, off) => [800 + Math.cos(sAng) * d - Math.sin(sAng) * off, 760 + Math.sin(sAng) * d + Math.cos(sAng) * off];
-  const [bx, by] = sp(-40, 0);
-  const bowl = ringPts(0, 0, 40, 26, r, { steps: 20, wobble: 0.04 }).map(([x, y]) => [bx + x * Math.cos(sAng) - y * Math.sin(sAng), by + x * Math.sin(sAng) + y * Math.cos(sAng)]);
-  L.push(['knock', knock(bowl) + knock([sp(0, -7), sp(210, -9), sp(222, 0), sp(210, 9), sp(0, 7)])]);
-  L.push(['crayon steel', scribble(bowl, r, { angle: 48, gap: 9, jitter: 2 })]);
-  L.push(['ink', smooth([...bowl, bowl[1]]) + smooth([sp(2, -7), sp(120, -8), sp(210, -9), sp(222, 0), sp(210, 9), sp(120, 8), sp(2, 7)])]);
 
   art.innerHTML = L.map(([cls, d]) => `<path class="${cls}" pathLength="1" d="${d}"/>`).join('');
 

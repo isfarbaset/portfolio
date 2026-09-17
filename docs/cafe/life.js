@@ -30,7 +30,7 @@ export function goldfish(tank, pointerArea) {
     tank.append(img);
     return {
       img, size, art: (art * Math.PI) / 180,
-      x: 0, y: 0, heading: r() * TAU, speed: 30, turn: 0,
+      x: 0, y: 0, heading: r() * TAU, shown: 0, speed: 30, turn: 0,
       seed: r() * 100, cruise: 26 + r() * 22, placed: false,
     };
   });
@@ -44,7 +44,7 @@ export function goldfish(tank, pointerArea) {
       const d = Math.hypot(f.x - x, f.y - y);
       if (d < radius) {
         f.heading = Math.atan2(f.y - y, f.x - x) + (r() - 0.5) * 0.8;
-        f.speed = 260 + r() * 120;
+        f.speed = 200 + r() * 90;
       }
     }
   };
@@ -58,15 +58,22 @@ export function goldfish(tank, pointerArea) {
   });
   pointerArea.addEventListener('pointerdown', (e) => scare(...local(e), 260));
 
-  const draw = (f, t) => {
-    const wiggle = Math.sin(t * (7 + f.speed / 25) + f.seed) * (0.05 + f.speed / 2200);
-    const angle = f.heading - f.art + wiggle;
-    f.img.style.transform = `translate3d(${(f.x - f.size / 2).toFixed(1)}px, ${(f.y - f.size / 2).toFixed(1)}px, 0) rotate(${angle.toFixed(3)}rad)`;
+  /* The angle the fish is drawn at trails the angle it is swimming at, so a
+     sharp turn reads as a body swinging round rather than a snap. */
+  const draw = (f, t, dt) => {
+    const wiggle = Math.sin(t * (3.4 + Math.min(f.speed, 140) / 90) + f.seed) * (0.035 + Math.min(f.speed, 200) / 5200);
+    const target = f.heading - f.art + wiggle;
+    f.shown = dt ? turnToward(f.shown, target, dt * 7) : target;
+    f.img.style.transform = `translate3d(${(f.x - f.size / 2).toFixed(2)}px, ${(f.y - f.size / 2).toFixed(2)}px, 0) rotate(${f.shown.toFixed(4)}rad)`;
   };
 
-  let raf = 0, last = 0, running = false;
+  let raf = 0, last = 0, running = false, step = 1 / 60;
   const frame = (now) => {
-    const dt = Math.min(0.05, (now - last) / 1000);
+    /* frames never arrive evenly spaced, so the step is smoothed: the fish keep
+       real time, without the per-frame stutter that raw deltas give them */
+    const raw = Math.min(0.05, Math.max(0.004, (now - last) / 1000));
+    step += (raw - step) * 0.1;
+    const dt = step;
     last = now;
     const t = now / 1000;
     const near = now < pointer.until;
@@ -83,8 +90,8 @@ export function goldfish(tank, pointerArea) {
         const d = Math.hypot(dx, dy);
         if (d < 170) {
           const fear = 1 - d / 170;
-          heading = turnToward(heading, Math.atan2(dy, dx), fear * dt * 10);
-          f.speed = Math.min(360, f.speed + 1400 * fear * dt);
+          heading = turnToward(heading, Math.atan2(dy, dx), fear * dt * 6);
+          f.speed = Math.min(300, f.speed + 900 * fear * dt);
         }
       }
 
@@ -92,7 +99,7 @@ export function goldfish(tank, pointerArea) {
       f.heading = heading;
       f.x = Math.min(w + 40, Math.max(-40, f.x + Math.cos(heading) * f.speed * dt));
       f.y = Math.min(h + 40, Math.max(-40, f.y + Math.sin(heading) * f.speed * dt));
-      draw(f, t);
+      draw(f, t, dt);
     }
     raf = running ? requestAnimationFrame(frame) : 0;
   };
@@ -113,7 +120,7 @@ export function goldfish(tank, pointerArea) {
   return {
     play(on) {
       running = on && !reduceMotion;
-      if (running && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
+      if (running && !raf) { last = performance.now(); step = 1 / 60; raf = requestAnimationFrame(frame); }
     },
   };
 }

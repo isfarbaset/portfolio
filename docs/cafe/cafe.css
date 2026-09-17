@@ -82,7 +82,9 @@ section { position: relative; max-width: var(--max); margin-inline: auto; paddin
 .sk .thin { stroke-width: 1; opacity: .55; }
 .sk .under { stroke: var(--accent); stroke-width: 1.5; }
 .sk .star { stroke-width: 1.4; }
-.sk .ornament { stroke-width: 2.2; transition-duration: 2.6s; }
+.sk .ornament { stroke-width: 1.7; transition-duration: 2.8s; }
+.sk .fill { fill: currentColor; stroke: none; filter: url(#ink); opacity: 0; transition: opacity .8s ease .6s; }
+.sk.drawn .fill { opacity: 1; }
 .sk .axis { stroke-width: 1.6; transition-duration: 1.8s; }
 .pen-link { position: relative; text-decoration: none; }
 .pen-link:hover { color: var(--accent); }
@@ -142,7 +144,7 @@ mark.marker {
   box-shadow: 0 1px 1px rgba(30, 18, 8, .12), 0 20px 34px -18px rgba(30, 18, 8, .42);
 }
 .js .booth.in { translate: -50% -50%; }
-.booth img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 48% 24%; filter: grayscale(1) contrast(1.06) brightness(1.03); }
+.booth img { aspect-ratio: 3 / 4; object-fit: cover; object-position: 42% 40%; filter: saturate(.86) contrast(1.04) sepia(.08); }
 .booth figcaption { position: absolute; left: 18px; bottom: 14px; font-size: 21px; color: var(--pen); rotate: -2deg; }
 .roles { position: absolute; inset: 6% calc(var(--gutter) * .5); pointer-events: none; }
 .role {
@@ -180,6 +182,36 @@ mark.marker {
 .coffee.in .cup-art .ink { stroke-dashoffset: 0; }
 .coffee.in .cup-art .crayon { opacity: .85; }
 .coffee.in .cup-rim .ink { transition-delay: 1s; }
+/* the cue: a spoon goes round the cup until you take over */
+.stir-hint {
+  position: absolute; inset: 0; z-index: 4; display: grid; place-items: center;
+  pointer-events: none; color: var(--pen); transition: opacity .6s ease;
+}
+.coffee:not(.in) .stir-hint { opacity: 0; }
+.cup-stage.stirring .stir-hint { opacity: 0; }
+.stir-hint .orbit { position: absolute; width: 44%; height: 44%; animation: orbit 5.5s linear infinite; }
+.stir-hint .spoon { position: absolute; left: 50%; top: -9%; width: 30px; margin-left: -15px; display: block; animation: orbit 5.5s linear infinite reverse; }
+.stir-hint svg { width: 100%; overflow: visible; filter: url(#ink); }
+.hint-label {
+  position: absolute; top: 74%; translate: 0 -50%; font-size: clamp(17px, 1.7vw, 22px);
+  padding: 2px 10px; background: color-mix(in srgb, var(--paper) 78%, transparent); border-radius: 40px;
+  animation: breathe 3.4s ease-in-out infinite;
+}
+.on-touch { display: none; }
+@media (hover: none) { .on-hover { display: none; } .on-touch { display: inline; } }
+@keyframes orbit { to { rotate: 360deg; } }
+@keyframes breathe { 50% { opacity: .45; } }
+
+/* when the foam has been stirred away, offer a fresh one */
+.refill {
+  position: absolute; inset: auto 0 24%; z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-size: clamp(22px, 2.3vw, 30px); color: var(--accent); opacity: 0; scale: .9; pointer-events: none;
+  transition: opacity .5s ease, scale .5s cubic-bezier(.3, 1.6, .5, 1);
+}
+.refill svg { width: 58px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; filter: url(#ink); rotate: 8deg; }
+.cup-stage.spent .refill { opacity: 1; scale: 1; pointer-events: auto; animation: breathe 3s ease-in-out infinite; }
+.cup-stage.spent .refill:hover { color: var(--ink); }
+
 #latte {
   position: absolute; left: 20.4%; top: 20.4%; width: 59.2%; height: 59.2%; border-radius: 50%; z-index: 1;
   touch-action: none; opacity: 0; transition: opacity 1.2s ease 1.1s;
@@ -200,10 +232,29 @@ mark.marker {
    ON THE MENU
    ========================================================= */
 .offer { display: flex; flex-direction: column; align-items: center; padding-block: clamp(40px, 6vw, 80px) clamp(80px, 10vw, 140px); }
-.frame { position: relative; width: min(100%, 480px); padding: 76px 60px 80px; text-align: center; color: var(--ink); }
-.frame-kicker { font-size: 20px; color: var(--soft); margin-bottom: 14px; }
-.services li { font: 400 clamp(22px, 2.2vw, 30px)/1.5 var(--hand); }
-.services .soft { color: var(--accent); font-size: clamp(19px, 1.8vw, 24px); margin-top: 6px; }
+.frame { position: relative; width: min(100%, 520px); padding: 74px 66px 58px; text-align: center; color: var(--ink); }
+.frame-kicker { font-size: 23px; color: var(--soft); }
+.frame-name { font: italic 300 clamp(44px, 5vw, 62px)/1 var(--serif); letter-spacing: -.02em; margin: 2px 0 4px; }
+.frame-sub { font-size: 21px; color: var(--accent); margin-bottom: 4px; }
+.services { margin-top: 10px; }
+.services li { font: 400 clamp(21px, 2.1vw, 28px)/1.5 var(--hand); }
+.services .soft { color: var(--accent); font-size: clamp(18px, 1.7vw, 23px); margin-top: 4px; }
+.frame-foot { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 22px; }
+.frame-foot p { font-size: 19px; color: var(--soft); }
+
+.doodle, .spark { position: absolute; display: block; color: var(--ink); }
+.doodle { pointer-events: none; }
+.plate { position: relative; width: 78px; height: 78px; margin: 14px auto 10px; }
+.fork { width: 30px; height: 96px; left: 8%; top: 46%; rotate: -8deg; }
+.knife { width: 30px; height: 96px; right: 8%; top: 46%; rotate: 8deg; }
+.frame-foot .bottle { position: relative; width: 30px; height: 62px; rotate: -5deg; }
+.frame-foot .jar { position: relative; width: 46px; height: 62px; rotate: 4deg; }
+.spark { width: 18px; height: 18px; }
+.spark { width: 20px; height: 20px; }
+.sp1 { left: -3%; top: 1%; }
+.sp2 { right: -1%; top: 12%; width: 13px; height: 13px; }
+.sp3 { left: 1%; bottom: 9%; width: 13px; height: 13px; }
+.sp4 { right: -3%; bottom: 2%; }
 .scroll-for { margin-top: 38px; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 22px; color: var(--soft); }
 .scroll-for svg { width: 26px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; filter: url(#ink); }
 
@@ -334,7 +385,7 @@ mark.marker {
    ========================================================= */
 .hi-section { padding-top: 170px; padding-bottom: clamp(80px, 10vw, 140px); }
 .tank { position: absolute; inset: 0 var(--gutter) auto auto; width: min(50%, 620px); height: 190px; pointer-events: none; overflow: hidden; }
-.tank img { position: absolute; left: 0; top: 0; height: auto; will-change: transform; mix-blend-mode: multiply; }
+.tank img { position: absolute; left: 0; top: 0; height: auto; will-change: transform; backface-visibility: hidden; }
 .hi-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(40px, 7vw, 120px); align-items: end; }
 .hi-section h2 { font-size: clamp(38px, 4.8vw, 78px); line-height: 1.04; letter-spacing: -.02em; text-wrap: balance; }
 .hi-section h2 em { color: var(--accent); }
@@ -415,7 +466,8 @@ mark.marker {
   .contacts a { font-size: 17px; }
   .contacts a > .hand { font-size: 17px; }
   .coffee .caption { margin-left: 0; }
-  .frame { padding: 66px 40px 70px; }
+  .frame { padding: 62px 46px 50px; }
+  .fork, .knife { display: none; }
   .qa > div { grid-template-columns: 1fr; gap: 2px; }
   .apple-sticker { width: 28%; right: 2%; }
   .lb-stage { padding: 64px 12px 90px; }
