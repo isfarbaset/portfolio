@@ -2,733 +2,450 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Isfar Baset · Data &amp; AI Portfolio</title>
-  <meta name="description" content="Isfar Baset · Data analyst and data scientist in Northern Virginia. I build ML systems and explain them in plain English." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Isfar Baset · Data science, with coffee</title>
+  <meta name="description" content="Isfar Baset is a data analyst and data scientist in Northern Virginia who builds machine learning models, explains them in plain English, and paints her breakfast in oil pastel." />
+  <meta name="theme-color" content="#f4efe6" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://isfarbaset.github.io/portfolio/" />
+  <meta property="og:title" content="Isfar Baset · Data science, with coffee" />
+  <meta property="og:description" content="Machine learning, data storytelling, oil pastels, and a flat white you can stir." />
+  <meta property="og:image" content="https://isfarbaset.github.io/portfolio/images/isfar-about.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            foreground: "hsl(var(--foreground))",
-            background: "hsl(var(--background))",
-            "muted-foreground": "hsl(var(--muted-foreground))",
-            border: "hsl(var(--border))",
-            accent: "hsl(var(--accent))",
-          },
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <style>
-    :root {
-      --background: 34 25% 97%;
-      --foreground: 24 10% 10%;
-      --muted-foreground: 24 6% 38%;
-      --border: 24 8% 86%;
-      /* sage-green / sea-blue accent, between green and blue */
-      --accent: 192 32% 38%;
-      --accent-2: 165 22% 42%;
-    }
-    html { scroll-behavior: smooth; }
-    html, body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
-    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-    .font-display { font-family: 'Inter', sans-serif; letter-spacing: -0.04em; }
-    .paper-grain {
-      background-image:
-        radial-gradient(circle at 20% 10%, hsla(24,15%,80%,0.08) 0%, transparent 45%),
-        radial-gradient(circle at 80% 85%, hsla(18,30%,70%,0.06) 0%, transparent 45%);
-    }
-    /* animated role text */
-    .roll-mask { display: inline-block; vertical-align: baseline; height: 1em; overflow: hidden; line-height: 1; }
-    .roll-track { display: flex; flex-direction: column; transition: transform 600ms cubic-bezier(.6,.05,.2,1); }
-    .roll-track > span { height: 1em; line-height: 1; display: inline-flex; align-items: center; white-space: nowrap; }
-    /* longest roles overflow the hero width on small phones; shrink just the animated word */
-    @media (max-width: 480px) { .roll-mask { font-size: 0.8em; } }
-    /* hide caption on touch, prevents sticky hover */
-    @media (hover: none) {
-      .reveal-caption { opacity: 1 !important; transform: none !important; }
-    }
-    /* subtle marquee for tape strip */
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-track { animation: marquee 30s linear infinite; }
-    /* hide scrollbar on the gallery thumbnail strip */
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-  </style>
+  <script>document.documentElement.classList.add('js')</script>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nothing+You+Could+Do&family=Courier+Prime&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="cafe/cafe.css" />
+  <script type="module" src="cafe/cafe.js"></script>
 </head>
-<body class="min-h-screen paper-grain">
-  <div id="root"></div>
+<body>
+  <a class="skip" href="#work">Skip to the work</a>
 
-  <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="ink" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="wobble" />
+        <feDisplacementMap in="SourceGraphic" in2="wobble" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="shaky" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="grain" />
+        <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.75" result="speckle" />
+        <feComposite in="shaky" in2="speckle" operator="in" />
+      </filter>
+      <filter id="crayon" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9 0.35" numOctaves="2" seed="12" result="tooth" />
+        <feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3 2.3" result="grain" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5" result="edge" />
+        <feDisplacementMap in="SourceGraphic" in2="edge" scale="6" xChannelSelector="R" yChannelSelector="G" result="rough" />
+        <feComposite in="rough" in2="grain" operator="in" />
+      </filter>
+      <filter id="stain" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="7" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
 
-    function cn(...classes) { return classes.filter(Boolean).join(" "); }
+  <!-- ============ the top of the page ============ -->
+  <header class="bar">
+    <a class="logo hand" href="#top">Isfar's</a>
+    <p class="stamp" id="stamp" aria-label="Today's date and time in Northern Virginia">
+      <span id="stampDate">Thursday, September 17, 2026</span>
+      <span id="stampTime">12:00:00 AM</span>
+    </p>
+    <nav class="stickers" aria-label="Sections">
+      <a class="sticker hand" href="#work" style="--c: var(--rose); --r: -4deg">work</a>
+      <a class="sticker hand" href="#about" style="--c: var(--sky); --r: 3deg">about</a>
+      <a class="sticker hand" href="#art" style="--c: var(--mint); --r: -2deg">art</a>
+      <a class="sticker hand" href="#hi" style="--c: var(--butter); --r: 5deg">say hi</a>
+    </nav>
+  </header>
 
-    /* ---------- Nav ---------- */
-    function Nav() {
-      const [scrolled, setScrolled] = useState(false);
-      useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 40);
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-      }, []);
+  <main id="top">
+    <!-- ============ HI, I'M A... ============ -->
+    <section class="intro" aria-label="Introduction">
+      <p class="hand hi" data-reveal>hi! i'm a...</p>
 
-      const link = "font-mono text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors";
-      return (
-        <nav className={cn(
-          "sticky top-0 z-50 transition-all duration-300",
-          scrolled ? "bg-background/85 backdrop-blur border-b border-border/60" : "bg-transparent"
-        )}>
-          <div className="mx-auto max-w-5xl px-6 sm:px-10 py-4 flex items-center justify-between">
-            <a href="#top" className="font-display font-black tracking-tight text-lg">
-              Isfar<span className="text-[hsl(var(--accent))]">.</span>
-            </a>
-            <div className="flex items-center gap-6 sm:gap-8">
-              <a className={link} href="#work">Work</a>
-              <a className={link} href="#about">About</a>
-              <a className={link} href="#studio">Studio</a>
-              <a className={link} href="#contact">Contact</a>
-            </div>
+      <figure class="booth" data-reveal>
+        <span class="tape" style="--c: var(--rose); --r: -8deg"></span>
+        <img src="images/isfar-about.jpg" alt="Isfar Baset, smiling, in a knit sweater" width="1200" height="900" />
+        <figcaption class="hand">isfar, pre-coffee</figcaption>
+      </figure>
+
+      <ul class="roles" aria-label="Isfar is a">
+        <li class="role" style="--x: 14%; --y: 24%; --d: .1s"><i data-sk="star"></i>Data Analyst</li>
+        <li class="role" style="--x: 25%; --y: 50%; --d: .25s"><i data-sk="star"></i>Data Scientist</li>
+        <li class="role" style="--x: 67%; --y: 20%; --d: .4s"><i data-sk="star"></i>Oil Pastel Painter</li>
+        <li class="role" style="--x: 10%; --y: 76%; --d: .55s"><i data-sk="star"></i>Storyteller</li>
+        <li class="role" style="--x: 72%; --y: 44%; --d: .7s"><i data-sk="star"></i>Espresso Apologist</li>
+        <li class="role" style="--x: 63%; --y: 66%; --d: .85s"><i data-sk="star"></i>Chronic Overthinker</li>
+      </ul>
+
+      <p class="hand where" data-reveal>living and working in<br />northern virginia</p>
+    </section>
+
+    <!-- ============ THE STATEMENT ============ -->
+    <section class="statement" aria-labelledby="statement">
+      <h1 id="statement" data-reveal>
+        Hi, I'm <em>Isfar Baset.</em> I build models, explain them in plain English,
+        and paint <mark class="marker">my breakfast.</mark>
+      </h1>
+
+      <div class="statement-foot">
+        <p class="lede" data-reveal>
+          Data Analyst II at Shift Digital. Master's in Data Science from Georgetown, class of '25.
+          Originally from Dhaka, powered by whatever's in the cup on the right.
+        </p>
+
+        <figure class="coffee" data-reveal>
+          <div class="cup-stage" id="cup">
+            <svg class="cup-art" id="cupArt" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
+            <canvas id="latte" role="img" aria-label="A flat white with a rosetta, drawn in oil pastel. Move your cursor across it to stir."></canvas>
+            <svg class="cup-art cup-rim" id="cupRim" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
           </div>
-        </nav>
-      );
-    }
-
-    /* ---------- Animated role roller ---------- */
-    function RoleRoller() {
-      const roles = ["Data Analyst", "Data Scientist", "ML Engineer", "Storyteller", "Chronic Overthinker", "Espresso Apologist"];
-      const [i, setI] = useState(0);
-      useEffect(() => {
-        const id = setInterval(() => setI(p => (p + 1) % roles.length), 2200);
-        return () => clearInterval(id);
-      }, []);
-      return (
-        <span className="roll-mask align-baseline">
-          <span className="roll-track" style={{ transform: `translateY(-${i}em)` }}>
-            {roles.map((r, idx) => (
-              <span key={idx} className="text-[hsl(var(--accent))] italic">{r}</span>
-            ))}
-            <span className="text-[hsl(var(--accent))] italic">{roles[0]}</span>
-          </span>
-        </span>
-      );
-    }
-
-    /* ---------- Hero ---------- */
-    function Hero() {
-      return (
-        <section id="top" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-14 items-end">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">
-                Isfar Baset &nbsp;·&nbsp; Northern Virginia
-              </p>
-              <h1 className="font-display text-[40px] sm:text-[56px] md:text-[64px] font-black leading-[0.95] tracking-tight max-w-3xl">
-                I'm a <RoleRoller />
-                <br className="hidden sm:block" /> building data &amp; AI that
-                <br className="hidden sm:block" /> <span className="text-muted-foreground">actually ships.</span>
-              </h1>
-
-              <p className="mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
-                Data Analyst II at Shift Digital, Master's in Data Science from Georgetown ('25).
-                I build ML systems and tell stories with the numbers behind them.
-              </p>
-
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a href="#work" className="inline-flex items-center gap-2 bg-foreground text-background font-mono text-xs uppercase tracking-[0.2em] px-5 py-3 rounded-full hover:bg-[hsl(var(--accent))] transition-colors">
-                  See the work
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-2 border border-border bg-background font-mono text-xs uppercase tracking-[0.2em] px-5 py-3 rounded-full hover:border-foreground transition-colors">
-                  Get in touch
-                </a>
-                <a href="Isfar Baset Resume.pdf" target="_blank" rel="noopener noreferrer" className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-colors ml-1 underline-offset-4 hover:underline">
-                  Resume ↗
-                </a>
-              </div>
-            </div>
-
-            {/* portrait */}
-            <div className="relative justify-self-start md:justify-self-end">
-              <div className="absolute -inset-3 bg-gradient-to-br from-[hsl(var(--accent))]/20 to-transparent rounded-full blur-2xl"></div>
-              <img src="images/isfar-about.jpg" alt="Isfar Baset"
-                className="relative w-80 sm:w-[28rem] md:w-[34rem] max-w-full aspect-square object-cover rounded-full border border-border shadow-md" />
-              <span className="absolute -bottom-3 -left-3 bg-background border border-border rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/70">
-                ✦ hi there
-              </span>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    /* ---------- Marquee strip ---------- */
-    function StripMarquee() {
-      const items = ["Python", "PyTorch", "scikit-learn", "Hugging Face", "Spark", "Snowflake", "AWS Bedrock", "LangGraph", "Plotly", "Tableau", "Bayesian Inference", "SQL"];
-      const Row = () => (
-        <div className="flex items-center gap-10 px-5 shrink-0">
-          {items.map((s, i) => (
-            <React.Fragment key={i}>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-foreground/70 whitespace-nowrap">{s}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent))]/80"></span>
-            </React.Fragment>
-          ))}
-        </div>
-      );
-      return (
-        <div className="border-y border-border/70 py-4 bg-background/50 overflow-hidden">
-          <div className="marquee-track flex" style={{ width: "max-content" }}>
-            <Row /><Row />
-          </div>
-        </div>
-      );
-    }
-
-    /* ---------- Reveal card ---------- */
-    function RevealCard({ project, durationClass }) {
-      return (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "w-16 h-20",
-            "group-hover:w-[15rem] group-hover:h-[11rem] sm:group-hover:w-[17rem] sm:group-hover:h-[12rem]",
-            "relative block rounded-md overflow-hidden bg-neutral-300",
-            "shadow-sm group-hover:shadow-2xl",
-            "transition-all duration-500 delay-100",
-            durationClass
-          )}
-        >
-          <img alt={project.title} src={project.src}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <div className={cn(
-            "reveal-caption absolute inset-0 flex flex-col justify-end p-3.5 sm:p-4",
-            "bg-gradient-to-t from-black/90 via-black/40 to-transparent",
-            "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
-            "transition-all duration-500 delay-300"
-          )}>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/70 mb-1.5">{project.kicker}</span>
-            <h4 className="font-display text-lg sm:text-xl font-black text-white leading-tight mb-1">{project.title}</h4>
-            <p className="text-[12px] sm:text-[13px] text-white/85 leading-snug line-clamp-3">{project.description}</p>
-            <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-              View project
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-      );
-    }
-
-    function MobileProjectCard({ project }) {
-      return (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block rounded-md overflow-hidden border border-border/70 bg-background shadow-sm active:scale-[0.99] transition-transform"
-        >
-          <div className="aspect-[16/10] overflow-hidden bg-neutral-200">
-            <img alt={project.title} src={project.src} className="h-full w-full object-cover" />
-          </div>
-          <div className="p-3.5">
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 block">{project.kicker}</span>
-            <h4 className="font-display text-lg font-black text-foreground leading-tight mb-1">{project.title}</h4>
-            <p className="text-[13px] text-foreground/75 leading-snug">{project.description}</p>
-            <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
-              View project
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M3 9 9 3 M9 3 H4 M9 3 V8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </span>
-          </div>
-        </a>
-      );
-    }
-
-    function RevealRow({ text, projects }) {
-      const containerBase = "absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20";
-      return (
-        <>
-          {/* Mobile: stacked cards, no hover needed */}
-          <div className="sm:hidden py-5 border-b border-border/50 last:border-0">
-            <h2 className="font-display text-3xl font-black text-foreground leading-tight mb-4">
-              {text}
-            </h2>
-            <div className="grid grid-cols-1 gap-3">
-              {projects.map((p, i) => (
-                <MobileProjectCard key={i} project={p} />
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: hover-reveal */}
-          <div className="hidden sm:flex group relative w-full min-h-[12rem] items-center overflow-visible">
-            <h2 className="font-display text-5xl sm:text-7xl font-black text-foreground transition-all duration-500 group-hover:opacity-25 group-hover:tracking-tight pointer-events-none relative z-10">
-              {text}
-            </h2>
-            {[...projects].reverse().map((p, off) => {
-              const shift = [
-                "",
-                "group-hover:-translate-x-[15.5rem] sm:group-hover:-translate-x-[17.5rem] group-hover:rotate-[-3deg]",
-                "group-hover:-translate-x-[31rem] sm:group-hover:-translate-x-[35rem] group-hover:rotate-[-5deg]",
-              ][off];
-              return (
-                <div key={off}
-                  className={cn(containerBase, "translate-x-0 rotate-0", shift,
-                    "transition-all duration-500", off === 1 ? "delay-150" : off === 2 ? "delay-200" : "")}
-                  style={{ transformOrigin: "right center" }}
-                >
-                  <RevealCard project={p} durationClass={off > 0 ? "duration-200" : undefined} />
-                </div>
-              );
-            })}
-          </div>
-        </>
-      );
-    }
-
-    function RevealImageList() {
-      const items = [
-        {
-          text: "Machine Learning",
-          projects: [
-            { kicker: "Spotify · Plotly · scikit-learn", title: "Defying Analytics", description: "What 20 years of Wicked streaming data reveals about what makes a song stick. Length doesn't matter. Vulnerability does.", src: "images/wicked.jpg", href: "wicked.html" },
-            { kicker: "Python · ML · Spotify API", title: "Beats and Bytes", description: "Patterns in popular music through analysis, visualizations, and predictive models: which audio features predict popularity.", src: "images/beat-bytes.jpg", href: "Group37_final_Report.html" },
-          ],
-        },
-        {
-          text: "Conversational AI",
-          projects: [
-            { kicker: "Bedrock · LangGraph · Lambda", title: "FMBench Assistant", description: "A conversational AI that walks users through foundation-model benchmarking choices in natural dialogue instead of dense docs.", src: "images/fmbench.jpg", href: "https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161" },
-            { kicker: "GPT-4 · MCP · Async Python", title: "Air Quality Intelligence", description: "Ask about air quality in any city and get health-aware advice for jogging, cycling, travel, built on a custom MCP server.", src: "images/aqi.jpg", href: "aqi.html" },
-          ],
-        },
-        {
-          text: "Data Storytelling",
-          projects: [
-            { kicker: "Python · Pandas · Dashboards", title: "Netflix Recap", description: "Turn your Netflix watch history into a personal year-in-review: viewing patterns, binge habits, and genre obsessions, visualized.", src: "images/netflix.png", href: "https://isfarbaset.github.io/netflix-recap/" },
-            { kicker: "GitHub API · Canvas · JS", title: "GitHub Insights", description: "Drop in a username, get a downloadable stats card: lifetime activity, streaks, top repos, and developer-personality badges.", src: "images/git-insights.png", href: "https://isfarbaset.github.io/github-insights/" },
-          ],
-        },
-        {
-          text: "Web Apps",
-          projects: [
-            { kicker: "React · IndexedDB · PWA", title: "Almanac", description: "A private, local-only menstrual tracker. No accounts, no servers; period data stays in your browser. Built post-FTC-Flo.", src: "images/almanac.jpg", href: "https://isfarbaset.github.io/almanac/" },
-            { kicker: "JS · Quarto · Interactive Map", title: "DMV Blooms", description: "A seasonal field guide to flowers across DC, Maryland & Virginia: what's peaking now and where to chase it across 28 spots.", src: "images/dmv-blooms.jpg", href: "https://isfarbaset.github.io/dmv-blooms/" },
-          ],
-        },
-        {
-          text: "Analytics",
-          projects: [
-            { kicker: "NLP · Sentiment · Reddit", title: "US Insights", description: "Sentiment patterns across U.S. states based on Reddit conversations: what each state is talking about and how it feels.", src: "images/us-insights.jpg", href: "https://isfarbaset.github.io/fall-2024-project-team-29/" },
-            { kicker: "Climate · Time Series", title: "Temp Talk", description: "Climate trends across Southeastern Utah national parks and their impact on heat, soil, evaporation, and precipitation cycles.", src: "images/temp-talk.jpg", href: "https://isfarbaset.github.io/story-project/" },
-            { kicker: "EVs · ML · Market Data", title: "EV Insights", description: "Electric vehicles vs gas cars: environmental impact, market share, and performance, explored with the classic ML toolkit.", src: "images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg", href: "https://isfarbaset.github.io/ev-insights/" },
-          ],
-        },
-      ];
-
-      return (
-        <div className="flex flex-col gap-1 rounded-sm bg-background px-4 sm:px-10 py-6 sm:py-8">
-          <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-2">
-            What I work on
-          </h3>
-          {items.map((item, i) => (
-            <RevealRow key={i} text={item.text} projects={item.projects} />
-          ))}
-        </div>
-      );
-    }
-
-    /* ---------- About ---------- */
-    function About() {
-      return (
-        <section id="about" className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-14 items-start py-20">
-          <div className="relative">
-            <div className="absolute -inset-2 bg-gradient-to-br from-[hsl(var(--accent))]/15 to-transparent rounded-full blur-xl"></div>
-            <img src="images/isfar-about.jpg" alt="Isfar Baset"
-              className="relative w-44 h-44 rounded-full object-cover border border-border/70 shadow-md" />
-            <div className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground space-y-1.5">
-              <div className="flex justify-between"><span>Based</span><span className="text-foreground">Northern VA</span></div>
-              <div className="flex justify-between"><span>From</span><span className="text-foreground">Dhaka, BD</span></div>
-              <div className="flex justify-between"><span>Coffee</span><span className="text-foreground">Black, daily</span></div>
-            </div>
-          </div>
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">About</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] mb-6">
-              Hi, I'm Isfar. <span className="text-muted-foreground">I turn research-grade models into things people use.</span>
-            </h2>
-            <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-4">
-              Originally from <strong className="font-semibold text-foreground">Dhaka</strong>, now in Northern Virginia. I'm a <strong className="font-semibold text-foreground">Data Analyst II</strong> at Shift Digital, where I work on analytics for enterprise clients, and I hold a <strong className="font-semibold text-foreground">Master's in Data Science &amp; Analytics</strong> from Georgetown ('25).
-            </p>
-            <p className="text-[15px] sm:text-base leading-relaxed text-foreground/80 max-w-2xl mb-8">
-              My favorite work sits between <em>modeling</em> and <em>storytelling</em>: building a model for a specific business problem, then explaining it so the non-technical folks in the room can make a call. Off-keyboard I'm usually in a café, painting, reading, or chasing a new cuisine.
-            </p>
-
-            {/* Skills grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-2xl text-sm">
-              {[
-                ["Programming", "Python · SQL · R · Java"],
-                ["Machine Learning", "scikit-learn · PyTorch · XGBoost"],
-                ["NLP", "spaCy · Hugging Face · BERT"],
-                ["Data Viz", "Plotly · Tableau · Seaborn"],
-                ["Big Data & Cloud", "Spark · Databricks · AWS"],
-                ["Databases", "Postgres · Snowflake · Mongo"],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-1">{k}</div>
-                  <div className="text-foreground/85">{v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    /* ---------- Studio: lightbox for the art gallery ---------- */
-    function Lightbox({ pieces, index, setIndex }) {
-      useEffect(() => {
-        const onKey = (e) => {
-          if (e.key === "Escape") setIndex(null);
-          else if (e.key === "ArrowRight") setIndex(i => (i + 1) % pieces.length);
-          else if (e.key === "ArrowLeft") setIndex(i => (i - 1 + pieces.length) % pieces.length);
-        };
-        window.addEventListener("keydown", onKey);
-        document.body.style.overflow = "hidden";
-        return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
-      }, [pieces.length, setIndex]);
-      const p = pieces[index];
-      return (
-        <div onClick={() => setIndex(null)}
-          className="fixed inset-0 z-[100] flex items-center justify-center px-14 py-6 sm:p-10 bg-black/85 backdrop-blur-sm">
-          <button aria-label="Close" onClick={() => setIndex(null)}
-            className="absolute top-3 right-3 sm:top-4 sm:right-5 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-2xl leading-none transition-colors">×</button>
-          <button aria-label="Previous" onClick={(e) => { e.stopPropagation(); setIndex(i => (i - 1 + pieces.length) % pieces.length); }}
-            className="absolute left-2 sm:left-6 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-3xl leading-none pb-1 transition-colors">‹</button>
-          <button aria-label="Next" onClick={(e) => { e.stopPropagation(); setIndex(i => (i + 1) % pieces.length); }}
-            className="absolute right-2 sm:right-6 w-11 h-11 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-3xl leading-none pb-1 transition-colors">›</button>
-          <figure onClick={(e) => e.stopPropagation()} className="max-w-3xl max-h-[88vh] flex flex-col items-center m-0">
-            <img src={p.src} alt={p.title}
-              className="max-h-[68vh] sm:max-h-[76vh] w-auto max-w-full rounded-md shadow-2xl object-contain" />
-            <figcaption className="mt-4 text-center">
-              <span className="font-display text-lg font-black text-white">{p.title}</span>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-white/60 mt-1">{p.medium}</span>
-            </figcaption>
-          </figure>
-        </div>
-      );
-    }
-
-    /* ---------- Studio: drag carousel with animated thumbnail strip ---------- */
-    const THUMB_FULL = 120;
-    const THUMB_COLLAPSED = 36;
-    /* small versions for the thumbnail strip so it doesn't pull full-size images */
-    const thumbOf = (src) => src.replace("/art/", "/art/thumbs/");
-
-    function GalleryCarousel({ pieces, onOpen }) {
-      const [index, setIndex] = useState(0);
-      const [dragging, setDragging] = useState(false);
-      const [offset, setOffset] = useState(0);
-      const startX = useRef(0);
-      const moved = useRef(0);
-      const containerRef = useRef(null);
-      const thumbsRef = useRef(null);
-
-      const clamp = (i) => Math.max(0, Math.min(pieces.length - 1, i));
-
-      /* Drag state lives in refs as well as state: setPointerCapture retargets the
-         subsequent click to the capturing element, so a tap has to be detected here
-         on pointerup rather than via an onClick on the image. */
-      const draggingRef = useRef(false);
-      const offsetRef = useRef(0);
-
-      const onPointerDown = (e) => {
-        draggingRef.current = true;
-        setDragging(true);
-        startX.current = e.clientX;
-        moved.current = 0;
-        offsetRef.current = 0;
-        try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
-      };
-      const onPointerMove = (e) => {
-        if (!draggingRef.current) return;
-        const d = e.clientX - startX.current;
-        moved.current = Math.max(moved.current, Math.abs(d));
-        offsetRef.current = d;
-        setOffset(d);
-      };
-      const endDrag = (e) => {
-        if (!draggingRef.current) return;
-        draggingRef.current = false;
-        const w = containerRef.current ? containerRef.current.offsetWidth : 1;
-        const off = offsetRef.current;
-        const isTap = moved.current < 10 && e && e.type === "pointerup";
-        if (!isTap && Math.abs(off) > w * 0.2) {
-          setIndex(clamp(off > 0 ? index - 1 : index + 1));
-        }
-        offsetRef.current = 0;
-        setOffset(0);
-        setDragging(false);
-        if (isTap) onOpen(index);
-      };
-
-      /* keep the active thumbnail centered when the strip overflows */
-      useEffect(() => {
-        const el = thumbsRef.current;
-        if (!el || el.scrollWidth <= el.clientWidth) return;
-        const active = el.querySelector('[data-active="true"]');
-        if (!active) return;
-        el.scrollTo({ left: active.offsetLeft - el.clientWidth / 2 + active.offsetWidth / 2, behavior: "smooth" });
-      }, [index]);
-
-      const current = pieces[index];
-      /* arrows are desktop-only: on touch, swiping and the thumbnail strip cover it
-         and the buttons would sit on top of the artwork */
-      const arrow = "absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full hidden sm:flex items-center justify-center border border-border/70 bg-background/90 backdrop-blur shadow-sm transition-all z-10";
-
-      return (
-        <div className="flex flex-col gap-3">
-          {/* main frame */}
-          <div ref={containerRef} className="relative overflow-hidden rounded-md border border-border/70 bg-[hsl(var(--foreground)/0.04)]">
-            <div
-              className="flex touch-pan-y"
-              style={{
-                transform: `translateX(calc(${-index * 100}% + ${offset}px))`,
-                transition: dragging ? "none" : "transform 500ms cubic-bezier(.6,.05,.2,1)",
-                cursor: dragging ? "grabbing" : "grab",
-              }}
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={endDrag}
-              onPointerCancel={endDrag}
-            >
-              {pieces.map((p, i) => (
-                <div key={p.src} className="shrink-0 w-full h-[440px] sm:h-[520px] flex items-center justify-center p-3 sm:p-5">
-                  <img src={p.src} alt={p.title} draggable={false} loading={i === 0 ? "eager" : "lazy"}
-                    className="max-h-full max-w-full object-contain rounded-sm shadow-md select-none cursor-zoom-in" />
-                </div>
-              ))}
-            </div>
-
-            <button aria-label="Previous piece" disabled={index === 0} onClick={() => setIndex(i => clamp(i - 1))}
-              className={cn(arrow, "left-3 sm:left-4", index === 0 ? "opacity-30 cursor-not-allowed" : "hover:scale-110 hover:bg-background")}>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button aria-label="Next piece" disabled={index === pieces.length - 1} onClick={() => setIndex(i => clamp(i + 1))}
-              className={cn(arrow, "right-3 sm:right-4", index === pieces.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:scale-110 hover:bg-background")}>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-            </button>
-
-            <span className="absolute top-3 right-3 sm:right-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground bg-background/85 border border-border/60 rounded-full px-2.5 py-1">
-              {String(index + 1).padStart(2, "0")} / {String(pieces.length).padStart(2, "0")}
-            </span>
-          </div>
-
-          {/* caption */}
-          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
-            <div className="min-w-0">
-              <span className="font-display text-lg sm:text-xl font-black tracking-tight">{current.title}</span>
-              <span className="ml-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">{current.medium}</span>
-            </div>
-            <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap">
-              <span className="sm:hidden">Swipe &nbsp;·&nbsp; tap</span>
-              <span className="hidden sm:inline">Drag &nbsp;·&nbsp; tap to enlarge</span>
-            </span>
-          </div>
-
-          {/* thumbnail strip */}
-          <div ref={thumbsRef} className="overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-            <div className="flex gap-1 h-20 mx-auto" style={{ width: "fit-content" }}>
-              {pieces.map((p, i) => (
-                <button key={p.src} data-active={i === index} onClick={() => setIndex(i)}
-                  aria-label={p.title}
-                  style={{ width: i === index ? THUMB_FULL : THUMB_COLLAPSED, transition: "width 300ms ease-out" }}
-                  className={cn("relative shrink-0 h-full overflow-hidden rounded-sm border transition-colors",
-                    i === index ? "border-[hsl(var(--accent))]" : "border-border/60 opacity-60 hover:opacity-100")}>
-                  <img src={thumbOf(p.src)} alt="" loading="lazy" draggable={false}
-                    className="w-full h-full object-cover pointer-events-none select-none" />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    /* ---------- Studio (hobbies + oil-pastel gallery) ---------- */
-    function Studio() {
-      const pieces = [
-        { title: "Un Croissant", medium: "Oil pastel", src: "images/art/croissant.jpg" },
-        { title: "Tomatoes on the Vine", medium: "Oil pastel", src: "images/art/tomatoes.jpg" },
-        { title: "One Fish", medium: "Oil pastel", src: "images/art/fish.jpg" },
-        { title: "Marigolds", medium: "Oil pastel", src: "images/art/marigolds.jpg" },
-        { title: "One Apple", medium: "Oil pastel", src: "images/art/apple.jpg" },
-        { title: "Calla Lilies", medium: "Oil pastel", src: "images/art/calla-lilies.jpg" },
-        { title: "Pink Lily", medium: "Oil pastel", src: "images/art/lily.jpg" },
-        { title: "Goldfish", medium: "Oil pastel", src: "images/art/goldfish.jpg" },
-        { title: "Green Apple", medium: "Oil pastel", src: "images/art/green-apple.jpg" },
-        { title: "Two Pairs", medium: "Oil pastel", src: "images/art/two-pairs.jpg" },
-        { title: "Blueberries", medium: "Oil pastel", src: "images/art/blueberries.jpg" },
-      ];
-      const chips = [
-        { icon: "📚", label: "Reading", note: "some of my reads, over on Goodreads", href: "https://www.goodreads.com/user/show/197465023-isfar-baset" },
-        { icon: "🎾", label: "Tennis", note: "new this year, improving slowly" },
-        { icon: "🏊", label: "Swimming" },
-        { icon: "📷", label: "Photography", note: "photos I've taken and edits I've made, over on Instagram", href: "https://www.instagram.com/is.far/" },
-      ];
-      const [index, setIndex] = useState(null);
-
-      return (
-        <section id="studio" className="py-20 sm:py-28">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Off the keyboard</p>
-          <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight leading-[1.02] max-w-3xl">
-            When I close the laptop, <span className="text-muted-foreground">I do things I can't ctrl+Z.</span>
-          </h2>
-          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-foreground/75">
-            Sketchbooks, canvases, and whatever craft project is currently taking over the
-            dining table. A few other things I make time for:
+          <img class="croissant" src="images/art/cut/croissant.webp" alt="An oil pastel croissant, drawn by Isfar" width="720" height="418" />
+          <p class="hand coffee-note" aria-hidden="true">
+            <svg viewBox="0 0 120 90"><path pathLength="1" d="M8 12 C 40 4, 86 20, 92 60 M92 60 L78 50 M92 60 L100 44" /></svg>
+            correlation isn't causation.<br />coffee is. (stir it)
           </p>
+          <figcaption class="caption"><span class="hand">fig. 1</span> A flat white, simulated live on your graphics card. <button class="hand pen-link" id="repour" type="button">pour another</button></figcaption>
+        </figure>
+      </div>
+    </section>
 
-          {/* hobby chips */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {chips.map(c => {
-              const inner = (
-                <>
-                  <span className="text-base leading-none">{c.icon}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80">{c.label}</span>
-                  {c.note && <span className="hidden sm:inline text-[13px] text-muted-foreground">· {c.note}</span>}
-                  {c.href && <span className="font-mono text-[11px] text-[hsl(var(--accent))]">↗</span>}
-                </>
-              );
-              return c.href ? (
-                <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5 min-h-[44px] sm:min-h-0 hover:border-foreground transition-colors">
-                  {inner}
-                </a>
-              ) : (
-                <span key={c.label}
-                   className="inline-flex items-center gap-2.5 border border-border/70 bg-background rounded-full px-4 py-2.5 min-h-[44px] sm:min-h-0">
-                  {inner}
-                </span>
-              );
-            })}
-          </div>
+    <!-- ============ ON THE MENU ============ -->
+    <section class="offer" aria-labelledby="offer-title">
+      <div class="frame" data-sk="ornament" data-reveal>
+        <p class="hand frame-kicker" id="offer-title">on the menu</p>
+        <ul class="services">
+          <li>machine learning</li>
+          <li>data storytelling</li>
+          <li>conversational AI</li>
+          <li>dashboards &amp; analytics</li>
+          <li>plain-English explanations</li>
+          <li class="soft">oil pastels, weekends only</li>
+        </ul>
+      </div>
+      <p class="hand scroll-for" aria-hidden="true">
+        scroll for work
+        <svg viewBox="0 0 40 90"><path pathLength="1" d="M20 4 C 34 20, 6 30, 20 46 C 30 58, 22 70, 20 84 M20 84 L10 70 M20 84 L30 70" /></svg>
+      </p>
+    </section>
 
-          {/* oil pastel gallery: masonry columns */}
-          <div className="mt-12">
-            <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground mb-5">
-              Recent pieces
-            </h3>
-            <GalleryCarousel pieces={pieces} onOpen={(i) => setIndex(i)} />
-          </div>
-
-          {index !== null && <Lightbox pieces={pieces} index={index} setIndex={setIndex} />}
+    <!-- ============ WORK: the menu card ============ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="menu-card" data-sk="card" data-reveal>
+        <img class="card-fish" src="images/art/bits/goldfish-1.webp" alt="" loading="lazy" />
+        <header class="card-head">
+          <p class="hand card-kicker">Isfar's</p>
+          <h2 id="work-title" class="card-title">Menu</h2>
+          <p class="card-sub"><span></span><em>all dishes may contain traces of Python</em><span></span></p>
+          <p class="aside hover-only">Hover over a dish for a look. Everything opens in a new tab, so nobody takes your seat.</p>
+        </header>
+        <div class="courses" data-sk="columnRule">
+          <div class="col">
+        <section class="course">
+          <header class="course-head">
+            <p class="hand course-from">from the espresso bar</p>
+            <h3><mark class="marker" style="--crayon: var(--crayon-rose)">Machine Learning</mark></h3>
+            <p class="hand course-note">may contain gradient descent</p>
+          </header>
+          <ul>
+            <li><a class="item" href="wicked.html" target="_blank" rel="noopener" data-img="images/wicked.jpg">
+              <img class="thumb" src="images/wicked.jpg" alt="" loading="lazy" />
+              <span class="item-name">Defying Analytics</span><span class="leader"></span><span class="item-kind">case study</span>
+              <span class="item-notes">notes of Spotify, Plotly &amp; scikit-learn</span>
+              <span class="item-desc">Twenty years of Wicked streams, and the model agrees with Elphaba. Song length doesn't matter. Vulnerability does.</span>
+            </a></li>
+            <li><a class="item" href="Group37_final_Report.html" target="_blank" rel="noopener" data-img="images/beat-bytes.jpg">
+              <img class="thumb" src="images/beat-bytes.jpg" alt="" loading="lazy" />
+              <span class="item-name">Beats and Bytes</span><span class="leader"></span><span class="item-kind">report</span>
+              <span class="item-notes">notes of Python, ML &amp; the Spotify API</span>
+              <span class="item-desc">Which audio features actually predict a hit, and which ones are just very good at looking busy.</span>
+            </a></li>
+          </ul>
         </section>
-      );
-    }
-
-    /* ---------- Contact ---------- */
-    function Contact() {
-      const links = [
-        { label: "Email",     value: "isfar.baset@gmail.com", href: "mailto:isfar.baset@gmail.com" },
-        { label: "LinkedIn",  value: "/in/isfarbaset",    href: "https://www.linkedin.com/in/isfarbaset/" },
-        { label: "GitHub",    value: "@isfarbaset",       href: "https://github.com/isfarbaset" },
-        { label: "Instagram", value: "@is.far",            href: "https://www.instagram.com/is.far/" },
-      ];
-      return (
-        <section id="contact" className="py-20 sm:py-28">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Contact</p>
-          <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight leading-[1.02] max-w-3xl">
-            Want to build something together? <span className="text-muted-foreground">Or just talk café recommendations.</span>
-          </h2>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-px bg-border/70 border border-border/70 rounded-md overflow-hidden">
-            {links.map(l => (
-              <a key={l.label} href={l.href} target={l.href.startsWith('mailto:') ? undefined : "_blank"} rel="noopener noreferrer"
-                 className="group block bg-background hover:bg-foreground hover:text-background transition-colors p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.22em] opacity-70 mb-1.5">{l.label}</div>
-                    <div className="font-display text-2xl font-black tracking-tight">{l.value}</div>
-                  </div>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
-                       className="opacity-50 group-hover:opacity-100 group-hover:rotate-[-45deg] transition-all">
-                    <path d="M5 12 H19 M19 12 L13 6 M19 12 L13 18" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </a>
-            ))}
-          </div>
+        <section class="course">
+          <header class="course-head">
+            <p class="hand course-from">from the cold brew tap</p>
+            <h3><mark class="marker" style="--crayon: var(--crayon-sky)">Conversational AI</mark></h3>
+            <p class="hand course-note">talks back, politely</p>
+          </header>
+          <ul>
+            <li><a class="item" href="https://medium.com/@isfarbaset/fmbench-assistant-an-ai-chatbot-for-navigating-foundation-model-benchmarking-with-fmbench-39615ff08161" target="_blank" rel="noopener" data-img="images/fmbench.jpg">
+              <img class="thumb" src="images/fmbench.jpg" alt="" loading="lazy" />
+              <span class="item-name">FMBench Assistant</span><span class="leader"></span><span class="item-kind">article</span>
+              <span class="item-notes">notes of Bedrock, LangGraph &amp; Lambda</span>
+              <span class="item-desc">A chatbot that talks you through benchmarking foundation models, for anyone who'd rather ask than read the docs. So, everyone.</span>
+            </a></li>
+            <li><a class="item" href="aqi.html" target="_blank" rel="noopener" data-img="images/aqi.jpg">
+              <img class="thumb" src="images/aqi.jpg" alt="" loading="lazy" />
+              <span class="item-name">Air Quality Intelligence</span><span class="leader"></span><span class="item-kind">case study</span>
+              <span class="item-notes">notes of GPT-4, MCP &amp; async Python</span>
+              <span class="item-desc">Ask about the air in any city and find out whether today is a good day for that run. A custom MCP server does the heavy breathing.</span>
+            </a></li>
+          </ul>
         </section>
-      );
-    }
+        <section class="course">
+          <header class="course-head">
+            <p class="hand course-from">from the pour-over bar</p>
+            <h3><mark class="marker" style="--crayon: var(--crayon-butter)">Data Storytelling</mark></h3>
+            <p class="hand course-note">charts with a plot</p>
+          </header>
+          <ul>
+            <li><a class="item" href="https://isfarbaset.github.io/netflix-recap/" target="_blank" rel="noopener" data-img="images/netflix.png">
+              <img class="thumb" src="images/netflix.png" alt="" loading="lazy" />
+              <span class="item-name">Netflix Recap</span><span class="leader"></span><span class="item-kind">live app</span>
+              <span class="item-notes">notes of Python, Pandas &amp; dashboards</span>
+              <span class="item-desc">Your Netflix history as a year in review. Think of it as an intervention, with nicer charts.</span>
+            </a></li>
+            <li><a class="item" href="https://isfarbaset.github.io/github-insights/" target="_blank" rel="noopener" data-img="images/git-insights.png">
+              <img class="thumb" src="images/git-insights.png" alt="" loading="lazy" />
+              <span class="item-name">GitHub Insights</span><span class="leader"></span><span class="item-kind">live app</span>
+              <span class="item-notes">notes of the GitHub API, Canvas &amp; JS</span>
+              <span class="item-desc">Type in a username and get a stats card with your streaks, top repos and coding personality. Mostly flattering.</span>
+            </a></li>
+          </ul>
+        </section>
+          </div>
+          <div class="col">
+        <section class="course">
+          <header class="course-head">
+            <p class="hand course-from">from the oven</p>
+            <h3><mark class="marker" style="--crayon: var(--crayon-mint)">Web Apps</mark></h3>
+            <p class="hand course-note">made from scratch, bugs included</p>
+          </header>
+          <ul>
+            <li><a class="item" href="https://isfarbaset.github.io/almanac/" target="_blank" rel="noopener" data-img="images/almanac.jpg">
+              <img class="thumb" src="images/almanac.jpg" alt="" loading="lazy" />
+              <span class="item-name">Almanac</span><span class="leader"></span><span class="item-kind">live app</span>
+              <span class="item-notes">notes of React, IndexedDB &amp; PWA</span>
+              <span class="item-desc">A period tracker that keeps your data in your browser and nowhere else. No accounts, no servers, nobody else's business.</span>
+            </a></li>
+            <li><a class="item" href="https://isfarbaset.github.io/dmv-blooms/" target="_blank" rel="noopener" data-img="images/dmv-blooms.jpg">
+              <img class="thumb" src="images/dmv-blooms.jpg" alt="" loading="lazy" />
+              <span class="item-name">DMV Blooms</span><span class="leader"></span><span class="item-kind">live app</span>
+              <span class="item-notes">notes of JS, Quarto &amp; an interactive map</span>
+              <span class="item-desc">What's blooming around DC, Maryland and Virginia this week, and where to catch it before the tour buses do.</span>
+            </a></li>
+          </ul>
+        </section>
+        <section class="course">
+          <header class="course-head">
+            <p class="hand course-from">by the carafe</p>
+            <h3><mark class="marker" style="--crayon: var(--crayon-peach)">Analytics</mark></h3>
+            <p class="hand course-note">for the whole table</p>
+          </header>
+          <ul>
+            <li><a class="item" href="https://isfarbaset.github.io/fall-2024-project-team-29/" target="_blank" rel="noopener" data-img="images/us-insights.jpg">
+              <img class="thumb" src="images/us-insights.jpg" alt="" loading="lazy" />
+              <span class="item-name">US Insights</span><span class="leader"></span><span class="item-kind">site</span>
+              <span class="item-notes">notes of NLP &amp; Reddit sentiment</span>
+              <span class="item-desc">What every state is talking about on Reddit, and how it feels about it. Some states have a lot of feelings.</span>
+            </a></li>
+            <li><a class="item" href="https://isfarbaset.github.io/story-project/" target="_blank" rel="noopener" data-img="images/temp-talk.jpg">
+              <img class="thumb" src="images/temp-talk.jpg" alt="" loading="lazy" />
+              <span class="item-name">Temp Talk</span><span class="leader"></span><span class="item-kind">data story</span>
+              <span class="item-notes">notes of climate data &amp; time series</span>
+              <span class="item-desc">Climate trends across Southeastern Utah's national parks. The desert is getting hotter, and the data kept the receipts.</span>
+            </a></li>
+            <li><a class="item" href="https://isfarbaset.github.io/ev-insights/" target="_blank" rel="noopener" data-img="images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg">
+              <img class="thumb" src="images/DTS_New_York_City_Allie_Lehman_Photos_ID1907.jpg" alt="" loading="lazy" />
+              <span class="item-name">EV Insights</span><span class="leader"></span><span class="item-kind">site</span>
+              <span class="item-notes">notes of ML &amp; market data</span>
+              <span class="item-desc">Electric against gas on emissions, market share and performance. The classic ML toolkit, taken out for a test drive.</span>
+            </a></li>
+          </ul>
+        </section>
+        <figure class="special">
+          <img src="images/art/cut/tomatoes.webp" alt="Oil pastel of tomatoes on the vine" loading="lazy" />
+          <figcaption class="hand">chef's special: tomatoes on the vine,<br />in oil pastel. not for eating.</figcaption>
+        </figure>
+          </div>
+        </div>
+        <p class="card-foot">Something you'd like that isn't on the menu? <em>The kitchen takes requests.</em></p>
+      </div>
 
-    /* ---------- App ---------- */
-    function App() {
-      return (
-        <>
-          <Nav />
-          <main className="mx-auto max-w-5xl px-6 sm:px-10">
-            <Hero />
-          </main>
+      <div class="peek" id="peek" aria-hidden="true">
+        <span class="tape" style="--c: var(--butter); --r: -6deg"></span>
+        <div class="peek-imgs" id="peekImgs"></div>
+      </div>
+    </section>
 
-          <StripMarquee />
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <p class="hand little" aria-hidden="true">a little<br />about me
+        <svg viewBox="0 0 80 70"><path pathLength="1" d="M6 8 C 30 6, 50 20, 62 54 M62 54 L50 46 M62 54 L66 38" /></svg>
+      </p>
 
-          <main className="mx-auto max-w-5xl px-6 sm:px-10">
-            <section id="work" className="py-20">
-              <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Work</p>
-                  <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight leading-[1.05]">
-                    Selected projects.
-                  </h2>
-                </div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground max-w-xs">
-                  <span className="hidden sm:inline">Hover any category, peek at the work. Click a card to open the project.</span>
-                  <span className="sm:hidden">Tap any card to open the project.</span>
-                </p>
-              </div>
+      <div class="about-grid">
+        <div class="scraps" data-reveal>
+          <svg class="stain-ring" viewBox="0 0 200 200" aria-hidden="true">
+            <g filter="url(#stain)" fill="none">
+              <circle cx="100" cy="100" r="78" stroke="rgba(128,82,44,.28)" stroke-width="3" />
+              <circle cx="100" cy="100" r="75" stroke="rgba(128,82,44,.08)" stroke-width="8" />
+            </g>
+          </svg>
+          <div class="receipt" aria-label="Receipt: education, role, and skills">
+            <span class="tape" style="--c: var(--sky); --r: 4deg"></span>
+            <p class="r-center r-big">ISFAR'S</p>
+            <p class="r-center">northern virginia</p>
+            <p class="r-rule">--------------------------------</p>
+            <p class="r-row"><span>ORDER #2025</span><span id="rDate">--/--/--</span></p>
+            <p class="r-rule">--------------------------------</p>
+            <p class="r-row"><span>1 MS DATA SCIENCE</span><span>'25</span></p>
+            <p class="r-sub">Georgetown University</p>
+            <p class="r-row"><span>1 DATA ANALYST II</span><span>now</span></p>
+            <p class="r-sub">Shift Digital</p>
+            <p class="r-rule">--------------------------------</p>
+            <p>2 Python, SQL, R, Java</p>
+            <p>1 scikit-learn, PyTorch, XGBoost</p>
+            <p>1 spaCy, Hugging Face, BERT</p>
+            <p>1 Spark, Databricks, AWS</p>
+            <p>1 Plotly, Tableau</p>
+            <p class="r-row"><span>1 Black coffee</span><span>refill</span></p>
+            <p class="r-rule">--------------------------------</p>
+            <p class="r-row r-total"><span>TOTAL</span><span>it ships</span></p>
+            <a class="r-center r-link" href="Isfar%20Baset%20Resume.pdf" target="_blank" rel="noopener">full resume here</a>
+            <p class="hand r-tip">tip: hire Isfar</p>
+          </div>
+          <img class="sticker-art apple-sticker" src="images/art/cut/apple.webp" alt="" loading="lazy" />
+        </div>
 
-              <div className="border border-border/70 bg-background rounded-md shadow-[0_1px_0_rgba(0,0,0,0.02),0_24px_60px_-30px_rgba(20,12,4,0.15)]">
-                <RevealImageList />
-              </div>
-            </section>
+        <div class="qa-col">
+          <h2 id="about-title" class="sr-only">About Isfar</h2>
+          <dl class="qa" data-reveal>
+            <div><dt class="hand">who?</dt><dd>Isfar Baset</dd></div>
+            <div><dt class="hand">what?</dt><dd>Data Analyst II at Shift Digital</dd></div>
+            <div><dt class="hand">where?</dt><dd>Northern Virginia, by way of Dhaka</dd></div>
+            <div><dt class="hand">studied?</dt><dd>Data Science &amp; Analytics, Georgetown '25</dd></div>
+            <div><dt class="hand">why?</dt><dd>A model nobody understands is just an expensive opinion.</dd></div>
+            <div><dt class="hand">the usual?</dt><dd>Black coffee, no notes.</dd></div>
+          </dl>
+          <p class="body" data-reveal>
+            The part of the job I like most is the handoff. Build a model for a real business problem, then explain it
+            well enough that someone without a stats degree can make a decision with it. Off the clock I'm in a café,
+            reading, painting, or ordering something I can't pronounce.
+          </p>
+          <a class="hand pen-link big" href="Isfar%20Baset%20Resume.pdf" target="_blank" rel="noopener">read the resume ↗</a>
+        </div>
+      </div>
+    </section>
 
-            <About />
-            <Studio />
-            <Contact />
-          </main>
+    <!-- ============ ART ============ -->
+    <section class="art" id="art" aria-labelledby="art-title">
+      <header class="section-head art-head">
+        <h2 id="art-title" data-reveal>When I close the laptop, <em>I do things I can't ctrl+Z.</em></h2>
+        <p class="caption" data-reveal>
+          <span class="hand">fig. 2</span> Everything in my sketchbook, plotted. n = 10, r = not significant.
+          <span class="hover-only">Drag them around, I won't take it personally.</span>
+          Tap one to see the original.
+        </p>
+      </header>
 
-          <footer className="border-t border-border/70 mt-10">
-            <div className="mx-auto max-w-5xl px-6 sm:px-10 py-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
-              <span>© {new Date().getFullYear()} Isfar Baset</span>
-              <div className="flex gap-5">
-                <a className="hover:text-foreground transition-colors" href="https://www.linkedin.com/in/isfarbaset/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a className="hover:text-foreground transition-colors" href="https://github.com/isfarbaset" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a className="hover:text-foreground transition-colors" href="https://www.instagram.com/is.far/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              </div>
-            </div>
-          </footer>
-        </>
-      );
-    }
+      <div class="plot" id="plot" data-sk="axes">
+        <span class="ax hand ax-left">edible</span>
+        <span class="ax hand ax-right">just nice to look at</span>
+        <span class="ax hand ax-top">fits in one hand</span>
+        <span class="ax hand ax-bottom">needs both</span>
 
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
+        <button type="button" class="dot" style="--x: 14%; --y: 16%; --w: 15%; --r: -4deg" data-full="images/art/blueberries.jpg" data-title="Blueberries">
+          <img src="images/art/pages/blueberries.webp" alt="Oil pastel of blueberries" loading="lazy" /><span class="hand">blueberries</span>
+        </button>
+        <button type="button" class="dot" style="--x: 30%; --y: 34%; --w: 13%; --r: 6deg" data-full="images/art/apple.jpg" data-title="One Apple">
+          <img src="images/art/cut/apple.webp" alt="Oil pastel of a red apple" loading="lazy" /><span class="hand">one apple</span>
+        </button>
+        <button type="button" class="dot" style="--x: 40%; --y: 12%; --w: 11%; --r: -7deg" data-full="images/art/green-apple.jpg" data-title="Green Apple">
+          <img src="images/art/cut/green-apple.webp" alt="Oil pastel of a green apple" loading="lazy" /><span class="hand">another apple</span>
+        </button>
+        <button type="button" class="dot" style="--x: 17%; --y: 64%; --w: 17%; --r: 5deg" data-full="images/art/tomatoes.jpg" data-title="Tomatoes on the Vine">
+          <img src="images/art/cut/tomatoes.webp" alt="Oil pastel of tomatoes on the vine" loading="lazy" /><span class="hand">tomatoes on the vine</span>
+        </button>
+        <button type="button" class="dot" style="--x: 38%; --y: 52%; --w: 16%; --r: -6deg" data-full="images/art/croissant.jpg" data-title="Un Croissant">
+          <img src="images/art/cut/croissant.webp" alt="Oil pastel of a croissant" loading="lazy" /><span class="hand">un croissant</span>
+        </button>
+        <button type="button" class="dot outlier" style="--x: 44%; --y: 84%; --w: 16%; --r: 4deg" data-full="images/art/fish.jpg" data-title="One Fish">
+          <img src="images/art/cut/fish.webp" alt="Oil pastel of a fish on a pink ground" loading="lazy" /><span class="hand">one fish (outlier)</span>
+        </button>
+        <button type="button" class="dot" style="--x: 63%; --y: 38%; --w: 13%; --r: 5deg" data-full="images/art/calla-lilies.jpg" data-title="Calla Lilies">
+          <img src="images/art/cut/calla-lilies.webp" alt="Oil pastel of calla lilies" loading="lazy" /><span class="hand">calla lilies</span>
+        </button>
+        <button type="button" class="dot" style="--x: 86%; --y: 20%; --w: 14%; --r: -5deg" data-full="images/art/lily.jpg" data-title="Pink Lily">
+          <img src="images/art/cut/lily.webp" alt="Oil pastel of a pink lily" loading="lazy" /><span class="hand">pink lily</span>
+        </button>
+        <button type="button" class="dot" style="--x: 74%; --y: 68%; --w: 12%; --r: 3deg" data-full="images/art/marigolds.jpg" data-title="Marigolds">
+          <img src="images/art/cut/marigolds.webp" alt="Oil pastel of marigolds in a vase" loading="lazy" /><span class="hand">marigolds</span>
+        </button>
+        <button type="button" class="dot" style="--x: 89%; --y: 82%; --w: 15%; --r: -3deg" data-full="images/art/two-pairs.jpg" data-title="Two Pairs">
+          <img src="images/art/pages/two-pairs.webp" alt="Oil pastel titled Two Pairs" loading="lazy" /><span class="hand">two pairs</span>
+        </button>
+      </div>
+
+      <div class="calendar" data-reveal>
+        <p class="hand">also on the calendar</p>
+        <ul>
+          <li><a href="https://www.goodreads.com/user/show/197465023-isfar-baset" target="_blank" rel="noopener">reading ↗</a><span>the evidence is on Goodreads</span></li>
+          <li>tennis<span>new this year, the net is winning</span></li>
+          <li>swimming<span>the one hour with no screens</span></li>
+          <li><a href="https://www.instagram.com/is.far/" target="_blank" rel="noopener">photography ↗</a><span>proof I go outside, on Instagram</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SAY HI ============ -->
+    <section class="hi-section" id="hi" aria-labelledby="hi-title">
+      <div class="tank" id="tank" aria-hidden="true"></div>
+
+      <div class="hi-grid">
+        <div>
+          <h2 id="hi-title" data-reveal>Want to build something together? <em>Or just trade café recommendations.</em></h2>
+          <p class="aside" id="status">The kitchen's open, and I usually reply within a day.</p>
+          <ul class="contacts" data-reveal>
+            <li><a href="mailto:isfar.baset@gmail.com"><span class="hand">email</span>isfar.baset@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/isfarbaset/" target="_blank" rel="noopener"><span class="hand">linkedin</span>in/isfarbaset</a></li>
+            <li><a href="https://github.com/isfarbaset" target="_blank" rel="noopener"><span class="hand">github</span>@isfarbaset</a></li>
+            <li><a href="https://www.instagram.com/is.far/" target="_blank" rel="noopener"><span class="hand">instagram</span>@is.far</a></li>
+          </ul>
+        </div>
+
+        <form class="note-pad" id="orderForm" onsubmit="return false" data-reveal>
+          <span class="tape" style="--c: var(--rose); --r: -3deg"></span>
+          <fieldset>
+            <legend class="hand">what can I get you?</legend>
+            <label class="line"><input type="checkbox" name="want" value="analysis" /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">data analysis</span></label>
+            <label class="line"><input type="checkbox" name="want" value="ml" checked /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">machine learning</span></label>
+            <label class="line"><input type="checkbox" name="want" value="ai" /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">an AI assistant</span></label>
+            <label class="line"><input type="checkbox" name="want" value="dash" /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">a dashboard</span></label>
+            <label class="line"><input type="checkbox" name="want" value="story" checked /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">data storytelling</span></label>
+            <label class="line"><input type="checkbox" name="want" value="chat" /><span class="box" data-sk="box"><svg class="tick" viewBox="0 0 20 20"><path pathLength="1" d="M3 11 L8 16 L18 2" /></svg></span><span class="hand">a coffee chat</span></label>
+          </fieldset>
+          <label class="name-line"><span class="hand">and you are</span><input class="hand" id="cupName" name="name" type="text" maxlength="24" autocomplete="given-name" placeholder="your name" /></label>
+          <a class="hand pen-link send" id="placeOrder" href="mailto:isfar.baset@gmail.com">send it to the kitchen →</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>The drawings are oil pastels by yours truly. Set in Newsreader, written in Nothing You Could Do, receipt printed in Courier Prime. © <span data-year>2026</span> Isfar Baset.</p>
+    <a class="hand pen-link" href="#top">back to the top ↑</a>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Artwork viewer">
+    <div class="lb-stage">
+      <button class="lb-btn hand lb-close" type="button" data-lb="close">close</button>
+      <button class="lb-btn hand lb-prev" type="button" data-lb="prev" aria-label="Previous drawing">←</button>
+      <figure>
+        <img id="lbImg" alt="" />
+        <figcaption><b class="hand" id="lbTitle"></b><span id="lbMeta"></span></figcaption>
+      </figure>
+      <button class="lb-btn hand lb-next" type="button" data-lb="next" aria-label="Next drawing">→</button>
+    </div>
+  </dialog>
 </body>
 </html>
