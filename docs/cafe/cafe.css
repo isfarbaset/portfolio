@@ -220,7 +220,7 @@ mark.marker {
 .coffee.in #latte { opacity: 1; }
 .cup-stage.pour #latte { animation: pour .8s cubic-bezier(.2, .7, .1, 1); }
 @keyframes pour { 35% { transform: scale(.97) rotate(-3deg); } }
-.croissant { position: absolute; width: 36%; left: -14%; bottom: 6%; rotate: -10deg; z-index: 3; mix-blend-mode: multiply; }
+.croissant { position: absolute; width: 48%; left: -20%; bottom: 15%; rotate: -10deg; z-index: 3; mix-blend-mode: multiply; }
 .coffee-note { position: absolute; left: -38%; top: 8%; font-size: 21px; line-height: 1.15; color: var(--pen); rotate: -5deg; }
 .coffee-note svg { position: absolute; right: -86px; top: 22px; width: 84px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; filter: url(#ink); }
 .coffee-note path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.2s ease 1.6s; }
@@ -434,7 +434,7 @@ mark.marker {
 @media (min-width: 981px) and (max-width: 1160px) {
   .coffee-note { left: auto; right: -2%; top: -16%; text-align: right; }
   .coffee-note svg { display: none; }
-  .croissant { left: -9%; bottom: 19%; width: 31%; }
+  .croissant { left: -11%; bottom: 16%; width: 42%; }
   .coffee .caption { margin-left: 26%; }
 }
 
@@ -459,7 +459,7 @@ mark.marker {
   .role { position: static; }
   .where { align-self: flex-end; margin-top: 8px; }
   .coffee-note { position: static; margin-top: 14px; }
-  .croissant { left: -3%; top: 0; bottom: auto; width: 30%; rotate: -16deg; }
+  .croissant { left: -4%; top: -2%; bottom: auto; width: 40%; rotate: -16deg; }
   .contacts a { font-size: 17px; }
   .contacts a > .hand { font-size: 17px; }
   .coffee .caption { margin-left: 0; }
