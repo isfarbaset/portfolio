@@ -430,6 +430,14 @@ mark.marker {
 /* =========================================================
    NARROWER SCREENS
    ========================================================= */
+/* between about 980 and 1160 the note drifts into the paragraph beside it */
+@media (min-width: 981px) and (max-width: 1160px) {
+  .coffee-note { left: auto; right: -2%; top: -16%; text-align: right; }
+  .coffee-note svg { display: none; }
+  .croissant { left: -9%; bottom: 19%; width: 31%; }
+  .coffee .caption { margin-left: 26%; }
+}
+
 @media (max-width: 980px) {
   .statement-foot, .about-grid, .hi-grid { grid-template-columns: minmax(0, 1fr); }
   .coffee { justify-self: center; width: min(92%, 460px); margin-top: 40px; }
