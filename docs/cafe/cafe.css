@@ -160,7 +160,7 @@ mark.marker {
    STATEMENT
    ========================================================= */
 .statement { padding-top: clamp(40px, 6vw, 90px); padding-bottom: clamp(60px, 8vw, 120px); }
-.statement h1 { font-size: clamp(42px, 6.2vw, 104px); line-height: 1.02; letter-spacing: -.022em; max-width: 15.5em; text-wrap: balance; }
+.statement h1 { font-size: clamp(34px, 5.2vw, 88px); line-height: 1.04; letter-spacing: -.022em; max-width: 15.5em; text-wrap: balance; }
 .statement h1 em { font-weight: 300; }
 .statement-foot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(30px, 6vw, 110px); align-items: center; margin-top: clamp(40px, 6vw, 80px); }
 .lede { font-size: clamp(18px, 1.5vw, 22px); line-height: 1.55; max-width: 25em; color: #3a322c; align-self: start; }
