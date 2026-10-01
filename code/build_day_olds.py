@@ -24,7 +24,6 @@ GIT = next((g for g in ('/Library/Developer/CommandLineTools/usr/bin/git', '/usr
 
 # folder, the last commit of that design, what the tag calls it
 BATCHES = [
-    ('2025-02', '70086cd', 'February 2025'),
     ('2025-04', '8c96ad6', 'April 2025'),
     ('2025-08', '418f103', 'August 2025'),
     ('2025-10', 'fabd0e0', 'October 2025'),

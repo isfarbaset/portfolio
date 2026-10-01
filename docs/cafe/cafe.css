@@ -432,24 +432,23 @@ mark.marker {
 
 .pinned { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr; gap: 14px 40px; align-items: baseline; }
 @media (min-width: 981px) {
-  .card-slot { grid-column: 3; grid-row: 2 / span 2; }
-  .pinned { grid-column: 1 / span 2; grid-row: 3; align-self: end; }
+  .card-slot { grid-column: 3; grid-row: 1 / span 2; }
+  .pinned { grid-row: 3; }
 }
 .pinned-title { font-size: 24px; color: var(--soft); }
 .pinned ul { display: flex; flex-wrap: wrap; gap: 34px 40px; padding-top: 14px; }
-.pinned ul:not(:has(li)) { display: none; }
-.pinned ul:has(li) ~ .none-yet { display: none; }
 .pinned li { position: relative; flex: 0 1 300px; padding: 26px 22px 18px; rotate: var(--r, -1deg); background-color: #fbf9f4; background-image: var(--grain); box-shadow: 0 1px 1px rgba(30, 18, 8, .1), 0 20px 30px -20px rgba(30, 18, 8, .42); }
 .pinned .score { font-size: 22px; color: var(--accent); }
 .pinned blockquote { margin: 6px 0 10px; font-style: italic; font-size: 18px; line-height: 1.45; }
 .pinned .by { font-size: 19px; color: var(--pen); text-align: right; }
-.none-yet { font-size: 22px; color: var(--pen); rotate: -1deg; justify-self: start; }
+.pinned .yours { grid-column: 2; font-size: 22px; color: var(--pen); rotate: -1deg; justify-self: start; }
 
 @media (max-width: 980px) { .case { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
   .case { grid-template-columns: minmax(0, 1fr); }
   .batch { margin-top: 0; }
   .pinned { grid-template-columns: 1fr; }
+  .pinned .yours { grid-column: 1; }
 }
 
 /* =========================================================
