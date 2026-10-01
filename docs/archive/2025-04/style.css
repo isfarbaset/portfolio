@@ -1,0 +1,87 @@
+.navbar {
+    background-color: #041E42 !important;  /* Blue background */
+    color: #ffffff !important;  /* White text */
+  }
+  
+  .navbar a {
+    color: #ffffff !important;  /* White links */
+  }
+
+  #us-insights-external {
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #us-insights-external img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+/* Make tables responsive but maintain side-by-side layout even on mobile */
+@media screen and (max-width: 767px) {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.9em; /* Slightly smaller text on mobile */
+  }
+  
+  th {
+    display: none; /* Hide headers */
+  }
+  
+  td {
+    padding: 0.5rem;
+    vertical-align: middle;
+  }
+  
+  /* Left cell (text) */
+  td:first-child {
+    width: 60%;
+    text-align: left;
+    font-size: 0.9em;
+  }
+  
+  /* Right cell (image) */
+  td:last-child {
+    width: 40%;
+    text-align: center;
+  }
+  
+  td img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Make sure tables don't have too much padding/margin */
+table {
+  margin: 0.5rem 0 1.5rem 0;
+  border-collapse: collapse;
+}
+
+/* Make header text color match navbar */
+h3 a {
+  color: #041E42; /* Bootstrap primary color - adjust if your navbar uses a different color */
+}
+
+h3 a:hover {
+  color: #0a58ca; /* Slightly darker shade for hover state */
+  text-decoration: none;
+}
+
+/* Style for icons */
+/* .bi {
+  font-size: 1.5rem;
+  color: #0d6efd; /* Match navbar color */
+/* } */ 
+
+/* .bi:hover {
+  color: #0a58ca; /* Slightly darker on hover */
+/* } */ 

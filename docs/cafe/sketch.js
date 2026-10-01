@@ -212,6 +212,8 @@ export const RECIPES = {
   loop: (w, h, r) => [['ink marker', circle(w / 2, h / 2 + 1, w / 2 + 20, h / 2 + 13, r, { steps: 26, turns: 1.14, wobble: 0.05, drift: 0.07 })]],
   numeral: (w, h, r) => [['ink marker', circle(w / 2, h / 2, w / 2 + 10, h / 2 + 7, r, { steps: 18, turns: 1.12, wobble: 0.08, drift: 0.1 })]],
   oval: (w, h, r) => [['ink marker', circle(w / 2, h / 2, w / 2 + 34, h / 2 + 20, r, { steps: 34, turns: 1.1, wobble: 0.04, drift: 0.05 })]],
+  /* the same loop, tighter: circling your answer on a card */
+  circled: (w, h, r) => [['ink marker', circle(w / 2, h / 2, w / 2 + 9, h / 2 + 1, r, { steps: 22, turns: 1.12, wobble: 0.05, drift: 0.06 })]],
   /* a five-point star, the kind you draw next to something in a margin */
   star: (w, h, r) => {
     const c = w / 2, R = w / 2, k = R * 0.42;
@@ -254,7 +256,7 @@ const PLAN = [
   ['.box', 'box'],
   ['.leader', 'dots'],
   ['.pen-link', 'underline'],
-  ['.contacts a, .qa > div, .name-line', 'ruleBottom'],
+  ['.contacts a, .qa > div, .name-line, .say', 'ruleBottom'],
   ['.item', 'ruleTop'],
   ['.card-sub > span', 'ruleMid'],
 ];

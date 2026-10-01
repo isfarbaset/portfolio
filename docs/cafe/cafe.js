@@ -64,7 +64,14 @@ sketchPage();
     if (!e.isIntersecting) return;
     links.forEach((a) => (a.hash === `#${e.target.id}` ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
   }), { rootMargin: '-45% 0px -50% 0px' });
-  ['#work', '#about', '#art', '#hi'].forEach((id) => io.observe($(id)));
+  ['#work', '#about', '#art', '#day-olds', '#hi'].forEach((id) => io.observe($(id)));
+}
+
+/* ---------- arriving at an #anchor: land on it once fonts and pictures have settled ---------- */
+if (location.hash.length > 1) {
+  addEventListener('load', () => document.fonts.ready.then(() => {
+    document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'instant' });
+  }));
 }
 
 /* ---------- the latte: Isfar's photo, poured into a fluid sim ---------- */
@@ -207,6 +214,68 @@ const openDrawing = (() => {
       openDrawing(dot);
     });
   });
+}
+
+/* ---------- the day-olds: earlier versions of the page, still in the case ---------- */
+{
+  const dlg = $('#caseView');
+  const stage = $('#cvStage');
+  const prints = $$('.print');
+  const card = $('#commentCard');
+  let index = 0;
+
+  const show = (i) => {
+    index = clamp(i, 0, prints.length - 1);
+    const { batch, title, baked } = prints[index].dataset;
+    const src = `archive/${batch}/index.html`;
+    // a fresh frame each time, so the back button doesn't walk through old sites
+    const frame = document.createElement('iframe');
+    frame.src = src;
+    frame.title = `${title}: this site as it was in ${baked}`;
+    stage.replaceChildren(frame);
+    $('#cvTitle').textContent = title.toLowerCase();
+    $('#cvMeta').textContent = `baked ${baked} · ${index + 1} of ${prints.length}`;
+    $('#cvOpen').href = src;
+    $('[data-cv="prev"]', dlg).disabled = index === 0;
+    $('[data-cv="next"]', dlg).disabled = index === prints.length - 1;
+  };
+  prints.forEach((p, i) => p.addEventListener('click', () => { show(i); dlg.showModal(); }));
+  dlg.addEventListener('click', (e) => {
+    const action = e.target.closest('[data-cv]')?.dataset.cv;
+    if (action === 'prev') show(index - 1);
+    else if (action === 'next') show(index + 1);
+    else if (action === 'close' || e.target === dlg) dlg.close();
+    else if (action === 'rate') {
+      const pick = $(`input[data-for="${prints[index].dataset.batch}"]`, card);
+      pick.checked = true;
+      pick.dispatchEvent(new Event('change', { bubbles: true }));
+      dlg.close();
+      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    }
+  });
+  dlg.addEventListener('close', () => stage.replaceChildren());
+
+  /* the comment card writes itself into an email */
+  const link = $('#dropCard');
+  const update = () => {
+    const batch = $('input[name="batch"]:checked', card)?.value;
+    const stars = Number($('input[name="stars"]:checked', card)?.value || 0);
+    const note = $('#ccNote').value.trim();
+    const name = $('#ccName').value.trim();
+    const subject = stars ? `Comment card: ${stars} out of 5${batch ? ` for ${batch}` : ''}` : `Comment card${batch ? ` for ${batch}` : ''}`;
+    const body = [
+      'Hi Isfar,', '',
+      batch ? `The best batch was ${batch}.` : '',
+      stars ? `${stars} out of 5.` : '',
+      note ? `\n${note}` : '',
+      name ? `\nSigned, ${name}` : '',
+      '',
+    ].filter((line, i, arr) => line !== '' || arr[i - 1] !== '').join('\n');
+    link.href = `mailto:isfar.baset@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+  card.addEventListener('input', update);
+  card.addEventListener('change', update);
+  update();
 }
 
 /* ---------- goldfish, only while you can see them ---------- */
