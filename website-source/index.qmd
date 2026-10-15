@@ -92,7 +92,7 @@ A personalized Netflix viewing analytics dashboard that transforms your watch hi
 ![](images/git-insights.png)
 :::
 ::: {.project-content}
-### [GitHub Insights](https://isfarbaset.github.io/github-insights/)
+### [Commit Card](https://isfarbaset.github.io/github-insights/)
 Generate your own GitHub stats card. Enter any username and get a downloadable PNG with lifetime stats, streaks, top repos, coding activity breakdowns, developer personality badges, and more — ready to share on LinkedIn or add to your portfolio.
 
 **Tech Stack:** JavaScript • CSS • GitHub API • HTML Canvas • Quarto

@@ -65,8 +65,8 @@ My portfolio. One hand-built page, eleven projects, and a running theme: take so
       <p>Your Netflix watch history as a personal year-in-review: viewing patterns, binge habits, genre obsessions.</p>
     </td>
     <td width="50%" valign="top">
-      <a href="https://isfarbaset.github.io/github-insights/"><img src="docs/images/git-insights.png" alt="GitHub Insights" /></a>
-      <h3><a href="https://isfarbaset.github.io/github-insights/">GitHub Insights</a></h3>
+      <a href="https://isfarbaset.github.io/github-insights/"><img src="docs/images/git-insights.png" alt="Commit Card" /></a>
+      <h3><a href="https://isfarbaset.github.io/github-insights/">Commit Card</a></h3>
       <sup>GITHUB API · CANVAS · JS</sup>
       <p>Drop in a username, get a downloadable stats card: lifetime activity, streaks, top repos, personality badges.</p>
     </td>

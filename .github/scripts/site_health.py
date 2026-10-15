@@ -28,6 +28,16 @@ UNSAFE = {2: "unsafe content found", 3: "some pages are unsafe"}
 # Words that make a github.io page look like brand phishing to Safe Browsing.
 BRAND_WORDS = ["sign in", "log in", "verify your account", "netflix", "paypal", "apple id"]
 
+# Things a project page must never carry: another company's logo, or a field
+# that collects a secret. Any of these fails the check.
+RED_FLAGS = {
+    "m8 0c3.58 0 0 3.58 0 8": "GitHub's Octocat logo (SVG path)",
+    "octicon-mark-github": "GitHub's Octocat logo (icon class)",
+    'type="password"': "a password field",
+    "personal access token": "a request for an access token",
+    "github token": "a request for a GitHub token",
+}
+
 
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": "site-health-check"})
@@ -58,6 +68,10 @@ for path in SITES:
         continue
     print(f"{code} {url}")
     lower = body.lower()
+    for needle, what in RED_FLAGS.items():
+        if needle in lower:
+            problems.append(f"{url} contains {what}. Remove it: brand marks and "
+                            "credential fields get the whole domain flagged.")
     hits = [w for w in BRAND_WORDS if w in lower]
     if hits:
         print(f"  note: page mentions {hits} (fine in a disclaimer, risky in a heading or button)")
