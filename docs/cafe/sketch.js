@@ -257,7 +257,7 @@ const PLAN = [
   ['.leader', 'dots'],
   ['.pen-link', 'underline'],
   ['.contacts a, .qa > div, .name-line, .say', 'ruleBottom'],
-  ['.item', 'ruleTop'],
+  ['.item, .station-list li', 'ruleTop'],
   ['.card-sub > span', 'ruleMid'],
 ];
 

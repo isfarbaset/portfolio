@@ -64,7 +64,7 @@ sketchPage();
     if (!e.isIntersecting) return;
     links.forEach((a) => (a.hash === `#${e.target.id}` ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
   }), { rootMargin: '-45% 0px -50% 0px' });
-  ['#work', '#about', '#art', '#day-olds', '#hi'].forEach((id) => io.observe($(id)));
+  ['#work', '#catering', '#about', '#art', '#day-olds', '#hi'].forEach((id) => io.observe($(id)));
 }
 
 /* ---------- arriving at an #anchor: land on it once fonts and pictures have settled ---------- */
@@ -288,7 +288,7 @@ const openDrawing = (() => {
 {
   const form = $('#orderForm');
   const link = $('#placeOrder');
-  const LABELS = { analysis: 'data analysis', ml: 'machine learning', ai: 'an AI assistant', dash: 'a dashboard', story: 'data storytelling', chat: 'a coffee chat' };
+  const LABELS = { analysis: 'data analysis', ml: 'machine learning', ai: 'an AI assistant', dash: 'a dashboard', site: 'a website', story: 'data storytelling', chat: 'a coffee chat' };
   const list = (w) => (w.length < 2 ? w.join('') : `${w.slice(0, -1).join(', ')} & ${w.at(-1)}`);
   const update = () => {
     const picked = $$('input[name="want"]:checked', form).map((i) => LABELS[i.value]);
