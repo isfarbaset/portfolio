@@ -288,7 +288,7 @@ const openDrawing = (() => {
 {
   const form = $('#orderForm');
   const link = $('#placeOrder');
-  const LABELS = { analysis: 'data analysis', ml: 'machine learning', ai: 'an AI assistant', dash: 'a dashboard', site: 'a website', story: 'data storytelling', chat: 'a coffee chat' };
+  const LABELS = { analysis: 'data analysis', ml: 'machine learning', ai: 'an AI assistant', dash: 'a dashboard', site: 'a website or portfolio', story: 'data storytelling', chat: 'a coffee chat' };
   const list = (w) => (w.length < 2 ? w.join('') : `${w.slice(0, -1).join(', ')} & ${w.at(-1)}`);
   const update = () => {
     const picked = $$('input[name="want"]:checked', form).map((i) => LABELS[i.value]);

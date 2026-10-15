@@ -330,6 +330,7 @@ mark.marker {
 .gc-order li > span:nth-child(2) { flex: 1; min-width: 0; }
 .gc-order .hand { font-size: 19px; line-height: 1.1; color: var(--pen); white-space: nowrap; }
 .gc-total { margin-top: 10px; font-weight: 700; border-bottom: 3px double rgba(86, 116, 72, .55); }
+.gc-special { margin-top: 16px; font-size: 19px; line-height: 1.25; color: var(--accent); rotate: -1.5deg; }
 .guest-check .send { margin-top: 20px; font-size: 22px; white-space: nowrap; color: var(--ink); }
 .guest-check .aside { margin-top: 14px; font: italic 300 14px/1.4 var(--serif); }
 
